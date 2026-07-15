@@ -1,5 +1,24 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Branch
+
+Active development lives on the `dev` branch. After cloning, switch to it before installing dependencies or running the app:
+
+```bash
+git clone <repository-url>
+cd suricat-frontend
+git checkout dev
+git pull origin dev
+```
+
+If you already have the repo locally:
+
+```bash
+git fetch origin
+git checkout dev
+git pull origin dev
+```
+
 ## Getting Started
 
 First, run the development server:
