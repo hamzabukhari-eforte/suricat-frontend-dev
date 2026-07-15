@@ -1,0 +1,52 @@
+---
+description: Tailwind v4 @theme tokens and global CSS utilities for Suricat
+globs: app/globals.css
+alwaysApply: false
+---
+
+# Tailwind v4 Global Tokens
+
+Define the design system in `app/globals.css` via `@theme` / `@theme inline`. Do not add `tailwind.config.js` color duplicates unless required for a plugin.
+
+## Required `@theme` colors
+
+```css
+@theme {
+  --color-navy: #0D1B3E;
+  --color-navydark: #080f22;
+  --color-navymid: #0a1530;
+  --color-teal: #19D3C5;
+  --color-teal-hover: #15bdb0;
+  --color-violet: #5C3D8F;
+  --color-orange: #FF6B35;
+  --color-footer: #0c0033;
+  --color-surface-muted: #f8f9fa;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-nav: 1377px; /* custom nav density */
+}
+```
+
+Use classes: `bg-navy`, `text-teal`, `border-orange`, `bg-surface-muted`, `min-[1377px]:…` or `nav:`.
+
+## Global base (globals.css)
+
+```css
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { font-family: var(--font-sans); color: var(--color-navy); background: #fff; }
+section[id] { scroll-margin-top: 96px; }
+@media (max-width: 1024px) {
+  section[id] { scroll-margin-top: 80px; }
+}
+```
+
+## Shared utility classes (port from Designs once)
+
+- `.bg-gradient-hero` → `135deg, #0D1B3E → #2b1a6b`
+- `.suricat-teal-btn`, `.nav-link-animated`, `.section-transition` / `.reveal-transition`
+- Footer: prefer `bg-navy` (HTML often overrides `.footer-bg #0c0033`)
+
+## Forbidden in route/page files
+
+- Inline `@media` blocks that belong in globals or a component CSS module
+- Hardcoded hex when a token exists (`#19D3C5` → `teal`)
+- CDN Tailwind `tailwind.config = {…}` scripts

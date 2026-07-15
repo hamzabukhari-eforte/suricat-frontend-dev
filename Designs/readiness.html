@@ -1,0 +1,2588 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: clip;
+      }
+      #intake {
+        scroll-margin-top: 88px;
+      }
+      .glow-teal {
+        box-shadow: 0 0 24px rgba(25, 211, 197, 0.18);
+      }
+      .glow-teal-sm {
+        box-shadow: 0 0 12px rgba(25, 211, 197, 0.12);
+      }
+      .glow-orange {
+        box-shadow: 0 0 24px rgba(255, 107, 53, 0.3);
+      }
+      .glow-orange-sm {
+        box-shadow: 0 0 14px rgba(255, 107, 53, 0.2);
+      }
+      input[type="radio"]:checked + span {
+        color: #19d3c5;
+      }
+        .timeline-option:has(input:checked),
+        .priority-option:has(input:checked) {
+        border-color: #19d3c5 !important;
+            background: rgba(25, 211, 197, 0.08) !important;
+        }
+      .cal-day {
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+      .cal-day:hover {
+        background: rgba(25, 211, 197, 0.1);
+        color: #19d3c5;
+      }
+      .cal-day.is-selected {
+        background: rgba(25, 211, 197, 0.15);
+        color: #19d3c5;
+        font-weight: 700;
+        border: 1px solid #19d3c5;
+      }
+      .time-slot {
+        transition: all 0.18s ease;
+      }
+      .time-slot:hover {
+        border-color: rgba(25, 211, 197, 0.5);
+        color: #0d1b3e;
+      }
+      .time-slot.is-selected {
+        background: rgba(25, 211, 197, 0.15);
+        border-color: #19d3c5 !important;
+        color: #19d3c5;
+      }
+      .timeline-option input[type="radio"],
+      .priority-option input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #19d3c5;
+        border-radius: 9999px;
+        background: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: all 0.18s ease;
+      }
+      .timeline-option input[type="radio"]::before,
+      .priority-option input[type="radio"]::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 9999px;
+        background: rgba(25, 211, 197, 0.5);
+        transform: scale(0);
+        transition: transform 0.18s ease;
+      }
+      .timeline-option input[type="radio"]:checked,
+      .priority-option input[type="radio"]:checked {
+        background: rgba(25, 211, 197, 0.12);
+      }
+      .timeline-option input[type="radio"]:checked::before,
+      .priority-option input[type="radio"]:checked::before {
+        transform: scale(1);
+      }
+      #schedule-btn {
+        transition: all 0.2s ease;
+      }
+      #schedule-btn.is-enabled {
+        background: #19d3c5;
+        border-color: #19d3c5;
+        color: #0d1b3e;
+        cursor: pointer;
+      }
+      #schedule-btn.is-enabled:hover {
+        background: #15bdb0;
+        border-color: #15bdb0;
+        color: #0d1b3e;
+      }
+      .other-box {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease,
+          margin-top 0.3s ease;
+      }
+      .other-box.is-open {
+        max-height: 120px;
+        opacity: 1;
+        margin-top: 0.75rem;
+      }
+      #schedule-note .note-mail {
+        display: none;
+      }
+      #schedule-note.is-active .note-mail {
+        display: inline-block;
+      }
+      #schedule-note.is-active .note-lock {
+        display: none;
+      }
+      #schedule-btn .schedule-arrow {
+        display: none;
+      }
+      #schedule-btn.is-enabled .schedule-arrow {
+        display: inline-block;
+      }
+      #schedule-btn.is-enabled .schedule-lock {
+        display: none;
+      }
+      #i9g57 {
+        text-shadow: 0 0 40px rgba(25, 211, 197, 0.3);
+      }
+        .btn-orange {
+        background: linear-gradient(135deg, #ff6b35 0%, #e85a24 100%);
+            color: #fff;
+            transition: all 0.2s;
+        }
+        .btn-orange:hover {
+        background: linear-gradient(135deg, #ff7d4d 0%, #ff6b35 100%);
+            box-shadow: 0 0 28px rgba(255, 107, 53, 0.38);
+        }
+      .step-active .step-dot {
+        background: #ff6b35;
+        box-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+      }
+      .orange-progress {
+        background: linear-gradient(90deg, #ff6b35, #ff9a6c);
+      }
+      .btn-teal {
+        background: #19d3c5;
+        color: #0d1b3e;
+        transition: all 0.2s;
+      }
+      .btn-teal:hover {
+        background: #15bdb0;
+        box-shadow: 0 0 28px rgba(25, 211, 197, 0.38);
+      }
+      .nav-link-animated {
+        position: relative;
+      }
+
+      .nav-link-animated::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 4px;
+        background-color: #19D3C5;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link-animated:hover::after {
+        transform: scaleX(1);
+      }
+
+      .nav-header-bar .nav-link-animated::after {
+        bottom: 0;
+      }
+
+      .nav-header-bar a[href="login.html"].nav-link-animated::after {
+        display: none;
+      }
+
+      .nav-header-bar {
+        flex-wrap: nowrap;
+        column-gap: 0.5rem;
+      }
+
+      .nav-brand-cluster {
+        flex-shrink: 0;
+        gap: 0.875rem;
+        padding-right: 0.625rem;
+      }
+
+      .nav-design-partners-btn {
+        gap: 0.375rem;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8125rem;
+        border: 2px solid #19D3C5;
+        background-color: #19D3C5;
+        color: #0D1B3E;
+        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-design-partners-btn:hover {
+        background-color: #15bdb0;
+        border-color: #15bdb0;
+      }
+      .suricat-teal-btn {
+        border: 2px solid #19D3C5;
+        background-color: #19D3C5;
+        color: #0D1B3E;
+        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .suricat-teal-btn:hover {
+        background-color: #15bdb0;
+        border-color: #15bdb0;
+        color: #0D1B3E;
+      }
+
+
+      .nav-design-partners-btn i {
+        font-size: 18px;
+      }
+
+      .mobile-menu-body a[href="./design-partners.html"] i {
+        font-size: 18px;
+      }
+
+      .nav-center-menu {
+        flex: 1 1 auto;
+        align-self: stretch;
+        min-width: 0;
+        flex-wrap: nowrap;
+        gap: 0.625rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        font-size: 0.8125rem;
+      }
+
+      .nav-mega-trigger,
+      .nav-center-menu > .nav-link-animated {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .nav-header-actions {
+        gap: 0.75rem;
+      }
+
+      .nav-header-actions .nav-login-link {
+        font-size: 0.8125rem;
+      }
+
+      .nav-header-actions .nav-cta-btn {
+        font-size: 0.8125rem;
+        padding: 0.5rem 1.125rem;
+      }
+      .nav-header-actions > .flex.items-center {
+        gap: 0.75rem;
+      }
+
+
+      .nav-header-cta-group {
+        gap: 0.75rem;
+      }
+
+      @media (min-width: 1377px) {
+        .nav-header-cta-group {
+          gap: 1rem;
+        }
+      }
+
+      @media (min-width: 1536px) {
+        .nav-header-cta-group {
+          gap: 1.25rem;
+        }
+      }
+
+
+      .nav-brand-cluster #ig8vb {
+        height: 2.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .nav-brand-cluster #ig8vb {
+          height: 2.75rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .nav-brand-cluster #ig8vb {
+          height: 2.375rem;
+        }
+      }
+
+      @media (min-width: 1377px) {
+        .nav-header-bar {
+          column-gap: 0.75rem;
+        }
+
+        .nav-brand-cluster {
+          gap: 1.125rem;
+          padding-right: 0.875rem;
+        }
+
+        .nav-design-partners-btn {
+          gap: 0.5rem;
+          padding: 0.625rem 1.125rem;
+          font-size: 0.875rem;
+        }
+
+        .nav-design-partners-btn i {
+          font-size: 18px;
+        }
+
+        .nav-center-menu {
+          gap: 0.875rem;
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+          font-size: 0.8125rem;
+        }
+
+        .nav-header-actions {
+          gap: 1rem;
+        }
+
+        .nav-header-actions .nav-login-link,
+        .nav-header-actions .nav-cta-btn {
+          font-size: 0.9375rem;
+        }
+
+        .nav-header-actions .nav-cta-btn {
+          padding: 0.625rem 1.375rem;
+        }
+
+        .nav-brand-cluster #ig8vb {
+          height: 3.125rem;
+        }
+      }
+
+      @media (min-width: 1536px) {
+        .nav-brand-cluster {
+          gap: 1.375rem;
+          padding-right: 1.125rem;
+        }
+
+        .nav-center-menu {
+          gap: 1.125rem;
+          font-size: 0.875rem;
+        }
+
+        .nav-header-actions {
+          gap: 1.125rem;
+        }
+
+        .nav-header-actions .nav-login-link,
+        .nav-header-actions .nav-cta-btn {
+          font-size: 1rem;
+        }
+
+        .nav-header-actions .nav-cta-btn {
+          padding: 0.625rem 1.5rem;
+        }
+
+        .nav-header-actions > .flex.items-center {
+          gap: 1rem;
+        }
+      }
+
+      .nav-header-bar,
+      .nav-center-menu {
+        color: #0d1b3e;
+      }
+
+      .nav-center-menu > .nav-mega-group,
+      .nav-center-menu > .nav-link-animated {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        flex-shrink: 0;
+      }
+
+      .nav-mega-group {
+        position: static;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-mega-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        height: 100%;
+        font-weight: 600;
+        color: #0d1b3e;
+        background: none;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+      }
+
+      .nav-mega-trigger.nav-link-animated::after {
+        bottom: 0;
+      }
+
+      .nav-mega-group:hover .nav-mega-trigger.nav-link-animated::after,
+      .nav-mega-group:focus-within .nav-mega-trigger.nav-link-animated::after {
+        transform: scaleX(1);
+      }
+
+      .nav-mega-trigger:hover,
+      .nav-mega-trigger:focus,
+      .nav-mega-trigger:focus-visible {
+        transform: none;
+        box-shadow: none;
+        border: none;
+        outline: none;
+      }
+
+      .nav-mega-panel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        top: 100%;
+        background: #f8f9fa;
+        border: none;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 40;
+      }
+
+      .nav-mega-group:hover .nav-mega-panel,
+      .nav-mega-group:focus-within .nav-mega-panel {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .nav-mega-group:hover .nav-mega-chevron,
+      .nav-mega-group:focus-within .nav-mega-chevron {
+        transform: rotate(180deg);
+      }
+
+      .nav-mega-chevron {
+        transition: transform 0.3s ease;
+        font-size: 10px;
+      }
+
+      .nav-mega-link {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+        height: 40px;
+        padding: 0 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #0D1B3E;
+        transition: background-color 0.15s ease, color 0.15s ease;
+      }
+
+      .nav-mega-link:hover {
+        background-color: #fff;
+        color: #19d3c5;
+      }
+
+      .nav-mega-panel .col-span-8.grid {
+        row-gap: 0;
+      }
+
+      .nav-mega-intro-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0D1B3E;
+        margin-bottom: 0.75rem;
+      }
+
+      .nav-mega-intro-text {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: #0D1B3E;
+        opacity: 0.85;
+        margin-bottom: 1.25rem;
+        max-width: 20rem;
+      }
+
+      .nav-mega-intro-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #19d3c5;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+
+      .nav-mega-intro-cta-text {
+        position: relative;
+      }
+
+      .nav-mega-intro-cta-text::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-mega-intro-cta:hover .nav-mega-intro-cta-text::after {
+        transform: scaleX(1);
+      }
+
+      .nav-mega-intro-cta i {
+        transition: transform 0.3s ease;
+      }
+
+      .nav-mega-intro-cta:hover {
+        color: #0D1B3E;
+      }
+
+      .nav-mega-intro-cta:hover i {
+        transform: translateX(4px);
+      }
+
+      .nav-mega-column-label {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #19d3c5;
+        margin-bottom: 0.75rem;
+      }
+
+      .nav-language-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: none;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 0;
+        color: inherit;
+        font: inherit;
+      }
+
+      .nav-language-trigger:hover,
+      .nav-language-trigger:focus,
+      .nav-language-trigger:focus-visible {
+        transform: none;
+        box-shadow: none;
+        border: none;
+        outline: none;
+        background: none;
+      }
+
+      .nav-language-dropdown::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 0.75rem;
+      }
+
+      .nav-language-panel {
+        background: #f8f9fa;
+        border: none;
+        border-radius: 4px;
+        box-shadow: none;
+        padding: 0.5rem 0;
+      }
+
+      .nav-language-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        color: #374151;
+        transition: background-color 0.15s ease, color 0.15s ease;
+      }
+
+      .nav-language-link:hover {
+        background-color: #fff;
+        color: #19d3c5;
+      }
+
+      .industries-slide-indicator-dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: rgba(18, 0, 70, 0.25);
+        transition: background-color 0.3s ease;
+      }
+
+      .industries-slide-indicator-dot:hover {
+        background-color: rgba(18, 0, 70, 0.4);
+      }
+
+      .industries-slide-indicator-dot.is-active {
+        background-color: #0D1B3E;
+      }
+
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100dvh;
+        max-height: 100dvh;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .mobile-menu-header {
+        flex-shrink: 0;
+      }
+
+      .mobile-menu-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
+      .marquee-wrapper {
+        background: #19d3c5;
+        color: #0D1B3E;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 9px 0;
+        position: relative;
+      }
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marqueeMove 60s linear infinite;
+      }
+      .marquee-content {
+        flex: 0 0 auto;
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        white-space: nowrap;
+        padding-right: 0;
+      }
+      @media (max-width: 1023px) {
+        .marquee-track {
+          animation-duration: 42s;
+        }
+        .marquee-content {
+          justify-content: flex-start;
+          padding-left: 0.75rem;
+          padding-right: 2.25rem;
+        }
+      }
+      .marquee-wrapper:hover .marquee-track {
+        animation-play-state: paused;
+      }
+      @keyframes marqueeMove {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+    
+      button.nav-mega-trigger:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      button.nav-language-trigger:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+
+      /* Shared button animation from index */
+      /* Square CTAs — lift + shadow */
+      button[class*="rounded-[4px]"],
+      a[class*="rounded-[4px]"] {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      button[class*="rounded-[4px]"]:hover:not(:disabled):not([disabled]):not(.time-slot),
+      a[class*="rounded-[4px]"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+      }
+
+      /* Rounded CTAs — lift + shadow (tab/teal/nav pills excluded below) */
+      button.rounded-full,
+      a.rounded-full {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn),
+      a.rounded-full:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+      }
+
+      button.nav-mega-trigger:hover,
+      button.nav-language-trigger:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      #tabs-prev-btn:hover,
+      #tabs-next-btn:hover,
+      #platform-tabs-prev-btn:hover,
+      #platform-tabs-next-btn:hover {
+        transform: translateY(-50%) !important;
+        box-shadow: none !important;
+      }
+
+      #tabs-prev-btn:disabled,
+      #tabs-next-btn:disabled,
+      #platform-tabs-prev-btn:disabled,
+      #platform-tabs-next-btn:disabled {
+        transform: translateY(-50%) !important;
+        box-shadow: none !important;
+      }
+
+      /* Rounded-only animation changes: tabs, teal pills, subnav stay static */
+      a.solution-nav-pill,
+      a.solution-nav-pill:hover,
+      a.company-subnav-link,
+      a.company-subnav-link:hover,
+      a.suricat-teal-btn,
+      a.suricat-teal-btn:hover,
+      button.suricat-teal-btn,
+      button.suricat-teal-btn:hover,
+      a.nav-design-partners-btn,
+      a.nav-design-partners-btn:hover,
+      #schedule-btn.is-enabled,
+      #schedule-btn.is-enabled:hover,
+      button.tab-btn,
+      button.tab-btn:hover,
+      button.platform-tab-btn,
+      button.platform-tab-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      button:disabled,
+      button[disabled] {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .hero-cta-hover {
+        transition:
+          translate 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .hero-cta-hover:hover {
+        translate: 0 -4px;
+        box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+      }
+
+    
+      /* Shared section heights from index */
+      #hero-section,
+      #hero,
+      #overview {
+        height: 70vh;
+        max-height: none;
+      }
+
+      @media (min-width: 1024px) {
+        #hero-section,
+        #hero,
+        #overview {
+          height: 500px;
+          max-height: 500px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) and (max-width: 1376px) and (max-height: 800px) {
+        #hero-section,
+        #hero,
+        #overview {
+          height: 430px !important;
+          max-height: 430px !important;
+        }
+      }
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+            fontFamily: {
+              inter: ["Plus Jakarta Sans", "sans-serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+                    colors: {
+              navy: "#0D1B3E",
+              navydark: "#080f22",
+              navymid: "#0a1530",
+              teal: "#19D3C5",
+              violet: "#5C3D8F",
+              orange: "#FF6B35",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-inter bg-navy text-white">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <p class="font-semibold text-[#0D1B3E]">
+            QMSR enforcement is now active. Are you inspection-ready?
+            <a
+              href="./readiness.html"
+              class="font-extrabold underline ml-2 text-[#0D1B3E] group"
+            >
+              Check Your Readiness
+              <i
+                class="fas fa-angle-double-right inline-block text-xs transition-transform duration-300 group-hover:translate-x-1"
+              ></i>
+            </a>
+          </p>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <p class="font-semibold text-[#0D1B3E]">
+            QMSR enforcement is now active. Are you inspection-ready?
+            <a
+              href="./readiness.html"
+              class="font-extrabold underline ml-2 text-[#0D1B3E] group"
+            >
+              Check Your Readiness
+              <i
+                class="fas fa-angle-double-right inline-block text-xs transition-transform duration-300 group-hover:translate-x-1"
+              ></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 sticky top-0 bg-white z-50 relative overflow-x-clip overflow-y-visible text-[#0D1B3E]">
+      <div
+        class="nav-header-bar max-w-7xl mx-auto h-16 lg:h-24 flex items-center"
+      >
+        <div class="nav-brand-cluster flex items-center shrink-0">
+          <a href="./index.html" class="shrink-0 flex items-center">
+            <img
+              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/oHFNZPCWjUWdWffoVEYsWvg5ha93%2F10e14219-de71-44bb-a843-3a46300b0ed4.png"
+              alt="Suricat Logo"
+              id="ig8vb"
+              class="w-auto shrink-0 object-contain object-left"
+            />
+          </a>
+          <a
+            href="./design-partners.html"
+            class="nav-design-partners-btn hidden xl:inline-flex items-center rounded-full font-semibold transition-all whitespace-nowrap shrink-0"
+          >
+            <i class="fas fa-handshake"></i>
+            Design Partners
+          </a>
+        </div>
+        <div
+          class="nav-center-menu hidden xl:flex flex-1 self-stretch items-stretch justify-center min-w-0 font-semibold"
+        >
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Why Suricat
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Why Suricat</p>
+                      <p class="nav-mega-intro-text">
+                        Understand the structural compliance challenge, how Suricat was built to address it, and what it enables for regulated organizations.
+                      </p>
+                      <a href="./index.html#why-suricat-section" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">Explore Why Suricat</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-2 gap-x-6 gap-y-1">
+                      <a href="./index.html#why-tab-0" class="nav-mega-link">Suricat's Mission</a>
+                      <a href="./index.html#why-tab-4" class="nav-mega-link">How Suricat Works</a>
+                      <a href="./index.html#why-tab-1" class="nav-mega-link">Built by Practitioners</a>
+                      <a href="./index.html#why-tab-5" class="nav-mega-link">Designed for Regulated Environments</a>
+                      <a href="./index.html#why-tab-2" class="nav-mega-link">The Structural Problem</a>
+                      <a href="./index.html#why-tab-6" class="nav-mega-link">What Suricat Enables</a>
+                      <a href="./index.html#why-tab-3" class="nav-mega-link">Why Existing Systems Fall Short</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Platform
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Platform</p>
+                      <p class="nav-mega-intro-text">
+                        A read-only compliance intelligence layer built for regulated environments, with proprietary architecture for bounded reasoning and defensible outputs.
+                      </p>
+                      <a href="./index.html#platform-intelligence-section" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">Explore the Platform</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-3 gap-x-6 gap-y-1">
+                      <div>
+                        <a href="./index.html#platform-tab-0" class="nav-mega-link">Intelligence Layer</a>
+                        <a href="./index.html#platform-tab-1" class="nav-mega-link">Read Only by Design</a>
+                        <a href="./index.html#platform-tab-2" class="nav-mega-link">No Rip and Replace</a>
+                      </div>
+                      <div>
+                        <a href="./index.html#platform-tab-3" class="nav-mega-link">Human Accountability</a>
+                        <a href="./index.html#platform-tab-4" class="nav-mega-link">Deployment</a>
+                        <a href="./index.html#platform-tab-5" class="nav-mega-link">Regulatory Ontology</a>
+                      </div>
+                      <div>
+                        <a href="./index.html#platform-tab-6" class="nav-mega-link">Canonical Intelligence Schema</a>
+                        <a href="./index.html#platform-tab-7" class="nav-mega-link">Quality Validation Rating</a>
+                        <a href="./index.html#platform-tab-8" class="nav-mega-link">Bounded Reasoning</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Solutions
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Solutions</p>
+                      <p class="nav-mega-intro-text">
+                        Six focused capabilities that apply the Compliance Intelligence Layer to documentation confidence, inspection readiness, continuous compliance, and more.
+                      </p>
+                      <a href="./index.html#solutions-section" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">View All Solutions</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-2 gap-x-6 gap-y-1">
+                      <a href="./documentation-confidence.html" class="nav-mega-link">Documentation Confidence</a>
+                      <a href="./continous-compliance.html" class="nav-mega-link">Continuous Compliance</a>
+                      <a href="./inspection-findings.html" class="nav-mega-link">Inspection-Defensible Findings</a>
+                      <a href="./change-impact-assessment.html" class="nav-mega-link">Change Impact Assessment</a>
+                      <a href="./inspection-readiness.html" class="nav-mega-link">Inspection Readiness</a>
+                      <a href="./document-alignment.html" class="nav-mega-link">Documentation Alignment</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Industry
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Industry</p>
+                      <p class="nav-mega-intro-text">
+                        Built for regulated industries. Starting with medical devices and expanding across biotechnology, biopharma, diagnostics, and beyond.
+                      </p>
+                      <a href="./index.html#industries-section" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">Explore Industries</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-2 gap-x-6 gap-y-1">
+                      <a href="./medical-devices.html" class="nav-mega-link">Medical Devices</a>
+                      <a href="./industry-expansion.html" class="nav-mega-link">Industry Expansion</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Pricing
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Pricing</p>
+                      <p class="nav-mega-intro-text">
+                        Annual Platform License and Document Capacity-based subscriptions with published pricing, flexible evaluation paths, and no per-seat fees.
+                      </p>
+                      <a href="./pricing.html#pricing-plans" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">Explore Pricing</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-2 gap-x-6 gap-y-1">
+                      <a href="./pricing.html#subscription-options" class="nav-mega-link">Subscription Options</a>
+                      <a href="./pricing.html#capability-comparison" class="nav-mega-link">Capability Comparison</a>
+                      <a href="./license.html" class="nav-mega-link">Platform License</a>
+                      <a href="./document-capacity.html" class="nav-mega-link">Document Capacity</a>
+                      <a href="./capacity-expansion.html" class="nav-mega-link">Capacity Expansion</a>
+                      <a href="./interactive-sandbox.html" class="nav-mega-link">Interactive Sandbox</a>
+                      <a href="./start-with-evaluate.html" class="nav-mega-link">Start With Evaluate</a>
+                      <a href="./pricing-faq.html" class="nav-mega-link">Pricing FAQ</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-mega-group flex items-center">
+              <button
+                type="button"
+                class="nav-mega-trigger nav-link-animated"
+                aria-expanded="false"
+              >
+                Company
+                <i class="fas fa-chevron-down nav-mega-chevron"></i>
+              </button>
+              <div class="nav-mega-panel">
+                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <div class="grid grid-cols-12 gap-10">
+                    <div class="col-span-4 border-r border-gray-300 pr-8">
+                      <p class="nav-mega-intro-title">Company</p>
+                      <p class="nav-mega-intro-text">
+                        Learn about Suricat's story, mission, leadership, and how to get in touch with our team.
+                      </p>
+                      <a href="./our-story.html" class="nav-mega-intro-cta">
+                        <span class="nav-mega-intro-cta-text">Our Story</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                      </a>
+                    </div>
+                    <div class="col-span-8 grid grid-cols-2 gap-x-6 gap-y-1">
+                      <a href="./our-story.html" class="nav-mega-link">Our Story</a>
+                      <a href="./mission-vision.html" class="nav-mega-link">Mission and Vision</a>
+                      <a href="./leadership.html" class="nav-mega-link">Leadership</a>
+                      <a href="./contact-us.html" class="nav-mega-link">Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <div class="nav-header-actions hidden xl:flex items-center justify-end shrink-0">
+          <div class="relative group text-gray-600">
+            <button
+              type="button"
+              class="nav-language-trigger"
+              aria-label="Choose language"
+            >
+              <i class="fas fa-globe text-lg"></i>
+              <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="nav-language-dropdown absolute right-0 top-full pt-3 w-44 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-200 z-50"
+            >
+              <div class="nav-language-panel">
+              <a href="#" class="nav-language-link">English</a>
+              <a href="#" class="nav-language-link">German</a>
+              <a href="#" class="nav-language-link">Spanish</a>
+              <a href="#" class="nav-language-link">French</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+
+            <a
+          href="login.html"
+          class="nav-login-link nav-link-animated font-bold text-[#0D1B3E] hover:text-[#0D1B3E]/90 transition-colors"
+          >Login</a
+        >
+          <a
+          href="get-started.html"
+          class="nav-cta-btn border-2 border-[#0D1B3E] text-white bg-[#0D1B3E] rounded-full font-bold hover:bg-[#0D1B3E]/90 transition-colors"
+          >Get Started</a
+          >
+        </div>
+        </div>
+        <div class="flex xl:hidden items-center justify-end gap-3 ml-auto shrink-0">
+          <div class="relative">
+            <button
+              id="mobile-language-trigger"
+              class="p-2 text-gray-600 flex items-center gap-1"
+              type="button"
+              onclick="toggleMobileLanguageMenu()"
+              aria-expanded="false"
+              aria-controls="mobile-language-menu"
+              aria-label="Choose language"
+            >
+              <i class="fas fa-globe text-lg"></i>
+              <i id="mobile-language-chevron" class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+            </button>
+            <div
+              id="mobile-language-menu"
+              class="hidden absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-[4px] shadow-lg py-2 z-[60]"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#413cc3] transition-colors"
+                >English</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#413cc3] transition-colors"
+                >German</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#413cc3] transition-colors"
+                >Spanish</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#413cc3] transition-colors"
+                >French</a
+              >
+            </div>
+          </div>
+          <button
+            onclick="toggleMobileMenu()"
+            class="p-2 text-gray-600"
+            type="button"
+            aria-label="Toggle navigation menu"
+          >
+            <i class="fas fa-bars text-lg" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="mobile-menu fixed inset-0 bg-white z-50 lg:hidden"
+      >
+        <div
+          class="mobile-menu-header p-4 border-b border-gray-200 flex items-center justify-between"
+        >
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/oHFNZPCWjUWdWffoVEYsWvg5ha93%2F10e14219-de71-44bb-a843-3a46300b0ed4.png" alt="Suricat Logo" class="h-8" />
+          <button onclick="toggleMobileMenu()" class="p-2" type="button">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
+
+        <div class="mobile-menu-body p-4 space-y-4">
+          <a
+            href="./design-partners.html"
+            class="suricat-teal-btn inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full text-sm font-semibold transition-all"
+            onclick="closeMobileMenu()"
+          >
+            <i class="fas fa-handshake"></i>
+            Design Partners
+          </a>
+
+          <a
+            href="./index.html#why-suricat-section"
+            class="block py-3 text-lg font-semibold border-b border-gray-100"
+            onclick="closeMobileMenu()"
+            >Why Suricat</a
+          >
+          <a
+            href="./index.html#platform-intelligence-section"
+            class="block py-3 text-lg font-semibold border-b border-gray-100"
+            onclick="closeMobileMenu()"
+            >Platform</a
+          >
+          <div class="border-b border-gray-100">
+            <a
+              href="./index.html#solutions-section"
+              class="block py-3 text-lg font-semibold"
+              onclick="closeMobileMenu()"
+              >Solutions</a
+            >
+            <div class="pl-4 pb-3 space-y-1">
+              <a
+                href="./documentation-confidence.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Documentation Confidence</a
+              >
+              <a
+                href="./inspection-findings.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Inspection-Defensible Findings</a
+              >
+              <a
+                href="./inspection-readiness.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Inspection Readiness</a
+              >
+              <a
+                href="./continous-compliance.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Continuous Compliance</a
+              >
+              <a
+                href="./change-impact-assessment.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Change Impact Assessment</a
+              >
+              <a
+                href="./document-alignment.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Documentation Alignment</a
+              >
+            </div>
+          </div>
+          <div class="border-b border-gray-100">
+            <a
+              href="./index.html#industries-section"
+              class="block py-3 text-lg font-semibold"
+              onclick="closeMobileMenu()"
+              >Industry</a
+            >
+            <div class="pl-4 pb-3 space-y-1">
+              <a
+                href="./medical-devices.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Medical Devices</a
+              >
+              <a
+                href="./industry-expansion.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Industry Expansion</a
+              >
+            </div>
+          </div>
+          <div class="border-b border-gray-100">
+            <a
+              href="./pricing.html#pricing-plans"
+              class="block py-3 text-lg font-semibold"
+              onclick="closeMobileMenu()"
+              >Pricing</a
+            >
+            <div class="pl-4 pb-3 space-y-1">
+              <a
+                href="./pricing.html#subscription-options"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Subscription Options</a
+              >
+              <a
+                href="./pricing.html#capability-comparison"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Capability Comparison</a
+              >
+              <a
+                href="./license.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Platform License</a
+              >
+              <a
+                href="./document-capacity.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Document Capacity</a
+              >
+              <a
+                href="./capacity-expansion.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Capacity Expansion</a
+              >
+              <a
+                href="./interactive-sandbox.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Interactive Sandbox</a
+              >
+              <a
+                href="./start-with-evaluate.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Start With Evaluate</a
+              >
+              <a
+                href="./pricing-faq.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Pricing FAQ</a
+              >
+            </div>
+          </div>
+          <div class="border-b border-gray-100">
+            <a
+              href="./aboutus.html"
+              class="block py-3 text-lg font-semibold"
+              onclick="closeMobileMenu()"
+              >Company</a
+            >
+            <div class="pl-4 pb-3 space-y-1">
+              <a
+                href="./our-story.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Our Story</a
+              >
+              <a
+                href="./mission-vision.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Mission and Vision</a
+              >
+              <a
+                href="./leadership.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Leadership</a
+              >
+              <a
+                href="./contact-us.html"
+                class="block py-2 text-base text-gray-600 hover:text-[#19d3c5]"
+                onclick="closeMobileMenu()"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+
+
+          <div class="pt-4 flex flex-row items-center justify-center gap-5">
+            <a
+              href="login.html"
+              class="text-base font-bold text-[#0D1B3E] hover:text-[#0D1B3E]/90 transition-colors"
+              >Login</a
+            >
+            <a
+              href="get-started.html"
+              class="border-2 border-[#0D1B3E] text-white bg-[#0D1B3E] px-6 py-2.5 rounded-full text-base font-bold hover:bg-[#0D1B3E]/90 transition-colors"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<!-- HERO -->
+    <section
+      id="hero"
+      class="w-full bg-navy relative overflow-hidden py-10 lg:py-12 h-[70vh] lg:h-[500px] flex items-center justify-center text-white"
+    >
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-teal/8 rounded-full blur-[140px] pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-violet/10 rounded-full blur-[100px] pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-orange/5 rounded-full blur-[100px] pointer-events-none"
+      ></div>
+      <div
+        class="w-full max-w-4xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center"
+      >
+        <div
+          class="text-xs sm:text-[14px] text-teal font-bold mb-3 sm:mb-4 tracking-[0.12em] sm:tracking-[0.18em] uppercase max-w-full mt-8"
+        >
+          FDA QMSR &amp; ISO 13485 Inspection Readiness
+        </div>
+        <h1
+          class="text-2xl sm:text-3xl lg:text-[36px] font-bold leading-tight mb-4 sm:mb-8 tracking-tight max-w-full"
+        >
+          Explore Your
+          <span class="text-teal" id="i9g57">Inspection Readiness</span>
+        </h1>
+        <p
+          class="text-white text-base sm:text-lg lg:text-[22px] font-normal leading-relaxed mb-3 max-w-full mx-auto"
+        >
+          Answer a few questions about your documentation environment,
+          inspection timeline, and compliance priorities.
+        </p>
+        <p
+          class="text-white text-base sm:text-lg lg:text-[22px] font-normal leading-relaxed mb-5 sm:mb-8 max-w-full mx-auto"
+        >
+          Your responses help Suricat prepare for a focused readiness discussion
+          tailored to your environment and priorities.
+        </p>
+        <p
+          class="text-white text-sm sm:text-[16px] leading-relaxed mb-7 sm:mb-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mx-auto max-w-full text-center lg:whitespace-nowrap"
+        >
+          <i
+            class="fa-solid fa-shield-halved text-teal/60 text-base shrink-0"
+          ></i>
+          <span
+            >Built for Medical Device Manufacturers operating under FDA QMSR
+            and ISO 13485.</span
+          >
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center mt-4"
+        >
+          <a
+            href="#intake"
+            class="group border-2 border-[#19D3C5] text-[#19D3C5] hover:bg-[#19D3C5] hover:text-[#0D1B3E] w-full sm:w-auto inline-flex items-center justify-center gap-3 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm transition-all"
+          >
+            Begin Readiness Discussion
+            <i
+              class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-300"
+            ></i>
+          </a>
+        </div>
+    </div>
+</section>
+
+<!-- INTAKE FORM + SCHEDULING -->
+    <section id="intake" class="py-8 w-full bg-[#f5f7fa] relative">
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-6">
+          <p
+            class="text-[14px] text-teal font-bold uppercase tracking-[0.15em] mb-3"
+          >
+            Schedule Your Discussion
+          </p>
+          <h2
+            class="text-[28px] font-bold text-navy mb-3 tracking-tight"
+          >
+            Begin Your Readiness Discussion
+          </h2>
+          <p class="text-navy text-[20px] leading-relaxed max-w-3xl">
+            Complete all four steps below and schedule a time with a compliance
+            specialist.<br />
+            No automated analysis, just real expert guidance.
+          </p>
+        </div>
+
+        <form
+          id="readiness-form"
+          onsubmit="return false"
+          class="grid lg:grid-cols-2 gap-6 items-start"
+        >
+          <!-- LEFT COLUMN -->
+          <div class="space-y-6">
+          <div
+            class="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm"
+          >
+            <h3 class="text-navy font-bold text-base mb-5">Intake Questions</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      class="text-xs text-navy font-medium mb-1.5 block"
+                      >Your Name <span class="text-teal">*</span></label
+                    >
+                    <input
+                      id="f-name"
+                      type="text"
+                      placeholder="Jane Smith"
+                      class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                    />
+            </div>
+                    <div>
+                    <label
+                      class="text-xs text-navy font-medium mb-1.5 block"
+                      >Work Email Address
+                      <span class="text-teal">*</span></label
+                    >
+                    <input
+                      id="f-email"
+                      type="email"
+                      placeholder="jane@company.com"
+                      class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                    />
+                    <p
+                      id="email-error"
+                      class="hidden mt-1.5 text-xs text-red-500"
+                    >
+                      Please enter a valid email address.
+                    </p>
+                            </div>
+                  <div>
+                    <label
+                      class="text-xs text-navy font-medium mb-1.5 block"
+                      >Company Name <span class="text-teal">*</span></label
+                    >
+                    <input
+                      id="f-company"
+                      type="text"
+                      placeholder="MedDevice Corp"
+                      class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                    />
+                            </div>
+                  <div>
+                    <label
+                      class="text-xs text-navy font-medium mb-1.5 block"
+                      >Role / Title
+                      <span class="text-gray-400 font-normal"
+                        >(optional)</span
+                      ></label
+                    >
+                    <input
+                      type="text"
+                      placeholder="e.g. Quality Manager"
+                      class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                    />
+                            </div>
+                            </div>
+                        </div>
+          <div
+            class="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm"
+          >
+            <h3 class="text-navy font-bold text-base mb-1">
+              Inspection Timeline
+            </h3>
+            <p class="text-xs text-navy mb-4">
+              When is your next inspection or audit?
+            </p>
+            <div id="timeline-group" class="grid grid-cols-2 gap-3">
+                  <label
+                    class="timeline-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="timeline"
+                      value="within90"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Within 90 Days</span
+                    ></label
+                  >
+                  <label
+                    class="timeline-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="timeline"
+                      value="90to180"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >90–180 Days</span
+                    ></label
+                  >
+                  <label
+                    class="timeline-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="timeline"
+                      value="180to365"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >180–365 Days</span
+                    ></label
+                  >
+                  <label
+                    class="timeline-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="timeline"
+                      value="other"
+                      id="timeline-other-radio"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Other</span
+                    ></label
+                  >
+                        </div>
+                <div id="timeline-other-box" class="other-box">
+                  <input
+                    id="timeline-other-input"
+                    type="text"
+                    placeholder="Please describe your timeline..."
+                    class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                  />
+                    </div>
+              </div>
+          <div
+            class="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm"
+          >
+            <h3 class="text-navy font-bold text-base mb-1">Current Priority</h3>
+            <p class="text-xs text-navy mb-4">
+              What would make this discussion most valuable?
+            </p>
+            <div id="priority-group" class="grid grid-cols-2 gap-3">
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="audit"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Audit Preparation</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="consistency"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Cross-Document Consistency</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="capa"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >CAPA Traceability</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="change"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Change Impact Assessment</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="evidence"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Evidence Visibility</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="readiness"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Inspection Readiness</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="alignment"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Operational Alignment</span
+                    ></label
+                  >
+                  <label
+                    class="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
+                    ><input
+                      type="radio"
+                      name="priority"
+                      value="other"
+                      id="priority-other-radio"
+                      class="accent-teal w-4 h-4 shrink-0"
+                    /><span class="text-sm text-navy font-medium"
+                      >Other</span
+                    ></label
+                  >
+                        </div>
+                <div id="priority-other-box" class="other-box">
+                  <input
+                    id="priority-other-input"
+                    type="text"
+                    placeholder="Please describe your priority..."
+                    class="w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-[#0D1B3E] transition-all"
+                  />
+                    </div>
+                </div>
+            </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="space-y-6 lg:sticky lg:top-24">
+            <!-- Calendar card -->
+            <div
+              class="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm"
+            >
+              <div class="mb-5">
+                <h3 class="text-navy font-bold text-base">
+                  Select a Time for Your Readiness Discussion
+                </h3>
+                <p class="text-navy text-xs mt-1">
+                  All times shown in your local timezone
+                </p>
+                    </div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-bold text-navy">June 2026</span>
+                    <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    class="w-7 h-7 rounded-[4px] bg-gray-100 border border-gray-200 flex items-center justify-center hover:bg-teal/10 hover:border-teal/40 transition-colors"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-left text-gray-400 text-xs"
+                    ></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-7 h-7 rounded-[4px] bg-gray-100 border border-gray-200 flex items-center justify-center hover:bg-teal/10 hover:border-teal/40 transition-colors"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-right text-gray-400 text-xs"
+                    ></i>
+                  </button>
+                    </div>
+                </div>
+              <div class="grid grid-cols-7 gap-1 mb-2 text-center">
+                <span class="text-xs text-gray-400 py-1 font-semibold">Su</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">Mo</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">Tu</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">We</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">Th</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">Fr</span
+                ><span class="text-xs text-gray-400 py-1 font-semibold">Sa</span>
+              </div>
+              <div id="calendar-days" class="grid grid-cols-7 gap-1 text-center">
+                    <span></span><span></span>
+                <span class="text-sm text-gray-300 py-2">1</span>
+                <span class="text-sm text-gray-300 py-2">2</span>
+                <span class="text-sm text-gray-300 py-2">3</span>
+                <span class="text-sm text-gray-300 py-2">4</span>
+                <span class="text-sm text-gray-300 py-2">5</span>
+                <span class="text-sm text-gray-300 py-2">6</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="7">7</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="8">8</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="9">9</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="10">10</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="11">11</span>
+                <span class="text-sm text-gray-300 py-2">12</span>
+                <span class="text-sm text-gray-300 py-2">13</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="14">14</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="15">15</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="16">16</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="17">17</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="18">18</span>
+                <span class="text-sm text-gray-300 py-2">19</span>
+                <span class="text-sm text-gray-300 py-2">20</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="21">21</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="22">22</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="23">23</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="24">24</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="25">25</span>
+                <span class="text-sm text-gray-300 py-2">26</span>
+                <span class="text-sm text-gray-300 py-2">27</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="28">28</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="29">29</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="30">30</span>
+                <span class="cal-day text-sm text-navy py-2 rounded-[4px]" data-day="31">31</span>
+                </div>
+                <div class="mt-5">
+              
+                    <div class="grid grid-cols-3 gap-2">
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">9:00 AM</button>
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">10:30 AM</button>
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">1:00 PM</button>
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">2:30 PM</button>
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">3:00 PM</button>
+                  <button type="button" class="time-slot bg-white border border-gray-200 text-gray-600 text-xs font-semibold py-2.5 rounded-[4px]">4:30 PM</button>
+                    </div>
+                <div
+                  id="time-confirm"
+                  class="hidden mt-4 flex items-center gap-3 bg-teal/5 border border-teal/40 rounded-[4px] px-4 py-3"
+                >
+                  <i class="fa-solid fa-circle-check text-teal text-lg"></i>
+                  <div>
+                    <p id="time-confirm-text" class="text-xs font-bold text-navy"></p>
+                    <p class="text-xs text-navy mt-0.5">
+                      30-minute readiness discussion · Your local timezone
+                    </p>
+                </div>
+            </div>
+        </div>
+            </div>
+
+            <!-- Schedule card -->
+            <div
+              class="bg-white border border-gray-200 rounded-[4px] p-6 shadow-sm"
+            >
+              <p class="text-xs text-navy leading-relaxed mb-4">
+                Your responses are used only to help our team prepare for a
+                focused, non-sales discussion tailored to your environment and
+                priorities. No automated analysis is performed.
+              </p>
+              <button
+                id="schedule-btn"
+                type="button"
+                disabled
+                class="group w-full max-w-md mx-auto flex items-center justify-center gap-2 border-2 border-gray-200 bg-gray-100 text-gray-400 px-6 py-2.5 rounded-full text-sm min-[1377px]:text-base font-semibold cursor-not-allowed transition-all"
+              >
+                <i class="schedule-lock fa-solid fa-lock text-xs"></i>
+                Schedule Discussion
+                <i
+                  class="schedule-arrow fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-300"
+                ></i>
+              </button>
+              <p
+                id="schedule-note"
+                class="text-center text-navy text-xs mt-3 flex items-center justify-center gap-1.5"
+              >
+                <i
+                  class="note-lock fa-solid fa-circle-exclamation text-gray-400 text-[10px]"
+                ></i>
+                <i
+                  class="note-mail fa-solid fa-envelope text-teal text-[10px]"
+                ></i>
+                <span id="schedule-note-text"
+                  >Complete all required fields to schedule your
+                  discussion.</span
+                >
+              </p>
+            </div>
+          </div>
+        </form>
+    </div>
+</section>
+
+    <!-- CONFIRMATION MODAL -->
+    <div
+      id="confirmation-modal"
+      class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4"
+    >
+      <div
+        class="absolute inset-0 bg-navydark/80 backdrop-blur-sm"
+        onclick="closeConfirmationModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-2xl">
+        <div
+          class="bg-white rounded-[4px] shadow-[0_8px_60px_rgba(0,0,0,0.22),0_2px_16px_rgba(0,0,0,0.10)] border border-gray-100 overflow-hidden relative"
+        >
+      <!-- Top accent bar -->
+          <div
+            class="h-1 w-full bg-gradient-to-r from-teal via-teal/80 to-violet"
+          ></div>
+          <button
+            onclick="closeConfirmationModal()"
+            class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-navy flex mediumnter justify-center transition-colors z-10"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+      <div class="px-10 py-10 text-center">
+        <!-- Icon -->
+            <div
+              class="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-teal/20"
+            >
+          <i class="fa-solid fa-circle-check text-teal text-3xl"></i>
+        </div>
+        <!-- Title -->
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-2 tracking-tight"
+            >
+              Your Discussion Is Confirmed
+            </h3>
+            <p
+              class="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-6"
+            >
+              Readiness Discussion Scheduled
+            </p>
+        <!-- Divider -->
+        <div class="w-12 h-px bg-gray-200 mx-auto mb-6"></div>
+        <!-- Body text -->
+            <p
+              class="text-gray-600 text-sm leading-relaxed mb-3 max-w-md mx-auto"
+            >
+          Thank you for scheduling time with us.
+        </p>
+            <p
+              class="text-navy text-mediumng-relaxed mb-3 max-w-md mx-auto"
+            >
+              Our team will review your responses before the discussion so we
+              can focus on understanding your priorities and exploring next
+              steps together.
+            </p>
+            <p
+              class="text-navy text-mediumng-relaxed mb-8 max-w-md mx-auto"
+            >
+          We look forward to the conversation.
+        </p>
+        <!-- Info badges -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <div
+                class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5"
+              >
+            <i class="fa-solid fa-calendar-check text-teal text-xs"></i>
+                <span class="text-xs text-navy font-medium">Calendar invite sent</span
+                >
+          </div>
+              <div
+                class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5"
+              >
+            <i class="fa-solid fa-envelope text-teal text-xs"></i>
+                <span class="text-xs text-navy font-medium">Confirmation email on the way</span
+                >
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                class="bg-teal text-navy font-bold px-8 py-3 rounded-[4px] text-sm hover:bg-teal/90 transition-colors glow-teal-sm"
+              >
+            Learn More
+          </button>
+              <a
+                href="./index.html"
+                class="border border-gray-200 text-navy font-medium px-8 py-3 rounded-[4px] text-sm hover:bg-gray-50 transition-colors inline-flex items-center justify-center"
+              >
+            Return to Website
+              </a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+<!-- FOOTER -->
+    <footer
+      class="footer-bg text-white pb-6 pt-8 px-6 bg-[#0D1B3E]"
+      id="i972trj"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-wrap gap-8 justify-between mb-10 pb-10 border-b border-white/10"
+        >
+          <div class="flex gap-6 text-xl">
+            <a href="#" class="hover:text-[#19D3C5] transition-colors"
+              ><i class="fab fa-facebook-f"></i></a
+            ><a href="#" class="hover:text-[#19D3C5] transition-colors"
+              ><i class="fab fa-twitter"></i></a
+            ><a href="#" class="hover:text-[#19D3C5] transition-colors"
+              ><i class="fab fa-linkedin-in"></i></a
+            ><a href="#" class="hover:text-[#19D3C5] transition-colors"
+              ><i class="fab fa-youtube"></i
+            ></a>
+      </div>
+          <div
+            class="flex flex-wrap gap-12 text-sm font-bold uppercase tracking-wider"
+          >
+            <a
+              href="./index.html#why-suricat-section"
+              class="hover:text-[#19D3C5]"
+              >Why Suricat</a
+            ><a
+              href="./index.html#platform-intelligence-section"
+              class="hover:text-[#19D3C5]"
+              >Platform</a
+            ><a
+              href="./index.html#industries-section"
+              class="hover:text-[#19D3C5]"
+              >Solutions</a
+            ><a href="./pricing.html" class="hover:text-[#19D3C5]">Pricing</a
+            ><a href="./our-story.html" class="hover:text-[#19D3C5]">Company</a>
+    </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-5">
+          <div>
+            <a
+              href="./contact-us.html"
+              class="border-2 border-[#19d3c5] text-[#19d3c5] px-8 py-3 rounded-full font-bold mb-10 w-full hover:bg-[#19d3c5] hover:text-[#0D1B3E] transition-all inline-flex items-center justify-center"
+            >
+              Contact us
+            </a>
+            <p class="text-sm text-gray-400 mb-2">Palo Alto, CA 94306</p>
+            <p class="text-sm text-gray-400 mb-8">Tel: (415) 690-7882</p>
+            <div class="relative inline-block w-full">
+              <select
+                class="bg-[#0D1B3E] border border-white/20 rounded-full px-6 py-2 text-sm appearance-none w-full cursor-pointer focus:outline-none"
+              >
+                                <option>English</option>
+                <option>German</option>
+                <option>Spanish</option>
+                <option>French</option></select
+              ><i
+                class="fas fa-chevron-down absolute right-6 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
+              ></i>
+            </div>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm uppercase tracking-widest mb-6">
+              Company
+            </h5>
+            <ul class="text-sm text-gray-400 space-y-4">
+              <li>
+                <a
+                  href="./our-story.html"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Our Story</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./mission-vision.html"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Mission and Vision</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./leadership.html"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Leadership</a
+                >
+              </li>
+                            <li>
+                <a
+                  href="./pricing.html"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./contact-us.html"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm uppercase tracking-widest mb-6">
+              Why Suricat
+            </h5>
+            <ul class="text-sm text-gray-400 space-y-4">
+              <li>
+                <a
+                  href="./index.html#why-tab-0"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Suricat's Mission</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-1"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Built by Practitioners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-2"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >The Structural Problem</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-3"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Why Existing Systems Fall Short</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-4"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >How Suricat Works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-5"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Designed for Regulated Environments</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#why-tab-6"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >What Suricat Enables</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm uppercase tracking-widest mb-6">
+              Platform
+            </h5>
+            <ul class="text-sm text-gray-400 space-y-4">
+              <li>
+                <a
+                  href="./index.html#platform-tab-0"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Intelligence Layer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-1"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Read Only by Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-2"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >No Rip and Replace</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-3"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Human Accountability</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-4"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Deployment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-5"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Regulatory Ontology</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-6"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Canonical Intelligence Schema</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-7"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Quality Validation Rating</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./index.html#platform-tab-8"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Bounded Reasoning</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm uppercase tracking-widest mb-6">
+              Resources
+            </h5>
+            <ul class="text-sm text-gray-400 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Whitepapers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Events</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="nav-link-animated inline-block hover:text-white"
+                  >Support</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-6 pt-4 border-t border-white/10 text-[10px] text-navy uppermediumcking-widest"
+        >
+          <p>
+            © 2026 Suricat. All rights reserved.
+            <a
+              href="#"
+              class="nav-link-animated inline-block hover:text-white ml-2"
+              >Terms &amp; Conditions</a
+            >
+            |
+            <a
+              href="#"
+              class="nav-link-animated inline-block hover:text-white ml-2"
+              >Privacy Policy</a
+            >
+            |
+            <a
+              href="#"
+              class="nav-link-animated inline-block hover:text-white ml-2"
+              >Cookie Settings</a
+            >
+          </p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+      function toggleMobileMenu() {
+        var menu = document.getElementById("mobile-menu");
+        var icon = document.getElementById("menu-icon");
+        if (!menu || !icon) return;
+        menu.classList.toggle("open");
+        closeMobileLanguageMenu();
+        if (menu.classList.contains("open")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+          document.body.style.overflow = "hidden";
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+          document.body.style.overflow = "";
+        }
+      }
+
+      function closeMobileMenu() {
+        var menu = document.getElementById("mobile-menu");
+        var icon = document.getElementById("menu-icon");
+        if (!menu || !icon) return;
+        menu.classList.remove("open");
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+        document.body.style.overflow = "";
+      }
+
+      function toggleMobileLanguageMenu() {
+        var menu = document.getElementById("mobile-language-menu");
+        var trigger = document.getElementById("mobile-language-trigger");
+        var chevron = document.getElementById("mobile-language-chevron");
+        if (!menu || !trigger) return;
+        var isOpen = !menu.classList.contains("hidden");
+        menu.classList.toggle("hidden", isOpen);
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        if (chevron) chevron.classList.toggle("rotate-180", !isOpen);
+      }
+
+      function closeMobileLanguageMenu() {
+        var menu = document.getElementById("mobile-language-menu");
+        var trigger = document.getElementById("mobile-language-trigger");
+        var chevron = document.getElementById("mobile-language-chevron");
+        if (!menu || !trigger) return;
+        menu.classList.add("hidden");
+        trigger.setAttribute("aria-expanded", "false");
+        if (chevron) chevron.classList.remove("rotate-180");
+      }
+
+      function openConfirmationModal() {
+        var modal = document.getElementById("confirmation-modal");
+        if (!modal) return;
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeConfirmationModal() {
+        var modal = document.getElementById("confirmation-modal");
+        if (!modal) return;
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeConfirmationModal();
+      });
+
+      (function () {
+        var form = document.getElementById("readiness-form");
+        if (!form) return;
+        var scheduleBtn = document.getElementById("schedule-btn");
+        var label = document.getElementById("availability-label");
+        var selectedDate = null;
+        var selectedTime = null;
+
+        var preDay = document.querySelector(".cal-day.is-selected");
+        if (preDay) selectedDate = preDay.dataset.day;
+        var preTime = document.querySelector(".time-slot.is-selected");
+        if (preTime) selectedTime = preTime.textContent.trim();
+
+        function updateAvailabilityLabel(day) {
+          if (!label) return;
+          var d = new Date(2026, 5, parseInt(day, 10));
+          label.textContent =
+            "Available Times — " +
+            d.toLocaleDateString("en-US", {
+              weekday: "short",
+              month: "long",
+              day: "numeric",
+            });
+        }
+
+        document.querySelectorAll(".cal-day").forEach(function (day) {
+          day.addEventListener("click", function () {
+            document.querySelectorAll(".cal-day").forEach(function (d) {
+              d.classList.remove("is-selected");
+            });
+            this.classList.add("is-selected");
+            selectedDate = this.dataset.day;
+            updateAvailabilityLabel(selectedDate);
+            updateScheduleState();
+          });
+        });
+
+        document.querySelectorAll(".time-slot").forEach(function (slot) {
+          slot.addEventListener("click", function () {
+            document.querySelectorAll(".time-slot").forEach(function (s) {
+              s.classList.remove("is-selected");
+            });
+            this.classList.add("is-selected");
+            selectedTime = this.textContent.trim();
+            updateScheduleState();
+          });
+        });
+
+        function toggleOtherBoxes() {
+          var timeline = form.querySelector('input[name="timeline"]:checked');
+          var priority = form.querySelector('input[name="priority"]:checked');
+          var tBox = document.getElementById("timeline-other-box");
+          var pBox = document.getElementById("priority-other-box");
+          if (tBox)
+            tBox.classList.toggle(
+              "is-open",
+              !!(timeline && timeline.value === "other"),
+            );
+          if (pBox)
+            pBox.classList.toggle(
+              "is-open",
+              !!(priority && priority.value === "other"),
+            );
+        }
+
+        function isComplete() {
+          var name = (form.querySelector("#f-name") || {}).value || "";
+          var email = (form.querySelector("#f-email") || {}).value || "";
+          var company = (form.querySelector("#f-company") || {}).value || "";
+          var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+          var timeline = form.querySelector('input[name="timeline"]:checked');
+          var priority = form.querySelector('input[name="priority"]:checked');
+          var timelineOk =
+            timeline &&
+            (timeline.value !== "other" ||
+              ((form.querySelector("#timeline-other-input") || {}).value || "")
+                .trim());
+          var priorityOk =
+            priority &&
+            (priority.value !== "other" ||
+              ((form.querySelector("#priority-other-input") || {}).value || "")
+                .trim());
+          return (
+            name.trim() &&
+            emailOk &&
+            company.trim() &&
+            timelineOk &&
+            priorityOk &&
+            selectedDate &&
+            selectedTime
+          );
+        }
+
+        var note = document.getElementById("schedule-note");
+        var noteText = document.getElementById("schedule-note-text");
+
+        var emailInput = form.querySelector("#f-email");
+        var emailError = document.getElementById("email-error");
+
+        function validateEmail() {
+          if (!emailInput || !emailError) return;
+          var val = (emailInput.value || "").trim();
+          var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+          if (val.length > 0 && !ok) {
+            emailError.classList.remove("hidden");
+            emailInput.classList.add("border-red-500");
+            emailInput.classList.remove("border-[#E5E7EB]");
+          } else {
+            emailError.classList.add("hidden");
+            emailInput.classList.remove("border-red-500");
+            emailInput.classList.add("border-[#E5E7EB]");
+          }
+        }
+
+        if (emailInput) {
+          emailInput.addEventListener("blur", validateEmail);
+          emailInput.addEventListener("input", function () {
+            emailError.classList.add("hidden");
+            emailInput.classList.remove("border-red-500");
+            emailInput.classList.add("border-[#E5E7EB]");
+          });
+        }
+
+        var timeConfirm = document.getElementById("time-confirm");
+        var timeConfirmText = document.getElementById("time-confirm-text");
+
+        function updateTimeConfirm() {
+          if (!timeConfirm || !timeConfirmText) return;
+          if (selectedDate && selectedTime) {
+            var d = new Date(2026, 5, parseInt(selectedDate, 10));
+            var formatted = d.toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            });
+            timeConfirmText.textContent = formatted + " at " + selectedTime;
+            timeConfirm.classList.remove("hidden");
+          } else {
+            timeConfirm.classList.add("hidden");
+          }
+        }
+
+        function updateScheduleState() {
+          toggleOtherBoxes();
+          updateTimeConfirm();
+          if (isComplete()) {
+            scheduleBtn.disabled = false;
+            scheduleBtn.classList.add("is-enabled");
+            if (note) note.classList.add("is-active");
+            if (noteText)
+              noteText.textContent =
+                "Calendar invite & confirmation email sent on booking";
+          } else {
+            scheduleBtn.disabled = true;
+            scheduleBtn.classList.remove("is-enabled");
+            if (note) note.classList.remove("is-active");
+            if (noteText)
+              noteText.textContent =
+                "Complete all required fields to schedule your discussion.";
+          }
+        }
+
+        function getRadioLabel(group, otherInputId) {
+          var checked = form.querySelector(
+            'input[name="' + group + '"]:checked',
+          );
+          if (!checked) return "";
+          if (checked.value === "other") {
+            var oi = form.querySelector("#" + otherInputId);
+            return oi && oi.value.trim() ? oi.value.trim() : "Other";
+          }
+          var span = checked.closest("label").querySelector("span");
+          return span ? span.textContent.trim() : "";
+        }
+
+        form.addEventListener("input", updateScheduleState);
+        form.addEventListener("change", updateScheduleState);
+        scheduleBtn.addEventListener("click", function () {
+          if (scheduleBtn.disabled) return;
+          var d = new Date(2026, 5, parseInt(selectedDate, 10));
+          var dateStr = d.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+          var params = new URLSearchParams({
+            name: (form.querySelector("#f-name") || {}).value || "",
+            email: (form.querySelector("#f-email") || {}).value || "",
+            company: (form.querySelector("#f-company") || {}).value || "",
+            date: dateStr,
+            time: selectedTime || "",
+            timeline: getRadioLabel("timeline", "timeline-other-input"),
+            priority: getRadioLabel("priority", "priority-other-input"),
+          });
+          window.location.href =
+            "./discussion-confirmed.html?" + params.toString();
+        });
+
+        updateScheduleState();
+      })();
+    </script>
+</body>
+</html>

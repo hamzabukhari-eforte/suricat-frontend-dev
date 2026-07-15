@@ -1,0 +1,63 @@
+---
+description: SEO — semantic headings, per-page metadata, titles and descriptions
+globs: app/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# SEO Standards
+
+Designs HTML has **titles only** (no meta descriptions). Every Next.js route must ship full metadata.
+
+## Per-page metadata (App Router)
+
+```tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pricing | Suricat",
+  description: "…unique 140–160 char summary…",
+  openGraph: {
+    title: "Pricing | Suricat",
+    description: "…",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing | Suricat",
+    description: "…",
+  },
+};
+```
+
+Root layout: set `metadataBase`, default `title.template` (`%s | Suricat`), and site-wide defaults. Page titles override uniquely.
+
+## Title conventions
+
+- Pattern: `{Page Name} | Suricat` (home: `Suricat | The Compliance Intelligence Platform`)
+- Fix bad Designs titles: `readiness.html` `"Home"` → proper readiness title; align about page vs home
+
+## Heading hierarchy
+
+| Rule | Detail |
+|------|--------|
+| Exactly **one** `<h1>` per page | Page hero / primary topic |
+| Sections use `<h2>` | Not `h4` first for card titles |
+| Subsections `<h3>` | Cards / feature titles under an `h2` |
+| Body copy `<p>` | Never fake paragraphs with `div` for SEO text |
+| Eyebrows | `<p>` or `<span>`, not headings |
+
+```tsx
+// ✅
+<section>
+  <h2>…</h2>
+  <p>…</p>
+  <article><h3>…</h3><p>…</p></article>
+</section>
+```
+
+## Technical SEO
+
+- `<html lang="en">`
+- Meaningful `alt` on content images; decorative → `alt=""`
+- Use `next/link` for internal links; logical URL structure (see route map in design-system plan)
+- Prefer server-rendered text in headings (not image-only titles)

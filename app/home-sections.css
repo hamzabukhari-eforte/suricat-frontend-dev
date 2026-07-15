@@ -1,0 +1,1110 @@
+/* Home page section styles ported from Designs/index.html */
+
+.tab-active {
+        border-bottom: 3px solid #FF6B35;
+        color: #0D1B3E;
+      }
+
+.suricat-teal-btn {
+        border: 2px solid #19D3C5;
+        background-color: #19D3C5;
+        color: #0D1B3E;
+        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+.suricat-teal-btn:hover {
+        background-color: #15bdb0;
+        border-color: #15bdb0;
+        color: #0D1B3E;
+      }
+
+.industries-slide-indicator-dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: rgba(18, 0, 70, 0.25);
+        transition: background-color 0.3s ease;
+      }
+
+.industries-slide-indicator-dot:hover {
+        background-color: rgba(18, 0, 70, 0.4);
+      }
+
+.industries-slide-indicator-dot.is-active {
+        background-color: #0D1B3E;
+      }
+
+#compliance-cost-section .compliance-cost-banner-bg,
+      #solutions-section .compliance-cost-banner-bg {
+        background-color: #0D1B3E;
+      }
+
+#compliance-cost-section .compliance-stat-emphasis {
+        color: #FF6B35;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+#compliance-cost-section .compliance-cost-card,
+      #solutions-section .compliance-cost-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 2rem 1.75rem;
+        border-radius: 4px;
+        background-color: #0d1b3e;
+        border: 1px solid #19d3c5;
+        overflow: hidden;
+        transition:
+          border-color 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+#compliance-cost-section .compliance-cost-card::after,
+      #solutions-section .compliance-cost-card::after {
+        display: none;
+      }
+
+#compliance-cost-section .compliance-cost-card:hover,
+      #solutions-section .compliance-cost-card:hover {
+        border-color: #19d3c5;
+        transform: scale(1.02);
+        box-shadow:
+          0 12px 28px rgba(25, 211, 197, 0.08),
+          0 4px 12px rgba(25, 211, 197, 0.05);
+      }
+
+#compliance-cost-section .compliance-cost-card-header,
+      #solutions-section .compliance-cost-card-header {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+#compliance-cost-section .compliance-cost-card-icon,
+      #solutions-section .compliance-cost-card-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 12px;
+        border: 1px solid #19d3c5;
+        background-color: color-mix(in srgb, #19d3c5 12%, #0d1b3e);
+        color: #19d3c5;
+        font-size: 1.125rem;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+#compliance-cost-section .compliance-cost-card-icon::before,
+      #solutions-section .compliance-cost-card-icon::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(255, 255, 255, 0.18) 1px,
+          transparent 0
+        );
+        background-size: 24px 24px;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+#compliance-cost-section .compliance-cost-card-icon i,
+      #compliance-cost-section .compliance-cost-card-icon svg,
+      #solutions-section .compliance-cost-card-icon i,
+      #solutions-section .compliance-cost-card-icon svg {
+        position: relative;
+        z-index: 1;
+      }
+
+#compliance-cost-section .compliance-cost-card-index,
+      #solutions-section .compliance-cost-card-index {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.08);
+        user-select: none;
+        pointer-events: none;
+      }
+
+#compliance-cost-section .compliance-cost-card-label,
+      #solutions-section .compliance-cost-card-label {
+        position: relative;
+        z-index: 1;
+        color: #19d3c5;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.625rem;
+      }
+
+#compliance-cost-section .compliance-cost-card-title,
+      #solutions-section .compliance-cost-card-title {
+        position: relative;
+        z-index: 1;
+        color: #ff6b35;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.875rem;
+      }
+
+@media (min-width: 640px) {
+        #compliance-cost-section .compliance-cost-card-title,
+        #solutions-section .compliance-cost-card-title {
+          font-size: 1.375rem;
+        }
+      }
+
+@media (min-width: 1024px) {
+        #compliance-cost-section .compliance-cost-card-title,
+        #solutions-section .compliance-cost-card-title {
+          font-size: 22px;
+          line-height: 1.35;
+        }
+      }
+
+#compliance-cost-section .compliance-cost-card-body,
+      #solutions-section .compliance-cost-card-body {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 1rem;
+        line-height: 1.625;
+        flex-grow: 1;
+        margin-bottom: 0;
+      }
+
+#compliance-cost-section .compliance-cost-card-footer,
+      #solutions-section .compliance-cost-card-footer {
+        position: relative;
+        z-index: 1;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+      }
+
+#compliance-cost-section .compliance-cost-card-footer::before,
+      #solutions-section .compliance-cost-card-footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+#compliance-cost-section .compliance-cost-card-footer::after,
+      #solutions-section .compliance-cost-card-footer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.45s ease;
+      }
+
+#compliance-cost-section .compliance-cost-card:hover .compliance-cost-card-footer::after,
+      #solutions-section .compliance-cost-card:hover .compliance-cost-card-footer::after {
+        transform: scaleX(1);
+      }
+
+#compliance-cost-section .compliance-cost-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #19d3c5;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 4px;
+        background: none;
+        border: none;
+        padding: 0;
+        width: fit-content;
+        transition:
+          color 0.3s ease,
+          text-decoration-color 0.3s ease;
+      }
+
+#compliance-cost-section .compliance-cost-card-link:hover {
+        color: #19d3c5;
+        text-decoration-color: #19d3c5;
+      }
+
+#compliance-cost-section .compliance-cost-card-link i,
+#compliance-cost-section .compliance-cost-card-link svg {
+        font-size: 0.75rem;
+        transition: transform 0.3s ease;
+      }
+
+#compliance-cost-section .compliance-cost-card-link:hover i,
+#compliance-cost-section .compliance-cost-card-link:hover svg {
+        transform: translate(2px, -2px);
+      }
+
+#solutions-section .solutions-card-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #19d3c5;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid #19d3c5;
+        border-radius: 9999px;
+        padding: 0.625rem 1.5rem;
+        width: fit-content;
+        transition: all 0.3s ease;
+      }
+
+#solutions-section .solutions-card-btn:hover {
+        background-color: #19d3c5;
+        color: #0D1B3E;
+      }
+
+#solutions-section .solutions-card-btn i,
+#solutions-section .solutions-card-btn svg {
+        font-size: inherit;
+        transition: transform 0.3s ease;
+      }
+
+#solutions-section .solutions-card-btn:hover i,
+#solutions-section .solutions-card-btn:hover svg {
+        transform: translateX(4px);
+      }
+
+#compliance-cost-section .extend_top-left::after,
+      #solutions-section .extend_top-left::after {
+        background: #0D1B3E;
+      }
+
+#compliance-cost-section .extend_top-left-base::before,
+      #compliance-cost-section .extend_top-left-base::after,
+      #solutions-section .extend_top-left-base::before,
+      #solutions-section .extend_top-left-base::after {
+        box-shadow: 0 -25px 0 0 #0D1B3E;
+      }
+
+#compliance-cost-section .compliance-cost-glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        box-shadow:
+          0 4px 24px rgba(15, 27, 76, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+@media (max-width: 1024px) {
+        section[id] {
+          scroll-margin-top: 80px;
+        }
+
+        /* Sections whose section element has no horizontal padding: pad the inner shell */
+        #hero-section .max-w-7xl,
+        #solutions-section > .max-w-7xl,
+        #industries-section > .max-w-7xl,
+        #regulatory-guides-section > .max-w-7xl,
+        #faq-section > .max-w-7xl,
+        #cta-section > .max-w-7xl,
+        #footer > .max-w-7xl,
+        /* Sections whose section element is the shell or carries px-*: normalize to 1rem */
+        #compliance-cost-section,
+        #why-suricat-section,
+        #platform-intelligence-section,
+        #pricing-plans,
+        #pricing-comparison-section {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        #hero-section h1 {
+          font-size: 2rem !important;
+          line-height: 1.2 !important;
+        }
+
+        #hero-section p {
+          font-size: 1rem !important;
+          line-height: 1.6 !important;
+        }
+
+        #platform-intelligence-section .platform-pane > div:first-child {
+          padding: 1.5rem !important;
+        }
+
+        #platform-intelligence-section .platform-pane > div:last-child {
+          padding: 1rem !important;
+        }
+
+        #regulatory-guides-section .group .p-12,
+        #industries-section .p-8,
+        #faq-section .p-8 {
+          padding: 1.25rem !important;
+        }
+      }
+
+@media (max-width: 768px) {
+        #hero-section .max-w-7xl {
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+        }
+
+        #hero-section h1 {
+          font-size: 1.75rem !important;
+        }
+
+        #compliance-cost-section h2,
+        #solutions-section h2,
+        #why-suricat-section h2,
+        #platform-intelligence-section h2,
+        #industries-section h2,
+        #regulatory-guides-section h2,
+        #faq-section h2,
+        #cta-section h2 {
+          font-size: 1.5rem !important;
+          line-height: 1.3 !important;
+        }
+
+        #platform-intelligence-section .platform-pane > div:first-child {
+          padding: 1.25rem !important;
+        }
+
+        #platform-intelligence-section .platform-pane > div:last-child {
+          padding: 0.75rem !important;
+        }
+
+        #regulatory-guides-section .h-32 {
+          height: 7rem !important;
+        }
+      }
+
+@media screen and (min-width: 1024px) and (max-width: 1376px) and (max-height: 800px) {
+        .max-w-7xl {
+          max-width: 74rem !important;
+        }
+
+        .max-w-\[1400px\] {
+          max-width: 1220px !important;
+        }
+
+        #hero-section {
+          height: 430px !important;
+        }
+
+        #hero-section .max-w-xl {
+          padding-top: 1.5rem !important;
+        }
+
+        #hero-section h1 {
+          font-size: 2.2rem !important;
+          line-height: 1.05 !important;
+          margin-bottom: 1rem !important;
+        }
+
+        #hero-section p {
+          font-size: 1.05rem !important;
+          line-height: 1.45 !important;
+          margin-bottom: 0.85rem !important;
+        }
+
+        #hero-section .max-w-xl button {
+          height: 42px !important;
+          padding-top: 0.45rem !important;
+          padding-bottom: 0.45rem !important;
+          font-size: 0.85rem !important;
+        }
+
+        #hero-section .grid > div:last-child {
+          padding-top: 0.75rem !important;
+        }
+
+        #hero-section
+          .grid
+          > div:last-child
+          img[alt="Suricat founders banner"] {
+          width: 92% !important;
+          height: auto !important;
+          max-height: 360px !important;
+        }
+
+        #hero-section + section {
+          margin-top: -4rem !important;
+        }
+
+        #i8hwr {
+          padding-top: 0.85rem !important;
+          padding-bottom: 0.85rem !important;
+        }
+
+        #ipzux {
+          font-size: 1.05rem !important;
+          line-height: 1.2 !important;
+        }
+
+        #ipdnl {
+          font-size: 0.92rem !important;
+          line-height: 1.35 !important;
+        }
+
+        #hero-section + section p {
+          font-size: 0.94rem !important;
+          line-height: 1.4 !important;
+        }
+
+        #hero-section + section button {
+          font-size: 0.8rem !important;
+        }
+
+        #compliance-cost-section > div.mb-10 h2,
+        #compliance-cost-section > div.mb-6 h2,
+        #solutions-section > div.mb-6 h2 {
+          font-size: 1.35rem !important;
+          line-height: 1.25 !important;
+        }
+
+        #compliance-cost-section > div.mb-10 p,
+        #compliance-cost-section > div.mb-6 p,
+        #solutions-section > div.mb-6 p {
+          font-size: 0.95rem !important;
+          line-height: 1.45 !important;
+        }
+
+        #compliance-cost-section .extend_top-left-base,
+        #solutions-section .extend_top-left-base {
+          padding: 1rem clamp(1rem, 3vw, 1.5rem) !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card-label,
+        #solutions-section #solutions-cards-grid .compliance-cost-card-label {
+          font-size: 22px !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card-title,
+        #solutions-section #solutions-cards-grid .compliance-cost-card-title {
+          font-size: 22px !important;
+          line-height: 1.3 !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card-body,
+        #solutions-section #solutions-cards-grid .compliance-cost-card-body {
+          font-size: 0.875rem !important;
+          line-height: 1.55 !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card-index,
+        #solutions-section #solutions-cards-grid .compliance-cost-card-index {
+          font-size: 12px !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card a {
+          font-size: 0.75rem !important;
+        }
+
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card,
+        #solutions-section #solutions-cards-grid .compliance-cost-card {
+          padding: 1.25rem !important;
+        }
+      }
+
+.hero-banner-cta-btn {
+        padding-inline: 1rem;
+        padding-block: 0.625rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        box-sizing: border-box;
+      }
+
+@media (min-width: 1280px) {
+        .hero-banner-cta-btn {
+          padding-inline: 1.25rem;
+          font-size: 0.8125rem;
+        }
+      }
+
+.industries-scope .industries-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+.industries-scope .industries-card:hover {
+        transform: scale(1.02);
+        border-color: #19d3c5;
+        box-shadow: 0 12px 32px rgba(25, 211, 197, 0.18);
+      }
+
+.industries-scope .industries-flow-arrow {
+        color: rgba(13, 27, 62, 0.2);
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+
+.industries-scope .industries-flow {
+        width: 100%;
+      }
+
+.industries-scope .industries-flow-desktop {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+.industries-scope .industries-flow-step {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+      }
+
+.industries-scope .industries-flow-step.is-start {
+        justify-content: flex-start;
+      }
+
+.industries-scope .industries-flow-step.is-end {
+        justify-content: flex-end;
+      }
+
+.industries-scope .industries-flow-step.industries-flow-center {
+        flex-direction: column;
+      }
+
+.industries-scope .industries-flow-icon {
+        width: 6.25rem;
+      }
+
+@media (min-width: 1024px) {
+        .industries-scope .industries-flow-icon {
+          width: 7.5rem;
+        }
+      }
+
+.industries-scope .industries-flow-icon .ind-flow-1 {
+        fill: #0d1b3e;
+      }
+
+.industries-scope .industries-flow-icon .ind-flow-2 {
+        fill: #19d3c5;
+      }
+
+.pricing-plans-scope {
+        --pricing-sticky-top: 4rem;
+      }
+
+@media (min-width: 1024px) {
+        .pricing-plans-scope {
+          --pricing-sticky-top: 6rem;
+        }
+      }
+
+.pricing-plans-scope .pricing-stagger-item,
+      .pricing-plans-scope .pricing-compare-row,
+      .pricing-plans-scope .pricing-compare-header,
+      .pricing-plans-scope .pricing-compare-legend {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.45s ease,
+          transform 0.45s ease;
+      }
+
+.pricing-plans-scope .pricing-stagger-item.is-visible,
+      .pricing-plans-scope .pricing-compare-row.is-visible,
+      .pricing-plans-scope .pricing-compare-header.is-visible,
+      .pricing-plans-scope .pricing-compare-legend.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+.pricing-plans-scope .pricing-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+.pricing-plans-scope .pricing-card:hover {
+        transform: scale(1.02);
+        border-color: #19d3c5;
+        box-shadow: 0 12px 32px rgba(25, 211, 197, 0.18);
+      }
+
+.pricing-plans-scope .pricing-card-featured {
+        box-shadow: 0 16px 40px rgba(25, 211, 197, 0.12);
+        margin-top: -0.75rem;
+        margin-bottom: -0.75rem;
+        overflow: visible;
+      }
+
+.pricing-plans-scope .pricing-most-popular {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #19d3c5;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        padding: 0.4rem 1rem;
+        border-radius: 9999px;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(25, 211, 197, 0.3);
+        z-index: 2;
+      }
+
+.pricing-plans-scope .pricing-card-featured:hover {
+        box-shadow: 0 20px 48px rgba(25, 211, 197, 0.18);
+      }
+
+.pricing-plans-scope .pricing-card-foundation {
+        background-color: #19d3c5;
+        border-color: rgba(13, 27, 62, 0.2);
+        color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-most-popular {
+        background-color: #0d1b3e;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(13, 27, 62, 0.25);
+      }
+
+.pricing-plans-scope .pricing-card-foundation > .p-6,
+      .pricing-plans-scope .pricing-card-foundation > .p-6 h3,
+      .pricing-plans-scope .pricing-card-foundation > .p-6 p,
+      .pricing-plans-scope .pricing-card-foundation > .p-6 li {
+        color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-doc-box {
+        background-color: #94EAE6;
+        border-color: #16A7A4;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-price-muted {
+        color: rgba(13, 27, 62, 0.65);
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-bullet {
+        background-color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-check-teal {
+        background-color: #0d1b3e;
+        color: #ffffff;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-card-btn {
+        background-color: #0d1b3e;
+        border-color: #0d1b3e;
+        color: #ffffff;
+      }
+
+.pricing-plans-scope .pricing-card-foundation .pricing-card-btn:hover {
+        background-color: #0a2548;
+        border-color: #0a2548;
+        color: #ffffff;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise {
+        background-color: #0d1b3e;
+        border-color: rgba(25, 211, 197, 0.35);
+        color: #ffffff;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise > .p-6,
+      .pricing-plans-scope .pricing-card-enterprise > .p-6 h3,
+      .pricing-plans-scope .pricing-card-enterprise > .p-6 p,
+      .pricing-plans-scope .pricing-card-enterprise > .p-6 li {
+        color: #ffffff;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-accent {
+        color: #19d3c5;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-doc-box {
+        background-color: #0F2D4C;
+        border-color: rgba(25, 211, 197, 0.25);
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-bullet {
+        background-color: #19d3c5;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-check-violet {
+        background-color: #19d3c5;
+        color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-card-btn {
+        border-color: #19d3c5;
+        color: #19d3c5;
+      }
+
+.pricing-plans-scope .pricing-card-enterprise .pricing-card-btn:hover {
+        background-color: #19d3c5;
+        color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-card-btn:hover {
+        transform: translateY(-2px);
+      }
+
+.pricing-plans-scope .pricing-check {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 0.8125rem;
+        height: 0.8125rem;
+        border-radius: 9999px;
+        background-color: #19d3c5;
+        color: #fff;
+        font-size: 0.375rem;
+        flex-shrink: 0;
+        margin-top: 0.1875rem;
+      }
+
+.pricing-plans-scope .pricing-check-teal {
+        background-color: #19d3c5;
+      }
+
+.pricing-plans-scope .pricing-check-violet {
+        background-color: #5c3d8f;
+      }
+
+.pricing-plans-scope .pricing-card ul:has(li > span.rounded-full) {
+        font-weight: 600;
+      }
+
+.pricing-plans-scope .pricing-card ul:has(li > .pricing-check) {
+        font-weight: 600;
+      }
+
+.pricing-plans-scope
+        .pricing-compare-table
+        tbody
+        td:nth-child(5)
+        .pricing-check {
+        background-color: #0d1b3e;
+      }
+
+.pricing-plans-scope .pricing-compare-table .pricing-check {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+        margin-top: 0;
+      }
+
+.pricing-plans-scope .pricing-compare-sticky-bar {
+        position: fixed;
+        z-index: 40;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(13, 27, 62, 0.08);
+        border-bottom: 1px solid #e5e7eb;
+        overflow: hidden;
+      }
+
+.pricing-plans-scope .pricing-compare-sticky-bar[hidden] {
+        display: none !important;
+      }
+
+.pricing-plans-scope .pricing-compare-sticky-scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+.pricing-plans-scope .pricing-compare-sticky-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+.pricing-plans-scope
+        .pricing-compare-sticky-bar
+        .pricing-compare-thead-row
+        th:nth-child(4) {
+        background-color: #f3f5f8;
+      }
+
+.pricing-plans-scope
+        .pricing-compare-table-wrap.is-stuck
+        #pricing-compare-thead {
+        visibility: hidden;
+      }
+
+.pricing-plans-scope .pricing-check-legend {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+      }
+
+.pricing-plans-scope .pricing-dash {
+        color: #9ca3af;
+        font-weight: 500;
+      }
+
+.pricing-plans-scope .pricing-badge-limited,
+      .pricing-plans-scope .pricing-badge-optional {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem 0.65rem;
+        line-height: 1;
+        border-radius: 9999px;
+        background-color: #0d1b3e;
+        color: #ffffff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        vertical-align: middle;
+        
+      }
+
+@keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+@keyframes scale-x {
+          from {
+            transform: scaleX(0);
+          }
+          to {
+            transform: scaleX(1);
+          }
+        }
+
+@keyframes slide-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+@keyframes fade-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(-15px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+@keyframes scale-in {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+@keyframes pulse-glow {
+          0%,
+          100% {
+            box-shadow: 0 0 5px rgba(255, 85, 13, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 15px rgba(255, 85, 13, 0.8);
+          }
+        }
+
+@keyframes pulse-subtle {
+          0%,
+          100% {
+            opacity: 0.6;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+.animate-fade-in-up-delayed {
+          animation: fade-in-up 0.8s ease-out 0.2s forwards;
+        }
+
+.animate-fade-in-up-more-delayed {
+          animation: fade-in-up 0.8s ease-out 0.4s forwards;
+        }
+
+.animate-scale-x {
+          animation: scale-x 0.8s ease-out 0.6s forwards;
+        }
+
+.animate-slide-in-right {
+          animation: slide-in-right 1s ease-out 0.3s forwards;
+        }
+
+.tabs-carousel {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+.tabs-carousel::-webkit-scrollbar {
+          display: none;
+        }
+
+.extend_top-left {
+          position: relative;
+          overflow: visible;
+        }
+
+.extend_top-left::after {
+          content: "";
+          position: absolute;
+          display: none;
+          width: 100%;
+          max-width: 200px;
+          height: 200px;
+          left: -174px;
+          top: -165px;
+          background: #FF6B35;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+.extend_top-left-base {
+          position: relative;
+          overflow: visible;
+          z-index: 1;
+        }
+
+.extend_top-left-base::before,
+        .extend_top-left-base::after {
+          content: "";
+          position: absolute;
+          display: none;
+          width: 27px;
+          height: 53px;
+          border-top-left-radius: 25px;
+          box-shadow: 0 -25px 0 0 #FF6B35;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+.extend_top-left-base::before {
+          top: -40px;
+          left: 24px;
+          transform: rotate(-90deg);
+        }
+
+.extend_top-left-base::after {
+          top: 21px;
+          left: -40px;
+          transform: rotate(90deg);
+        }
+
+@media screen and (min-width: 768px) {
+          .extend_top-left::after,
+          .extend_top-left-base::before,
+          .extend_top-left-base::after {
+            display: none;
+          }
+        }
+
+button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn),
+      a.rounded-full:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+      }
+
+#tabs-prev-btn,
+      #tabs-next-btn,
+      #platform-tabs-prev-btn,
+      #platform-tabs-next-btn {
+        top: 50%;
+        transform: translateY(-50%) !important;
+        box-shadow: none !important;
+        transition: color 0.2s ease !important;
+      }
+
+#tabs-prev-btn:hover,
+      #tabs-next-btn:hover,
+      #platform-tabs-prev-btn:hover,
+      #platform-tabs-next-btn:hover,
+      #tabs-prev-btn:focus,
+      #tabs-next-btn:focus,
+      #platform-tabs-prev-btn:focus,
+      #platform-tabs-next-btn:focus,
+      #tabs-prev-btn:disabled,
+      #tabs-next-btn:disabled,
+      #platform-tabs-prev-btn:disabled,
+      #platform-tabs-next-btn:disabled {
+        transform: translateY(-50%) !important;
+        box-shadow: none !important;
+      }
+
+a.solution-nav-pill,
+      a.solution-nav-pill:hover,
+      a.company-subnav-link,
+      a.company-subnav-link:hover,
+      a.suricat-teal-btn,
+      a.suricat-teal-btn:hover,
+      button.suricat-teal-btn,
+      button.suricat-teal-btn:hover,
+      a.nav-design-partners-btn,
+      a.nav-design-partners-btn:hover,
+      button.tab-btn,
+      button.tab-btn:hover,
+      button.platform-tab-btn,
+      button.platform-tab-btn:hover,
+      button.platform-nav-btn,
+      button.platform-nav-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+#hero-section,
+      #hero,
+      #overview {
+        height: 70vh;
+        max-height: none;
+      }
+
+@media (min-width: 1024px) {
+        #hero-section,
+        #hero,
+        #overview {
+          height: 500px;
+          max-height: 500px;
+        }
+      }
+
+@media screen and (min-width: 1024px) and (max-width: 1376px) and (max-height: 800px) {
+        #hero-section,
+        #hero,
+        #overview {
+          height: 430px !important;
+          max-height: 430px !important;
+        }
+      }

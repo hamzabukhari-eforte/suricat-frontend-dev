@@ -1,0 +1,38 @@
+---
+description: Suricat design-system source of truth and migration principles from Designs/
+alwaysApply: true
+---
+
+# Suricat Design System
+
+Source of truth: `Designs/*.html`. Pixel-match those layouts; do not invent alternate visual languages.
+
+## Stack
+
+- Next.js 16 App Router + React 19 + Tailwind CSS v4
+- Tokens, components, and utilities live in code — never re-copy Tailwind CDN configs into pages
+- Prefer local fonts from `public/assets/fonts/` and images from `public/assets/images/`
+- Icons: `react-icons` only — import from `@/components/ui/icons` (no Font Awesome CDN)
+
+## Brand primitives (canonical)
+
+| Token | Hex | Use |
+|-------|-----|-----|
+| `navy` | `#0D1B3E` | Primary text, nav CTA, heroes, footer |
+| `navydark` | `#080f22` | Darker surfaces |
+| `navymid` | `#0a1530` | Form-flow surfaces |
+| `teal` | `#19D3C5` | Primary accent / solid CTA |
+| `teal-hover` | `#15bdb0` | Teal button hover |
+| `violet` | `#5C3D8F` | Soft hero orbs / accents |
+| `orange` | `#FF6B35` | Secondary accent, stats, tabs |
+| `surface-muted` | `#f8f9fa` | Alt section backgrounds |
+
+Do **not** use aboutus `primary.*` / `accent.*`, contact `brand.purple`, login nested `brand.*`, Geist, Inter, or `font-inter`.
+
+## Non-negotiables
+
+1. Exact visual parity with `Designs/` (spacing, type, breakpoints, motion).
+2. Pages compose components only — no large inline section markup in route files.
+3. One design language sitewide (navy/teal). Normalize design outliers to these tokens.
+4. Fix known HTML bugs when porting (e.g. `sm:text-sm` on headings → `sm:text-3xl`).
+5. Route typo: `continous-compliance.html` → `/solutions/continuous-compliance`. Ignore `discussion-confirmed copy.html`.

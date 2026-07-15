@@ -1,0 +1,43 @@
+---
+description: Container, section spacing, and layout width rules from Designs/
+globs: app/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# Containers & Layout
+
+## Primary container
+
+```tsx
+// ✅ Site-wide content shell
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">{children}</div>
+```
+
+| Role | Classes |
+|------|---------|
+| Page / section shell | `max-w-7xl mx-auto` |
+| Nav bar inner | `max-w-7xl mx-auto` + `h-16 lg:h-24` |
+| Hero copy measure | `max-w-4xl` or `max-w-5xl` + `mx-auto` + `px-4 sm:px-6` |
+| Narrow title stack | `max-w-3xl` |
+| Mega menu panels | `max-w-7xl mx-auto px-4 lg:px-6 py-8` |
+
+## Section rhythm
+
+- Default content sections: `pt-8` / `pt-8 pb-6` / `py-8` + horizontal `px-4 sm:px-6`
+- Alt background sections: `bg-surface-muted` (or `bg-[#f8f9fa]` only if matching Designs pixel-exact)
+- CTA band (`#cta-section`): `py-6 px-6`, full-bleed `bg-teal`
+- Footer: `pb-6 pt-8 px-6` inside `max-w-7xl`
+
+## Radius
+
+- CTAs / pills / nav buttons: `rounded-full`
+- Cards / panels / mega links: `rounded-[4px]` (not `rounded-lg` / `rounded-xl` unless Designs use it)
+
+## Sticky chrome
+
+- Header: `sticky top-0 z-50 bg-white border-b border-gray-200`
+- Solution / company subnav: `sticky top-16 lg:top-24 z-40`
+
+## Component rule
+
+Export a shared `Container` component for the `max-w-7xl` shell. Pages must not redefine custom max-widths that fight the design system.

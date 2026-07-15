@@ -1,0 +1,57 @@
+---
+description: Designs HTML → Next.js route map and migration porting rules
+alwaysApply: true
+---
+
+# Migration Route Map
+
+Port `Designs/*.html` → App Router. Skip `aboutus.html` and `discussion-confirmed copy.html`.
+
+Any leftover `aboutus.html` links → `/company/our-story`.
+
+| Design file | Route |
+|-------------|-------|
+| `index.html` | `/` |
+| `pricing.html` | `/pricing` |
+| `pricing-faq.html` | `/pricing/faq` |
+| `license.html` | `/pricing/license` |
+| `document-capacity.html` | `/pricing/document-capacity` |
+| `capacity-expansion.html` | `/pricing/capacity-expansion` |
+| `interactive-sandbox.html` | `/pricing/interactive-sandbox` |
+| `start-with-evaluate.html` | `/pricing/start-with-evaluate` |
+| `continous-compliance.html` | `/solutions/continuous-compliance` |
+| `documentation-confidence.html` | `/solutions/documentation-confidence` |
+| `inspection-findings.html` | `/solutions/inspection-findings` |
+| `change-impact-assessment.html` | `/solutions/change-impact-assessment` |
+| `inspection-readiness.html` | `/solutions/inspection-readiness` |
+| `document-alignment.html` | `/solutions/document-alignment` |
+| `medical-devices.html` | `/industries/medical-devices` |
+| `industry-expansion.html` | `/industries/expansion` |
+| `our-story.html` | `/company/our-story` |
+| `mission-vision.html` | `/company/mission-vision` |
+| `leadership.html` | `/company/leadership` |
+| `contact-us.html` | `/contact` |
+| `design-partners.html` | `/design-partners` |
+| `become-design-partner.html` | `/design-partners/apply` |
+| `get-started.html` | `/get-started` |
+| `readiness.html` | `/readiness` |
+| `discussion-confirmed.html` | `/discussion-confirmed` |
+| `login.html` | `/login` |
+
+No `/company` index. Company entry = `/company/our-story`.
+
+## Porting order
+
+1. `globals.css` tokens + font
+2. Shared layout chrome (header/footer/cta/cookie)
+3. UI primitives (`Button`, `Container`, `SectionHeader`)
+4. Home, then shared templates (solutions/pricing/company), then forms/login
+
+## Parity checklist per page
+
+- [ ] Matches Designs structure & spacing
+- [ ] Responsive at key breakpoints
+- [ ] One `h1`; sane `h2`/`h3`
+- [ ] Unique `metadata` title + description
+- [ ] Assets from `/assets/…`
+- [ ] No duplicated header/footer markup

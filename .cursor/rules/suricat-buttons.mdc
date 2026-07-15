@@ -1,0 +1,41 @@
+---
+description: Suricat button variants, radius, hover, and motion from Designs/
+globs: app/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# Buttons
+
+Implement variants as a shared `Button` (or typed `LinkButton`) — pages pass `variant` / `size`, not raw color soup.
+
+## Variants
+
+| Variant | Look | Typical use |
+|---------|------|-------------|
+| `teal` (`.suricat-teal-btn`) | Fill `#19D3C5`, 2px teal border, text navy; hover `#15bdb0` | Primary CTA |
+| `navy` (`.nav-cta-btn`) | Fill navy, text white, `rounded-full`; hover navy/90 | Get Started |
+| `outline-teal` | Transparent, 2px teal, text teal; hover fill teal + text navy | Hero secondary |
+| `outline-white` | 2px white/20 or solid white on teal band | Dark / teal band |
+| `outline-navy` | Navy border on light | Secondary |
+| `orange` (`.btn-orange`) | Gradient `#ff6b35→#e85a24` + glow hover | Form flows only |
+| `ghost-nav` | Text only + `.nav-link-animated` underline | Header links |
+
+## Shape & size
+
+- Default CTA shape: `rounded-full` + `font-bold` / `font-semibold`
+- Common pads: `px-6 py-2.5`, `px-6 sm:px-8 py-3 sm:py-3.5`, nav `px-[1.125rem] py-2` scaling at 1377/1536
+- Inline layout: `inline-flex items-center justify-center gap-2|gap-3 group`
+- Transition: `150ms cubic-bezier(0.4, 0, 0.2, 1)` (match Designs)
+- Optional lift: `.hero-cta-hover` → `translateY(-4px)` + soft shadow
+
+## Do / Don't
+
+```tsx
+// ✅
+<Button variant="teal" href="/get-started">Get Started</Button>
+
+// ❌ Recreating hex + border inline on every page
+<a className="bg-[#19D3C5] border-2 border-[#19D3C5] …">
+```
+
+Disabled: no hover motion; preserve Designs `disabled` opacity/cursor.

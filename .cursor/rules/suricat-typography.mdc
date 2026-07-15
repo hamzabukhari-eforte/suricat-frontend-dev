@@ -1,0 +1,54 @@
+---
+description: Font family, weights, colors, and type sizes for Suricat
+globs: app/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# Typography
+
+## Family
+
+- **Only** Plus Jakarta Sans (variable font in `public/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf` or `next/font/local`)
+- Wire as `--font-sans` / `font-sans` on `<body>`
+- Never Geist, Inter, Arial defaults, or `font-inter`
+
+## Weights
+
+| Weight | Class | Use |
+|--------|-------|-----|
+| 400 | `font-normal` | Body / hero copy |
+| 500 | `font-medium` | Sparse supporting text |
+| 600 | `font-semibold` | Nav links, some H2 / pills |
+| 700 | `font-bold` | Default headlines & CTAs |
+| 800 | `font-extrabold` | Rare emphasis (marquees / form titles) |
+
+Load 400–800; do not invent 300 unless a Design page requires it.
+
+## Color roles
+
+| Role | Class |
+|------|-------|
+| Default text | `text-navy` |
+| Accent / eyebrow | `text-teal` |
+| On navy hero | `text-white` |
+| Muted | `text-gray-600` / `#374151` sparingly |
+| Stat / tab accent | `text-orange` |
+
+Prefer token classes over arbitrary hex.
+
+## Patterns
+
+```tsx
+// Eyebrow
+<p className="text-sm uppercase tracking-widest text-teal font-semibold">…</p>
+
+// Section title
+<h2 className="text-2xl sm:text-3xl lg:text-[28px] font-bold leading-tight lg:leading-[36px] text-navy">…</h2>
+
+// Body
+<p className="text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy/80">…</p>
+```
+
+## Semantic HTML
+
+Use real `h1`–`h3` / `p` for SEO. Styling classes must not replace heading tags with bare `div`/`span` for titles.

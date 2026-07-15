@@ -1,0 +1,50 @@
+---
+description: Component architecture — pages import components only; shared Suricat UI
+globs: app/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# Component Standards
+
+## Architecture
+
+```text
+app/                    # routes only: metadata + compose sections
+components/
+  layout/               # Header, Footer, MobileMenu, Marquee, CookieBanner
+  ui/                   # Button, Container, SectionHeader, Link
+  sections/             # PageHero, CtaBand, FAQ, feature blocks
+  mega-menu/            # Why / Platform / Solutions / Industries / Pricing / Company
+```
+
+## Rules
+
+1. **Pages are thin.** A route file exports `metadata` and renders imported section components only.
+2. **One component = one job.** No 500-line page components with header+hero+footer inlined.
+3. **Shared chrome once.** Header, Footer, CTA band, Cookie banner live in root/marketing layout — not duplicated per page.
+4. **Designs → components.** When porting HTML, extract repeating blocks first; leaf content second.
+5. **Client only when needed.** Prefer Server Components; add `"use client"` for menus, tabs, FAQ accordion, IntersectionObserver reveals.
+6. **Props over copy-paste.** Eyebrow/title/body/cta via props on `SectionHeader`, `PageHero`, `CtaBand`.
+7. **No cards in heroes.** Match Designs; sitewide cards use `rounded-[4px]` panels only where Designs do.
+8. **Colocate** page-specific sections under `components/sections/<page>/` if not reused.
+
+## Page shape
+
+```tsx
+// app/pricing/page.tsx
+export const metadata = { … };
+
+export default function PricingPage() {
+  return (
+    <>
+      <PageHero … />
+      <PricingTiers … />
+      <PricingFaqTeaser … />
+    </>
+  );
+}
+```
+
+## Shared components to build first
+
+`Container`, `Button`, `SiteHeader`, `MobileMenu`, `MegaMenu`, `SiteFooter`, `CtaBand`, `PageHero`, `SectionHeader`, `CookieBanner`, `MarqueeTopBar`

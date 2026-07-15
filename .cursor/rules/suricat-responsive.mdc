@@ -1,0 +1,44 @@
+---
+description: Breakpoints and responsive behavior matching Designs HTML
+globs: app/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# Responsive Rules
+
+## Breakpoint map (Tailwind defaults + Suricat)
+
+| Token | Width | Suricat use |
+|-------|-------|-------------|
+| `sm` | 640px | Padding / type steps |
+| `md` | 768px | 2-col footers / stacks |
+| `lg` | 1024px | Nav height `lg:h-24`, section type |
+| `xl` | 1280px | Desktop nav (`hidden xl:flex`), logo tight fit |
+| `nav` / `min-[1377px]` | 1377px | Nav gaps, type, CTA pad density |
+| `2xl` | 1536px | Max nav density |
+
+## Nav behavior
+
+- Mobile: hamburger; desktop menu from `xl` (1280), not `lg`
+- Heights: `h-16` → `lg:h-24`
+- Logo heights scale at `sm` / `xl` / `min-[1377px]` (match Designs CSS)
+- Preserve special laptop query when porting index/contact home sections:
+  `@media (min-width: 1024px) and (max-width: 1376px) and (max-height: 800px)`
+
+## Type scale steps (canonical)
+
+```text
+Hero H1:     text-2xl … lg:text-[36px] leading-[44px]   (home may use text-4xl lg:text-[36px])
+Section H2:  text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px]
+Hero sub:    text-base lg:text-[22px] leading-[32px]
+Section body: text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px]
+```
+
+## Bug fix when porting
+
+Many Designs headings use `sm:text-sm` — that is wrong. Use `sm:text-3xl` for section H2.
+
+## Testing bar
+
+Every page must look correct at: ~375, 768, 1024, 1280, 1377, 1536+.
+No horizontal scroll (`overflow-x: clip` on `html`).
