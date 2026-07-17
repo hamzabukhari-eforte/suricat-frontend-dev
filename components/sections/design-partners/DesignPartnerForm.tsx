@@ -300,9 +300,9 @@ export function DesignPartnerForm({
     <div id="application-form">
       {/* Progress Steps */}
       <div className="mb-5 max-w-3xl mx-auto">
-        <div className="flex items-start justify-between relative">
+        <div className="relative flex items-start justify-between">
           <div
-            className="wizard-stepper-track absolute h-0.5 bg-gray-200 z-0 overflow-hidden"
+            className="wizard-stepper-track absolute h-0.5 bg-gray-200 z-0 overflow-hidden max-md:left-[8%] max-md:right-[8%]"
             aria-hidden="true"
           >
             <div
@@ -321,14 +321,14 @@ export function DesignPartnerForm({
                 onClick={() => {
                   if (n < step) goTo(n, "back");
                 }}
-                className={`wizard-step-indicator ${state} flex flex-col items-center gap-2 relative z-10 flex-1 min-w-0 ${
+                className={`wizard-step-indicator ${state} relative z-10 flex min-w-0 flex-1 flex-col items-center gap-2 max-md:gap-0 ${
                   n < step ? "cursor-pointer" : "cursor-default"
                 }`}
               >
-                <span className="step-circle rounded-full border-2 flex items-center justify-center font-bold shrink-0">
+                <span className="step-circle flex shrink-0 items-center justify-center rounded-full border-2 font-bold">
                   {n < step ? "✓" : n}
                 </span>
-                <span className="step-label text-xs text-center w-24">
+                <span className="step-label !hidden w-24 text-center text-xs md:!block">
                   {a}
                   <br />
                   {b}
@@ -337,6 +337,15 @@ export function DesignPartnerForm({
             );
           })}
         </div>
+        <p
+          className="mt-3 text-center text-[0.8125rem] leading-snug text-gray-500 md:hidden"
+          aria-live="polite"
+        >
+          <span className="block">Step {step} of {TOTAL_STEPS}</span>
+          <span className="mt-0.5 block text-sm font-semibold text-navy">
+            {STEP_LABELS[step - 1].join(" ")}
+          </span>
+        </p>
       </div>
 
       <div
@@ -892,15 +901,15 @@ export function DesignPartnerForm({
             type="button"
             onClick={() => goTo(step - 1, "back")}
             disabled={step === 1}
-            className="hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 border-2 border-navy text-navy rounded-full font-bold hover:bg-navy hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none"
+            className="order-3 sm:order-1 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 border-2 border-navy text-navy rounded-full font-bold hover:bg-navy hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none"
           >
             <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
           </button>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:ml-auto w-full sm:w-auto">
+          <div className="order-1 sm:order-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:ml-auto w-full sm:w-auto">
             <button
               type="button"
               onClick={saveDraft}
-              className="hero-banner-cta-btn text-teal font-bold hover:text-navy transition-colors px-4"
+              className="order-2 sm:order-1 hero-banner-cta-btn text-teal font-bold hover:text-navy transition-colors px-4"
             >
               Save &amp; Finish Later
             </button>
@@ -910,7 +919,7 @@ export function DesignPartnerForm({
                 onClick={() => {
                   if (validateStep(step)) goTo(step + 1, "forward");
                 }}
-                className="suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all"
+                className="order-1 sm:order-2 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all"
               >
                 Next <FaArrowRight aria-hidden="true" />
               </button>
@@ -918,7 +927,7 @@ export function DesignPartnerForm({
               <button
                 type="submit"
                 disabled={submitting}
-                className="suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all disabled:opacity-60"
+                className="order-1 sm:order-2 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all disabled:opacity-60"
               >
                 {submitting ? "Submitting…" : "Submit Application"}{" "}
                 <FaArrowRight aria-hidden="true" />

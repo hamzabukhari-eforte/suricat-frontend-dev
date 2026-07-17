@@ -17,8 +17,8 @@ export function CtaBand({
   secondaryLabel = "Schedule a Discussion",
 }: CtaBandProps) {
   return (
-    <section id="cta-section" className="py-6 px-6 text-center text-white">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+    <section id="cta-section" className="px-6 py-4 text-center text-white md:py-5 lg:py-6">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 md:flex-row md:gap-6 lg:gap-8">
         <h2 className="text-3xl font-semibold">{title}</h2>
         <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
           <Button

@@ -1,4 +1,5 @@
 import { FaArrowRight, FaBullseye, FaCodeFork, FaLayerGroup, FaLink, FaMagnifyingGlass, FaShieldHalved } from "@/components/ui/icons";
+import { MobileAutoplayCardSlider } from "@/components/ui/MobileAutoplayCardSlider";
 import Link from "next/link";
 
 export function SolutionsSection() {
@@ -31,9 +32,9 @@ export function SolutionsSection() {
                 className="compliance-cost-banner-bg rounded-[4px] p-10 lg:p-6 relative z-10 text-white extend_top-left-base"
               >
                 <div className="relative">
-                  <div
+                  <MobileAutoplayCardSlider
                     id="solutions-cards-grid"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4 py-2"
+                    gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4 py-2"
                   >
                     <div className="compliance-cost-card">
                       <div className="compliance-cost-card-header">
@@ -172,7 +173,7 @@ export function SolutionsSection() {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </MobileAutoplayCardSlider>
                 </div>
 
                 <div className="mt-10 lg:mt-8 flex flex-col items-center gap-4">

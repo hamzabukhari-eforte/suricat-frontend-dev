@@ -1,4 +1,5 @@
 import { FaArrowRight, FaChartLine, FaClipboardList, FaClock, FaFileCircleExclamation, FaFolderOpen, FaUpRightFromSquare, FaUserGraduate } from "@/components/ui/icons";
+import { MobileAutoplayCardSlider } from "@/components/ui/MobileAutoplayCardSlider";
 import Link from "next/link";
 
 export function ComplianceCostSection() {
@@ -27,9 +28,9 @@ export function ComplianceCostSection() {
               >
                 {/* Cards Grid */}
                 <div className="relative">
-                  <div
+                  <MobileAutoplayCardSlider
                     id="compliance-cards-grid"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4 py-2"
+                    gridClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4 py-2"
                   >
                     <div className="compliance-cost-card">
                       <div className="compliance-cost-card-header">
@@ -196,7 +197,7 @@ export function ComplianceCostSection() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </MobileAutoplayCardSlider>
                 </div>
 
                 <div className="mt-10 lg:mt-8 flex flex-col items-center gap-4">

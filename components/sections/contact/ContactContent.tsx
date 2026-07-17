@@ -34,10 +34,10 @@ export function ContactContent() {
                 <span className="inline-block rounded-full py-1.5 text-sm font-bold uppercase tracking-wider text-teal">
                   Contact
                 </span>
-                <h1 className="text-[40px] font-bold leading-[1.1] tracking-tight text-navy md:text-[32px]">
+                <h1 className="text-[28px] font-bold leading-[36px] tracking-tight text-navy lg:text-[36px] lg:leading-[44px]">
                   Start A Conversation.
                 </h1>
-                <p className="max-w-xl text-[20px] leading-[30px] text-navy">
+                <p className="max-w-xl text-base leading-relaxed text-navy lg:text-[22px] lg:leading-[30px]">
                   Whether you have a general inquiry, are exploring a Design
                   Partner engagement, or want to learn more about the Compliance
                   Intelligence Layer, we would be glad to hear from you.

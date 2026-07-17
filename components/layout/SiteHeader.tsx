@@ -253,13 +253,15 @@ export function SiteHeader() {
               </button>
               {openAccordion === menu.id ? (
                 <div className="pb-3 space-y-1">
-                  <Link
-                    href={menu.intro.ctaHref}
-                    className="block py-2 px-2 text-sm font-semibold text-teal"
-                    onClick={closeMobile}
-                  >
-                    {menu.intro.ctaLabel}
-                  </Link>
+                  {menu.links.some((link) => link.href === menu.intro.ctaHref) ? null : (
+                    <Link
+                      href={menu.intro.ctaHref}
+                      className="block py-2 px-2 text-sm font-semibold text-teal"
+                      onClick={closeMobile}
+                    >
+                      {menu.intro.ctaLabel}
+                    </Link>
+                  )}
                   {menu.links.map((link) => (
                     <Link
                       key={link.href + link.label}

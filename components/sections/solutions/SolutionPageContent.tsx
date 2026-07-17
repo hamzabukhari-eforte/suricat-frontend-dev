@@ -130,7 +130,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
       {/* Hero */}
       <section
         id="hero-section"
-        className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-navy py-12 text-white lg:min-h-[500px] lg:py-12"
+        className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-navy py-12 text-white max-[374px]:min-h-0 max-[374px]:items-start max-[374px]:justify-start max-[374px]:overflow-visible max-[374px]:py-6 lg:min-h-[500px] lg:py-12"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"
@@ -140,15 +140,15 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
           className={`relative z-10 mx-auto flex w-full ${heroMeasure} flex-col items-center justify-center px-4 text-center sm:px-6`}
         >
           <h1
-            className={`animate-fade-up-2 mb-4 ${heroTitleMax} text-2xl font-bold tracking-tight !leading-[32px] sm:mb-6 sm:text-3xl sm:!leading-[44px] lg:text-[36px]`}
+            className={`animate-fade-up-2 mb-4 ${heroTitleMax} text-2xl font-bold tracking-tight !leading-[32px] max-[374px]:mb-3 max-[374px]:text-[1.375rem] max-[374px]:!leading-[1.35] sm:mb-6 sm:text-3xl sm:!leading-[44px] lg:text-[36px]`}
           >
             <span>{heroTitle}</span>
             <br className="hidden sm:block" />
             <span className="text-teal"> {heroTitleAccent}</span>
           </h1>
-          <div className="animate-fade-up-2 mb-5 h-1 w-16 rounded-full bg-teal sm:mb-6" />
+          <div className="animate-fade-up-2 mb-5 h-1 w-16 rounded-full bg-teal max-[374px]:mb-3 sm:mb-6" />
           <p
-            className={`animate-fade-up-3 mx-auto mb-6 ${heroSubtitleMax} text-base font-normal !leading-[32px] text-white sm:mb-8 sm:text-lg lg:text-[22px]`}
+            className={`animate-fade-up-3 mx-auto mb-6 ${heroSubtitleMax} text-base font-normal !leading-[32px] text-white max-[374px]:mb-4 max-[374px]:text-sm max-[374px]:!leading-normal sm:mb-8 sm:text-lg lg:text-[22px]`}
           >
             {heroSubtitle}
           </p>

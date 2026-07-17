@@ -101,11 +101,11 @@ export function LeadershipContent() {
       <StickySubnav links={companySubnavLinks} category="Company" navLabel="Company pages" />
       <section className="mx-auto max-w-7xl px-4 pt-8">
         <div className="mb-6">
-          <h1 className="mb-4 max-w-3xl text-[36px] font-bold leading-[44px] text-navy">
-            Built By The People Who Experienced <br />
+          <h1 className="mb-4 max-w-3xl text-[28px] font-bold leading-[36px] text-navy lg:text-[36px] lg:leading-[44px]">
+            Built By The People Who Experienced{" "}
             <span className="text-teal">The Problem From Every Angle.</span>
           </h1>
-          <p className="max-w-4xl text-[22px] leading-[30px] text-navy">
+          <p className="max-w-4xl text-base leading-relaxed text-navy lg:text-[22px] lg:leading-[30px]">
             Suricat was not founded by technologists alone. It was built by
             leaders in enterprise software, artificial intelligence, quality
             systems, and FDA regulatory affairs who each experienced the same
@@ -172,9 +172,16 @@ export function LeadershipContent() {
               <div className="absolute inset-0 z-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={active.modalPhoto}
+                  src={active.photo}
                   alt={active.name}
-                  className={`h-full w-full object-cover ${active.modalObjectClass ?? "object-[center_5%]"}`}
+                  className="h-full w-full object-cover md:hidden"
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={active.modalPhoto}
+                  alt=""
+                  aria-hidden="true"
+                  className={`hidden h-full w-full object-cover md:block ${active.modalObjectClass ?? "object-[center_5%]"}`}
                 />
               </div>
               <div className="relative z-10 text-right text-white">

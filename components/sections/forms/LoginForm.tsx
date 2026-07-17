@@ -162,7 +162,7 @@ export function LoginForm() {
                     type="checkbox"
                     checked={rememberMe}
                     onChange={(e) => setRememberMe(e.target.checked)}
-                    className="h-4 w-4 border-gray-200 rounded-[4px] cursor-pointer accent-teal"
+                    className="h-4 w-4 rounded-[4px] border-gray-200 cursor-pointer"
                   />
                   <label
                     htmlFor="remember-me"

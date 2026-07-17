@@ -35,18 +35,18 @@ export function HeroSection() {
                   findings for earlier review.
                   </p>
                   <div
-                    className="flex flex-row flex-nowrap items-center gap-2 transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed"
+                    className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2 transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed"
                   >
                     <a
                       href="#platform-intelligence-section"
-                      className="hero-cta-hover hero-banner-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition-all whitespace-nowrap shrink-0"
+                      className="hero-cta-hover hero-banner-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-full font-bold transition-all whitespace-nowrap"
                     >
                       Explore the Platform
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                     </a>
                     <Link
                       href="/design-partners/apply"
-                      className="hero-cta-hover hero-banner-cta-btn group inline-flex items-center justify-center gap-1.5 border-2 border-white/20 text-white rounded-full font-bold hover:border-white transition-all whitespace-nowrap shrink-0"
+                      className="hero-cta-hover hero-banner-cta-btn group inline-flex w-full sm:w-auto items-center justify-center gap-1.5 border-2 border-white/20 text-white rounded-full font-bold hover:border-white transition-all whitespace-nowrap"
                     >
                       Become a Design Partner
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

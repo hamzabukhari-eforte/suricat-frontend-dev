@@ -2,7 +2,13 @@
 
 "use client";
 
-import { FaArrowRight, FaCalendarDays, FaChevronDown, FaChevronLeft, FaChevronRight, FaClipboardCheck, FaClock, FaCrosshairs, FaFileImport, FaFileLines, FaGlobe, FaLock, FaShareNodes, FaShieldHalved, FaTriangleExclamation, FaUser, FaUsers } from "@/components/ui/icons";
+import { FaArrowRight, FaCalendarDays, FaClipboardCheck, FaClock, FaCrosshairs, FaFileImport, FaFileLines, FaGlobe, FaLock, FaShareNodes, FaShieldHalved, FaTriangleExclamation, FaUser, FaUsers } from "@/components/ui/icons";
+import { HomeSectionTabNav } from "@/components/sections/home/HomeSectionTabNav";
+import {
+  HOME_HASH_EVENT,
+  parseWhyTabIndex,
+} from "@/components/layout/SmoothHashScroll";
+import { animatedTabPaneClass } from "@/lib/animatedTabPane";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
 
 const WHY_TABS = ["Suricat's Mission", 'Built by Practitioners', 'The Structural Problem', 'Why Existing Systems Fall Short', 'How Suricat Works', 'Designed for Regulated Environments', 'What Suricat Enables'];
@@ -117,107 +123,37 @@ function WhyTabDescription({ paragraphs }: { paragraphs: string[] }) {
 
 export function WhySuricatSection() {
   const [active, setActive] = useState(0);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const indicatorRef = useRef<HTMLDivElement>(null);
 
-  const updateIndicator = useCallback(() => {
-    const btn = tabRefs.current[active];
-    const indicator = indicatorRef.current;
-    if (!btn || !indicator) return;
-    indicator.style.width = `${btn.offsetWidth}px`;
-    indicator.style.left = `${btn.offsetLeft}px`;
-  }, [active]);
-
-  const updateCarouselButtons = useCallback(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-    const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
-    const hasOverflow = maxScroll > 2;
-    setCanScrollLeft(hasOverflow && carousel.scrollLeft > 2);
-    setCanScrollRight(hasOverflow && carousel.scrollLeft < maxScroll - 2);
+  const selectTab = useCallback((index: number) => {
+    setActive(index);
   }, []);
 
   useEffect(() => {
-    updateIndicator();
-    window.addEventListener("resize", updateIndicator);
-    return () => window.removeEventListener("resize", updateIndicator);
-  }, [updateIndicator]);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-    updateCarouselButtons();
-    carousel.addEventListener("scroll", updateCarouselButtons, { passive: true });
-    window.addEventListener("resize", updateCarouselButtons);
-    return () => {
-      carousel.removeEventListener("scroll", updateCarouselButtons);
-      window.removeEventListener("resize", updateCarouselButtons);
-    };
-  }, [updateCarouselButtons]);
-
-  const scrollCarousel = (direction: "left" | "right") => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-    const delta = carousel.clientWidth * 0.6;
-    carousel.scrollBy({
-      left: direction === "right" ? delta : -delta,
-      behavior: "smooth",
-    });
-  };
-
-  const selectTab = (index: number, scrollTabIntoView = true) => {
-    setActive(index);
-    setDropdownOpen(false);
-    const btn = tabRefs.current[index];
-    const carousel = carouselRef.current;
-    if (btn && carousel && scrollTabIntoView) {
-      const targetLeft =
-        btn.offsetLeft - (carousel.clientWidth - btn.offsetWidth) / 2;
-      const maxLeft = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
-      carousel.scrollTo({
-        left: Math.max(0, Math.min(maxLeft, targetLeft)),
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const selectTabRef = useRef(selectTab);
-
-  useEffect(() => {
-    selectTabRef.current = selectTab;
-  });
-
-  useEffect(() => {
-    const activateFromHash = () => {
-      const match = (window.location.hash || "").match(/why-tab-(\d+)/);
-      if (!match) return;
-      const index = Number.parseInt(match[1], 10);
-      if (Number.isNaN(index) || index < 0 || index >= WHY_TABS.length) return;
-      selectTabRef.current(index, false);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          selectTabRef.current(index, true);
-        });
-      });
+    const activateFromHash = (hash = window.location.hash) => {
+      const index = parseWhyTabIndex(hash || "");
+      if (index === null || index < 0 || index >= WHY_TABS.length) return;
+      setActive(index);
     };
 
-    const immediate = window.setTimeout(activateFromHash, 0);
-    const timer = window.setTimeout(activateFromHash, 150);
-    window.addEventListener("hashchange", activateFromHash);
+    activateFromHash();
+
+    const onHomeHash = (event: Event) => {
+      const detail = (event as CustomEvent<{ hash?: string }>).detail;
+      activateFromHash(detail?.hash ?? window.location.hash);
+    };
+
+    const onHashChange = () => activateFromHash();
+
+    window.addEventListener(HOME_HASH_EVENT, onHomeHash);
+    window.addEventListener("hashchange", onHashChange);
     return () => {
-      window.clearTimeout(immediate);
-      window.clearTimeout(timer);
-      window.removeEventListener("hashchange", activateFromHash);
+      window.removeEventListener(HOME_HASH_EVENT, onHomeHash);
+      window.removeEventListener("hashchange", onHashChange);
     };
   }, []);
 
   const continueTab = () => {
-    // Designs Continue still centers the next tab in the carousel (carousel-only scroll)
-    selectTab((active + 1) % WHY_TABS.length, true);
+    selectTab((active + 1) % WHY_TABS.length);
   };
 
   return (
@@ -241,98 +177,30 @@ export function WhySuricatSection() {
           Requirements change. Documents evolve. Evidence accumulates. Over time, demonstrating that critical quality and regulatory documentation remains aligned becomes increasingly difficult.
           </p>
         </div>
-        <div className="mb-6 lg:hidden relative">
-          <button
-            type="button"
-            id="why-tabs-dropdown-trigger"
-            className="flex w-full cursor-pointer items-center justify-between rounded-[4px] border-2 border-gray-200 bg-white px-4 py-3 text-lg font-semibold text-[#413cc3] shadow-sm sm:text-xl"
-            aria-expanded={dropdownOpen}
-            aria-controls="why-tabs-dropdown-menu"
-            onClick={() => setDropdownOpen((o) => !o)}
-          >
-            <span id="why-tabs-dropdown-label" className="truncate pr-3 text-left">{WHY_TABS[active]}</span>
-            <FaChevronDown
-              id="why-tabs-dropdown-icon"
-              className={`text-base transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-              aria-hidden="true"
-            />
-          </button>
-          <div
-            id="why-tabs-dropdown-menu"
-            className={`${dropdownOpen ? "" : "hidden "}absolute z-20 mt-2 w-full bg-white border border-gray-200 rounded-[4px] shadow-xl overflow-hidden max-h-[50vh] overflow-y-auto`}
-          >
-            {WHY_TABS.map((label, index) => (
-              <button
-                key={label}
-                type="button"
-                className={`why-tabs-option w-full cursor-pointer border-b border-gray-100 px-4 py-3 text-left text-lg font-semibold leading-tight transition-colors last:border-b-0 sm:text-xl ${
-                  index === active
-                    ? "bg-[#5555f9] text-white hover:bg-[#5555f9]"
-                    : "text-[#413cc3] hover:bg-[#f5f4ff]"
-                }`}
-                onClick={() => selectTab(index)}
-              >
-                {label}
-              </button>
-            ))}
-</div>
-        </div>
-        <div className="mb-6 relative items-center hidden lg:flex">
-          <button
-            type="button"
-            id="tabs-prev-btn"
-            aria-label="Scroll tabs left"
-            disabled={!canScrollLeft}
-            className="absolute -left-10 z-10 hidden cursor-pointer items-center justify-center text-[#413cc3] hover:text-[#2f2aa0] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 lg:flex"
-            onClick={() => scrollCarousel("left")}
-          >
-            <FaChevronLeft className="text-3xl" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            id="tabs-next-btn"
-            aria-label="Scroll tabs right"
-            disabled={!canScrollRight}
-            className="absolute -right-10 z-10 hidden cursor-pointer items-center justify-center text-[#413cc3] hover:text-[#2f2aa0] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 lg:flex"
-            onClick={() => scrollCarousel("right")}
-          >
-            <FaChevronRight className="text-3xl" aria-hidden="true" />
-          </button>
-          <div id="tabs-carousel" ref={carouselRef} className="tabs-carousel overflow-x-auto w-full">
-            <div
-              id="ia2jig"
-              className="flex flex-nowrap border-b-4 border-gray-200 text-sm font-normal uppercase tracking-wider w-max min-w-full gap-[60px] relative"
-            >
-              <div
-                id="tab-indicator"
-                    ref={indicatorRef}
-                    className="absolute bottom-[-4px] left-0 h-[4px] bg-teal transition-all duration-300 ease-in-out"
-              ></div>
-              {WHY_TABS.map((label, index) => (
-                      <button
-                        key={label}
-                        ref={(el) => {
-                          tabRefs.current[index] = el;
-                        }}
-                        type="button"
-                        className={`tab-btn relative cursor-pointer whitespace-nowrap pb-3 text-left text-xl font-semibold leading-tight tracking-normal ${
-                          index === active ? "is-active text-navy" : "text-navy"
-                        }`}
-                        onClick={() => selectTab(index)}
-                      >
-                        {label}
-                      </button>
-                    ))}
-</div>
-          </div>
-        </div>
+        <HomeSectionTabNav
+          tabs={WHY_TABS}
+          active={active}
+          onSelect={selectTab}
+          carouselId="tabs-carousel"
+          prevBtnId="tabs-prev-btn"
+          nextBtnId="tabs-next-btn"
+          indicatorId="tab-indicator"
+          dropdownTriggerId="why-tabs-dropdown-trigger"
+          dropdownMenuId="why-tabs-dropdown-menu"
+        />
         <div
           id="iye3pg"
           className="bg-white rounded-[4px] overflow-hidden shadow-sm"
         >
+          <div className="tab-panel-stack">
             <div
               id="tab-content-0"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 0 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 0,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 0}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -388,7 +256,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-1"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 1 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 1,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 1}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -447,7 +320,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-2"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 2 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 2,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 2}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -509,7 +387,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-3"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 3 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 3,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 3}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -569,7 +452,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-4"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 4 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 4,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 4}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -627,7 +515,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-5"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 5 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 5,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 5}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -686,7 +579,12 @@ export function WhySuricatSection() {
             </div>
             <div
               id="tab-content-6"
-                  className={`tab-pane flex-col xl:flex-row xl:min-h-[440px] ${active === 6 ? "flex" : "hidden"}`}
+              className={animatedTabPaneClass(
+                active === 6,
+                "tab-pane",
+                "flex-col xl:flex-row xl:min-h-[440px]",
+              )}
+              aria-hidden={active !== 6}
             >
               <div
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
@@ -743,6 +641,7 @@ export function WhySuricatSection() {
                 </button>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </section>

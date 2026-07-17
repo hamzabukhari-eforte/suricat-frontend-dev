@@ -31,9 +31,19 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
+#why-suricat-section,
+#platform-intelligence-section {
+  scroll-margin-top: 7rem;
+}
+
 @media (max-width: 1024px) {
   section[id] {
     scroll-margin-top: 80px;
+  }
+
+  #why-suricat-section,
+  #platform-intelligence-section {
+    scroll-margin-top: 5.5rem;
   }
 }
 
@@ -584,6 +594,35 @@ section[id] {
   }
 }
 
+#remember-me {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+#remember-me:checked {
+  background-color: #19d3c5;
+  border-color: #19d3c5;
+}
+
+#remember-me:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 #cta-section {
   background-color: #19d3c5;
 }
@@ -748,6 +787,11 @@ a.nav-design-partners-btn,
 .why-tabs-option,
 .cookie-cta-btn {
   cursor: pointer;
+}
+
+.tab-btn,
+.platform-nav-btn {
+  transition: color 0.3s ease;
 }
 
 button:disabled,
@@ -1706,11 +1750,44 @@ input[type="radio"]:checked + span {
   }
 }
 
+/* Stacked tab panels — cross-fade + slide (home Why Suricat / Platform sections) */
+.tab-panel-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tab-panel-stack > .animated-tab-pane {
+  grid-area: 1 / 1;
+  display: flex;
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
+.tab-panel-stack > .animated-tab-pane.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-panel-stack > .animated-tab-pane {
+    transition: none;
+    transform: none;
+  }
+}
+
 .solution-nav-pill {
   color: #0d1b3e;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .solution-nav-pill:hover:not(.is-active) {
@@ -2434,6 +2511,12 @@ input[type="radio"]:checked + span {
 .wizard-step-indicator.is-upcoming .step-label {
   color: #9ca3af;
   font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .wizard-step-indicator .step-label {
+    display: none !important;
+  }
 }
 
 .wizard-progress-line-fill {

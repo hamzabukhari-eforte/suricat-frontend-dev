@@ -115,8 +115,8 @@ export function DesignPartnersContent() {
                 collaborating directly with the Suricat founding team to shape
                 the future of Compliance Intelligence.
               </p>
-              <div className="flex items-center gap-3 mb-6 text-sm text-white transform translate-y-4 opacity-0 animate-fade-in-up-delayed">
-                <FaUsers className="text-teal shrink-0" aria-hidden="true" />
+              <div className="mb-6 flex items-start gap-3 text-sm text-white transform translate-y-4 opacity-0 animate-fade-in-up-delayed">
+                <FaUsers className="mt-0.5 shrink-0 text-teal" aria-hidden="true" />
                 <span>
                   Limited to a small cohort of medical device manufacturers.
                 </span>
@@ -143,27 +143,27 @@ export function DesignPartnersContent() {
                   />
                 </Link>
               </div>
-              <div className="flex flex-nowrap items-center gap-x-3 lg:gap-x-4 text-[10px] lg:text-[11px] text-white transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed">
-                <div className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              <div className="flex flex-col items-start gap-2 text-[11px] text-white transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 sm:gap-y-2 lg:flex-nowrap lg:gap-x-4 lg:text-[11px]">
+                <div className="flex items-center gap-1.5">
                   <FaClock
-                    className="text-teal text-[9px] lg:text-[10px]"
+                    className="shrink-0 text-teal text-[10px]"
                     aria-hidden="true"
                   />
-                  5-minute application
+                  <span>5-minute application</span>
                 </div>
-                <div className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <div className="flex items-center gap-1.5">
                   <FaCalendarCheck
-                    className="text-teal text-[9px] lg:text-[10px]"
+                    className="shrink-0 text-teal text-[10px]"
                     aria-hidden="true"
                   />
-                  Response within 3 business days
+                  <span>Response within 3 business days</span>
                 </div>
-                <div className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <div className="flex items-center gap-1.5">
                   <FaCircleCheck
-                    className="text-teal text-[9px] lg:text-[10px]"
+                    className="shrink-0 text-teal text-[10px]"
                     aria-hidden="true"
                   />
-                  No obligation
+                  <span>No obligation</span>
                 </div>
               </div>
             </div>
