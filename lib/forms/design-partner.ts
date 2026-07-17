@@ -1,3 +1,5 @@
+import { postInquiry, type FormResult } from "@/lib/api/client";
+
 export type DesignPartnerPayload = {
   companyName: string;
   companyWebsite: string;
@@ -18,17 +20,11 @@ export type DesignPartnerPayload = {
   ackNda: boolean;
 };
 
-export type FormResult = { ok: true } | { ok: false; error: string };
+export type { FormResult };
 
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-/** TODO: wire API */
-export async function submitDesignPartnerStub(
+export async function submitDesignPartner(
   payload: DesignPartnerPayload,
 ): Promise<FormResult> {
-  await delay(800);
   if (
     !payload.companyName ||
     !payload.contactName ||
@@ -38,5 +34,9 @@ export async function submitDesignPartnerStub(
   ) {
     return { ok: false, error: "Please complete all required fields." };
   }
-  return { ok: true };
+
+  return postInquiry("design-partner", payload);
 }
+
+/** @deprecated Use submitDesignPartner */
+export const submitDesignPartnerStub = submitDesignPartner;

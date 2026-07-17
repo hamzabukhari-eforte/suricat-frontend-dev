@@ -3,6 +3,7 @@
 import { FaArrowRight, FaCircleExclamation, FaEnvelope, FaLock } from "@/components/ui/icons";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import {
   buildDiscussionConfirmedQuery,
   submitReadiness,
@@ -49,7 +50,6 @@ export function ReadinessForm() {
   const [time, setTime] = useState<string | null>(null);
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
 
   const canSubmit = useMemo(() => {
     if (!name.trim() || !email.trim() || !company.trim()) return false;
@@ -72,7 +72,6 @@ export function ReadinessForm() {
   ]);
 
   async function onSubmit() {
-    setFormError(null);
     const payload: ReadinessPayload = {
       name,
       email,
@@ -93,7 +92,7 @@ export function ReadinessForm() {
 
     if (!result.ok) {
       if (result.fieldErrors?.email) setEmailError(true);
-      setFormError(result.error);
+      toast.error(result.error);
       return;
     }
 
@@ -101,6 +100,21 @@ export function ReadinessForm() {
     if (typeof window !== "undefined") {
       sessionStorage.setItem("suricat-discussion", JSON.stringify(payload));
     }
+
+    setName("");
+    setEmail("");
+    setCompany("");
+    setRole("");
+    setTimeline("");
+    setTimelineOther("");
+    setPriority("");
+    setPriorityOther("");
+    setContext("");
+    setDay(null);
+    setTime(null);
+    setEmailError(false);
+    toast.success("Discussion scheduled. A confirmation email is on the way.");
+
     router.push(`/discussion-confirmed?${qs}`);
   }
 
@@ -330,11 +344,9 @@ export function ReadinessForm() {
                   <FaCircleExclamation className="text-[10px] text-gray-400" aria-hidden="true" />
                 )}
                 <span>
-                  {formError
-                    ? formError
-                    : canSubmit
-                      ? "Confirmation email on the way"
-                      : "Complete all required fields to schedule your discussion."}
+                  {canSubmit
+                    ? "Confirmation email on the way"
+                    : "Complete all required fields to schedule your discussion."}
                 </span>
               </p>
             </div>

@@ -1,3 +1,5 @@
+import { postInquiry, type FormResult } from "@/lib/api/client";
+
 export type ReadinessPayload = {
   name: string;
   email: string;
@@ -12,8 +14,8 @@ export type ReadinessPayload = {
   time?: string;
 };
 
-export type FormResult =
-  | { ok: true }
+export type ReadinessFormResult =
+  | { ok: true; data?: unknown }
   | { ok: false; error: string; fieldErrors?: Record<string, string> };
 
 function isValidEmail(email: string) {
@@ -36,7 +38,9 @@ const TIMELINE_LABELS: Record<string, string> = {
   "180to365": "180–365 Days",
 };
 
-export function validateReadiness(payload: ReadinessPayload): FormResult {
+export function validateReadiness(
+  payload: ReadinessPayload,
+): ReadinessFormResult {
   const fieldErrors: Record<string, string> = {};
 
   if (!payload.name.trim()) fieldErrors.name = "Name is required.";
@@ -59,22 +63,23 @@ export function validateReadiness(payload: ReadinessPayload): FormResult {
   }
 
   if (Object.keys(fieldErrors).length) {
-    return { ok: false, error: "Please complete all required fields.", fieldErrors };
+    return {
+      ok: false,
+      error: "Please complete all required fields.",
+      fieldErrors,
+    };
   }
 
   return { ok: true };
 }
 
-/** TODO: wire API */
 export async function submitReadiness(
   payload: ReadinessPayload,
-): Promise<FormResult> {
+): Promise<ReadinessFormResult> {
   const validated = validateReadiness(payload);
   if (!validated.ok) return validated;
 
-  // TODO: wire API — POST readiness intake + schedule payload
-  await Promise.resolve();
-  return { ok: true };
+  return postInquiry("readiness", payload);
 }
 
 export function buildDiscussionConfirmedQuery(
@@ -105,3 +110,5 @@ export function buildDiscussionConfirmedQuery(
 
   return params.toString();
 }
+
+export type { FormResult };

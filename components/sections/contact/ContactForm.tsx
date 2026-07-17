@@ -1,8 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { toast } from "sonner";
 import {
-  submitContactStub,
+  submitContact,
   type ContactPayload,
 } from "@/lib/forms/contact";
 import { FaLock } from "@/components/ui/icons";
@@ -17,17 +18,14 @@ const inputClass =
   "w-full rounded-[4px] border border-gray-300 bg-white px-4 py-3 text-[#374151] placeholder:text-[#6b7280]/60 focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
-    "idle",
-  );
-  const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus("submitting");
-    setError(null);
 
-    const fd = new FormData(e.currentTarget);
+    const fd = new FormData(form);
     const payload: ContactPayload = {
       name: String(fd.get("name") ?? ""),
       company: String(fd.get("company") ?? ""),
@@ -36,13 +34,14 @@ export function ContactForm() {
       message: String(fd.get("message") ?? ""),
     };
 
-    const result = await submitContactStub(payload);
+    const result = await submitContact(payload);
     if (result.ok) {
-      setStatus("success");
-      e.currentTarget.reset();
+      form.reset();
+      setStatus("idle");
+      toast.success("Thank you. Your inquiry will be reviewed by the Suricat team.");
     } else {
       setStatus("error");
-      setError(result.error);
+      toast.error(result.error);
     }
   }
 
@@ -116,13 +115,6 @@ export function ContactForm() {
           className={`${inputClass} resize-y`}
         />
       </div>
-
-      {error ? <p className="text-sm text-orange font-medium">{error}</p> : null}
-      {status === "success" ? (
-        <p className="text-sm font-semibold text-teal">
-          Thank you. Your inquiry will be reviewed by the Suricat team.
-        </p>
-      ) : null}
 
       <div className="w-full pt-2">
         <button

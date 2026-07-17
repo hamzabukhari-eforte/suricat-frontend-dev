@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import {
-  submitDesignPartnerStub,
+  submitDesignPartner,
   type DesignPartnerPayload,
 } from "@/lib/forms/design-partner";
 import {
@@ -126,9 +127,11 @@ export function DesignPartnerForm({
   const [values, setValues] = useState<Values>(INITIAL);
   const [invalid, setInvalid] = useState<Set<string>>(new Set());
   const [ackInvalid, setAckInvalid] = useState<Set<string>>(new Set());
-  const [error, setError] = useState<string | null>(null);
+  const [showAckErrors, setShowAckErrors] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
+  /** Blocks accidental submit from the Next→Submit button swap under the cursor. */
+  const submitArmedRef = useRef(true);
 
   useEffect(() => {
     const t = window.setTimeout(() => setEnterClass(""), 420);
@@ -143,7 +146,6 @@ export function DesignPartnerForm({
       next.delete(key as string);
       return next;
     });
-    setError(null);
   }
 
   function requiredFieldsFor(s: number): (keyof Values)[] {
@@ -180,7 +182,7 @@ export function DesignPartnerForm({
     });
     if (missing.length) {
       setInvalid(new Set(missing as string[]));
-      setError("Please complete all required fields before continuing.");
+      toast.error("Please complete all required fields before continuing.");
       return false;
     }
     setInvalid(new Set());
@@ -197,7 +199,15 @@ export function DesignPartnerForm({
         }
       }
     }
-    setError(null);
+    // Ack errors only after an explicit submit attempt on the last step.
+    setShowAckErrors(false);
+    setAckInvalid(new Set());
+    if (next === TOTAL_STEPS) {
+      submitArmedRef.current = false;
+      window.setTimeout(() => {
+        submitArmedRef.current = true;
+      }, 400);
+    }
     setEnterClass(
       direction === "forward" ? "is-entering-forward" : "is-entering-back",
     );
@@ -221,30 +231,31 @@ export function DesignPartnerForm({
         : [...v.docSystems, value];
       return { ...v, docSystems };
     });
-    setError(null);
   }
 
   function validateAcks(): boolean {
     const bad = new Set<string>();
     if (!values.ackDesignPartner) bad.add("ackDesignPartner");
     if (!values.ackNda) bad.add("ackNda");
-    setAckInvalid(bad);
     if (bad.size) {
-      setError("Please confirm both acknowledgments before submitting.");
+      setShowAckErrors(true);
+      setAckInvalid(bad);
+      toast.error("Please confirm both acknowledgments before submitting.");
       return false;
     }
+    setShowAckErrors(false);
+    setAckInvalid(new Set());
     return true;
   }
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function submitApplication() {
+    if (step !== TOTAL_STEPS || !submitArmedRef.current || submitting) return;
     if (!validateStep(4)) {
       goTo(4, "back");
       return;
     }
     if (!validateAcks()) return;
     setSubmitting(true);
-    setError(null);
     const payload: DesignPartnerPayload = {
       companyName: values.companyName,
       companyWebsite: values.companyWebsite,
@@ -264,7 +275,7 @@ export function DesignPartnerForm({
       ackDesignPartner: values.ackDesignPartner,
       ackNda: values.ackNda,
     };
-    const result = await submitDesignPartnerStub(payload);
+    const result = await submitDesignPartner(payload);
     setSubmitting(false);
     if (result.ok) {
       try {
@@ -272,10 +283,24 @@ export function DesignPartnerForm({
       } catch {
         /* ignore */
       }
+      setValues(INITIAL);
+      setInvalid(new Set());
+      setAckInvalid(new Set());
+      setShowAckErrors(false);
+      setStep(1);
+      setEnterClass("");
+      toast.success(
+        "Application submitted. Our team will contact you within 1 business day.",
+      );
       onSubmitted?.();
     } else {
-      setError(result.error);
+      toast.error(result.error);
     }
+  }
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await submitApplication();
   }
 
   function saveDraft() {
@@ -346,13 +371,6 @@ export function DesignPartnerForm({
             {STEP_LABELS[step - 1].join(" ")}
           </span>
         </p>
-      </div>
-
-      <div
-        className={`wizard-error-banner${error ? " is-visible" : ""}`}
-        role="alert"
-      >
-        {error}
       </div>
 
       <form onSubmit={onSubmit} noValidate>
@@ -828,13 +846,17 @@ export function DesignPartnerForm({
                   <div className="space-y-4">
                     <label
                       className={`flex items-start gap-3 cursor-pointer group ack-label${
-                        ackInvalid.has("ackDesignPartner") ? " is-invalid" : ""
+                        showAckErrors && ackInvalid.has("ackDesignPartner")
+                          ? " is-invalid"
+                          : ""
                       }`}
                     >
                       <input
                         type="checkbox"
                         className={`ack-cb mt-0.5 shrink-0${
-                          ackInvalid.has("ackDesignPartner") ? " is-invalid" : ""
+                          showAckErrors && ackInvalid.has("ackDesignPartner")
+                            ? " is-invalid"
+                            : ""
                         }`}
                         checked={values.ackDesignPartner}
                         onChange={(e) => {
@@ -853,13 +875,17 @@ export function DesignPartnerForm({
                     </label>
                     <label
                       className={`flex items-start gap-3 cursor-pointer group ack-label${
-                        ackInvalid.has("ackNda") ? " is-invalid" : ""
+                        showAckErrors && ackInvalid.has("ackNda")
+                          ? " is-invalid"
+                          : ""
                       }`}
                     >
                       <input
                         type="checkbox"
                         className={`ack-cb mt-0.5 shrink-0${
-                          ackInvalid.has("ackNda") ? " is-invalid" : ""
+                          showAckErrors && ackInvalid.has("ackNda")
+                            ? " is-invalid"
+                            : ""
                         }`}
                         checked={values.ackNda}
                         onChange={(e) => {
@@ -925,8 +951,11 @@ export function DesignPartnerForm({
               </button>
             ) : (
               <button
-                type="submit"
+                type="button"
                 disabled={submitting}
+                onClick={() => {
+                  void submitApplication();
+                }}
                 className="order-1 sm:order-2 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all disabled:opacity-60"
               >
                 {submitting ? "Submitting…" : "Submit Application"}{" "}

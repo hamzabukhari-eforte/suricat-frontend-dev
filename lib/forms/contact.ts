@@ -1,3 +1,5 @@
+import { postInquiry, type FormResult } from "@/lib/api/client";
+
 export type ContactPayload = {
   name: string;
   company: string;
@@ -6,19 +8,17 @@ export type ContactPayload = {
   message: string;
 };
 
-export type FormResult = { ok: true } | { ok: false; error: string };
+export type { FormResult };
 
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-/** TODO: wire API */
-export async function submitContactStub(
+export async function submitContact(
   payload: ContactPayload,
 ): Promise<FormResult> {
-  await delay(600);
   if (!payload.name || !payload.workEmail || !payload.message) {
     return { ok: false, error: "Please fill in all required fields." };
   }
-  return { ok: true };
+
+  return postInquiry("contact", payload);
 }
+
+/** @deprecated Use submitContact */
+export const submitContactStub = submitContact;

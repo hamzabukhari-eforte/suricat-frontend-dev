@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { AppToaster } from "@/components/ui/AppToaster";
 import "./globals.css";
 
 const plusJakarta = localFont({
@@ -38,6 +39,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <AppToaster />
       </body>
     </html>
   );

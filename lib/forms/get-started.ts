@@ -1,3 +1,5 @@
+import { postInquiry, type FormResult } from "@/lib/api/client";
+
 export type GetStartedPayload = {
   name: string;
   email: string;
@@ -11,8 +13,8 @@ export type GetStartedPayload = {
   time?: string;
 };
 
-export type FormResult =
-  | { ok: true }
+export type GetStartedFormResult =
+  | { ok: true; data?: unknown }
   | { ok: false; error: string; fieldErrors?: Record<string, string> };
 
 function isValidEmail(email: string) {
@@ -21,7 +23,7 @@ function isValidEmail(email: string) {
 
 export function validateGetStarted(
   payload: GetStartedPayload,
-): FormResult {
+): GetStartedFormResult {
   const fieldErrors: Record<string, string> = {};
 
   if (!payload.name.trim()) fieldErrors.name = "Name is required.";
@@ -40,22 +42,23 @@ export function validateGetStarted(
   }
 
   if (Object.keys(fieldErrors).length) {
-    return { ok: false, error: "Please complete all required fields.", fieldErrors };
+    return {
+      ok: false,
+      error: "Please complete all required fields.",
+      fieldErrors,
+    };
   }
 
   return { ok: true };
 }
 
-/** TODO: wire API */
 export async function submitGetStarted(
   payload: GetStartedPayload,
-): Promise<FormResult> {
+): Promise<GetStartedFormResult> {
   const validated = validateGetStarted(payload);
   if (!validated.ok) return validated;
 
-  // TODO: wire API — POST intake + schedule payload
-  await Promise.resolve();
-  return { ok: true };
+  return postInquiry("get-started", payload);
 }
 
 export function buildDiscussionConfirmedQuery(
@@ -74,3 +77,5 @@ export function buildDiscussionConfirmedQuery(
   }
   return params.toString();
 }
+
+export type { FormResult };
