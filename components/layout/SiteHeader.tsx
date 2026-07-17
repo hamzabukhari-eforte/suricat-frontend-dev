@@ -256,10 +256,13 @@ export function SiteHeader() {
                   {menu.links.some((link) => link.href === menu.intro.ctaHref) ? null : (
                     <Link
                       href={menu.intro.ctaHref}
-                      className="block py-2 px-2 text-sm font-semibold text-teal"
+                      className="nav-mega-intro-cta py-2 px-2"
                       onClick={closeMobile}
                     >
-                      {menu.intro.ctaLabel}
+                      <span className="nav-mega-intro-cta-text">
+                        {menu.intro.ctaLabel}
+                      </span>
+                      <FaArrowRight className="text-xs" aria-hidden="true" />
                     </Link>
                   )}
                   {menu.links.map((link) => (

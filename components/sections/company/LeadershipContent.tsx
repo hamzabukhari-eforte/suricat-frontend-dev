@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { StickySubnav } from "@/components/layout/StickySubnav";
+import { Container } from "@/components/ui/Container";
 import { FaArrowRight, FaChevronRight } from "@/components/ui/icons";
 import { companySubnavLinks } from "@/lib/navigation";
 
@@ -99,53 +100,57 @@ export function LeadershipContent() {
   return (
     <>
       <StickySubnav links={companySubnavLinks} category="Company" navLabel="Company pages" />
-      <section className="mx-auto max-w-7xl px-4 pt-8">
-        <div className="mb-6">
-          <h1 className="mb-4 max-w-3xl text-[28px] font-bold leading-[36px] text-navy lg:text-[36px] lg:leading-[44px]">
-            Built By The People Who Experienced{" "}
-            <span className="text-teal">The Problem From Every Angle.</span>
-          </h1>
-          <p className="max-w-4xl text-base leading-relaxed text-navy lg:text-[22px] lg:leading-[30px]">
-            Suricat was not founded by technologists alone. It was built by
-            leaders in enterprise software, artificial intelligence, quality
-            systems, and FDA regulatory affairs who each experienced the same
-            structural gap through their own discipline.
-          </p>
-        </div>
+      <section className="pt-8">
+        <Container>
+          <div className="mb-6">
+            <h1 className="mb-4 max-w-3xl text-[28px] font-bold leading-[36px] text-navy lg:text-[36px] lg:leading-[44px]">
+              Built By The People Who Experienced{" "}
+              <span className="text-teal">The Problem From Every Angle.</span>
+            </h1>
+            <p className="max-w-4xl text-base leading-relaxed text-navy lg:text-[22px] lg:leading-[30px]">
+              Suricat was not founded by technologists alone. It was built by
+              leaders in enterprise software, artificial intelligence, quality
+              systems, and FDA regulatory affairs who each experienced the same
+              structural gap through their own discipline.
+            </p>
+          </div>
+        </Container>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 lg:flex-nowrap lg:justify-between lg:gap-x-8 xl:gap-x-20">
-          {LEADERS.map((leader) => (
-            <div
-              key={leader.id}
-              className="group flex cursor-pointer flex-col items-center text-center"
-              onClick={() => setActiveId(leader.id)}
-            >
-              <div className="mb-6 h-56 w-56 overflow-hidden rounded-full border-8 border-gray-100 transition-colors duration-300 group-hover:border-teal xl:h-64 xl:w-64">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={leader.photo}
-                  alt={leader.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <h3 className="mb-1 text-2xl font-bold text-navy">{leader.name}</h3>
-              <p className="mb-4 text-sm text-navy">{leader.title}</p>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveId(leader.id);
-                }}
-                className="inline-flex items-center gap-2 font-bold text-teal hover:underline"
+      <section className="py-8">
+        <Container>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-16 lg:flex-nowrap lg:justify-between lg:gap-x-6 xl:gap-x-8">
+            {LEADERS.map((leader) => (
+              <div
+                key={leader.id}
+                className="group flex w-56 cursor-pointer flex-col items-center text-center lg:min-w-0 lg:w-auto lg:flex-1 xl:max-w-64"
+                onClick={() => setActiveId(leader.id)}
               >
-                Read Bio
-                <FaChevronRight className="text-[10px]" aria-hidden="true" />
-              </button>
-            </div>
-          ))}
-        </div>
+                <div className="mb-6 h-56 w-56 overflow-hidden rounded-full border-8 border-gray-100 transition-colors duration-300 group-hover:border-teal lg:aspect-square lg:h-auto lg:w-full lg:max-w-56 xl:max-w-64">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={leader.photo}
+                    alt={leader.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="mb-1 text-2xl font-bold text-navy">{leader.name}</h3>
+                <p className="mb-4 text-sm text-navy">{leader.title}</p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveId(leader.id);
+                  }}
+                  className="inline-flex items-center gap-2 font-bold text-teal hover:underline"
+                >
+                  Read Bio
+                  <FaChevronRight className="text-[10px]" aria-hidden="true" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
 
       {active ? (
