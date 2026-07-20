@@ -21,7 +21,9 @@ export function SiteHeader() {
   const [hash, setHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [openAccordions, setOpenAccordions] = useState<Set<string>>(
+    () => new Set(),
+  );
   const mobileLangRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -66,8 +68,17 @@ export function SiteHeader() {
 
   const closeMobile = () => {
     setMobileOpen(false);
-    setOpenAccordion(null);
+    setOpenAccordions(new Set());
     setMobileLangOpen(false);
+  };
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordions((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   };
 
   const onMegaLinkClick = () => {
@@ -295,19 +306,17 @@ export function SiteHeader() {
                   className={`w-full flex items-center justify-between py-3 text-lg font-semibold text-left${
                     menuActive ? " text-teal" : ""
                   }`}
-                  onClick={() =>
-                    setOpenAccordion((id) => (id === menu.id ? null : menu.id))
-                  }
+                  onClick={() => toggleAccordion(menu.id)}
                 >
                   {menu.label}
                   <FaChevronDown
                     className={`text-xs transition-transform ${
-                      openAccordion === menu.id ? "rotate-180" : ""
+                      openAccordions.has(menu.id) ? "rotate-180" : ""
                     }`}
                     aria-hidden="true"
                   />
                 </button>
-                {openAccordion === menu.id ? (
+                {openAccordions.has(menu.id) ? (
                   <div className="pb-3 space-y-1">
                     {menu.links.some(
                       (link) => link.href === menu.intro.ctaHref,
@@ -348,35 +357,35 @@ export function SiteHeader() {
               </div>
             );
           })}
+        </div>
 
-          <div className="flex flex-col gap-3 pt-4">
-            <Link
-              href="/login"
-              className="cursor-pointer rounded-full border-2 border-navy bg-white px-6 py-3 text-center font-bold text-navy"
-              onClick={closeMobile}
-            >
-              Login
-            </Link>
-            <Link
-              href="/get-started"
-              className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
-              onClick={closeMobile}
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/design-partners"
-              className={`suricat-teal-btn inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-base font-bold transition-all${
-                pathname.startsWith("/design-partners")
-                  ? " ring-2 ring-teal ring-offset-2"
-                  : ""
-              }`}
-              onClick={closeMobile}
-            >
-              <FaHandshake className="text-lg" aria-hidden="true" />
-              Design Partners
-            </Link>
-          </div>
+        <div className="mobile-menu-footer flex flex-col gap-3 border-t border-gray-200 bg-white p-4">
+          <Link
+            href="/login"
+            className="cursor-pointer rounded-full border-2 border-navy bg-white px-6 py-3 text-center font-bold text-navy"
+            onClick={closeMobile}
+          >
+            Login
+          </Link>
+          <Link
+            href="/get-started"
+            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
+            onClick={closeMobile}
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/design-partners"
+            className={`suricat-teal-btn inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-base font-bold transition-all${
+              pathname.startsWith("/design-partners")
+                ? " ring-2 ring-teal ring-offset-2"
+                : ""
+            }`}
+            onClick={closeMobile}
+          >
+            <FaHandshake className="text-lg" aria-hidden="true" />
+            Design Partners
+          </Link>
         </div>
       </div>
     </nav>
