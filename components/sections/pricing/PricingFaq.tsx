@@ -56,7 +56,7 @@ function FaqIcon({ open }: { open: boolean }) {
 
 export function PricingFaq({
   items,
-  eyebrow = "Pricing FAQ",
+  eyebrow = "Pricing FAQs",
   title = "The Questions Most Asked Before Starting an Evaluation.",
   description = "Answers to the most common questions about Suricat subscription terms, Document Capacity, evaluation access, and commercial commitments.",
   viewAllHref,
