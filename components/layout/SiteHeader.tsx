@@ -269,8 +269,8 @@ export function SiteHeader() {
             alt="Suricat"
             width={2048}
             height={470}
-            className="object-contain object-left"
-            style={{ width: "auto", height: "2rem" }}
+            className="nav-logo shrink-0 object-contain object-left"
+            style={{ width: "auto" }}
           />
           <button
             onClick={closeMobile}

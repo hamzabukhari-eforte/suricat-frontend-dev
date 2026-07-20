@@ -255,30 +255,28 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-4 text-[10px] uppercase tracking-widest text-gray-500 lg:flex-row lg:gap-6">
-          <p>
-            © 2026 Suricat. All rights reserved.{" "}
-            <a
-              href="#"
-              className="nav-link-animated ml-2 inline-block hover:text-white"
-            >
+        <div className="flex flex-col items-center gap-3 border-t border-white/10 pt-4 text-center text-[10px] uppercase tracking-widest text-gray-500 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:text-left">
+          <p>© 2026 Suricat. All rights reserved.</p>
+          <nav
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 pb-1"
+            aria-label="Legal"
+          >
+            <a href="#" className="nav-link-animated inline-block hover:text-white">
               Terms &amp; Conditions
-            </a>{" "}
-            |{" "}
-            <a
-              href="#"
-              className="nav-link-animated ml-2 inline-block hover:text-white"
-            >
+            </a>
+            <span aria-hidden="true" className="text-gray-500/80">
+              |
+            </span>
+            <a href="#" className="nav-link-animated inline-block hover:text-white">
               Privacy Policy
-            </a>{" "}
-            |{" "}
-            <a
-              href="#"
-              className="nav-link-animated ml-2 inline-block hover:text-white"
-            >
+            </a>
+            <span aria-hidden="true" className="text-gray-500/80">
+              |
+            </span>
+            <a href="#" className="nav-link-animated inline-block hover:text-white">
               Cookie Settings
             </a>
-          </p>
+          </nav>
         </div>
       </div>
     </footer>

@@ -208,14 +208,16 @@ section[id] {
 }
 
 .nav-brand-cluster .nav-logo,
-.nav-brand-cluster #ig8vb {
+.nav-brand-cluster #ig8vb,
+.mobile-menu-header .nav-logo {
   width: auto;
   height: 2.5rem;
 }
 
 @media (min-width: 640px) {
   .nav-brand-cluster .nav-logo,
-  .nav-brand-cluster #ig8vb {
+  .nav-brand-cluster #ig8vb,
+  .mobile-menu-header .nav-logo {
     width: auto;
     height: 2.75rem;
   }
