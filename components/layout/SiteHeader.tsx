@@ -219,7 +219,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/get-started"
-              className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy font-semibold! text-white transition-colors hover:bg-navy/90"
+              className="nav-cta-btn inline-flex items-center justify-center cursor-pointer rounded-full border-2 border-navy bg-navy font-semibold text-white transition-colors hover:bg-navy/90"
             >
               Get Started
             </Link>
