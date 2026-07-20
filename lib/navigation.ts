@@ -162,12 +162,10 @@ export const footerTopLinks: NavLink[] = [
 ];
 
 export const footerCompanyLinks: NavLink[] = [
-  { label: "About us", href: "/company/our-story" },
-  { label: "Careers", href: "#" },
+  { label: "Our Story", href: "/company/our-story" },
+  { label: "Mission and Vision", href: "/company/mission-vision" },
   { label: "Leadership", href: "/company/leadership" },
-  { label: "Partners", href: "#" },
-  { label: "FAQ", href: "#" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export const footerWhyLinks: NavLink[] = [
@@ -193,13 +191,11 @@ export const footerPlatformLinks: NavLink[] = [
 ];
 
 export const footerResourceLinks: NavLink[] = [
-  { label: "Regulatory Guides", href: "#" },
-  { label: "Industry Insights", href: "#" },
-  { label: "Whitepapers", href: "#" },
+  { label: "Design Partner", href: "/design-partners" },
+  { label: "Industry", href: "/industries/medical-devices" },
+  { label: "FAQs", href: "/pricing/faq" },
   { label: "Blog", href: "#" },
   { label: "Events", href: "#" },
-  { label: "Help Center", href: "#" },
-  { label: "Support", href: "#" },
 ];
 
 export const companySubnavLinks: NavLink[] = [

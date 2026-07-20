@@ -108,7 +108,7 @@ export function IndustryExpansionContent() {
       {/* Hero */}
       <section
         id="overview"
-        className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-navy py-12 text-white lg:min-h-[500px] lg:py-12"
+        className="relative flex min-h-0 w-full items-center justify-center overflow-hidden bg-navy py-8 text-white max-lg:items-start max-lg:justify-start max-lg:overflow-visible md:py-10 lg:min-h-[500px] lg:py-12"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"

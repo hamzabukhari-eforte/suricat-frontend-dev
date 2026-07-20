@@ -341,7 +341,19 @@ export function ReadinessForm() {
                 {canSubmit ? (
                   <FaEnvelope className="text-[10px] text-teal" aria-hidden="true" />
                 ) : (
-                  <FaCircleExclamation className="text-[10px] text-gray-400" aria-hidden="true" />
+                  <span className="group/tip relative inline-flex">
+                    <FaCircleExclamation
+                      className="cursor-help text-[10px] text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span
+                      role="tooltip"
+                      className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-56 -translate-x-1/2 rounded-[4px] bg-navy px-3 py-2 text-left text-[11px] leading-snug text-white opacity-0 shadow-lg transition-opacity group-hover/tip:opacity-100"
+                    >
+                      30-minute introductory discussion with a Suricat specialist.
+                      No preparation required—simply select a convenient time.
+                    </span>
+                  </span>
                 )}
                 <span>
                   {canSubmit

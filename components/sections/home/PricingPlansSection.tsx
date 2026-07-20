@@ -66,9 +66,9 @@ export function PricingPlansSection() {
                         <p className="text-navy text-sm mt-1">90-day evaluation term</p>
                       </div>
                       <div
-                        className="rounded-[4px] bg-teal/10 border border-teal/20 p-4 mb-5 text-center"
+                        className="pricing-doc-capacity rounded-[4px] bg-teal/10 border border-teal/20 p-4 mb-5"
                       >
-                        <FaFileLines className="text-teal text-lg mb-2" aria-hidden="true" />
+                        <FaFileLines className="text-teal text-lg" aria-hidden="true" />
                         <p className="text-teal font-bold text-sm tracking-wide mt-1">
                           50 DOCUMENTS
                         </p>
@@ -179,9 +179,9 @@ export function PricingPlansSection() {
                         <p className="text-navy text-sm mt-1">per year</p>
                       </div>
                       <div
-                        className="rounded-[4px] bg-teal/10 border border-teal/20 p-4 mb-5 text-center"
+                        className="pricing-doc-capacity rounded-[4px] bg-teal/10 border border-teal/20 p-4 mb-5"
                       >
-                        <FaFileLines className="text-teal text-lg mb-2" aria-hidden="true" />
+                        <FaFileLines className="text-teal text-lg" aria-hidden="true" />
                         <p className="text-teal font-bold text-sm tracking-wide mt-1">
                           250 DOCUMENTS
                         </p>
@@ -297,9 +297,9 @@ export function PricingPlansSection() {
                         <p className="pricing-price-muted text-sm mt-1">per year</p>
                       </div>
                       <div
-                        className="pricing-doc-box rounded-[4px] border p-4 mb-5 text-center"
+                        className="pricing-doc-capacity pricing-doc-box rounded-[4px] border p-4 mb-5"
                       >
-                        <FaFileLines className="text-lg mb-2" aria-hidden="true" />
+                        <FaFileLines className="text-lg" aria-hidden="true" />
                         <p className="font-bold text-sm tracking-wide mt-1">
                           1,000 DOCUMENTS
                         </p>
@@ -412,9 +412,9 @@ export function PricingPlansSection() {
                         <p className="text-sm mt-1">annual platform license</p>
                       </div>
                       <div
-                        className="pricing-doc-box rounded-[4px] border py-4 px-2 mb-5 text-center"
+                        className="pricing-doc-capacity pricing-doc-box rounded-[4px] border py-4 px-2 mb-5"
                       >
-                        <FaFileLines className="pricing-accent text-lg mb-2" aria-hidden="true" />
+                        <FaFileLines className="pricing-accent text-lg" aria-hidden="true" />
                         <p className="pricing-accent font-bold text-sm tracking-wide mt-1">
                           CUSTOM CAPACITY
                         </p>

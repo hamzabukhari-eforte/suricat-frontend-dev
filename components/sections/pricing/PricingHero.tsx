@@ -39,14 +39,14 @@ export function PricingHero({
   return (
     <section
       id="hero-section"
-      className={`relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-navy py-12 text-white max-md:min-h-0 max-md:items-start max-md:justify-start max-md:overflow-visible max-md:py-8 lg:min-h-[500px] lg:py-12 ${className}`.trim()}
+      className={`relative flex min-h-0 w-full items-center justify-center overflow-hidden bg-navy py-8 text-white max-lg:items-start max-lg:justify-start max-lg:overflow-visible md:py-10 lg:min-h-[500px] lg:py-12 ${className}`.trim()}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"
         aria-hidden="true"
       />
       <div
-        className={`relative z-10 mx-auto flex w-full ${measure} flex-col items-center justify-center px-4 py-8 text-center max-md:justify-start max-md:py-2 sm:px-6 lg:py-0`}
+        className={`relative z-10 mx-auto flex w-full ${measure} flex-col items-center justify-center px-4 py-8 text-center max-lg:justify-start max-lg:py-2 sm:px-6 lg:py-0`}
       >
         <h1
           className={`text-2xl sm:text-3xl lg:text-[36px] font-bold !leading-[32px] sm:!leading-[44px] mb-3 sm:mb-4 tracking-tight ${titleMaxWidth} animate-fade-up-2`}

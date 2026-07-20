@@ -66,7 +66,7 @@ export function DesignPartnerApplyContent() {
     <>
       <section
         id="hero-section"
-        className="w-full bg-navy relative overflow-hidden py-12 lg:py-12 min-h-[70vh] lg:min-h-[500px] flex items-center justify-center text-white"
+        className="w-full bg-navy relative overflow-hidden py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center justify-center text-white"
       >
         <div
           className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"

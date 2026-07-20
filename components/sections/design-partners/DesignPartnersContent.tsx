@@ -99,11 +99,11 @@ export function DesignPartnersContent() {
     <>
       <header
         id="design-partners-hero"
-        className="bg-navy text-white relative overflow-hidden py-12 lg:py-12 min-h-[70vh] lg:min-h-[500px] flex items-center"
+        className="bg-navy text-white relative overflow-hidden py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center"
       >
         <div className="w-full max-w-7xl mx-auto px-6 flex items-center relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 w-full items-center">
-            <div className="flex flex-col justify-center min-w-0 lg:col-span-5">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-10 w-full items-center">
+            <div className="flex flex-col justify-center min-w-0 md:col-span-5">
               <h1 className="text-4xl lg:text-[36px] font-bold mb-4 leading-[44px] transform translate-y-4 opacity-0 animate-fade-in-up">
                 Help Define the Future of
                 <br />
@@ -121,10 +121,10 @@ export function DesignPartnersContent() {
                   Limited to a small cohort of medical device manufacturers.
                 </span>
               </div>
-              <div className="flex flex-col gap-2 mb-6 transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed lg:flex-row lg:flex-nowrap lg:items-center">
+              <div className="flex flex-col gap-2 mb-6 transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed md:flex-row md:flex-nowrap md:items-center">
                 <Link
                   href="/design-partners/apply"
-                  className="hero-cta-hover hero-banner-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition-all whitespace-nowrap shrink-0 w-full lg:w-auto"
+                  className="hero-cta-hover hero-banner-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition-all whitespace-nowrap shrink-0 w-full md:w-auto"
                 >
                   Become a Design Partner
                   <FaArrowRight
@@ -134,7 +134,7 @@ export function DesignPartnersContent() {
                 </Link>
                 <Link
                   href="/readiness"
-                  className="hero-cta-hover hero-banner-cta-btn group inline-flex items-center justify-center gap-1.5 border-2 border-white/20 text-white rounded-full font-bold hover:border-white transition-all whitespace-nowrap shrink-0 w-full lg:w-auto"
+                  className="hero-cta-hover hero-banner-cta-btn group inline-flex items-center justify-center gap-1.5 border-2 border-white/20 text-white rounded-full font-bold hover:border-white transition-all whitespace-nowrap shrink-0 w-full md:w-auto"
                 >
                   Schedule a Discussion
                   <FaArrowRight
@@ -168,15 +168,15 @@ export function DesignPartnersContent() {
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center justify-center relative lg:col-span-7 overflow-visible">
-              <div className="relative z-10 w-full flex flex-col items-center justify-center transform translate-x-4 opacity-0 animate-slide-in-right">
+            <div className="hidden md:flex items-center justify-center relative md:col-span-7 overflow-visible">
+              <div className="relative z-10 w-full flex flex-col items-center justify-center transform md:translate-x-2 lg:translate-x-4 opacity-0 animate-slide-in-right">
                 <Image
                   id="dp-hero-svg"
                   src="/assets/images/design-partner.svg"
                   alt="Design partner program"
                   width={760}
                   height={520}
-                  className="relative z-10 h-auto object-contain"
+                  className="relative z-10 h-auto w-full max-w-[420px] lg:max-w-none object-contain"
                   style={{ height: "auto" }}
                   priority
                 />

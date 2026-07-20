@@ -148,12 +148,14 @@ export function HomeSectionTabNav({
         <button
           type="button"
           id={dropdownTriggerId}
-          className="flex w-full items-center justify-between rounded-[4px] border border-gray-200 bg-white px-4 py-2.5 text-sm text-navy shadow-sm"
+          className="flex w-full items-center justify-between rounded-[4px] border-2 border-gray-200 bg-white px-4 py-3 shadow-sm"
           aria-expanded={dropdownOpen}
           aria-controls={dropdownMenuId}
           onClick={() => setDropdownOpen((open) => !open)}
         >
-          <span className="truncate pr-3 text-left font-medium">{tabs[active]}</span>
+          <span className="truncate pr-3 text-left text-base font-semibold text-teal sm:text-lg">
+            {tabs[active]}
+          </span>
           <FaChevronDown
             className={`shrink-0 text-xs text-gray-600 transition-transform duration-300 ${
               dropdownOpen ? "rotate-180" : ""
@@ -170,10 +172,10 @@ export function HomeSectionTabNav({
               <button
                 key={label}
                 type="button"
-                className={`block w-full px-4 py-2 text-left text-sm transition-colors ${
+                className={`block w-full px-4 py-2.5 text-left text-base transition-colors sm:text-lg ${
                   index === active
-                    ? "bg-gray-50 font-medium text-teal"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-teal"
+                    ? "bg-gray-50 font-semibold text-teal"
+                    : "font-medium text-gray-700 hover:bg-gray-50 hover:text-teal"
                 }`}
                 onClick={() => selectTab(index)}
               >

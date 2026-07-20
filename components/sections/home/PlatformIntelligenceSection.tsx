@@ -110,7 +110,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 0}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/intelligence-layer.png"
@@ -150,7 +150,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 1}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/read-only-by-design.png"
@@ -189,7 +189,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 2}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/no-rip-and-replace.png"
@@ -228,7 +228,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 3}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/human-accountability.png"
@@ -267,7 +267,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 4}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/deployment.png"
@@ -306,7 +306,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 5}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/regulatory-ontology.png"
@@ -345,7 +345,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 6}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/canonical-intelligence-schema.png"
@@ -386,7 +386,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 7}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/quality-validation-rating.png"
@@ -426,7 +426,7 @@ export function PlatformIntelligenceSection() {
                 aria-hidden={active !== 8}
               >
                 <div
-                  className="xl:w-1/2 bg-[#000F2B] flex items-center justify-center min-h-[240px]"
+                  className="xl:w-1/2 bg-[#001741] flex items-center justify-center min-h-[240px]"
                 >
                   <Image
                     src="/assets/images/bonded-reasoning.png"

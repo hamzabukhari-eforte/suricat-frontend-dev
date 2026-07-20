@@ -165,7 +165,7 @@ export function LeadershipContent() {
             className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[4px] bg-[#f4f6f8] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative flex h-[400px] items-end justify-end overflow-hidden bg-navy p-8">
+            <div className="relative flex h-[400px] items-end justify-end overflow-hidden bg-navy p-8 md:h-[480px] lg:h-[400px]">
               <button
                 type="button"
                 onClick={() => setActiveId(null)}

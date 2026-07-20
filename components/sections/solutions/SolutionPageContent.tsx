@@ -130,7 +130,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
       {/* Hero */}
       <section
         id="hero-section"
-        className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-navy py-12 text-white max-[374px]:min-h-0 max-[374px]:items-start max-[374px]:justify-start max-[374px]:overflow-visible max-[374px]:py-6 lg:min-h-[500px] lg:py-12"
+        className="relative flex min-h-0 w-full items-center justify-center overflow-hidden bg-navy py-8 text-white max-lg:items-start max-lg:justify-start max-lg:overflow-visible max-[374px]:py-6 md:py-10 lg:min-h-[500px] lg:py-12"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"
