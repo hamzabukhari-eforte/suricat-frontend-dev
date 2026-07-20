@@ -186,31 +186,21 @@ export function HomeSectionTabNav({
         ) : null}
       </div>
 
-      <div className="relative mb-6 hidden items-center lg:flex">
+      <div className="relative mb-6 hidden items-center gap-2 lg:flex xl:block xl:gap-0">
         <button
           type="button"
           id={prevBtnId}
           ref={prevBtnRef}
           aria-label="Scroll tabs left"
-          className={`absolute -left-10 z-10 flex cursor-pointer items-center justify-center disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 ${arrowClass}`}
+          className={`section-tabs-carousel-arrow z-10 flex shrink-0 cursor-pointer items-center justify-center disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 xl:absolute xl:-left-10 ${arrowClass}`}
           onClick={() => scrollCarousel("left")}
         >
           <FaChevronLeft className="text-3xl" aria-hidden="true" />
         </button>
-        <button
-          type="button"
-          id={nextBtnId}
-          ref={nextBtnRef}
-          aria-label="Scroll tabs right"
-          className={`absolute -right-10 z-10 flex cursor-pointer items-center justify-center disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 ${arrowClass}`}
-          onClick={() => scrollCarousel("right")}
-        >
-          <FaChevronRight className="text-3xl" aria-hidden="true" />
-        </button>
         <div
           id={carouselId}
           ref={carouselRef}
-          className="tabs-carousel w-full overflow-x-auto"
+          className="tabs-carousel min-w-0 flex-1 overflow-x-auto xl:w-full"
         >
           <div className="relative flex w-max min-w-full flex-nowrap gap-[60px] border-b-4 border-gray-200 text-sm font-normal uppercase tracking-wider">
             <div
@@ -235,6 +225,16 @@ export function HomeSectionTabNav({
             ))}
           </div>
         </div>
+        <button
+          type="button"
+          id={nextBtnId}
+          ref={nextBtnRef}
+          aria-label="Scroll tabs right"
+          className={`section-tabs-carousel-arrow z-10 flex shrink-0 cursor-pointer items-center justify-center disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-30 xl:absolute xl:-right-10 ${arrowClass}`}
+          onClick={() => scrollCarousel("right")}
+        >
+          <FaChevronRight className="text-3xl" aria-hidden="true" />
+        </button>
       </div>
     </>
   );

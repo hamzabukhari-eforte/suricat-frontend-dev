@@ -860,27 +860,68 @@ button.nav-language-trigger:hover {
 #tabs-prev-btn,
 #tabs-next-btn,
 #platform-tabs-prev-btn,
-#platform-tabs-next-btn {
-  top: 50%;
-  transform: translateY(-50%) !important;
+#platform-tabs-next-btn,
+.section-tabs-carousel-arrow {
   box-shadow: none !important;
   transition: color 0.2s ease !important;
 }
 
-#tabs-prev-btn:hover,
-#tabs-next-btn:hover,
-#platform-tabs-prev-btn:hover,
-#platform-tabs-next-btn:hover,
-#tabs-prev-btn:focus,
-#tabs-next-btn:focus,
-#platform-tabs-prev-btn:focus,
-#platform-tabs-next-btn:focus,
-#tabs-prev-btn:disabled,
-#tabs-next-btn:disabled,
-#platform-tabs-prev-btn:disabled,
-#platform-tabs-next-btn:disabled {
-  transform: translateY(-50%) !important;
-  box-shadow: none !important;
+/* xl+: arrows sit outside the track and need vertical centering */
+@media (min-width: 1280px) {
+  #tabs-prev-btn,
+  #tabs-next-btn,
+  #platform-tabs-prev-btn,
+  #platform-tabs-next-btn,
+  .section-tabs-carousel-arrow {
+    top: 50%;
+    transform: translateY(-50%) !important;
+  }
+
+  #tabs-prev-btn:hover,
+  #tabs-next-btn:hover,
+  #platform-tabs-prev-btn:hover,
+  #platform-tabs-next-btn:hover,
+  #tabs-prev-btn:focus,
+  #tabs-next-btn:focus,
+  #platform-tabs-prev-btn:focus,
+  #platform-tabs-next-btn:focus,
+  #tabs-prev-btn:disabled,
+  #tabs-next-btn:disabled,
+  #platform-tabs-prev-btn:disabled,
+  #platform-tabs-next-btn:disabled,
+  .section-tabs-carousel-arrow:hover,
+  .section-tabs-carousel-arrow:focus,
+  .section-tabs-carousel-arrow:disabled {
+    transform: translateY(-50%) !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  #tabs-prev-btn,
+  #tabs-next-btn,
+  #platform-tabs-prev-btn,
+  #platform-tabs-next-btn,
+  .section-tabs-carousel-arrow,
+  #tabs-prev-btn:hover,
+  #tabs-next-btn:hover,
+  #platform-tabs-prev-btn:hover,
+  #platform-tabs-next-btn:hover,
+  #tabs-prev-btn:focus,
+  #tabs-next-btn:focus,
+  #platform-tabs-prev-btn:focus,
+  #platform-tabs-next-btn:focus,
+  #tabs-prev-btn:disabled,
+  #tabs-next-btn:disabled,
+  #platform-tabs-prev-btn:disabled,
+  #platform-tabs-next-btn:disabled,
+  .section-tabs-carousel-arrow:hover,
+  .section-tabs-carousel-arrow:focus,
+  .section-tabs-carousel-arrow:disabled {
+    top: auto;
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
 
 #platform-intelligence-section,
