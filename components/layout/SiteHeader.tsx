@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { LANGUAGES, megaMenus } from "@/lib/navigation";
+import { LANGUAGES, megaMenus, isNavHrefActive } from "@/lib/navigation";
 
 function closeDesktopMegaMenus() {
   const active = document.activeElement;
@@ -14,22 +14,6 @@ function closeDesktopMegaMenus() {
   document.querySelectorAll(".nav-mega-group").forEach((el) => {
     el.classList.add("nav-mega-force-closed");
   });
-}
-
-/** Match mega-menu hrefs against the current path + hash (pages and in-page sections). */
-function isNavHrefActive(href: string, pathname: string, hash: string): boolean {
-  const hashIndex = href.indexOf("#");
-  const pathPart = hashIndex === -1 ? href : href.slice(0, hashIndex);
-  const hashPart = hashIndex === -1 ? "" : href.slice(hashIndex);
-  const normalizedPath = pathPart === "" ? "/" : pathPart;
-
-  if (hashPart) {
-    if (normalizedPath !== "/" && pathname !== normalizedPath) return false;
-    if (normalizedPath === "/" && pathname !== "/") return false;
-    return hash === hashPart;
-  }
-
-  return pathname === normalizedPath;
 }
 
 export function SiteHeader() {

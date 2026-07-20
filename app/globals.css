@@ -150,6 +150,14 @@ section[id] {
   transform: scaleX(1);
 }
 
+#footer .nav-link-animated.is-active {
+  color: #fff;
+}
+
+#footer .nav-link-animated.is-active::after {
+  transform: scaleX(1);
+}
+
 .nav-header-bar .nav-link-animated::after {
   bottom: 0;
 }

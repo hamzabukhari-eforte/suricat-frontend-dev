@@ -43,7 +43,10 @@ export function StickySubnav({ links, category, navLabel }: SubnavProps) {
     window.addEventListener("resize", updateArrows);
     const active = linksEl.querySelector(".company-subnav-link.is-active");
     if (active instanceof HTMLElement) {
-      active.scrollIntoView({ inline: "center", block: "nearest" });
+      // Horizontal-only — avoid scrollIntoView, which can move the page off top.
+      const left =
+        active.offsetLeft - (linksEl.clientWidth - active.clientWidth) / 2;
+      linksEl.scrollTo({ left: Math.max(0, left), behavior: "auto" });
     }
     return () => {
       linksEl.removeEventListener("scroll", updateArrows);

@@ -1,6 +1,7 @@
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { MarketingReveal } from "@/components/layout/MarketingReveal";
 import { MarqueeTopBar } from "@/components/layout/MarqueeTopBar";
+import { RouteScrollReset } from "@/components/layout/RouteScrollReset";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -19,6 +20,7 @@ export default function MarketingLayout({
       <SiteFooter />
       <CookieBanner />
       <ScrollToTop />
+      <RouteScrollReset />
       <MarketingReveal />
       <SmoothHashScroll />
     </>

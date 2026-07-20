@@ -3,6 +3,26 @@ export type NavLink = {
   href: string;
 };
 
+/** Match nav hrefs against the current path + hash (pages and in-page sections). */
+export function isNavHrefActive(
+  href: string,
+  pathname: string,
+  hash: string,
+): boolean {
+  const hashIndex = href.indexOf("#");
+  const pathPart = hashIndex === -1 ? href : href.slice(0, hashIndex);
+  const hashPart = hashIndex === -1 ? "" : href.slice(hashIndex);
+  const normalizedPath = pathPart === "" ? "/" : pathPart;
+
+  if (hashPart) {
+    if (normalizedPath !== "/" && pathname !== normalizedPath) return false;
+    if (normalizedPath === "/" && pathname !== "/") return false;
+    return hash === hashPart;
+  }
+
+  return pathname === normalizedPath;
+}
+
 export type MegaMenuItem = {
   id: string;
   label: string;

@@ -10,6 +10,7 @@ import {
   MdOutlineLocationOn,
 } from "@/components/ui/icons";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   footerCompanyLinks,
@@ -17,24 +18,55 @@ import {
   footerResourceLinks,
   footerTopLinks,
   footerWhyLinks,
+  isNavHrefActive,
   LANGUAGES,
 } from "@/lib/navigation";
+import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
 
 type FooterLink = { label: string; href: string };
 
 function FooterLinkList({ links }: { links: FooterLink[] }) {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = (next?: string) => {
+      setHash(next ?? window.location.hash);
+    };
+    syncHash();
+
+    const onHashChange = () => syncHash();
+    const onHomeHash = (event: Event) => {
+      const detail = (event as CustomEvent<{ hash?: string }>).detail;
+      syncHash(detail?.hash ?? window.location.hash);
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    window.addEventListener(HOME_HASH_EVENT, onHomeHash);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener(HOME_HASH_EVENT, onHomeHash);
+    };
+  }, [pathname]);
+
   return (
-    <ul className="space-y-4 text-sm text-gray-400">
-      {links.map((link) => (
-        <li key={link.label}>
-          <Link
-            href={link.href}
-            className="nav-link-animated inline-block hover:text-white"
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
+    <ul className="space-y-4 pb-1.5 text-sm text-gray-400">
+      {links.map((link) => {
+        const active = isNavHrefActive(link.href, pathname, hash);
+        return (
+          <li key={link.label}>
+            <Link
+              href={link.href}
+              className={`nav-link-animated inline-block hover:text-white${
+                active ? " is-active text-white" : ""
+              }`}
+              aria-current={active ? "page" : undefined}
+            >
+              {link.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -71,7 +103,7 @@ function FooterColumn({
       </button>
       <div
         id={`footer-panel-${id}`}
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out lg:max-h-none lg:opacity-100 lg:pb-0 ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out lg:max-h-none lg:overflow-visible lg:opacity-100 lg:pb-0 ${
           open
             ? "max-h-[640px] opacity-100 pb-4"
             : "max-h-0 opacity-0 lg:opacity-100"
