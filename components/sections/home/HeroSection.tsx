@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button";
 import { FaArrowRight } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,16 +38,17 @@ export function HeroSection() {
                   <div
                     className="flex flex-col gap-2 sm:flex-row sm:flex-nowrap sm:items-center transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed"
                   >
-                    <a
+                    <Button
+                      variant="outline-teal"
                       href="#platform-intelligence-section"
-                      className="hero-cta-hover hero-banner-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-1.5 rounded-full font-bold transition-all whitespace-nowrap !px-3 !text-[0.6875rem] md:!px-3.5 md:!text-[0.7rem] lg:!px-5 lg:!text-[0.8125rem]"
+                      className="group w-full shrink-0 gap-1.5 whitespace-nowrap sm:w-auto"
                     >
                       Explore the Platform
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-                    </a>
+                    </Button>
                     <Link
                       href="/design-partners/apply"
-                      className="hero-cta-hover hero-banner-cta-btn group inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-1.5 border-2 border-white/20 text-white rounded-full font-bold hover:border-white transition-all whitespace-nowrap !px-3 !text-[0.6875rem] md:!px-3.5 md:!text-[0.7rem] lg:!px-5 lg:!text-[0.8125rem]"
+                      className="hero-cta-hover group inline-flex h-[42px] w-full shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-2 border-white/20 bg-transparent px-6 text-base font-bold leading-none text-white transition-all hover:border-white hover:bg-transparent hover:text-white sm:w-auto"
                     >
                       Become a Design Partner
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

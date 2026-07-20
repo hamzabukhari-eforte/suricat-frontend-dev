@@ -101,10 +101,10 @@ section[id] {
 
 .nav-design-partners-btn {
   box-sizing: border-box;
-  height: 45px;
+  height: 42px;
   gap: 0.375rem;
   padding: 0 0.875rem;
-  font-size: 0.8125rem;
+  font-size: 16px;
   border: 2px solid #19d3c5;
   background-color: #19d3c5;
   color: #0d1b3e;
@@ -199,7 +199,7 @@ section[id] {
 }
 
 .nav-header-actions .nav-cta-btn {
-  font-size: 0.8125rem;
+  font-size: 16px;
   padding: 0.5rem 1.125rem;
 }
 
@@ -242,10 +242,10 @@ section[id] {
   }
 
   .nav-design-partners-btn {
-    height: 45px;
+    height: 42px;
     gap: 0.5rem;
     padding: 0 1.125rem;
-    font-size: 0.875rem;
+    font-size: 16px;
   }
 
   .nav-center-menu {
@@ -259,12 +259,12 @@ section[id] {
     gap: 1rem;
   }
 
-  .nav-header-actions .nav-login-link,
-  .nav-header-actions .nav-cta-btn {
+  .nav-header-actions .nav-login-link {
     font-size: 0.9375rem;
   }
 
   .nav-header-actions .nav-cta-btn {
+    font-size: 16px;
     padding: 0.625rem 1.375rem;
   }
 
@@ -294,12 +294,12 @@ section[id] {
     gap: 1.125rem;
   }
 
-  .nav-header-actions .nav-login-link,
-  .nav-header-actions .nav-cta-btn {
+  .nav-header-actions .nav-login-link {
     font-size: 1rem;
   }
 
   .nav-header-actions .nav-cta-btn {
+    font-size: 16px;
     padding: 0.625rem 1.5rem;
   }
 
@@ -769,8 +769,79 @@ a.rounded-full {
     box-shadow 0.25s ease;
 }
 
-button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
-a.rounded-full:hover:not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn) {
+/*
+ * Unified text CTA size (not dots / tabs / icon chrome).
+ * Height + font only — colors/transitions stay on each component.
+ */
+button.rounded-full:not(.slider-dot):not(.industries-slide-indicator-dot):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(.company-subnav-arrow):not(.scroll-to-top-btn):not(.why-tabs-option):not(.platform-dropdown-option):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
+a.rounded-full:not(.slider-dot):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
+.suricat-teal-btn,
+.nav-cta-btn,
+.nav-design-partners-btn,
+.btn-orange,
+.btn-teal,
+.cookie-cta-btn,
+.pricing-card-btn,
+.leadership-profile-btn,
+.hero-banner-cta-btn,
+.solutions-card-btn,
+.compliance-banner-cta {
+  box-sizing: border-box;
+  height: 42px !important;
+  min-height: 42px !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
+button.slider-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  flex: 0 0 auto;
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  min-height: 8px !important;
+  max-width: 8px !important;
+  max-height: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  box-shadow: none !important;
+  translate: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    max-width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+button.slider-dot[aria-current="true"] {
+  width: 20px !important;
+  min-width: 20px !important;
+  max-width: 20px !important;
+  background: #19d3c5 !important;
+}
+
+button.industries-slide-indicator-dot {
+  height: auto !important;
+  min-height: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  translate: none !important;
+  box-shadow: none !important;
+}
+
+button.rounded-full:hover:not(:disabled):not([disabled]):not(.slider-dot):not(.industries-slide-indicator-dot):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
+a.rounded-full:hover:not(.slider-dot):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn) {
   translate: 0 -4px;
   box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
 }
@@ -849,9 +920,10 @@ button[disabled] {
   background-color: #0d1b3e;
   color: #fff;
   font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1.25;
-  padding: 0.5rem 1.125rem;
+  font-size: 16px;
+  line-height: 1;
+  height: 42px;
+  padding: 0 1.125rem;
   white-space: nowrap;
   transition: background-color 0.2s ease;
 }
@@ -2284,16 +2356,17 @@ input[type="radio"]:checked + span {
    ============================================================ */
 .hero-banner-cta-btn {
   padding-inline: 1rem;
-  padding-block: 0.625rem;
-  font-size: 0.75rem;
-  line-height: 1.5rem;
+  padding-block: 0;
+  font-size: 16px;
+  line-height: 1;
+  height: 42px;
   box-sizing: border-box;
 }
 
 @media (min-width: 1280px) {
   .hero-banner-cta-btn {
     padding-inline: 1.25rem;
-    font-size: 0.8125rem;
+    font-size: 16px;
   }
 }
 

@@ -24,9 +24,8 @@ export function MobileAutoplayCardSlider({
   id,
 }: MobileAutoplayCardSliderProps) {
   const [active, setActive] = useState(0);
-  const [isSlider, setIsSlider] = useState(
-    () => typeof window !== "undefined" && window.innerWidth <= MOBILE_MAX_WIDTH,
-  );
+  // Always start as grid so SSR + first client paint match (avoids hydration mismatch).
+  const [isSlider, setIsSlider] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const pausedRef = useRef(false);
@@ -43,12 +42,13 @@ export function MobileAutoplayCardSlider({
   }, [safeActive]);
 
   useEffect(() => {
-    const onResize = () => {
+    const syncMode = () => {
       setIsSlider(window.innerWidth <= MOBILE_MAX_WIDTH);
     };
 
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    syncMode();
+    window.addEventListener("resize", syncMode);
+    return () => window.removeEventListener("resize", syncMode);
   }, []);
 
   useEffect(() => {
@@ -178,16 +178,20 @@ export function MobileAutoplayCardSlider({
           ))}
         </div>
       </div>
-      <div className="mt-4 flex justify-center gap-2">
+      <div
+        className="relative z-10 mt-4 flex min-h-2 items-center justify-center gap-1.5"
+        role="tablist"
+        aria-label="Carousel slides"
+      >
         {children.map((_, index) => (
           <button
             key={index}
             type="button"
+            role="tab"
             aria-label={`Go to card ${index + 1}`}
+            aria-selected={index === safeActive}
             aria-current={index === safeActive ? "true" : undefined}
-            className={`h-2 rounded-full transition-all ${
-              index === safeActive ? "w-6 bg-teal" : "w-2 bg-white/40"
-            }`}
+            className="slider-dot"
             onClick={() => setActive(index)}
           />
         ))}

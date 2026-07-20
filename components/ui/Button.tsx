@@ -17,11 +17,14 @@ const variants = {
 } as const;
 
 const sizes = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-2.5 text-sm",
-  lg: "px-6 sm:px-8 py-3 sm:py-3.5 text-sm",
-  xl: "px-8 py-2.5 text-base",
+  sm: "px-4",
+  md: "px-6",
+  lg: "px-6 sm:px-8",
+  xl: "px-8",
 } as const;
+
+/** Fixed CTA metrics — applied last so consumer className cannot override. */
+const CTA_SIZE = "h-[42px] text-base leading-none";
 
 type Variant = keyof typeof variants;
 type Size = keyof typeof sizes;
@@ -43,7 +46,10 @@ export function Button({
   type = "button",
   ...props
 }: ButtonProps) {
-  const classes = `${variants[variant]} ${variant === "ghost-nav" ? "" : sizes[size]} ${className}`.trim();
+  const classes =
+    variant === "ghost-nav"
+      ? `${variants[variant]} ${className}`.trim()
+      : `${variants[variant]} ${sizes[size]} ${className} ${CTA_SIZE}`.trim();
 
   if (href) {
     return (

@@ -261,16 +261,21 @@
 #solutions-section .solutions-card-btn {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 0.75rem;
         color: #19d3c5;
-        font-weight: 600;
-        line-height: 1.4;
+        font-weight: 700;
+        font-size: 16px !important;
+        line-height: 1 !important;
+        height: 42px !important;
+        min-height: 42px !important;
         text-decoration: none;
         background: transparent;
         border: 2px solid #19d3c5;
         border-radius: 9999px;
-        padding: 0.625rem 1.5rem;
+        padding: 0 1.5rem;
         width: fit-content;
+        box-sizing: border-box;
         transition: all 0.3s ease;
       }
 
@@ -392,9 +397,11 @@
         }
 
         #cta-section a {
-          font-size: 0.75rem !important;
+          font-size: 16px !important;
+          height: 42px !important;
+          line-height: 1 !important;
           padding-inline: 0.875rem !important;
-          padding-block: 0.5rem !important;
+          padding-block: 0 !important;
         }
 
         #platform-intelligence-section .platform-pane > div:first-child {
@@ -431,8 +438,7 @@
           font-size: 12px !important;
         }
 
-        #compliance-cost-section #compliance-cards-grid .compliance-cost-card a,
-        #solutions-section #solutions-cards-grid .compliance-cost-card a {
+        #compliance-cost-section #compliance-cards-grid .compliance-cost-card a {
           font-size: 0.75rem !important;
         }
 
@@ -442,19 +448,23 @@
         }
 
         #solutions-section .solutions-card-btn {
-          padding-block: 0.5rem;
+          height: 42px !important;
+          min-height: 42px !important;
+          padding-block: 0;
           padding-inline: 1.25rem;
-          font-size: 0.875rem;
+          font-size: 16px !important;
+          line-height: 1 !important;
         }
 
         #compliance-cost-section .compliance-banner-cta,
         #solutions-section .compliance-banner-cta {
           justify-content: center;
           white-space: nowrap;
-          padding-block: 0.625rem;
+          height: 42px;
+          padding-block: 0;
           padding-inline: 1.5rem;
-          font-size: 0.875rem;
-          line-height: 1.25;
+          font-size: 16px;
+          line-height: 1;
         }
       }
 
@@ -1091,8 +1101,8 @@
           }
         }
 
-button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn),
-      a.rounded-full:hover {
+button.rounded-full:hover:not(:disabled):not([disabled]):not(.slider-dot):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn),
+      a.rounded-full:hover:not(.slider-dot) {
         translate: 0 -4px;
         box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
       }
