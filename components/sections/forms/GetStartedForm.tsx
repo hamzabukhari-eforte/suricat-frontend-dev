@@ -288,45 +288,50 @@ export function GetStartedForm() {
                 focused, non-sales discussion tailored to your environment and
                 priorities. No automated analysis is performed.
               </p>
-              <button
-                type="submit"
-                disabled={!canSubmit || submitting}
-                className={
-                  canSubmit && !submitting
-                    ? "suricat-teal-btn group w-full max-w-md mx-auto flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm min-[1377px]:text-base font-semibold transition-all"
-                    : "group w-full max-w-md mx-auto flex items-center justify-center gap-2 border-2 border-gray-200 bg-gray-100 text-gray-400 px-6 py-2.5 rounded-full text-sm min-[1377px]:text-base font-semibold cursor-not-allowed transition-all"
-                }
-              >
-                {!canSubmit ? (
-                  <FaLock className="text-xs" aria-hidden="true" />
-                ) : null}
-                Schedule Discussion
-                <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              </button>
-              <p className="text-center text-navy text-xs mt-3 flex items-center justify-center gap-1.5">
-                {canSubmit ? (
-                  <FaEnvelope className="text-[10px] text-teal" aria-hidden="true" />
-                ) : (
-                  <span className="group/tip relative inline-flex">
-                    <FaCircleExclamation
-                      className="cursor-help text-[10px] text-gray-400"
+              <div className="mx-auto w-full max-w-md">
+                <button
+                  type="submit"
+                  disabled={!canSubmit || submitting}
+                  className={
+                    canSubmit && !submitting
+                      ? "suricat-teal-btn group flex w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all min-[1377px]:text-base"
+                      : "group flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all min-[1377px]:text-base"
+                  }
+                >
+                  {!canSubmit ? (
+                    <FaLock className="text-xs" aria-hidden="true" />
+                  ) : null}
+                  Schedule Discussion
+                  <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                </button>
+                <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy">
+                  {canSubmit ? (
+                    <FaEnvelope
+                      className="mt-[2px] shrink-0 text-[10px] text-teal"
                       aria-hidden="true"
                     />
-                    <span
-                      role="tooltip"
-                      className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-56 -translate-x-1/2 rounded-[4px] bg-navy px-3 py-2 text-left text-[11px] leading-snug text-white opacity-0 shadow-lg transition-opacity group-hover/tip:opacity-100"
-                    >
-                      30-minute introductory discussion with a Suricat specialist.
-                      No preparation required—simply select a convenient time.
+                  ) : (
+                    <span className="group/tip relative mt-[2px] inline-flex shrink-0">
+                      <FaCircleExclamation
+                        className="cursor-help text-[10px] text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span
+                        role="tooltip"
+                        className="pointer-events-none absolute bottom-full left-0 z-20 mb-2 w-[min(14rem,calc(100vw-2rem))] rounded-[4px] bg-navy px-3 py-2 text-left text-[11px] leading-snug text-white opacity-0 shadow-lg transition-opacity group-hover/tip:opacity-100 sm:left-1/2 sm:-translate-x-1/2"
+                      >
+                        30-minute introductory discussion with a Suricat specialist.
+                        No preparation required—simply select a convenient time.
+                      </span>
                     </span>
+                  )}
+                  <span className="min-w-0">
+                    {canSubmit
+                      ? "Confirmation email on the way"
+                      : "Complete all required fields to schedule your discussion."}
                   </span>
-                )}
-                <span>
-                  {canSubmit
-                    ? "Confirmation email on the way"
-                    : "Complete all required fields to schedule your discussion."}
-                </span>
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </form>
