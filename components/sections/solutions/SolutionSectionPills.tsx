@@ -142,7 +142,7 @@ export function SolutionSectionPills({
               }}
               href={`#${pill.id}`}
               data-section={pill.id}
-              className={`solution-nav-pill whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold${
+              className={`solution-nav-pill inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold leading-none${
                 active === pill.id ? " is-active" : ""
               }`}
               onClick={(event) => handlePillClick(event, pill.id)}

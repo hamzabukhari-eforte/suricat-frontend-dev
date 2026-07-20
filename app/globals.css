@@ -1997,6 +1997,9 @@ input[type="radio"]:checked + span {
 }
 
 .solution-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
   color: #0d1b3e;
   transition:
     background-color 0.2s ease,
