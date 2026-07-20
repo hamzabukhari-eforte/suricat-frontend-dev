@@ -1,6 +1,6 @@
 "use client";
 
-import { FaArrowRight, FaCircleExclamation, FaEnvelope, FaLock } from "@/components/ui/icons";
+import { FaArrowRight, FaLock } from "@/components/ui/icons";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -13,6 +13,7 @@ import {
   formatScheduleDate,
   ScheduleCalendar,
 } from "@/components/sections/forms/ScheduleCalendar";
+import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNote";
 
 const COMPANY_SIZES = [
   { value: "lt50", label: "<50" },
@@ -304,33 +305,7 @@ export function GetStartedForm() {
                   Schedule Discussion
                   <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </button>
-                <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy">
-                  {canSubmit ? (
-                    <FaEnvelope
-                      className="mt-[2px] shrink-0 text-[10px] text-teal"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <span className="group/tip relative mt-[2px] inline-flex shrink-0">
-                      <FaCircleExclamation
-                        className="cursor-help text-[10px] text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span
-                        role="tooltip"
-                        className="pointer-events-none absolute bottom-full left-0 z-20 mb-2 w-[min(14rem,calc(100vw-2rem))] rounded-[4px] bg-navy px-3 py-2 text-left text-[11px] leading-snug text-white opacity-0 shadow-lg transition-opacity group-hover/tip:opacity-100 sm:left-1/2 sm:-translate-x-1/2"
-                      >
-                        30-minute introductory discussion with a Suricat specialist.
-                        No preparation required—simply select a convenient time.
-                      </span>
-                    </span>
-                  )}
-                  <span className="min-w-0">
-                    {canSubmit
-                      ? "Confirmation email on the way"
-                      : "Complete all required fields to schedule your discussion."}
-                  </span>
-                </p>
+                <ScheduleHelperNote canSubmit={canSubmit} />
               </div>
             </div>
           </div>
