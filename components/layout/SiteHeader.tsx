@@ -219,7 +219,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/get-started"
-              className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy font-bold text-white transition-colors hover:bg-navy/90"
+              className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy font-semibold! text-white transition-colors hover:bg-navy/90"
             >
               Get Started
             </Link>
@@ -369,7 +369,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/get-started"
-            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
+            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-semibold text-white"
             onClick={closeMobile}
           >
             Get Started
