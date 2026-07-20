@@ -212,15 +212,6 @@ export function DesignPartnerForm({
       direction === "forward" ? "is-entering-forward" : "is-entering-back",
     );
     setStep(next);
-    requestAnimationFrame(() => {
-      const el = viewportRef.current;
-      if (el) {
-        window.scrollTo({
-          top: el.getBoundingClientRect().top + window.scrollY - 120,
-          behavior: "smooth",
-        });
-      }
-    });
   }
 
   function toggleDoc(value: string) {
