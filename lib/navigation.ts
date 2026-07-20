@@ -150,7 +150,7 @@ export const megaMenus: MegaMenuItem[] = [
       { label: "Capacity Expansion", href: "/pricing/capacity-expansion" },
       { label: "Interactive Sandbox", href: "/pricing/interactive-sandbox" },
       { label: "Start With Evaluate", href: "/pricing/start-with-evaluate" },
-      { label: "Pricing FAQ", href: "/pricing/faq" },
+      { label: "Pricing FAQs", href: "/pricing/faq" },
     ],
     linkColumns: 2,
   },
@@ -257,5 +257,5 @@ export const pricingSubnavLinks: NavLink[] = [
   { label: "Capacity Expansion", href: "/pricing/capacity-expansion" },
   { label: "Interactive Sandbox", href: "/pricing/interactive-sandbox" },
   { label: "Start With Evaluate", href: "/pricing/start-with-evaluate" },
-  { label: "Pricing FAQ", href: "/pricing/faq" },
+  { label: "Pricing FAQs", href: "/pricing/faq" },
 ];

@@ -30,7 +30,7 @@ export default function PricingFaqPage() {
       />
       <PricingFaq
         items={pricingFaqFull}
-        eyebrow="Pricing FAQ"
+        eyebrow="Pricing FAQs"
         title="Clear answers before you evaluate."
         description="Browse the full set of published pricing and evaluation questions."
       />
