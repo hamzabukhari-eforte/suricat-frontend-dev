@@ -1,0 +1,66 @@
+name: Deploy Public App (Next.js) to Azure (dev)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'next.config.ts'
+      - '.github/workflows/deploy-public-app-dev.yml'
+
+jobs:
+  build-and-deploy:
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate public env for build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.APP_NEXT_PUBLIC_API_URL_DEV }}
+        run: |
+          test -n "$NEXT_PUBLIC_API_URL" || (echo "Missing APP_NEXT_PUBLIC_API_URL_DEV GitHub secret" && exit 1)
+
+      - name: Build public app
+        env:
+          SURICAT_AZURE_STANDALONE_DEPLOY: 'true'
+          NEXT_PUBLIC_API_URL: ${{ secrets.APP_NEXT_PUBLIC_API_URL_DEV }}
+        run: npm run build
+
+      - name: Prepare standalone deployment
+        run: |
+          # Standalone output is self-contained (traced node_modules only)
+          cp -r .next/standalone deploy-public
+
+          # Standalone output excludes static assets — copy them in
+          mkdir -p deploy-public/.next/static
+          cp -r .next/static/. deploy-public/.next/static/
+
+          # Copy public directory if it exists
+          if [ -d public ]; then
+            mkdir -p deploy-public/public
+            cp -r public/. deploy-public/public/
+          fi
+
+      - name: Deploy to Azure Web App (public-dev-suricat)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: public-dev-suricat
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_PUBLIC_APP_DEV }}
+          package: './deploy-public'
