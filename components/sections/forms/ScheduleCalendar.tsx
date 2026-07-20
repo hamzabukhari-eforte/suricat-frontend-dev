@@ -66,7 +66,7 @@ export function ScheduleCalendar({
     selectedDay != null ? `June ${selectedDay}, 2026` : null;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm">
+    <div className="min-w-0 rounded-[4px] border border-gray-200 bg-white p-4 shadow-sm sm:p-6 lg:p-7">
       <div className="mb-5">
         <h3 className="text-navy font-bold text-base">
           Schedule Your Introductory Discussion

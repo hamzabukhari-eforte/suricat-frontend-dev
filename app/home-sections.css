@@ -816,7 +816,7 @@
       }
 
 .pricing-plans-scope .pricing-card-btn:hover {
-        transform: translateY(-2px);
+        translate: 0 -4px;
       }
 
 .pricing-plans-scope .pricing-check {
@@ -1093,7 +1093,7 @@
 
 button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn),
       a.rounded-full:hover {
-        transform: translateY(-2px);
+        translate: 0 -4px;
         box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
       }
 

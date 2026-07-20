@@ -668,9 +668,21 @@ section[id] {
   box-shadow: 0 0 28px rgba(25, 211, 197, 0.38);
 }
 
+.hero-cta-hover {
+  transition:
+    translate 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
 .hero-cta-hover:hover {
   translate: 0 -4px;
   box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
+}
+
+.hero-cta-hover:hover:disabled,
+.hero-cta-hover:hover[disabled] {
+  translate: none;
+  box-shadow: none;
 }
 
 .cookie-banner {
@@ -739,20 +751,21 @@ a[class*="rounded-[4px]"] {
 
 button[class*="rounded-[4px]"]:hover:not(:disabled):not([disabled]):not(.time-slot):not(.cal-day),
 a[class*="rounded-[4px]"]:hover {
-  transform: translateY(-2px);
+  translate: 0 -4px;
   box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
 }
 
 button.rounded-full,
 a.rounded-full {
   transition:
+    translate 0.25s ease,
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 button.rounded-full:hover:not(:disabled):not([disabled]):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
 a.rounded-full:hover:not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn) {
-  transform: translateY(-2px);
+  translate: 0 -4px;
   box-shadow: 0 8px 14px -10px rgba(0, 0, 0, 0.45);
 }
 
@@ -1488,7 +1501,7 @@ button[disabled] {
       }
 
       .pricing-plans-scope .pricing-card-btn:hover {
-        transform: translateY(-2px);
+        translate: 0 -4px;
       }
 
       .pricing-plans-scope .pricing-check {
@@ -1688,6 +1701,11 @@ button[disabled] {
 /* Intake / scheduling forms */
 input[type="radio"]:checked + span {
   color: #19d3c5;
+}
+.timeline-option,
+.priority-option,
+.companysize-option {
+  min-width: 0;
 }
 .timeline-option:has(input:checked),
 .priority-option:has(input:checked),

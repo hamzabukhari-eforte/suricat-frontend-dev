@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 const variants = {
-  teal: "suricat-teal-btn cursor-pointer rounded-full font-bold inline-flex items-center justify-center gap-2 transition-all",
-  navy: "cursor-pointer border-2 border-navy text-white bg-navy rounded-full font-bold hover:bg-navy/90 inline-flex items-center justify-center gap-2 transition-colors",
+  teal: "suricat-teal-btn hero-cta-hover cursor-pointer rounded-full font-bold inline-flex items-center justify-center gap-2 transition-all",
+  navy: "nav-cta-btn hero-cta-hover cursor-pointer border-2 border-navy text-white bg-navy rounded-full font-bold hover:bg-navy/90 inline-flex items-center justify-center gap-2 transition-colors",
   "outline-teal":
-    "cursor-pointer border-2 border-teal text-teal bg-transparent rounded-full font-bold hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-2 transition-all",
+    "hero-cta-hover cursor-pointer border-2 border-teal text-teal bg-transparent rounded-full font-bold hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-2 transition-all",
   "outline-white":
-    "cursor-pointer border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-navy inline-flex items-center justify-center gap-2 transition-all",
+    "hero-cta-hover cursor-pointer border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-navy inline-flex items-center justify-center gap-2 transition-all",
   "outline-navy":
-    "cursor-pointer border-2 border-navy text-navy bg-transparent rounded-full font-bold hover:bg-navy hover:text-white inline-flex items-center justify-center gap-2 transition-all",
+    "hero-cta-hover cursor-pointer border-2 border-navy text-navy bg-transparent rounded-full font-bold hover:bg-navy hover:text-white inline-flex items-center justify-center gap-2 transition-all",
   orange:
-    "btn-orange cursor-pointer rounded-full font-bold inline-flex items-center justify-center gap-2 transition-all",
+    "btn-orange hero-cta-hover cursor-pointer rounded-full font-bold inline-flex items-center justify-center gap-2 transition-all",
   "ghost-nav":
     "nav-link-animated cursor-pointer font-bold text-navy hover:text-navy/90 transition-colors",
 } as const;
