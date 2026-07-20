@@ -412,7 +412,7 @@ section[id] {
 }
 
 .nav-mega-link.is-active {
-  background-color: color-mix(in srgb, #19d3c5 12%, #fff);
+  background-color: transparent;
   color: #19d3c5;
 }
 

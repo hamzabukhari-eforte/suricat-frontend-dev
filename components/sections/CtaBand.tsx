@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 
 type CtaBandProps = {
   title?: string;
@@ -8,6 +7,9 @@ type CtaBandProps = {
   secondaryHref?: string;
   secondaryLabel?: string;
 };
+
+const ctaBtnBase =
+  "hero-cta-hover inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full border-2 px-3 text-xs font-bold transition-all sm:h-10 sm:px-6 sm:text-sm md:h-11 md:px-8 md:text-base";
 
 export function CtaBand({
   title = "Ready to Get Started?",
@@ -23,17 +25,15 @@ export function CtaBand({
           {title}
         </h2>
         <div className="flex flex-row flex-nowrap items-center justify-center gap-2 sm:gap-4">
-          <Button
-            variant="outline-white"
-            size="xl"
+          <Link
             href={primaryHref}
-            className="!px-3 !py-1.5 !text-xs whitespace-nowrap sm:!px-6 sm:!py-2 sm:!text-sm md:!px-8 md:!py-2.5 md:!text-base"
+            className={`${ctaBtnBase} border-white bg-transparent text-white hover:bg-white hover:text-navy`}
           >
             {primaryLabel}
-          </Button>
+          </Link>
           <Link
             href={secondaryHref}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-transparent bg-navy px-3 py-1.5 text-xs font-bold text-white transition-all hover:bg-white hover:text-navy sm:px-6 sm:py-2 sm:text-sm md:px-8 md:py-2.5 md:text-base"
+            className={`${ctaBtnBase} border-transparent bg-navy text-white hover:bg-white hover:text-navy`}
           >
             {secondaryLabel}
           </Link>
@@ -42,3 +42,4 @@ export function CtaBand({
     </section>
   );
 }
+
