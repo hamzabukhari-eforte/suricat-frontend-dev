@@ -786,6 +786,8 @@ a.rounded-full {
 /*
  * Unified text CTA size (not dots / tabs / icon chrome).
  * Height + font only — colors/transitions stay on each component.
+ * Do not force `display` here: navbar CTAs use Tailwind `hidden` / `xl:inline-flex`
+ * and `display: inline-flex !important` would break the mobile side-nav layout.
  */
 button.rounded-full:not(.slider-dot):not(.industries-slide-indicator-dot):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(.company-subnav-arrow):not(.scroll-to-top-btn):not(.why-tabs-option):not(.platform-dropdown-option):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
 a.rounded-full:not(.slider-dot):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
@@ -801,15 +803,37 @@ a.rounded-full:not(.slider-dot):not(#tabs-prev-btn):not(#tabs-next-btn):not(#pla
 .solutions-card-btn,
 .compliance-banner-cta {
   box-sizing: border-box;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
   height: 42px !important;
   min-height: 42px !important;
   padding-block: 0 !important;
   font-size: 16px !important;
   line-height: 1 !important;
+}
+
+button.rounded-full:not(.hidden):not(.slider-dot):not(.industries-slide-indicator-dot):not(.nav-mega-trigger):not(.nav-language-trigger):not(.tab-btn):not(.platform-tab-btn):not(.platform-nav-btn):not(.company-subnav-arrow):not(.scroll-to-top-btn):not(.why-tabs-option):not(.platform-dropdown-option):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
+a.rounded-full:not(.hidden):not(.slider-dot):not(#tabs-prev-btn):not(#tabs-next-btn):not(#platform-tabs-prev-btn):not(#platform-tabs-next-btn),
+.suricat-teal-btn:not(.hidden),
+.nav-cta-btn:not(.hidden),
+.nav-design-partners-btn:not(.hidden),
+.btn-orange:not(.hidden),
+.btn-teal:not(.hidden),
+.cookie-cta-btn:not(.hidden),
+.pricing-card-btn:not(.hidden),
+.leadership-profile-btn:not(.hidden),
+.hero-banner-cta-btn:not(.hidden),
+.solutions-card-btn:not(.hidden),
+.compliance-banner-cta:not(.hidden) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Desktop-only Design Partners pill — keep mobile header to logo + lang + menu */
+@media (max-width: 1279px) {
+  a.nav-design-partners-btn {
+    display: none !important;
+  }
 }
 
 button.slider-dot {
