@@ -56,7 +56,7 @@ export const pageSeo = {
     path: "/pricing",
   }),
   pricingFaq: buildPageMetadata({
-    title: "Pricing FAQ",
+    title: "Pricing FAQs",
     description:
       "Answers to common questions about Suricat platform licensing, document capacity, evaluation, and subscription options.",
     path: "/pricing/faq",
