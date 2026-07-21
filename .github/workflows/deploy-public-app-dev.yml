@@ -41,6 +41,8 @@ jobs:
         env:
           SURICAT_AZURE_STANDALONE_DEPLOY: 'true'
           NEXT_PUBLIC_API_URL: ${{ secrets.APP_NEXT_PUBLIC_API_URL_DEV }}
+          NEXT_PUBLIC_ENABLE_TURNSTILE: ${{ secrets.NEXT_PUBLIC_ENABLE_TURNSTILE}}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY:${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY}}
         run: npm run build
 
       - name: Prepare standalone deployment
