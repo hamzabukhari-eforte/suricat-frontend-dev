@@ -40,7 +40,7 @@ export function HeroSection() {
                   >
                     <Button
                       variant="outline-teal"
-                      href="#platform-intelligence-section"
+                      href="#platform"
                       className="group w-full shrink-0 gap-1.5 whitespace-nowrap sm:w-auto"
                     >
                       Explore the Platform

@@ -1,3 +1,9 @@
+import {
+  HOME_SECTION_IDS,
+  platformTabHref,
+  whyTabHref,
+} from "@/lib/homeHashes";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -46,16 +52,16 @@ export const megaMenus: MegaMenuItem[] = [
       title: "Why Suricat",
       text: "Understand the structural compliance challenge, how Suricat was built to address it, and what it enables for regulated organizations.",
       ctaLabel: "Explore Why Suricat",
-      ctaHref: "/#why-suricat-section",
+      ctaHref: `/#${HOME_SECTION_IDS.why}`,
     },
     links: [
-      { label: "Suricat's Mission", href: "/#why-tab-0" },
-      { label: "How Suricat Works", href: "/#why-tab-4" },
-      { label: "Built by Practitioners", href: "/#why-tab-1" },
-      { label: "Designed for Regulated Environments", href: "/#why-tab-5" },
-      { label: "The Structural Problem", href: "/#why-tab-2" },
-      { label: "What Suricat Enables", href: "/#why-tab-6" },
-      { label: "Why Existing Systems Fall Short", href: "/#why-tab-3" },
+      { label: "Suricat's Mission", href: whyTabHref(0) },
+      { label: "How Suricat Works", href: whyTabHref(4) },
+      { label: "Built by Practitioners", href: whyTabHref(1) },
+      { label: "Designed for Regulated Environments", href: whyTabHref(5) },
+      { label: "The Structural Problem", href: whyTabHref(2) },
+      { label: "What Suricat Enables", href: whyTabHref(6) },
+      { label: "Why Existing Systems Fall Short", href: whyTabHref(3) },
     ],
     linkColumns: 2,
   },
@@ -66,18 +72,18 @@ export const megaMenus: MegaMenuItem[] = [
       title: "Platform",
       text: "A read-only compliance intelligence layer built for regulated environments, with proprietary architecture for bounded reasoning and defensible outputs.",
       ctaLabel: "Explore the Platform",
-      ctaHref: "/#platform-intelligence-section",
+      ctaHref: `/#${HOME_SECTION_IDS.platform}`,
     },
     links: [
-      { label: "Intelligence Layer", href: "/#platform-tab-0" },
-      { label: "Read Only by Design", href: "/#platform-tab-1" },
-      { label: "No Rip and Replace", href: "/#platform-tab-2" },
-      { label: "Human Accountability", href: "/#platform-tab-3" },
-      { label: "Deployment", href: "/#platform-tab-4" },
-      { label: "Regulatory Ontology", href: "/#platform-tab-5" },
-      { label: "Canonical Intelligence Schema", href: "/#platform-tab-6" },
-      { label: "Quality Validation Rating", href: "/#platform-tab-7" },
-      { label: "Bounded Reasoning", href: "/#platform-tab-8" },
+      { label: "Intelligence Layer", href: platformTabHref(0) },
+      { label: "Read Only by Design", href: platformTabHref(1) },
+      { label: "No Rip and Replace", href: platformTabHref(2) },
+      { label: "Human Accountability", href: platformTabHref(3) },
+      { label: "Deployment", href: platformTabHref(4) },
+      { label: "Regulatory Ontology", href: platformTabHref(5) },
+      { label: "Canonical Intelligence Schema", href: platformTabHref(6) },
+      { label: "Quality Validation Rating", href: platformTabHref(7) },
+      { label: "Bounded Reasoning", href: platformTabHref(8) },
     ],
     linkColumns: 3,
   },
@@ -88,7 +94,7 @@ export const megaMenus: MegaMenuItem[] = [
       title: "Solutions",
       text: "Six focused capabilities that apply the Compliance Intelligence Layer to documentation confidence, inspection readiness, continuous compliance, and more.",
       ctaLabel: "View All Solutions",
-      ctaHref: "/#solutions-section",
+      ctaHref: `/#${HOME_SECTION_IDS.solutions}`,
     },
     links: [
       {
@@ -125,7 +131,7 @@ export const megaMenus: MegaMenuItem[] = [
       title: "Industry",
       text: "Built for regulated industries. Starting with medical devices and expanding across biotechnology, biopharma, diagnostics, and beyond.",
       ctaLabel: "Explore Industries",
-      ctaHref: "/#industries-section",
+      ctaHref: `/#${HOME_SECTION_IDS.industries}`,
     },
     links: [
       { label: "Medical Devices", href: "/industries/medical-devices" },
@@ -174,9 +180,9 @@ export const megaMenus: MegaMenuItem[] = [
 ];
 
 export const footerTopLinks: NavLink[] = [
-  { label: "Why Suricat", href: "/#why-suricat-section" },
-  { label: "Platform", href: "/#platform-intelligence-section" },
-  { label: "Solutions", href: "/#solutions-section" },
+  { label: "Why Suricat", href: `/#${HOME_SECTION_IDS.why}` },
+  { label: "Platform", href: `/#${HOME_SECTION_IDS.platform}` },
+  { label: "Solutions", href: `/#${HOME_SECTION_IDS.solutions}` },
   { label: "Pricing", href: "/pricing" },
   { label: "Company", href: "/company/our-story" },
 ];
@@ -189,30 +195,30 @@ export const footerCompanyLinks: NavLink[] = [
 ];
 
 export const footerWhyLinks: NavLink[] = [
-  { label: "Suricat's Mission", href: "/#why-tab-0" },
-  { label: "Built by Practitioners", href: "/#why-tab-1" },
-  { label: "The Structural Problem", href: "/#why-tab-2" },
-  { label: "Why Existing Systems Fall Short", href: "/#why-tab-3" },
-  { label: "How Suricat Works", href: "/#why-tab-4" },
-  { label: "Designed for Regulated Environments", href: "/#why-tab-5" },
-  { label: "What Suricat Enables", href: "/#why-tab-6" },
+  { label: "Suricat's Mission", href: whyTabHref(0) },
+  { label: "Built by Practitioners", href: whyTabHref(1) },
+  { label: "The Structural Problem", href: whyTabHref(2) },
+  { label: "Why Existing Systems Fall Short", href: whyTabHref(3) },
+  { label: "How Suricat Works", href: whyTabHref(4) },
+  { label: "Designed for Regulated Environments", href: whyTabHref(5) },
+  { label: "What Suricat Enables", href: whyTabHref(6) },
 ];
 
 export const footerPlatformLinks: NavLink[] = [
-  { label: "Intelligence Layer", href: "/#platform-tab-0" },
-  { label: "Read Only by Design", href: "/#platform-tab-1" },
-  { label: "No Rip and Replace", href: "/#platform-tab-2" },
-  { label: "Human Accountability", href: "/#platform-tab-3" },
-  { label: "Deployment", href: "/#platform-tab-4" },
-  { label: "Regulatory Ontology", href: "/#platform-tab-5" },
-  { label: "Canonical Intelligence Schema", href: "/#platform-tab-6" },
-  { label: "Quality Validation Rating", href: "/#platform-tab-7" },
-  { label: "Bounded Reasoning", href: "/#platform-tab-8" },
+  { label: "Intelligence Layer", href: platformTabHref(0) },
+  { label: "Read Only by Design", href: platformTabHref(1) },
+  { label: "No Rip and Replace", href: platformTabHref(2) },
+  { label: "Human Accountability", href: platformTabHref(3) },
+  { label: "Deployment", href: platformTabHref(4) },
+  { label: "Regulatory Ontology", href: platformTabHref(5) },
+  { label: "Canonical Intelligence Schema", href: platformTabHref(6) },
+  { label: "Quality Validation Rating", href: platformTabHref(7) },
+  { label: "Bounded Reasoning", href: platformTabHref(8) },
 ];
 
 export const footerResourceLinks: NavLink[] = [
   { label: "Design Partner", href: "/design-partners" },
-  { label: "Industry", href: "/industries/medical-devices" },
+  { label: "Industry", href: `/#${HOME_SECTION_IDS.industries}` },
   { label: "FAQs", href: "/pricing/faq" },
   { label: "Blog", href: "#" },
   { label: "Events", href: "#" },

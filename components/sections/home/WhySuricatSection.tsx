@@ -157,7 +157,7 @@ export function WhySuricatSection() {
   };
 
   return (
-<section id="why-suricat-section" className="bg-surface-muted px-6 pt-8">
+<section id="why-suricat" className="bg-surface-muted px-6 pt-8">
       <div id="itrkn2" className="max-w-7xl mx-auto">
         <div className="mb-12">
           <span
