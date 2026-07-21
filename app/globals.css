@@ -739,7 +739,7 @@ section[id] {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 9999px;
-  border: none;
+  border: 2px solid #19d3c5;
   background: #0d1b3e;
   color: #fff;
   display: flex;
@@ -756,6 +756,7 @@ section[id] {
     transform 0.25s ease,
     visibility 0.25s ease,
     background-color 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease;
 }
 
@@ -768,6 +769,7 @@ section[id] {
 
 .scroll-to-top-btn:hover {
   background-color: #19d3c5;
+  border-color: #19d3c5;
   color: #0d1b3e;
 }
 
