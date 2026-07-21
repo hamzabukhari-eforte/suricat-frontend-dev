@@ -115,12 +115,12 @@ export function DesignPartnerApplyContent() {
         </div>
       </section>
 
-      <div className="application-main px-6 py-12">
+      <div className="application-main px-4 py-12 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <DesignPartnerForm onSubmitted={() => setSubmitted(true)} />
 
           {/* Trust Badges Footer */}
-          <div className="mt-16 flex flex-wrap justify-center gap-12 border-t border-gray-200 pt-12">
+          <div className="mt-16 flex flex-col items-start gap-8 border-t border-gray-200 pt-12 md:flex-row md:flex-wrap md:justify-center md:gap-12">
             <div className="flex items-center gap-4">
               <FaRegEye className="text-2xl text-teal" aria-hidden="true" />
               <div>

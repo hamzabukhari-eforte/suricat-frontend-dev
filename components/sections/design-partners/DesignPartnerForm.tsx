@@ -552,14 +552,14 @@ export function DesignPartnerForm({
 
           {step === 3 && (
             <section className={`wizard-step is-active ${enterClass}`}>
-              <div className="bg-white p-8 rounded-[4px] shadow-sm border border-gray-100">
-                <div className="flex items-center gap-3 mb-8">
+              <div className="min-w-0 overflow-hidden rounded-[4px] border border-gray-100 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
+                <div className="mb-6 flex items-center gap-3 sm:mb-8">
                   <h2 className="text-base font-bold text-navy">
                     Current Environment
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <div>
+                <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+                  <div className="min-w-0">
                     <label className={labelCls} htmlFor="qms-select">
                       Current Quality Management System (QMS){" "}
                       <span className="text-red-500">*</span>
@@ -587,11 +587,11 @@ export function DesignPartnerForm({
                       </span>
                     </p>
                   </div>
-                  <div className="lg:col-span-2">
-                    <p className="text-sm text-gray-500 font-medium mb-3">
+                  <div className="min-w-0 lg:col-span-2">
+                    <p className="mb-3 text-sm font-medium text-gray-500">
                       Current Documentation Systems (select all that apply)
                     </p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {DOC_SYSTEMS.map((sys) => {
                         const checked = values.docSystems.includes(sys.value);
                         return (

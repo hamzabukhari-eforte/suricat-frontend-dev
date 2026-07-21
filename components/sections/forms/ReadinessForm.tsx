@@ -329,8 +329,8 @@ export function ReadinessForm() {
                   disabled={!canSubmit || submitting}
                   className={
                     canSubmit && !submitting
-                      ? "suricat-teal-btn group flex w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all min-[1377px]:text-base"
-                      : "group flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all min-[1377px]:text-base"
+                      ? "suricat-teal-btn group flex w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all md:text-base"
+                      : "group flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all md:text-base"
                   }
                 >
                   {!canSubmit ? (

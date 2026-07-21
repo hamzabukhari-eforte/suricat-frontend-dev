@@ -32,12 +32,20 @@ export function CookieBanner() {
   return (
     <div
       id="cookie-banner"
-      className="cookie-banner fixed bottom-0 left-0 right-0 z-[100] bg-white px-4 py-5 sm:px-6 sm:py-6 lg:py-4"
+      className="cookie-banner fixed inset-x-0 bottom-0 z-[100] bg-white px-6 py-6 lg:py-4"
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-4 sm:gap-6 lg:flex-row lg:items-center">
-        <p className="max-w-4xl text-[11px] leading-relaxed text-gray-600">
+      <button
+        type="button"
+        onClick={() => dismiss("dismissed")}
+        className="absolute right-4 top-4 cursor-pointer p-1 lg:right-6 lg:top-3"
+        aria-label="Close cookie banner"
+      >
+        <FaTimes className="text-gray-400" aria-hidden="true" />
+      </button>
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 pr-6 lg:flex-row lg:items-center lg:pr-8">
+        <p className="w-full max-w-4xl text-[11px] leading-relaxed text-gray-600 lg:min-w-0 lg:flex-1">
           This website uses cookies and other tracking technologies to enable
           our website functionalities, to enhance user experience, to display
           personalized advertisements, and/or to analyze performance and
@@ -53,14 +61,14 @@ export function CookieBanner() {
             Privacy Statement
           </a>
         </p>
-        <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 lg:shrink-0">
+        <div className="flex w-full flex-col items-center gap-3 lg:w-auto lg:shrink-0 lg:items-end">
           <a
             href="#"
-            className="cursor-pointer text-[11px] font-bold text-navy underline sm:whitespace-nowrap"
+            className="cursor-pointer text-center text-[11px] font-bold text-navy underline lg:text-right lg:whitespace-nowrap"
           >
             Opt out of sale of personal data and Targeted Advertising
           </a>
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 whitespace-nowrap lg:justify-end">
             <button
               type="button"
               onClick={() => dismiss("rejected")}
@@ -74,14 +82,6 @@ export function CookieBanner() {
               className="cookie-cta-btn"
             >
               Accept Cookies
-            </button>
-            <button
-              type="button"
-              onClick={() => dismiss("dismissed")}
-              className="cursor-pointer p-1"
-              aria-label="Close cookie banner"
-            >
-              <FaTimes className="ml-0 text-gray-400 sm:ml-2" aria-hidden="true" />
             </button>
           </div>
         </div>

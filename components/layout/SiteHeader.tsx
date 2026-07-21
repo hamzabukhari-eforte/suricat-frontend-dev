@@ -376,7 +376,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/design-partners"
-            className={`suricat-teal-btn inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-base font-bold transition-all${
+            className={`suricat-teal-btn inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-sm font-bold transition-all md:text-base${
               pathname.startsWith("/design-partners")
                 ? " ring-2 ring-teal ring-offset-2"
                 : ""
