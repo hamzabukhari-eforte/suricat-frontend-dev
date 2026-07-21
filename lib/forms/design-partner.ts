@@ -18,6 +18,7 @@ export type DesignPartnerPayload = {
   designPartnerInterest: string;
   ackDesignPartner: boolean;
   ackNda: boolean;
+  captchaToken?: string;
 };
 
 export type { FormResult };

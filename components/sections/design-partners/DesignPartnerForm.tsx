@@ -14,6 +14,8 @@ import {
   FaLock,
   MdOutlineInfo,
 } from "@/components/ui/icons";
+import { TurnstileField } from "@/components/ui/TurnstileField";
+import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 
 const TOTAL_STEPS = 5;
 const MAX_LEN = 1000;
@@ -129,6 +131,7 @@ export function DesignPartnerForm({
   const [ackInvalid, setAckInvalid] = useState<Set<string>>(new Set());
   const [showAckErrors, setShowAckErrors] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const turnstile = useTurnstileAction();
   const viewportRef = useRef<HTMLDivElement>(null);
   /** Blocks accidental submit from the Next→Submit button swap under the cursor. */
   const submitArmedRef = useRef(true);
@@ -246,6 +249,12 @@ export function DesignPartnerForm({
       return;
     }
     if (!validateAcks()) return;
+    if (turnstile.isCaptchaBlockingSubmit) {
+      toast.error(
+        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+      );
+      return;
+    }
     setSubmitting(true);
     const payload: DesignPartnerPayload = {
       companyName: values.companyName,
@@ -265,6 +274,9 @@ export function DesignPartnerForm({
       designPartnerInterest: values.designPartnerInterest,
       ackDesignPartner: values.ackDesignPartner,
       ackNda: values.ackNda,
+      ...(turnstile.isTurnstileEnabled
+        ? { captchaToken: turnstile.captchaToken }
+        : {}),
     };
     const result = await submitDesignPartner(payload);
     setSubmitting(false);
@@ -280,11 +292,13 @@ export function DesignPartnerForm({
       setShowAckErrors(false);
       setStep(1);
       setEnterClass("");
+      turnstile.resetCaptcha();
       toast.success(
         "Application submitted. Our team will contact you within 1 business day.",
       );
       onSubmitted?.();
     } else {
+      turnstile.resetCaptcha();
       toast.error(result.error);
     }
   }
@@ -913,48 +927,71 @@ export function DesignPartnerForm({
         </div>
 
         {/* Navigation */}
-        <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-          <button
-            type="button"
-            onClick={() => goTo(step - 1, "back")}
-            disabled={step === 1}
-            className="order-3 sm:order-1 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 border-2 border-navy text-navy rounded-full font-bold hover:bg-navy hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none"
-          >
-            <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
-          </button>
-          <div className="order-1 sm:order-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:ml-auto w-full sm:w-auto">
+        {step === TOTAL_STEPS ? (
+          <div className="mt-4 space-y-3">
+            <div className="flex w-full justify-end">
+              <div className="w-full min-w-0 max-w-sm sm:max-w-xs">
+                <TurnstileField action={turnstile} />
+              </div>
+            </div>
+            <div className="flex flex-row flex-wrap items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={() => goTo(step - 1, "back")}
+                className="hero-cta-hover hero-banner-cta-btn inline-flex shrink-0 items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white"
+              >
+                <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
+              </button>
+              <button
+                type="button"
+                onClick={saveDraft}
+                className="hero-banner-cta-btn order-first w-full px-4 text-center font-bold text-teal transition-colors hover:text-navy sm:order-none sm:w-auto"
+              >
+                Save &amp; Finish Later
+              </button>
+              <button
+                type="button"
+                disabled={submitting || turnstile.isCaptchaBlockingSubmit}
+                onClick={() => {
+                  void submitApplication();
+                }}
+                className="suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all disabled:opacity-60"
+              >
+                {submitting ? "Submitting…" : "Submit Application"}{" "}
+                <FaArrowRight aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-8 flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
             <button
               type="button"
-              onClick={saveDraft}
-              className="order-2 sm:order-1 hero-banner-cta-btn text-teal font-bold hover:text-navy transition-colors px-4"
+              onClick={() => goTo(step - 1, "back")}
+              disabled={step === 1}
+              className="order-3 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white disabled:pointer-events-none disabled:opacity-40 sm:order-1"
             >
-              Save &amp; Finish Later
+              <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
             </button>
-            {step < TOTAL_STEPS ? (
+            <div className="order-1 flex w-full flex-col items-stretch gap-3 sm:order-2 sm:ml-auto sm:w-auto sm:flex-row sm:items-center">
+              <button
+                type="button"
+                onClick={saveDraft}
+                className="order-2 hero-banner-cta-btn px-4 font-bold text-teal transition-colors hover:text-navy sm:order-1"
+              >
+                Save &amp; Finish Later
+              </button>
               <button
                 type="button"
                 onClick={() => {
                   if (validateStep(step)) goTo(step + 1, "forward");
                 }}
-                className="order-1 sm:order-2 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all"
+                className="order-1 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all sm:order-2"
               >
                 Next <FaArrowRight aria-hidden="true" />
               </button>
-            ) : (
-              <button
-                type="button"
-                disabled={submitting}
-                onClick={() => {
-                  void submitApplication();
-                }}
-                className="order-1 sm:order-2 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 text-navy !px-8 rounded-full font-bold transition-all disabled:opacity-60"
-              >
-                {submitting ? "Submitting…" : "Submit Application"}{" "}
-                <FaArrowRight aria-hidden="true" />
-              </button>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </form>
     </div>
   );

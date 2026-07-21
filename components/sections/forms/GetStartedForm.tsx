@@ -14,6 +14,8 @@ import {
   ScheduleCalendar,
 } from "@/components/sections/forms/ScheduleCalendar";
 import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNote";
+import { TurnstileField } from "@/components/ui/TurnstileField";
+import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 
 const COMPANY_SIZES = [
   { value: "lt50", label: "<50" },
@@ -48,16 +50,34 @@ export function GetStartedForm() {
   const [time, setTime] = useState<string | null>(null);
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const turnstile = useTurnstileAction();
 
   const canSubmit = useMemo(() => {
     if (!name.trim() || !email.trim() || !company.trim()) return false;
     if (!priority) return false;
     if (priority === "other" && !priorityOther.trim()) return false;
     if (day == null || !time) return false;
+    if (turnstile.isCaptchaBlockingSubmit) return false;
     return true;
-  }, [name, email, company, priority, priorityOther, day, time]);
+  }, [
+    name,
+    email,
+    company,
+    priority,
+    priorityOther,
+    day,
+    time,
+    turnstile.isCaptchaBlockingSubmit,
+  ]);
 
   async function onSubmit() {
+    if (turnstile.isCaptchaBlockingSubmit) {
+      toast.error(
+        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+      );
+      return;
+    }
+
     const payload: GetStartedPayload = {
       name,
       email,
@@ -69,6 +89,9 @@ export function GetStartedForm() {
       context,
       date: day != null ? formatScheduleDate(day) : undefined,
       time: time ?? undefined,
+      ...(turnstile.isTurnstileEnabled
+        ? { captchaToken: turnstile.captchaToken }
+        : {}),
     };
 
     setSubmitting(true);
@@ -76,14 +99,16 @@ export function GetStartedForm() {
     setSubmitting(false);
 
     if (!result.ok) {
+      turnstile.resetCaptcha();
       if (result.fieldErrors?.email) setEmailError(true);
       toast.error(result.error);
       return;
     }
 
+    const { captchaToken: _token, ...stored } = payload;
     const qs = buildDiscussionConfirmedQuery(payload);
     if (typeof window !== "undefined") {
-      sessionStorage.setItem("suricat-discussion", JSON.stringify(payload));
+      sessionStorage.setItem("suricat-discussion", JSON.stringify(stored));
     }
 
     setName("");
@@ -97,22 +122,23 @@ export function GetStartedForm() {
     setDay(null);
     setTime(null);
     setEmailError(false);
+    turnstile.resetCaptcha();
     toast.success("Discussion scheduled. A confirmation email is on the way.");
 
     router.push(`/discussion-confirmed?${qs}`);
   }
 
   return (
-    <section id="intake" className="py-8 w-full bg-[#f5f7fa] relative">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="mb-6">
-          <p className="text-[14px] text-teal font-bold uppercase tracking-[0.15em] mb-3">
+    <section id="intake" className="relative w-full bg-[#f5f7fa] py-8 max-sm:py-5">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 max-sm:px-4">
+        <div className="mb-6 max-sm:mb-4">
+          <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
             Introductory Discussion
           </p>
-          <h2 className="text-[28px] font-bold text-navy mb-3 tracking-tight">
+          <h2 className="mb-3 text-[28px] font-bold tracking-tight text-navy max-sm:mb-2 max-sm:text-[1.5rem]">
             Tell Us About Your Environment
           </h2>
-          <p className="text-navy text-[20px] leading-relaxed max-w-3xl">
+          <p className="max-w-3xl text-[20px] leading-relaxed text-navy max-sm:text-base">
             Share a little about your environment and priorities, then choose a
             time that works for you. No automated analysis, just real expert
             guidance.
@@ -120,7 +146,7 @@ export function GetStartedForm() {
         </div>
 
         <form
-          className="grid lg:grid-cols-2 gap-6 items-start"
+          className="grid min-w-0 items-start gap-6 max-sm:gap-3 lg:grid-cols-2"
           onSubmit={(e) => {
             e.preventDefault();
             void onSubmit();
@@ -276,27 +302,28 @@ export function GetStartedForm() {
             </div>
           </div>
 
-          <div className="space-y-6 lg:sticky lg:top-24">
+          <div className="min-w-0 max-w-full space-y-6 max-sm:space-y-3 lg:sticky lg:top-24">
             <ScheduleCalendar
               selectedDay={day}
               selectedTime={time}
               onSelectDay={setDay}
               onSelectTime={setTime}
             />
-            <div className="bg-white border border-gray-200 rounded-[4px] p-6 shadow-sm">
-              <p className="text-xs text-navy leading-relaxed mb-4">
+            <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm max-sm:p-3">
+              <p className="mb-4 text-xs leading-relaxed text-navy max-sm:mb-3 max-sm:text-[11px] max-sm:leading-snug">
                 Your responses are used only to help our team prepare for a
                 focused, non-sales discussion tailored to your environment and
                 priorities. No automated analysis is performed.
               </p>
-              <div className="mx-auto w-full max-w-md">
+              <div className="mx-auto w-full min-w-0 max-w-md space-y-4 max-sm:space-y-2.5">
+                <TurnstileField action={turnstile} />
                 <button
                   type="submit"
                   disabled={!canSubmit || submitting}
                   className={
                     canSubmit && !submitting
-                      ? "suricat-teal-btn group flex w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all md:text-base"
-                      : "group flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all md:text-base"
+                      ? "suricat-teal-btn group flex w-full max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all max-sm:px-5 max-sm:py-2 md:text-base"
+                      : "group flex w-full max-w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all max-sm:px-5 max-sm:py-2 md:text-base"
                   }
                 >
                   {!canSubmit ? (

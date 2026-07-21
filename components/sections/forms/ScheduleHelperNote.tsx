@@ -28,7 +28,7 @@ export function ScheduleHelperNote({ canSubmit }: ScheduleHelperNoteProps) {
   }, [tipOpen]);
 
   return (
-    <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy md:items-center md:justify-center">
+    <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy max-sm:mt-2 max-sm:text-[11px] md:items-center md:justify-center">
       {canSubmit ? (
         <FaEnvelope
           className="mt-[2px] shrink-0 text-[10px] text-teal md:mt-0"

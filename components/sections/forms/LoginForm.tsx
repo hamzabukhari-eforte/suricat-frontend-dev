@@ -5,6 +5,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { submitLogin } from "@/lib/forms/login";
+import { TurnstileField } from "@/components/ui/TurnstileField";
+import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 
 const inputClass =
   "input-transition block w-full pl-10 pr-4 py-2.5 bg-surface-muted/50 border border-gray-200 rounded-[4px] text-[#374151] placeholder-[#6b7280]/60 focus:bg-white focus:outline-none focus:border-navy";
@@ -17,20 +19,38 @@ export function LoginForm() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const turnstile = useTurnstileAction();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setFormError(null);
+
+    if (turnstile.isCaptchaBlockingSubmit) {
+      setFormError(
+        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+      );
+      return;
+    }
+
     setSubmitting(true);
-    const result = await submitLogin({ email, password, rememberMe });
+    const result = await submitLogin({
+      email,
+      password,
+      rememberMe,
+      ...(turnstile.isTurnstileEnabled
+        ? { captchaToken: turnstile.captchaToken }
+        : {}),
+    });
     setSubmitting(false);
 
     if (!result.ok) {
+      turnstile.resetCaptcha();
       setFieldErrors(result.fieldErrors ?? {});
       setFormError(result.error);
       return;
     }
 
+    turnstile.resetCaptcha();
     setFieldErrors({});
     setFormError(null);
   }
@@ -187,11 +207,13 @@ export function LoginForm() {
                 </p>
               ) : null}
 
+              <TurnstileField action={turnstile} />
+
               <div className="pt-4">
                 <button
                   type="submit"
-                  disabled={submitting}
-                  className="suricat-teal-btn group w-full flex justify-center items-center gap-3 px-6 py-2.5 rounded-full text-sm md:text-base font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+                  disabled={submitting || turnstile.isCaptchaBlockingSubmit}
+                  className="suricat-teal-btn group w-full flex justify-center items-center gap-3 px-6 py-2.5 rounded-full text-sm md:text-base font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal disabled:opacity-60"
                 >
                   Sign In
                   <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />

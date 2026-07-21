@@ -28,8 +28,8 @@ export function ContactContent() {
       />
       <section className="bg-gray-50 py-8">
         <Container>
-          <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 items-start gap-16 max-sm:gap-8 lg:grid-cols-2">
+            <div className="min-w-0 space-y-8">
               <div className="space-y-4">
                 <span className="inline-block rounded-full py-1.5 text-sm font-bold uppercase tracking-wider text-teal">
                   Contact
@@ -118,7 +118,7 @@ export function ContactContent() {
               </div>
             </div>
 
-            <div className="rounded-[4px] border border-gray-200 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+            <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-sm:p-4">
               <ContactForm />
             </div>
           </div>

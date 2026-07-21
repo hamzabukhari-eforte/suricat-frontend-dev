@@ -14,6 +14,8 @@ import {
   ScheduleCalendar,
 } from "@/components/sections/forms/ScheduleCalendar";
 import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNote";
+import { TurnstileField } from "@/components/ui/TurnstileField";
+import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 
 const TIMELINES = [
   { value: "within90", label: "Within 90 Days" },
@@ -51,6 +53,7 @@ export function ReadinessForm() {
   const [time, setTime] = useState<string | null>(null);
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const turnstile = useTurnstileAction();
 
   const canSubmit = useMemo(() => {
     if (!name.trim() || !email.trim() || !company.trim()) return false;
@@ -59,6 +62,7 @@ export function ReadinessForm() {
     if (!priority) return false;
     if (priority === "other" && !priorityOther.trim()) return false;
     if (day == null || !time) return false;
+    if (turnstile.isCaptchaBlockingSubmit) return false;
     return true;
   }, [
     name,
@@ -70,9 +74,17 @@ export function ReadinessForm() {
     priorityOther,
     day,
     time,
+    turnstile.isCaptchaBlockingSubmit,
   ]);
 
   async function onSubmit() {
+    if (turnstile.isCaptchaBlockingSubmit) {
+      toast.error(
+        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+      );
+      return;
+    }
+
     const payload: ReadinessPayload = {
       name,
       email,
@@ -85,6 +97,9 @@ export function ReadinessForm() {
       context,
       date: day != null ? formatScheduleDate(day) : undefined,
       time: time ?? undefined,
+      ...(turnstile.isTurnstileEnabled
+        ? { captchaToken: turnstile.captchaToken }
+        : {}),
     };
 
     setSubmitting(true);
@@ -92,14 +107,16 @@ export function ReadinessForm() {
     setSubmitting(false);
 
     if (!result.ok) {
+      turnstile.resetCaptcha();
       if (result.fieldErrors?.email) setEmailError(true);
       toast.error(result.error);
       return;
     }
 
+    const { captchaToken: _token, ...stored } = payload;
     const qs = buildDiscussionConfirmedQuery(payload);
     if (typeof window !== "undefined") {
-      sessionStorage.setItem("suricat-discussion", JSON.stringify(payload));
+      sessionStorage.setItem("suricat-discussion", JSON.stringify(stored));
     }
 
     setName("");
@@ -114,19 +131,20 @@ export function ReadinessForm() {
     setDay(null);
     setTime(null);
     setEmailError(false);
+    turnstile.resetCaptcha();
     toast.success("Discussion scheduled. A confirmation email is on the way.");
 
     router.push(`/discussion-confirmed?${qs}`);
   }
 
   return (
-    <section id="intake" className="relative w-full bg-[#f5f7fa] py-8">
+    <section id="intake" className="relative w-full bg-[#f5f7fa] py-8 max-sm:py-5">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mb-6">
-          <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal">
+        <div className="mb-6 max-sm:mb-4">
+          <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
             Schedule Your Discussion
           </p>
-          <h2 className="mb-3 text-[1.5rem] font-bold tracking-tight text-navy sm:text-[28px]">
+          <h2 className="mb-3 text-[1.5rem] font-bold tracking-tight text-navy max-sm:mb-2 sm:text-[28px]">
             Begin Your Readiness Discussion
           </h2>
           <p className="max-w-3xl text-base leading-relaxed text-navy sm:text-[20px]">
@@ -138,7 +156,7 @@ export function ReadinessForm() {
         </div>
 
         <form
-          className="grid items-start gap-6 lg:grid-cols-2"
+          className="grid min-w-0 items-start gap-6 max-sm:gap-3 lg:grid-cols-2"
           onSubmit={(e) => {
             e.preventDefault();
             void onSubmit();
@@ -310,27 +328,28 @@ export function ReadinessForm() {
             </div>
           </div>
 
-          <div className="min-w-0 space-y-6 lg:sticky lg:top-24">
+          <div className="min-w-0 max-w-full space-y-6 max-sm:space-y-3 lg:sticky lg:top-24">
             <ScheduleCalendar
               selectedDay={day}
               selectedTime={time}
               onSelectDay={setDay}
               onSelectTime={setTime}
             />
-            <div className="rounded-[4px] border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
-              <p className="mb-4 text-xs leading-relaxed text-navy">
+            <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm max-sm:p-3 sm:p-6">
+              <p className="mb-4 text-xs leading-relaxed text-navy max-sm:mb-3 max-sm:text-[11px] max-sm:leading-snug">
                 Your responses are used only to help our team prepare for a
                 focused readiness discussion tailored to your environment and
                 priorities. No automated analysis is performed.
               </p>
-              <div className="mx-auto w-full max-w-md">
+              <div className="mx-auto w-full min-w-0 max-w-md space-y-4 max-sm:space-y-2.5">
+                <TurnstileField action={turnstile} />
                 <button
                   type="submit"
                   disabled={!canSubmit || submitting}
                   className={
                     canSubmit && !submitting
-                      ? "suricat-teal-btn group flex w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all md:text-base"
-                      : "group flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all md:text-base"
+                      ? "suricat-teal-btn group flex w-full max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all max-sm:px-5 max-sm:py-2 md:text-base"
+                      : "group flex w-full max-w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all max-sm:px-5 max-sm:py-2 md:text-base"
                   }
                 >
                   {!canSubmit ? (
