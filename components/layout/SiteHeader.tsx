@@ -213,7 +213,12 @@ export function SiteHeader() {
           <div className="nav-header-cta-group flex items-center">
             <Link
               href="/login"
-              className="nav-login-link nav-link-animated font-bold text-navy hover:text-navy/90 transition-colors"
+              className={`nav-login-link nav-link-animated font-bold transition-colors${
+                linkIsActive("/login")
+                  ? " is-active text-teal hover:text-teal"
+                  : " text-navy hover:text-navy/90"
+              }`}
+              aria-current={linkIsActive("/login") ? "page" : undefined}
             >
               Login
             </Link>
@@ -362,7 +367,12 @@ export function SiteHeader() {
         <div className="mobile-menu-footer flex flex-col gap-3 border-t border-gray-200 bg-white p-4">
           <Link
             href="/login"
-            className="cursor-pointer rounded-full border-2 border-navy bg-white px-6 py-3 text-center font-bold text-navy"
+            className={`cursor-pointer rounded-full border-2 px-6 py-3 text-center font-bold${
+              linkIsActive("/login")
+                ? " border-teal bg-white text-teal"
+                : " border-navy bg-white text-navy"
+            }`}
+            aria-current={linkIsActive("/login") ? "page" : undefined}
             onClick={closeMobile}
           >
             Login
