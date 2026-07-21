@@ -29,6 +29,7 @@ const routes = [
   "/readiness",
   "/discussion-confirmed",
   "/login",
+  "/sitemap",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -198,4 +198,10 @@ export const pageSeo = {
     description: "Sign in to your Suricat account.",
     path: "/login",
   }),
+  sitemap: buildPageMetadata({
+    title: "Sitemap",
+    description:
+      "Browse all public Suricat pages. Find solutions, pricing, company information, and more.",
+    path: "/sitemap",
+  }),
 };

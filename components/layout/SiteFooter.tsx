@@ -280,7 +280,7 @@ export function SiteFooter() {
               |
             </span>
             <a
-              href="/sitemap.xml"
+              href="/sitemap"
               className="nav-link-animated inline-block hover:text-white"
             >
               Sitemap
