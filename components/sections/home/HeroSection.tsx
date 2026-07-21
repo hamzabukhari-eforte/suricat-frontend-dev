@@ -48,7 +48,7 @@ export function HeroSection() {
                     </Button>
                     <Link
                       href="/design-partners/apply"
-                      className="hero-cta-hover group inline-flex h-[42px] w-full shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-2 border-white/20 bg-transparent px-6 text-base font-bold leading-none text-white transition-all hover:border-white hover:bg-transparent hover:text-white sm:w-auto"
+                      className="hero-cta-hover group inline-flex h-[42px] w-full shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-2 border-white/20 bg-transparent px-6 text-sm font-bold leading-none text-white transition-all hover:border-white hover:bg-transparent hover:text-white sm:w-auto md:text-base"
                     >
                       Become a Design Partner
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

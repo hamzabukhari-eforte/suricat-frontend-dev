@@ -9,7 +9,7 @@ type CtaBandProps = {
 };
 
 const ctaBtnBase =
-  "hero-cta-hover inline-flex h-[42px] w-full items-center justify-center whitespace-nowrap rounded-full border-2 px-4 text-base font-bold leading-none transition-all sm:px-6 md:px-8";
+  "hero-cta-hover inline-flex h-[42px] w-full items-center justify-center whitespace-nowrap rounded-full border-2 px-4 text-sm font-bold leading-none transition-all sm:px-6 md:px-8 md:text-base";
 
 export function CtaBand({
   title = "Ready to Get Started?",

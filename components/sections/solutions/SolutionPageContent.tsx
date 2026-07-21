@@ -287,7 +287,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
               <div className="mt-10 flex flex-col items-center gap-4 lg:mt-8">
                 <Link
                   href="/readiness"
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-[#19D3C5] px-8 py-2.5 text-base font-bold text-[#19d3c5] transition-all hover:bg-[#19D3C5] hover:text-[#0D1B3E]"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-[#19D3C5] px-8 py-2.5 text-sm font-bold text-[#19d3c5] transition-all hover:bg-[#19D3C5] hover:text-[#0D1B3E] md:text-base"
                 >
                   Check Your Readiness
                   <FaArrowRight className="text-sm transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

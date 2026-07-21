@@ -24,7 +24,7 @@ const sizes = {
 } as const;
 
 /** Fixed CTA metrics — applied last so consumer className cannot override. */
-const CTA_SIZE = "h-[42px] text-base leading-none";
+const CTA_SIZE = "h-[42px] text-sm md:text-base leading-none";
 
 type Variant = keyof typeof variants;
 type Size = keyof typeof sizes;

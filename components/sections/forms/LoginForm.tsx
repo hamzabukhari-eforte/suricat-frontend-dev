@@ -191,7 +191,7 @@ export function LoginForm() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="suricat-teal-btn group w-full flex justify-center items-center gap-3 px-6 py-2.5 rounded-full text-sm min-[1377px]:text-base font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+                  className="suricat-teal-btn group w-full flex justify-center items-center gap-3 px-6 py-2.5 rounded-full text-sm md:text-base font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
                 >
                   Sign In
                   <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />

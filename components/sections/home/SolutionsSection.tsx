@@ -179,7 +179,7 @@ export function SolutionsSection() {
                 <div className="mt-10 lg:mt-8 flex flex-col items-center gap-4">
                   <Link
                     href="/readiness"
-                    className="compliance-banner-cta inline-flex items-center gap-2 border-2 border-teal text-teal px-8 py-2.5 rounded-full text-base font-bold hover:bg-teal hover:text-navy transition-all group"
+                    className="compliance-banner-cta inline-flex items-center gap-2 border-2 border-teal text-teal px-8 py-2.5 rounded-full text-sm font-bold hover:bg-teal hover:text-navy transition-all group md:text-base"
                   >
                     Check Your Readiness
                     <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
