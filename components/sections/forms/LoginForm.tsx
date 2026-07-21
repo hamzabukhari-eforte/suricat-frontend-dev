@@ -40,10 +40,10 @@ export function LoginForm() {
       <div
         className="w-full max-w-5xl bg-white rounded-[4px] shadow-lg overflow-hidden flex flex-col lg:flex-row h-auto lg:h-[650px] relative z-10 border border-gray-200/50"
       >
-        <div className="w-full lg:w-[45%] bg-navy text-white p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+        <div className="w-full lg:w-[45%] bg-navy text-white p-8 lg:p-12 flex flex-col justify-start lg:justify-center relative overflow-hidden">
           <Link
             href="/"
-            className="absolute top-6 left-8 lg:left-12 z-20 flex items-center gap-2 text-sm font-semibold text-white hover:text-teal transition-colors group w-fit"
+            className="relative mb-6 lg:mb-0 lg:absolute lg:top-6 lg:left-12 z-20 flex items-center gap-2 text-sm font-semibold text-white hover:text-teal transition-colors group w-fit"
           >
             <FaArrowLeft className="text-xs transition-transform duration-300 group-hover:-translate-x-1" aria-hidden="true" />
             Back to home
