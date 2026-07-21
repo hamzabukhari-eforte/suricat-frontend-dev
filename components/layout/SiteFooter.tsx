@@ -276,6 +276,15 @@ export function SiteFooter() {
             <a href="#" className="nav-link-animated inline-block hover:text-white">
               Cookie Settings
             </a>
+            <span aria-hidden="true" className="text-gray-500/80">
+              |
+            </span>
+            <a
+              href="/sitemap.xml"
+              className="nav-link-animated inline-block hover:text-white"
+            >
+              Sitemap
+            </a>
           </nav>
         </div>
       </div>
