@@ -934,32 +934,34 @@ export function DesignPartnerForm({
                 <TurnstileField action={turnstile} />
               </div>
             </div>
-            <div className="flex flex-row flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
               <button
                 type="button"
                 onClick={() => goTo(step - 1, "back")}
-                className="hero-cta-hover hero-banner-cta-btn inline-flex shrink-0 items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white"
+                className="order-3 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white sm:order-1"
               >
                 <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
               </button>
-              <button
-                type="button"
-                onClick={saveDraft}
-                className="hero-banner-cta-btn order-first w-full px-4 text-center font-bold text-teal transition-colors hover:text-navy sm:order-none sm:w-auto"
-              >
-                Save &amp; Finish Later
-              </button>
-              <button
-                type="button"
-                disabled={submitting || turnstile.isCaptchaBlockingSubmit}
-                onClick={() => {
-                  void submitApplication();
-                }}
-                className="suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all disabled:opacity-60"
-              >
-                {submitting ? "Submitting…" : "Submit Application"}{" "}
-                <FaArrowRight aria-hidden="true" />
-              </button>
+              <div className="order-1 flex w-full flex-col items-stretch gap-3 sm:order-2 sm:ml-auto sm:w-auto sm:flex-row sm:items-center">
+                <button
+                  type="button"
+                  onClick={saveDraft}
+                  className="order-2 hero-banner-cta-btn px-4 font-bold text-teal transition-colors hover:text-navy sm:order-1"
+                >
+                  Save &amp; Finish Later
+                </button>
+                <button
+                  type="button"
+                  disabled={submitting || turnstile.isCaptchaBlockingSubmit}
+                  onClick={() => {
+                    void submitApplication();
+                  }}
+                  className="order-1 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all disabled:opacity-60 sm:order-2"
+                >
+                  {submitting ? "Submitting…" : "Submit Application"}{" "}
+                  <FaArrowRight aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </div>
         ) : (
