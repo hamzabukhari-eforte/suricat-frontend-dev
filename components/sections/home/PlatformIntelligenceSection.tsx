@@ -50,7 +50,7 @@ export function PlatformIntelligenceSection() {
 
   return (
     <section
-      id="platform-intelligence-section"
+      id="platform"
       className="bg-white pt-8 px-6"
       style={{ backgroundColor: "#ffffff" }}
     >

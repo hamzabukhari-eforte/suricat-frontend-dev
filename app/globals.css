@@ -41,8 +41,8 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
-#why-suricat-section,
-#platform-intelligence-section {
+#why-suricat,
+#platform {
   scroll-margin-top: 7rem;
 }
 
@@ -51,8 +51,8 @@ section[id] {
     scroll-margin-top: 80px;
   }
 
-  #why-suricat-section,
-  #platform-intelligence-section {
+  #why-suricat,
+  #platform {
     scroll-margin-top: 5.5rem;
   }
 }
@@ -972,9 +972,9 @@ button.nav-language-trigger:hover {
   }
 }
 
-#platform-intelligence-section,
-#platform-intelligence-section > .max-w-7xl,
-#platform-intelligence-section #immaak {
+#platform,
+#platform > .max-w-7xl,
+#platform #immaak {
   background-color: #ffffff !important;
   background-image: none !important;
 }
@@ -2019,17 +2019,17 @@ input[type="radio"]:checked + span {
 
 /* Mobile / tablet: only the active pane sizes the card (design uses display:none, not grid stack). */
 @media (max-width: 1279px) {
-  #why-suricat-section #iye3pg,
-  #platform-intelligence-section #platform-card {
+  #why-suricat #iye3pg,
+  #platform #platform-card {
     overflow: visible;
   }
 
-  #why-suricat-section .tab-pane,
-  #platform-intelligence-section .platform-pane {
+  #why-suricat .tab-pane,
+  #platform .platform-pane {
     min-height: auto !important;
   }
 
-  #platform-intelligence-section .platform-pane > .min-h-\[240px\] {
+  #platform .platform-pane > .min-h-\[240px\] {
     min-height: 0 !important;
   }
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 export function IndustriesSection() {
   return (
     <>
-      <section id="industries-section" className="industries-scope pt-8 bg-white">
+      <section id="industries" className="industries-scope pt-8 bg-white">
             <div className="max-w-7xl mx-auto">
               <div className="mb-8 sm:mb-10">
                 <span

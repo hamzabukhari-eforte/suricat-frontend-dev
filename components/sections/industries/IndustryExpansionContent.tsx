@@ -202,7 +202,7 @@ export function IndustryExpansionContent() {
           </div>
           <div className="flex-shrink-0">
             <Link
-              href="/#platform-intelligence-section"
+              href="/#platform"
               className="suricat-teal-btn group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full px-6 py-3 text-sm font-bold transition-all sm:px-8 sm:py-3.5"
             >
               Explore The Platform
