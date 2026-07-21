@@ -12,6 +12,7 @@ export type ReadinessPayload = {
   context?: string;
   date?: string;
   time?: string;
+  captchaToken?: string;
 };
 
 export type ReadinessFormResult =

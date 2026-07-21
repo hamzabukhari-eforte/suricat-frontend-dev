@@ -11,6 +11,7 @@ export type GetStartedPayload = {
   context?: string;
   date?: string;
   time?: string;
+  captchaToken?: string;
 };
 
 export type GetStartedFormResult =

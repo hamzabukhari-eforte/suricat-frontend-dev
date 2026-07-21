@@ -7,6 +7,8 @@ import {
   type ContactPayload,
 } from "@/lib/forms/contact";
 import { FaLock } from "@/components/ui/icons";
+import { TurnstileField } from "@/components/ui/TurnstileField";
+import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 
 const INTENTS = [
   { value: "general", label: "General Inquiry" },
@@ -19,10 +21,19 @@ const inputClass =
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
+  const turnstile = useTurnstileAction();
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+
+    if (turnstile.isCaptchaBlockingSubmit) {
+      toast.error(
+        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+      );
+      return;
+    }
+
     setStatus("submitting");
 
     const fd = new FormData(form);
@@ -32,21 +43,26 @@ export function ContactForm() {
       workEmail: String(fd.get("work_email") ?? ""),
       intent: String(fd.get("intent") ?? ""),
       message: String(fd.get("message") ?? ""),
+      ...(turnstile.isTurnstileEnabled
+        ? { captchaToken: turnstile.captchaToken }
+        : {}),
     };
 
     const result = await submitContact(payload);
     if (result.ok) {
       form.reset();
+      turnstile.resetCaptcha();
       setStatus("idle");
       toast.success("Thank you. Your inquiry will be reviewed by the Suricat team.");
     } else {
+      turnstile.resetCaptcha();
       setStatus("error");
       toast.error(result.error);
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
+    <form onSubmit={onSubmit} className="min-w-0 max-w-full space-y-6 max-sm:space-y-4">
       <div className="space-y-1.5">
         <label htmlFor="name" className="text-sm text-navy">
           Name
@@ -116,10 +132,12 @@ export function ContactForm() {
         />
       </div>
 
+      <TurnstileField action={turnstile} />
+
       <div className="w-full pt-2">
         <button
           type="submit"
-          disabled={status === "submitting"}
+          disabled={status === "submitting" || turnstile.isCaptchaBlockingSubmit}
           className="suricat-teal-btn w-full rounded-full px-8 py-2.5 font-semibold disabled:opacity-60"
         >
           {status === "submitting" ? "Sending…" : "Send Message"}
