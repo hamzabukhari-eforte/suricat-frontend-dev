@@ -1,6 +1,8 @@
 "use client";
 
 import { FaChevronLeft, FaChevronRight, FaCircleCheck } from "@/components/ui/icons";
+import { useMemo, useState } from "react";
+
 const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"] as const;
 const TIME_SLOTS = [
   "9:00 AM",
@@ -11,59 +13,122 @@ const TIME_SLOTS = [
   "4:30 PM",
 ] as const;
 
-/** Demo calendar for June 2026 matching Designs (selectable weekdays from day 7). */
-const JUNE_2026_DAYS: Array<{ day: number; selectable: boolean } | null> = [
-  null,
-  null,
-  { day: 1, selectable: false },
-  { day: 2, selectable: false },
-  { day: 3, selectable: false },
-  { day: 4, selectable: false },
-  { day: 5, selectable: false },
-  { day: 6, selectable: false },
-  { day: 7, selectable: true },
-  { day: 8, selectable: true },
-  { day: 9, selectable: true },
-  { day: 10, selectable: true },
-  { day: 11, selectable: true },
-  { day: 12, selectable: false },
-  { day: 13, selectable: false },
-  { day: 14, selectable: true },
-  { day: 15, selectable: true },
-  { day: 16, selectable: true },
-  { day: 17, selectable: true },
-  { day: 18, selectable: true },
-  { day: 19, selectable: false },
-  { day: 20, selectable: false },
-  { day: 21, selectable: true },
-  { day: 22, selectable: true },
-  { day: 23, selectable: true },
-  { day: 24, selectable: true },
-  { day: 25, selectable: true },
-  { day: 26, selectable: false },
-  { day: 27, selectable: false },
-  { day: 28, selectable: true },
-  { day: 29, selectable: true },
-  { day: 30, selectable: true },
-];
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+] as const;
+
+type CalendarCell = {
+  day: number;
+  iso: string;
+  selectable: boolean;
+};
+
+function pad2(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+/** Local calendar date as YYYY-MM-DD (no timezone shift). */
+export function toIsoDate(year: number, monthIndex: number, day: number) {
+  return `${year}-${pad2(monthIndex + 1)}-${pad2(day)}`;
+}
+
+function startOfTodayLocal() {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+}
+
+function isWeekday(year: number, monthIndex: number, day: number) {
+  const dow = new Date(year, monthIndex, day).getDay();
+  return dow !== 0 && dow !== 6;
+}
+
+function buildMonthCells(year: number, monthIndex: number): Array<CalendarCell | null> {
+  const today = startOfTodayLocal();
+  const firstDow = new Date(year, monthIndex, 1).getDay();
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const cells: Array<CalendarCell | null> = [];
+
+  for (let i = 0; i < firstDow; i++) cells.push(null);
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(year, monthIndex, day);
+    const selectable = isWeekday(year, monthIndex, day) && date >= today;
+    cells.push({
+      day,
+      iso: toIsoDate(year, monthIndex, day),
+      selectable,
+    });
+  }
+
+  return cells;
+}
+
+/** Human-readable date for API / confirmation, e.g. "July 22, 2026". */
+export function formatScheduleDate(isoDate: string) {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  if (!y || !m || !d) return isoDate;
+  return `${MONTH_NAMES[m - 1]} ${d}, ${y}`;
+}
 
 type ScheduleCalendarProps = {
-  selectedDay: number | null;
+  /** Selected date as YYYY-MM-DD, or null. */
+  selectedDate: string | null;
   selectedTime: string | null;
-  onSelectDay: (day: number) => void;
+  onSelectDate: (isoDate: string) => void;
   onSelectTime: (time: string) => void;
-  monthLabel?: string;
 };
 
 export function ScheduleCalendar({
-  selectedDay,
+  selectedDate,
   selectedTime,
-  onSelectDay,
+  onSelectDate,
   onSelectTime,
-  monthLabel = "June 2026",
 }: ScheduleCalendarProps) {
-  const dateLabel =
-    selectedDay != null ? `June ${selectedDay}, 2026` : null;
+  const today = startOfTodayLocal();
+  const [viewYear, setViewYear] = useState(() => today.getFullYear());
+  const [viewMonth, setViewMonth] = useState(() => today.getMonth());
+
+  const monthLabel = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
+  const cells = useMemo(
+    () => buildMonthCells(viewYear, viewMonth),
+    [viewYear, viewMonth],
+  );
+
+  const canGoPrev =
+    viewYear > today.getFullYear() ||
+    (viewYear === today.getFullYear() && viewMonth > today.getMonth());
+
+  function goPrevMonth() {
+    if (!canGoPrev) return;
+    if (viewMonth === 0) {
+      setViewYear((y) => y - 1);
+      setViewMonth(11);
+    } else {
+      setViewMonth((m) => m - 1);
+    }
+  }
+
+  function goNextMonth() {
+    if (viewMonth === 11) {
+      setViewYear((y) => y + 1);
+      setViewMonth(0);
+    } else {
+      setViewMonth((m) => m + 1);
+    }
+  }
+
+  const dateLabel = selectedDate ? formatScheduleDate(selectedDate) : null;
 
   return (
     <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-4 shadow-sm max-sm:p-3 sm:p-6 lg:p-7">
@@ -80,13 +145,16 @@ export function ScheduleCalendar({
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            className="flex h-7 w-7 items-center justify-center rounded-[4px] border border-gray-200 bg-gray-100 transition-colors hover:border-teal/40 hover:bg-teal/10"
+            onClick={goPrevMonth}
+            disabled={!canGoPrev}
+            className="flex h-7 w-7 items-center justify-center rounded-[4px] border border-gray-200 bg-gray-100 transition-colors hover:border-teal/40 hover:bg-teal/10 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-gray-100"
             aria-label="Previous month"
           >
             <FaChevronLeft className="text-xs text-gray-400" aria-hidden="true" />
           </button>
           <button
             type="button"
+            onClick={goNextMonth}
             className="flex h-7 w-7 items-center justify-center rounded-[4px] border border-gray-200 bg-gray-100 transition-colors hover:border-teal/40 hover:bg-teal/10"
             aria-label="Next month"
           >
@@ -105,27 +173,27 @@ export function ScheduleCalendar({
         ))}
       </div>
       <div className="grid grid-cols-7 gap-1 text-center max-sm:gap-0.5">
-        {JUNE_2026_DAYS.map((cell, i) => {
+        {cells.map((cell, i) => {
           if (!cell) return <span key={`e-${i}`} />;
           if (!cell.selectable) {
             return (
               <span
-                key={cell.day}
+                key={cell.iso}
                 className="py-2 text-sm text-gray-300 max-sm:py-1.5"
               >
                 {cell.day}
               </span>
             );
           }
-          const selected = selectedDay === cell.day;
+          const selected = selectedDate === cell.iso;
           return (
             <button
-              key={cell.day}
+              key={cell.iso}
               type="button"
               className={`cal-day rounded-[4px] py-2 text-sm text-navy max-sm:py-1.5${
                 selected ? " is-selected" : ""
               }`}
-              onClick={() => onSelectDay(cell.day)}
+              onClick={() => onSelectDate(cell.iso)}
             >
               {cell.day}
             </button>
@@ -166,8 +234,4 @@ export function ScheduleCalendar({
       </div>
     </div>
   );
-}
-
-export function formatScheduleDate(day: number) {
-  return `June ${day}, 2026`;
 }
