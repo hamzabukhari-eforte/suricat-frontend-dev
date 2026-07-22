@@ -1904,9 +1904,15 @@ input[type="radio"]:checked + span {
 .time-slot {
   transition: all 0.18s ease;
 }
-.time-slot:hover {
+.time-slot:hover:not(:disabled) {
   border-color: rgba(25, 211, 197, 0.5);
   color: #0d1b3e;
+}
+.time-slot:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  color: #9ca3af;
+  background: #f9fafb;
 }
 .time-slot.is-selected {
   background: rgba(25, 211, 197, 0.15);

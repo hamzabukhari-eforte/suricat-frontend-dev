@@ -1,7 +1,7 @@
 "use client";
 
 import { FaChevronLeft, FaChevronRight, FaCircleCheck } from "@/components/ui/icons";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"] as const;
 const TIME_SLOTS = [
@@ -48,6 +48,43 @@ function startOfTodayLocal() {
   return new Date(now.getFullYear(), now.getMonth(), now.getDate());
 }
 
+function todayIsoLocal() {
+  const today = startOfTodayLocal();
+  return toIsoDate(today.getFullYear(), today.getMonth(), today.getDate());
+}
+
+/** Minutes from midnight for labels like "4:30 PM". */
+function timeSlotMinutes(slot: string) {
+  const match = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec(slot.trim());
+  if (!match) return null;
+  let hours = Number(match[1]);
+  const minutes = Number(match[2]);
+  const period = match[3].toUpperCase();
+  if (period === "AM") {
+    if (hours === 12) hours = 0;
+  } else if (hours !== 12) {
+    hours += 12;
+  }
+  return hours * 60 + minutes;
+}
+
+function nowMinutesLocal() {
+  const now = new Date();
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+/** Future (or other-day) slots only — same-day past times are closed. */
+function isTimeSlotOpen(slot: string, isoDate: string | null) {
+  if (!isoDate || isoDate !== todayIsoLocal()) return true;
+  const slotMins = timeSlotMinutes(slot);
+  if (slotMins == null) return true;
+  return slotMins > nowMinutesLocal();
+}
+
+function hasOpenSlotToday() {
+  return TIME_SLOTS.some((slot) => isTimeSlotOpen(slot, todayIsoLocal()));
+}
+
 function isWeekday(year: number, monthIndex: number, day: number) {
   const dow = new Date(year, monthIndex, day).getDay();
   return dow !== 0 && dow !== 6;
@@ -55,18 +92,25 @@ function isWeekday(year: number, monthIndex: number, day: number) {
 
 function buildMonthCells(year: number, monthIndex: number): Array<CalendarCell | null> {
   const today = startOfTodayLocal();
+  const todayIso = todayIsoLocal();
   const firstDow = new Date(year, monthIndex, 1).getDay();
   const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
   const cells: Array<CalendarCell | null> = [];
+  const todayStillBookable = hasOpenSlotToday();
 
   for (let i = 0; i < firstDow; i++) cells.push(null);
 
   for (let day = 1; day <= daysInMonth; day++) {
     const date = new Date(year, monthIndex, day);
-    const selectable = isWeekday(year, monthIndex, day) && date >= today;
+    const iso = toIsoDate(year, monthIndex, day);
+    const isToday = iso === todayIso;
+    const selectable =
+      isWeekday(year, monthIndex, day) &&
+      date >= today &&
+      (!isToday || todayStillBookable);
     cells.push({
       day,
-      iso: toIsoDate(year, monthIndex, day),
+      iso,
       selectable,
     });
   }
@@ -86,7 +130,7 @@ type ScheduleCalendarProps = {
   selectedDate: string | null;
   selectedTime: string | null;
   onSelectDate: (isoDate: string) => void;
-  onSelectTime: (time: string) => void;
+  onSelectTime: (time: string | null) => void;
 };
 
 export function ScheduleCalendar({
@@ -98,12 +142,19 @@ export function ScheduleCalendar({
   const today = startOfTodayLocal();
   const [viewYear, setViewYear] = useState(() => today.getFullYear());
   const [viewMonth, setViewMonth] = useState(() => today.getMonth());
+  /** Re-evaluate same-day cutoffs as the clock ticks. */
+  const [nowTick, setNowTick] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNowTick(Date.now()), 30_000);
+    return () => window.clearInterval(id);
+  }, []);
 
   const monthLabel = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
-  const cells = useMemo(
-    () => buildMonthCells(viewYear, viewMonth),
-    [viewYear, viewMonth],
-  );
+  const cells = useMemo(() => {
+    void nowTick;
+    return buildMonthCells(viewYear, viewMonth);
+  }, [viewYear, viewMonth, nowTick]);
 
   const canGoPrev =
     viewYear > today.getFullYear() ||
@@ -128,7 +179,21 @@ export function ScheduleCalendar({
     }
   }
 
+  function handleSelectDate(iso: string) {
+    onSelectDate(iso);
+    if (selectedTime && !isTimeSlotOpen(selectedTime, iso)) {
+      onSelectTime(null);
+    }
+  }
+
+  useEffect(() => {
+    if (selectedTime && !isTimeSlotOpen(selectedTime, selectedDate)) {
+      onSelectTime(null);
+    }
+  }, [selectedDate, selectedTime, nowTick, onSelectTime]);
+
   const dateLabel = selectedDate ? formatScheduleDate(selectedDate) : null;
+  const timeOpen = (slot: string) => isTimeSlotOpen(slot, selectedDate);
 
   return (
     <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-4 shadow-sm max-sm:p-3 sm:p-6 lg:p-7">
@@ -193,7 +258,7 @@ export function ScheduleCalendar({
               className={`cal-day rounded-[4px] py-2 text-sm text-navy max-sm:py-1.5${
                 selected ? " is-selected" : ""
               }`}
-              onClick={() => onSelectDate(cell.iso)}
+              onClick={() => handleSelectDate(cell.iso)}
             >
               {cell.day}
             </button>
@@ -202,18 +267,22 @@ export function ScheduleCalendar({
       </div>
       <div className="mt-5 min-w-0 max-sm:mt-3">
         <div className="grid grid-cols-3 gap-2 max-sm:grid-cols-2 max-sm:gap-1.5 min-[360px]:max-sm:grid-cols-3">
-          {TIME_SLOTS.map((slot) => (
-            <button
-              key={slot}
-              type="button"
-              className={`time-slot min-w-0 rounded-[4px] border border-gray-200 bg-white py-2.5 text-xs font-semibold text-gray-600 max-sm:px-1 max-sm:py-2 max-sm:text-[11px]${
-                selectedTime === slot ? " is-selected" : ""
-              }`}
-              onClick={() => onSelectTime(slot)}
-            >
-              {slot}
-            </button>
-          ))}
+          {TIME_SLOTS.map((slot) => {
+            const open = timeOpen(slot);
+            return (
+              <button
+                key={slot}
+                type="button"
+                disabled={!open}
+                className={`time-slot min-w-0 rounded-[4px] border border-gray-200 bg-white py-2.5 text-xs font-semibold text-gray-600 max-sm:px-1 max-sm:py-2 max-sm:text-[11px]${
+                  open && selectedTime === slot ? " is-selected" : ""
+                }`}
+                onClick={() => onSelectTime(slot)}
+              >
+                {slot}
+              </button>
+            );
+          })}
         </div>
         {dateLabel && selectedTime ? (
           <div className="mt-4 flex items-center gap-3 rounded-[4px] border border-teal/40 bg-teal/5 px-4 py-3 max-sm:mt-3 max-sm:items-start max-sm:gap-2 max-sm:px-3 max-sm:py-2">
