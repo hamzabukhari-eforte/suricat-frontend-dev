@@ -49,7 +49,7 @@ export function ReadinessForm() {
   const [priority, setPriority] = useState("");
   const [priorityOther, setPriorityOther] = useState("");
   const [context, setContext] = useState("");
-  const [day, setDay] = useState<number | null>(null);
+  const [date, setDate] = useState<string | null>(null);
   const [time, setTime] = useState<string | null>(null);
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -61,7 +61,7 @@ export function ReadinessForm() {
     if (timeline === "other" && !timelineOther.trim()) return false;
     if (!priority) return false;
     if (priority === "other" && !priorityOther.trim()) return false;
-    if (day == null || !time) return false;
+    if (date == null || !time) return false;
     if (turnstile.isCaptchaBlockingSubmit) return false;
     return true;
   }, [
@@ -72,7 +72,7 @@ export function ReadinessForm() {
     timelineOther,
     priority,
     priorityOther,
-    day,
+    date,
     time,
     turnstile.isCaptchaBlockingSubmit,
   ]);
@@ -95,7 +95,7 @@ export function ReadinessForm() {
       priority,
       priorityOther,
       context,
-      date: day != null ? formatScheduleDate(day) : undefined,
+      date: date != null ? formatScheduleDate(date) : undefined,
       time: time ?? undefined,
       ...(turnstile.isTurnstileEnabled
         ? { captchaToken: turnstile.captchaToken }
@@ -128,7 +128,7 @@ export function ReadinessForm() {
     setPriority("");
     setPriorityOther("");
     setContext("");
-    setDay(null);
+    setDate(null);
     setTime(null);
     setEmailError(false);
     turnstile.resetCaptcha();
@@ -330,9 +330,9 @@ export function ReadinessForm() {
 
           <div className="min-w-0 max-w-full space-y-6 max-sm:space-y-3 lg:sticky lg:top-24">
             <ScheduleCalendar
-              selectedDay={day}
+              selectedDate={date}
               selectedTime={time}
-              onSelectDay={setDay}
+              onSelectDate={setDate}
               onSelectTime={setTime}
             />
             <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm max-sm:p-3 sm:p-6">
