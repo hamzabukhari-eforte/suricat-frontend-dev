@@ -133,7 +133,7 @@ export function PlatformIntelligenceSection() {
                     above existing systems of record. It does not replace
                     validated infrastructure or alter system boundaries.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -172,7 +172,7 @@ export function PlatformIntelligenceSection() {
                     Suricat integrates across enterprise systems without
                     modifying a single record.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -211,7 +211,7 @@ export function PlatformIntelligenceSection() {
                     Your QMS, RIM platforms, document control systems, and
                     validation infrastructure remain exactly as they are.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -250,7 +250,7 @@ export function PlatformIntelligenceSection() {
                     Suricat surfaces intelligence. Qualified professionals make
                     every decision.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -289,7 +289,7 @@ export function PlatformIntelligenceSection() {
                     Suricat is delivered as a secure SaaS platform, enabling
                     rapid adoption without disrupting validated environments.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -328,7 +328,7 @@ export function PlatformIntelligenceSection() {
                     At the core of Suricat is a proprietary knowledge framework
                     encoding how regulations are interpreted in practice.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -369,7 +369,7 @@ export function PlatformIntelligenceSection() {
                     regulatory professionals evaluate artifacts during
                     inspections.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -409,7 +409,7 @@ export function PlatformIntelligenceSection() {
                     confidence scoring system that determines inspection
                     readiness.
                   </p>
-                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                  <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
@@ -451,7 +451,7 @@ export function PlatformIntelligenceSection() {
                   </p>
                   <Link
                     href="/readiness"
-                    className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group"
+                    className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group"
                   >
                     Check Your Readiness
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />

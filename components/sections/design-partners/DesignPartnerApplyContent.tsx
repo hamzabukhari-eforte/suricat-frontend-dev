@@ -49,7 +49,7 @@ export function DesignPartnerApplyContent() {
           </p>
           <Link
             href="/"
-            className="suricat-teal-btn hero-cta-hover inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full font-semibold transition-all group text-navy"
+            className="suricat-teal-btn hero-cta-hover inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full font-bold transition-all group text-navy"
           >
             Return to Home
             <FaArrowRight

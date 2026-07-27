@@ -214,7 +214,7 @@ export function LeadershipContent() {
                   href={active.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="suricat-teal-btn leadership-profile-btn group inline-flex w-fit items-center gap-3 rounded-full px-6 py-2.5 text-sm font-semibold transition-all md:text-base"
+                  className="suricat-teal-btn leadership-profile-btn group inline-flex w-fit items-center gap-3 rounded-full px-6 py-2.5 text-sm font-bold transition-all md:text-base"
                 >
                   Read Full Profile
                   <FaArrowRight

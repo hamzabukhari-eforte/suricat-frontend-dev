@@ -129,7 +129,7 @@ export function IndustriesSection() {
                   </p>
                   <Link
                     href="/industries/medical-devices"
-                    className="suricat-teal-btn inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-semibold transition-all w-fit group"
+                    className="suricat-teal-btn inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold transition-all w-fit group"
                   >
                     Explore Medical Devices
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
@@ -150,7 +150,7 @@ export function IndustriesSection() {
                   </p>
                   <Link
                     href="/industries/expansion"
-                    className="suricat-teal-btn inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-semibold transition-all w-fit group"
+                    className="suricat-teal-btn inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold transition-all w-fit group"
                   >
                     Explore Industry Expansion
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />

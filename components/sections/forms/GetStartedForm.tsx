@@ -322,8 +322,8 @@ export function GetStartedForm() {
                   disabled={!canSubmit || submitting}
                   className={
                     canSubmit && !submitting
-                      ? "suricat-teal-btn group flex w-full max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all max-sm:px-5 max-sm:py-2 md:text-base"
-                      : "group flex w-full max-w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-semibold text-gray-400 transition-all max-sm:px-5 max-sm:py-2 md:text-base"
+                      ? "suricat-teal-btn group flex w-full max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all max-sm:px-5 max-sm:py-2 md:text-base"
+                      : "group flex w-full max-w-full cursor-not-allowed items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-gray-100 px-6 py-2.5 text-sm font-bold text-gray-400 transition-all max-sm:px-5 max-sm:py-2 md:text-base"
                   }
                 >
                   {!canSubmit ? (
