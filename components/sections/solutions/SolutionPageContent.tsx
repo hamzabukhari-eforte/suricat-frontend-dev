@@ -4,7 +4,10 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { StickySubnav } from "@/components/layout/StickySubnav";
 import { SolutionSectionPills } from "@/components/sections/solutions/SolutionSectionPills";
 import { FaArrowRight, resolveFaIcon } from "@/components/ui/icons";
-import type { SolutionPageData } from "@/lib/content/solutions";
+import {
+  buildTranslatedSolutionData,
+  type SolutionSlug,
+} from "@/lib/content/solutions";
 import type { MaxWidth } from "@/lib/layout/measure";
 import {
   DEFAULT_DESCRIPTION_MAX,
@@ -12,12 +15,14 @@ import {
   DEFAULT_SECTION_MAX,
   DEFAULT_TITLE_MAX,
 } from "@/lib/layout/measure";
-import { solutionNavLinks } from "@/lib/navigation";
+import { useSolutionNavLinks } from "@/lib/i18n/use-nav-links";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
+import { useMemo } from "react";
 import type { IconType } from "react-icons";
 
 type SolutionPageContentProps = {
-  data: SolutionPageData;
+  slug: SolutionSlug;
 };
 
 const DEFAULT_HERO_MEASURE: MaxWidth = "max-w-4xl";
@@ -99,7 +104,12 @@ function OutcomeCard({
   );
 }
 
-export function SolutionPageContent({ data }: SolutionPageContentProps) {
+export function SolutionPageContent({ slug }: SolutionPageContentProps) {
+  const t = useTranslations();
+  const tShared = useTranslations("solutions.shared");
+  const solutionNavLinks = useSolutionNavLinks();
+  const data = useMemo(() => buildTranslatedSolutionData(slug, t), [slug, t]);
+
   const {
     heroTitle,
     heroTitleAccent,
@@ -119,15 +129,23 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
   const outcomesIntroMax = measures.outcomesIntro ?? DEFAULT_DESCRIPTION_MAX;
   const readinessNoteMax = measures.readinessNote ?? DEFAULT_DESCRIPTION_MAX;
 
+  const pills = useMemo(
+    () => [
+      { id: "challenge", label: tShared("challenge") },
+      { id: "how-suricat-helps", label: tShared("howSuricatHelps") },
+      { id: "outcomes", label: tShared("outcomes") },
+    ],
+    [tShared],
+  );
+
   return (
     <>
       <StickySubnav
         links={solutionNavLinks}
-        category="Solutions"
-        navLabel="Solutions pages"
+        category={t("nav.menus.solutions.label")}
+        navLabel={t("nav.menus.solutions.label")}
       />
 
-      {/* Hero */}
       <section
         id="hero-section"
         className="relative flex min-h-0 w-full items-center justify-center overflow-hidden bg-navy py-8 text-white max-lg:items-start max-lg:justify-start max-lg:overflow-visible max-[374px]:py-6 md:py-10 lg:min-h-[500px] lg:py-12"
@@ -157,16 +175,15 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
               href="/readiness"
               className="group inline-flex w-full items-center justify-center gap-3 rounded-full border-2 border-teal px-6 py-3 text-sm font-bold text-teal transition-all hover:bg-teal hover:text-navy sm:w-auto sm:px-8 sm:py-3.5"
             >
-              Check Your Readiness
+              {tShared("checkYourReadiness")}
               <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      <SolutionSectionPills />
+      <SolutionSectionPills pills={pills} />
 
-      {/* The Challenge */}
       <section
         id="challenge"
         className="bg-[#f8f9fa] px-4 pb-6 pt-8 sm:px-6"
@@ -175,7 +192,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-                The Challenge
+                {tShared("challenge")}
               </span>
               <h2
                 className={`mb-4 ${titleMax} text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]`}
@@ -205,7 +222,6 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
         </div>
       </section>
 
-      {/* How Suricat Helps */}
       <section
         id="how-suricat-helps"
         className="relative overflow-hidden bg-navy px-4 pb-3 pt-8 text-white sm:px-6"
@@ -218,7 +234,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-                How Suricat Helps
+                {tShared("howSuricatHelps")}
               </span>
               <h2
                 className={`mb-4 ${titleMax} text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-[28px] lg:leading-[36px]`}
@@ -248,12 +264,11 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
         </div>
       </section>
 
-      {/* Outcomes — match Designs #outcomes structure exactly */}
       <section id="outcomes" className="bg-white px-4 py-8 sm:px-6">
         <div className={`mx-auto ${DEFAULT_SECTION_MAX}`}>
           <div className="mb-6 lg:pt-0">
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-              Outcomes
+              {tShared("outcomes")}
             </span>
             <h2
               className={`mb-4 ${titleMax} text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]`}
@@ -289,7 +304,7 @@ export function SolutionPageContent({ data }: SolutionPageContentProps) {
                   href="/readiness"
                   className="group inline-flex items-center gap-2 rounded-full border-2 border-[#19D3C5] px-8 py-2.5 text-sm font-bold text-[#19d3c5] transition-all hover:bg-[#19D3C5] hover:text-[#0D1B3E] md:text-base"
                 >
-                  Check Your Readiness
+                  {tShared("checkYourReadiness")}
                   <FaArrowRight className="text-sm transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
                 <p className={`${readinessNoteMax} text-center text-sm text-white/80`}>

@@ -1,7 +1,9 @@
 import { ContactContent } from "@/components/sections/contact/ContactContent";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.contact;
+export async function generateMetadata() {
+  return getPageMetadata("contact");
+}
 
 export default function ContactPage() {
   return <ContactContent />;

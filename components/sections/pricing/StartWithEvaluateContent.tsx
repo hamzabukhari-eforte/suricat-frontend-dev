@@ -3,44 +3,41 @@ import {
   PricingCallout,
   PricingInfoGrid,
 } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 export function StartWithEvaluateContent() {
+  const t = useTranslations("pricing.startWithEvaluate");
+
   return (
     <>
       <PricingInfoGrid
-        eyebrow="What the Evaluate Subscription Includes"
-        title="A focused 90-day evaluation using your own documentation."
+        eyebrow={t("includesEyebrow")}
+        title={t("includesTitle")}
         cards={[
           {
-            title: "Real Documentation Evaluation",
-            body: "Use your own compliance-critical documentation to evaluate how Suricat identifies relationships, analyzes alignment, and supports inspection readiness activities.",
+            title: t("cards.documentationEvaluation.title"),
+            body: t("cards.documentationEvaluation.body"),
           },
           {
-            title: "All Six Compliance Intelligence Solutions",
-            body: "Access all six Compliance Intelligence solutions available within the Compliance Intelligence Layer during the evaluation period.",
+            title: t("cards.allSolutions.title"),
+            body: t("cards.allSolutions.body"),
           },
           {
-            title: "Focused Scope",
-            body: "Evaluate a single product family using up to 100 active documents and one named user to determine organizational fit and potential value.",
+            title: t("cards.focusedScope.title"),
+            body: t("cards.focusedScope.body"),
           },
           {
-            title: "Guided Onboarding",
-            body: "Guided onboarding resources help your team become familiar with the Compliance Intelligence Layer and understand how findings, evidence relationships, and documentation analysis are presented.",
+            title: t("cards.guidedOnboarding.title"),
+            body: t("cards.guidedOnboarding.body"),
           },
         ]}
       />
       <section className="pt-8 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <PricingCallout
-            eyebrow="Validate Before You Expand."
-            body="The Evaluate subscription is designed to answer the most important question before broader deployment: Will Suricat provide value within our documentation environment?"
-            bullets={[
-              "Use your own documentation.",
-              "Evaluate all six Compliance Intelligence solutions.",
-              "Confirm alignment findings and evidence relationships.",
-              "Assess inspection readiness visibility.",
-              "Determine organizational fit before expanding capacity.",
-            ]}
+            eyebrow={t("calloutEyebrow")}
+            body={t("calloutBody")}
+            bullets={t.raw("calloutBullets") as string[]}
           />
         </div>
       </section>
@@ -48,8 +45,8 @@ export function StartWithEvaluateContent() {
         <div className="max-w-5xl mx-auto">
           <PricingBottomCta
             href="/pricing/interactive-sandbox"
-            label="Explore the Interactive Sandbox"
-            note="See how the Compliance Intelligence Layer works using representative Medical Device documentation before uploading your own."
+            label={t("bottomCtaLabel")}
+            note={t("bottomCtaNote")}
             noteClassName="text-sm"
           />
         </div>

@@ -4,6 +4,7 @@ import { FaArrowRight } from "@/components/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { FaqItem } from "@/lib/pricing/faq";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 type PricingFaqProps = {
   items: FaqItem[];
@@ -56,15 +57,16 @@ function FaqIcon({ open }: { open: boolean }) {
 
 export function PricingFaq({
   items,
-  eyebrow = "Pricing FAQs",
-  title = "The Questions Most Asked Before Starting an Evaluation.",
-  description = "Answers to the most common questions about Suricat subscription terms, Document Capacity, evaluation access, and commercial commitments.",
+  eyebrow,
+  title,
+  description,
   viewAllHref,
-  viewAllLabel = "View All",
+  viewAllLabel,
   sectionId = "pricing-faq",
   sectionClassName = "py-8 px-4 sm:px-6 bg-white",
   defaultOpenIndex = null,
 }: PricingFaqProps) {
+  const t = useTranslations("pricing.faq");
   const [openIndices, setOpenIndices] = useState<Set<number>>(() =>
     defaultOpenIndex != null ? new Set([defaultOpenIndex]) : new Set(),
   );
@@ -96,16 +98,16 @@ export function PricingFaq({
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-10">
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
-            {eyebrow}
+            {eyebrow ?? t("eyebrow")}
           </span>
-          {title ? (
+          {title ?? t("title") ? (
             <h2 className="text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px] font-bold mb-4 text-navy max-w-3xl">
-              {title}
+              {title ?? t("title")}
             </h2>
           ) : null}
-          {description ? (
+          {description ?? t("description") ? (
             <p className="text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy max-w-4xl">
-              {description}
+              {description ?? t("description")}
             </p>
           ) : null}
         </div>
@@ -150,7 +152,7 @@ export function PricingFaq({
               href={viewAllHref}
               className="suricat-teal-btn group w-full sm:w-auto inline-flex items-center justify-center gap-3 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm transition-all"
             >
-              {viewAllLabel}
+              {viewAllLabel ?? t("viewAll")}
               <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
             </Link>
           </div>

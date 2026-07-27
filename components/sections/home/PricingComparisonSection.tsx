@@ -2,7 +2,130 @@
 
 import { FaBolt, FaBuilding, FaCheck, FaEye, FaLayerGroup, FaPaperPlane, FaPuzzlePiece, FaShieldHalved, FaUsers } from "@/components/ui/icons";
 import { PricingStaggerReveal } from "@/components/sections/pricing/PricingStaggerReveal";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+import type { IconType } from "react-icons";
+
+type Cell = "check" | "dash" | "limited" | "optional";
+
+type CompareRow = {
+  key: string;
+  cells: [Cell, Cell, Cell, Cell];
+  lastInCategory?: boolean;
+};
+
+const CORE_ROWS: CompareRow[] = [
+  { key: "allSix", cells: ["check", "check", "check", "check"] },
+  { key: "customerDocumentation", cells: ["check", "check", "check", "check"] },
+  { key: "analysisHistory", cells: ["limited", "check", "check", "check"] },
+  { key: "emailSupport", cells: ["dash", "check", "check", "check"] },
+  { key: "continuousMonitoring", cells: ["dash", "check", "check", "check"] },
+  { key: "exportFindings", cells: ["dash", "check", "check", "check"] },
+  { key: "sharedSaas", cells: ["check", "check", "check", "dash"] },
+  { key: "guidedSaas", cells: ["check", "check", "check", "dash"], lastInCategory: true },
+];
+
+const COLLAB_ROWS: CompareRow[] = [
+  { key: "teamCollaboration", cells: ["dash", "dash", "check", "check"] },
+  { key: "sharedWorkspaces", cells: ["dash", "dash", "check", "check"] },
+  { key: "priorityEmail", cells: ["dash", "dash", "check", "check"] },
+  { key: "extendedRetention", cells: ["dash", "optional", "optional", "check"], lastInCategory: true },
+];
+
+const GOV_ROWS: CompareRow[] = [
+  { key: "dedicatedCloud", cells: ["dash", "dash", "dash", "check"] },
+  { key: "sso", cells: ["dash", "dash", "dash", "check"] },
+  { key: "advancedGovernance", cells: ["dash", "dash", "dash", "check"] },
+  { key: "sla", cells: ["dash", "dash", "dash", "check"] },
+  { key: "capacityRollover", cells: ["dash", "dash", "dash", "check"], lastInCategory: true },
+];
+
+const EXT_ROWS: CompareRow[] = [
+  { key: "apiAccess", cells: ["dash", "dash", "dash", "optional"] },
+  { key: "customIntegrations", cells: ["dash", "dash", "dash", "optional"] },
+  { key: "customerSuccess", cells: ["dash", "dash", "dash", "optional"] },
+  { key: "technicalAccount", cells: ["dash", "dash", "dash", "optional"] },
+];
+
+function CellValue({
+  type,
+  limitedLabel,
+  optionalLabel,
+}: {
+  type: Cell;
+  limitedLabel: string;
+  optionalLabel: string;
+}) {
+  if (type === "check") {
+    return (
+      <span className="pricing-check">
+        <FaCheck aria-hidden="true" />
+      </span>
+    );
+  }
+  if (type === "dash") {
+    return <span className="pricing-dash">—</span>;
+  }
+  if (type === "limited") {
+    return <span className="pricing-badge-limited">{limitedLabel}</span>;
+  }
+  return <span className="pricing-badge-optional">{optionalLabel}</span>;
+}
+
+function CategoryRow({ icon: Icon, label }: { icon: IconType; label: string }) {
+  return (
+    <tr className="pricing-compare-row pricing-compare-category">
+      <td
+        colSpan={5}
+        className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
+      >
+        <span
+          className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
+        >
+          <Icon aria-hidden="true" /> {label}
+        </span>
+      </td>
+    </tr>
+  );
+}
+
+function FeatureRows({
+  rows,
+  t,
+}: {
+  rows: CompareRow[];
+  t: (key: string) => string;
+}) {
+  return (
+    <>
+      {rows.map((row) => (
+        <tr
+          key={row.key}
+          className={`pricing-compare-row border-b ${row.lastInCategory ? "border-gray-200" : "border-gray-100"} font-semibold`}
+        >
+          <td className="px-4 sm:px-5 py-3 text-navy">
+            {t(`rows.${row.key}`)}
+          </td>
+          {row.cells.map((cell, i) => (
+            <td
+              key={i}
+              className={`text-center py-3${i === 2 ? " bg-navy/[0.02]" : ""}`}
+            >
+              <CellValue
+                type={cell}
+                limitedLabel={t("badges.limited")}
+                optionalLabel={t("badges.optional")}
+              />
+            </td>
+          ))}
+        </tr>
+      ))}
+    </>
+  );
+}
+
 export function PricingComparisonSection() {
+  const t = useTranslations("home.pricingComparison");
+
   return (
     <>
       <section id="pricing-comparison-section" className="pricing-plans-scope pt-8 pb-3 px-4 sm:px-6 bg-white">
@@ -24,19 +147,17 @@ export function PricingComparisonSection() {
                 <div id="capability-comparison" className="pricing-compare-header mb-8 sm:mb-10">
                   <span
                     className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block"
-                    >Compare Subscription Options</span
+                    >{t("eyebrow")}</span
                   >
                   <h2
                     className="text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px] font-bold mb-4 text-navy max-w-3xl"
                   >
-                    The Intelligence Remains The Same. The Operational Scope Expands.
+                    {t("titleLine1")} {t("titleLine2")}
                   </h2>
                   <p
                     className="text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy max-w-4xl"
                   >
-                    Every tier includes all six Compliance Intelligence solutions.
-                    Document capacity, collaboration, governance, support, and
-                    deployment options expand as your compliance program grows.
+                    {t("body")}
                   </p>
                 </div>
 
@@ -52,7 +173,7 @@ export function PricingComparisonSection() {
                           <th
                             className="text-left px-4 sm:px-5 py-3 font-bold text-navy uppercase tracking-wide text-sm w-[28%]"
                           >
-                            Capability
+                            {t("capability")}
                           </th>
                           <th className="px-4 sm:px-5 py-3 text-center w-[18%]">
                             <div className="flex flex-col items-center gap-1">
@@ -61,9 +182,9 @@ export function PricingComparisonSection() {
                                 ><FaEye className="text-sm" aria-hidden="true" /></span>
                               <span
                                 className="font-bold text-navy text-sm uppercase tracking-wide"
-                                >Evaluate</span
+                                >{t("tiers.evaluate.name")}</span
                               >
-                              <span className="text-navy text-sm">Determine Fit</span>
+                              <span className="text-navy text-sm">{t("tiers.evaluate.tagline")}</span>
                             </div>
                           </th>
                           <th className="px-4 sm:px-5 py-3 text-center w-[18%]">
@@ -73,25 +194,25 @@ export function PricingComparisonSection() {
                                 ><FaPaperPlane className="text-sm" aria-hidden="true" /></span>
                               <span
                                 className="font-bold text-navy text-sm uppercase tracking-wide"
-                                >Pilot</span
+                                >{t("tiers.pilot.name")}</span
                               >
-                              <span className="text-navy text-sm">Validate Value</span>
+                              <span className="text-navy text-sm">{t("tiers.pilot.tagline")}</span>
                             </div>
                           </th>
                           <th className="px-4 sm:px-5 py-3 text-center w-[18%] bg-navy/5">
                             <div className="flex flex-col items-center gap-1">
                               <span
                                 className="inline-block bg-teal text-navy text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full mb-1"
-                                >Most Popular</span
+                                >{t("mostPopular")}</span
                               >
                               <span
                                 className="w-9 h-9 rounded-full border border-teal/40 bg-teal/10 flex items-center justify-center"
                                 ><FaBolt className="text-sm" aria-hidden="true" /></span>
                               <span
                                 className="font-bold text-navy text-sm uppercase tracking-wide"
-                                >Foundation</span
+                                >{t("tiers.foundation.name")}</span
                               >
-                              <span className="text-navy text-sm">Operationalize</span>
+                              <span className="text-navy text-sm">{t("tiers.foundation.tagline")}</span>
                             </div>
                           </th>
                           <th className="px-4 sm:px-5 py-3 text-center w-[18%]">
@@ -101,497 +222,27 @@ export function PricingComparisonSection() {
                                 ><FaBuilding className="text-sm" aria-hidden="true" /></span>
                               <span
                                 className="font-bold text-navy text-sm uppercase tracking-wide"
-                                >Enterprise</span
+                                >{t("tiers.enterprise.name")}</span
                               >
                               <span className="text-navy text-sm"
-                                >Scale &amp; Govern</span
+                                >{t("tiers.enterprise.tagline")}</span
                               >
                             </div>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="pricing-compare-row pricing-compare-category">
-                          <td
-                            colSpan={5}
-                            className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
-                          >
-                            <span
-                              className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
-                              ><FaLayerGroup aria-hidden="true" /> Core Platform</span
-                            >
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            All Six Compliance Intelligence Solutions
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Customer Documentation
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Analysis History
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-limited">Limited</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">Email Support</td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Continuous Monitoring
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Export Findings &amp; Reports
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Shared SaaS Environment
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-200 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Guided SaaS Environment
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                        </tr>
+                        <CategoryRow icon={FaLayerGroup} label={t("categories.corePlatform")} />
+                        <FeatureRows rows={CORE_ROWS} t={t} />
 
-                        <tr className="pricing-compare-row pricing-compare-category">
-                          <td
-                            colSpan={5}
-                            className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
-                          >
-                            <span
-                              className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
-                              ><FaUsers aria-hidden="true" /> Collaboration &amp;
-                              Operations</span
-                            >
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Team Collaboration
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Shared Workspaces
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Priority Email Support
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-200 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Extended Data Retention Options
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
+                        <CategoryRow icon={FaUsers} label={t("categories.collaboration")} />
+                        <FeatureRows rows={COLLAB_ROWS} t={t} />
 
-                        <tr className="pricing-compare-row pricing-compare-category">
-                          <td
-                            colSpan={5}
-                            className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
-                          >
-                            <span
-                              className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
-                              ><FaShieldHalved aria-hidden="true" /> Enterprise
-                              Governance</span
-                            >
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Dedicated Suricat Cloud Environment
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Single Sign-On (SSO)
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Advanced Governance &amp; Access Controls
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Service Level Agreement (SLA)
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-200 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Document Capacity Rollover
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-check"
-                              ><FaCheck aria-hidden="true" /></span>
-                          </td>
-                        </tr>
+                        <CategoryRow icon={FaShieldHalved} label={t("categories.governance")} />
+                        <FeatureRows rows={GOV_ROWS} t={t} />
 
-                        <tr className="pricing-compare-row pricing-compare-category">
-                          <td
-                            colSpan={5}
-                            className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
-                          >
-                            <span
-                              className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
-                              ><FaPuzzlePiece aria-hidden="true" /> Enterprise
-                              Extensions</span
-                            >
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">API Access</td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Custom Integrations
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                        </tr>
-                        <tr
-                          className="pricing-compare-row border-b border-gray-100 font-semibold"
-                        >
-                          <td className="px-4 sm:px-5 py-3 text-navy">
-                            Dedicated Customer Success Manager
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                        </tr>
-                        <tr className="pricing-compare-row">
-                          <td className="px-4 sm:px-5 py-3 text-navy font-semibold">
-                            Technical Account Manager
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3 bg-navy/[0.02]">
-                            <span className="pricing-dash">—</span>
-                          </td>
-                          <td className="text-center py-3">
-                            <span className="pricing-badge-optional">Optional</span>
-                          </td>
-                        </tr>
+                        <CategoryRow icon={FaPuzzlePiece} label={t("categories.extensions")} />
+                        <FeatureRows rows={EXT_ROWS} t={t} />
                       </tbody>
                     </table>
                   </div>
@@ -603,18 +254,16 @@ export function PricingComparisonSection() {
                   <span className="inline-flex items-center gap-2"
                     ><span className="pricing-check pricing-check-legend"
                       ><FaCheck aria-hidden="true" /></span
-                    >Included</span
+                    >{t("legend.included")}</span
                   >
                   <span className="inline-flex items-center gap-2"
-                    ><span className="pricing-dash">—</span>Not included</span
+                    ><span className="pricing-dash">—</span>{t("legend.notIncluded")}</span
                   >
                   <span className="inline-flex items-center gap-2"
-                    ><span className="pricing-badge-limited">Limited</span>Limited
-                    Access</span
+                    ><span className="pricing-badge-limited">{t("badges.limited")}</span>{t("legend.limitedAccess")}</span
                   >
                   <span className="inline-flex items-center gap-2"
-                    ><span className="pricing-badge-optional">Optional</span>Available as
-                    Add-On</span
+                    ><span className="pricing-badge-optional">{t("badges.optional")}</span>{t("legend.availableAsAddOn")}</span
                   >
                 </div>
               </div>

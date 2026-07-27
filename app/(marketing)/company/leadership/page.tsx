@@ -1,7 +1,9 @@
 import { LeadershipContent } from "@/components/sections/company/LeadershipContent";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.leadership;
+export async function generateMetadata() {
+  return getPageMetadata("leadership");
+}
 
 export default function LeadershipPage() {
   return <LeadershipContent />;

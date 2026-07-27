@@ -1,9 +1,10 @@
 import { SolutionPageContent } from "@/components/sections/solutions/SolutionPageContent";
-import { solutionPages } from "@/lib/content/solutions";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.continuousCompliance;
+export async function generateMetadata() {
+  return getPageMetadata("continuousCompliance");
+}
 
 export default function Page() {
-  return <SolutionPageContent data={solutionPages["continuous-compliance"]} />;
+  return <SolutionPageContent slug="continuous-compliance" />;
 }

@@ -1,89 +1,89 @@
-export type SitemapLink = {
+export type SitemapLinkDef = {
   href: string;
-  label: string;
+  labelKey: string;
 };
 
-export type SitemapSection = {
-  title: string;
-  links: SitemapLink[];
+export type SitemapSectionDef = {
+  titleKey: string;
+  links: SitemapLinkDef[];
 };
 
-/** Human-readable HTML sitemap groups (public pages only). */
-export const sitemapPageSections: SitemapSection[] = [
+/** Human-readable HTML sitemap groups (public pages only). Labels via i18n keys. */
+export const sitemapPageSections: SitemapSectionDef[] = [
   {
-    title: "Main",
+    titleKey: "main",
     links: [
-      { href: "/", label: "Home" },
-      { href: "/pricing", label: "Pricing" },
-      { href: "/get-started", label: "Get Started" },
-      { href: "/readiness", label: "Check Your Readiness" },
-      { href: "/design-partners", label: "Design Partners" },
-      { href: "/login", label: "Login" },
+      { href: "/", labelKey: "home" },
+      { href: "/pricing", labelKey: "pricing" },
+      { href: "/get-started", labelKey: "getStarted" },
+      { href: "/readiness", labelKey: "readiness" },
+      { href: "/design-partners", labelKey: "designPartners" },
+      { href: "/login", labelKey: "login" },
     ],
   },
   {
-    title: "Solutions",
+    titleKey: "solutions",
     links: [
       {
         href: "/solutions/documentation-confidence",
-        label: "Documentation Confidence",
+        labelKey: "documentationConfidence",
       },
       {
         href: "/solutions/continuous-compliance",
-        label: "Continuous Compliance",
+        labelKey: "continuousCompliance",
       },
       {
         href: "/solutions/inspection-findings",
-        label: "Inspection-Defensible Findings",
+        labelKey: "inspectionFindings",
       },
       {
         href: "/solutions/change-impact-assessment",
-        label: "Change Impact Assessment",
+        labelKey: "changeImpact",
       },
       {
         href: "/solutions/inspection-readiness",
-        label: "Inspection Readiness",
+        labelKey: "inspectionReadiness",
       },
       {
         href: "/solutions/document-alignment",
-        label: "Documentation Alignment",
+        labelKey: "documentAlignment",
       },
     ],
   },
   {
-    title: "Industries",
+    titleKey: "industries",
     links: [
-      { href: "/industries/medical-devices", label: "Medical Devices" },
-      { href: "/industries/expansion", label: "Industry Expansion" },
+      { href: "/industries/medical-devices", labelKey: "medicalDevices" },
+      { href: "/industries/expansion", labelKey: "industryExpansion" },
     ],
   },
   {
-    title: "Pricing",
+    titleKey: "pricing",
     links: [
-      { href: "/pricing", label: "Pricing Overview" },
-      { href: "/pricing/license", label: "Platform License" },
-      { href: "/pricing/document-capacity", label: "Document Capacity" },
-      { href: "/pricing/capacity-expansion", label: "Capacity Expansion" },
-      { href: "/pricing/interactive-sandbox", label: "Interactive Sandbox" },
-      { href: "/pricing/start-with-evaluate", label: "Start With Evaluate" },
-      { href: "/pricing/faq", label: "Pricing FAQs" },
+      { href: "/pricing", labelKey: "pricingOverview" },
+      { href: "/pricing/license", labelKey: "platformLicense" },
+      { href: "/pricing/document-capacity", labelKey: "documentCapacity" },
+      { href: "/pricing/capacity-expansion", labelKey: "capacityExpansion" },
+      { href: "/pricing/interactive-sandbox", labelKey: "interactiveSandbox" },
+      { href: "/pricing/start-with-evaluate", labelKey: "startWithEvaluate" },
+      { href: "/pricing/faq", labelKey: "pricingFaqs" },
     ],
   },
   {
-    title: "Company",
+    titleKey: "company",
     links: [
-      { href: "/company/our-story", label: "Our Story" },
-      { href: "/company/mission-vision", label: "Mission and Vision" },
-      { href: "/company/leadership", label: "Leadership" },
-      { href: "/contact", label: "Contact Us" },
+      { href: "/company/our-story", labelKey: "ourStory" },
+      { href: "/company/mission-vision", labelKey: "missionVision" },
+      { href: "/company/leadership", labelKey: "leadership" },
+      { href: "/contact", labelKey: "contactUs" },
     ],
   },
   {
-    title: "Get Involved",
+    titleKey: "getInvolved",
     links: [
-      { href: "/design-partners/apply", label: "Become a Design Partner" },
-      { href: "/get-started", label: "Schedule a Discussion" },
-      { href: "/readiness", label: "Readiness Discussion" },
+      { href: "/design-partners/apply", labelKey: "becomeDesignPartner" },
+      { href: "/get-started", labelKey: "scheduleDiscussion" },
+      { href: "/readiness", labelKey: "readinessDiscussion" },
     ],
   },
 ];

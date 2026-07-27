@@ -1,7 +1,9 @@
 import { OurStoryContent } from "@/components/sections/company/OurStoryContent";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.ourStory;
+export async function generateMetadata() {
+  return getPageMetadata("ourStory");
+}
 
 export default function OurStoryPage() {
   return <OurStoryContent />;

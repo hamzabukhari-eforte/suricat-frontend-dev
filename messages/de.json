@@ -1,0 +1,2326 @@
+{
+  "languages": {
+    "en": "English",
+    "de": "German",
+    "es": "Spanish"
+  },
+  "common": {
+    "chooseLanguage": "Sprache wählen",
+    "language": "Sprache",
+    "securityCheck": "Bitte schließen Sie die Sicherheitsprüfung ab.",
+    "other": "Sonstiges",
+    "selectOption": "Option auswählen",
+    "sending": "Wird gesendet…",
+    "submitting": "Wird übermittelt…",
+    "backToHome": "Zurück zur Startseite",
+    "suricatAlt": "Suricat",
+    "checkYourReadiness": "Prüfen Sie Ihre Bereitschaft",
+    "scheduleDiscussion": "Gespräch vereinbaren",
+    "exploreThePlatform": "Die Plattform erkunden",
+    "becomeDesignPartner": "Design-Partner werden"
+  },
+  "nav": {
+    "designPartners": "Design-Partner",
+    "login": "Anmelden",
+    "getStarted": "Loslegen",
+    "toggleMenu": "Navigationsmenü umschalten",
+    "closeMenu": "Menü schließen",
+    "menus": {
+      "why": {
+        "label": "Warum",
+        "introTitle": "Warum Suricat",
+        "introText": "Verstehen Sie die strukturelle Compliance-Herausforderung, wie Suricat sie adressiert und was es für regulierte Organisationen ermöglicht.",
+        "ctaLabel": "Warum Suricat entdecken",
+        "links": {
+          "mission": "Mission von Suricat",
+          "howItWorks": "So funktioniert Suricat",
+          "practitioners": "Von Praktikern gebaut",
+          "regulated": "Für regulierte Umgebungen entwickelt",
+          "structural": "Das strukturelle Problem",
+          "enables": "Was Suricat ermöglicht",
+          "existingSystems": "Warum bestehende Systeme nicht ausreichen"
+        }
+      },
+      "platform": {
+        "label": "Plattform",
+        "introTitle": "Plattform",
+        "introText": "Eine schreibgeschützte Compliance Intelligence Layer für regulierte Umgebungen, mit proprietärer Architektur für Bounded Reasoning und vertretbare Ergebnisse.",
+        "ctaLabel": "Plattform entdecken",
+        "links": {
+          "intelligenceLayer": "Intelligence Layer",
+          "readOnly": "Schreibgeschützt by Design",
+          "noRipReplace": "Kein Rip and Replace",
+          "humanAccountability": "Menschliche Verantwortlichkeit",
+          "deployment": "Bereitstellung",
+          "regulatoryOntology": "Regulatory Ontology",
+          "canonicalSchema": "Canonical Intelligence Schema",
+          "qvr": "Quality Validation Rating",
+          "boundedReasoning": "Bounded Reasoning"
+        }
+      },
+      "solutions": {
+        "label": "Lösungen",
+        "introTitle": "Lösungen",
+        "introText": "Sechs fokussierte Fähigkeiten, die die Compliance Intelligence Layer für Dokumentationssicherheit, Inspektionsbereitschaft, Continuous Compliance und mehr einsetzen.",
+        "ctaLabel": "Alle Lösungen ansehen",
+        "links": {
+          "documentationConfidence": "Dokumentationssicherheit",
+          "continuousCompliance": "Kontinuierliche Compliance",
+          "inspectionFindings": "Inspektionsvertretbare Findings",
+          "changeImpact": "Änderungsauswirkungsanalyse",
+          "inspectionReadiness": "Inspektionsbereitschaft",
+          "documentAlignment": "Dokumentationsausrichtung"
+        }
+      },
+      "industry": {
+        "label": "Branche",
+        "introTitle": "Branche",
+        "introText": "Für regulierte Branchen gebaut. Beginnend mit Medizinprodukten und Expansion in Biotechnologie, Biopharma, Diagnostik und darüber hinaus.",
+        "ctaLabel": "Branchen entdecken",
+        "links": {
+          "medicalDevices": "Medizinprodukte",
+          "expansion": "Branchenerweiterung"
+        }
+      },
+      "pricing": {
+        "label": "Preise",
+        "introTitle": "Preise",
+        "introText": "Jährliche Platform License und Document Capacity-basierte Abonnements mit veröffentlichten Preisen, flexiblen Evaluierungspfaden und ohne Kosten pro Sitzplatz.",
+        "ctaLabel": "Preise entdecken",
+        "links": {
+          "subscriptionOptions": "Abonnementoptionen",
+          "capabilityComparison": "Funktionsvergleich",
+          "platformLicense": "Plattformlizenz",
+          "documentCapacity": "Dokumentenkapazität",
+          "capacityExpansion": "Kapazitätserweiterung",
+          "interactiveSandbox": "Interaktive Sandbox",
+          "startWithEvaluate": "Mit Evaluation starten",
+          "pricingFaqs": "Preis-FAQs"
+        }
+      },
+      "company": {
+        "label": "Über uns",
+        "introTitle": "Unternehmen",
+        "introText": "Erfahren Sie mehr über Suricats Geschichte, Mission, Führungsteam und wie Sie unser Team kontaktieren können.",
+        "ctaLabel": "Unsere Geschichte",
+        "links": {
+          "ourStory": "Unsere Geschichte",
+          "missionVision": "Mission und Vision",
+          "leadership": "Führungsteam",
+          "contactUs": "Kontakt"
+        }
+      }
+    }
+  },
+  "footer": {
+    "contactUs": "Kontaktieren Sie uns",
+    "addressPaloAlto": "Palo Alto, California 94306, USA",
+    "addressTallinn": "Akadeemia tee 12618, Tallinn, Estonia",
+    "copyright": "© {year} Suricat. Alle Rechte vorbehalten.",
+    "legal": "Rechtliches",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "privacy": "Datenschutzrichtlinie",
+    "cookieSettings": "Cookie-Einstellungen",
+    "sitemap": "Sitemap",
+    "columns": {
+      "company": "Unternehmen",
+      "why": "Warum Suricat",
+      "platform": "Plattform",
+      "resources": "Ressourcen"
+    },
+    "resources": {
+      "designPartner": "Design-Partner",
+      "industry": "Branche",
+      "faqs": "FAQs",
+      "blog": "Blog",
+      "events": "Veranstaltungen"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube"
+    }
+  },
+  "cookie": {
+    "ariaLabel": "Cookie-Einwilligung",
+    "close": "Cookie-Banner schließen",
+    "body": "Diese Website verwendet Cookies und andere Tracking-Technologien, um Website-Funktionen zu ermöglichen, die Nutzererfahrung zu verbessern, personalisierte Werbung anzuzeigen und/oder Leistung und Traffic zu analysieren. Wir können Informationen über Ihre Nutzung unserer Website auch mit Social-Media-, Werbe- und Analysepartnern teilen oder verkaufen, um gezielte Werbung durchzuführen und relevantere Anzeigen und Inhalte bereitzustellen. Sie können Ihre Rechte zur Einwilligung oder zum Opt-out vom Verkauf personenbezogener Daten und/oder gezielter Werbung ausüben, indem Sie Ihre Einstellungen aktualisieren. Wenn wir ein Opt-out-Präferenzsignal erkannt haben, werden wir es respektieren. Weitere Informationen zu unserer Datenverarbeitung finden Sie in unserer",
+    "privacyStatement": "Datenschutzerklärung",
+    "optOut": "Opt-out vom Verkauf personenbezogener Daten und gezielter Werbung",
+    "rejectAll": "Alle ablehnen",
+    "acceptCookies": "Cookies akzeptieren"
+  },
+  "cta": {
+    "readyTitle": "Bereit loszulegen?",
+    "becomeDesignPartner": "Design-Partner werden",
+    "scheduleDiscussion": "Gespräch vereinbaren"
+  },
+  "marquee": {
+    "text": "Die QMSR-Durchsetzung ist jetzt aktiv. Sind Sie inspektionssbereit?",
+    "cta": "Bereitschaft prüfen"
+  },
+  "metadata": {
+    "defaultDescription": "Suricat ist die Compliance Intelligence Platform für stark regulierte Branchen — schreibgeschützt by Design, gebaut für inspektionssichere Dokumentationssicherheit.",
+    "home": {
+      "title": "Suricat | Die Compliance Intelligence Platform",
+      "description": "Die Compliance Intelligence Platform für stark regulierte Branchen. Gewinnen Sie inspektionssichere Sicherheit mit schreibgeschützter Compliance-Intelligence."
+    },
+    "pricing": {
+      "title": "Preise",
+      "description": "Veröffentlichte Suricat-Preise für Platform License und Document Capacity Abonnements — ohne Kosten pro Sitzplatz, mit flexiblen Evaluierungspfaden."
+    },
+    "pricingFaq": {
+      "title": "Preis-FAQs",
+      "description": "Antworten auf häufige Fragen zu Suricat Platform License, Document Capacity, Evaluierung und Abonnementoptionen."
+    },
+    "license": {
+      "title": "Plattformlizenz",
+      "description": "Erfahren Sie, wie die Suricat Platform License für regulierte Organisationen funktioniert."
+    },
+    "documentCapacity": {
+      "title": "Dokumentenkapazität",
+      "description": "Verstehen Sie Suricat Document Capacity Abonnements und wie die Kapazität mit Ihrem Dokumentationsumfang skaliert."
+    },
+    "capacityExpansion": {
+      "title": "Kapazitätserweiterung",
+      "description": "Erweitern Sie Ihre Suricat Document Capacity, wenn Ihre regulierten Dokumentationsanforderungen wachsen."
+    },
+    "interactiveSandbox": {
+      "title": "Interaktive Sandbox",
+      "description": "Erkunden Sie Suricat in einer Interactive Sandbox, bevor Sie sich für eine vollständige Bereitstellung entscheiden."
+    },
+    "startWithEvaluate": {
+      "title": "Mit Evaluation starten",
+      "description": "Starten Sie mit Suricat Evaluation, um den Wert von Compliance Intelligence für Ihre Organisation zu bewerten."
+    },
+    "continuousCompliance": {
+      "title": "Kontinuierliche Compliance",
+      "description": "Behalten Sie kontinuierliche Compliance-Transparenz mit Suricats Compliance Intelligence Layer."
+    },
+    "documentationConfidence": {
+      "title": "Dokumentationssicherheit",
+      "description": "Bauen Sie Dokumentationssicherheit mit Suricat auf — vertretbare, inspektionssichere Dokumentations-Intelligence."
+    },
+    "inspectionFindings": {
+      "title": "Inspektionsvertretbare Findings",
+      "description": "Erzeugen Sie inspektionssichere Findings mit Suricats Bounded Reasoning und Regulatory Ontology."
+    },
+    "changeImpact": {
+      "title": "Änderungsauswirkungsanalyse",
+      "description": "Bewerten Sie Auswirkungen von Änderungen über regulierte Dokumentation und Systeme mit Suricat."
+    },
+    "inspectionReadiness": {
+      "title": "Inspektionsbereitschaft",
+      "description": "Verbessern Sie die Inspektionsbereitschaft mit Suricat Compliance Intelligence für regulierte Organisationen."
+    },
+    "documentAlignment": {
+      "title": "Dokumentationsausrichtung",
+      "description": "Richten Sie Dokumentation über Systeme und Prozesse mit Suricats Compliance Intelligence aus."
+    },
+    "medicalDevices": {
+      "title": "Medizinprodukte",
+      "description": "Suricat für Medizinproduktehersteller — Compliance Intelligence für QMSR und Inspektionsbereitschaft."
+    },
+    "industryExpansion": {
+      "title": "Branchenerweiterung",
+      "description": "Wie Suricat in Biotechnologie, Biopharma, Diagnostik und andere regulierte Branchen expandiert."
+    },
+    "ourStory": {
+      "title": "Unsere Geschichte",
+      "description": "Die Geschichte hinter Suricat — von Praktikern für stark regulierte Branchen gebaut."
+    },
+    "missionVision": {
+      "title": "Mission und Vision",
+      "description": "Mission und Vision von Suricat für Compliance Intelligence in regulierten Umgebungen."
+    },
+    "leadership": {
+      "title": "Führungsteam",
+      "description": "Lernen Sie das Suricat-Führungsteam kennen, das die Compliance Intelligence Platform aufbaut."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Kontaktieren Sie das Suricat-Team, um Compliance Intelligence für Ihre Organisation zu besprechen."
+    },
+    "designPartners": {
+      "title": "Design-Partner",
+      "description": "Werden Sie Teil des Design-Partner-Programms von Suricat und gestalten Sie Compliance Intelligence für regulierte Branchen mit."
+    },
+    "designPartnersApply": {
+      "title": "Design-Partner-Bewerbung",
+      "description": "Bewerben Sie sich als Design-Partner von Suricat und arbeiten Sie an der Compliance Intelligence Platform mit."
+    },
+    "getStarted": {
+      "title": "Loslegen",
+      "description": "Starten Sie mit Suricat — vereinbaren Sie ein Gespräch über Compliance Intelligence für Ihre Organisation."
+    },
+    "readiness": {
+      "title": "Bereitschaft prüfen",
+      "description": "Prüfen Sie Ihre QMSR- und Inspektionsbereitschaft mit Suricats Readiness Assessment."
+    },
+    "discussionConfirmed": {
+      "title": "Gespräch bestätigt",
+      "description": "Ihr Suricat-Gespräch ist bestätigt. Prüfen Sie Ihre Termin-Details und nächsten Schritte."
+    },
+    "login": {
+      "title": "Anmelden",
+      "description": "Melden Sie sich bei Ihrem Suricat-Konto an."
+    },
+    "sitemap": {
+      "title": "Sitemap",
+      "description": "Durchsuchen Sie alle öffentlichen Suricat-Seiten. Finden Sie Lösungen, Preise, Unternehmensinformationen und mehr."
+    }
+  },
+  "forms": {
+    "login": {
+      "badge": "Compliance Intelligence",
+      "welcomeTitle": "Willkommen zurück!",
+      "welcomeBody": "Melden Sie sich sicher in Ihrem Suricat-Workspace an.",
+      "bullets": {
+        "readOnly": "Schreibgeschützt by default",
+        "humanReview": "Menschliche Prüfung bleibt entscheidend",
+        "dataIsolated": "Kundendaten bleiben isoliert"
+      },
+      "signInTitle": "Anmelden",
+      "signInSubtitle": "Geben Sie Ihre Zugangsdaten ein, um auf Ihr Konto zuzugreifen.",
+      "workEmail": "Geschäftliche E-Mail",
+      "emailPlaceholder": "name@unternehmen.com",
+      "password": "Passwort",
+      "showPassword": "Passwort anzeigen",
+      "hidePassword": "Passwort verbergen",
+      "keepSignedIn": "Angemeldet bleiben",
+      "forgotPassword": "Passwort vergessen?",
+      "submit": "Anmelden",
+      "needAccount": "Noch kein Konto?",
+      "signup": "Registrieren"
+    },
+    "contact": {
+      "name": "Name",
+      "company": "Unternehmen",
+      "workEmail": "Geschäftliche E-Mail",
+      "intentLabel": "Was führt Sie zu uns?",
+      "message": "Nachricht",
+      "submit": "Nachricht senden",
+      "privacyNote": "Ihre Anfrage wird vom Suricat-Team geprüft.",
+      "success": "Vielen Dank. Ihre Anfrage wird vom Suricat-Team geprüft.",
+      "intents": {
+        "general": "Allgemeine Anfrage",
+        "partnership": "Partnerschaft",
+        "designPartner": "Design-Partner-Programm"
+      }
+    },
+    "getStarted": {
+      "heroTitleBefore": "Starten Sie das",
+      "heroTitleAccent": "Gespräch",
+      "heroP1": "Teilen Sie uns etwas über Ihre Umgebung und Prioritäten mit.",
+      "heroP2": "Suricat nutzt Ihre Antworten, um ein fokussiertes Einführungsgespräch vorzubereiten, das auf Ihre Organisation zugeschnitten ist.",
+      "heroCta": "Beginnen",
+      "complianceNote": "Gebaut für Medizinprodukthersteller unter FDA QMSR und ISO 13485.",
+      "sectionEyebrow": "Einführungsgespräch",
+      "sectionTitle": "Erzählen Sie uns von Ihrer Umgebung",
+      "sectionBody": "Teilen Sie uns etwas über Ihre Umgebung und Prioritäten mit und wählen Sie dann einen passenden Termin. Keine automatisierte Analyse — nur echte Expertenberatung.",
+      "intakeTitle": "Aufnahmefragen",
+      "optional": "(optional)",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "toastSuccess": "Gespräch vereinbart. Eine Bestätigungs-E-Mail ist unterwegs.",
+      "namePlaceholder": "Erika Mustermann",
+      "emailPlaceholder": "erika@unternehmen.com",
+      "companyPlaceholder": "MedDevice GmbH",
+      "rolePlaceholder": "z. B. Qualitätsmanager",
+      "name": "Vollständiger Name",
+      "email": "Geschäftliche E-Mail",
+      "company": "Unternehmen",
+      "role": "Rolle",
+      "companySize": "Unternehmensgröße",
+      "priority": "Gesprächspriorität",
+      "priorityOther": "Bitte angeben",
+      "context": "Zusätzlicher Kontext",
+      "contextPlaceholder": "Teilen Sie alles mit, was uns bei der Vorbereitung des Gesprächs hilft.",
+      "submit": "Gespräch vereinbaren",
+      "privacyNote": "Ihre Informationen werden nur zur Vorbereitung des geplanten Gesprächs verwendet.",
+      "priorities": {
+        "fit": "Verstehen, ob Suricat zu unserer Umgebung passt",
+        "readiness": "Bereitschaft und operative Herausforderungen erkunden",
+        "approach": "Suricats Ansatz verstehen",
+        "architecture": "Architektur und Betriebsmodell besprechen",
+        "collaboration": "Strategische Zusammenarbeit erkunden",
+        "other": "Sonstiges"
+      },
+      "contextHint": "Teilen Sie uns vor dem Gespräch alles Nützliche mit.",
+      "maxChars": "Maximum: 300 Zeichen ({count}/300)"
+    },
+    "readiness": {
+      "heroEyebrow": "FDA QMSR- & ISO-13485-Inspektionsbereitschaft",
+      "heroTitleBefore": "Erkunden Sie Ihre",
+      "heroTitleAccent": "Inspektionsbereitschaft",
+      "heroP1": "Beantworten Sie einige Fragen zu Ihrer Dokumentationsumgebung, Ihrem Inspektionszeitplan und Ihren Compliance-Prioritäten.",
+      "heroP2": "Ihre Antworten helfen Suricat, ein fokussiertes Bereitschaftsgespräch vorzubereiten, das auf Ihre Umgebung und Prioritäten zugeschnitten ist.",
+      "heroCta": "Bereitschaftsgespräch beginnen",
+      "complianceNote": "Gebaut für Medizinprodukthersteller unter FDA QMSR und ISO 13485.",
+      "sectionEyebrow": "Vereinbaren Sie Ihr Gespräch",
+      "sectionTitle": "Beginnen Sie Ihr Bereitschaftsgespräch",
+      "sectionBody": "Schließen Sie die vier Schritte unten ab und vereinbaren Sie einen Termin mit einem Compliance-Spezialisten.",
+      "sectionBody2": "Keine automatisierte Analyse — nur echte Expertenberatung.",
+      "intakeTitle": "Aufnahmefragen",
+      "optional": "(optional)",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "toastSuccess": "Gespräch vereinbart. Eine Bestätigungs-E-Mail ist unterwegs.",
+      "namePlaceholder": "Erika Mustermann",
+      "emailPlaceholder": "erika@unternehmen.com",
+      "companyPlaceholder": "MedDevice GmbH",
+      "rolePlaceholder": "z. B. Qualitätsmanager",
+      "name": "Vollständiger Name",
+      "email": "Geschäftliche E-Mail",
+      "company": "Unternehmen",
+      "role": "Rolle",
+      "timeline": "Inspektions- / Audit-Zeitplan",
+      "timelineOther": "Bitte angeben",
+      "priority": "Hauptpriorität",
+      "priorityOther": "Bitte angeben",
+      "context": "Zusätzlicher Kontext",
+      "contextPlaceholder": "Teilen Sie alles mit, was uns bei der Vorbereitung des Gesprächs hilft.",
+      "submit": "Gespräch vereinbaren",
+      "privacyNote": "Ihre Informationen werden nur zur Vorbereitung des geplanten Gesprächs verwendet.",
+      "timelines": {
+        "within90": "Innerhalb von 90 Tagen",
+        "90to180": "90–180 Tage",
+        "180to365": "180–365 Tage",
+        "other": "Sonstiges"
+      },
+      "priorities": {
+        "audit": "Audit-Vorbereitung",
+        "consistency": "Dokumentenübergreifende Konsistenz",
+        "capa": "CAPA-Nachvollziehbarkeit",
+        "change": "Änderungsauswirkungsanalyse",
+        "evidence": "Evidenzsichtbarkeit",
+        "readiness": "Inspektionsbereitschaft",
+        "alignment": "Operative Ausrichtung",
+        "other": "Sonstiges"
+      },
+      "timelineHint": "Wann ist Ihre nächste Inspektion oder Ihr nächstes Audit?",
+      "priorityHint": "Was würde dieses Gespräch besonders wertvoll machen?",
+      "contextHint": "Teilen Sie uns vor dem Gespräch alles Nützliche mit.",
+      "maxChars": "Maximum: 300 Zeichen ({count}/300)"
+    },
+    "designPartner": {
+      "steps": {
+        "company": "Unternehmen",
+        "companyInfo": "Informationen",
+        "primary": "Primärer",
+        "contact": "Kontakt",
+        "current": "Aktuelle",
+        "environment": "Umgebung",
+        "priorities": "Aktuelle Compliance",
+        "prioritiesSub": "Prioritäten",
+        "review": "Prüfen &",
+        "submit": "Absenden"
+      },
+      "other": "Sonstiges",
+      "otherSpecify": "Sonstiges (bitte angeben)",
+      "continue": "Weiter",
+      "back": "Zurück",
+      "submitApplication": "Bewerbung absenden",
+      "privacyNote": "Ihre Bewerbung wird vom Suricat-Team geprüft.",
+      "stepOf": "Schritt {step} von {total}",
+      "companyInformation": "Unternehmensinformationen",
+      "companyName": "Unternehmensname",
+      "companyNamePlaceholder": "Unternehmensnamen eingeben",
+      "companyWebsite": "Unternehmenswebsite",
+      "employeeCount": "Anzahl der Mitarbeitenden",
+      "employeeCountPlaceholder": "Anzahl der Mitarbeitenden wählen",
+      "employeeHint": "So können wir das Programm an die Größe Ihrer Organisation anpassen.",
+      "deviceCategory": "Medizinprodukte-Kategorie",
+      "deviceCategoryPlaceholder": "Medizinprodukte-Kategorie wählen",
+      "deviceCategoryHint": "Wählen Sie die Kategorie, die Ihre Hauptprodukte am besten beschreibt.",
+      "primaryContact": "Primärer Kontakt",
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "Vollständigen Namen eingeben",
+      "title": "Titel",
+      "titlePlaceholder": "Ihren Titel eingeben",
+      "businessEmail": "Geschäftliche E-Mail",
+      "emailHint": "Wir nutzen diese Adresse, um Ihre Bewerbung nachzuverfolgen.",
+      "phoneOptional": "Telefon (optional)",
+      "countryCode": "Ländervorwahl",
+      "currentEnvironment": "Aktuelle Umgebung",
+      "qms": "Aktuelles Quality Management System (QMS)",
+      "qmsPlaceholder": "Ihr QMS wählen",
+      "qmsHint": "Das System, auf das Sie für Qualitäts- und Compliance-Prozesse setzen.",
+      "docSystems": "Aktuelle Dokumentationssysteme (Mehrfachauswahl)",
+      "docSystemsOtherPlaceholder": "Dokumentationssystem angeben…",
+      "docControlSoftware": "Document-Control-Software",
+      "compliancePriorities": "Aktuelle Compliance-Prioritäten",
+      "biggestChallenge": "Größte Dokumentations- oder Compliance-Herausforderung",
+      "biggestChallengePlaceholder": "Beschreiben Sie kurz Ihre größte Dokumentations- oder Compliance-Herausforderung.",
+      "inspectionLabel": "Bevorstehende FDA- / ISO-Inspektion",
+      "inspectionPlaceholder": "Zeitrahmen wählen",
+      "inspectionHint": "Ihr Inspektionszeitplan hilft uns, den Support zu priorisieren.",
+      "inspectionOptions": {
+        "within3": "Innerhalb von 3 Monaten",
+        "3to6": "3–6 Monate",
+        "6to12": "6–12 Monate",
+        "more12": "Mehr als 12 Monate",
+        "none": "Derzeit keine Inspektion geplant"
+      },
+      "whyInterest": "Warum möchten Sie Design-Partner werden?",
+      "whyInterestPlaceholder": "Sagen Sie uns, was Sie erreichen möchten und warum Sie teilnehmen möchten.",
+      "reviewTitle": "Prüfen & Absenden",
+      "reviewSubtitle": "Bitte prüfen Sie Ihre Bewerbung vor dem Absenden.",
+      "website": "Website",
+      "employees": "Mitarbeitende",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "notProvided": "Nicht angegeben",
+      "currentQms": "Aktuelles QMS",
+      "documentationSystems": "Dokumentationssysteme",
+      "noneSelected": "Keine Auswahl",
+      "otherPrefix": "Sonstiges: {value}",
+      "biggestChallengeShort": "Größte Herausforderung",
+      "whyDesignPartner": "Warum Design-Partner?",
+      "ackDesignPartner": "Wir verstehen, dass dies ein kollaboratives Design-Partner-Programm ist und kein kommerzieller Softwarekauf.",
+      "ackNda": "Wir stimmen zu, Dokumentation unter einer gegenseitigen NDA vor der Teilnahme zu prüfen.",
+      "reviewNotice": "Dies ist gut strukturiert für eine B2B-Bewerbung. Es fragt nur Informationen ab, die helfen, einen potenziellen Design-Partner zu qualifizieren, und hält die Bewerbung kurz und reibungsarm.",
+      "saveFinishLater": "Speichern & später fortsetzen",
+      "edit": "Bearbeiten",
+      "toastIncomplete": "Bitte füllen Sie alle Pflichtfelder aus, bevor Sie fortfahren.",
+      "toastAck": "Bitte bestätigen Sie beide Bestätigungen vor dem Absenden.",
+      "toastSubmitted": "Bewerbung eingereicht. Unser Team meldet sich innerhalb eines Werktags.",
+      "toastDraftSaved": "Ihr Fortschritt wurde lokal gespeichert. Sie können später zurückkehren, um die Bewerbung abzuschließen.",
+      "toastDraftFail": "Fortschritt konnte in diesem Browser nicht gespeichert werden."
+    },
+    "discussionConfirmed": {
+      "title": "Ihr Gespräch ist bestätigt",
+      "thanks": "Vielen Dank, dass Sie Zeit mit uns vereinbart haben.",
+      "body": "Unser Team prüft Ihre Antworten vor dem Gespräch, damit wir uns auf Ihre Prioritäten und die nächsten Schritte konzentrieren können.",
+      "lookForward": "Wir freuen uns auf das Gespräch.",
+      "summaryTitle": "Bestätigungsübersicht",
+      "scheduledTime": "Geplante Zeit",
+      "yourDetails": "Ihre Angaben",
+      "discussionFocus": "Gesprächsschwerpunkt",
+      "inviteSentBefore": "Eine Kalendereinladung wurde gesendet an",
+      "inviteSentAfter": ". Unser Team meldet sich, falls vor Ihrer Sitzung zusätzliche Vorbereitung nötig ist.",
+      "returnWebsite": "Zur Website zurückkehren",
+      "footerNote": "Gebaut für Medizinprodukthersteller unter FDA QMSR und ISO 13485."
+    },
+    "scheduleHelper": {
+      "tip": "30-minütiges Einführungsgespräch mit einem Suricat-Spezialisten. Keine Vorbereitung nötig — wählen Sie einfach einen passenden Termin.",
+      "ariaLabel": "Gesprächsdetails",
+      "emailOnTheWay": "Bestätigungs-E-Mail ist unterwegs",
+      "completeFields": "Füllen Sie alle Pflichtfelder aus, um Ihr Gespräch zu vereinbaren."
+    },
+    "scheduleCalendar": {
+      "title": "Vereinbaren Sie Ihr Einführungsgespräch",
+      "subtitle": "Wählen Sie einen passenden Termin · alle Zeiten in Ihrer lokalen Zeitzone",
+      "prevMonth": "Vorheriger Monat",
+      "nextMonth": "Nächster Monat",
+      "selectedNote": "30-minütiges Einführungsgespräch · Ihre lokale Zeitzone"
+    }
+  },
+  "home": {
+    "hero": {
+      "titleBefore": "Der Sentinel für",
+      "titleCompliance": "Compliance",
+      "titleIntelligence": "Intelligence",
+      "body": "Bewertet kontinuierlich die dokumentenübergreifende Ausrichtung und liefert inspektionssichere Findings für frühere Prüfung.",
+      "explorePlatform": "Plattform entdecken",
+      "becomeDesignPartner": "Design-Partner werden",
+      "bannerLabel": "COMPLIANCE INTELLIGENCE PLATFORM",
+      "bannerAlt": "Suricat Gründer-Banner"
+    },
+    "why": {
+      "sectionTitle": "Warum Suricat",
+      "headline": "Die Systeme sind vorhanden. Die Ausrichtung zwischen ihnen fehlt.",
+      "intro": "Anforderungen ändern sich. Dokumente entwickeln sich weiter. Nachweise häufen sich. Mit der Zeit wird es zunehmend schwieriger nachzuweisen, dass kritische Qualitäts- und Regulierungsdokumentation weiterhin ausgerichtet bleibt.",
+      "continue": "Weiter",
+      "tabs": {
+        "mission": "Mission von Suricat",
+        "practitioners": "Von Praktikern gebaut",
+        "structural": "Das strukturelle Problem",
+        "existingSystems": "Warum bestehende Systeme nicht ausreichen",
+        "howItWorks": "So funktioniert Suricat",
+        "regulated": "Für regulierte Umgebungen entwickelt",
+        "enables": "Was Suricat ermöglicht"
+      },
+      "readMore": "Mehr lesen",
+      "readLess": "Weniger lesen",
+      "mission": {
+        "eyebrow": "Kontinuierliche Ausrichtung",
+        "bullets": {
+          "0": "Erkennt Fehlausrichtung vor der Inspektion.",
+          "1": "Bewahrt menschliche Verantwortlichkeit.",
+          "2": "Ermöglicht inspektionssichere Entscheidungen."
+        },
+        "title": "Mission von Suricat",
+        "paragraphs": {
+          "0": "Regulatorische Compliance durch erklärbare Intelligenz transformieren, die Fehlausrichtung früher erkennt, menschliche Verantwortlichkeit bewahrt und inspektionssichere Entscheidungen ermöglicht."
+        }
+      },
+      "practitioners": {
+        "eyebrow": "Von Praktikern gebaut",
+        "bullets": {
+          "0": "Jahrzehnte in Quality, Regulatory Affairs und Compliance.",
+          "1": "In regulierten Umgebungen entstanden.",
+          "2": "Tiefe Erfahrung mit FDA-Inspektionen und CAPA."
+        },
+        "title": "Von Praktikern gebaut",
+        "paragraphs": {
+          "0": "Suricat entstand aus gelebter regulatorischer und operativer Erfahrung.",
+          "1": "Das Gründungsteam bringt jahrzehntelange Erfahrung in Quality, Regulatory Affairs, FDA-Inspektionen, CAPA-Untersuchungen und MDR-Übergängen mit.",
+          "2": "Wir haben die Intelligence Layer gebaut, die wir uns gewünscht haben — damit Compliance-Bewertung kontinuierlich und nicht episodisch wird."
+        }
+      },
+      "structural": {
+        "eyebrow": "Episodische Compliance",
+        "bullets": {
+          "0": "Organisationen gleichen Dokumente periodisch ab, nicht kontinuierlich.",
+          "1": "Anforderungen werden manuell über fragmentierte Systeme gemappt.",
+          "2": "Institutionelles Wissen liegt bei Personen, nicht in Systemen."
+        },
+        "title": "Das strukturelle Problem",
+        "paragraphs": {
+          "0": "Trotz jahrzehntelanger Unternehmensdigitalisierung bleibt Compliance episodisch. Organisationen holen ständig auf.",
+          "1": "Regulierte Organisationen verwalten Dokumentationsökosysteme über Qualität, Risiko, Regulierung, Betrieb, Finanzen und Governance hinweg — über mehrere Umgebungen und Jurisdiktionen.",
+          "2": "Wenn sich Anforderungen ändern, reicht zuvor konforme Evidenz nicht mehr aus. Systems of Record bewahren Datenintegrität — sie bewerten keine Ausrichtung darüber hinweg.",
+          "3": "Fehlausrichtung wird spät erkannt, wenn Remediation kostspielig und regulatorisches Risiko bereits materiell ist.",
+          "4": "Das ist keine Lücke, die ein besseres Workflow-Tool schließt. Es ist eine strukturelle Bedingung, die eine völlig andere Klasse von Infrastruktur erfordert."
+        }
+      },
+      "existingSystems": {
+        "eyebrow": "Systemlücken",
+        "bullets": {
+          "0": "Kleine Änderungen über Dokumente hinweg erzeugen unsichtbare Divergenz.",
+          "1": "Periodischer Abgleich ist reaktiv, redundant und ressourcenintensiv.",
+          "2": "Während der Inspektion entdeckte Fehlausrichtung führt zu Verzögerungen, Exposure und höheren Kosten."
+        },
+        "title": "Warum bestehende Systeme nicht ausreichen",
+        "paragraphs": {
+          "0": "Komplexität kündigt ihre Folgen nicht an. Hier eine Designrevision. Dort eine aktualisierte Verfahrensanweisung. Eine Anforderung, die sich verschoben hat, ohne koordinierte Updates über jedes betroffene Artefakt auszulösen. Jede Änderung ist einzeln vertretbar. Zusammen entsteht ein Dokumentationsökosystem, das einer Prüfung nicht standhält.",
+          "1": "Organisationen investieren stark in periodischen Abgleich — Evidenz zusammentragen, Datensätze querverweisen, Begründung rekonstruieren. Dieser Aufwand ist weitgehend reaktiv und vermeidbar.",
+          "2": "Wenn Fehlausrichtung während der Inspektion statt davor sichtbar wird, verlängert sich die Remediation und das Exposure steigt. Die Lösung ist nicht mehr Prozess — sondern kontinuierliche Ausrichtung, eingebettet in den Betrieb."
+        }
+      },
+      "howItWorks": {
+        "eyebrow": "Kontinuierlicher Intelligence-Zyklus",
+        "bullets": {
+          "0": "Nimmt Dokumente und Metadaten kontinuierlich auf.",
+          "1": "Mappt Anforderungen auf Evidenz über Systeme hinweg.",
+          "2": "Liefert Findings mit vollständiger Quellnachverfolgbarkeit."
+        },
+        "title": "So funktioniert Suricat",
+        "paragraphs": {
+          "0": "Suricat arbeitet in einem kontinuierlichen Zyklus, der fragmentierte Dokumentation in inspektionssichere Confidence verwandelt.",
+          "1": "Es verbindet disparate Systeme und Inhalte, mappt Anforderungen auf Evidenz und wendet regulatorisches Reasoning an, um Ausrichtung, Konsistenz und Risiko kontinuierlich — nicht periodisch — zu bewerten.",
+          "2": "Teams handeln auf Findings innerhalb bestehender Workflows. Suricat lernt aus Outcomes, um Genauigkeit kontinuierlich zu verbessern, False Positives zu reduzieren und die Inspektionsbereitschaft zu stärken."
+        }
+      },
+      "regulated": {
+        "eyebrow": "Für die regulierte Realität gebaut",
+        "bullets": {
+          "0": "Regulatorische Qualität.",
+          "1": "Sicherheit durch Design.",
+          "2": "Global und skalierbar."
+        },
+        "title": "Für regulierte Umgebungen entwickelt",
+        "paragraphs": {
+          "0": "Suricat ist speziell für Organisationen gebaut, die unter komplexen und sich weiterentwickelnden regulatorischen Verpflichtungen arbeiten. Jede Fähigkeit ist darauf ausgelegt, die Erwartungen von Aufsichtsbehörden und die Bedürfnisse regulierter Teams zu erfüllen.",
+          "1": "Wir verankern Sicherheit, Privacy und Zugriffskontrollen auf jeder Ebene. Daten sind geschützt, Evidenz ist nachvollziehbar, und jedes Output ist erklärbar und vertretbar.",
+          "2": "Suricat unterstützt globale Operationen über Branchen und Jurisdiktionen hinweg. Unsere Plattform passt sich Ihren Anforderungen an, skaliert mit Ihrem Wachstum und bleibt ausgerichtet, wenn sich Vorschriften und Standards weiterentwickeln.",
+          "3": "Sie erhalten eine Compliance-Infrastruktur, der Sie vertrauen können — gebaut für die Realität regulierter Umgebungen."
+        }
+      },
+      "enables": {
+        "eyebrow": "Outcomes, die zählen",
+        "bullets": {
+          "0": "Inspektionsbereitschaft.",
+          "1": "Risikoreduktion.",
+          "2": "Operative Effizienz."
+        },
+        "title": "Was Suricat ermöglicht",
+        "paragraphs": {
+          "0": "Suricat verwandelt Compliance von einem periodischen, manuellen Aufwand in eine kontinuierliche Intelligence-Fähigkeit, die in den täglichen Betrieb eingebettet ist.",
+          "1": "Organisationen gehen über das nachträgliche Zusammentragen von Evidenz hinaus. Stattdessen bewerten sie kontinuierlich die Ausrichtung über Dokumentation, Anforderungen und operative Realität, während sich Bedingungen ändern.",
+          "2": "Quality-, Regulatory- und Compliance-Teams erhalten frühere Sichtbarkeit auf entstehendes Risiko, stärkere Inspektionsbereitschaft und mehr Confidence in Entscheidungen durch erklärbare Findings und nachvollziehbare Evidenz.",
+          "3": "Das ist nicht einfach schnellere Compliance-Arbeit. Es ermöglicht ein resilienteres Betriebsmodell, das mit Produkten, Vorschriften und organisatorischem Wachstum skaliert."
+        }
+      }
+    },
+    "platform": {
+      "sectionTitle": "Plattform",
+      "headline": "Die Systeme bleiben. Die Intelligence Layer sitzt darüber.",
+      "intro": "Suricat ist eine schreibgeschützte Compliance Intelligence Layer, die regulierte Dokumentation kontinuierlich auf Ausrichtung, Vollständigkeit und Inspektionsbereitschaft prüft.",
+      "continue": "Weiter",
+      "checkReadiness": "Prüfen Sie Ihre Readiness",
+      "tabs": {
+        "intelligenceLayer": "Intelligence Layer",
+        "readOnly": "Schreibgeschützt by Design",
+        "noRipReplace": "Kein Rip and Replace",
+        "humanAccountability": "Menschliche Verantwortlichkeit",
+        "deployment": "Bereitstellung",
+        "regulatoryOntology": "Regulatory Ontology",
+        "canonicalSchema": "Canonical Intelligence Schema",
+        "qvr": "Quality Validation Rating",
+        "boundedReasoning": "Bounded Reasoning"
+      },
+      "panes": {
+        "intelligenceLayer": {
+          "title": "Intelligence Layer",
+          "body": "Suricat arbeitet als neutrale, schreibgeschützte Intelligence Layer über bestehenden Systems of Record. Sie ersetzt keine validierte Infrastruktur und verändert keine Systemgrenzen.",
+          "imageAlt": "Intelligence Layer"
+        },
+        "readOnly": {
+          "title": "Schreibgeschützt by Design",
+          "body": "Suricat integriert sich über Unternehmenssysteme hinweg, ohne einen einzigen Datensatz zu ändern.",
+          "imageAlt": "Schreibgeschützt by Design"
+        },
+        "noRipReplace": {
+          "title": "Kein Rip and Replace",
+          "body": "Ihre QMS-, RIM-Plattformen, Document-Control-Systeme und Validierungsinfrastruktur bleiben genau so, wie sie sind.",
+          "imageAlt": "Kein Rip and Replace"
+        },
+        "humanAccountability": {
+          "title": "Menschliche Verantwortlichkeit",
+          "body": "Suricat liefert Intelligence. Qualifizierte Fachleute treffen jede Entscheidung.",
+          "imageAlt": "Menschliche Verantwortlichkeit"
+        },
+        "deployment": {
+          "title": "Bereitstellung",
+          "body": "Suricat wird als sichere SaaS-Plattform bereitgestellt und ermöglicht schnelle Adoption ohne Störung validierter Umgebungen.",
+          "imageAlt": "Bereitstellung"
+        },
+        "regulatoryOntology": {
+          "title": "Regulatory Ontology",
+          "body": "Im Kern von Suricat steht ein proprietäres Wissensframework, das kodiert, wie Vorschriften in der Praxis interpretiert werden.",
+          "imageAlt": "Regulatory Ontology"
+        },
+        "canonicalSchema": {
+          "title": "Canonical Intelligence Schema",
+          "body": "Jedes Dokument, das in Suricat eingeht, wird in strukturierte, nachvollziehbare Evidenz überführt, die widerspiegelt, wie erfahrene Regulatory Professionals Artefakte bei Inspektionen bewerten.",
+          "imageAlt": "Canonical Intelligence Schema"
+        },
+        "qvr": {
+          "title": "Quality Validation Rating",
+          "body": "Suricat bewertet Dokumentation kontinuierlich über ein Confidence-Scoring-System, das die Inspektionsbereitschaft bestimmt.",
+          "imageAlt": "Quality Validation Rating"
+        },
+        "boundedReasoning": {
+          "title": "Bounded Reasoning",
+          "body": "Suricats Bounded-Reasoning-Engine ist eine proprietäre Architektur, speziell für regulierte Umgebungen gebaut, in denen ein falsches Output kein bloßes Ärgernis ist.",
+          "imageAlt": "Bounded Reasoning"
+        }
+      }
+    },
+    "solutions": {
+      "sectionTitle": "Lösungen",
+      "headline": "Kein einzelnes Dokument erzählt die ganze Geschichte.",
+      "headlineLine2": "Die Verbindungen dazwischen tun es.",
+      "body": "Verstehen Sie, wie die Compliance Intelligence Layer Quality- und Regulatory-Teams hilft, potenzielle Bedenken früher zu erkennen, ihre Auswirkungen zu verstehen und mehr Sicherheit über compliance-kritische Dokumentation zu behalten.",
+      "viewSolution": "Lösung ansehen",
+      "cta": "Bereitschaft prüfen",
+      "ctaHint": "Erkunden Sie jede Lösung und sehen Sie, wie die Compliance Intelligence Layer sie anwendet.",
+      "cards": {
+        "c1": {
+          "label": "Dokumentationssicherheit",
+          "title": "Sicherheit in der Evidenz",
+          "body": "Verstehen Sie, ob die Evidenz hinter einer Qualitäts- oder Regulatory-Entscheidung vollständig, nachvollziehbar und ausreichend ist."
+        },
+        "c2": {
+          "label": "Inspektionsvertretbare Findings",
+          "title": "Vertretbare Schlussfolgerungen",
+          "body": "Verstehen Sie, wie ein Finding mit der Evidenz, den Aufzeichnungen und Aktivitäten verbunden ist, die es erzeugt haben."
+        },
+        "c3": {
+          "label": "Inspektionsbereitschaft",
+          "title": "Bereitschaft vor der Vorbereitung",
+          "body": "Verstehen Sie die aktuelle Bereitschaft des Qualitätssystems jederzeit — nicht erst, wenn die Vorbereitung beginnt."
+        },
+        "c4": {
+          "label": "Kontinuierliche Compliance",
+          "title": "Sichtbarkeit zwischen Reviews",
+          "body": "Behalten Sie die Compliance-Lage in den Zeiträumen zwischen Audits, Inspektionen und Management Reviews im Blick."
+        },
+        "c5": {
+          "label": "Änderungsauswirkungsanalyse",
+          "title": "Wirkung über die Änderung hinaus",
+          "body": "Verstehen Sie, wie eine Änderung mit der Dokumentation, den Prozessen und Verpflichtungen zusammenhängt, die sie betreffen kann."
+        },
+        "c6": {
+          "label": "Dokumentationsausrichtung",
+          "title": "Ausrichtung über die Dokumentation hinweg",
+          "body": "Identifizieren Sie, wo verwandte Verfahren, Aufzeichnungen und unterstützende Evidenz möglicherweise nicht mehr konsistent sind."
+        }
+      }
+    },
+    "industries": {
+      "sectionTitle": "Branchen",
+      "headline": "Für regulierte Branchen gebaut.",
+      "headlineLine2": "Beginnend mit Medizinprodukten.",
+      "body": "Medizinproduktehersteller arbeiten in einer der anspruchsvollsten Dokumentationsumgebungen der Welt. Suricat beginnt hier, weil wenn die Compliance Intelligence Layer dort Vertrauen verdienen kann, wo Dokumentationskomplexität und regulatorische Erwartungen am höchsten sind, sie sich natürlich auf andere regulierte Branchen ausweiten kann.",
+      "medicalTitle": "Medizinprodukte",
+      "medicalBody": "Erfahren Sie, warum Medizinprodukte die erste Implementierung der Compliance Intelligence Layer darstellen und wie Suricat Quality- und Regulatory-Teams hilft, Dokumentationsausrichtung und Inspektionsbereitschaft zu wahren.",
+      "medicalCta": "Medizinprodukte entdecken",
+      "expansionTitle": "Branchenerweiterung",
+      "expansionBody": "Erkunden Sie, wie die Compliance Intelligence Layer auf weitere regulierte Branchen ausgeweitet werden kann, in denen Dokumentationsqualität, Evidenznachverfolgbarkeit und regulatorische Aufsicht ebenso kritisch sind.",
+      "expansionCta": "Branchenerweiterung entdecken"
+    },
+    "pricingPlans": {
+      "eyebrow": "Preise",
+      "titleLine1": "Der Umfang liegt in der Dokumentation.",
+      "titleLine2": "Nicht in der Anzahl der Sitze.",
+      "body": "Compliance-Komplexität spiegelt sich in der Dokumentation wider, nicht in der Kopfzahl. Jedes Suricat-Abonnement kombiniert eine Annual Platform License mit einer definierten Document Capacity und ermöglicht Quality- und Regulatory-Teams die Zusammenarbeit ohne Lizenzierung nach Sitzplätzen.",
+      "bodyEmphasis": "Dokumente können über alle sechs Compliance Intelligence Solutions hinweg ohne zusätzliche Verbrauchskosten bewertet werden.",
+      "labels": {
+        "corePlatform": "Kernplattform",
+        "support": "Support",
+        "activeDocuments": "Aktive Dokumente",
+        "perYear": "pro Jahr",
+        "mostPopular": "Am beliebtesten"
+      },
+      "footnotes": {
+        "publishedPricing": "Veröffentlichte Jahrespreise",
+        "twelveMonthTerms": "Zwölfmonats-Laufzeiten",
+        "noPerSeatFees": "Keine Gebühren pro Sitzplatz"
+      },
+      "evaluate": {
+        "badge": "Evaluierung",
+        "name": "Evaluation",
+        "tagline": "Passung prüfen",
+        "question": "Funktioniert Suricat mit unserer Dokumentation?",
+        "price": "$0",
+        "term": "90-tägige Evaluierungsdauer",
+        "docsCount": "50 DOKUMENTE",
+        "docsLabel": "Fokussierte Evaluierung",
+        "limits": {
+          "org": "1 Organisation",
+          "users": "1 Benutzer",
+          "productFamily": "1 Produktfamilie",
+          "term": "90-tägige Evaluierungsdauer"
+        },
+        "features": {
+          "allSix": "Alle sechs Compliance Intelligence Solutions",
+          "workspace": "Self-Service-Evaluierungs-Workspace",
+          "evidence": "Evidence-Navigation",
+          "onboarding": "Geführtes Onboarding",
+          "knowledgeBase": "Wissensdatenbank"
+        },
+        "supportLine1": "Nur Self-Service-Support.",
+        "supportLine2": "Wissensdatenbank und geführtes Onboarding inklusive.",
+        "cta": "Kostenlose Evaluierung starten"
+      },
+      "pilot": {
+        "badge": "Operative Validierung",
+        "name": "Pilot",
+        "tagline": "Wert validieren",
+        "question": "Kann Suricat Teil unseres Quality-Workflows werden?",
+        "price": "$10,000",
+        "docsCount": "250 DOKUMENTE",
+        "docsLabel": "Einzelnes Geräteprogramm",
+        "limits": {
+          "org": "1 Organisation",
+          "users": "Bis zu 2 Benutzer",
+          "productFamily": "1 Produktfamilie",
+          "framework": "1 regulatorischer Rahmen",
+          "term": "Zwölfmonats-Abonnement"
+        },
+        "features": {
+          "allSix": "Alle sechs Compliance Intelligence Solutions",
+          "workspace": "Produktions-Workspace",
+          "monitoring": "Kontinuierliches Monitoring",
+          "export": "Report-Export",
+          "history": "Gespeicherte Analysehistorie"
+        },
+        "support": "E-Mail-Support und geführtes Onboarding inklusive.",
+        "cta": "Pilot starten"
+      },
+      "foundation": {
+        "badge": "Produktive Bereitstellung",
+        "name": "Grundlage",
+        "tagline": "Operationalisieren",
+        "question": "Kann Suricat laufende Compliance-Operationen unterstützen?",
+        "price": "$25,000",
+        "docsCount": "1.000 DOKUMENTE",
+        "docsLabel": "Mehrere Geräteprogramme",
+        "limits": {
+          "org": "1 Organisation",
+          "users": "Bis zu 3 Benutzer",
+          "productFamilies": "Bis zu 3 Produktfamilien",
+          "frameworks": "Bis zu 3 regulatorische Rahmen",
+          "term": "Zwölfmonats-Abonnement"
+        },
+        "features": {
+          "everythingInPilot": "Alles aus Pilot inklusive",
+          "collaboration": "Team-Zusammenarbeit",
+          "workspaces": "Geteilte Workspaces",
+          "reporting": "Erweitertes Reporting"
+        },
+        "supportLine1": "Priorisierter E-Mail-Support.",
+        "supportLine2": "Beschleunigte Antwortzeiten.",
+        "cta": "Grundlage starten"
+      },
+      "enterprise": {
+        "badge": "Unternehmens-Skalierung",
+        "name": "Unternehmen",
+        "tagline": "Skalieren & Steuern",
+        "question": "Kann Suricat über die Organisation hinweg skalieren?",
+        "price": "Individuell",
+        "term": "jährliche Platform License",
+        "docsCount": "INDIVIDUELLE KAPAZITÄT",
+        "docsLabel": "Organisationsweite Bereitstellung",
+        "limits": {
+          "users": "Unbegrenzte Benutzer",
+          "productFamilies": "Individuelle Produktfamilien",
+          "frameworks": "Individuelle regulatorische Rahmen",
+          "term": "Individuelle Abonnementlaufzeit"
+        },
+        "features": {
+          "dedicatedCloud": "Dedizierte Suricat Cloud-Umgebung",
+          "retention": "Individuelle Aufbewahrungsrichtlinien",
+          "rollover": "Document-Capacity-Übertrag",
+          "sso": "Single Sign-On und Governance",
+          "rbac": "Erweitertes RBAC und Audit-Logging",
+          "sla": "Vertraglich vereinbarte SLA"
+        },
+        "support": "Geteiltes Customer Success, geteiltes Technical Account Management, Eskalationsmanagement.",
+        "cta": "Vertrieb kontaktieren"
+      }
+    },
+    "pricingComparison": {
+      "eyebrow": "Abonnementoptionen vergleichen",
+      "titleLine1": "Die Intelligence bleibt dieselbe.",
+      "titleLine2": "Der operative Umfang wächst.",
+      "body": "Jede Stufe umfasst alle sechs Compliance Intelligence Solutions. Document Capacity, Zusammenarbeit, Governance, Support und Bereitstellungsoptionen erweitern sich mit Ihrem Compliance-Programm.",
+      "capability": "Funktion",
+      "mostPopular": "Am beliebtesten",
+      "tiers": {
+        "evaluate": {
+          "name": "Evaluation",
+          "tagline": "Passung prüfen"
+        },
+        "pilot": {
+          "name": "Pilot",
+          "tagline": "Wert validieren"
+        },
+        "foundation": {
+          "name": "Grundlage",
+          "tagline": "Operationalisieren"
+        },
+        "enterprise": {
+          "name": "Unternehmen",
+          "tagline": "Skalieren & Steuern"
+        }
+      },
+      "categories": {
+        "corePlatform": "Kernplattform",
+        "collaboration": "Zusammenarbeit & Betrieb",
+        "governance": "Unternehmens-Governance",
+        "extensions": "Unternehmens-Erweiterungen"
+      },
+      "rows": {
+        "allSix": "Alle sechs Compliance Intelligence Solutions",
+        "customerDocumentation": "Kundendokumentation",
+        "analysisHistory": "Analysehistorie",
+        "emailSupport": "E-Mail-Support",
+        "continuousMonitoring": "Kontinuierliches Monitoring",
+        "exportFindings": "Findings & Reports exportieren",
+        "sharedSaas": "Geteilte SaaS-Umgebung",
+        "guidedSaas": "Geführte SaaS-Umgebung",
+        "teamCollaboration": "Team-Zusammenarbeit",
+        "sharedWorkspaces": "Geteilte Workspaces",
+        "priorityEmail": "Priorisierter E-Mail-Support",
+        "extendedRetention": "Erweiterte Datenaufbewahrungsoptionen",
+        "dedicatedCloud": "Dedizierte Suricat Cloud-Umgebung",
+        "sso": "Single Sign-On (SSO)",
+        "advancedGovernance": "Erweiterte Governance & Zugriffskontrollen",
+        "sla": "Service Level Agreement (SLA)",
+        "capacityRollover": "Document-Capacity-Übertrag",
+        "apiAccess": "API-Zugang",
+        "customIntegrations": "Individuelle Integrationen",
+        "customerSuccess": "Dedizierter Customer Success Manager",
+        "technicalAccount": "Technischer Kundenbetreuer"
+      },
+      "badges": {
+        "limited": "Begrenzt",
+        "optional": "Optional"
+      },
+      "legend": {
+        "included": "Inklusive",
+        "notIncluded": "Nicht inklusive",
+        "limitedAccess": "Eingeschränkter Zugang",
+        "availableAsAddOn": "Als Add-on verfügbar"
+      }
+    },
+    "complianceCost": {
+      "eyebrow": "Kosten der Fehlausrichtung",
+      "title": "Compliance-Fehlausrichtung kündigt sich nicht an. Das sind ihre Folgen",
+      "body": "Fehlausrichtung bleibt oft verborgen, bis eine Inspektion, CAPA oder ein Rückruf sie offenlegt. Dann ist die Auswirkung bereits messbar. Die folgenden Daten spiegeln die Realitäten wider, denen Medizinproduktehersteller unter QMSR und ISO 13485 gegenüberstehen.",
+      "cta": "Bereitschaft prüfen",
+      "ctaHint": "Erfahren Sie, wie Suricat Compliance Intelligence angeht",
+      "cards": {
+        "c1": {
+          "label": "FDA-Warnschreiben",
+          "stat": "44",
+          "title": "Warnschreiben",
+          "body": "Zeigen erhebliche Lücken im Qualitätssystem an, die eskalieren können.",
+          "link": "FDA-Durchsetzungsdaten FY2025"
+        },
+        "c2": {
+          "label": "CAPA-Mängel",
+          "stat": "~50%",
+          "title": "der Medizinprodukte-Unternehmen",
+          "body": "Haben CAPA-Mängel — ein führender Treiber von Inspektionsfeststellungen.",
+          "link": "FDA-Inspektionsbeobachtungsberichte"
+        },
+        "c3": {
+          "label": "Rückruf-Exposition",
+          "stat": "$10M–$50M+",
+          "title": "",
+          "body": "Große Rückrufe können erheblichen Sanierungs- und Betriebsaufwand verursachen.",
+          "link": "Kostenanalyse zu FDA Class-I-Rückrufen"
+        },
+        "c4": {
+          "label": "Rückruf-Lösungszeit",
+          "stat": "",
+          "title": "Bis zu 2 Jahre",
+          "body": "Schwere Medizinprodukt-Rückrufe können Jahre bis zur vollständigen Lösung dauern.",
+          "link": "FDA-Datenbank für Medizinprodukt-Rückrufe"
+        },
+        "c5": {
+          "label": "Schulungs-Compliance-Lücken",
+          "stat": "67%",
+          "title": "der Audit-Feststellungen",
+          "body": "Betreffen Schulungsmängel oder veraltete Aufzeichnungen.",
+          "link": "FDA-Inspektionsbeobachtungsberichte"
+        },
+        "c6": {
+          "label": "Manuelle Audit-Vorbereitung",
+          "stat": "",
+          "title": "Wochen der Vorbereitung",
+          "body": "Teams stellen Evidenz weiterhin manuell zusammen — mit mehr Aufwand und höherem Risiko, etwas zu übersehen.",
+          "link": "FDA Quality System Regulation"
+        }
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "Starten Sie ein Gespräch.",
+    "body": "Ob Sie eine allgemeine Anfrage haben, ein Design-Partner-Engagement prüfen oder mehr über die Compliance Intelligence Layer erfahren möchten — wir freuen uns, von Ihnen zu hören.",
+    "hqGlobal": "Globale Zentrale",
+    "hqGlobalAddr": "Palo Alto, California 94306,\nUSA",
+    "hqEurope": "Europäische Zentrale",
+    "hqEuropeAddr": "Akadeemia tee 12618,\nTallinn, Estonia",
+    "emailLabel": "E-Mail",
+    "webLabel": "Web",
+    "formTitle": "Nachricht senden",
+    "contactInfo": "Kontaktinformationen"
+  },
+  "company": {
+    "exploreCta": "Die Plattform erkunden",
+    "ourStory": {
+      "heroTitleBefore": "Der Sentinel wartet nicht",
+      "heroTitleAccent": "auf Gefahr.",
+      "heroSubtitle": "Der Name Suricat stammt von einem der wachsamsten Sentinels der Natur. Erdmännchen stehen aufrecht, scannen kontinuierlich und warnen die Gruppe, bevor Gefahr sichtbar wird. Sie warten nicht auf Konsequenzen. Sie erkennen die frühesten Zeichen.",
+      "s1Title": "Dieser einfache Instinkt offenbarte ein viel größeres Problem.",
+      "s1p1": "Compliance-Risiko entsteht selten auf einmal. Es entwickelt sich leise, während Dokumente sich verändern, Evidenz anwächst und die Ausrichtung über compliance-kritische Dokumentation hinweg allmählich schwächer wird.",
+      "s1p2": "Organisationen bauten Systeme, um Aufzeichnungen zu speichern, Workflows zu steuern und Freigaben zu kontrollieren.",
+      "s1p3": "Kein System wurde gebaut, um die Beziehungen dazwischen kontinuierlich zu verstehen.",
+      "s2Title": "Das Problem war nicht hypothetisch. Wir haben es selbst erlebt.",
+      "s2p1": "Suricat entstand nicht aus der Theorie. Es wurde durch jahrelange praktische Erfahrung bei der Inspektionsvorbereitung, der Steuerung von CAPA-Untersuchungen und der Unterstützung der Produktentwicklung geprägt.",
+      "s2p2": "Wir haben selbst erlebt, wie schwierig es wird, Ausrichtung zu bewahren, wenn Dokumentation wächst, Vorschriften sich weiterentwickeln und Verantwortlichkeiten über mehrere Teams hinweg reichen.",
+      "s2p3Before": "Diese Erfahrung machte eines klar. Die fehlende Fähigkeit war nie ein weiterer Workflow.",
+      "s2p3Strong": "Es war kontinuierliche Compliance-Intelligence.",
+      "s3Title": "Das wurde die Grundlage von Suricat.",
+      "s3p1": "Wir haben die Compliance Intelligence Layer so gebaut, dass sie oberhalb der Systeme arbeitet, denen Organisationen bereits vertrauen.",
+      "s3p2": "Nicht, um sie zu ersetzen.",
+      "s3p3Before": "Um Dokumentationsausrichtung kontinuierlich zu bewerten, erklärbare Findings sichtbar zu machen und potenzielle Fehlausrichtung zu erkennen",
+      "s3p3Strong": "bevor sie kritische Entscheidungen beeinflusst.",
+      "timelineEyebrowBefore": "Von früher Beobachtung",
+      "timelineEyebrowAccent": "zu kontinuierlicher Intelligence",
+      "timeline": {
+        "observation": {
+          "title": "Beobachtung",
+          "body": "Kontinuierlich nach frühen Signalen scannen."
+        },
+        "relationships": {
+          "title": "Versteckte Beziehungen",
+          "body": "Verstehen, wie Dokumentation, Kontrollen und Verantwortlichkeiten zusammenhängen."
+        },
+        "intelligence": {
+          "title": "Kontinuierliche Intelligence",
+          "body": "Fehlausrichtung sichtbar machen, bevor sie zu einem Compliance-Ereignis wird."
+        }
+      },
+      "exploreTitleLead": "Erkunden Sie die",
+      "exploreTitleAccent": "Compliance Intelligence Layer.",
+      "exploreDescription": "Sehen Sie, wie die Compliance Intelligence Layer oberhalb bestehender Systeme arbeitet, um Dokumentationsausrichtung in Ihrer Organisation kontinuierlich zu bewerten."
+    },
+    "missionVision": {
+      "heroTitleBefore": "Wir glauben, Compliance Intelligence sollte kontinuierlich sein.",
+      "heroTitleAccent": "Nicht periodisch.",
+      "heroSubtitle": "Die Mission definiert, was wir aufbauen. Die Vision definiert die Zukunft, von der wir glauben, dass sie existieren sollte. Gemeinsam prägen sie jede Entscheidung hinter Suricat.",
+      "missionLabel": "Mission",
+      "missionTitle": "Regulatorische Compliance durch kontinuierliche Intelligence transformieren.",
+      "missionP1": "Regulatorische Compliance hing lange von periodischen Reviews, manueller Abstimmung und der Erfahrung der Menschen ab, die sie aufrechterhalten.",
+      "missionP2Before": "Wenn Dokumentation wächst, Vorschriften sich weiterentwickeln und Organisationen komplexer werden, wird",
+      "missionP2Strong": "die Bewahrung von Ausrichtung",
+      "missionP2After": "zunehmend schwieriger.",
+      "missionP3Strong": "Unsere Mission ist es, das zu ändern.",
+      "missionP4Before": "Wir bauen die Compliance Intelligence Layer, die Organisationen ermöglicht, die Beziehungen über ihre",
+      "missionP4Strong": "compliance-kritische Dokumentation.",
+      "sources": {
+        "systems": "Systeme",
+        "documents": "Dokumente",
+        "people": "Menschen"
+      },
+      "missionCenterTitle": "Compliance Intelligence",
+      "missionCenterLine1": "Kontinuierliche Ausrichtung.",
+      "missionCenterLine2": "Inspektionssichere Entscheidungen.",
+      "visionLabel": "Vision",
+      "visionTitle": "Die Compliance Intelligence Platform als globalen Standard etablieren.",
+      "visionP1": "Jede große Unternehmen-Technologiekategorie hat sich über Systeme hinausentwickelt, die Informationen lediglich speichern.",
+      "visionP2": "Daten gewannen Intelligence. Cybersecurity gewann Intelligence. Operations gewannen Intelligence.",
+      "visionP3Strong": "Compliance ist als Nächstes an der Reihe.",
+      "visionP4": "Wir stellen uns eine Zukunft vor, in der Organisationen nicht mehr auf Audits, Inspektionen oder Untersuchungen warten, um den Zustand ihrer Dokumentation zu verstehen.",
+      "visionStmt1": "Dokumentationsausrichtung wird kontinuierlich sichtbar.",
+      "visionStmt2": "Evidenz wird kontinuierlich verbunden.",
+      "visionStmt3": "Compliance wird kontinuierlich verstanden.",
+      "flowStartTitle": "Medizinprodukte",
+      "flowStartSub": "Wo wir beginnen",
+      "flowCenterTitle": "Compliance Intelligence Platform",
+      "flowCenterBody": "Kontinuierliche Ausrichtung. Vereinheitlichte Intelligence. Vertrauenswürdige Entscheidungen.",
+      "flowEndTitle": "Jede regulierte Branche",
+      "flowEndSub": "Wohin wir gehen",
+      "exploreTitleLead": "Die Zukunft beginnt mit",
+      "exploreTitleAccent": "einer anderen Layer.",
+      "exploreDescription": "Entdecken Sie, wie die Compliance Intelligence Layer Dokumentationsausrichtung kontinuierlich aufrechterhält, ohne die Systeme zu ersetzen, denen Ihre Organisation bereits vertraut."
+    },
+    "leadership": {
+      "heroTitleBefore": "Gebaut von Menschen, die das Problem",
+      "heroTitleAccent": "aus jedem Blickwinkel erlebt haben.",
+      "heroSubtitle": "Suricat wurde nicht nur von Technologen gegründet. Es wurde von Führungspersönlichkeiten in Unternehmen-Software, künstlicher Intelligenz, Qualitätssystemen und FDA-Regulierungsangelegenheiten aufgebaut, die dieselbe strukturelle Lücke jeweils durch ihre eigene Disziplin erlebten.",
+      "readBio": "Bio lesen",
+      "closeModal": "Modal schließen",
+      "readFullProfile": "Vollständiges Profil lesen",
+      "leaders": {
+        "mj": {
+          "title": "Gründer & Chief Executive Officer",
+          "bio": [
+            "MJ Khan hat mehr als zwei Jahrzehnte damit verbracht, Unternehmen-Vertrieb und Go-to-Market-Strategien für einige der weltweit führenden Unternehmen-Technologieunternehmen aufzubauen, darunter Google Cloud und Splunk.",
+            "Durch jahrelange Arbeit mit Organisationen in stark regulierten Branchen beobachtete er wiederholt dieselbe strukturelle Einschränkung. Compliance-Systeme konnten Dokumentation speichern, Workflows steuern und Freigaben kontrollieren — aber nicht die Beziehungen dazwischen verstehen.",
+            "Diese Erkenntnis wurde die Grundlage von Suricat.",
+            "Er gründete das Unternehmen, um die Compliance Intelligence Layer als neue Kategorie zu etablieren, und stellte ein Gründungsteam zusammen, das Unternehmen-Technologie-Führung mit direkter FDA-Qualitäts- und Regulatorik-Expertise verbindet."
+          ]
+        },
+        "fahad": {
+          "title": "Mitgründer & Chief Technology Officer",
+          "bio": [
+            "Fahad Ehsan hat mehr als zwei Jahrzehnte Cloud-, KI- und Cybersecurity-Infrastruktur für Unternehmen unter anspruchsvollen Sicherheits- und Regulierungsanforderungen aufgebaut. Als Gründer des in Silicon Valley ansässigen Unternehmens eForte Inc. entwarf er Unternehmen-Systeme, in denen Vertrauen, Nachvollziehbarkeit und Datenintegrität für jede Entscheidung wesentlich waren.",
+            "Diese Erfahrung wurde die technische Grundlage von Suricat.",
+            "Als Mitgründer und Chief Technology Officer führt Fahad die Architektur der Compliance Intelligence Layer. Er entwarf die grundlegenden Technologien der Plattform, einschließlich des privaten Large Language Models für regulierte Compliance-Umgebungen, des Canonical Intelligence Schema, der Regulatory Ontology und des Quality Validation Rating Frameworks. Gemeinsam stellen diese Technologien sicher, dass jedes Compliance-Finding nachvollziehbar, erklärbar und inspektionssicher ist."
+          ]
+        },
+        "matthew": {
+          "title": "Mitgründer",
+          "bio": [
+            "Matthew Fortson hat mehr als zwei Jahrzehnte Quality Management Systems, Design-Control-Programme und regulatorische Dokumentation für Medizinprodukthersteller unter FDA-Anforderungen aufgebaut. Durch Jahre der Inspektionsvorbereitung, CAPA-Untersuchungen und Produktentwicklung erlebte er aus erster Hand, wie Dokumentationsausrichtung mit Systemen, Teams und Vorschriften degradiert.",
+            "Diese Erfahrung wurde die operative Grundlage von Suricat.",
+            "Als Mitgründer stellt Matthew sicher, dass die Compliance Intelligence Layer die Realitäten der Qualitätspraxis widerspiegelt. Seine Erfahrung prägt, wie die Plattform Dokumentationsfehlausrichtung erkennt, Evidenz bewertet und inspektionssichere Findings validiert."
+          ]
+        },
+        "kim": {
+          "title": "Senior Beraterin",
+          "bio": [
+            "Kim Tompkins hat mehr als drei Jahrzehnte regulatorische Strategie für Medizinprodukthersteller unter FDA-Anforderungen geleitet. Durch Jahre der Sicherstellung regulatorischer Clearances, der Leitung von FDA-Inspektionen und der Begleitung komplexer Einreichungen entwickelte sie ein tiefes Verständnis der Standards, die compliant Dokumentation von inspektionssicherer Evidenz unterscheiden.",
+            "Diese Erfahrung wurde die regulatorische Grundlage von Suricat.",
+            "Als Senior Advisor stellt Kim sicher, dass die Compliance Intelligence Layer sowohl Erwartungen von Regulierungsbehörden als auch Branchenrealitäten widerspiegelt. Ihre Erfahrung prägt, wie die Plattform Evidenz bewertet, Dokumentationsqualität misst und Findings an realen regulatorischen Standards validiert. Im Laufe ihrer Karriere hat sie mehr als fünfzehn FDA 510(k)-Clearances gesichert und FDA-Inspektionen mit null Form-483-Observations geleitet."
+          ]
+        }
+      }
+    }
+  },
+  "designPartners": {
+    "page": {
+      "heroTitleBefore": "Helfen Sie mit, die Zukunft der",
+      "heroTitleAccent": "Compliance Intelligence",
+      "heroSubtitle": "Schließen Sie sich einer ausgewählten Gruppe von Medizinproduktherstellern an, die direkt mit dem Suricat-Gründungsteam zusammenarbeiten, um die Zukunft der Compliance Intelligence zu gestalten.",
+      "heroCohortNote": "Begrenzt auf eine kleine Kohorte von Medizinproduktherstellern.",
+      "ctaApply": "Design-Partner werden",
+      "ctaDiscuss": "Gespräch vereinbaren",
+      "metaApp": "5-minütige Bewerbung",
+      "metaResponse": "Antwort innerhalb von 3 Werktagen",
+      "metaNoObligation": "Ohne Verpflichtung",
+      "heroImageAlt": "Design-Partner-Programm",
+      "programEyebrow": "Das Programm",
+      "programTitle": "Ein fokussiertes Engagement zur Validierung messbarer Ergebnisse.",
+      "programBody": "Arbeiten Sie direkt mit den Gründern von Suricat zusammen, um Findings zu validieren, Feedback zu sammeln und die gegenseitige Passung mit minimaler Störung Ihres Teams zu bestimmen.",
+      "cohortTitle": "Gründungskohorte",
+      "cohortP1": "Gehören Sie zu den ersten 5–10 Medizinproduktherstellern, die die Zukunft der Compliance Intelligence mitgestalten.",
+      "cohortP2": "Ihr Feedback wird die Suricat-Plattform vor der allgemeinen Verfügbarkeit direkt prägen.",
+      "cohortHighlight": "Nur 5–10 Organisationen in dieser inauguralen Kohorte.",
+      "receiveTitle": "Was Sie erhalten",
+      "receive": [
+        "Zusammenfassung der Executive Findings",
+        "Evidenz-Mapping-Bericht",
+        "Potenzielle Dokumentationsfehlausrichtungen",
+        "Beobachtungen zur Inspektionsbereitschaft",
+        "Empfehlungen für nächste Schritte",
+        "Direkter Einfluss auf die Produkt-Roadmap",
+        "Bevorzugte Berücksichtigung bei früher Adoption"
+      ],
+      "receiveNote": "Umsetzbare Ergebnisse, die Sie sofort nutzen können.",
+      "askTitle": "Was wir erbitten",
+      "requirements": {
+        "sponsor": {
+          "title": "Sponsor auf Führungsebene",
+          "body": "Sorgt für Ausrichtung und strategische Aufsicht"
+        },
+        "docs": {
+          "title": "Repräsentative Dokumentation",
+          "body": "Teilen Sie SchlüsselDokumente für eine aussagekräftige Analyse"
+        },
+        "sessions": {
+          "title": "Wöchentliche Kollaborationssitzungen",
+          "body": "Ca. 2–3 Stunden pro Woche mit unserem Gründungsteam"
+        },
+        "sme": {
+          "title": "Fachexpertise",
+          "body": "Input Ihres Teams nach Bedarf"
+        },
+        "founder": {
+          "title": "Gründer-Zusammenarbeit",
+          "body": "Arbeiten Sie während des gesamten Engagements direkt mit dem Suricat-Gründungsteam"
+        }
+      },
+      "askHours": "Etwa 2–3 Stunden pro Woche.",
+      "timeTitle": "Typischer Zeitaufwand",
+      "investment": {
+        "sponsor": {
+          "role": "Sponsor auf Führungsebene",
+          "time": "~1 Std. / Woche"
+        },
+        "qa": {
+          "role": "QA-/RA-Leitung",
+          "time": "~2–3 Std. / Woche"
+        },
+        "sme": {
+          "role": "Fachexperten",
+          "time": "Nach Bedarf"
+        }
+      },
+      "totalLabel": "Gesamtaufwand der Organisation",
+      "totalHours": "Stunden",
+      "totalAcross": "Über 30 Tage",
+      "idealEyebrow": "Ideale Partner",
+      "idealTitle": "Wer sollte sich bewerben?",
+      "idealBody": "Wir suchen zukunftsorientierte Medizinprodukthersteller, die sich dem Anheben der Messlatte für Qualität und Compliance verpflichtet fühlen.",
+      "idealCards": {
+        "md": {
+          "title": "Medizinprodukthersteller",
+          "body": "Sichere, wirksame Produkte für Patienten weltweit entwickeln."
+        },
+        "iso": {
+          "title": "ISO 13485 zertifiziert",
+          "body": "Unter ISO 13485 arbeiten oder sich auf die Zertifizierung vorbereiten."
+        },
+        "fda": {
+          "title": "Vorbereitung auf FDA-Inspektion",
+          "body": "Mehr Vertrauen und Bereitschaft für regulatorische Inspektionen anstreben."
+        },
+        "complex": {
+          "title": "Komplexe Qualitätsumgebung",
+          "body": "Mehrere Systeme, vernetzte Prozesse und Dokumentation steuern."
+        }
+      },
+      "idealFooter": "Auch ideal für Organisationen mit mehreren Dokumentationssystemen und steigender regulatorischer Komplexität.",
+      "faqEyebrow": "Häufig gestellte Fragen",
+      "ctaTitleBefore": "Werden Sie einer der",
+      "ctaTitleAccent": "Gründungs-Design-Partner von Suricat.",
+      "ctaBody": "Schließen Sie sich einer kleinen Gruppe von Branchenführern an, die gemeinsam mit Suricat die nächste Generation der Compliance Intelligence vorantreiben.",
+      "ctaApplyLong": "Als Design-Partner bewerben",
+      "trust": {
+        "securityTitle": "Enterprise-Sicherheit",
+        "securityBody": "Ihre Daten bleiben in Ihrer Umgebung.",
+        "confidentialTitle": "Vertrauliches Engagement",
+        "confidentialBody": "Ihre Informationen sind stets geschützt.",
+        "founderTitle": "Gründergeführte Erfahrung",
+        "founderBody": "Arbeiten Sie direkt mit unserer Führung."
+      }
+    },
+    "faq": {
+      "items": [
+        {
+          "question": "Müssen wir unsere bestehenden Systeme ändern?",
+          "answer": "Nein. Suricat arbeitet als schreibgeschützte Compliance Intelligence Layer oberhalb Ihrer bestehenden Qualitäts- und Dokumentationssysteme. Es gibt kein Rip-and-Replace, keine Datenmigration und keine Störung Ihrer validierten Umgebung."
+        },
+        {
+          "question": "Müssen wir eine NDA unterzeichnen?",
+          "answer": "Ja. Eine gegenseitige NDA wird ausgeführt, bevor Dokumentation geprüft wird. Der Schutz Ihrer vertraulichen Informationen ist ein grundlegender Bestandteil des Design-Partner-Programms."
+        },
+        {
+          "question": "Welche Dokumente müssen Sie prüfen?",
+          "answer": "Typischerweise prüfen wir einen repräsentativen Satz an Qualitäts- und Regulierungsdokumentation, der SOPs, Arbeitsanweisungen, Risikomanagement-Dateien, CAPAs, Designdokumentation und unterstützende Aufzeichnungen umfassen kann. Der genaue Umfang wird gemeinsam anhand Ihrer Umgebung und Ziele festgelegt."
+        },
+        {
+          "question": "Wer aus unserem Team sollte teilnehmen?",
+          "answer": "Das Programm ist am wirksamsten mit einem kleinen funktionsübergreifenden Team — typischerweise einer Qualitäts- oder Regulatory-Führungskraft, einem Executive Sponsor und Fachexperten nach Bedarf während des Engagements."
+        },
+        {
+          "question": "Wie viel Zeit wird das in Anspruch nehmen?",
+          "answer": "Die meisten Design-Partner investieren etwa 20–30 Stunden über ein 30-tägiges Engagement, mit durchschnittlich 2–3 Stunden pro Woche für Kollaborationssitzungen, Dokumentenreviews und Feedback."
+        },
+        {
+          "question": "Was passiert nach dem Engagement?",
+          "answer": "Am Ende des Engagements erhalten Sie eine Executive Findings Summary, Einblicke zur Dokumentationsausrichtung und Empfehlungen. Gemeinsam prüfen wir die Ergebnisse, sammeln Ihr Feedback und besprechen nächste Schritte — einschließlich möglicher weiterer Zusammenarbeit."
+        },
+        {
+          "question": "Fallen Kosten für die Teilnahme an?",
+          "answer": "Nein. Die Teilnahme am Design-Partner-Programm ist kostenfrei. Sie basiert auf gegenseitiger Passung, Zusammenarbeit und der Bereitschaft, Feedback zu geben, das die Plattform mitgestaltet."
+        },
+        {
+          "question": "Wie sind unsere Daten und Informationen geschützt?",
+          "answer": "Ihre Dokumentation bleibt Ihr Eigentum. Suricat prüft freigegebene Materialien unter einer gegenseitigen NDA, arbeitet schreibgeschützt und verändert niemals Ihre validierten Systeme. Jedes Finding wird durch nachvollziehbare Evidenz gestützt und bleibt der menschlichen Prüfung unterworfen."
+        },
+        {
+          "question": "Wird Suricat unsere Daten zum Trainieren von KI-Modellen verwenden?",
+          "answer": "Nein. Ihre Dokumentation wird niemals zum Trainieren von Grundlage Models verwendet oder mit anderen Kunden geteilt. Ihre Informationen bleiben vertraulich und werden nur zur Unterstützung Ihres Design-Partner-Engagements verwendet, sofern Sie nicht ausdrücklich etwas anderes autorisieren."
+        }
+      ]
+    },
+    "apply": {
+      "successTitle": "Bewerbung eingereicht",
+      "successBody": "Vielen Dank für Ihr Interesse. Unser Team prüft Ihre Bewerbung und meldet sich innerhalb eines Werktags zu den nächsten Schritten.",
+      "returnHome": "Zur Startseite",
+      "eyebrow": "Design-Partner-Bewerbung",
+      "titleBefore": "Werden Sie",
+      "titleAccent": "Design-Partner",
+      "subtitle": "Für Medizinprodukthersteller, die Dokumentationsausrichtung, Inspektionsbereitschaft und Compliance-Betrieb bewerten.",
+      "chipTimeLabel": "Geschätzte Dauer:",
+      "chipTimeValue": "5 Minuten",
+      "chipReviewLabel": "Prüfung innerhalb von:",
+      "chipReviewValue": "1 Werktag",
+      "chipNda": "Gegenseitige NDA vor Dokumentationsprüfung",
+      "chipNoObligation": "Ohne Verpflichtung",
+      "trustReadOnlyTitle": "Schreibgeschütztes Deployment",
+      "trustReadOnlyBody": "Kein Systemzugriff\noder Datenmigration",
+      "trustNdaTitle": "Gegenseitige NDA",
+      "trustNdaBody": "Bevor die Dokumentations-\nprüfung beginnt",
+      "trustNoChangesTitle": "Keine Systemänderungen",
+      "trustNoChangesBody": "Funktioniert in Ihrer\nbestehenden Umgebung",
+      "trustHumanTitle": "Menschliche Verantwortung",
+      "trustHumanBody": "Jedes Finding bleibt\nder menschlichen Prüfung unterworfen",
+      "footerLine1": "Suricat baut die führende Compliance-Intelligence-Plattform für Medizinprodukthersteller.",
+      "footerLine2": "Ihre Partnerschaft hilft, sie richtig zu bauen."
+    }
+  },
+  "industries": {
+    "medicalDevices": {
+      "pills": {
+        "lifecycle": "Der Dokumentationslebenszyklus",
+        "industries": "Branchen",
+        "enables": "Was Suricat ermöglicht",
+        "expansion": "Branchenexpansion erkunden"
+      },
+      "heroTitleBefore": "Wo Compliance",
+      "heroTitleAccent": "Intelligence beginnt.",
+      "heroSubtitle": "Medizinprodukthersteller arbeiten in einer der anspruchsvollsten regulatorischen Umgebungen der Welt, in der Dokumentationsqualität direkt Produktqualität, Inspektionsbereitschaft und Patientensicherheit beeinflusst. Suricat wurde zuerst für diese Umgebung entwickelt, weil die Ausrichtung über compliance-kritische Dokumentation hinweg mit Produkten, Vorschriften und Organisationen zunehmend schwieriger wird.",
+      "checkReadiness": "Prüfen Sie Ihre Bereitschaft",
+      "lifecycleEyebrow": "Der Dokumentationslebenszyklus",
+      "lifecycleTitle": "Ausrichtung in jeder Phase des Produktlebenszyklus",
+      "lifecycleStagesLabel": "Lebenszyklusphasen",
+      "stages": {
+        "design": "Designkontrollen",
+        "risk": "Risikomanagement",
+        "vv": "Verifizierung & Validierung",
+        "mfg": "Fertigung",
+        "complaint": "Beschwerdemanagement",
+        "pms": "Überwachung nach dem Inverkehrbringen",
+        "capa": "CAPA",
+        "inspection": "Inspektionsbereitschaft"
+      },
+      "layerTitle": "Compliance Intelligence Layer",
+      "layerBody": "Bewertet kontinuierlich die Dokumentationsausrichtung über jede Phase des Produktlebenszyklus hinweg.",
+      "whyMdEyebrow": "Warum Medizinprodukte",
+      "whyMdTitle": "Gebaut für eine der anspruchsvollsten regulatorischen Umgebungen der Welt",
+      "whyMdP1": "Medizinprodukthersteller verwalten kontinuierlich Design History Files, Risikomanagement-Dokumentation, Verifizierungs- und Validierungsaufzeichnungen, Fertigungsnachweise, Qualitätsaufzeichnungen, CAPA, Beschwerdemanagement, Kennzeichnung, Schulung und Post-Market Surveillance.",
+      "whyMdP2": "Wenn Dokumentation über mehrere Systeme und Teams hinweg evolviert, wird die Bewahrung von Ausrichtung zunehmend schwieriger.",
+      "whyMdCallout1": "Die Herausforderung ist selten fehlende Dokumentation.",
+      "whyMdCallout2": "Die Herausforderung ist, Beziehungen zwischen Dokumentation über die Zeit zu bewahren.",
+      "whyMdClose": "Genau dort beginnt die Compliance Intelligence Layer.",
+      "whyFirstEyebrow": "Warum diese Branche zuerst",
+      "whyFirstTitle": "Ein Fundament für regulierte Branchen",
+      "whyFirstP1": "Medizinprodukte verbinden komplexe Technik, rigorose Qualitätssysteme und kontinuierliche regulatorische Aufsicht in einer einzigen Betriebsumgebung.",
+      "whyFirstP2": "Organisationen müssen nachvollziehbare Evidenz über den gesamten Produktlebenszyklus nachweisen und sich zugleich auf Inspektionen unter FDA QMSR und ISO 13485 vorbereiten.",
+      "whyFirstCallout": "Wenn die Compliance Intelligence Layer hier Vertrauen verdient, schafft sie ein starkes Fundament für die Expansion in andere regulierte Branchen.",
+      "capabilitiesEyebrow": "Fähigkeiten",
+      "capabilitiesTitle": "Was Suricat ermöglicht",
+      "enables": {
+        "alignment": {
+          "title": "Dokumentationsausrichtung",
+          "body": "Beziehungen über compliance-kritische Dokumentation hinweg kontinuierlich bewerten."
+        },
+        "traceability": {
+          "title": "Evidenz-Nachvollziehbarkeit",
+          "body": "Unterstützende Evidenz über verbundene Dokumentation hinweg sichtbar machen."
+        },
+        "change": {
+          "title": "Änderungsauswirkungsanalyse",
+          "body": "Verstehen, wie Dokumentationsänderungen die nachgelagerte Compliance beeinflussen."
+        },
+        "confidence": {
+          "title": "Dokumentationsvertrauen",
+          "body": "Mehr Sichtbarkeit in die Dokumentationsqualität vor Inspektionen schaffen."
+        },
+        "readiness": {
+          "title": "Inspektionsbereitschaft",
+          "body": "Kontinuierliche Bereitschaft aufrechterhalten statt erst unmittelbar vor Inspektionen vorzubereiten."
+        },
+        "findings": {
+          "title": "Inspektionssichere Findings",
+          "body": "Erklärbare Findings erzeugen, die durch nachvollziehbare Evidenz gestützt sind."
+        }
+      },
+      "bannerTitleBefore": "Medizinprodukte sind",
+      "bannerTitleAccent": "wo wir beginnen.",
+      "bannerBody": "Die Compliance Intelligence Layer wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt. Entdecken Sie als Nächstes, wie derselbe Ansatz auf weitere regulierte Branchen ausgeweitet wird.",
+      "bannerCta": "Branchenexpansion erkunden"
+    },
+    "expansion": {
+      "pills": {
+        "available": "Heute verfügbar",
+        "extends": "Wohin sie sich erweitern kann",
+        "future": "Zukünftige Erweiterung",
+        "structural": "Eine strukturelle Herausforderung"
+      },
+      "heroTitle1": "Die Branche ändert sich.",
+      "heroTitleAccent": "Die Dokumentationsherausforderung nicht.",
+      "heroSubtitle": "Jede regulierte Branche arbeitet in ihrem eigenen regulatorischen Rahmen, mit eigener Terminologie, Dokumentation und Prozessen. Die strukturelle Herausforderung bleibt jedoch dieselbe. Dokumentation evolviert. Beziehungen schwächen sich. Evidenz wird getrennt. Die Compliance Intelligence Layer wurde entworfen, um diese Beziehungen branchenunabhängig kontinuierlich zu bewerten.",
+      "availableEyebrow": "Heute verfügbar",
+      "availableTitle": "Medizinprodukte sind, wo wir beginnen",
+      "badges": {
+        "planned": "Geplant",
+        "future": "Zukunft",
+        "available": "Verfügbar"
+      },
+      "mdCard": {
+        "title": "Medizinprodukte",
+        "body": "Die Compliance Intelligence Layer wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt — Medizinprodukte. Gebaut, um komplexe regulatorische Dokumentation zu vereinfachen, bietet sie das Fundament für konforme, nachvollziehbare und skalierbare Prozesse. Erkunden Sie, wie dieser bewährte Ansatz auf weitere regulierte Branchen ausgeweitet werden kann."
+      },
+      "extendsEyebrow": "Wohin sie sich erweitern kann",
+      "extendsTitle": "Wohin sich die Compliance Intelligence Layer erweitern kann",
+      "current": {
+        "biotech": {
+          "title": "Biotechnologie",
+          "body": "Wissenschaftliche Forschung evolviert kontinuierlich. Experimentelle Protokolle, Labordokumentation und unterstützende Evidenz erfordern kontinuierliche Ausrichtung während der regulierten Entwicklung."
+        },
+        "biopharma": {
+          "title": "Biopharma",
+          "body": "Fertigungsvalidierung, Batch Records, Prozessabweichungen und Qualitätsdokumentation erfordern kontinuierliche Nachvollziehbarkeit in der regulierten Produktion."
+        },
+        "diagnostics": {
+          "title": "Diagnostik & IVD",
+          "body": "Analytische Validierung, klinische Leistungsstudien, Kennzeichnung und regulatorische Dokumentation müssen über den Produktlebenszyklus hinweg ausgerichtet bleiben."
+        },
+        "clinical": {
+          "title": "Klinische Forschung",
+          "body": "Studienprotokolle, Prüfarztdokumentation, Patientenakten und regulatorische Evidenz erfordern kontinuierliche Ausrichtung über den klinischen Studienlebenszyklus hinweg."
+        }
+      },
+      "futureEyebrow": "Zukünftige Roadmap",
+      "futureTitle": "Zukünftige Erweiterungen",
+      "futureCards": {
+        "aerospace": {
+          "title": "Luft- und Raumfahrt & Verteidigung",
+          "body": "Engineering-Änderungen, Zertifizierungsaufzeichnungen, Konfigurationsmanagement und Sicherheitsdokumentation müssen über komplexe Entwicklungsprogramme hinweg ausgerichtet bleiben."
+        },
+        "energy": {
+          "title": "Energie & Versorgung",
+          "body": "Betriebsverfahren, Anlagendokumentation, regulatorische Inspektionen und Sicherheitsaufzeichnungen müssen über kritische Infrastruktur hinweg ausgerichtet bleiben."
+        },
+        "finance": {
+          "title": "Finanzdienstleistungen",
+          "body": "Richtlinien, interne Kontrollen, Audit-Evidenz, Risikodokumentation und regulatorische Verpflichtungen müssen über Governance-Programme hinweg ausgerichtet bleiben."
+        }
+      },
+      "structuralTitleBefore": "Eine strukturelle Herausforderung.",
+      "structuralTitleAccent": "Eine Compliance Intelligence Layer.",
+      "structuralBody": "Obwohl jede regulierte Branche anders arbeitet, bleibt der Bedarf, Dokumentationsausrichtung, Evidenz-Nachvollziehbarkeit und regulatorisches Vertrauen zu bewahren, konsistent.",
+      "structuralCta": "Die Plattform erkunden"
+    }
+  },
+  "solutions": {
+    "shared": {
+      "challenge": "Die Herausforderung",
+      "howSuricatHelps": "Wie Suricat hilft",
+      "outcomes": "Ergebnisse",
+      "checkYourReadiness": "Prüfen Sie Ihre Bereitschaft"
+    },
+    "continuous-compliance": {
+      "heroTitle": "Die Compliance-Situation verändert sich zwischen Überprüfungen.",
+      "heroTitleAccent": "Die Transparenz sollte nicht zurückbleiben.",
+      "heroSubtitle": "Audits, Inspektionen und Management-Reviews liefern regelmäßige Bewertungen der Compliance. Dokumentation, Aufzeichnungen, Untersuchungen, Schulungsaktivitäten und operative Prozesse entwickeln sich jedoch täglich weiter – auch zwischen diesen Meilensteinen.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Transparenz über compliance-kritische Dokumentation zwischen Audits, Inspektionen und Überprüfungen aufrechtzuerhalten.",
+      "problem": {
+        "title": "Stichtagsbewertungen hinterlassen Lücken zwischen Überprüfungen.",
+        "paragraphs": [
+          "Viele Organisationen bewerten Compliance zu bestimmten Zeitpunkten und gehen davon aus, dass ihre Compliance-Situation bis zur nächsten Überprüfung stabil bleibt.",
+          "Tatsächlich summieren sich Änderungen fortlaufend. Neue Aufzeichnungen entstehen, Verfahren werden aktualisiert, CAPAs schreiten voran, Schulungen werden abgeschlossen und Untersuchungen entwickeln sich weiter. Im Laufe der Zeit können potenzielle Bedenken lange vor dem nächsten Audit oder der nächsten Inspektion entstehen.",
+          "Dadurch entdecken Organisationen Probleme möglicherweise erst während der Vorbereitung statt bei ihrem ersten Auftreten. Dann bleibt weniger Zeit, potenzielle Bedenken zu untersuchen, zu verstehen und auszuräumen."
+        ],
+        "cards": [
+          {
+            "title": "Nur regelmäßige Überprüfungen",
+            "body": "Die Compliance-Situation wird nur an formalen Meilensteinen bewertet, wodurch zwischen Audits und Inspektionen lange blinde Flecken entstehen."
+          },
+          {
+            "title": "Kontinuierliche Veränderungen",
+            "body": "Aufzeichnungen, Verfahren, CAPAs und Schulungen entwickeln sich täglich weiter, während die Compliance-Transparenz zwischen Überprüfungen unverändert bleibt."
+          },
+          {
+            "title": "Späte Erkennung",
+            "body": "Potenzielle Bedenken bleiben unerkannt, bis die Vorbereitung beginnt – wenn die Zeit für Untersuchung und Abhilfe bereits begrenzt ist."
+          },
+          {
+            "title": "Zunehmende Abweichungen",
+            "body": "Kleine Änderungen summieren sich im Laufe der Zeit und verschlechtern die Compliance-Situation schrittweise, ohne dass ein Signal erfolgt, bis eine formale Überprüfung die Lücke aufdeckt."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Kontinuierliche Transparenz über compliance-kritische Dokumentation erhalten",
+        "paragraphs": [
+          "Suricat unterstützt Quality- und Regulatory-Teams dabei, kontinuierliche Transparenz über compliance-kritische Dokumentation zu erhalten, damit potenzielle Bedenken früher erkannt werden können, statt erst bei Audits, Inspektionen oder regelmäßigen Überprüfungen.",
+          "Durch die kontinuierliche Bewertung von Beziehungen zwischen Dokumentation, Aufzeichnungen und unterstützenden Nachweisen hilft Suricat Organisationen zu verstehen, wie sich ihre Compliance-Situation im Laufe der Zeit entwickelt.",
+          "Das Ergebnis ist ein besseres Bewusstsein für aufkommende Bedenken und mehr Vertrauen in die Compliance-Situation zwischen Überprüfungen."
+        ],
+        "cards": [
+          {
+            "title": "Kontinuierliches Dokumentationsmonitoring",
+            "body": "Bewertet compliance-kritische Dokumentation fortlaufend – nicht erst, wenn eine formale Überprüfung angekündigt wird."
+          },
+          {
+            "title": "Beziehungsbewusste Analyse",
+            "body": "Bewertet Verbindungen zwischen Aufzeichnungen, Verfahren und Nachweisen so, wie ein Auditor oder Inspektor sie prüfen würde."
+          },
+          {
+            "title": "Frühe Erkennung von Bedenken",
+            "body": "Macht potenzielle Compliance-Bedenken sichtbar, sobald sie entstehen, statt erst zu Beginn der Vorbereitung auf ein Audit."
+          },
+          {
+            "title": "Entwicklung der Compliance-Situation im Zeitverlauf",
+            "body": "Hilft Teams zu verstehen, wie sich die Compliance-Situation im Qualitätssystem zwischen formalen Überprüfungszyklen entwickelt."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Kontinuierliche Compliance ermöglicht",
+        "intro": "Fünf Ergebnisse, die Quality- und Regulatory-Teams dabei stärken, Transparenz zu erhalten, Bedenken früh zu erkennen und Vertrauen in die Compliance-Situation zwischen formalen Überprüfungen aufzubauen.",
+        "outcomes": [
+          {
+            "label": "Verbesserte Transparenz",
+            "title": "Verbesserte Transparenz zwischen Audits und Inspektionen",
+            "body": "Behalten Sie compliance-kritische Aktivitäten und Dokumentation zwischen formalen Überprüfungszyklen im Blick."
+          },
+          {
+            "label": "Frühere Identifikation",
+            "title": "Frühere Identifikation aufkommender Compliance-Bedenken",
+            "body": "Erkennen Sie potenzielle Bedenken, bevor sie eskalieren oder Audit- und Inspektionsergebnisse beeinflussen."
+          },
+          {
+            "label": "Reduzierte Vorbereitung",
+            "title": "Weniger Aufwand für die Auditvorbereitung",
+            "body": "Wenden Sie vor Audits und Inspektionen weniger Zeit für das Zusammenstellen, Validieren und Prüfen von Dokumentation auf."
+          },
+          {
+            "label": "Mehr Vertrauen",
+            "title": "Transparenz über die Compliance-Situation im Zeitverlauf",
+            "body": "Verstehen Sie, wie sich die Compliance-Situation entwickelt, damit Teams früher handeln können."
+          },
+          {
+            "label": "Proaktives Management",
+            "title": "Mehr Vertrauen zwischen formalen Überprüfungen",
+            "body": "Schaffen Sie Vertrauen, dass die Compliance-Situation in den Zeiträumen zwischen Audits, Inspektionen und Management-Reviews solide bleibt."
+          }
+        ]
+      }
+    },
+    "documentation-confidence": {
+      "heroTitle": "Vertrauen in eine Entscheidung hängt ab von",
+      "heroTitleAccent": "Vertrauen in die Nachweise.",
+      "heroSubtitle": "Qualitäts- und regulatorische Entscheidungen sind nur so belastbar wie die sie stützenden Nachweise. Ob bei der Reaktion auf ein Audit, der Bewertung eines CAPA, der Risikobeurteilung, der Genehmigung einer Änderung oder der Vorbereitung auf eine Inspektion: Teams müssen sicher sein, dass die unterstützenden Nachweise vollständig, rückverfolgbar und unmittelbar verfügbar sind.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, das Vertrauen in die Nachweise hinter Qualitäts- und regulatorischen Entscheidungen zu stärken.",
+      "problem": {
+        "title": "Nicht alle Nachweise bieten das gleiche Maß an Unterstützung",
+        "paragraphs": [
+          "Aufzeichnungen können unvollständig sein, unterstützende Dokumentation kann schwer nachzuverfolgen sein und kritische Informationen können über mehrere Systeme, Dokumente und Repositorien verteilt sein.",
+          "Mit dem Wachstum von Organisationen und zunehmenden Dokumentationsmengen erfordert die Beurteilung, ob verfügbare Nachweise ausreichen, häufig umfangreiche manuelle Prüfungen und Interpretationen. Teams investieren möglicherweise viel Zeit in die Validierung von Aufzeichnungen, die Bestätigung der Rückverfolgbarkeit und die Bewertung, ob die Nachweise die jeweilige Entscheidung tatsächlich stützen.",
+          "Dadurch kann Unsicherheit auch lange nach dem Zusammentragen der Dokumentation bestehen bleiben, was es erschwert, Entscheidungen, Untersuchungen, Einreichungen, Audits und Inspektionen sicher zu untermauern."
+        ],
+        "cards": [
+          {
+            "title": "Unvollständige Aufzeichnungen",
+            "body": "Unterstützende Dokumentation kann fehlen oder nicht vollständig mit der Entscheidung verknüpft sein, die sie stützt."
+          },
+          {
+            "title": "Verteilte Nachweise",
+            "body": "Kritische Informationen sind über mehrere Systeme, Dokumente und Repositorien verteilt."
+          },
+          {
+            "title": "Aufwand für manuelle Prüfungen",
+            "body": "Teams verbringen vor jeder Entscheidung viel Zeit mit der Validierung von Aufzeichnungen und der Bestätigung der Rückverfolgbarkeit."
+          },
+          {
+            "title": "Anhaltende Unsicherheit",
+            "body": "Unsicherheit bleibt auch nach dem Zusammentragen der Dokumentation bestehen und erhöht das Inspektionsrisiko."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Nachweise im Kontext bewerten, bevor Entscheidungen getroffen werden",
+        "paragraphs": [
+          "Suricat unterstützt Quality- und Regulatory-Teams dabei, compliance-kritische Dokumentation im Kontext der sie stützenden Nachweise zu bewerten.",
+          "Durch die Verknüpfung zugehöriger Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Untersuchungen und unterstützender Dokumentation hilft Suricat Organisationen, Vollständigkeit, Rückverfolgbarkeit und Aussagekraft verfügbarer Nachweise zu verstehen, bevor kritische Entscheidungen getroffen werden.",
+          "Das Ergebnis ist mehr Vertrauen, dass Qualitäts- und regulatorische Entscheidungen durch Nachweise gestützt werden, die bei Bedarf verstanden, erläutert und verteidigt werden können."
+        ],
+        "cards": [
+          {
+            "title": "Vernetzte Nachweise",
+            "body": "Verknüpft Verfahren, Aufzeichnungen, Risikodateien, CAPAs und Untersuchungen zu einer einheitlichen Nachweisansicht."
+          },
+          {
+            "title": "Vollständigkeitsbewertung",
+            "body": "Bewertet, ob unterstützende Dokumentation und Nachweise vollständig sind, bevor Entscheidungen getroffen werden."
+          },
+          {
+            "title": "Rückverfolgbarkeitsintelligenz",
+            "body": "Macht mit vollständiger Rückverfolgbarkeit sichtbar, wie unterstützende Nachweise mit Qualitäts- und regulatorischen Entscheidungen zusammenhängen."
+          },
+          {
+            "title": "Inspektionssichere Ergebnisse",
+            "body": "Erzeugt Findings, die bei Audits und Inspektionen erläutert, verstanden und verteidigt werden können."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Dokumentationssicherheit ermöglicht",
+        "intro": "Fünf messbare Ergebnisse, die Quality- und Regulatory-Teams bei der Bewertung und Verteidigung compliance-kritischer Entscheidungen stärken.",
+        "outcomes": [
+          {
+            "label": "Vertrauen in Nachweise",
+            "title": "Mehr Vertrauen in unterstützende Nachweise",
+            "body": "Verstehen Sie, ob die verfügbaren Nachweise Qualitäts- und regulatorische Aktivitäten ausreichend stützen."
+          },
+          {
+            "label": "Vollständigkeit",
+            "title": "Mehr Vertrauen in die Vollständigkeit von Nachweisen",
+            "body": "Verstehen Sie, ob unterstützende Dokumentation, Aufzeichnungen und Nachweise vollständig und verknüpft sind."
+          },
+          {
+            "label": "Rückverfolgbarkeit",
+            "title": "Mehr Vertrauen in die Rückverfolgbarkeit von Nachweisen",
+            "body": "Verstehen Sie, wie unterstützende Nachweise mit Qualitäts- und regulatorischen Entscheidungen zusammenhängen."
+          },
+          {
+            "label": "Effizienz",
+            "title": "Weniger Unsicherheit bei der Nachweisprüfung",
+            "body": "Wenden Sie weniger Zeit darauf auf zu bestimmen, ob verfügbare Nachweise eine Entscheidung angemessen stützen."
+          },
+          {
+            "label": "Verteidigungsfähigkeit",
+            "title": "Besser fundierte Qualitäts- und regulatorische Entscheidungen",
+            "body": "Treffen Sie Entscheidungen mit größerem Vertrauen in die verfügbaren Nachweise."
+          }
+        ]
+      }
+    },
+    "inspection-findings": {
+      "heroTitle": "Nachweise stützen ein Finding.",
+      "heroTitleAccent": "Eine Erklärung verteidigt es.",
+      "heroSubtitle": "Quality- und Regulatory-Teams schließen routinemäßig CAPAs ab, beenden Untersuchungen, dokumentieren Risikobeurteilungen und reagieren auf Auditbeobachtungen. Jede dieser Aktivitäten führt zu einem Finding, hinter dem die Organisation stehen können muss. Wird dieses Finding geprüft, geht es selten darum, ob die Nachweise existieren. Entscheidend ist, ob die Argumentation, die diese Nachweise mit der Schlussfolgerung verbindet, klar dargestellt werden kann.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Erklärungen hinter Findings und Schlussfolgerungen zu stärken.",
+      "problem": {
+        "title": "Die Argumentation hinter einem Finding wird selten als eigenständiges Artefakt dokumentiert",
+        "paragraphs": [
+          "Eine durch ein CAPA identifizierte Grundursache, eine im Rahmen einer Risikobewertung getroffene Feststellung, eine aus einer Untersuchung gezogene Schlussfolgerung – all dies sind Ergebnisse eines Denkprozesses, der auf mehrere Nachweisquellen zurückgreift. Die Dokumentation, die das Finding festhält, erfasst nicht immer die Argumentation, die dazu geführt hat.",
+          "Im Laufe der Zeit können die Nachweise, die ein Finding stützten, in den Ursprungssystemen verbleiben, während das Finding selbst separat als abgeschlossenes CAPA, abgeschlossene Untersuchung oder akzeptierte Risikofeststellung dokumentiert wird. Die Verbindung zwischen beiden wird selten als eigenständiges Artefakt dokumentiert.",
+          "Wird ein Finding bei einer Folgeuntersuchung, einem Management-Review oder einer regulatorischen Inspektion erneut betrachtet, kann die Rekonstruktion der zugrunde liegenden Argumentation erfordern, Schritte über mehrere Aufzeichnungen und Systeme hinweg nachzuverfolgen. Ein ursprünglich gut gestütztes Finding kann unzureichend erläutert erscheinen."
+        ],
+        "cards": [
+          {
+            "title": "Getrennte Argumentation",
+            "body": "Die Argumentation, die zu einem Finding geführt hat, wird selten zusammen mit dem Finding selbst als dokumentiertes Artefakt erfasst."
+          },
+          {
+            "title": "Verteilte Nachweise",
+            "body": "Unterstützende Nachweise verbleiben in ihren Ursprungssystemen, getrennt von den Findings, die sie hervorgebracht haben."
+          },
+          {
+            "title": "Aufwendige Rekonstruktion",
+            "body": "Die erneute Betrachtung eines Findings erfordert die Nachverfolgung von Schritten über mehrere Aufzeichnungen und Systeme hinweg und kostet viel Zeit."
+          },
+          {
+            "title": "Offensichtliche Schwäche",
+            "body": "Ein gut gestütztes Finding kann unzureichend erläutert erscheinen, wenn die Argumentation nicht schnell rekonstruiert werden kann."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Die Argumentation hinter einem Finding rekonstruieren, wann immer es erneut betrachtet wird",
+        "paragraphs": [
+          "Suricat unterstützt Quality- und Regulatory-Teams dabei, die Argumentation hinter einem Finding zu rekonstruieren, indem es dieses mit den Aufzeichnungen, Nachweisen und Aktivitäten verknüpft, die dazu geführt haben.",
+          "Indem Suricat abbildet, wie ein Finding mit den zugrunde liegenden Untersuchungen, Risikobewertungen, Verfahren und Aufzeichnungen zusammenhängt, hilft es Organisationen nicht nur zu zeigen, was festgestellt wurde, sondern auch, wie die Schlussfolgerung aus den damals verfügbaren Nachweisen folgt.",
+          "Das Ergebnis ist ein Finding, das jederzeit auf dieselbe Weise erläutert werden kann, wie es zustande kam – ob bei einer Folgeüberprüfung oder während einer regulatorischen Inspektion."
+        ],
+        "cards": [
+          {
+            "title": "Zuordnung von Finding und Nachweisen",
+            "body": "Verknüpft jedes Finding mit den Untersuchungen, Risikobewertungen, Verfahren und Aufzeichnungen, die dazu geführt haben."
+          },
+          {
+            "title": "Rekonstruktion der Argumentation",
+            "body": "Zeigt, wie Schlussfolgerungen aus verfügbaren Nachweisen folgen, und macht den Argumentationsweg transparent und auditierbar."
+          },
+          {
+            "title": "Rückverfolgbarkeitsintelligenz",
+            "body": "Macht mit vollständiger systemübergreifender Rückverfolgbarkeit sichtbar, wie unterstützende Nachweise mit Findings zusammenhängen."
+          },
+          {
+            "title": "Inspektionsbereite Erklärungen",
+            "body": "Erzeugt konsistente, klare Erklärungen, die Audits, Inspektionen und Management-Reviews standhalten."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Inspektionssichere Findings ermöglichen",
+        "intro": "Fünf messbare Ergebnisse, die Quality- und Regulatory-Teams dabei stärken, Findings und Schlussfolgerungen zu erläutern und zu verteidigen.",
+        "outcomes": [
+          {
+            "label": "Klarheit der Erklärung",
+            "title": "Klarere Erklärungen hinter Findings",
+            "body": "Verstehen Sie, wie ein Finding mit den Nachweisen, Aufzeichnungen und Aktivitäten zusammenhängt, die dazu geführt haben."
+          },
+          {
+            "label": "Effizienz",
+            "title": "Schnellere Vorbereitung von Finding-Erklärungen",
+            "body": "Wenden Sie weniger Zeit darauf auf, die Schritte zu einem bestimmten Finding nachzuverfolgen, wenn es erläutert werden muss."
+          },
+          {
+            "label": "Risikoreduzierung",
+            "title": "Geringeres Risiko unerklärter Schlussfolgerungen",
+            "body": "Verringern Sie die Wahrscheinlichkeit, dass ein gut gestütztes Finding bei der Prüfung als nicht gestützt erscheint."
+          },
+          {
+            "label": "Transparenz",
+            "title": "Bessere Transparenz über die Grundlage von Findings",
+            "body": "Sehen Sie, wie einzelne Findings mit der umfassenderen Gesamtheit an Nachweisen und Aufzeichnungen zusammenhängen, die sie stützen."
+          },
+          {
+            "label": "Vertrauen",
+            "title": "Mehr Vertrauen, wenn Findings hinterfragt werden",
+            "body": "Beantworten Sie Fragen zu einem Finding mit einer klaren, konsistenten und gut gestützten Erklärung."
+          }
+        ]
+      }
+    },
+    "change-impact-assessment": {
+      "heroTitle": "Änderungen bleiben selten begrenzt.",
+      "heroTitleAccent": "Ihre Auswirkungen reichen oft über das Geänderte hinaus.",
+      "heroSubtitle": "Eine Änderung an einem Verfahren, einer Anforderung, Aufzeichnung, Risikodatei, einem CAPA oder Designdokument kann mehrere Bereiche des Qualitätssystems beeinflussen. Diese Beziehungen zu verstehen, ist entscheidend, um die Compliance bei Änderungen aufrechtzuerhalten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die potenziellen Auswirkungen von Änderungen über compliance-kritische Dokumentation hinweg zu bewerten.",
+      "problem": {
+        "title": "Die vollständigen Auswirkungen einer Änderung sind nicht immer sofort sichtbar.",
+        "paragraphs": [
+          "Organisationen verwalten regelmäßig Änderungen an Verfahren, Aufzeichnungen, Anforderungen, Risikodateien, CAPAs und unterstützender Dokumentation. Die vollständigen Auswirkungen einer Änderung sind jedoch nicht immer sofort sichtbar.",
+          "Eine Änderung an einer Stelle kann zugehörige Dokumentation, Prozesse, Aufzeichnungen, Kontrollen oder Compliance-Verpflichtungen an anderer Stelle im Qualitätssystem beeinflussen.",
+          "Zu bestimmen, was sonst noch betroffen sein könnte, erfordert häufig zeitaufwendige manuelle Prüfungen über getrennte Systeme und Dokumentationen hinweg. Dadurch können nachgelagerte Auswirkungen unbemerkt bleiben, bis weitere Probleme auftreten."
+        ],
+        "cards": [
+          {
+            "title": "Verborgene nachgelagerte Auswirkungen",
+            "body": "Eine Änderung in einem Dokument kann zugehörige Aufzeichnungen, Prozesse oder Compliance-Verpflichtungen an anderer Stelle unbemerkt ungültig machen."
+          },
+          {
+            "title": "Getrennte Systeme",
+            "body": "Getrennte Dokumentation erschwert es nachzuverfolgen, wie sich eine einzelne Änderung im Qualitätssystem auswirkt."
+          },
+          {
+            "title": "Aufwand für manuelle Prüfungen",
+            "body": "Zeitaufwendige manuelle Suchen über Systeme hinweg verzögern Auswirkungsanalysen und beanspruchen die Kapazität von Quality-Teams."
+          },
+          {
+            "title": "Späte Problemerkennung",
+            "body": "Nachgelagerte Auswirkungen bleiben unbemerkt, bis weitere Compliance-Probleme entstehen – lange nach der ursprünglichen Änderung."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Verstehen, wie Änderungen mit vernetzter Dokumentation und Compliance-Verpflichtungen zusammenhängen",
+        "paragraphs": [
+          "Suricat unterstützt Quality- und Regulatory-Teams dabei zu verstehen, wie Änderungen mit vernetzten Dokumenten, Aufzeichnungen, Prozessen und Compliance-Verpflichtungen zusammenhängen können, damit potenzielle nachgelagerte Auswirkungen früher erkannt und sicherer bewertet werden können.",
+          "Durch Transparenz über Änderungsbeziehungen in compliance-kritischer Dokumentation hilft Suricat Organisationen, die weiterreichenden Auswirkungen von Änderungen zu verstehen, bevor weitere Probleme entstehen.",
+          "Das Ergebnis sind schnellere Auswirkungsanalysen und besser fundierte Qualitäts- und regulatorische Entscheidungen."
+        ],
+        "cards": [
+          {
+            "title": "Abbildung von Änderungsbeziehungen",
+            "body": "Bildet ab, wie eine Änderung in einem Dokument oder einer Aufzeichnung mit vernetzter Dokumentation, Prozessen und Compliance-Verpflichtungen im gesamten Qualitätssystem zusammenhängt."
+          },
+          {
+            "title": "Frühere Identifikation nachgelagerter Auswirkungen",
+            "body": "Macht potenzielle nachgelagerte Auswirkungen sichtbar, bevor sie sich als weitere Compliance-Probleme manifestieren, und gibt Teams Zeit für Bewertung und Maßnahmen."
+          },
+          {
+            "title": "Beschleunigte Auswirkungsanalyse",
+            "body": "Verringert die Zeit für manuelle Prüfungen über getrennte Systeme hinweg, indem relevante Beziehungen strukturiert und navigierbar sichtbar gemacht werden."
+          },
+          {
+            "title": "Besser fundierte regulatorische Entscheidungen",
+            "body": "Versetzt Quality- und Regulatory-Teams in die Lage, den vollständigen Umfang einer Änderung mit größerem Vertrauen zu bewerten, bevor Entscheidungen finalisiert werden."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Änderungsauswirkungsanalyse ermöglicht",
+        "intro": "Fünf Ergebnisse, die Quality- und Regulatory-Teams dabei stärken, die nachgelagerten Auswirkungen von Änderungen zu identifizieren, zu bewerten und darauf zu reagieren.",
+        "outcomes": [
+          {
+            "label": "Nachgelagerte Identifikation",
+            "title": "Frühere Identifikation nachgelagerter Auswirkungen",
+            "body": "Verstehen Sie, was sonst noch betroffen sein könnte, bevor weitere Probleme entstehen."
+          },
+          {
+            "label": "Änderungsbeziehungen",
+            "title": "Bessere Transparenz über Änderungsbeziehungen",
+            "body": "Sehen Sie, wie Änderungen mit vernetzter Dokumentation, Prozessen und Compliance-Verpflichtungen zusammenhängen."
+          },
+          {
+            "label": "Schnellere Bewertung",
+            "title": "Schnellere Auswirkungsanalysen",
+            "body": "Verringern Sie die Zeit, die erforderlich ist, um den potenziellen Umfang einer Änderung zu verstehen."
+          },
+          {
+            "label": "Weniger manueller Aufwand",
+            "title": "Weniger Aufwand für manuelle Analysen",
+            "body": "Wenden Sie weniger Zeit für die Prüfung getrennter Systeme und Dokumentation auf."
+          },
+          {
+            "label": "Mehr Vertrauen",
+            "title": "Mehr Vertrauen bei der Bewertung von Änderungen",
+            "body": "Bewerten Sie Änderungen mit größerem Vertrauen, bevor Maßnahmen ergriffen werden."
+          }
+        ]
+      }
+    },
+    "inspection-readiness": {
+      "heroTitle": "Inspektionsvorbereitung schafft keine Bereitschaft.",
+      "heroTitleAccent": "Sie zeigt, ob Bereitschaft bereits besteht.",
+      "heroSubtitle": "Regulatorische Inspektionen und Audits prüfen nicht nur die Dokumentation. Sie bewerten, ob eine Organisation den aktuellen Zustand ihres Qualitätssystems über Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Schulungen und unterstützende Nachweise hinweg darlegen kann – von denen die meisten bereits lange vor Beginn der Vorbereitung bestanden.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, Inspektionsbereitschaft im gesamten Qualitätssystem aufzubauen und aufrechtzuerhalten.",
+      "problem": {
+        "title": "Vorbereitung macht Bereitschaft sichtbar. Sie schafft sie nicht.",
+        "paragraphs": [
+          "Wenn eine Inspektion oder ein Audit angekündigt wird, beginnen Organisationen typischerweise einen gezielten Vorbereitungsaufwand: Sie prüfen Verfahren, sammeln Aufzeichnungen, validieren Nachweise und beheben dabei auftretende Probleme.",
+          "Der Zustand des Qualitätssystems zu diesem Zeitpunkt – ob Verfahren aktuell sind, CAPAs ordnungsgemäß abgeschlossen wurden, Schulungsaufzeichnungen vollständig sind und Risikodateien die neuesten Bewertungen widerspiegeln – wurde jedoch weitgehend bestimmt, bevor die Vorbereitung begann. Vorbereitung verändert diesen Zustand nicht. Sie macht ihn sichtbar.",
+          "Dadurch werden Probleme, die bereits seit einiger Zeit bestehen, häufig erst während der Vorbereitung entdeckt und nicht bei ihrem ersten Auftreten. Wenn sie sichtbar werden, bleibt möglicherweise wenig Zeit, sie vor Beginn der Inspektion zu beheben."
+        ],
+        "cards": [
+          {
+            "title": "Späte Entdeckung",
+            "body": "Probleme, die seit Monaten bestehen, werden erst sichtbar, wenn die Inspektionsvorbereitung beginnt – mit wenig Zeit zum Handeln."
+          },
+          {
+            "title": "Unterbrochene Verbindungen",
+            "body": "Ein ohne Schulungsaktualisierung abgeschlossenes CAPA, eine Risikodatei, die aktuelle Design Controls nicht widerspiegelt – Lücken, die im Alltag unsichtbar bleiben."
+          },
+          {
+            "title": "Reaktive Abhilfe",
+            "body": "Teams verwenden die Zeit der Inspektionsvorbereitung darauf, lang bestehende Lücken zu beheben, statt die Bereitschaft zu bestätigen."
+          },
+          {
+            "title": "Unsichtbare Abweichungen",
+            "body": "Verfahren, Aufzeichnungen und Nachweise geraten schrittweise in Unstimmigkeit, ohne Signal, bis eine Inspektion die Lücke aufdeckt."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Bereitschaft jederzeit verstehen, nicht erst mit Beginn der Vorbereitung",
+        "paragraphs": [
+          "Suricat unterstützt Quality- und Regulatory-Teams dabei, den aktuellen Stand der Bereitschaft im gesamten Qualitätssystem zu verstehen – unabhängig davon, ob eine Inspektion angekündigt wurde.",
+          "Durch die fortlaufende Bewertung von Beziehungen zwischen Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Schulungen und unterstützenden Nachweisen hilft Suricat Organisationen zu erkennen, wo die von einer Inspektion geprüften Verbindungen unvollständig oder veraltet sein könnten.",
+          "Das Ergebnis ist ein Qualitätssystem, dessen Bereitschaft jederzeit bewertet werden kann – lange bevor Vorbereitungsaktivitäten beginnen, statt erst im Verlauf dieser Aktivitäten entdeckt zu werden."
+        ],
+        "cards": [
+          {
+            "title": "Kontinuierliche Bereitschaftsbewertung",
+            "body": "Bewertet den Zustand des Qualitätssystems fortlaufend und unabhängig davon, ob eine Inspektion angekündigt wurde."
+          },
+          {
+            "title": "Systemübergreifende Abbildung von Beziehungen",
+            "body": "Bildet Verbindungen zwischen Verfahren, Schulungen, CAPAs und Risikodateien genau so ab, wie sie bei einer Inspektion geprüft würden."
+          },
+          {
+            "title": "Lücken vor der Vorbereitung sichtbar machen",
+            "body": "Identifiziert, wo Verfahren, Aufzeichnungen oder Nachweise lange vor Beginn der Vorbereitungsaktivitäten nicht ausgerichtet sind."
+          },
+          {
+            "title": "Verteidigungsfähiger Systemzustand",
+            "body": "Schafft ein Qualitätssystem, dessen aktueller Zustand bei einer Inspektion jederzeit klar dargelegt werden kann."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Inspektionsbereitschaft ermöglicht",
+        "intro": "Fünf Ergebnisse, die Quality- und Regulatory-Teams dabei stärken, Inspektionsbereitschaft im gesamten Qualitätssystem zu verstehen, aufrechtzuerhalten und nachzuweisen.",
+        "outcomes": [
+          {
+            "label": "Umfassende Transparenz",
+            "title": "Umfassende Transparenz über die Bereitschaft des Qualitätssystems",
+            "body": "Verstehen Sie den aktuellen Zustand von Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Schulungen und unterstützenden Nachweisen in der gesamten Organisation."
+          },
+          {
+            "label": "Frühere Identifikation",
+            "title": "Frühere Identifikation lang bestehender Lücken",
+            "body": "Identifizieren Sie Verfahren, Aufzeichnungen oder Nachweise, die bereits seit einiger Zeit nicht ausgerichtet sind, bevor sie bei der Inspektionsvorbereitung sichtbar werden."
+          },
+          {
+            "label": "Weniger Abhilfemaßnahmen",
+            "title": "Weniger Abhilfemaßnahmen in letzter Minute",
+            "body": "Schließen Sie Bereitschaftslücken mit ausreichendem zeitlichen Vorlauf, statt sie erst in der finalen Vorbereitung zu entdecken."
+          },
+          {
+            "label": "Klarere Verbindungen",
+            "title": "Klarere Verbindungen zwischen inspektionsrelevanten Aufzeichnungen",
+            "body": "Sehen Sie, wie Verfahren, Schulungen, CAPAs und Risikodateien in der Weise zusammenhängen, wie sie bei einer Inspektion geprüft würden."
+          },
+          {
+            "label": "Mehr Vertrauen",
+            "title": "Mehr Vertrauen vor einer Inspektion",
+            "body": "Gehen Sie mit dem Vertrauen in eine Inspektion, dass der aktuelle Zustand des Qualitätssystems nicht nur erklärt, sondern nachgewiesen werden kann."
+          }
+        ]
+      }
+    },
+    "document-alignment": {
+      "heroTitle": "Dokumentationsabweichungen entstehen selten auf einmal.",
+      "heroTitleAccent": "Sie nehmen im Laufe der Zeit zu.",
+      "heroSubtitle": "Qualitäts- und regulatorische Entscheidungen hängen von Dokumentation ab, die über Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Designdokumentation und unterstützende Nachweise hinweg konsistent bleibt. Mit der Weiterentwicklung von Organisationen wird es zunehmend schwieriger, diese Konsistenz aufrechtzuerhalten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Ausrichtung compliance-kritischer Dokumentation aufrechtzuerhalten.",
+      "problem": {
+        "title": "Änderungen erfolgen selten isoliert.",
+        "paragraphs": [
+          "Aktualisierungen an einem Dokument werden nicht immer in zugehörige Dokumentation übernommen. Dadurch entstehen Lücken, die möglicherweise unbemerkt bleiben, bis Untersuchungen, Audits, Inspektionen oder Änderungsprüfungen beginnen.",
+          "Während sich Dokumentation über Verfahren, Aufzeichnungen, Risikodateien, CAPAs und unterstützende Nachweise weiterentwickelt, können sich Unstimmigkeiten schrittweise ansammeln. Was als kleine Fehlanpassung beginnt, kann mit zunehmender Komplexität der Dokumentationsbeziehungen immer schwerer zu erkennen sein.",
+          "Dadurch müssen Teams möglicherweise viel Aufwand aufwenden, um zu bestimmen, was sich geändert hat, was betroffen ist und wie die Ausrichtung wiederhergestellt werden sollte. Im Laufe der Zeit können Dokumentationsabweichungen den Prüfaufwand erhöhen, die Entscheidungsfindung erschweren und das Vertrauen in die Integrität des Qualitätssystems schwächen."
+        ],
+        "cards": [
+          {
+            "title": "Unvollständige Übertragung",
+            "body": "Aktualisierungen eines Dokuments werden nicht automatisch in zugehörige Aufzeichnungen, Verfahren oder Risikodateien übernommen."
+          },
+          {
+            "title": "Zunehmende Abweichungen",
+            "body": "Kleine Fehlanpassungen summieren sich im Laufe der Zeit und werden mit zunehmender Komplexität der Dokumentationsbeziehungen schwieriger zu erkennen."
+          },
+          {
+            "title": "Späte Sichtbarkeit",
+            "body": "Unstimmigkeiten bleiben unsichtbar, bis Untersuchungen, Audits oder Änderungsprüfungen beginnen – wenn der Abhilfeaufwand am höchsten ist."
+          },
+          {
+            "title": "Erhöhter Prüfaufwand",
+            "body": "Teams investieren viel Aufwand, um abzugleichen, was sich geändert hat, was betroffen ist und wie die Ausrichtung wiederhergestellt werden sollte."
+          }
+        ]
+      },
+      "solution": {
+        "title": "Ausrichtungsprobleme früher identifizieren, bevor sie zu Compliance-Bedenken werden",
+        "paragraphs": [
+          "Suricat bewertet kontinuierlich Beziehungen über compliance-kritische Dokumentation hinweg, um Teams bei der früheren Identifikation potenzieller Ausrichtungsprobleme zu helfen.",
+          "Durch Transparenz darüber, wie Verfahren, Aufzeichnungen, Risikodateien, CAPAs und unterstützende Dokumentation miteinander zusammenhängen, hilft Suricat Organisationen zu verstehen, wo Unstimmigkeiten bestehen könnten, bevor sie zu größeren Compliance-Bedenken werden.",
+          "Das Ergebnis ist mehr Vertrauen in die Konsistenz compliance-kritischer Dokumentation und der Entscheidungen, die von ihr abhängen."
+        ],
+        "cards": [
+          {
+            "title": "Kontinuierliche Beziehungsbewertung",
+            "body": "Bewertet Beziehungen über compliance-kritische Dokumentation hinweg fortlaufend – nicht nur, wenn ein Änderungsereignis ausgelöst wird."
+          },
+          {
+            "title": "Dokumentübergreifende Transparenz",
+            "body": "Schafft Transparenz darüber, wie Verfahren, Aufzeichnungen, Risikodateien, CAPAs und unterstützende Dokumentation zusammenhängen und wo sie möglicherweise nicht ausgerichtet sind."
+          },
+          {
+            "title": "Frühere Lückenerkennung",
+            "body": "Macht potenzielle Unstimmigkeiten sichtbar, bevor sie sich über zugehörige Dokumentation ausweiten oder bei formalen Überprüfungsaktivitäten sichtbar werden."
+          },
+          {
+            "title": "Konsistente Dokumentationsintegrität",
+            "body": "Unterstützt ein Qualitätssystem, dessen compliance-kritische Dokumentation ausgerichtet bleibt und dessen Konsistenz sicher nachgewiesen werden kann."
+          }
+        ]
+      },
+      "enables": {
+        "title": "Was Dokumentationsausrichtung ermöglicht",
+        "intro": "Fünf Ergebnisse, die Quality- und Regulatory-Teams dabei stärken, die Ausrichtung compliance-kritischer Dokumentation zu identifizieren, aufrechtzuerhalten und nachzuweisen.",
+        "outcomes": [
+          {
+            "label": "Frühere Identifikation",
+            "title": "Frühere Identifikation von Dokumentationsabweichungen",
+            "body": "Identifizieren Sie potenzielle Ausrichtungsprobleme, bevor sie sich über zugehörige Dokumentation ausweiten."
+          },
+          {
+            "label": "Verbesserte Konsistenz",
+            "title": "Verbesserte Konsistenz zwischen zugehöriger Dokumentation",
+            "body": "Erhalten Sie eine stärkere Ausrichtung zwischen Verfahren, Aufzeichnungen, Risikodateien, CAPAs und unterstützenden Nachweisen."
+          },
+          {
+            "label": "Weniger manueller Aufwand",
+            "title": "Weniger Aufwand für manuelle Prüfung und Abstimmung",
+            "body": "Wenden Sie weniger Zeit für den Vergleich von Dokumentation und die Untersuchung von Unstimmigkeiten auf."
+          },
+          {
+            "label": "Schnellere Untersuchung",
+            "title": "Schnellere Untersuchung potenzieller Abweichungen",
+            "body": "Verstehen Sie, wo potenzielle Lücken bestehen und wie sie zugehörige Dokumentation beeinflussen können."
+          },
+          {
+            "label": "Mehr Vertrauen",
+            "title": "Mehr Vertrauen in die Integrität des Qualitätssystems",
+            "body": "Treffen Sie Entscheidungen auf der Grundlage von Dokumentation, die ausgerichtet und konsistent bleibt."
+          }
+        ]
+      }
+    }
+  },
+  "pricing": {
+    "common": {
+      "viewPricingStartEvaluation": "Preise ansehen & Evaluation starten",
+      "complianceIntelligenceLayer": "Compliance Intelligence Layer"
+    },
+    "main": {
+      "heroTitleBefore": "Der Umfang liegt in der Dokumentation.",
+      "heroTitleAccent": "Nicht in der Anzahl der Nutzer.",
+      "heroSubtitle1": "Die Komplexität der Compliance zeigt sich in der Dokumentation, nicht in der Mitarbeiterzahl. Jedes Suricat-Abonnement kombiniert eine jährliche Plattformlizenz mit einer definierten Dokumentenkapazität, sodass Quality- und Regulatory-Teams ohne Einschränkungen durch nutzerbasierte Lizenzierung zusammenarbeiten können.",
+      "heroSubtitle2": "Dokumente können ohne zusätzliche nutzungsabhängige Gebühren über alle sechs Compliance Intelligence-Lösungen hinweg bewertet werden.",
+      "heroCta": "Mehr erfahren",
+      "notReady": "Noch nicht bereit, Ihre eigene Dokumentation hochzuladen?",
+      "badges": [
+        "Veröffentlichte Jahrespreise",
+        "Laufzeit von zwölf Monaten",
+        "Keine Gebühren pro Nutzer"
+      ]
+    },
+    "faq": {
+      "eyebrow": "Preis-FAQs",
+      "title": "Die häufigsten Fragen vor Beginn einer Evaluation.",
+      "description": "Antworten auf die häufigsten Fragen zu den Abonnementbedingungen von Suricat, zur Dokumentenkapazität, zum Evaluierungszugang und zu kommerziellen Verpflichtungen.",
+      "viewAll": "Alle anzeigen",
+      "pageTitle": "Klare Antworten, bevor Sie evaluieren.",
+      "pageDescription": "Entdecken Sie alle veröffentlichten Fragen zu Preisen und Evaluationen.",
+      "heroTitleBefore": "Die häufigsten Fragen vor dem",
+      "heroTitleAccent": "Beginn einer Evaluation.",
+      "heroCta": "Preise ansehen",
+      "teaser": [
+        {
+          "question": "Sind Preise veröffentlicht?",
+          "answer": "Ja. Suricat veröffentlicht Jahrespreise für die Stufen Evaluation, Pilot und Grundlage. Die Preise für Unternehmen werden individuell festgelegt und richten sich nach der Komplexität des Geräteprogramms, der Nutzerzahl und dem Umfang der regulatorischen Rahmenbedingungen. Es gibt keine versteckten Gebühren."
+        },
+        {
+          "question": "Gibt es Gebühren pro Nutzer?",
+          "answer": "Nein. Suricat berechnet keine Gebühren pro Nutzer. Die Preise basieren auf der Dokumentenkapazität – der Anzahl aktiver Compliance-Dokumente, die durch Ihre Abonnementstufe definiert ist. Der Nutzerzugang wird durch Ihre Abonnementstufe festgelegt und beeinflusst die Preisgestaltung nicht."
+        },
+        {
+          "question": "Sind Abonnements jährlich?",
+          "answer": "Ja. Pilot und Grundlage sind jährliche Abonnements mit zwölfmonatiger Laufzeit und veröffentlichten Jahrespreisen. Evaluation ist ein kostenloser Evaluierungszeitraum von 90 Tagen. Unternehmens-Abonnements haben eine jährliche Laufzeit mit individuellen kommerziellen Bedingungen."
+        },
+        {
+          "question": "Kann ich während der Laufzeit in eine andere Stufe wechseln?",
+          "answer": "Ja. Organisationen können während einer aktiven Abonnementlaufzeit in eine andere Stufe wechseln. Suricat stimmt Dokumentenkapazität, Workspace-Umfang und kommerzielle Bedingungen zum Zeitpunkt des Upgrades ab. Ein Downgrade während der Laufzeit ist nicht möglich."
+        },
+        {
+          "question": "Was zählt zur Dokumentenkapazität?",
+          "answer": "Die Dokumentenkapazität entspricht der Anzahl aktiver, Compliance-relevanter Dokumente, die in Ihrem Suricat-Workspace bewertet werden – einschließlich Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Untersuchungen, Schulungsnachweisen und unterstützender Qualitätsdokumentation."
+        }
+      ],
+      "full": [
+        {
+          "question": "Sind Preise veröffentlicht?",
+          "answer": "Ja. Suricat veröffentlicht Jahrespreise für die Stufen Evaluation, Pilot und Grundlage. Die Preise für Unternehmen werden individuell festgelegt und richten sich nach dem Umfang der Dokumentation, Geräteprogrammen und regulatorischen Rahmenbedingungen. Es gibt keine versteckten Gebühren."
+        },
+        {
+          "question": "Gibt es Gebühren pro Nutzer?",
+          "answer": "Nein. Suricat berechnet keine Gebühren pro Nutzer. Die Preise basieren auf der Dokumentenkapazität – der Anzahl aktiver, Compliance-relevanter Dokumente, die während Ihrer Abonnementlaufzeit in der Compliance Intelligence Layer verwaltet werden. Der Nutzerzugang wird durch Ihre Abonnementstufe festgelegt und beeinflusst die Preisgestaltung nicht."
+        },
+        {
+          "question": "Sind Abonnements jährlich?",
+          "answer": "Ja. Alle Suricat-Abonnements sind jährlich. Monatliche Abonnementoptionen gibt es nicht. Für Pilot, Grundlage und Unternehmen gelten Laufzeiten von zwölf Monaten. Die Stufe Evaluation ist ein kostenloser Evaluierungszeitraum von 90 Tagen."
+        },
+        {
+          "question": "Kann ich während der Laufzeit in eine andere Stufe wechseln?",
+          "answer": "Upgrades sind während einer aktiven Abonnementlaufzeit möglich. Pilot-Abonnenten können auf Grundlage upgraden, und Grundlage-Abonnenten können jederzeit ein Gespräch zu Unternehmen beginnen. Ein Downgrade während der Laufzeit ist nicht möglich."
+        },
+        {
+          "question": "Was gilt als aktives Dokument?",
+          "answer": "Jedes Compliance-relevante Dokument, das während Ihrer Abonnementlaufzeit in der Compliance Intelligence Layer verwaltet wird – einschließlich Verfahren, Arbeitsanweisungen, Richtlinien, Risikodateien, CAPAs, Untersuchungen, Schulungsnachweisen, Entwicklungsdokumentation und unterstützenden Qualitätsaufzeichnungen."
+        },
+        {
+          "question": "Was passiert, wenn ich meine Dokumentenkapazität überschreite?",
+          "answer": "Die Dokumentenkapazität kann jederzeit während Ihrer aktiven Abonnementlaufzeit erweitert werden, ohne die Stufe zu wechseln. Die Preise für Erweiterungen sinken mit zunehmendem Volumen und beginnen bei 10 $ pro Dokument für die ersten 100 bis 500 zusätzlichen Dokumente."
+        },
+        {
+          "question": "Kann ich Dokumente entfernen, um innerhalb meiner Kapazität zu bleiben?",
+          "answer": "Ja. Dokumente können jederzeit aus der Compliance Intelligence Layer entfernt werden. Entfernte Dokumente zählen nicht zur aktiven Dokumentenkapazität."
+        },
+        {
+          "question": "Wird die Dokumentenkapazität übertragen?",
+          "answer": "Die Übertragung der Dokumentenkapazität steht ausschließlich Unternehmens-Abonnenten zur Verfügung. Bis zu 25 % der ungenutzten jährlichen Dokumentenkapazität können in die ersten 90 Tage der Verlängerungslaufzeit übertragen werden."
+        },
+        {
+          "question": "Ist für den Start einer Evaluation eine Kreditkarte erforderlich?",
+          "answer": "Nein. Die Stufe Evaluation erfordert weder eine Kreditkarte noch einen Beschaffungsprozess oder die Einbindung der IT. Der Zugang wird über einen Self-Service-Onboarding-Prozess bereitgestellt."
+        },
+        {
+          "question": "Kann ich während der Evaluation meine eigene Dokumentation verwenden?",
+          "answer": "Ja. Die Stufe Evaluation ist für die Evaluation mit Ihrer eigenen Compliance-relevanten Dokumentation konzipiert. Wenn Sie zunächst einen Überblick gewinnen möchten, bietet die Interaktive Sandbox kostenlosen Zugang mit repräsentativer Dokumentation für Medizinprodukte, ganz ohne Einrichtung."
+        },
+        {
+          "question": "Was geschieht mit meiner Dokumentation nach Ende der Evaluation?",
+          "answer": "Die Kundendokumentation wird während des aktiven Evaluierungszeitraums von 90 Tagen aufbewahrt. Nach Ablauf wird sie innerhalb von 30 bis 60 Tagen gelöscht, sofern nicht zuvor ein schriftlicher Löschantrag eingereicht wird. Kundendokumentation wird niemals zum Training von Modellen verwendet, die über Kunden hinweg geteilt werden."
+        },
+        {
+          "question": "Was passiert am Ende meiner Evaluation?",
+          "answer": "Am Ende des 90-tägigen Evaluierungszeitraums können Sie in ein Pilot- oder Grundlage-Abonnement wechseln, um den Produktivzugang fortzusetzen. Suricat wird Sie vor Ablauf Ihrer Evaluation kontaktieren, um die nächsten Schritte zu besprechen."
+        }
+      ]
+    },
+    "license": {
+      "heroTitleBefore": "Jedes Suricat-Abonnement beginnt mit einer",
+      "heroTitleAccent": "jährlichen Plattformlizenz.",
+      "heroSubtitle": "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance Intelligence Layer sowie zu den operativen Funktionen, die erforderlich sind, um Compliance-relevante Dokumentation während Ihrer Abonnementlaufzeit zu bewerten, zu überwachen, zu verwalten und darüber zu berichten.",
+      "includesEyebrow": "Was die Plattformlizenz bietet",
+      "includesTitle": "Alles, was Sie brauchen, um Compliance aufrechtzuerhalten, Abläufe zu optimieren und auditbereit zu bleiben.",
+      "cards": {
+        "intelligenceLayer": {
+          "title": "Compliance Intelligence Layer",
+          "body": "Zugang zu allen sechs Compliance Intelligence-Lösungen, die Quality- und Regulatory-Teams dabei helfen, die Übereinstimmung von Dokumentation zu bewerten, die Auswirkungen von Änderungen zu verstehen, die Inspektionsbereitschaft zu stärken und Vertrauen in Compliance-relevante Dokumentation zu wahren."
+        },
+        "monitoring": {
+          "title": "Kontinuierliche Bewertung & Überwachung",
+          "body": "Bewertet Ihre Dokumentation kontinuierlich, während sie sich weiterentwickelt. Erkenntnisse, Evidenzbeziehungen und der Analyseverlauf werden während Ihrer Abonnementlaufzeit gepflegt und aktualisiert."
+        },
+        "secureEnvironment": {
+          "title": "Sichere SaaS-Umgebung",
+          "body": "Gehostet auf Microsoft Azure. Vertrauenswürdig für führende Organisationen im Bereich Life Sciences. Ihre Dokumentation ist isoliert, geschützt und nur für Ihre Organisation zugänglich."
+        },
+        "operationsSupport": {
+          "title": "Plattformbetrieb & Support",
+          "body": "Umfasst Plattformadministration, Softwarewartung, Plattformupdates, Sicherheitsüberwachung und Supportleistungen entsprechend Ihrer Abonnementstufe."
+        }
+      },
+      "calloutEyebrow": "Eine Plattformlizenz. Eine Jahresgebühr.",
+      "calloutBody": "Eine einzige jährliche Abonnementgebühr. Die Plattformlizenz erhöht sich nicht mit der Anzahl generierter Erkenntnisse, durchgeführter Analysen, erkannter Überwachungsereignisse oder bewerteter Evidenzbeziehungen.",
+      "calloutBullets": [
+        "Die Dokumentenkapazität bestimmt den Umfang der Dokumentation, die auf der Plattform verwaltet wird.",
+        "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance Intelligence Layer selbst."
+      ],
+      "bottomCtaLabel": "Preise ansehen & Evaluation starten",
+      "bottomCtaNote": "Entdecken Sie Abonnementoptionen, Dokumentenkapazität, Supportstufen und starten Sie eine kostenlose Evaluation über 90 Tage."
+    },
+    "documentCapacity": {
+      "heroTitleBefore": "Preise sollten den Umfang der Dokumentation",
+      "heroTitleAccent": "widerspiegeln. Nicht den Softwareverbrauch.",
+      "heroSubtitle": "Die Dokumentenkapazität entspricht der maximalen Anzahl aktiver, Compliance-relevanter Dokumente, die während Ihrer Abonnementlaufzeit in Suricat verwaltet werden. Die Preisgestaltung basiert auf dem Umfang der bewerteten Dokumentation, da die Komplexität der Compliance durch Verfahren, Risikodateien, CAPAs, Untersuchungen und unterstützende Evidenz bestimmt wird – nicht durch die Anzahl der Personen, die Einblick benötigen.",
+      "includesEyebrow": "Was die Dokumentenkapazität umfasst",
+      "includesTitle": "Der Umfang der Dokumentation bestimmt den Preis – nicht Mitarbeiterzahl oder Verbrauch.",
+      "cards": {
+        "complianceDocumentation": {
+          "title": "Compliance-Dokumentation",
+          "body": "Verfahren, Arbeitsanweisungen, Richtlinien, CAPAs, Untersuchungen, Schulungsnachweise, Qualitätsaufzeichnungen und weitere Dokumentation, die Ihr Qualitätsmanagementsystem unterstützt."
+        },
+        "productDocumentation": {
+          "title": "Produkt- & Entwicklungsdokumentation",
+          "body": "Entwicklungsdokumentation, Anforderungen, Spezifikationen, Risikodateien, Verifizierungsaufzeichnungen, Validierungsaufzeichnungen und unterstützende Produktdokumentation."
+        },
+        "regulatoryEvidence": {
+          "title": "Regulatorische Evidenz",
+          "body": "Dokumentation, die genutzt wird, um Compliance nachzuweisen, Rückverfolgbarkeit zu gewährleisten, Inspektionen zu unterstützen und Evidenz in Qualitäts- und Regulierungsprozessen bereitzustellen."
+        },
+        "capacityExpansion": {
+          "title": "Kapazitätserweiterung",
+          "body": "Wenn neue Produkte, Geräteprogramme, Verfahren, Risikodateien und unterstützende Dokumentation hinzugefügt werden, kann die Dokumentenkapazität erweitert werden, ohne die Abonnementstufe zu ändern oder bestehende Workflows zu unterbrechen."
+        }
+      },
+      "calloutEyebrow": "Dokumente. Kein Verbrauch.",
+      "calloutBody": "Jedes aktive Dokument kann ohne zusätzliche nutzungsabhängige Gebühren, Analysegebühren, Überwachungsgebühren oder Kosten für die Nutzung von KI über alle sechs Compliance Intelligence-Lösungen hinweg bewertet werden. Es gibt keine Gebühren auf Grundlage generierter Erkenntnisse, durchgeführter Analysen, erkannter Überwachungsereignisse, identifizierter Evidenzbeziehungen oder der Häufigkeit, mit der Ihre Teams die Plattform nutzen. Die Preise skalieren mit dem Umfang der Dokumentation statt mit Credits, Tokens, Verarbeitungseinheiten, KI-Verbrauchsmetriken oder unvorhersehbaren nutzungsbasierten Preismodellen.",
+      "calloutBullets": [
+        "Quality- und Regulatory-Teams verwalten Dokumente, Verfahren, CAPAs und Risikodateien – keine KI-Verbrauchsmetriken.",
+        "Die Preisgestaltung von Suricat spiegelt diese Realität wider."
+      ],
+      "bottomCtaLabel": "Preise ansehen & Evaluation starten",
+      "bottomCtaNote": "Entdecken Sie Abonnementoptionen und starten Sie eine kostenlose Evaluation über 90 Tage mit Ihrer eigenen Dokumentation."
+    },
+    "capacityExpansion": {
+      "heroTitleBefore": "Die Kapazität wächst mit Ihrer Dokumentation.",
+      "heroTitleAccent": "Die Preisgestaltung skaliert entsprechend.",
+      "heroSubtitle": "Die Erweiterung der Dokumentenkapazität ist darauf ausgelegt, Wachstum zu unterstützen, ohne Änderungen der Abonnementstufe, Neuverhandlungen des Vertrags oder Unterbrechungen der Workflows zu erfordern. Die Kapazität kann jederzeit während Ihrer Abonnementlaufzeit erweitert werden, wenn sich Ihre Dokumentationsumgebung weiterentwickelt.",
+      "pricingEyebrow": "Preise für Erweiterungen",
+      "pricingTitle": "So funktioniert die Preisgestaltung für Erweiterungen",
+      "pricingDescription": "Die erweiterte Dokumentenkapazität wird zum Zeitpunkt der Erweiterung jährlich abgerechnet. Der geltende Preis richtet sich nach der Gesamtzahl zusätzlicher Dokumente, die in einer einzelnen Erweiterungsanfrage hinzugefügt werden.",
+      "additionalDocuments": "Zusätzliche Dokumente",
+      "price": "Preis",
+      "rows": [
+        {
+          "range": "100 – 500",
+          "price": "10 $ pro Dokument"
+        },
+        {
+          "range": "501 – 1.000",
+          "price": "9 $ pro Dokument"
+        },
+        {
+          "range": "1.001 – 2.500",
+          "price": "8 $ pro Dokument"
+        },
+        {
+          "range": "2.501 – 5.000",
+          "price": "7 $ pro Dokument"
+        },
+        {
+          "range": "5.000+",
+          "price": "Kontaktieren Sie uns"
+        }
+      ],
+      "howItWorksEyebrow": "So funktioniert es",
+      "howItWorksTitle": "Erweitern Sie Ihre Kapazität nach Ihren Bedingungen – ohne die Stufe zu wechseln.",
+      "cards": {
+        "noTierChange": {
+          "title": "Kein Stufenwechsel erforderlich",
+          "body": "Für die Erweiterung der Dokumentenkapazität ist kein Wechsel in eine höhere Abonnementstufe erforderlich. Ihr bestehendes Abonnement, Ihre Nutzer und Ihre Workflows bleiben unverändert."
+        },
+        "billedAnnually": {
+          "title": "Jährliche Abrechnung",
+          "body": "Die Erweiterungskapazität wird für die verbleibende Dauer Ihrer aktiven Abonnementlaufzeit hinzugefügt und zum Zeitpunkt der Erweiterung abgerechnet."
+        },
+        "availableAnyTime": {
+          "title": "Jederzeit verfügbar",
+          "body": "Die Dokumentenkapazität kann zu jedem Zeitpunkt Ihrer Abonnementlaufzeit erweitert werden, wenn Ihre Dokumentationsumgebung wächst."
+        },
+        "enterpriseRollover": {
+          "title": "Übertragung für Unternehmen",
+          "body": "Unternehmens-Abonnements umfassen die Übertragung der Dokumentenkapazität – bis zu 25 % der ungenutzten jährlichen Kapazität werden in die ersten 90 Tage Ihrer Verlängerungslaufzeit übertragen."
+        }
+      },
+      "calloutEyebrow": "Erweiterung ohne Unterbrechung.",
+      "calloutBody": "Die Erweiterung der Dokumentenkapazität ist darauf ausgelegt, mit Ihrem Compliance-Programm zu wachsen – nicht Sie zu einem Stufenwechsel oder zur Neuverhandlung Ihrer Abonnementbedingungen zu zwingen. Die Preise für Erweiterungen sinken mit zunehmendem Volumen. Je mehr Kapazität hinzugefügt wird, desto niedriger ist der Preis pro Dokument. Für Erweiterungen um mehr als 5.000 zusätzliche Dokumente sind individuelle Preise verfügbar. Kontaktieren Sie Suricat, um Ihre Anforderungen zu besprechen.",
+      "bottomCtaLabel": "Abonnementoptionen ansehen",
+      "bottomCtaNote": "Sehen Sie die in jeder Abonnementstufe enthaltene Dokumentenkapazität – von Evaluation bis Unternehmen."
+    },
+    "interactiveSandbox": {
+      "heroTitleBefore": "Erleben Sie, wie Compliance Intelligence mit",
+      "heroTitleAccent": "Medizinproduktdokumentation funktioniert. Keine Einrichtung erforderlich.",
+      "heroSubtitle": "Entdecken Sie alle sechs Compliance Intelligence-Lösungen mit repräsentativer Medizinproduktdokumentation – ohne ein einziges Dokument hochzuladen.",
+      "exploreEyebrow": "Was Sie entdecken können",
+      "exploreTitle": "Repräsentative Medizinproduktdokumentation. Voller Plattformzugang.",
+      "exploreItems": [
+        "Dokumentationsabgleich über Verfahren, Risikodateien und CAPAs hinweg",
+        "Erkenntnisse zur Inspektionsbereitschaft mit Evidenzbeziehungen",
+        "Analyse der Änderungsfolgen über verknüpfte Dokumentation hinweg",
+        "Signale zur kontinuierlichen Compliance über ein Geräteprogramm hinweg"
+      ],
+      "noRequirementEyebrow": "Nicht erforderlich",
+      "noRequirementTitle": "Beginnen Sie sofort mit der Erkundung.",
+      "noRequirementItems": [
+        "Kundendokumentation",
+        "Sicherheitsprüfung",
+        "Einbindung der IT",
+        "Beschaffungsgenehmigung",
+        "Lieferanten-Onboarding"
+      ],
+      "highlights": {
+        "syntheticDocumentation": "Synthetische Medizinproduktdokumentation",
+        "selfServiceAccess": "Self-Service-Zugang",
+        "noConfiguration": "Keine Konfiguration erforderlich"
+      },
+      "bottomCtaLabel": "Sandbox-Zugang anfordern",
+      "bottomCtaNote": "Sehen Sie, wie die Compliance Intelligence Layer funktioniert, bevor Sie sie mit Ihrer eigenen Dokumentation evaluieren."
+    },
+    "startWithEvaluate": {
+      "heroTitleBefore": "Validieren Sie Suricat mit Ihrer eigenen",
+      "heroTitleAccent": "Dokumentation, bevor Sie eine Kaufentscheidung treffen.",
+      "heroSubtitle": "Das Evaluation-Abonnement wurde entwickelt, damit Quality- und Regulatory-Teams vor einer umfassenderen Einführung feststellen können, ob Suricat ihre Dokumentationsumgebung, Compliance-Prozesse und Ziele zur Inspektionsbereitschaft unterstützt.",
+      "includesEyebrow": "Was das Evaluation-Abonnement umfasst",
+      "includesTitle": "Eine fokussierte Evaluation über 90 Tage mit Ihrer eigenen Dokumentation.",
+      "cards": {
+        "documentationEvaluation": {
+          "title": "Bewertung echter Dokumentation",
+          "body": "Nutzen Sie Ihre eigene Compliance-relevante Dokumentation, um zu bewerten, wie Suricat Beziehungen identifiziert, die Übereinstimmung analysiert und Aktivitäten zur Inspektionsbereitschaft unterstützt."
+        },
+        "allSolutions": {
+          "title": "Alle sechs Compliance Intelligence-Lösungen",
+          "body": "Erhalten Sie während des Evaluierungszeitraums Zugang zu allen sechs Compliance Intelligence-Lösungen, die innerhalb der Compliance Intelligence Layer verfügbar sind."
+        },
+        "focusedScope": {
+          "title": "Fokussierter Umfang",
+          "body": "Bewerten Sie eine einzelne Produktfamilie mit bis zu 100 aktiven Dokumenten und einem benannten Nutzer, um die organisatorische Eignung und den potenziellen Nutzen zu bestimmen."
+        },
+        "guidedOnboarding": {
+          "title": "Begleitetes Onboarding",
+          "body": "Begleitete Onboarding-Ressourcen helfen Ihrem Team, sich mit der Compliance Intelligence Layer vertraut zu machen und zu verstehen, wie Erkenntnisse, Evidenzbeziehungen und Dokumentationsanalysen dargestellt werden."
+        }
+      },
+      "calloutEyebrow": "Validieren, bevor Sie erweitern.",
+      "calloutBody": "Das Evaluation-Abonnement wurde entwickelt, um vor einer umfassenderen Einführung die wichtigste Frage zu beantworten: Wird Suricat in unserer Dokumentationsumgebung einen Mehrwert bieten?",
+      "calloutBullets": [
+        "Nutzen Sie Ihre eigene Dokumentation.",
+        "Bewerten Sie alle sechs Compliance Intelligence-Lösungen.",
+        "Bestätigen Sie Erkenntnisse zur Übereinstimmung und Evidenzbeziehungen.",
+        "Bewerten Sie die Transparenz der Inspektionsbereitschaft.",
+        "Bestimmen Sie die organisatorische Eignung, bevor Sie die Kapazität erweitern."
+      ],
+      "bottomCtaLabel": "Die Interaktive Sandbox entdecken",
+      "bottomCtaNote": "Sehen Sie anhand repräsentativer Medizinproduktdokumentation, wie die Compliance Intelligence Layer funktioniert, bevor Sie Ihre eigene hochladen."
+    }
+  },
+  "sitemapPage": {
+    "title": "Sitemap",
+    "introBefore": "Durchsuchen Sie alle öffentlichen Seiten unserer Website. Für die XML-Sitemap für Suchmaschinen siehe",
+    "introAfter": ".",
+    "sections": {
+      "main": "Hauptseiten",
+      "solutions": "Lösungen",
+      "industries": "Branchen",
+      "pricing": "Preise",
+      "company": "Unternehmen",
+      "legal": "Rechtliches",
+      "getInvolved": "Mitmachen"
+    },
+    "links": {
+      "home": "Startseite",
+      "pricing": "Preise",
+      "getStarted": "Loslegen",
+      "readiness": "Bereitschaft prüfen",
+      "designPartners": "Design-Partner",
+      "login": "Anmelden",
+      "pricingOverview": "Preisübersicht",
+      "platformLicense": "Plattformlizenz",
+      "documentCapacity": "Dokumentenkapazität",
+      "capacityExpansion": "Kapazitätserweiterung",
+      "interactiveSandbox": "Interaktive Sandbox",
+      "startWithEvaluate": "Mit Evaluation starten",
+      "pricingFaqs": "Preis-FAQs",
+      "ourStory": "Unsere Geschichte",
+      "missionVision": "Mission und Vision",
+      "leadership": "Führungsteam",
+      "contactUs": "Kontakt",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzrichtlinie",
+      "medicalDevices": "Medizinprodukte",
+      "industryExpansion": "Branchenerweiterung",
+      "documentationConfidence": "Dokumentationssicherheit",
+      "continuousCompliance": "Kontinuierliche Compliance",
+      "inspectionFindings": "Inspektionssichere Findings",
+      "changeImpact": "Änderungsauswirkungsanalyse",
+      "inspectionReadiness": "Inspektionsbereitschaft",
+      "documentAlignment": "Dokumentationsausrichtung",
+      "becomeDesignPartner": "Design-Partner werden",
+      "scheduleDiscussion": "Gespräch vereinbaren",
+      "readinessDiscussion": "Bereitschaftsgespräch"
+    }
+  }
+}

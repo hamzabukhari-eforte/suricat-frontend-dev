@@ -2,8 +2,9 @@
 
 import { FaChevronLeft, FaChevronRight, FaCircleCheck } from "@/components/ui/icons";
 import { useEffect, useMemo, useState } from "react";
+import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
+import type { Locale } from "@/lib/i18n/config";
 
-const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"] as const;
 const TIME_SLOTS = [
   "9:00 AM",
   "10:30 AM",
@@ -13,20 +14,26 @@ const TIME_SLOTS = [
   "4:30 PM",
 ] as const;
 
-const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-] as const;
+const LOCALE_TAG: Record<Locale, string> = {
+  en: "en-US",
+  de: "de-DE",
+  es: "es-ES",
+};
+
+function weekdayLabels(locale: Locale) {
+  const tag = LOCALE_TAG[locale];
+  return Array.from({ length: 7 }, (_, i) => {
+    const date = new Date(Date.UTC(2024, 0, 7 + i)); // Sun Jan 7 2024
+    return new Intl.DateTimeFormat(tag, { weekday: "short" }).format(date);
+  });
+}
+
+function monthYearLabel(locale: Locale, year: number, monthIndex: number) {
+  return new Intl.DateTimeFormat(LOCALE_TAG[locale], {
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, monthIndex, 1));
+}
 
 type CalendarCell = {
   day: number;
@@ -118,11 +125,15 @@ function buildMonthCells(year: number, monthIndex: number): Array<CalendarCell |
   return cells;
 }
 
-/** Human-readable date for API / confirmation, e.g. "July 22, 2026". */
-export function formatScheduleDate(isoDate: string) {
+/** Human-readable date for API / confirmation. */
+export function formatScheduleDate(isoDate: string, locale: Locale = "en") {
   const [y, m, d] = isoDate.split("-").map(Number);
   if (!y || !m || !d) return isoDate;
-  return `${MONTH_NAMES[m - 1]} ${d}, ${y}`;
+  return new Intl.DateTimeFormat(LOCALE_TAG[locale], {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(y, m - 1, d));
 }
 
 type ScheduleCalendarProps = {
@@ -139,6 +150,8 @@ export function ScheduleCalendar({
   onSelectDate,
   onSelectTime,
 }: ScheduleCalendarProps) {
+  const { locale } = useLocale();
+  const t = useTranslations("forms.scheduleCalendar");
   const today = startOfTodayLocal();
   const [viewYear, setViewYear] = useState(() => today.getFullYear());
   const [viewMonth, setViewMonth] = useState(() => today.getMonth());
@@ -150,7 +163,8 @@ export function ScheduleCalendar({
     return () => window.clearInterval(id);
   }, []);
 
-  const monthLabel = `${MONTH_NAMES[viewMonth]} ${viewYear}`;
+  const monthLabel = monthYearLabel(locale, viewYear, viewMonth);
+  const weekdays = useMemo(() => weekdayLabels(locale), [locale]);
   const cells = useMemo(() => {
     void nowTick;
     return buildMonthCells(viewYear, viewMonth);
@@ -192,17 +206,17 @@ export function ScheduleCalendar({
     }
   }, [selectedDate, selectedTime, nowTick, onSelectTime]);
 
-  const dateLabel = selectedDate ? formatScheduleDate(selectedDate) : null;
+  const dateLabel = selectedDate ? formatScheduleDate(selectedDate, locale) : null;
   const timeOpen = (slot: string) => isTimeSlotOpen(slot, selectedDate);
 
   return (
     <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-4 shadow-sm max-sm:p-3 sm:p-6 lg:p-7">
       <div className="mb-5 max-sm:mb-3">
         <h3 className="text-base font-bold text-navy max-sm:text-sm">
-          Schedule Your Introductory Discussion
+          {t("title")}
         </h3>
         <p className="mt-1 text-xs text-navy max-sm:mt-0.5 max-sm:text-[11px]">
-          Choose a time that works for you · all times in your local timezone
+          {t("subtitle")}
         </p>
       </div>
       <div className="mb-4 flex items-center justify-between gap-2 max-sm:mb-3">
@@ -213,7 +227,7 @@ export function ScheduleCalendar({
             onClick={goPrevMonth}
             disabled={!canGoPrev}
             className="flex h-7 w-7 items-center justify-center rounded-[4px] border border-gray-200 bg-gray-100 transition-colors hover:border-teal/40 hover:bg-teal/10 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-gray-100"
-            aria-label="Previous month"
+            aria-label={t("prevMonth")}
           >
             <FaChevronLeft className="text-xs text-gray-400" aria-hidden="true" />
           </button>
@@ -221,14 +235,14 @@ export function ScheduleCalendar({
             type="button"
             onClick={goNextMonth}
             className="flex h-7 w-7 items-center justify-center rounded-[4px] border border-gray-200 bg-gray-100 transition-colors hover:border-teal/40 hover:bg-teal/10"
-            aria-label="Next month"
+            aria-label={t("nextMonth")}
           >
             <FaChevronRight className="text-xs text-gray-400" aria-hidden="true" />
           </button>
         </div>
       </div>
       <div className="mb-2 grid grid-cols-7 gap-1 text-center max-sm:mb-1 max-sm:gap-0.5">
-        {WEEKDAYS.map((d) => (
+        {weekdays.map((d) => (
           <span
             key={d}
             className="py-1 text-xs font-semibold text-gray-400 max-sm:py-0.5 max-sm:text-[10px]"
@@ -295,7 +309,7 @@ export function ScheduleCalendar({
                 {dateLabel} | {selectedTime}
               </p>
               <p className="mt-0.5 text-xs text-navy max-sm:text-[11px]">
-                30-minute introductory discussion · Your local timezone
+                {t("selectedNote")}
               </p>
             </div>
           </div>

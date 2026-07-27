@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   submitDesignPartner,
@@ -16,44 +16,35 @@ import {
 } from "@/components/ui/icons";
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 const TOTAL_STEPS = 5;
 const MAX_LEN = 1000;
 const DRAFT_KEY = "suricat-design-partner-draft";
 
-const STEP_LABELS = [
-  ["Company", "Information"],
-  ["Primary", "Contact"],
-  ["Current", "Environment"],
-  ["Current Compliance", "Priorities"],
-  ["Review &", "Submit"],
-];
-
 const EMPLOYEE_COUNTS = ["1-50", "51-200", "201-500", "500+"];
 const DEVICE_CATEGORIES = ["Class I", "Class II", "Class III"];
-const QMS_OPTIONS = [
+const QMS_VENDORS = [
   "Arena QMS",
   "Greenlight Guru",
   "MasterControl",
   "Veeva Vault",
-  "Other",
-];
-const DOC_SYSTEMS = [
+] as const;
+const DOC_SYSTEM_VENDORS = [
   { value: "SharePoint", label: "SharePoint" },
   { value: "Microsoft 365", label: "Microsoft 365" },
   { value: "Google Workspace", label: "Google Workspace" },
   { value: "PLM", label: "PLM" },
   { value: "Document Control Software", label: "Document Control Software" },
   { value: "ERP", label: "ERP" },
-  { value: "Other", label: "Other (please specify)" },
-];
-const INSPECTION_OPTIONS = [
-  "Within 3 months",
-  "3–6 months",
-  "6–12 months",
-  "More than 12 months",
-  "No inspection currently scheduled",
-];
+] as const;
+const INSPECTION_OPTION_KEYS = [
+  "within3",
+  "3to6",
+  "6to12",
+  "more12",
+  "none",
+] as const;
 const PHONE_CODES = [
   "🇺🇸 +1",
   "🇨🇦 +1",
@@ -124,6 +115,8 @@ export function DesignPartnerForm({
 }: {
   onSubmitted?: () => void;
 }) {
+  const t = useTranslations("forms.designPartner");
+  const tCommon = useTranslations("common");
   const [step, setStep] = useState(1);
   const [enterClass, setEnterClass] = useState("");
   const [values, setValues] = useState<Values>(INITIAL);
@@ -135,6 +128,48 @@ export function DesignPartnerForm({
   const viewportRef = useRef<HTMLDivElement>(null);
   /** Blocks accidental submit from the Next→Submit button swap under the cursor. */
   const submitArmedRef = useRef(true);
+
+  const stepLabels = useMemo(
+    () => [
+      [t("steps.company"), t("steps.companyInfo")],
+      [t("steps.primary"), t("steps.contact")],
+      [t("steps.current"), t("steps.environment")],
+      [t("steps.priorities"), t("steps.prioritiesSub")],
+      [t("steps.review"), t("steps.submit")],
+    ],
+    [t],
+  );
+
+  const qmsOptions = useMemo(
+    () => [
+      ...QMS_VENDORS.map((v) => ({ value: v, label: v })),
+      { value: "Other", label: t("other") },
+    ],
+    [t],
+  );
+
+  const docSystems = useMemo(
+    () => [
+      ...DOC_SYSTEM_VENDORS.map((s) => ({
+        value: s.value,
+        label:
+          s.value === "Document Control Software"
+            ? t("docControlSoftware")
+            : s.label,
+      })),
+      { value: "Other", label: t("otherSpecify") },
+    ],
+    [t],
+  );
+
+  const inspectionOptions = useMemo(
+    () =>
+      INSPECTION_OPTION_KEYS.map((key) => ({
+        value: t(`inspectionOptions.${key}`),
+        label: t(`inspectionOptions.${key}`),
+      })),
+    [t],
+  );
 
   useEffect(() => {
     const t = window.setTimeout(() => setEnterClass(""), 420);
@@ -185,7 +220,7 @@ export function DesignPartnerForm({
     });
     if (missing.length) {
       setInvalid(new Set(missing as string[]));
-      toast.error("Please complete all required fields before continuing.");
+      toast.error(t("toastIncomplete"));
       return false;
     }
     setInvalid(new Set());
@@ -234,7 +269,7 @@ export function DesignPartnerForm({
     if (bad.size) {
       setShowAckErrors(true);
       setAckInvalid(bad);
-      toast.error("Please confirm both acknowledgments before submitting.");
+      toast.error(t("toastAck"));
       return false;
     }
     setShowAckErrors(false);
@@ -251,7 +286,7 @@ export function DesignPartnerForm({
     if (!validateAcks()) return;
     if (turnstile.isCaptchaBlockingSubmit) {
       toast.error(
-        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+        turnstile.captchaStatusMessage ?? tCommon("securityCheck"),
       );
       return;
     }
@@ -293,9 +328,7 @@ export function DesignPartnerForm({
       setStep(1);
       setEnterClass("");
       turnstile.resetCaptcha();
-      toast.success(
-        "Application submitted. Our team will contact you within 1 business day.",
-      );
+      toast.success(t("toastSubmitted"));
       onSubmitted?.();
     } else {
       turnstile.resetCaptcha();
@@ -311,11 +344,9 @@ export function DesignPartnerForm({
   function saveDraft() {
     try {
       localStorage.setItem(DRAFT_KEY, JSON.stringify(values));
-      window.alert(
-        "Your progress has been saved locally. You can return to complete your application later.",
-      );
+      window.alert(t("toastDraftSaved"));
     } catch {
-      window.alert("Unable to save progress in this browser.");
+      window.alert(t("toastDraftFail"));
     }
   }
 
@@ -340,7 +371,7 @@ export function DesignPartnerForm({
               style={{ width: `${((step - 1) / (TOTAL_STEPS - 1)) * 100}%` }}
             />
           </div>
-          {STEP_LABELS.map(([a, b], i) => {
+          {stepLabels.map(([a, b], i) => {
             const n = i + 1;
             const state =
               n < step ? "is-complete" : n === step ? "is-active" : "is-upcoming";
@@ -371,9 +402,9 @@ export function DesignPartnerForm({
           className="mt-3 text-center text-[0.8125rem] leading-snug text-gray-500 md:hidden"
           aria-live="polite"
         >
-          <span className="block">Step {step} of {TOTAL_STEPS}</span>
+          <span className="block">{t("stepOf", { step, total: TOTAL_STEPS })}</span>
           <span className="mt-0.5 block text-sm font-semibold text-navy">
-            {STEP_LABELS[step - 1].join(" ")}
+            {stepLabels[step - 1].join(" ")}
           </span>
         </p>
       </div>
@@ -385,25 +416,25 @@ export function DesignPartnerForm({
               <div className="bg-white p-8 rounded-[4px] shadow-sm border border-gray-100">
                 <div className="flex items-center gap-3 mb-8">
                   <h2 className="text-base font-bold text-navy">
-                    Company Information
+                    {t("companyInformation")}
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={labelCls} htmlFor="company-name">
-                      Company Name <span className="text-red-500">*</span>
+                      {t("companyName")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="company-name"
                       className={`form-input${cls("companyName")}`}
-                      placeholder="Enter company name"
+                      placeholder={t("companyNamePlaceholder")}
                       value={values.companyName}
                       onChange={(e) => set("companyName", e.target.value)}
                     />
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="company-website">
-                      Company Website <span className="text-red-500">*</span>
+                      {t("companyWebsite")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="company-website"
@@ -416,7 +447,7 @@ export function DesignPartnerForm({
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="employee-count">
-                      Number of Employees{" "}
+                      {t("employeeCount")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -426,7 +457,7 @@ export function DesignPartnerForm({
                       onChange={(e) => set("employeeCount", e.target.value)}
                     >
                       <option value="" disabled>
-                        Select number of employees
+                        {t("employeeCountPlaceholder")}
                       </option>
                       {EMPLOYEE_COUNTS.map((v) => (
                         <option key={v} value={v}>
@@ -437,14 +468,13 @@ export function DesignPartnerForm({
                     <p className="form-hint">
                       <FaCircleInfo aria-hidden="true" />
                       <span>
-                        This helps us tailor the program to organizations of
-                        your size.
+                        {t("employeeHint")}
                       </span>
                     </p>
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="device-category">
-                      Medical Device Category{" "}
+                      {t("deviceCategory")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -454,7 +484,7 @@ export function DesignPartnerForm({
                       onChange={(e) => set("deviceCategory", e.target.value)}
                     >
                       <option value="" disabled>
-                        Select medical device category
+                        {t("deviceCategoryPlaceholder")}
                       </option>
                       {DEVICE_CATEGORIES.map((v) => (
                         <option key={v} value={v}>
@@ -465,8 +495,7 @@ export function DesignPartnerForm({
                     <p className="form-hint">
                       <FaCircleInfo aria-hidden="true" />
                       <span>
-                        Select the category that best describes your primary
-                        products.
+                        {t("deviceCategoryHint")}
                       </span>
                     </p>
                   </div>
@@ -480,37 +509,37 @@ export function DesignPartnerForm({
               <div className="bg-white p-8 rounded-[4px] shadow-sm border border-gray-100">
                 <div className="flex items-center gap-3 mb-8">
                   <h2 className="text-base font-bold text-navy">
-                    Primary Contact
+                    {t("primaryContact")}
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={labelCls} htmlFor="contact-name">
-                      Full Name <span className="text-red-500">*</span>
+                      {t("fullName")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-name"
                       className={`form-input${cls("contactName")}`}
-                      placeholder="Enter full name"
+                      placeholder={t("fullNamePlaceholder")}
                       value={values.contactName}
                       onChange={(e) => set("contactName", e.target.value)}
                     />
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="contact-title">
-                      Title <span className="text-red-500">*</span>
+                      {t("title")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-title"
                       className={`form-input${cls("contactTitle")}`}
-                      placeholder="Enter your title"
+                      placeholder={t("titlePlaceholder")}
                       value={values.contactTitle}
                       onChange={(e) => set("contactTitle", e.target.value)}
                     />
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="contact-email">
-                      Business Email <span className="text-red-500">*</span>
+                      {t("businessEmail")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-email"
@@ -523,18 +552,18 @@ export function DesignPartnerForm({
                     <p className="form-hint">
                       <FaLock aria-hidden="true" />
                       <span>
-                        We&apos;ll use this to follow up about your application.
+                        {t("emailHint")}
                       </span>
                     </p>
                   </div>
                   <div>
                     <label className={labelCls} htmlFor="contact-phone">
-                      Phone (Optional)
+                      {t("phoneOptional")}
                     </label>
                     <div className="phone-input-group">
                       <select
                         className="phone-country-select"
-                        aria-label="Country code"
+                        aria-label={t("countryCode")}
                         value={values.contactPhoneCode}
                         onChange={(e) =>
                           set("contactPhoneCode", e.target.value)
@@ -569,13 +598,13 @@ export function DesignPartnerForm({
               <div className="min-w-0 overflow-hidden rounded-[4px] border border-gray-100 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
                 <div className="mb-6 flex items-center gap-3 sm:mb-8">
                   <h2 className="text-base font-bold text-navy">
-                    Current Environment
+                    {t("currentEnvironment")}
                   </h2>
                 </div>
                 <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
                   <div className="min-w-0">
                     <label className={labelCls} htmlFor="qms-select">
-                      Current Quality Management System (QMS){" "}
+                      {t("qms")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -585,28 +614,27 @@ export function DesignPartnerForm({
                       onChange={(e) => set("qms", e.target.value)}
                     >
                       <option value="" disabled>
-                        Select your QMS
+                        {t("qmsPlaceholder")}
                       </option>
-                      {QMS_OPTIONS.map((v) => (
-                        <option key={v} value={v}>
-                          {v}
+                      {qmsOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
                         </option>
                       ))}
                     </select>
                     <p className="text-xs text-gray-500 mt-2 flex items-start gap-1.5">
                       <MdOutlineInfo className="mt-0.5" aria-hidden="true" />
                       <span>
-                        The system you rely on for quality and compliance
-                        processes.
+                        {t("qmsHint")}
                       </span>
                     </p>
                   </div>
                   <div className="min-w-0 lg:col-span-2">
                     <p className="mb-3 text-sm font-medium text-gray-500">
-                      Current Documentation Systems (select all that apply)
+                      {t("docSystems")}
                     </p>
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                      {DOC_SYSTEMS.map((sys) => {
+                      {docSystems.map((sys) => {
                         const checked = values.docSystems.includes(sys.value);
                         return (
                           <label
@@ -649,7 +677,7 @@ export function DesignPartnerForm({
                       <div className="mt-4">
                         <input
                           className={`form-input${cls("docSystemsOther")}`}
-                          placeholder="List the documentation system..."
+                          placeholder={t("docSystemsOtherPlaceholder")}
                           value={values.docSystemsOther}
                           onChange={(e) =>
                             set("docSystemsOther", e.target.value)
@@ -668,7 +696,7 @@ export function DesignPartnerForm({
               <div className="bg-white p-8 rounded-[4px] shadow-sm border border-gray-100">
                 <div className="flex items-center gap-3 mb-8">
                   <h2 className="text-base font-bold text-navy">
-                    Current Compliance Priorities
+                    {t("compliancePriorities")}
                   </h2>
                 </div>
                 <div className="space-y-6">
@@ -677,7 +705,7 @@ export function DesignPartnerForm({
                       className={labelCls}
                       htmlFor="compliance-challenge"
                     >
-                      Biggest Documentation or Compliance Challenge{" "}
+                      {t("biggestChallenge")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -686,7 +714,7 @@ export function DesignPartnerForm({
                         rows={4}
                         maxLength={MAX_LEN}
                         className={`form-textarea resize-none${cls("complianceChallenge")}`}
-                        placeholder="Briefly describe your biggest documentation or compliance challenge."
+                        placeholder={t("biggestChallengePlaceholder")}
                         value={values.complianceChallenge}
                         onChange={(e) =>
                           set("complianceChallenge", e.target.value)
@@ -702,7 +730,7 @@ export function DesignPartnerForm({
                       className={labelCls}
                       htmlFor="inspection-timeframe"
                     >
-                      Upcoming FDA / ISO Inspection{" "}
+                      {t("inspectionLabel")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -714,18 +742,18 @@ export function DesignPartnerForm({
                       }
                     >
                       <option value="" disabled>
-                        Select timeframe
+                        {t("inspectionPlaceholder")}
                       </option>
-                      {INSPECTION_OPTIONS.map((v) => (
-                        <option key={v} value={v}>
-                          {v}
+                      {inspectionOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
                         </option>
                       ))}
                     </select>
                     <p className="text-xs text-gray-500 mt-2 flex items-start gap-1.5">
                       <MdOutlineInfo className="mt-0.5" aria-hidden="true" />
                       <span>
-                        Your inspection timeline helps us prioritize support.
+                        {t("inspectionHint")}
                       </span>
                     </p>
                   </div>
@@ -734,7 +762,7 @@ export function DesignPartnerForm({
                       className={labelCls}
                       htmlFor="design-partner-interest"
                     >
-                      Why are you interested in becoming a Design Partner?{" "}
+                      {t("whyInterest")}{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -743,7 +771,7 @@ export function DesignPartnerForm({
                         rows={4}
                         maxLength={MAX_LEN}
                         className={`form-textarea resize-none${cls("designPartnerInterest")}`}
-                        placeholder="Tell us what you hope to accomplish and why you'd like to participate."
+                        placeholder={t("whyInterestPlaceholder")}
                         value={values.designPartnerInterest}
                         onChange={(e) =>
                           set("designPartnerInterest", e.target.value)
@@ -764,67 +792,77 @@ export function DesignPartnerForm({
               <div className="space-y-6">
                 <div>
                   <h2 className="text-2xl font-bold text-navy mb-2">
-                    Review &amp; Submit
+                    {t("reviewTitle")}
                   </h2>
                   <p className="text-gray-500 text-sm">
-                    Please review your application before submitting.
+                    {t("reviewSubtitle")}
                   </p>
                 </div>
 
-                <ReviewCard title="Company Information" onEdit={() => goTo(1, "back")}>
+                <ReviewCard
+                  title={t("companyInformation")}
+                  editLabel={t("edit")}
+                  onEdit={() => goTo(1, "back")}
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <ReviewField label="Company Name" value={values.companyName} />
-                    <ReviewField label="Website" value={values.companyWebsite} />
-                    <ReviewField label="Employees" value={values.employeeCount} />
+                    <ReviewField label={t("companyName")} value={values.companyName} />
+                    <ReviewField label={t("website")} value={values.companyWebsite} />
+                    <ReviewField label={t("employees")} value={values.employeeCount} />
                     <ReviewField
-                      label="Medical Device Category"
+                      label={t("deviceCategory")}
                       value={values.deviceCategory}
                     />
                   </div>
                 </ReviewCard>
 
-                <ReviewCard title="Primary Contact" onEdit={() => goTo(2, "back")}>
+                <ReviewCard
+                  title={t("primaryContact")}
+                  editLabel={t("edit")}
+                  onEdit={() => goTo(2, "back")}
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <ReviewField label="Name" value={values.contactName} />
-                    <ReviewField label="Title" value={values.contactTitle} />
-                    <ReviewField label="Email" value={values.contactEmail} />
+                    <ReviewField label={t("name")} value={values.contactName} />
+                    <ReviewField label={t("title")} value={values.contactTitle} />
+                    <ReviewField label={t("email")} value={values.contactEmail} />
                     <ReviewField
-                      label="Phone"
-                      value={fullPhone || "Not provided"}
+                      label={t("phone")}
+                      value={fullPhone || t("notProvided")}
                     />
                   </div>
                 </ReviewCard>
 
                 <ReviewCard
-                  title="Current Environment"
+                  title={t("currentEnvironment")}
+                  editLabel={t("edit")}
                   onEdit={() => goTo(3, "back")}
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <ReviewField label="Current QMS" value={values.qms} />
+                    <ReviewField label={t("currentQms")} value={values.qms} />
                     <ReviewField
-                      label="Documentation Systems"
+                      label={t("documentationSystems")}
                       value={
                         values.docSystems.length
                           ? values.docSystems
                               .map((d) =>
                                 d === "Other" && values.docSystemsOther
-                                  ? `Other: ${values.docSystemsOther}`
+                                  ? t("otherPrefix", { value: values.docSystemsOther })
                                   : d,
                               )
                               .join(", ")
-                          : "None selected"
+                          : t("noneSelected")
                       }
                     />
                   </div>
                 </ReviewCard>
 
                 <ReviewCard
-                  title="Compliance Priorities"
+                  title={t("compliancePriorities")}
+                  editLabel={t("edit")}
                   onEdit={() => goTo(4, "back")}
                 >
                   <div className="space-y-5">
                     <div>
-                      <p className="review-field-label mb-2">Biggest Challenge</p>
+                      <p className="review-field-label mb-2">{t("biggestChallengeShort")}</p>
                       <p className="review-field-value text-sm font-semibold leading-relaxed">
                         {values.complianceChallenge || "—"}
                       </p>
@@ -838,7 +876,7 @@ export function DesignPartnerForm({
                     ) : null}
                     <div className="mt-4">
                       <p className="review-field-label mb-2">
-                        Why Design Partner?
+                        {t("whyDesignPartner")}
                       </p>
                       <p className="review-field-value text-sm font-semibold leading-relaxed">
                         {values.designPartnerInterest || "—"}
@@ -874,8 +912,7 @@ export function DesignPartnerForm({
                         }}
                       />
                       <span className="text-sm text-[#334155] font-medium leading-relaxed group-hover:text-navy transition-colors">
-                        We understand that this is a collaborative Design Partner
-                        program and not a commercial software purchase.
+                        {t("ackDesignPartner")}
                       </span>
                     </label>
                     <label
@@ -903,8 +940,7 @@ export function DesignPartnerForm({
                         }}
                       />
                       <span className="text-sm text-[#334155] font-medium leading-relaxed group-hover:text-navy transition-colors">
-                        We agree to review documentation under a mutual NDA prior
-                        to participation.
+                        {t("ackNda")}
                       </span>
                     </label>
                   </div>
@@ -916,9 +952,7 @@ export function DesignPartnerForm({
                     aria-hidden="true"
                   />
                   <p>
-                    This is well structured for a B2B application. It asks only
-                    for information that helps qualify a potential design partner
-                    while keeping the application concise and low-friction.
+                    {t("reviewNotice")}
                   </p>
                 </div>
               </div>
@@ -940,7 +974,7 @@ export function DesignPartnerForm({
                 onClick={() => goTo(step - 1, "back")}
                 className="order-3 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white sm:order-1"
               >
-                <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
+                <FaArrowLeft className="text-xs" aria-hidden="true" /> {t("back")}
               </button>
               <div className="order-1 flex w-full flex-col items-stretch gap-3 sm:order-2 sm:ml-auto sm:w-auto sm:flex-row sm:items-center">
                 <button
@@ -948,7 +982,7 @@ export function DesignPartnerForm({
                   onClick={saveDraft}
                   className="order-2 hero-banner-cta-btn px-4 font-bold text-teal transition-colors hover:text-navy sm:order-1"
                 >
-                  Save &amp; Finish Later
+                  {t("saveFinishLater")}
                 </button>
                 <button
                   type="button"
@@ -958,11 +992,15 @@ export function DesignPartnerForm({
                   }}
                   className="order-1 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all disabled:opacity-60 sm:order-2"
                 >
-                  {submitting ? "Submitting…" : "Submit Application"}{" "}
+                  {submitting ? tCommon("submitting") : t("submitApplication")}{" "}
                   <FaArrowRight aria-hidden="true" />
                 </button>
               </div>
             </div>
+            <p className="text-sm leading-relaxed text-gray-700">
+              <FaLock className="mr-1 inline-block align-middle text-xs" aria-hidden="true" />
+              {t("privacyNote")}
+            </p>
           </div>
         ) : (
           <div className="mt-8 flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
@@ -972,7 +1010,7 @@ export function DesignPartnerForm({
               disabled={step === 1}
               className="order-3 hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy font-bold text-navy transition-all hover:bg-navy hover:text-white disabled:pointer-events-none disabled:opacity-40 sm:order-1"
             >
-              <FaArrowLeft className="text-xs" aria-hidden="true" /> Previous
+              <FaArrowLeft className="text-xs" aria-hidden="true" /> {t("back")}
             </button>
             <div className="order-1 flex w-full flex-col items-stretch gap-3 sm:order-2 sm:ml-auto sm:w-auto sm:flex-row sm:items-center">
               <button
@@ -980,7 +1018,7 @@ export function DesignPartnerForm({
                 onClick={saveDraft}
                 className="order-2 hero-banner-cta-btn px-4 font-bold text-teal transition-colors hover:text-navy sm:order-1"
               >
-                Save &amp; Finish Later
+                {t("saveFinishLater")}
               </button>
               <button
                 type="button"
@@ -989,7 +1027,7 @@ export function DesignPartnerForm({
                 }}
                 className="order-1 suricat-teal-btn hero-cta-hover hero-banner-cta-btn inline-flex items-center justify-center gap-2 rounded-full font-bold text-navy !px-8 transition-all sm:order-2"
               >
-                Next <FaArrowRight aria-hidden="true" />
+                {t("continue")} <FaArrowRight aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -1001,10 +1039,12 @@ export function DesignPartnerForm({
 
 function ReviewCard({
   title,
+  editLabel,
   onEdit,
   children,
 }: {
   title: string;
+  editLabel: string;
   onEdit: () => void;
   children: React.ReactNode;
 }) {
@@ -1015,7 +1055,8 @@ function ReviewCard({
           {title}
         </h3>
         <button type="button" className="review-edit-btn" onClick={onEdit}>
-          Edit <FaExternalLinkAlt className="text-[10px]" aria-hidden="true" />
+          {editLabel}{" "}
+          <FaExternalLinkAlt className="text-[10px]" aria-hidden="true" />
         </button>
       </div>
       {children}

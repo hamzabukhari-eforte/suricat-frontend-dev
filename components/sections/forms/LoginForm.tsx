@@ -1,17 +1,20 @@
 "use client";
 
 import { FaArrowLeft, FaArrowRight, FaCircleCheck, FaLock, FaRegEnvelope, FaRegEye, FaRegEyeSlash } from "@/components/ui/icons";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { submitLogin } from "@/lib/forms/login";
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 const inputClass =
   "input-transition block w-full pl-10 pr-4 py-2.5 bg-surface-muted/50 border border-gray-200 rounded-[4px] text-[#374151] placeholder-[#6b7280]/60 focus:bg-white focus:outline-none focus:border-navy";
 
 export function LoginForm() {
+  const t = useTranslations("forms.login");
+  const tCommon = useTranslations("common");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -21,13 +24,22 @@ export function LoginForm() {
   const [submitting, setSubmitting] = useState(false);
   const turnstile = useTurnstileAction();
 
+  const bullets = useMemo(
+    () => [
+      t("bullets.readOnly"),
+      t("bullets.humanReview"),
+      t("bullets.dataIsolated"),
+    ],
+    [t],
+  );
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setFormError(null);
 
     if (turnstile.isCaptchaBlockingSubmit) {
       setFormError(
-        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+        turnstile.captchaStatusMessage ?? tCommon("securityCheck"),
       );
       return;
     }
@@ -66,24 +78,20 @@ export function LoginForm() {
             className="relative mb-6 lg:mb-0 lg:absolute lg:top-6 lg:left-12 z-20 flex items-center gap-2 text-sm font-semibold text-white hover:text-teal transition-colors group w-fit"
           >
             <FaArrowLeft className="text-xs transition-transform duration-300 group-hover:-translate-x-1" aria-hidden="true" />
-            Back to home
+            {tCommon("backToHome")}
           </Link>
           <div className="z-10 max-w-md">
             <div className="inline-block text-teal text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
-              Compliance Intelligence
+              {t("badge")}
             </div>
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-              Welcome Back!
+              {t("welcomeTitle")}
             </h1>
             <p className="text-lg text-white/80 mb-8 font-normal leading-relaxed">
-            Sign in to securely access your Suricat workspace.
+              {t("welcomeBody")}
             </p>
             <div className="space-y-4 mt-8 pt-8 border-t border-white/10">
-              {[
-                "Read-only by default",
-                "Human review remains in control",
-                "Customer data remains isolated",
-              ].map((item) => (
+              {bullets.map((item) => (
                 <div
                   key={item}
                   className="flex items-start text-sm text-white/70"
@@ -98,9 +106,9 @@ export function LoginForm() {
 
         <div className="w-full lg:w-[55%] p-8 lg:p-16 flex flex-col justify-center bg-white">
           <div className="max-w-md w-full mx-auto">
-            <h2 className="text-2xl font-bold text-navy mb-2">Sign In</h2>
+            <h2 className="text-2xl font-bold text-navy mb-2">{t("signInTitle")}</h2>
             <p className="text-navy text-sm mb-8">
-              Enter your credentials to access your account.
+              {t("signInSubtitle")}
             </p>
             <form onSubmit={onSubmit} className="space-y-5" noValidate>
               <div>
@@ -108,7 +116,7 @@ export function LoginForm() {
                   htmlFor="email"
                   className="block text-sm font-medium text-navy mb-1.5"
                 >
-                  Work Email
+                  {t("workEmail")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
@@ -120,7 +128,7 @@ export function LoginForm() {
                     type="email"
                     autoComplete="email"
                     required
-                    placeholder="name@company.com"
+                    placeholder={t("emailPlaceholder")}
                     className={inputClass}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -136,7 +144,7 @@ export function LoginForm() {
                   htmlFor="password"
                   className="block text-sm font-medium text-navy mb-1.5"
                 >
-                  Password
+                  {t("password")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
@@ -157,7 +165,7 @@ export function LoginForm() {
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
                     className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#6b7280] hover:text-navy transition-colors focus:outline-none"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    aria-label={showPassword ? t("hidePassword") : t("showPassword")}
                   >
                     {showPassword ? (
                       <FaRegEyeSlash aria-hidden="true" />
@@ -187,7 +195,7 @@ export function LoginForm() {
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-500 cursor-pointer hover:text-navy transition-colors"
                   >
-                    Keep me signed in
+                    {t("keepSignedIn")}
                   </label>
                 </div>
                 <div className="text-sm">
@@ -195,7 +203,7 @@ export function LoginForm() {
                     href="#"
                     className="font-medium text-teal hover:text-navy transition-colors hover:underline"
                   >
-                    Forgot Password?
+                    {t("forgotPassword")}
                   </a>
                 </div>
               </div>
@@ -214,18 +222,18 @@ export function LoginForm() {
                   disabled={submitting || turnstile.isCaptchaBlockingSubmit}
                   className="suricat-teal-btn group w-full flex justify-center items-center gap-3 px-6 py-2.5 rounded-full text-sm md:text-base font-bold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal disabled:opacity-60"
                 >
-                  Sign In
+                  {t("submit")}
                   <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
 
               <div className="text-center mt-6 text-sm text-navy font-medium">
-                Need an account?{" "}
+                {t("needAccount")}{" "}
                 <Link
                   href="/get-started"
                   className="font-medium text-teal hover:text-navy hover:underline transition-colors"
                 >
-                  Signup
+                  {t("signup")}
                 </Link>
               </div>
             </form>
@@ -237,13 +245,14 @@ export function LoginForm() {
 }
 
 export function LoginSlimHeader() {
+  const tCommon = useTranslations("common");
   return (
     <nav className="border-b border-gray-200 sticky top-0 bg-white z-50 relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-24 flex items-center">
         <Link href="/">
           <Image
             src="/assets/images/suricat-logo-nav.png"
-            alt="Suricat"
+            alt={tCommon("suricatAlt")}
             width={2048}
             height={470}
             className="h-8 shrink-0 object-contain object-left sm:h-11"
