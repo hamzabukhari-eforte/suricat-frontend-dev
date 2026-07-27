@@ -24,7 +24,7 @@ const LEADERS: Leader[] = [
     id: "mj",
     name: "MJ Khan",
     title: "Founder & Chief Executive Officer",
-    linkedin: "https://www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/mjkhan94306/",
     photo:
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/oHFNZPCWjUWdWffoVEYsWvg5ha93%2F90840d48-de94-4db3-a62f-07cfcfdac528.png",
     modalPhoto:
@@ -40,7 +40,7 @@ const LEADERS: Leader[] = [
     id: "fahad",
     name: "Fahad Ehsan",
     title: "Co Founder & Chief Technology Officer",
-    linkedin: "https://www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/fahadahsan/",
     photo:
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/canvas-assets/oHFNZPCWjUWdWffoVEYsWvg5ha93/1777550966717_625cb318-74e5-4aba-beb8-561d65a51826.png",
     modalPhoto:
@@ -55,7 +55,7 @@ const LEADERS: Leader[] = [
     id: "matthew",
     name: "Matthew Fortson",
     title: "Co Founder",
-    linkedin: "https://www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/matthew-fortson-85238b23/",
     photo:
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/canvas-assets/oHFNZPCWjUWdWffoVEYsWvg5ha93/1777561540776_9100f72b-be2b-4c42-aa49-33bda02ea09f.png",
     modalPhoto:
@@ -70,7 +70,7 @@ const LEADERS: Leader[] = [
     id: "kim",
     name: "Kim Tompkins",
     title: "Senior Advisor",
-    linkedin: "https://www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/kimtompkins/",
     photo:
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/canvas-assets/oHFNZPCWjUWdWffoVEYsWvg5ha93/1777561539326_c4f9c127-3420-4c90-8d7b-3765b51bec0f.png",
     modalPhoto:
