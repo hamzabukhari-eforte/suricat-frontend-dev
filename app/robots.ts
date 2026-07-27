@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://suricat.com/sitemap.xml",
+    sitemap: "https://suricat.ai/sitemap.xml",
   };
 }

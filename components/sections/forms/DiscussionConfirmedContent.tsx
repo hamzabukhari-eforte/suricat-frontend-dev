@@ -17,7 +17,7 @@ type Summary = {
 
 const DEFAULTS: Summary = {
   name: "Shahzad",
-  email: "shahzad@suricat.com",
+  email: "shahzad@suricat.ai",
   company: "eForte Solutions Inc.",
   date: "Tuesday, June 30, 2026",
   time: "4:00 PM",

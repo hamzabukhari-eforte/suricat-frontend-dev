@@ -76,8 +76,7 @@ export function LoginForm() {
               Welcome Back!
             </h1>
             <p className="text-lg text-white/80 mb-8 font-normal leading-relaxed">
-              Sign in to access your Suricat workspace and secure access to your
-              Suricat workspace.
+            Sign in to securely access your Suricat workspace.
             </p>
             <div className="space-y-4 mt-8 pt-8 border-t border-white/10">
               {[
