@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://suricat.com";
+const BASE = "https://suricat.ai";
 
 const routes = [
   "/",

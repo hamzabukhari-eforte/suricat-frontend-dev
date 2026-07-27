@@ -11,7 +11,7 @@ const plusJakarta = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://suricat.com"),
+  metadataBase: new URL("https://suricat.ai"),
   title: {
     default: "Suricat | The Compliance Intelligence Platform",
     template: "%s | Suricat",
