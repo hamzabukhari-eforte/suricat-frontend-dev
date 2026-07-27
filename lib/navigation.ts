@@ -220,8 +220,6 @@ export const footerResourceLinks: NavLink[] = [
   { label: "Design Partner", href: "/design-partners" },
   { label: "Industry", href: `/#${HOME_SECTION_IDS.industries}` },
   { label: "FAQs", href: "/pricing/faq" },
-  { label: "Blog", href: "#" },
-  { label: "Events", href: "#" },
 ];
 
 export const companySubnavLinks: NavLink[] = [
