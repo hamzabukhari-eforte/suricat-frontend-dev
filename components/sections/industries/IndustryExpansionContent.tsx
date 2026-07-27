@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import type { IconType } from "react-icons";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { StickySubnav } from "@/components/layout/StickySubnav";
 import { SolutionSectionPills } from "@/components/sections/solutions/SolutionSectionPills";
-import { industrySubnavLinks } from "@/lib/navigation";
+import { useIndustrySubnavLinks } from "@/lib/i18n/use-nav-links";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
   FaArrowRight,
   FaDna,
@@ -16,69 +19,19 @@ import {
   MdOutlineBolt,
 } from "@/components/ui/icons";
 
-const PILLS = [
-  { id: "available-today", label: "Available Today" },
-  { id: "where-it-extends", label: "Where It Can Extend" },
-  { id: "future-industries", label: "Future Extension" },
-  { id: "structural-challenge", label: "One Structural Challenge" },
-];
+type BadgeKey = "planned" | "future" | "available";
 
-type ExtensionCard = {
+function ExtensionCardItem({
+  title,
+  body,
+  Icon,
+  badge,
+}: {
   title: string;
   body: string;
   Icon: IconType;
-  badge: "Planned" | "Future" | "Available";
-};
-
-const CURRENT_EXTENSIONS: ExtensionCard[] = [
-  {
-    title: "Biotechnology",
-    body: "Scientific research evolves continuously. Experimental protocols, laboratory documentation, and supporting evidence require continuous alignment throughout regulated development.",
-    Icon: FaDna,
-    badge: "Planned",
-  },
-  {
-    title: "Biopharma",
-    body: "Manufacturing validation, batch records, process deviations, and quality documentation require continuous traceability across regulated production.",
-    Icon: FaPills,
-    badge: "Planned",
-  },
-  {
-    title: "Diagnostics & IVD",
-    body: "Analytical validation, clinical performance studies, labeling, and regulatory documentation must remain aligned throughout the product lifecycle.",
-    Icon: FaMicroscope,
-    badge: "Planned",
-  },
-  {
-    title: "Clinical Research",
-    body: "Study protocols, investigator documentation, patient records, and regulatory evidence require continuous alignment throughout the clinical trial lifecycle.",
-    Icon: FaUserDoctor,
-    badge: "Planned",
-  },
-];
-
-const FUTURE_EXTENSIONS: ExtensionCard[] = [
-  {
-    title: "Aerospace & Defense",
-    body: "Engineering changes, certification records, configuration management, and safety documentation must remain aligned across complex development programs.",
-    Icon: FaPlane,
-    badge: "Future",
-  },
-  {
-    title: "Energy & Utilities",
-    body: "Operational procedures, asset documentation, regulatory inspections, and safety records must remain aligned across critical infrastructure.",
-    Icon: MdOutlineBolt,
-    badge: "Future",
-  },
-  {
-    title: "Financial Services",
-    body: "Policies, internal controls, audit evidence, risk documentation, and regulatory obligations must remain aligned across governance programs.",
-    Icon: MdOutlineAccountBalance,
-    badge: "Future",
-  },
-];
-
-function ExtensionCardItem({ title, body, Icon, badge }: ExtensionCard) {
+  badge: string;
+}) {
   return (
     <div className="industry-expansion-card flex flex-col gap-4 rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm">
       <div className="flex items-center gap-3">
@@ -98,14 +51,37 @@ function ExtensionCardItem({ title, body, Icon, badge }: ExtensionCard) {
 }
 
 export function IndustryExpansionContent() {
+  const t = useTranslations();
+  const te = useTranslations("industries.expansion");
+  const industrySubnavLinks = useIndustrySubnavLinks();
+
+  const pills = [
+    { id: "available-today", label: te("pills.available") },
+    { id: "where-it-extends", label: te("pills.extends") },
+    { id: "future-industries", label: te("pills.future") },
+    { id: "structural-challenge", label: te("pills.structural") },
+  ];
+
+  const current: { key: string; Icon: IconType; badge: BadgeKey }[] = [
+    { key: "biotech", Icon: FaDna, badge: "planned" },
+    { key: "biopharma", Icon: FaPills, badge: "planned" },
+    { key: "diagnostics", Icon: FaMicroscope, badge: "planned" },
+    { key: "clinical", Icon: FaUserDoctor, badge: "planned" },
+  ];
+
+  const future: { key: string; Icon: IconType; badge: BadgeKey }[] = [
+    { key: "aerospace", Icon: FaPlane, badge: "future" },
+    { key: "energy", Icon: MdOutlineBolt, badge: "future" },
+    { key: "finance", Icon: MdOutlineAccountBalance, badge: "future" },
+  ];
+
   return (
     <>
       <StickySubnav
         links={industrySubnavLinks}
-        category="Industry"
-        navLabel="Industry pages"
+        category={t("nav.menus.industry.label")}
+        navLabel={t("nav.menus.industry.label")}
       />
-      {/* Hero */}
       <section
         id="overview"
         className="relative flex min-h-0 w-full items-center justify-center overflow-hidden bg-navy py-8 text-white max-lg:items-start max-lg:justify-start max-lg:overflow-visible md:py-10 lg:min-h-[500px] lg:py-12"
@@ -116,88 +92,89 @@ export function IndustryExpansionContent() {
         />
         <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-center px-4 text-center sm:px-6">
           <h1 className="mb-4 max-w-5xl text-2xl font-bold tracking-tight !leading-[32px] sm:mb-6 sm:text-3xl sm:!leading-[44px] lg:text-[36px]">
-            The Industry Changes.
+            {te("heroTitle1")}
             <br />
-            <span className="text-teal">
-              The Documentation Challenge Does Not.
-            </span>
+            <span className="text-teal">{te("heroTitleAccent")}</span>
           </h1>
           <div className="mb-5 h-1 w-16 rounded-full bg-teal sm:mb-6" />
           <p className="mx-auto max-w-5xl text-base font-normal !leading-[32px] text-white sm:text-lg lg:text-[22px]">
-            Every regulated industry operates within its own regulatory
-            framework, terminology, documentation, and operating processes. The
-            structural challenge, however, remains the same. Documentation
-            evolves. Relationships weaken. Evidence becomes disconnected. The
-            Compliance Intelligence Layer was designed to continuously evaluate
-            those relationships regardless of industry.
+            {te("heroSubtitle")}
           </p>
         </div>
       </section>
 
-      <SolutionSectionPills pills={PILLS} />
+      <SolutionSectionPills pills={pills} />
 
-      {/* Available today + where it can extend + future */}
       <section className="relative overflow-hidden bg-gray-50 px-4 py-8 text-navy sm:px-6">
         <div className="relative z-10 mx-auto max-w-7xl">
           <div id="available-today" className="scroll-mt-40">
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-              Available Today
+              {te("availableEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
-              Medical Devices Are Where We Begin
+              {te("availableTitle")}
             </h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               <ExtensionCardItem
-                title="Medical Devices"
-                badge="Available"
+                title={te("mdCard.title")}
+                badge={te("badges.available")}
                 Icon={FaHeartPulse}
-                body="The Compliance Intelligence Layer was first developed for one of the world's most demanding documentation environments—medical devices. Built to simplify complex regulatory documentation, it provides the foundation for compliant, traceable, and scalable processes. Explore how this proven approach can extend across additional regulated industries."
+                body={te("mdCard.body")}
               />
             </div>
           </div>
 
           <div id="where-it-extends" className="mt-10 scroll-mt-40">
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-              Where It Can Extend
+              {te("extendsEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
-              Where The Compliance Intelligence Layer Can Extend
+              {te("extendsTitle")}
             </h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {CURRENT_EXTENSIONS.map((card) => (
-                <ExtensionCardItem key={card.title} {...card} />
+              {current.map(({ key, Icon, badge }) => (
+                <ExtensionCardItem
+                  key={key}
+                  title={te(`current.${key}.title`)}
+                  body={te(`current.${key}.body`)}
+                  Icon={Icon}
+                  badge={te(`badges.${badge}`)}
+                />
               ))}
             </div>
           </div>
 
           <div id="future-industries" className="mt-10 scroll-mt-40">
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
-              Future Roadmap
+              {te("futureEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
-              Future Extensions
+              {te("futureTitle")}
             </h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {FUTURE_EXTENSIONS.map((card) => (
-                <ExtensionCardItem key={card.title} {...card} />
+              {future.map(({ key, Icon, badge }) => (
+                <ExtensionCardItem
+                  key={key}
+                  title={te(`futureCards.${key}.title`)}
+                  body={te(`futureCards.${key}.body`)}
+                  Icon={Icon}
+                  badge={te(`badges.${badge}`)}
+                />
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Structural challenge banner */}
       <section id="structural-challenge" className="bg-white px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 lg:flex-row">
           <div className="max-w-2xl flex-1">
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
-              One Structural Challenge.{" "}
-              <span className="text-teal">One Compliance Intelligence Layer.</span>
+              {te("structuralTitleBefore")}{" "}
+              <span className="text-teal">{te("structuralTitleAccent")}</span>
             </h2>
             <p className="max-w-3xl text-base leading-relaxed text-navy sm:text-lg lg:text-[20px] lg:leading-[28px]">
-              Although every regulated industry operates differently, the need to
-              preserve documentation alignment, evidence traceability, and
-              regulatory confidence remains consistent.
+              {te("structuralBody")}
             </p>
           </div>
           <div className="flex-shrink-0">
@@ -205,7 +182,7 @@ export function IndustryExpansionContent() {
               href="/#platform"
               className="suricat-teal-btn group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full px-6 py-3 text-sm font-bold transition-all sm:px-8 sm:py-3.5"
             >
-              Explore The Platform
+              {te("structuralCta")}
               <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>

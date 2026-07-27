@@ -3,46 +3,46 @@ import {
   PricingCallout,
   PricingInfoGrid,
 } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 export function DocumentCapacityContent() {
+  const t = useTranslations("pricing.documentCapacity");
+
   return (
     <>
       <PricingInfoGrid
-        eyebrow="What Document Capacity Includes"
-        title="Documentation scope drives pricing — not headcount or consumption."
+        eyebrow={t("includesEyebrow")}
+        title={t("includesTitle")}
         cards={[
           {
-            title: "Compliance Documentation",
-            body: "Procedures, work instructions, policies, CAPAs, investigations, training records, quality records, and other documentation that supports your Quality Management System.",
+            title: t("cards.complianceDocumentation.title"),
+            body: t("cards.complianceDocumentation.body"),
           },
           {
-            title: "Product & Design Documentation",
-            body: "Design documentation, requirements, specifications, risk files, verification records, validation records, and supporting product documentation.",
+            title: t("cards.productDocumentation.title"),
+            body: t("cards.productDocumentation.body"),
           },
           {
-            title: "Regulatory Evidence",
-            body: "Documentation used to demonstrate compliance, maintain traceability, support inspections, and provide evidence across quality and regulatory processes.",
+            title: t("cards.regulatoryEvidence.title"),
+            body: t("cards.regulatoryEvidence.body"),
           },
           {
-            title: "Capacity Expansion",
-            body: "As new products, device programs, procedures, risk files, and supporting documentation are added, Document Capacity may be expanded without changing subscription tiers or disrupting existing workflows.",
+            title: t("cards.capacityExpansion.title"),
+            body: t("cards.capacityExpansion.body"),
           },
         ]}
       />
       <section className="py-8 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <PricingCallout
-            eyebrow="Documents. Not Consumption."
-            body="Every active document may be evaluated across all six Compliance Intelligence solutions without additional consumption charges, analysis fees, monitoring fees, or AI usage costs. There are no charges based on findings generated, analyses performed, monitoring events detected, evidence relationships identified, or the number of times your teams use the platform. Pricing scales with documentation scope rather than credits, tokens, processing units, AI consumption metrics, or unpredictable usage-based pricing models."
-            bullets={[
-              "Quality and Regulatory teams manage documents, procedures, CAPAs, and risk files — not AI consumption metrics.",
-              "Suricat pricing reflects that reality.",
-            ]}
+            eyebrow={t("calloutEyebrow")}
+            body={t("calloutBody")}
+            bullets={t.raw("calloutBullets") as string[]}
           />
           <PricingBottomCta
             href="/pricing"
-            label="View Pricing & Start Your Evaluation"
-            note="Explore subscription options and begin a free 90-day evaluation using your own documentation."
+            label={t("bottomCtaLabel")}
+            note={t("bottomCtaNote")}
           />
         </div>
       </section>

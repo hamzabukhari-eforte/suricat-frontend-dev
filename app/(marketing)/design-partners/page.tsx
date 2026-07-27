@@ -1,7 +1,9 @@
 import { DesignPartnersContent } from "@/components/sections/design-partners/DesignPartnersContent";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.designPartners;
+export async function generateMetadata() {
+  return getPageMetadata("designPartners");
+}
 
 export default function DesignPartnersPage() {
   return <DesignPartnersContent />;

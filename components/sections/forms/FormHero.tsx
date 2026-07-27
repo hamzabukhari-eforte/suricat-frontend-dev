@@ -10,6 +10,7 @@ type FormHeroProps = {
   paragraphs?: string[];
   ctaLabel: string;
   ctaHref?: string;
+  complianceNote?: string;
   /** Hero copy container width. Defaults to `max-w-4xl`. */
   measure?: MaxWidth;
   /** Title measure. Defaults to `max-w-full`. */
@@ -24,6 +25,7 @@ export function FormHero({
   paragraphs = [],
   ctaLabel,
   ctaHref = "#intake",
+  complianceNote = "Built for Medical Device Manufacturers operating under FDA QMSR and ISO 13485.",
   measure = DEFAULT_DESCRIPTION_MAX,
   titleMaxWidth = "max-w-full",
   paragraphMaxWidth = "max-w-full",
@@ -61,8 +63,7 @@ export function FormHero({
         <p className="text-white text-sm sm:text-[16px] leading-relaxed mb-7 sm:mb-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mx-auto max-w-full text-center lg:whitespace-nowrap mt-2">
           <FaShieldHalved className="text-teal/60 text-base shrink-0" aria-hidden="true" />
           <span>
-            Built for Medical Device Manufacturers operating under FDA QMSR and
-            ISO 13485.
+            {complianceNote}
           </span>
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center mt-2">

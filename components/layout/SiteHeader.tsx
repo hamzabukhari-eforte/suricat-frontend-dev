@@ -2,11 +2,13 @@
 
 import { FaArrowRight, FaBars, FaChevronDown, FaGlobe, FaHandshake, FaTimes } from "@/components/ui/icons";
 import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { LANGUAGES, megaMenus, isNavHrefActive } from "@/lib/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { buildMegaMenus, isNavHrefActive } from "@/lib/navigation";
 
 function closeDesktopMegaMenus() {
   const active = document.activeElement;
@@ -18,6 +20,9 @@ function closeDesktopMegaMenus() {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { locale } = useLocale();
+  const t = useTranslations();
+  const megaMenus = useMemo(() => buildMegaMenus(t), [t]);
   const [hash, setHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
@@ -89,13 +94,16 @@ export function SiteHeader() {
   const linkIsActive = (href: string) => isNavHrefActive(href, pathname, hash);
 
   return (
-    <nav className="border-b border-gray-200 sticky top-0 bg-white z-50 overflow-x-clip overflow-y-visible">
+    <nav
+      className="border-b border-gray-200 sticky top-0 bg-white z-50 overflow-x-clip overflow-y-visible"
+      data-locale={locale}
+    >
       <div className="nav-header-bar max-w-7xl mx-auto px-4 xl:px-0 h-16 lg:h-24 flex items-center">
         <div className="nav-brand-cluster flex items-center shrink-0">
           <Link href="/" className="shrink-0 flex items-center" onClick={closeMobile}>
             <Image
               src="/assets/images/suricat-logo-nav.png"
-              alt="Suricat"
+              alt={t("common.suricatAlt")}
               id="ig8vb"
               width={2048}
               height={470}
@@ -109,9 +117,10 @@ export function SiteHeader() {
             className={`nav-design-partners-btn hidden xl:inline-flex items-center rounded-full font-bold transition-all whitespace-nowrap shrink-0${
               pathname.startsWith("/design-partners") ? " is-active" : ""
             }`}
+            title={t("nav.designPartners")}
           >
             <FaHandshake aria-hidden="true" />
-            Design Partners
+            <span className="nav-design-partners-label">{t("nav.designPartners")}</span>
           </Link>
         </div>
 
@@ -139,8 +148,9 @@ export function SiteHeader() {
                   }`}
                   aria-expanded="false"
                   aria-current={menuActive ? "true" : undefined}
+                  title={menu.label}
                 >
-                  {menu.label}
+                  <span className="nav-mega-trigger-label">{menu.label}</span>
                   <FaChevronDown className="nav-mega-chevron" aria-hidden="true" />
                 </button>
                 <div className="nav-mega-panel">
@@ -195,18 +205,14 @@ export function SiteHeader() {
             <button
               type="button"
               className="nav-language-trigger"
-              aria-label="Choose language"
+              aria-label={t("common.chooseLanguage")}
             >
               <FaGlobe className="text-lg" aria-hidden="true" />
               <FaChevronDown className="text-xs transition-transform duration-300 group-hover:rotate-180" aria-hidden="true" />
             </button>
             <div className="nav-language-dropdown absolute right-0 top-full pt-3 w-44 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-200 z-50">
               <div className="nav-language-panel">
-                {LANGUAGES.map((lang) => (
-                  <a key={lang} href="#" className="nav-language-link">
-                    {lang}
-                  </a>
-                ))}
+                <LanguageSwitcher variant="nav-dropdown" />
               </div>
             </div>
           </div>
@@ -220,13 +226,13 @@ export function SiteHeader() {
               }`}
               aria-current={linkIsActive("/login") ? "page" : undefined}
             >
-              Login
+              {t("nav.login")}
             </Link>
             <Link
               href="/get-started"
               className="nav-cta-btn inline-flex items-center justify-center cursor-pointer rounded-full border-2 border-navy bg-navy font-bold text-white transition-colors hover:bg-navy/90"
             >
-              Get Started
+              {t("nav.getStarted")}
             </Link>
           </div>
         </div>
@@ -238,7 +244,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setMobileLangOpen((v) => !v)}
               aria-expanded={mobileLangOpen}
-              aria-label="Choose language"
+              aria-label={t("common.chooseLanguage")}
             >
               <FaGlobe className="text-lg" aria-hidden="true" />
               <FaChevronDown
@@ -250,16 +256,10 @@ export function SiteHeader() {
             </button>
             {mobileLangOpen ? (
               <div className="absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-[4px] shadow-lg py-2 z-[60]">
-                {LANGUAGES.map((lang) => (
-                  <a
-                    key={lang}
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#413cc3] transition-colors"
-                    onClick={() => setMobileLangOpen(false)}
-                  >
-                    {lang}
-                  </a>
-                ))}
+                <LanguageSwitcher
+                  variant="nav-mobile"
+                  onSelect={() => setMobileLangOpen(false)}
+                />
               </div>
             ) : null}
           </div>
@@ -267,7 +267,7 @@ export function SiteHeader() {
             onClick={() => setMobileOpen(true)}
             className="p-2 text-gray-600"
             type="button"
-            aria-label="Toggle navigation menu"
+            aria-label={t("nav.toggleMenu")}
           >
             <FaBars className="text-lg" aria-hidden="true" />
           </button>
@@ -282,7 +282,7 @@ export function SiteHeader() {
         <div className="mobile-menu-header p-4 border-b border-gray-200 flex items-center justify-between">
           <Image
             src="/assets/images/suricat-logo-nav.png"
-            alt="Suricat"
+            alt={t("common.suricatAlt")}
             width={2048}
             height={470}
             className="nav-logo shrink-0 object-contain object-left"
@@ -292,7 +292,7 @@ export function SiteHeader() {
             onClick={closeMobile}
             className="p-2"
             type="button"
-            aria-label="Close menu"
+            aria-label={t("nav.closeMenu")}
           >
             <FaTimes className="text-lg" aria-hidden="true" />
           </button>
@@ -375,14 +375,14 @@ export function SiteHeader() {
             aria-current={linkIsActive("/login") ? "page" : undefined}
             onClick={closeMobile}
           >
-            Login
+            {t("nav.login")}
           </Link>
           <Link
             href="/get-started"
             className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
             onClick={closeMobile}
           >
-            Get Started
+            {t("nav.getStarted")}
           </Link>
           <Link
             href="/design-partners"
@@ -394,7 +394,7 @@ export function SiteHeader() {
             onClick={closeMobile}
           >
             <FaHandshake className="text-lg" aria-hidden="true" />
-            Design Partners
+            {t("nav.designPartners")}
           </Link>
         </div>
       </div>

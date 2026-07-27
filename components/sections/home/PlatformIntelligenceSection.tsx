@@ -7,13 +7,77 @@ import {
   parsePlatformTabIndex,
 } from "@/components/layout/SmoothHashScroll";
 import { animatedTabPaneClass } from "@/lib/animatedTabPane";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-
-const PLATFORM_TABS = ['Intelligence Layer', 'Read Only by Design', 'No Rip and Replace', 'Human Accountability', 'Deployment', 'Regulatory Ontology', 'Canonical Intelligence Schema', 'Quality Validation Rating', 'Bounded Reasoning'];
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export function PlatformIntelligenceSection() {
+  const t = useTranslations("home.platform");
+  const PLATFORM_TABS = useMemo(
+    () => [
+      t("tabs.intelligenceLayer"),
+      t("tabs.readOnly"),
+      t("tabs.noRipReplace"),
+      t("tabs.humanAccountability"),
+      t("tabs.deployment"),
+      t("tabs.regulatoryOntology"),
+      t("tabs.canonicalSchema"),
+      t("tabs.qvr"),
+      t("tabs.boundedReasoning"),
+    ],
+    [t],
+  );
+  const panes = useMemo(
+    () => ({
+      intelligenceLayer: {
+        title: t("panes.intelligenceLayer.title"),
+        body: t("panes.intelligenceLayer.body"),
+        imageAlt: t("panes.intelligenceLayer.imageAlt"),
+      },
+      readOnly: {
+        title: t("panes.readOnly.title"),
+        body: t("panes.readOnly.body"),
+        imageAlt: t("panes.readOnly.imageAlt"),
+      },
+      noRipReplace: {
+        title: t("panes.noRipReplace.title"),
+        body: t("panes.noRipReplace.body"),
+        imageAlt: t("panes.noRipReplace.imageAlt"),
+      },
+      humanAccountability: {
+        title: t("panes.humanAccountability.title"),
+        body: t("panes.humanAccountability.body"),
+        imageAlt: t("panes.humanAccountability.imageAlt"),
+      },
+      deployment: {
+        title: t("panes.deployment.title"),
+        body: t("panes.deployment.body"),
+        imageAlt: t("panes.deployment.imageAlt"),
+      },
+      regulatoryOntology: {
+        title: t("panes.regulatoryOntology.title"),
+        body: t("panes.regulatoryOntology.body"),
+        imageAlt: t("panes.regulatoryOntology.imageAlt"),
+      },
+      canonicalSchema: {
+        title: t("panes.canonicalSchema.title"),
+        body: t("panes.canonicalSchema.body"),
+        imageAlt: t("panes.canonicalSchema.imageAlt"),
+      },
+      qvr: {
+        title: t("panes.qvr.title"),
+        body: t("panes.qvr.body"),
+        imageAlt: t("panes.qvr.imageAlt"),
+      },
+      boundedReasoning: {
+        title: t("panes.boundedReasoning.title"),
+        body: t("panes.boundedReasoning.body"),
+        imageAlt: t("panes.boundedReasoning.imageAlt"),
+      },
+    }),
+    [t],
+  );
   const [active, setActive] = useState(0);
 
   const selectTab = useCallback((index: number) => {
@@ -42,7 +106,7 @@ export function PlatformIntelligenceSection() {
       window.removeEventListener(HOME_HASH_EVENT, onHomeHash);
       window.removeEventListener("hashchange", onHashChange);
     };
-  }, []);
+  }, [PLATFORM_TABS.length]);
 
   const continueTab = () => {
     selectTab((active + 1) % PLATFORM_TABS.length);
@@ -63,20 +127,18 @@ export function PlatformIntelligenceSection() {
           <span
             className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal"
           >
-            Platform
+            {t("sectionTitle")}
           </span>
           <h2
             className="mb-4 text-2xl font-semibold leading-tight text-navy sm:mb-6 sm:text-3xl lg:text-[32px] lg:leading-[36px]"
           >
-            The Systems Remain. The Intelligence Layer Sits Above Them.
+            {t("headline")}
           </h2>
           <p
             id="i7axkf"
             className="mb-12 w-full max-w-5xl text-base leading-relaxed text-navy sm:text-lg lg:text-[20px] lg:leading-[28px]"
           >
-            Suricat is a read-only Compliance Intelligence Layer that continuously
-            evaluates alignment across quality and regulatory documentation without
-            changing the systems organizations already depend on.
+            {t("intro")}
           </p>
 
           <div className="max-w-7xl mx-auto text-left">
@@ -114,7 +176,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/intelligence-layer.png"
-                    alt="Intelligence Layer"
+                    alt={panes.intelligenceLayer.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -125,16 +187,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Intelligence Layer
+                    {panes.intelligenceLayer.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat operates as a neutral, read-only intelligence layer
-                    above existing systems of record. It does not replace
-                    validated infrastructure or alter system boundaries.
+                    {panes.intelligenceLayer.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -154,7 +214,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/read-only-by-design.png"
-                    alt="Read Only by Design"
+                    alt={panes.readOnly.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -165,15 +225,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Read Only by Design
+                    {panes.readOnly.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat integrates across enterprise systems without
-                    modifying a single record.
+                    {panes.readOnly.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -193,7 +252,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/no-rip-and-replace.png"
-                    alt="No Rip and Replace"
+                    alt={panes.noRipReplace.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -204,15 +263,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    No Rip and Replace
+                    {panes.noRipReplace.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Your QMS, RIM platforms, document control systems, and
-                    validation infrastructure remain exactly as they are.
+                    {panes.noRipReplace.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -232,7 +290,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/human-accountability.png"
-                    alt="Human Accountability"
+                    alt={panes.humanAccountability.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -243,15 +301,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Human Accountability
+                    {panes.humanAccountability.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat surfaces intelligence. Qualified professionals make
-                    every decision.
+                    {panes.humanAccountability.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -271,7 +328,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/deployment.png"
-                    alt="Deployment"
+                    alt={panes.deployment.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -282,15 +339,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Deployment
+                    {panes.deployment.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat is delivered as a secure SaaS platform, enabling
-                    rapid adoption without disrupting validated environments.
+                    {panes.deployment.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -310,7 +366,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/regulatory-ontology.png"
-                    alt="Regulatory Ontology"
+                    alt={panes.regulatoryOntology.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -321,15 +377,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Regulatory Ontology
+                    {panes.regulatoryOntology.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    At the core of Suricat is a proprietary knowledge framework
-                    encoding how regulations are interpreted in practice.
+                    {panes.regulatoryOntology.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -349,7 +404,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/canonical-intelligence-schema.png"
-                    alt="Canonical Intelligence Schema"
+                    alt={panes.canonicalSchema.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -360,17 +415,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Canonical Intelligence Schema
+                    {panes.canonicalSchema.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Every document entering Suricat is transformed into
-                    structured, traceable evidence that reflects how experienced
-                    regulatory professionals evaluate artifacts during
-                    inspections.
+                    {panes.canonicalSchema.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -390,7 +442,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/quality-validation-rating.png"
-                    alt="Quality Validation Rating"
+                    alt={panes.qvr.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -401,16 +453,14 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Quality Validation Rating
+                    {panes.qvr.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat continuously evaluates documentation through a
-                    confidence scoring system that determines inspection
-                    readiness.
+                    {panes.qvr.body}
                   </p>
                   <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </button>
                 </div>
@@ -430,7 +480,7 @@ export function PlatformIntelligenceSection() {
                 >
                   <Image
                     src="/assets/images/bonded-reasoning.png"
-                    alt="Bounded Reasoning"
+                    alt={panes.boundedReasoning.imageAlt}
                     width={1650}
                     height={1050}
                     className="h-auto w-full max-h-[400px] object-contain"
@@ -441,19 +491,17 @@ export function PlatformIntelligenceSection() {
                   className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-[#EDEFEF]"
                 >
                   <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                    Bounded Reasoning
+                    {panes.boundedReasoning.title}
                   </h3>
                   <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
                   <p className="text-navy mb-6 leading-relaxed">
-                    Suricat&apos;s bounded reasoning engine is a proprietary
-                    architecture purpose-built for regulated environments where
-                    an incorrect output is not an inconvenience.
+                    {panes.boundedReasoning.body}
                   </p>
                   <Link
                     href="/readiness"
                     className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group"
                   >
-                    Check Your Readiness
+                    {t("checkReadiness")}
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                   </Link>
                 </div>

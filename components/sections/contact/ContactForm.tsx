@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { toast } from "sonner";
 import {
   submitContact,
@@ -9,19 +9,25 @@ import {
 import { FaLock } from "@/components/ui/icons";
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
-
-const INTENTS = [
-  { value: "general", label: "General Inquiry" },
-  { value: "partnership", label: "Partnership" },
-  { value: "design-partner", label: "Design Partner Program" },
-];
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 const inputClass =
   "w-full rounded-[4px] border border-gray-300 bg-white px-4 py-3 text-[#374151] placeholder:text-[#6b7280]/60 focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal";
 
 export function ContactForm() {
+  const t = useTranslations("forms.contact");
+  const tCommon = useTranslations("common");
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const turnstile = useTurnstileAction();
+
+  const intents = useMemo(
+    () => [
+      { value: "general", label: t("intents.general") },
+      { value: "partnership", label: t("intents.partnership") },
+      { value: "design-partner", label: t("intents.designPartner") },
+    ],
+    [t],
+  );
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,7 +35,7 @@ export function ContactForm() {
 
     if (turnstile.isCaptchaBlockingSubmit) {
       toast.error(
-        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+        turnstile.captchaStatusMessage ?? tCommon("securityCheck"),
       );
       return;
     }
@@ -53,7 +59,7 @@ export function ContactForm() {
       form.reset();
       turnstile.resetCaptcha();
       setStatus("idle");
-      toast.success("Thank you. Your inquiry will be reviewed by the Suricat team.");
+      toast.success(t("success"));
     } else {
       turnstile.resetCaptcha();
       setStatus("error");
@@ -65,7 +71,7 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="min-w-0 max-w-full space-y-6 max-sm:space-y-4">
       <div className="space-y-1.5">
         <label htmlFor="name" className="text-sm text-navy">
-          Name
+          {t("name")}
         </label>
         <input
           id="name"
@@ -78,7 +84,7 @@ export function ContactForm() {
 
       <div className="space-y-1.5">
         <label htmlFor="company" className="text-sm text-navy">
-          Company
+          {t("company")}
         </label>
         <input
           id="company"
@@ -91,7 +97,7 @@ export function ContactForm() {
 
       <div className="space-y-1.5">
         <label htmlFor="work_email" className="text-sm text-navy">
-          Work Email
+          {t("workEmail")}
         </label>
         <input
           id="work_email"
@@ -105,13 +111,13 @@ export function ContactForm() {
 
       <div className="space-y-1.5">
         <label htmlFor="intent" className="text-sm text-navy">
-          What brings you here?
+          {t("intentLabel")}
         </label>
         <select id="intent" name="intent" required className={inputClass} defaultValue="">
           <option value="" disabled>
-            Select an option
+            {tCommon("selectOption")}
           </option>
-          {INTENTS.map((opt) => (
+          {intents.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
             </option>
@@ -121,7 +127,7 @@ export function ContactForm() {
 
       <div className="space-y-1.5">
         <label htmlFor="message" className="text-sm text-navy">
-          Message
+          {t("message")}
         </label>
         <textarea
           id="message"
@@ -140,12 +146,12 @@ export function ContactForm() {
           disabled={status === "submitting" || turnstile.isCaptchaBlockingSubmit}
           className="suricat-teal-btn w-full rounded-full px-8 py-2.5 font-bold disabled:opacity-60"
         >
-          {status === "submitting" ? "Sending…" : "Send Message"}
+          {status === "submitting" ? tCommon("sending") : t("submit")}
         </button>
       </div>
       <p className="text-sm leading-relaxed text-gray-700">
         <FaLock className="mr-1 inline-block align-middle text-xs" aria-hidden="true" />
-        Your inquiry will be reviewed by the Suricat team.
+        {t("privacyNote")}
       </p>
     </form>
   );

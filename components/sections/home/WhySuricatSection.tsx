@@ -8,15 +8,15 @@ import {
   HOME_HASH_EVENT,
   parseWhyTabIndex,
 } from "@/components/layout/SmoothHashScroll";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import { animatedTabPaneClass } from "@/lib/animatedTabPane";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
-
-const WHY_TABS = ["Suricat's Mission", 'Built by Practitioners', 'The Structural Problem', 'Why Existing Systems Fall Short', 'How Suricat Works', 'Designed for Regulated Environments', 'What Suricat Enables'];
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 
 /** Designs index.html WHY_DESC_LIMIT — truncate long tab descriptions with Read more/less. */
 const WHY_DESC_LIMIT = 250;
 
 function WhyTabDescription({ paragraphs }: { paragraphs: string[] }) {
+  const t = useTranslations("home.why");
   const [expanded, setExpanded] = useState(false);
   const [animating, setAnimating] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -75,7 +75,7 @@ function WhyTabDescription({ paragraphs }: { paragraphs: string[] }) {
       onClick={toggle}
       onKeyDown={onKeyDown}
     >
-      {expanded ? "Read less" : "Read more"}
+      {expanded ? t("readLess") : t("readMore")}
     </span>
   );
 
@@ -122,6 +122,110 @@ function WhyTabDescription({ paragraphs }: { paragraphs: string[] }) {
 }
 
 export function WhySuricatSection() {
+  const t = useTranslations("home.why");
+  const WHY_TABS = useMemo(
+    () => [
+      t("tabs.mission"),
+      t("tabs.practitioners"),
+      t("tabs.structural"),
+      t("tabs.existingSystems"),
+      t("tabs.howItWorks"),
+      t("tabs.regulated"),
+      t("tabs.enables"),
+    ],
+    [t],
+  );
+  const panes = useMemo(
+    () => ({
+      mission: {
+        eyebrow: t("mission.eyebrow"),
+        bullets: [t("mission.bullets.0"), t("mission.bullets.1"), t("mission.bullets.2")],
+        title: t("mission.title"),
+        paragraphs: [t("mission.paragraphs.0")],
+      },
+      practitioners: {
+        eyebrow: t("practitioners.eyebrow"),
+        bullets: [
+          t("practitioners.bullets.0"),
+          t("practitioners.bullets.1"),
+          t("practitioners.bullets.2"),
+        ],
+        title: t("practitioners.title"),
+        paragraphs: [
+          t("practitioners.paragraphs.0"),
+          t("practitioners.paragraphs.1"),
+          t("practitioners.paragraphs.2"),
+        ],
+      },
+      structural: {
+        eyebrow: t("structural.eyebrow"),
+        bullets: [
+          t("structural.bullets.0"),
+          t("structural.bullets.1"),
+          t("structural.bullets.2"),
+        ],
+        title: t("structural.title"),
+        paragraphs: [
+          t("structural.paragraphs.0"),
+          t("structural.paragraphs.1"),
+          t("structural.paragraphs.2"),
+          t("structural.paragraphs.3"),
+          t("structural.paragraphs.4"),
+        ],
+      },
+      existingSystems: {
+        eyebrow: t("existingSystems.eyebrow"),
+        bullets: [
+          t("existingSystems.bullets.0"),
+          t("existingSystems.bullets.1"),
+          t("existingSystems.bullets.2"),
+        ],
+        title: t("existingSystems.title"),
+        paragraphs: [
+          t("existingSystems.paragraphs.0"),
+          t("existingSystems.paragraphs.1"),
+          t("existingSystems.paragraphs.2"),
+        ],
+      },
+      howItWorks: {
+        eyebrow: t("howItWorks.eyebrow"),
+        bullets: [
+          t("howItWorks.bullets.0"),
+          t("howItWorks.bullets.1"),
+          t("howItWorks.bullets.2"),
+        ],
+        title: t("howItWorks.title"),
+        paragraphs: [
+          t("howItWorks.paragraphs.0"),
+          t("howItWorks.paragraphs.1"),
+          t("howItWorks.paragraphs.2"),
+        ],
+      },
+      regulated: {
+        eyebrow: t("regulated.eyebrow"),
+        bullets: [t("regulated.bullets.0"), t("regulated.bullets.1"), t("regulated.bullets.2")],
+        title: t("regulated.title"),
+        paragraphs: [
+          t("regulated.paragraphs.0"),
+          t("regulated.paragraphs.1"),
+          t("regulated.paragraphs.2"),
+          t("regulated.paragraphs.3"),
+        ],
+      },
+      enables: {
+        eyebrow: t("enables.eyebrow"),
+        bullets: [t("enables.bullets.0"), t("enables.bullets.1"), t("enables.bullets.2")],
+        title: t("enables.title"),
+        paragraphs: [
+          t("enables.paragraphs.0"),
+          t("enables.paragraphs.1"),
+          t("enables.paragraphs.2"),
+          t("enables.paragraphs.3"),
+        ],
+      },
+    }),
+    [t],
+  );
   const [active, setActive] = useState(0);
 
   const selectTab = useCallback((index: number) => {
@@ -150,7 +254,7 @@ export function WhySuricatSection() {
       window.removeEventListener(HOME_HASH_EVENT, onHomeHash);
       window.removeEventListener("hashchange", onHashChange);
     };
-  }, []);
+  }, [WHY_TABS.length]);
 
   const continueTab = () => {
     selectTab((active + 1) % WHY_TABS.length);
@@ -162,19 +266,19 @@ export function WhySuricatSection() {
         <div className="mb-12">
           <span
             className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block"
-            >Why Suricat</span
+            >{t("sectionTitle")}</span
           >
           <h2
             id="ipde2x"
             className="text-2xl sm:text-3xl lg:text-[32px] font-semibold mb-4 sm:mb-6 leading-tight lg:leading-[36px]"
           >
-          The Systems Are in Place. The Alignment Between Them is Not.
+          {t("headline")}
           </h2>
           <p
             id="i0r66h"
             className="text-navy max-w-4xl w-full text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px]"
           >
-          Requirements change. Documents evolve. Evidence accumulates. Over time, demonstrating that critical quality and regulatory documentation remains aligned becomes increasingly difficult.
+          {t("intro")}
           </p>
         </div>
         <HomeSectionTabNav
@@ -206,7 +310,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Continuous Alignment
+                  {panes.mission.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -215,7 +319,7 @@ export function WhySuricatSection() {
                       <FaCrosshairs aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Detects misalignment before inspection.
+                      {panes.mission.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -223,7 +327,7 @@ export function WhySuricatSection() {
                       <FaUser aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Preserves human accountability.
+                      {panes.mission.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -231,7 +335,7 @@ export function WhySuricatSection() {
                       <FaShieldHalved aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Enables inspection-ready decisions.
+                      {panes.mission.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -240,16 +344,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  Suricat&apos;s Mission
+                  {panes.mission.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Transform regulatory compliance through explainable intelligence that detects misalignment earlier, preserves human accountability, and enables inspection-ready decisions.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.mission.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -267,7 +367,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Built by Practitioners
+                  {panes.practitioners.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -276,8 +376,7 @@ export function WhySuricatSection() {
                       <FaUsers aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Decades across Quality, Regulatory Affairs, and
-                      Compliance.
+                      {panes.practitioners.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -285,7 +384,7 @@ export function WhySuricatSection() {
                       <FaClipboardCheck aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Built inside regulated environments.
+                      {panes.practitioners.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -293,7 +392,7 @@ export function WhySuricatSection() {
                       <FaShieldHalved aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Deep FDA inspection and CAPA experience.
+                      {panes.practitioners.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -302,18 +401,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  Built by Practitioners
+                  {panes.practitioners.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Suricat was built from lived regulatory and operational experience.",
-                    "The founding team brings decades of experience across Quality, Regulatory Affairs, FDA inspections, CAPA investigations, and MDR transitions.",
-                    "We built the intelligence layer we wished existed to make compliance evaluation continuous, not episodic.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.practitioners.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -331,7 +424,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Episodic Compliance
+                  {panes.structural.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -340,8 +433,7 @@ export function WhySuricatSection() {
                       <FaCalendarDays aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Organizations reconcile documents periodically, not
-                      continuously.
+                      {panes.structural.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -349,7 +441,7 @@ export function WhySuricatSection() {
                       <FaShareNodes aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Requirements are mapped manually across fragmented systems.
+                      {panes.structural.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -357,8 +449,7 @@ export function WhySuricatSection() {
                       <FaUser aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Institutional knowledge lives in individuals, not in
-                      systems.
+                      {panes.structural.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -367,20 +458,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  The Structural Problem
+                  {panes.structural.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Despite decades of enterprise digitization, compliance remains episodic. Organizations are always catching up.",
-                    "Regulated organizations manage documentation ecosystems spanning quality, risk, regulatory, operational, financial, and governance records across multiple environments and jurisdictions.",
-                    "As requirements change, previously compliant evidence becomes insufficient. Systems of record preserve data integrity—they do not evaluate alignment across it.",
-                    "Misalignment is detected late, when remediation is costly and regulatory exposure is already material.",
-                    "This is not a gap a better workflow tool closes. It is a structural condition that requires a different class of infrastructure entirely.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.structural.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -398,7 +481,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  System Gaps
+                  {panes.existingSystems.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -407,7 +490,7 @@ export function WhySuricatSection() {
                       <FaFileLines aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Small changes across documents create invisible divergence.
+                      {panes.existingSystems.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -415,8 +498,7 @@ export function WhySuricatSection() {
                       <FaClock aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Periodic reconciliation is reactive, redundant, and
-                      resource intensive.
+                      {panes.existingSystems.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -424,8 +506,7 @@ export function WhySuricatSection() {
                       <FaTriangleExclamation aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Misalignment discovered during inspection leads to delays,
-                      exposure, and higher cost.
+                      {panes.existingSystems.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -434,18 +515,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  Why Existing Systems Fall Short
+                  {panes.existingSystems.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Complexity does not announce its consequences. A design revision here. An updated procedure there. A requirement that shifted without triggering coordinated updates across every artifact it touched. Each change is individually defensible. Together they produce a documentation ecosystem that no longer holds together under scrutiny.",
-                    "Organizations invest heavily in periodic reconciliation—assembling evidence, cross-referencing records, reconstructing rationale. This effort is largely reactive and preventable.",
-                    "When misalignment surfaces during inspection rather than before it, remediation extends and exposure intensifies. The solution is not more process—it is continuous alignment embedded within operations.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.existingSystems.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -463,7 +538,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Continuous Intelligence Cycle
+                  {panes.howItWorks.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -472,7 +547,7 @@ export function WhySuricatSection() {
                       <FaFileImport aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Ingests documents and metadata continuously.
+                      {panes.howItWorks.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -480,7 +555,7 @@ export function WhySuricatSection() {
                       <FaShareNodes aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Maps requirements to evidence across systems.
+                      {panes.howItWorks.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -488,7 +563,7 @@ export function WhySuricatSection() {
                       <FaShieldHalved aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Surfaces findings with full source traceability.
+                      {panes.howItWorks.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -497,18 +572,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  How Suricat Works
+                  {panes.howItWorks.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Suricat operates in a continuous cycle that turns fragmented documentation into inspection-ready confidence.",
-                    "It connects disparate systems and content, maps requirements to evidence, and applies regulatory reasoning to evaluate alignment, consistency, and risk—continuously, not periodically.",
-                    "Teams act on findings within existing workflows. Suricat learns from outcomes to continuously improve accuracy, reduce false positives, and strengthen inspection readiness.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.howItWorks.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -526,7 +595,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Built for Regulated Reality
+                  {panes.regulated.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -535,7 +604,7 @@ export function WhySuricatSection() {
                       <FaShieldHalved aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Regulatory Grade.
+                      {panes.regulated.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -543,7 +612,7 @@ export function WhySuricatSection() {
                       <FaLock aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Security by Design.
+                      {panes.regulated.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -551,7 +620,7 @@ export function WhySuricatSection() {
                       <FaGlobe aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Global &amp; Scalable.
+                      {panes.regulated.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -560,19 +629,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  Designed for Regulated Environments
+                  {panes.regulated.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Suricat is purpose-built for organizations operating under complex and evolving regulatory obligations. Every capability is designed to meet the expectations of regulators and the needs of regulated teams.",
-                    "We embed security, privacy, and access controls at every layer. Data is protected, evidence is traceable, and every output is explainable and defensible.",
-                    "Suricat supports global operations across industries and jurisdictions. Our platform adapts to your requirements, scales with your growth, and stays aligned as regulations and standards evolve.",
-                    "You get a compliance infrastructure you can trust—built to operate in the real world of regulated environments.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.regulated.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>
@@ -590,7 +652,7 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 bg-navy text-white p-10 lg:p-12 flex flex-col justify-start"
               >
                 <p className="text-teal text-sm font-bold uppercase tracking-widest mb-3">
-                  Outcomes That Matter
+                  {panes.enables.eyebrow}
                 </p>
                 <div className="w-10 h-1 bg-teal rounded-full mb-6"></div>
                 <div className="divide-y divide-white/10">
@@ -599,7 +661,7 @@ export function WhySuricatSection() {
                       <FaShieldHalved aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Inspection Readiness.
+                      {panes.enables.bullets[0]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -607,7 +669,7 @@ export function WhySuricatSection() {
                       <FaCrosshairs aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Risk Reduction.
+                      {panes.enables.bullets[1]}
                     </p>
                   </div>
                   <div className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
@@ -615,7 +677,7 @@ export function WhySuricatSection() {
                       <FaClock aria-hidden="true" />
                     </div>
                     <p className="text-white text-lg leading-snug">
-                      Operational Efficiency.
+                      {panes.enables.bullets[2]}
                     </p>
                   </div>
                 </div>
@@ -624,19 +686,12 @@ export function WhySuricatSection() {
                 className="xl:w-1/2 p-10 lg:p-12 flex flex-col justify-center bg-white"
               >
                 <h3 className="text-navy text-2xl lg:text-[32px] font-bold mb-4">
-                  What Suricat Enables
+                  {panes.enables.title}
                 </h3>
                 <div className="w-12 h-1 bg-teal rounded-full mb-6"></div>
-                <WhyTabDescription
-                  paragraphs={[
-                    "Suricat transforms compliance from a periodic, manual effort into a continuous intelligence capability embedded across daily operations.",
-                    "Organizations move beyond assembling evidence after the fact. Instead, they continuously evaluate alignment across documentation, requirements, and operational reality as conditions evolve.",
-                    "Quality, regulatory, and compliance teams gain earlier visibility into emerging risk, stronger inspection readiness, and greater confidence in decision making through explainable findings and traceable evidence.",
-                    "This is not simply faster compliance work. It enables a more resilient operating model designed to scale with products, regulations, and organizational growth.",
-                  ]}
-                />
+                <WhyTabDescription paragraphs={panes.enables.paragraphs} />
                 <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
-                      Continue
+                      {t("continue")}
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
               </div>

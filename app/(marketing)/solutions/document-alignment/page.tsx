@@ -1,9 +1,10 @@
 import { SolutionPageContent } from "@/components/sections/solutions/SolutionPageContent";
-import { solutionPages } from "@/lib/content/solutions";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.documentAlignment;
+export async function generateMetadata() {
+  return getPageMetadata("documentAlignment");
+}
 
 export default function Page() {
-  return <SolutionPageContent data={solutionPages["document-alignment"]} />;
+  return <SolutionPageContent slug="document-alignment" />;
 }

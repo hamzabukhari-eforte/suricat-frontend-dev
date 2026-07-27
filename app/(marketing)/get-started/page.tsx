@@ -1,26 +1,10 @@
-import { FormHero } from "@/components/sections/forms/FormHero";
-import { GetStartedForm } from "@/components/sections/forms/GetStartedForm";
-import { pageSeo } from "@/lib/seo/metadata";
+import { GetStartedContent } from "@/components/sections/forms/GetStartedContent";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.getStarted;
+export async function generateMetadata() {
+  return getPageMetadata("getStarted");
+}
 
 export default function GetStartedPage() {
-  return (
-    <>
-      <FormHero
-        title={
-          <>
-            Start the <span className="text-teal">Conversation</span>
-          </>
-        }
-        paragraphs={[
-          "Share a little about your environment and priorities.",
-          "Suricat will use your responses to prepare for a focused introductory discussion tailored to your organization.",
-        ]}
-        ctaLabel="Begin"
-        ctaHref="#intake"
-      />
-      <GetStartedForm />
-    </>
-  );
+  return <GetStartedContent />;
 }

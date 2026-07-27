@@ -9,9 +9,11 @@ import {
   SolutionsSection,
   WhySuricatSection,
 } from "@/components/sections/home";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.home;
+export async function generateMetadata() {
+  return getPageMetadata("home");
+}
 
 export default function HomePage() {
   return (

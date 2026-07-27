@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { AppToaster } from "@/components/ui/AppToaster";
+import { LocaleProvider } from "@/components/i18n/LocaleProvider";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getLocale } from "@/lib/i18n/get-locale";
 import "./globals.css";
 
 const plusJakarta = localFont({
@@ -27,19 +30,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const dictionary = await getDictionary(locale);
+
   return (
-    <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
+    <html lang={locale} className={`${plusJakarta.variable} h-full antialiased`}>
       <body
         className="min-h-full flex flex-col font-sans text-navy bg-white"
         suppressHydrationWarning
       >
-        {children}
-        <AppToaster />
+        <LocaleProvider locale={locale} dictionary={dictionary}>
+          {children}
+          <AppToaster />
+        </LocaleProvider>
       </body>
     </html>
   );

@@ -3,34 +3,12 @@ export type FaqItem = {
   answer: string;
 };
 
-/** Teaser FAQs shown on the main pricing page (Designs/pricing.html). */
-export const pricingFaqTeaser: FaqItem[] = [
-  {
-    question: "Is pricing published?",
-    answer:
-      "Yes. Suricat publishes annual pricing for Evaluate, Pilot, and Foundation tiers. Enterprise pricing is custom and based on device program complexity, user scale, and regulatory framework scope. There are no hidden fees.",
-  },
-  {
-    question: "Are there per-seat charges?",
-    answer:
-      "No. Suricat does not charge per seat. Pricing is based on Document Capacity — the number of active compliance documents defined by your subscription tier. User access is defined by your subscription tier and does not affect pricing.",
-  },
-  {
-    question: "Are subscriptions annual?",
-    answer:
-      "Yes. Pilot and Foundation are twelve-month annual subscriptions with published annual pricing. Evaluate is a 90-day evaluation term at no cost. Enterprise subscriptions are annual with custom commercial terms.",
-  },
-  {
-    question: "Can I move from one tier to another mid-term?",
-    answer:
-      "Yes. Organizations may upgrade from one tier to another during an active subscription term. Suricat aligns Document Capacity, workspace scope, and commercial terms at the time of upgrade. Downgrades are not available mid-term.",
-  },
-  {
-    question: "What counts toward Document Capacity?",
-    answer:
-      "Document Capacity reflects the number of active compliance-critical documents evaluated within your Suricat workspace — including procedures, records, risk files, CAPAs, investigations, training records, and supporting quality documentation.",
-  },
-];
+export function getPricingFaqItems(
+  t: { raw: (key: string) => unknown },
+  kind: "teaser" | "full",
+): FaqItem[] {
+  return t.raw(kind) as FaqItem[];
+}
 
 /** Design Partner program FAQ from Designs/design-partners.html */
 export const designPartnersFaq: FaqItem[] = [
@@ -81,66 +59,3 @@ export const designPartnersFaq: FaqItem[] = [
   },
 ];
 
-/** Full FAQ list from Designs/pricing-faq.html */
-export const pricingFaqFull: FaqItem[] = [
-  {
-    question: "Is pricing published?",
-    answer:
-      "Yes. Suricat publishes annual pricing for Evaluate, Pilot, and Foundation tiers. Enterprise pricing is custom and determined by documentation scope, device programs, and regulatory frameworks. There are no hidden fees.",
-  },
-  {
-    question: "Are there per-seat charges?",
-    answer:
-      "No. Suricat does not charge per seat. Pricing is based on Document Capacity — the number of active compliance-critical documents maintained within the Compliance Intelligence Layer during your subscription term. User access is defined by your subscription tier and does not affect pricing.",
-  },
-  {
-    question: "Are subscriptions annual?",
-    answer:
-      "Yes. All Suricat subscriptions are annual. There are no monthly subscription options. Twelve-month terms apply to Pilot, Foundation, and Enterprise. The Evaluate tier is a 90-day evaluation term at no cost.",
-  },
-  {
-    question: "Can I move from one tier to another mid-term?",
-    answer:
-      "Tier upgrades are available during an active subscription term. Pilot subscribers may upgrade to Foundation and Foundation subscribers may initiate an Enterprise discussion at any time. Downgrades are not available mid-term.",
-  },
-  {
-    question: "What counts as an active document?",
-    answer:
-      "Any compliance-critical document maintained within the Compliance Intelligence Layer during your subscription term — including procedures, work instructions, policies, risk files, CAPAs, investigations, training records, design documentation, and supporting quality records.",
-  },
-  {
-    question: "What happens if I exceed my Document Capacity?",
-    answer:
-      "Document Capacity may be expanded at any time during your active subscription term without changing tiers. Expansion pricing decreases as volume increases, starting at $10 per document for the first 100 to 500 additional documents.",
-  },
-  {
-    question: "Can I remove documents to stay within my capacity?",
-    answer:
-      "Yes. Documents may be removed from the Compliance Intelligence Layer at any time. Removed documents do not count toward active Document Capacity.",
-  },
-  {
-    question: "Does Document Capacity roll over?",
-    answer:
-      "Document Capacity Rollover is available exclusively to Enterprise subscribers. Up to 25% of unused annual Document Capacity may carry forward into the first 90 days of the renewal term.",
-  },
-  {
-    question: "Is a credit card required to start an evaluation?",
-    answer:
-      "No. The Evaluate tier requires no credit card, no procurement process, and no IT involvement. Access is provided through a self-service onboarding process.",
-  },
-  {
-    question: "Can I use my own documentation during the evaluation?",
-    answer:
-      "Yes. The Evaluate tier is designed for evaluation using your own compliance-critical documentation. If you prefer to explore first, the Interactive Sandbox provides access using representative Medical Device documentation at no cost with no setup required.",
-  },
-  {
-    question: "What happens to my documentation after the evaluation ends?",
-    answer:
-      "Customer documentation is retained throughout the active 90-day evaluation term. Following expiration, documentation is deleted within 30 to 60 days unless a written deletion request is submitted earlier. Customer documentation is never used to train models shared across customers.",
-  },
-  {
-    question: "What happens at the end of my evaluation?",
-    answer:
-      "At the end of the 90-day evaluation term, you may convert to a Pilot or Foundation subscription to continue with production access. Suricat will reach out before your evaluation expires to discuss next steps.",
-  },
-];

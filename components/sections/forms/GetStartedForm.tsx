@@ -16,6 +16,7 @@ import {
 import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNote";
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
+import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
 
 const COMPANY_SIZES = [
   { value: "lt50", label: "<50" },
@@ -24,19 +25,13 @@ const COMPANY_SIZES = [
   { value: "1000plus", label: "1000+" },
 ] as const;
 
-const PRIORITIES = [
-  { value: "fit", label: "Understand whether Suricat fits our environment" },
-  { value: "readiness", label: "Explore readiness and operating challenges" },
-  { value: "approach", label: "Understand Suricat's approach" },
-  { value: "architecture", label: "Discuss architecture and operating model" },
-  { value: "collaboration", label: "Explore strategic collaboration" },
-  { value: "other", label: "Other" },
-] as const;
-
 const inputClass =
   "w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-navy transition-all";
 
 export function GetStartedForm() {
+  const t = useTranslations("forms.getStarted");
+  const tCommon = useTranslations("common");
+  const { locale } = useLocale();
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,6 +46,18 @@ export function GetStartedForm() {
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const turnstile = useTurnstileAction();
+
+  const priorities = useMemo(
+    () => [
+      { value: "fit", label: t("priorities.fit") },
+      { value: "readiness", label: t("priorities.readiness") },
+      { value: "approach", label: t("priorities.approach") },
+      { value: "architecture", label: t("priorities.architecture") },
+      { value: "collaboration", label: t("priorities.collaboration") },
+      { value: "other", label: t("priorities.other") },
+    ],
+    [t],
+  );
 
   const canSubmit = useMemo(() => {
     if (!name.trim() || !email.trim() || !company.trim()) return false;
@@ -73,7 +80,7 @@ export function GetStartedForm() {
   async function onSubmit() {
     if (turnstile.isCaptchaBlockingSubmit) {
       toast.error(
-        turnstile.captchaStatusMessage ?? "Please complete the security check.",
+        turnstile.captchaStatusMessage ?? tCommon("securityCheck"),
       );
       return;
     }
@@ -87,7 +94,7 @@ export function GetStartedForm() {
       priority,
       priorityOther,
       context,
-      date: date != null ? formatScheduleDate(date) : undefined,
+      date: date != null ? formatScheduleDate(date, locale) : undefined,
       time: time ?? undefined,
       ...(turnstile.isTurnstileEnabled
         ? { captchaToken: turnstile.captchaToken }
@@ -123,7 +130,7 @@ export function GetStartedForm() {
     setTime(null);
     setEmailError(false);
     turnstile.resetCaptcha();
-    toast.success("Discussion scheduled. A confirmation email is on the way.");
+    toast.success(t("toastSuccess"));
 
     router.push(`/discussion-confirmed?${qs}`);
   }
@@ -133,15 +140,13 @@ export function GetStartedForm() {
       <div className="max-w-7xl mx-auto px-6 relative z-10 max-sm:px-4">
         <div className="mb-6 max-sm:mb-4">
           <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
-            Introductory Discussion
+            {t("sectionEyebrow")}
           </p>
           <h2 className="mb-3 text-[28px] font-bold tracking-tight text-navy max-sm:mb-2 max-sm:text-[1.5rem]">
-            Tell Us About Your Environment
+            {t("sectionTitle")}
           </h2>
           <p className="max-w-3xl text-[20px] leading-relaxed text-navy max-sm:text-base">
-            Share a little about your environment and priorities, then choose a
-            time that works for you. No automated analysis, just real expert
-            guidance.
+            {t("sectionBody")}
           </p>
         </div>
 
@@ -155,24 +160,24 @@ export function GetStartedForm() {
           <div className="space-y-6">
             <div className="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm">
               <h3 className="text-navy font-bold text-base mb-5">
-                Intake Questions
+                {t("intakeTitle")}
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs text-navy font-medium mb-1.5 block">
-                    Your Name <span className="text-teal">*</span>
+                    {t("name")} <span className="text-teal">*</span>
                   </label>
                   <input
                     className={inputClass}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Jane Smith"
+                    placeholder={t("namePlaceholder")}
                     required
                   />
                 </div>
                 <div>
                   <label className="text-xs text-navy font-medium mb-1.5 block">
-                    Work Email Address <span className="text-teal">*</span>
+                    {t("email")} <span className="text-teal">*</span>
                   </label>
                   <input
                     type="email"
@@ -182,44 +187,44 @@ export function GetStartedForm() {
                       setEmail(e.target.value);
                       setEmailError(false);
                     }}
-                    placeholder="jane@company.com"
+                    placeholder={t("emailPlaceholder")}
                     required
                   />
                   {emailError ? (
                     <p className="mt-1.5 text-xs text-red-500">
-                      Please enter a valid email address.
+                      {t("emailInvalid")}
                     </p>
                   ) : null}
                 </div>
                 <div>
                   <label className="text-xs text-navy font-medium mb-1.5 block">
-                    Company Name <span className="text-teal">*</span>
+                    {t("company")} <span className="text-teal">*</span>
                   </label>
                   <input
                     className={inputClass}
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="MedDevice Corp"
+                    placeholder={t("companyPlaceholder")}
                     required
                   />
                 </div>
                 <div>
                   <label className="text-xs text-navy font-medium mb-1.5 block">
-                    Role / Title{" "}
-                    <span className="text-gray-400 font-normal">(optional)</span>
+                    {t("role")}{" "}
+                    <span className="text-gray-400 font-normal">{t("optional")}</span>
                   </label>
                   <input
                     className={inputClass}
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    placeholder="e.g. Quality Manager"
+                    placeholder={t("rolePlaceholder")}
                   />
                 </div>
               </div>
               <div className="mt-4">
                 <label className="text-xs text-navy font-medium mb-2 block">
-                  Company Size{" "}
-                  <span className="text-gray-400 font-normal">(optional)</span>
+                  {t("companySize")}{" "}
+                  <span className="text-gray-400 font-normal">{t("optional")}</span>
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {COMPANY_SIZES.map((opt) => (
@@ -245,10 +250,10 @@ export function GetStartedForm() {
 
             <div className="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm">
               <h3 className="text-navy font-bold text-base mb-4">
-                What would make this conversation most valuable?
+                {t("priority")}
               </h3>
               <div className="grid grid-cols-1 gap-3">
-                {PRIORITIES.map((opt) => (
+                {priorities.map((opt) => (
                   <label
                     key={opt.value}
                     className="priority-option flex items-center gap-2.5 bg-white border border-gray-200 rounded-[4px] px-4 py-3 cursor-pointer hover:border-teal/50 transition-all"
@@ -273,20 +278,20 @@ export function GetStartedForm() {
                   className={inputClass}
                   value={priorityOther}
                   onChange={(e) => setPriorityOther(e.target.value)}
-                  placeholder="Tell us what you'd like to focus on..."
+                  placeholder={t("priorityOther")}
                 />
               </div>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-[4px] p-6 lg:p-7 shadow-sm">
               <h3 className="text-navy font-bold text-base mb-1">
-                Additional Context{" "}
+                {t("context")}{" "}
                 <span className="text-gray-400 font-normal text-sm">
-                  (optional)
+                  {t("optional")}
                 </span>
               </h3>
               <p className="text-xs text-navy mb-4">
-                Tell us anything useful before the discussion.
+                {t("contextHint")}
               </p>
               <textarea
                 rows={4}
@@ -294,10 +299,10 @@ export function GetStartedForm() {
                 className={`${inputClass} resize-none py-3`}
                 value={context}
                 onChange={(e) => setContext(e.target.value)}
-                placeholder="Share anything that would help us prepare for the conversation..."
+                placeholder={t("contextPlaceholder")}
               />
               <p className="text-[11px] text-gray-400 mt-1.5 text-right">
-                Maximum: 300 characters ({context.length}/300)
+                {t("maxChars", { count: context.length })}
               </p>
             </div>
           </div>
@@ -311,9 +316,7 @@ export function GetStartedForm() {
             />
             <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm max-sm:p-3">
               <p className="mb-4 text-xs leading-relaxed text-navy max-sm:mb-3 max-sm:text-[11px] max-sm:leading-snug">
-                Your responses are used only to help our team prepare for a
-                focused, non-sales discussion tailored to your environment and
-                priorities. No automated analysis is performed.
+                {t("privacyNote")}
               </p>
               <div className="mx-auto w-full min-w-0 max-w-md space-y-4 max-sm:space-y-2.5">
                 <TurnstileField action={turnstile} />
@@ -329,7 +332,7 @@ export function GetStartedForm() {
                   {!canSubmit ? (
                     <FaLock className="text-xs" aria-hidden="true" />
                   ) : null}
-                  Schedule Discussion
+                  {t("submit")}
                   <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </button>
                 <ScheduleHelperNote canSubmit={canSubmit} />
