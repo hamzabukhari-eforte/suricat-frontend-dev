@@ -96,7 +96,7 @@ export function InteractiveSandboxContent() {
         <div className="max-w-5xl mx-auto">
           <PricingBottomCta
             href="/get-started"
-            label="Request Interactive Sandbox"
+            label="Request Sandbox Access"
             note="See how the Compliance Intelligence Layer works before evaluating it against your own documentation."
           />
         </div>
