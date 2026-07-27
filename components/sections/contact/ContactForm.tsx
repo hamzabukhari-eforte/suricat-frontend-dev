@@ -138,7 +138,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "submitting" || turnstile.isCaptchaBlockingSubmit}
-          className="suricat-teal-btn w-full rounded-full px-8 py-2.5 font-semibold disabled:opacity-60"
+          className="suricat-teal-btn w-full rounded-full px-8 py-2.5 font-bold disabled:opacity-60"
         >
           {status === "submitting" ? "Sending…" : "Send Message"}
         </button>

@@ -106,7 +106,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/design-partners"
-            className={`nav-design-partners-btn hidden xl:inline-flex items-center rounded-full font-semibold transition-all whitespace-nowrap shrink-0${
+            className={`nav-design-partners-btn hidden xl:inline-flex items-center rounded-full font-bold transition-all whitespace-nowrap shrink-0${
               pathname.startsWith("/design-partners") ? " is-active" : ""
             }`}
           >
@@ -224,7 +224,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/get-started"
-              className="nav-cta-btn inline-flex items-center justify-center cursor-pointer rounded-full border-2 border-navy bg-navy font-semibold text-white transition-colors hover:bg-navy/90"
+              className="nav-cta-btn inline-flex items-center justify-center cursor-pointer rounded-full border-2 border-navy bg-navy font-bold text-white transition-colors hover:bg-navy/90"
             >
               Get Started
             </Link>
@@ -379,7 +379,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/get-started"
-            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-semibold text-white"
+            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
             onClick={closeMobile}
           >
             Get Started

@@ -248,7 +248,7 @@ export function WhySuricatSection() {
                     "Transform regulatory compliance through explainable intelligence that detects misalignment earlier, preserves human accountability, and enables inspection-ready decisions.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -312,7 +312,7 @@ export function WhySuricatSection() {
                     "We built the intelligence layer we wished existed to make compliance evaluation continuous, not episodic.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -379,7 +379,7 @@ export function WhySuricatSection() {
                     "This is not a gap a better workflow tool closes. It is a structural condition that requires a different class of infrastructure entirely.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -444,7 +444,7 @@ export function WhySuricatSection() {
                     "When misalignment surfaces during inspection rather than before it, remediation extends and exposure intensifies. The solution is not more process—it is continuous alignment embedded within operations.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -507,7 +507,7 @@ export function WhySuricatSection() {
                     "Teams act on findings within existing workflows. Suricat learns from outcomes to continuously improve accuracy, reduce false positives, and strengthen inspection readiness.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -571,7 +571,7 @@ export function WhySuricatSection() {
                     "You get a compliance infrastructure you can trust—built to operate in the real world of regulated environments.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
@@ -635,7 +635,7 @@ export function WhySuricatSection() {
                     "This is not simply faster compliance work. It enables a more resilient operating model designed to scale with products, regulations, and organizational growth.",
                   ]}
                 />
-                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-semibold transition-all group">
+                <button type="button" onClick={continueTab} className="suricat-teal-btn mt-2 inline-flex w-fit cursor-pointer items-center gap-3 rounded-full px-6 py-2.5 font-bold transition-all group">
                       Continue
                       <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </button>
