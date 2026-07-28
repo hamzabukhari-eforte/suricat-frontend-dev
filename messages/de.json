@@ -66,7 +66,7 @@
         "links": {
           "documentationConfidence": "Dokumentationssicherheit",
           "continuousCompliance": "Kontinuierliche Compliance",
-          "inspectionFeststellungen": "Inspektionsvertretbare Feststellungen",
+          "inspectionFindings": "Inspektionsvertretbare Feststellungen",
           "changeImpact": "Änderungsauswirkungsanalyse",
           "inspectionReadiness": "Inspektionsbereitschaft",
           "documentAlignment": "Dokumentationsausrichtung"
@@ -202,7 +202,7 @@
       "title": "Dokumentationssicherheit",
       "description": "Bauen Sie Dokumentationssicherheit mit Suricat auf — vertretbare, inspektionssichere Dokumentations-Intelligence."
     },
-    "inspectionFeststellungen": {
+    "inspectionFindings": {
       "title": "Inspektionsvertretbare Feststellungen",
       "description": "Erzeugen Sie inspektionssichere Feststellungen mit Suricats Bounded Reasoning und Regulatorische Ontologie."
     },
@@ -920,7 +920,7 @@
         "analysisHistory": "Analysehistorie",
         "emailSupport": "E-Mail-Support",
         "continuousMonitoring": "Kontinuierliches Monitoring",
-        "exportFeststellungen": "Feststellungen & Reports exportieren",
+        "exportFindings": "Feststellungen & Reports exportieren",
         "sharedSaas": "Geteilte SaaS-Umgebung",
         "guidedSaas": "Geführte SaaS-Umgebung",
         "teamCollaboration": "Team-Zusammenarbeit",
@@ -1373,7 +1373,7 @@
           "title": "Inspektionsbereitschaft",
           "body": "Kontinuierliche Bereitschaft aufrechterhalten statt erst unmittelbar vor Inspektionen vorzubereiten."
         },
-        "Feststellungen": {
+        "findings": {
           "title": "Inspektionssichere Feststellungen",
           "body": "Erklärbare Feststellungen erzeugen, die durch nachvollziehbare Evidenz gestützt sind."
         }
@@ -1631,7 +1631,7 @@
         ]
       }
     },
-    "inspection-Feststellungen": {
+    "inspection-findings": {
       "heroTitle": "Nachweise stützen ein Finding.",
       "heroTitleAccent": "Eine Erklärung verteidigt es.",
       "heroSubtitle": "Quality- und Regulatory-Teams schließen routinemäßig CAPAs ab, beenden Untersuchungen, dokumentieren Risikobeurteilungen und reagieren auf Auditbeobachtungen. Jede dieser Aktivitäten führt zu einem Finding, hinter dem die Organisation stehen können muss. Wird dieses Finding geprüft, geht es selten darum, ob die Nachweise existieren. Entscheidend ist, ob die Argumentation, die diese Nachweise mit der Schlussfolgerung verbindet, klar dargestellt werden kann.",
@@ -2314,7 +2314,7 @@
       "industryExpansion": "Branchenerweiterung",
       "documentationConfidence": "Dokumentationssicherheit",
       "continuousCompliance": "Kontinuierliche Compliance",
-      "inspectionFeststellungen": "Inspektionssichere Feststellungen",
+      "inspectionFindings": "Inspektionssichere Feststellungen",
       "changeImpact": "Änderungsauswirkungsanalyse",
       "inspectionReadiness": "Inspektionsbereitschaft",
       "documentAlignment": "Dokumentationsausrichtung",
