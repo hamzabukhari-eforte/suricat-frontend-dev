@@ -66,7 +66,7 @@
         "links": {
           "documentationConfidence": "Confianza documental",
           "continuousCompliance": "Cumplimiento continuo",
-          "inspectionFindings": "Hallazgos defendibles ante inspección",
+          "inspectionHallazgos": "Hallazgos defendibles ante inspección",
           "changeImpact": "Evaluación de impacto del cambio",
           "inspectionReadiness": "Preparación para inspección",
           "documentAlignment": "Alineación documental"
@@ -85,7 +85,7 @@
       "pricing": {
         "label": "Precios",
         "introTitle": "Precios",
-        "introText": "Suscripciones anuales de Platform License y Document Capacity con precios publicados, rutas de evaluación flexibles y sin tarifas por puesto.",
+        "introText": "Suscripciones anuales de licencia de plataforma y capacidad documental con precios publicados, rutas de evaluación flexibles y sin tarifas por puesto.",
         "ctaLabel": "Explorar precios",
         "links": {
           "subscriptionOptions": "Opciones de suscripción",
@@ -161,30 +161,30 @@
     "cta": "Compruebe su preparación"
   },
   "metadata": {
-    "defaultDescription": "Suricat es la Compliance Intelligence Platform para industrias altamente reguladas — de solo lectura by design, creada para confianza documental lista para inspección.",
+    "defaultDescription": "Suricat es la plataforma de inteligencia de cumplimiento para industrias altamente reguladas — de solo lectura por diseño, creada para confianza documental lista para inspección.",
     "home": {
-      "title": "Suricat | La Compliance Intelligence Platform",
-      "description": "La Compliance Intelligence Platform creada para industrias altamente reguladas. Obtenga confianza lista para inspección con compliance intelligence de solo lectura."
+      "title": "Suricat | La plataforma de inteligencia de cumplimiento",
+      "description": "La plataforma de inteligencia de cumplimiento creada para industrias altamente reguladas. Obtenga confianza lista para inspección con compliance intelligence de solo lectura."
     },
     "pricing": {
       "title": "Precios",
-      "description": "Precios publicados de Suricat para suscripciones de Platform License y Document Capacity — sin tarifas por puesto, con rutas de evaluación flexibles."
+      "description": "Precios publicados de Suricat para suscripciones de licencia de plataforma y capacidad documental — sin tarifas por puesto, con rutas de evaluación flexibles."
     },
     "pricingFaq": {
       "title": "Preguntas frecuentes de precios",
-      "description": "Respuestas a preguntas frecuentes sobre Platform License, Document Capacity, evaluación y opciones de suscripción de Suricat."
+      "description": "Respuestas a preguntas frecuentes sobre licencia de plataforma, capacidad documental, evaluación y opciones de suscripción de Suricat."
     },
     "license": {
       "title": "Licencia de plataforma",
-      "description": "Conozca cómo funciona la Platform License de Suricat para organizaciones reguladas que buscan compliance intelligence."
+      "description": "Conozca cómo funciona la licencia de plataforma de Suricat para organizaciones reguladas que buscan compliance intelligence."
     },
     "documentCapacity": {
       "title": "Capacidad documental",
-      "description": "Comprenda las suscripciones de Document Capacity de Suricat y cómo la capacidad escala con su huella documental."
+      "description": "Comprenda las suscripciones de capacidad documental de Suricat y cómo la capacidad escala con su huella documental."
     },
     "capacityExpansion": {
       "title": "Expansión de capacidad",
-      "description": "Amplíe la Document Capacity de Suricat a medida que crecen sus necesidades de documentación regulada."
+      "description": "Amplíe la capacidad documental de Suricat a medida que crecen sus necesidades de documentación regulada."
     },
     "interactiveSandbox": {
       "title": "Sandbox interactivo",
@@ -202,9 +202,9 @@
       "title": "Confianza documental",
       "description": "Construya confianza documental con Suricat — inteligencia documental defendible y lista para inspección."
     },
-    "inspectionFindings": {
+    "inspectionHallazgos": {
       "title": "Hallazgos defendibles ante inspección",
-      "description": "Produzca hallazgos defendibles ante inspección con Bounded Reasoning y Regulatory Ontology de Suricat."
+      "description": "Produzca hallazgos defendibles ante inspección con Bounded Reasoning y Ontología regulatoria de Suricat."
     },
     "changeImpact": {
       "title": "Evaluación de impacto del cambio",
@@ -236,7 +236,7 @@
     },
     "leadership": {
       "title": "Liderazgo",
-      "description": "Conozca al equipo de liderazgo de Suricat que construye la Compliance Intelligence Platform."
+      "description": "Conozca al equipo de liderazgo de Suricat que construye la plataforma de inteligencia de cumplimiento."
     },
     "contact": {
       "title": "Contáctenos",
@@ -248,7 +248,7 @@
     },
     "designPartnersApply": {
       "title": "Solicitud de partner de diseño",
-      "description": "Solicite convertirse en partner de diseño de Suricat y colabore en la Compliance Intelligence Platform."
+      "description": "Solicite convertirse en partner de diseño de Suricat y colabore en la plataforma de inteligencia de cumplimiento."
     },
     "getStarted": {
       "title": "Empezar",
@@ -273,7 +273,7 @@
   },
   "forms": {
     "login": {
-      "badge": "Compliance Intelligence",
+      "badge": "inteligencia de cumplimiento",
       "welcomeTitle": "¡Bienvenido de nuevo!",
       "welcomeBody": "Inicie sesión de forma segura en su espacio de trabajo Suricat.",
       "bullets": {
@@ -524,7 +524,7 @@
       "body": "Evalúa continuamente la alineación entre documentos y genera hallazgos defendibles ante inspección para una revisión más temprana.",
       "explorePlatform": "Explorar la plataforma",
       "becomeDesignPartner": "Convertirse en partner de diseño",
-      "bannerLabel": "COMPLIANCE INTELLIGENCE PLATFORM",
+      "bannerLabel": "PLATAFORMA DE INTELIGENCIA DE CUMPLIMIENTO",
       "bannerAlt": "Banner de fundadores de Suricat"
     },
     "why": {
@@ -766,8 +766,8 @@
       "eyebrow": "Precios",
       "titleLine1": "El alcance vive en la documentación.",
       "titleLine2": "No en el número de puestos.",
-      "body": "La complejidad de compliance se refleja en la documentación, no en el número de personas. Cada suscripción de Suricat combina una Annual Platform License con una Document Capacity definida, permitiendo que los equipos de Quality y Regulatory colaboren sin restricciones de licencias por puesto.",
-      "bodyEmphasis": "Los documentos pueden evaluarse en las seis soluciones de Compliance Intelligence sin cargos adicionales de consumo.",
+      "body": "La complejidad de compliance se refleja en la documentación, no en el número de personas. Cada suscripción de Suricat combina una licencia anual de plataforma con una capacidad documental definida, permitiendo que los equipos de Quality y Regulatory colaboren sin restricciones de licencias por puesto.",
+      "bodyEmphasis": "Los documentos pueden evaluarse en las seis soluciones de inteligencia de cumplimiento sin cargos adicionales de consumo.",
       "labels": {
         "corePlatform": "Plataforma principal",
         "support": "Soporte",
@@ -796,7 +796,7 @@
           "term": "Periodo de evaluación de 90 días"
         },
         "features": {
-          "allSix": "Las seis soluciones de Compliance Intelligence",
+          "allSix": "Las seis soluciones de inteligencia de cumplimiento",
           "workspace": "Espacio de evaluación de autoservicio",
           "evidence": "Navegación de evidencias",
           "onboarding": "Incorporación guiada",
@@ -822,7 +822,7 @@
           "term": "Suscripción de doce meses"
         },
         "features": {
-          "allSix": "Las seis soluciones de Compliance Intelligence",
+          "allSix": "Las seis soluciones de inteligencia de cumplimiento",
           "workspace": "Espacio de trabajo de producción",
           "monitoring": "Monitorización continua",
           "export": "Exportación de informes",
@@ -872,9 +872,9 @@
           "term": "Plazo de suscripción personalizado"
         },
         "features": {
-          "dedicatedCloud": "Entorno Suricat Cloud dedicado",
+          "dedicatedCloud": "Entorno dedicado de Suricat en la nube",
           "retention": "Políticas de retención personalizadas",
-          "rollover": "Traspaso de document capacity",
+          "rollover": "Traspaso de capacidad documental",
           "sso": "Inicio de sesión único y gobernanza",
           "rbac": "RBAC avanzado y registro de auditoría",
           "sla": "SLA contratado"
@@ -887,7 +887,7 @@
       "eyebrow": "Comparar opciones de suscripción",
       "titleLine1": "La Intelligence sigue siendo la misma.",
       "titleLine2": "El alcance operativo se amplía.",
-      "body": "Cada nivel incluye las seis soluciones de Compliance Intelligence. La document capacity, la colaboración, la gobernanza, el soporte y las opciones de despliegue se amplían a medida que crece su programa de compliance.",
+      "body": "Cada nivel incluye las seis soluciones de inteligencia de cumplimiento. La capacidad documental, la colaboración, la gobernanza, el soporte y las opciones de despliegue se amplían a medida que crece su programa de compliance.",
       "capability": "Capacidad",
       "mostPopular": "Más popular",
       "tiers": {
@@ -915,7 +915,7 @@
         "extensions": "Extensiones Empresa"
       },
       "rows": {
-        "allSix": "Las seis soluciones de Compliance Intelligence",
+        "allSix": "Las seis soluciones de inteligencia de cumplimiento",
         "customerDocumentation": "Documentación del cliente",
         "analysisHistory": "Historial de análisis",
         "emailSupport": "Soporte por correo electrónico",
@@ -927,11 +927,11 @@
         "sharedWorkspaces": "Espacios de trabajo compartidos",
         "priorityEmail": "Soporte prioritario por correo electrónico",
         "extendedRetention": "Opciones ampliadas de retención de datos",
-        "dedicatedCloud": "Entorno Suricat Cloud dedicado",
+        "dedicatedCloud": "Entorno dedicado de Suricat en la nube",
         "sso": "Inicio de sesión único (SSO)",
         "advancedGovernance": "Gobernanza avanzada y controles de acceso",
         "sla": "Acuerdo de nivel de servicio (SLA)",
-        "capacityRollover": "Traspaso de document capacity",
+        "capacityRollover": "Traspaso de capacidad documental",
         "apiAccess": "Acceso a la API",
         "customIntegrations": "Integraciones personalizadas",
         "customerSuccess": "Customer Success Manager dedicado",
@@ -953,7 +953,7 @@
       "title": "La desalineación en compliance no se anuncia sola. Estas son sus consecuencias",
       "body": "La desalineación suele permanecer oculta hasta que una inspección, un CAPA o una retirada (recall) la pone al descubierto. Para entonces, el impacto ya es medible. Los datos siguientes reflejan las realidades que enfrentan los fabricantes de dispositivos médicos bajo QMSR e ISO 13485.",
       "cta": "Compruebe su preparación",
-      "ctaHint": "Descubra cómo Suricat aborda Compliance Intelligence",
+      "ctaHint": "Descubra cómo Suricat aborda inteligencia de cumplimiento",
       "cards": {
         "c1": {
           "label": "Cartas de advertencia de la FDA",
@@ -1003,7 +1003,7 @@
   "contact": {
     "eyebrow": "Contacto",
     "title": "Inicie una conversación.",
-    "body": "Ya sea una consulta general, un posible engagement como partner de diseño o más información sobre la Capa de inteligencia de cumplimiento: nos alegra saber de usted.",
+    "body": "Ya sea una consulta general, un posible colaboración como partner de diseño o más información sobre la Capa de inteligencia de cumplimiento: nos alegra saber de usted.",
     "hqGlobal": "Sede global",
     "hqGlobalAddr": "Palo Alto, California 94306,\nUSA",
     "hqEurope": "Sede europea",
@@ -1031,7 +1031,7 @@
       "s3Title": "Eso se convirtió en el fundamento de Suricat.",
       "s3p1": "Construimos la Capa de inteligencia de cumplimiento para operar por encima de los sistemas en los que las organizaciones ya confían.",
       "s3p2": "No para reemplazarlos.",
-      "s3p3Before": "Para evaluar de forma continua la alineación documental, mostrar findings explicables e identificar posibles desalineaciones",
+      "s3p3Before": "Para evaluar de forma continua la alineación documental, mostrar hallazgos explicables e identificar posibles desalineaciones",
       "s3p3Strong": "antes de que afecten decisiones críticas.",
       "timelineEyebrowBefore": "De la observación temprana",
       "timelineEyebrowAccent": "a la intelligence continua",
@@ -1054,7 +1054,7 @@
       "exploreDescription": "Vea cómo la Capa de inteligencia de cumplimiento opera por encima de los sistemas existentes para evaluar de forma continua la alineación documental en su organización."
     },
     "missionVision": {
-      "heroTitleBefore": "Creemos que la Compliance Intelligence debe ser continua.",
+      "heroTitleBefore": "Creemos que la inteligencia de cumplimiento debe ser continua.",
       "heroTitleAccent": "No periódica.",
       "heroSubtitle": "La misión define lo que estamos construyendo. La visión define el futuro que creemos que debería existir. Juntas, dan forma a cada decisión detrás de Suricat.",
       "missionLabel": "Misión",
@@ -1071,11 +1071,11 @@
         "documents": "Documentos",
         "people": "Personas"
       },
-      "missionCenterTitle": "Compliance Intelligence",
+      "missionCenterTitle": "inteligencia de cumplimiento",
       "missionCenterLine1": "Alineación continua.",
       "missionCenterLine2": "Decisiones defendibles ante inspección.",
       "visionLabel": "Visión",
-      "visionTitle": "Establecer la Compliance Intelligence Platform como el estándar global.",
+      "visionTitle": "Establecer la plataforma de inteligencia de cumplimiento como el estándar global.",
       "visionP1": "Cada gran categoría de tecnología empresarial ha evolucionado más allá de sistemas que simplemente almacenan información.",
       "visionP2": "Los datos ganaron intelligence. La ciberseguridad ganó intelligence. Las operaciones ganaron intelligence.",
       "visionP3Strong": "Compliance es lo siguiente.",
@@ -1085,7 +1085,7 @@
       "visionStmt3": "El compliance se vuelve continuamente comprendido.",
       "flowStartTitle": "Dispositivos médicos",
       "flowStartSub": "Donde comenzamos",
-      "flowCenterTitle": "Compliance Intelligence Platform",
+      "flowCenterTitle": "plataforma de inteligencia de cumplimiento",
       "flowCenterBody": "Alineación continua. Intelligence unificada. Decisiones de confianza.",
       "flowEndTitle": "Cada industria regulada",
       "flowEndSub": "Hacia donde iremos",
@@ -1104,7 +1104,7 @@
         "mj": {
           "title": "Fundador y Director Ejecutivo",
           "bio": [
-            "MJ Khan ha dedicado más de dos décadas a construir estrategias de ventas empresariales y go-to-market para algunas de las principales empresas de tecnología empresarial del mundo, incluidas Google Cloud y Splunk.",
+            "MJ Khan ha dedicado más de dos décadas a construir estrategias de ventas empresariales y salida al mercado para algunas de las principales empresas de tecnología empresarial del mundo, incluidas Google Nube y Splunk.",
             "Tras años de trabajar con organizaciones en industrias altamente reguladas, observó reiteradamente la misma limitación estructural. Los sistemas de compliance podían almacenar documentación, gestionar flujos y controlar aprobaciones, pero no podían comprender las relaciones entre ellos.",
             "Esa idea se convirtió en el fundamento de Suricat.",
             "Fundó la empresa para establecer la Capa de inteligencia de cumplimiento como una nueva categoría y reunió un equipo fundador que combina liderazgo en tecnología empresarial con experiencia directa en calidad y regulación de la FDA."
@@ -1113,17 +1113,17 @@
         "fahad": {
           "title": "Cofundador y Director de Tecnología",
           "bio": [
-            "Fahad Ehsan ha dedicado más de dos décadas a construir infraestructura de cloud, IA y ciberseguridad para empresas bajo exigentes requisitos de seguridad y regulación. Como fundador de eForte Inc., con sede en Silicon Valley, diseñó sistemas empresariales donde la confianza, la trazabilidad y la integridad de los datos eran esenciales en cada decisión.",
+            "Fahad Ehsan ha dedicado más de dos décadas a construir infraestructura de nube, IA y ciberseguridad para empresas bajo exigentes requisitos de seguridad y regulación. Como fundador de eForte Inc., con sede en Silicon Valley, diseñó sistemas empresariales donde la confianza, la trazabilidad y la integridad de los datos eran esenciales en cada decisión.",
             "Esa experiencia se convirtió en el fundamento técnico de Suricat.",
-            "Como Cofundador y Director de Tecnología, Fahad lidera la arquitectura de la Capa de inteligencia de cumplimiento. Diseñó las tecnologías fundamentales de la plataforma, incluido su large language model privado para entornos de compliance regulados, el Canonical Intelligence Schema, la Regulatory Ontology y el marco Quality Validation Rating. Juntas, estas tecnologías aseguran que cada finding de compliance sea trazable, explicable y defendible ante inspección."
+            "Como Cofundador y Director de Tecnología, Fahad lidera la arquitectura de la Capa de inteligencia de cumplimiento. Diseñó las tecnologías fundamentales de la plataforma, incluido su modelo de lenguaje de gran tamaño privado para entornos de compliance regulados, el Esquema canónico de inteligencia, la Ontología regulatoria y el marco evaluación de validación de calidad. Juntas, estas tecnologías aseguran que cada finding de compliance sea trazable, explicable y defendible ante inspección."
           ]
         },
         "matthew": {
           "title": "Cofundador",
           "bio": [
-            "Matthew Fortson ha dedicado más de dos décadas a construir Quality Management Systems, programas de Design Control y documentación regulatoria para fabricantes de dispositivos médicos bajo requisitos de la FDA. Tras años preparando inspecciones, gestionando investigaciones CAPA y apoyando el desarrollo de productos, vivió de primera mano cómo se degrada la alineación documental a medida que evolucionan sistemas, equipos y regulaciones.",
+            "Matthew Fortson ha dedicado más de dos décadas a construir sistemas de gestión de calidad, programas de control de diseño y documentación regulatoria para fabricantes de dispositivos médicos bajo requisitos de la FDA. Tras años preparando inspecciones, gestionando investigaciones CAPA y apoyando el desarrollo de productos, vivió de primera mano cómo se degrada la alineación documental a medida que evolucionan sistemas, equipos y regulaciones.",
             "Esa experiencia se convirtió en el fundamento operativo de Suricat.",
-            "Como Cofundador, Matthew ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las realidades de la práctica de calidad. Su experiencia guía cómo la plataforma identifica desalineación documental, evalúa evidencia y valida findings defendibles ante inspección."
+            "Como Cofundador, Matthew ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las realidades de la práctica de calidad. Su experiencia guía cómo la plataforma identifica desalineación documental, evalúa evidencia y valida hallazgos defendibles ante inspección."
           ]
         },
         "kim": {
@@ -1131,7 +1131,7 @@
           "bio": [
             "Kim Tompkins ha dedicado más de tres décadas a liderar estrategia regulatoria para fabricantes de dispositivos médicos bajo requisitos de la FDA. Tras años asegurando clearances regulatorios, liderando inspecciones de la FDA y guiando presentaciones complejas, desarrolló una comprensión profunda de los estándares que distinguen la documentación conforme de la evidencia defendible ante inspección.",
             "Esa experiencia se convirtió en el fundamento regulatorio de Suricat.",
-            "Como Asesora sénior, Kim ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las expectativas de los reguladores y las realidades de la industria. Su experiencia guía cómo la plataforma evalúa evidencia, mide la calidad documental y valida findings frente a estándares regulatorios reales. A lo largo de su carrera, ha asegurado más de quince clearances FDA 510(k) y liderado inspecciones de la FDA con cero observaciones Form 483."
+            "Como Asesora sénior, Kim ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las expectativas de los reguladores y las realidades de la industria. Su experiencia guía cómo la plataforma evalúa evidencia, mide la calidad documental y valida hallazgos frente a estándares regulatorios reales. A lo largo de su carrera, ha asegurado más de quince clearances FDA 510(k) y liderado inspecciones de la FDA con cero observaciones Form 483."
           ]
         }
       }
@@ -1140,8 +1140,8 @@
   "designPartners": {
     "page": {
       "heroTitleBefore": "Ayude a definir el futuro de la",
-      "heroTitleAccent": "Compliance Intelligence",
-      "heroSubtitle": "Únase a un grupo selecto de fabricantes de dispositivos médicos que colaboran directamente con el equipo fundador de Suricat para dar forma al futuro de la Compliance Intelligence.",
+      "heroTitleAccent": "inteligencia de cumplimiento",
+      "heroSubtitle": "Únase a un grupo selecto de fabricantes de dispositivos médicos que colaboran directamente con el equipo fundador de Suricat para dar forma al futuro de la inteligencia de cumplimiento.",
       "heroCohortNote": "Limitado a una pequeña cohorte de fabricantes de dispositivos médicos.",
       "ctaApply": "Convertirse en partner de diseño",
       "ctaDiscuss": "Programar conversación",
@@ -1150,15 +1150,15 @@
       "metaNoObligation": "Sin obligación",
       "heroImageAlt": "Programa de partners de diseño",
       "programEyebrow": "El programa",
-      "programTitle": "Un engagement enfocado para validar resultados medibles.",
-      "programBody": "Colabore directamente con los fundadores de Suricat para validar findings, recopilar feedback y determinar el encaje mutuo con mínima interrupción para su equipo.",
+      "programTitle": "Un colaboración enfocado para validar resultados medibles.",
+      "programBody": "Colabore directamente con los fundadores de Suricat para validar hallazgos, recopilar comentarios y determinar el encaje mutuo con mínima interrupción para su equipo.",
       "cohortTitle": "Cohorte fundadora",
-      "cohortP1": "Sea de los primeros 5–10 fabricantes de dispositivos médicos que ayudan a definir el futuro de la Compliance Intelligence.",
-      "cohortP2": "Su feedback dará forma directamente a la plataforma Suricat antes de la disponibilidad general.",
+      "cohortP1": "Sea de los primeros 5–10 fabricantes de dispositivos médicos que ayudan a definir el futuro de la inteligencia de cumplimiento.",
+      "cohortP2": "Su comentarios dará forma directamente a la plataforma Suricat antes de la disponibilidad general.",
       "cohortHighlight": "Solo 5–10 organizaciones en esta cohorte inaugural.",
       "receiveTitle": "Lo que recibirá",
       "receive": [
-        "Resumen ejecutivo de findings",
+        "Resumen ejecutivo de hallazgos",
         "Informe de mapeo de evidencia",
         "Posibles desalineaciones documentales",
         "Observaciones de preparación para inspección",
@@ -1187,7 +1187,7 @@
         },
         "founder": {
           "title": "Colaboración con fundadores",
-          "body": "Trabaje directamente con el equipo fundador de Suricat durante todo el engagement"
+          "body": "Trabaje directamente con el equipo fundador de Suricat durante todo el colaboración"
         }
       },
       "askHours": "Aproximadamente 2–3 horas por semana.",
@@ -1234,12 +1234,12 @@
       "faqEyebrow": "Preguntas frecuentes",
       "ctaTitleBefore": "Conviértase en uno de los",
       "ctaTitleAccent": "partners de diseño fundadores de Suricat.",
-      "ctaBody": "Únase a un pequeño grupo de líderes de la industria que impulsan la próxima generación de Compliance Intelligence — junto con Suricat.",
+      "ctaBody": "Únase a un pequeño grupo de líderes de la industria que impulsan la próxima generación de inteligencia de cumplimiento — junto con Suricat.",
       "ctaApplyLong": "Solicitar ser partner de diseño",
       "trust": {
         "securityTitle": "Seguridad de nivel enterprise",
         "securityBody": "Sus datos permanecen en su entorno.",
-        "confidentialTitle": "Engagement confidencial",
+        "confidentialTitle": "colaboración confidencial",
         "confidentialBody": "Su información siempre está protegida.",
         "founderTitle": "Experiencia liderada por fundadores",
         "founderBody": "Trabaje directamente con nuestro liderazgo."
@@ -1261,19 +1261,19 @@
         },
         {
           "question": "¿Quién de nuestro equipo debería participar?",
-          "answer": "El programa es más efectivo con un pequeño equipo multifuncional, que suele incluir un líder de Calidad o Regulatory, un executive sponsor y expertos en la materia según se necesite durante el engagement."
+          "answer": "El programa es más efectivo con un pequeño equipo multifuncional, que suele incluir un líder de Calidad o Regulatory, un executive sponsor y expertos en la materia según se necesite durante el colaboración."
         },
         {
           "question": "¿Cuánto tiempo tomará?",
-          "answer": "La mayoría de los partners de diseño invierten aproximadamente 20–30 horas en un engagement de 30 días, con un promedio de 2–3 horas por semana para sesiones de colaboración, revisión de documentos y feedback."
+          "answer": "La mayoría de los partners de diseño invierten aproximadamente 20–30 horas en un colaboración de 30 días, con un promedio de 2–3 horas por semana para sesiones de colaboración, revisión de documentos y comentarios."
         },
         {
-          "question": "¿Qué ocurre después del engagement?",
-          "answer": "Al concluir el engagement, recibirá un resumen ejecutivo de findings, insights de alineación documental y recomendaciones. Juntos revisaremos los resultados, recopilaremos su feedback y discutiremos los siguientes pasos, incluida una posible colaboración continua."
+          "question": "¿Qué ocurre después del colaboración?",
+          "answer": "Al concluir el colaboración, recibirá un resumen ejecutivo de hallazgos, insights de alineación documental y recomendaciones. Juntos revisaremos los resultados, recopilaremos su comentarios y discutiremos los siguientes pasos, incluida una posible colaboración continua."
         },
         {
           "question": "¿Hay algún costo por participar?",
-          "answer": "No. No hay tarifa por participar en el programa de partners de diseño. La participación se basa en el encaje mutuo, la colaboración y la disposición a aportar feedback que ayude a dar forma a la plataforma."
+          "answer": "No. No hay tarifa por participar en el programa de partners de diseño. La participación se basa en el encaje mutuo, la colaboración y la disposición a aportar comentarios que ayude a dar forma a la plataforma."
         },
         {
           "question": "¿Cómo se protegen nuestros datos e información?",
@@ -1281,7 +1281,7 @@
         },
         {
           "question": "¿Usará Suricat nuestros datos para entrenar modelos de IA?",
-          "answer": "No. Su documentación nunca se usa para entrenar foundation models ni se comparte con otros clientes. Su información permanece confidencial y solo se usa para apoyar su engagement como partner de diseño, salvo que usted autorice explícitamente lo contrario."
+          "answer": "No. Su documentación nunca se usa para entrenar foundation models ni se comparte con otros clientes. Su información permanece confidencial y solo se usa para apoyar su colaboración como partner de diseño, salvo que usted autorice explícitamente lo contrario."
         }
       ]
     },
@@ -1307,7 +1307,7 @@
       "trustNoChangesBody": "Funciona dentro de su\nentorno existente",
       "trustHumanTitle": "Responsabilidad humana",
       "trustHumanBody": "Cada finding permanece\nsujeto a revisión humana",
-      "footerLine1": "Suricat está construyendo la plataforma líder de Compliance Intelligence para fabricantes de dispositivos médicos.",
+      "footerLine1": "Suricat está construyendo la plataforma líder de inteligencia de cumplimiento para fabricantes de dispositivos médicos.",
       "footerLine2": "Su partnership ayuda a construirla correctamente."
     }
   },
@@ -1320,7 +1320,7 @@
         "expansion": "Explorar expansión industrial"
       },
       "heroTitleBefore": "Donde comienza la",
-      "heroTitleAccent": "Compliance Intelligence.",
+      "heroTitleAccent": "inteligencia de cumplimiento.",
       "heroSubtitle": "Los fabricantes de dispositivos médicos operan en uno de los entornos regulatorios más exigentes del mundo, donde la calidad documental influye directamente en la calidad del producto, la preparación para inspección y la seguridad del paciente. Suricat se desarrolló primero para este entorno porque mantener la alineación en la documentación crítica de compliance se vuelve cada vez más difícil a medida que evolucionan productos, regulaciones y organizaciones.",
       "checkReadiness": "Compruebe su preparación",
       "lifecycleEyebrow": "El ciclo de vida de la documentación",
@@ -1373,9 +1373,9 @@
           "title": "Preparación para inspección",
           "body": "Mantener preparación continua en lugar de prepararse solo justo antes de las inspecciones."
         },
-        "findings": {
-          "title": "Findings defendibles ante inspección",
-          "body": "Producir findings explicables respaldados por evidencia trazable."
+        "hallazgos": {
+          "title": "Hallazgos defendibles ante inspección",
+          "body": "Producir hallazgos explicables respaldados por evidencia trazable."
         }
       },
       "bannerTitleBefore": "Los dispositivos médicos son",
@@ -1631,7 +1631,7 @@
         ]
       }
     },
-    "inspection-findings": {
+    "inspection-hallazgos": {
       "heroTitle": "La evidencia respalda un hallazgo.",
       "heroTitleAccent": "Una explicación lo defiende.",
       "heroSubtitle": "Los equipos de Calidad y Regulatorio cierran habitualmente CAPA, completan investigaciones, documentan determinaciones de riesgo y responden a observaciones de auditoría. Cada una de estas actividades produce un hallazgo que la organización debe estar preparada para respaldar y, cuando se examina ese hallazgo, la pregunta rara vez es si existe la evidencia. Es si puede mostrarse claramente el razonamiento que conecta esa evidencia con la conclusión.",
@@ -1997,7 +1997,7 @@
       "heroTitleBefore": "El alcance está en la documentación.",
       "heroTitleAccent": "No en el número de usuarios.",
       "heroSubtitle1": "La complejidad del cumplimiento se refleja en la documentación, no en el tamaño de la plantilla. Cada suscripción de Suricat combina una Licencia de plataforma anual con una Capacidad documental definida, lo que permite a los equipos de Calidad y Asuntos Regulatorios colaborar sin restricciones de licencias por usuario.",
-      "heroSubtitle2": "Los documentos pueden evaluarse en las seis soluciones de Compliance Intelligence sin cargos adicionales por consumo.",
+      "heroSubtitle2": "Los documentos pueden evaluarse en las seis soluciones de inteligencia de cumplimiento sin cargos adicionales por consumo.",
       "heroCta": "Explorar más",
       "notReady": "¿Aún no está listo para cargar su propia documentación?",
       "badges": [
@@ -2098,7 +2098,7 @@
       "cards": {
         "intelligenceLayer": {
           "title": "Capa de inteligencia de cumplimiento",
-          "body": "Acceso a las seis soluciones de Compliance Intelligence que ayudan a los equipos de Calidad y Asuntos Regulatorios a evaluar la alineación de la documentación, comprender el impacto de los cambios, reforzar la preparación para inspecciones y mantener la confianza en la documentación crítica para el cumplimiento."
+          "body": "Acceso a las seis soluciones de inteligencia de cumplimiento que ayudan a los equipos de Calidad y Asuntos Regulatorios a evaluar la alineación de la documentación, comprender el impacto de los cambios, reforzar la preparación para inspecciones y mantener la confianza en la documentación crítica para el cumplimiento."
         },
         "monitoring": {
           "title": "Evaluación y supervisión continuas",
@@ -2147,7 +2147,7 @@
         }
       },
       "calloutEyebrow": "Documentos. No consumo.",
-      "calloutBody": "Cada documento activo puede evaluarse en las seis soluciones de Compliance Intelligence sin cargos adicionales por consumo, tarifas de análisis, tarifas de supervisión ni costos de uso de IA. No hay cargos según los hallazgos generados, análisis realizados, eventos de supervisión detectados, relaciones de evidencia identificadas ni el número de veces que sus equipos utilizan la plataforma. Los precios escalan con el alcance de la documentación en lugar de créditos, tokens, unidades de procesamiento, métricas de consumo de IA o modelos de precios impredecibles basados en el uso.",
+      "calloutBody": "Cada documento activo puede evaluarse en las seis soluciones de inteligencia de cumplimiento sin cargos adicionales por consumo, tarifas de análisis, tarifas de supervisión ni costos de uso de IA. No hay cargos según los hallazgos generados, análisis realizados, eventos de supervisión detectados, relaciones de evidencia identificadas ni el número de veces que sus equipos utilizan la plataforma. Los precios escalan con el alcance de la documentación en lugar de créditos, tokens, unidades de procesamiento, métricas de consumo de IA o modelos de precios impredecibles basados en el uso.",
       "calloutBullets": [
         "Los equipos de Calidad y Asuntos Regulatorios gestionan documentos, procedimientos, CAPA y archivos de riesgos, no métricas de consumo de IA.",
         "Los precios de Suricat reflejan esa realidad."
@@ -2212,9 +2212,9 @@
       "bottomCtaNote": "Consulte la Capacidad documental incluida en cada nivel de suscripción, desde Evaluación hasta Empresa."
     },
     "interactiveSandbox": {
-      "heroTitleBefore": "Vea cómo funciona Compliance Intelligence con",
+      "heroTitleBefore": "Vea cómo funciona inteligencia de cumplimiento con",
       "heroTitleAccent": "documentación de dispositivos médicos. Sin configuración.",
-      "heroSubtitle": "Explore las seis soluciones de Compliance Intelligence utilizando documentación representativa de dispositivos médicos, sin cargar un solo documento.",
+      "heroSubtitle": "Explore las seis soluciones de inteligencia de cumplimiento utilizando documentación representativa de dispositivos médicos, sin cargar un solo documento.",
       "exploreEyebrow": "Lo que puede explorar",
       "exploreTitle": "Documentación representativa de dispositivos médicos. Acceso completo a la plataforma.",
       "exploreItems": [
@@ -2252,8 +2252,8 @@
           "body": "Utilice su propia documentación crítica para el cumplimiento para evaluar cómo Suricat identifica relaciones, analiza la alineación y respalda las actividades de preparación para inspecciones."
         },
         "allSolutions": {
-          "title": "Las seis soluciones de Compliance Intelligence",
-          "body": "Acceda a las seis soluciones de Compliance Intelligence disponibles en la Capa de inteligencia de cumplimiento durante el período de evaluación."
+          "title": "Las seis soluciones de inteligencia de cumplimiento",
+          "body": "Acceda a las seis soluciones de inteligencia de cumplimiento disponibles en la Capa de inteligencia de cumplimiento durante el período de evaluación."
         },
         "focusedScope": {
           "title": "Alcance enfocado",
@@ -2268,7 +2268,7 @@
       "calloutBody": "La suscripción Evaluación está diseñada para responder la pregunta más importante antes de una implementación más amplia: ¿aportará Suricat valor en nuestro entorno de documentación?",
       "calloutBullets": [
         "Utilice su propia documentación.",
-        "Evalúe las seis soluciones de Compliance Intelligence.",
+        "Evalúe las seis soluciones de inteligencia de cumplimiento.",
         "Confirme los hallazgos de alineación y las relaciones de evidencia.",
         "Evalúe la visibilidad de la preparación para inspecciones.",
         "Determine la adecuación organizacional antes de ampliar la capacidad."
@@ -2314,7 +2314,7 @@
       "industryExpansion": "Expansión industrial",
       "documentationConfidence": "Confianza documental",
       "continuousCompliance": "Cumplimiento continuo",
-      "inspectionFindings": "Hallazgos defendibles ante inspección",
+      "inspectionHallazgos": "Hallazgos defendibles ante inspección",
       "changeImpact": "Evaluación de impacto del cambio",
       "inspectionReadiness": "Preparación para inspección",
       "documentAlignment": "Alineación documental",
