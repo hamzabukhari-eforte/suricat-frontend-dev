@@ -130,6 +130,7 @@ export function DesignPartnersContent() {
               </div>
             </div>
 
+
             <div className="hidden md:flex items-center justify-center relative md:col-span-6 overflow-visible">
               <div className="relative z-10 w-full flex flex-col items-center justify-center transform md:translate-x-2 lg:translate-x-4 opacity-0 animate-slide-in-right">
                 <Image
