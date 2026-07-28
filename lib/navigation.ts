@@ -364,8 +364,6 @@ export function buildFooterResourceLinks(t: Translator): NavLink[] {
       href: `/#${HOME_SECTION_IDS.industries}`,
     },
     { label: t("footer.resources.faqs"), href: "/pricing/faq" },
-    { label: t("footer.resources.blog"), href: "#" },
-    { label: t("footer.resources.events"), href: "#" },
   ];
 }
 

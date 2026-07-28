@@ -44,24 +44,24 @@
       "platform": {
         "label": "Plattform",
         "introTitle": "Plattform",
-        "introText": "Eine schreibgeschützte Compliance Intelligence Layer für regulierte Umgebungen, mit proprietärer Architektur für Bounded Reasoning und vertretbare Ergebnisse.",
+        "introText": "Eine schreibgeschützte Compliance-Intelligenzschicht für regulierte Umgebungen, mit proprietärer Architektur für Bounded Reasoning und vertretbare Ergebnisse.",
         "ctaLabel": "Plattform entdecken",
         "links": {
-          "intelligenceLayer": "Intelligence Layer",
-          "readOnly": "Schreibgeschützt by Design",
-          "noRipReplace": "Kein Rip and Replace",
+          "intelligenceLayer": "Intelligenzschicht",
+          "readOnly": "Nur-Lesen durch Design",
+          "noRipReplace": "Kein Ablösen und Ersetzen",
           "humanAccountability": "Menschliche Verantwortlichkeit",
           "deployment": "Bereitstellung",
-          "regulatoryOntology": "Regulatory Ontology",
-          "canonicalSchema": "Canonical Intelligence Schema",
-          "qvr": "Quality Validation Rating",
-          "boundedReasoning": "Bounded Reasoning"
+          "regulatoryOntology": "Regulatorische Ontologie",
+          "canonicalSchema": "Kanonisches Intelligenzschema",
+          "qvr": "Qualitätsvalidierungsbewertung",
+          "boundedReasoning": "Begrenztes Schlussfolgern"
         }
       },
       "solutions": {
         "label": "Lösungen",
         "introTitle": "Lösungen",
-        "introText": "Sechs fokussierte Fähigkeiten, die die Compliance Intelligence Layer für Dokumentationssicherheit, Inspektionsbereitschaft, Continuous Compliance und mehr einsetzen.",
+        "introText": "Sechs fokussierte Fähigkeiten, die die Compliance-Intelligenzschicht für Dokumentationssicherheit, Inspektionsbereitschaft, Continuous Compliance und mehr einsetzen.",
         "ctaLabel": "Alle Lösungen ansehen",
         "links": {
           "documentationConfidence": "Dokumentationssicherheit",
@@ -196,7 +196,7 @@
     },
     "continuousCompliance": {
       "title": "Kontinuierliche Compliance",
-      "description": "Behalten Sie kontinuierliche Compliance-Transparenz mit Suricats Compliance Intelligence Layer."
+      "description": "Behalten Sie kontinuierliche Compliance-Transparenz mit Suricats Compliance-Intelligenzschicht."
     },
     "documentationConfidence": {
       "title": "Dokumentationssicherheit",
@@ -520,7 +520,7 @@
     "hero": {
       "titleBefore": "Der Sentinel für",
       "titleCompliance": "Compliance",
-      "titleIntelligence": "Intelligence",
+      "titleIntelligence": "Intelligenz",
       "body": "Bewertet kontinuierlich die dokumentenübergreifende Ausrichtung und liefert inspektionssichere Findings für frühere Prüfung.",
       "explorePlatform": "Plattform entdecken",
       "becomeDesignPartner": "Design-Partner werden",
@@ -647,35 +647,35 @@
     "platform": {
       "sectionTitle": "Plattform",
       "headline": "Die Systeme bleiben. Die Intelligence Layer sitzt darüber.",
-      "intro": "Suricat ist eine schreibgeschützte Compliance Intelligence Layer, die regulierte Dokumentation kontinuierlich auf Ausrichtung, Vollständigkeit und Inspektionsbereitschaft prüft.",
+      "intro": "Suricat ist eine schreibgeschützte Compliance-Intelligenzschicht, die regulierte Dokumentation kontinuierlich auf Ausrichtung, Vollständigkeit und Inspektionsbereitschaft prüft.",
       "continue": "Weiter",
       "checkReadiness": "Prüfen Sie Ihre Readiness",
       "tabs": {
-        "intelligenceLayer": "Intelligence Layer",
-        "readOnly": "Schreibgeschützt by Design",
-        "noRipReplace": "Kein Rip and Replace",
+        "intelligenceLayer": "Intelligenzschicht",
+        "readOnly": "Nur-Lesen durch Design",
+        "noRipReplace": "Kein Ablösen und Ersetzen",
         "humanAccountability": "Menschliche Verantwortlichkeit",
         "deployment": "Bereitstellung",
-        "regulatoryOntology": "Regulatory Ontology",
-        "canonicalSchema": "Canonical Intelligence Schema",
-        "qvr": "Quality Validation Rating",
-        "boundedReasoning": "Bounded Reasoning"
+        "regulatoryOntology": "Regulatorische Ontologie",
+        "canonicalSchema": "Kanonisches Intelligenzschema",
+        "qvr": "Qualitätsvalidierungsbewertung",
+        "boundedReasoning": "Begrenztes Schlussfolgern"
       },
       "panes": {
         "intelligenceLayer": {
-          "title": "Intelligence Layer",
+          "title": "Intelligenzschicht",
           "body": "Suricat arbeitet als neutrale, schreibgeschützte Intelligence Layer über bestehenden Systems of Record. Sie ersetzt keine validierte Infrastruktur und verändert keine Systemgrenzen.",
-          "imageAlt": "Intelligence Layer"
+          "imageAlt": "Intelligenzschicht"
         },
         "readOnly": {
-          "title": "Schreibgeschützt by Design",
+          "title": "Nur-Lesen durch Design",
           "body": "Suricat integriert sich über Unternehmenssysteme hinweg, ohne einen einzigen Datensatz zu ändern.",
-          "imageAlt": "Schreibgeschützt by Design"
+          "imageAlt": "Nur-Lesen durch Design"
         },
         "noRipReplace": {
-          "title": "Kein Rip and Replace",
+          "title": "Kein Ablösen und Ersetzen",
           "body": "Ihre QMS-, RIM-Plattformen, Document-Control-Systeme und Validierungsinfrastruktur bleiben genau so, wie sie sind.",
-          "imageAlt": "Kein Rip and Replace"
+          "imageAlt": "Kein Ablösen und Ersetzen"
         },
         "humanAccountability": {
           "title": "Menschliche Verantwortlichkeit",
@@ -688,24 +688,24 @@
           "imageAlt": "Bereitstellung"
         },
         "regulatoryOntology": {
-          "title": "Regulatory Ontology",
+          "title": "Regulatorische Ontologie",
           "body": "Im Kern von Suricat steht ein proprietäres Wissensframework, das kodiert, wie Vorschriften in der Praxis interpretiert werden.",
-          "imageAlt": "Regulatory Ontology"
+          "imageAlt": "Regulatorische Ontologie"
         },
         "canonicalSchema": {
-          "title": "Canonical Intelligence Schema",
+          "title": "Kanonisches Intelligenzschema",
           "body": "Jedes Dokument, das in Suricat eingeht, wird in strukturierte, nachvollziehbare Evidenz überführt, die widerspiegelt, wie erfahrene Regulatory Professionals Artefakte bei Inspektionen bewerten.",
-          "imageAlt": "Canonical Intelligence Schema"
+          "imageAlt": "Kanonisches Intelligenzschema"
         },
         "qvr": {
-          "title": "Quality Validation Rating",
+          "title": "Qualitätsvalidierungsbewertung",
           "body": "Suricat bewertet Dokumentation kontinuierlich über ein Confidence-Scoring-System, das die Inspektionsbereitschaft bestimmt.",
-          "imageAlt": "Quality Validation Rating"
+          "imageAlt": "Qualitätsvalidierungsbewertung"
         },
         "boundedReasoning": {
-          "title": "Bounded Reasoning",
+          "title": "Begrenztes Schlussfolgern",
           "body": "Suricats Bounded-Reasoning-Engine ist eine proprietäre Architektur, speziell für regulierte Umgebungen gebaut, in denen ein falsches Output kein bloßes Ärgernis ist.",
-          "imageAlt": "Bounded Reasoning"
+          "imageAlt": "Begrenztes Schlussfolgern"
         }
       }
     },
@@ -713,10 +713,10 @@
       "sectionTitle": "Lösungen",
       "headline": "Kein einzelnes Dokument erzählt die ganze Geschichte.",
       "headlineLine2": "Die Verbindungen dazwischen tun es.",
-      "body": "Verstehen Sie, wie die Compliance Intelligence Layer Quality- und Regulatory-Teams hilft, potenzielle Bedenken früher zu erkennen, ihre Auswirkungen zu verstehen und mehr Sicherheit über compliance-kritische Dokumentation zu behalten.",
+      "body": "Verstehen Sie, wie die Compliance-Intelligenzschicht Quality- und Regulatory-Teams hilft, potenzielle Bedenken früher zu erkennen, ihre Auswirkungen zu verstehen und mehr Sicherheit über compliance-kritische Dokumentation zu behalten.",
       "viewSolution": "Lösung ansehen",
       "cta": "Bereitschaft prüfen",
-      "ctaHint": "Erkunden Sie jede Lösung und sehen Sie, wie die Compliance Intelligence Layer sie anwendet.",
+      "ctaHint": "Erkunden Sie jede Lösung und sehen Sie, wie die Compliance-Intelligenzschicht sie anwendet.",
       "cards": {
         "c1": {
           "label": "Dokumentationssicherheit",
@@ -754,12 +754,12 @@
       "sectionTitle": "Branchen",
       "headline": "Für regulierte Branchen gebaut.",
       "headlineLine2": "Beginnend mit Medizinprodukten.",
-      "body": "Medizinproduktehersteller arbeiten in einer der anspruchsvollsten Dokumentationsumgebungen der Welt. Suricat beginnt hier, weil wenn die Compliance Intelligence Layer dort Vertrauen verdienen kann, wo Dokumentationskomplexität und regulatorische Erwartungen am höchsten sind, sie sich natürlich auf andere regulierte Branchen ausweiten kann.",
+      "body": "Medizinproduktehersteller arbeiten in einer der anspruchsvollsten Dokumentationsumgebungen der Welt. Suricat beginnt hier, weil wenn die Compliance-Intelligenzschicht dort Vertrauen verdienen kann, wo Dokumentationskomplexität und regulatorische Erwartungen am höchsten sind, sie sich natürlich auf andere regulierte Branchen ausweiten kann.",
       "medicalTitle": "Medizinprodukte",
-      "medicalBody": "Erfahren Sie, warum Medizinprodukte die erste Implementierung der Compliance Intelligence Layer darstellen und wie Suricat Quality- und Regulatory-Teams hilft, Dokumentationsausrichtung und Inspektionsbereitschaft zu wahren.",
+      "medicalBody": "Erfahren Sie, warum Medizinprodukte die erste Implementierung der Compliance-Intelligenzschicht darstellen und wie Suricat Quality- und Regulatory-Teams hilft, Dokumentationsausrichtung und Inspektionsbereitschaft zu wahren.",
       "medicalCta": "Medizinprodukte entdecken",
       "expansionTitle": "Branchenerweiterung",
-      "expansionBody": "Erkunden Sie, wie die Compliance Intelligence Layer auf weitere regulierte Branchen ausgeweitet werden kann, in denen Dokumentationsqualität, Evidenznachverfolgbarkeit und regulatorische Aufsicht ebenso kritisch sind.",
+      "expansionBody": "Erkunden Sie, wie die Compliance-Intelligenzschicht auf weitere regulierte Branchen ausgeweitet werden kann, in denen Dokumentationsqualität, Evidenznachverfolgbarkeit und regulatorische Aufsicht ebenso kritisch sind.",
       "expansionCta": "Branchenerweiterung entdecken"
     },
     "pricingPlans": {
@@ -928,9 +928,9 @@
         "priorityEmail": "Priorisierter E-Mail-Support",
         "extendedRetention": "Erweiterte Datenaufbewahrungsoptionen",
         "dedicatedCloud": "Dedizierte Suricat Cloud-Umgebung",
-        "sso": "Single Sign-On (SSO)",
+        "sso": "Einmalanmeldung (SSO)",
         "advancedGovernance": "Erweiterte Governance & Zugriffskontrollen",
-        "sla": "Service Level Agreement (SLA)",
+        "sla": "Service-Level-Vereinbarung (SLA)",
         "capacityRollover": "Document-Capacity-Übertrag",
         "apiAccess": "API-Zugang",
         "customIntegrations": "Individuelle Integrationen",
@@ -1003,7 +1003,7 @@
   "contact": {
     "eyebrow": "Kontakt",
     "title": "Starten Sie ein Gespräch.",
-    "body": "Ob Sie eine allgemeine Anfrage haben, ein Design-Partner-Engagement prüfen oder mehr über die Compliance Intelligence Layer erfahren möchten — wir freuen uns, von Ihnen zu hören.",
+    "body": "Ob Sie eine allgemeine Anfrage haben, ein Design-Partner-Engagement prüfen oder mehr über die Compliance-Intelligenzschicht erfahren möchten — wir freuen uns, von Ihnen zu hören.",
     "hqGlobal": "Globale Zentrale",
     "hqGlobalAddr": "Palo Alto, California 94306,\nUSA",
     "hqEurope": "Europäische Zentrale",
@@ -1029,7 +1029,7 @@
       "s2p3Before": "Diese Erfahrung machte eines klar. Die fehlende Fähigkeit war nie ein weiterer Workflow.",
       "s2p3Strong": "Es war kontinuierliche Compliance-Intelligence.",
       "s3Title": "Das wurde die Grundlage von Suricat.",
-      "s3p1": "Wir haben die Compliance Intelligence Layer so gebaut, dass sie oberhalb der Systeme arbeitet, denen Organisationen bereits vertrauen.",
+      "s3p1": "Wir haben die Compliance-Intelligenzschicht so gebaut, dass sie oberhalb der Systeme arbeitet, denen Organisationen bereits vertrauen.",
       "s3p2": "Nicht, um sie zu ersetzen.",
       "s3p3Before": "Um Dokumentationsausrichtung kontinuierlich zu bewerten, erklärbare Findings sichtbar zu machen und potenzielle Fehlausrichtung zu erkennen",
       "s3p3Strong": "bevor sie kritische Entscheidungen beeinflusst.",
@@ -1050,8 +1050,8 @@
         }
       },
       "exploreTitleLead": "Erkunden Sie die",
-      "exploreTitleAccent": "Compliance Intelligence Layer.",
-      "exploreDescription": "Sehen Sie, wie die Compliance Intelligence Layer oberhalb bestehender Systeme arbeitet, um Dokumentationsausrichtung in Ihrer Organisation kontinuierlich zu bewerten."
+      "exploreTitleAccent": "Compliance-Intelligenzschicht.",
+      "exploreDescription": "Sehen Sie, wie die Compliance-Intelligenzschicht oberhalb bestehender Systeme arbeitet, um Dokumentationsausrichtung in Ihrer Organisation kontinuierlich zu bewerten."
     },
     "missionVision": {
       "heroTitleBefore": "Wir glauben, Compliance Intelligence sollte kontinuierlich sein.",
@@ -1064,7 +1064,7 @@
       "missionP2Strong": "die Bewahrung von Ausrichtung",
       "missionP2After": "zunehmend schwieriger.",
       "missionP3Strong": "Unsere Mission ist es, das zu ändern.",
-      "missionP4Before": "Wir bauen die Compliance Intelligence Layer, die Organisationen ermöglicht, die Beziehungen über ihre",
+      "missionP4Before": "Wir bauen die Compliance-Intelligenzschicht, die Organisationen ermöglicht, die Beziehungen über ihre",
       "missionP4Strong": "compliance-kritische Dokumentation.",
       "sources": {
         "systems": "Systeme",
@@ -1091,7 +1091,7 @@
       "flowEndSub": "Wohin wir gehen",
       "exploreTitleLead": "Die Zukunft beginnt mit",
       "exploreTitleAccent": "einer anderen Layer.",
-      "exploreDescription": "Entdecken Sie, wie die Compliance Intelligence Layer Dokumentationsausrichtung kontinuierlich aufrechterhält, ohne die Systeme zu ersetzen, denen Ihre Organisation bereits vertraut."
+      "exploreDescription": "Entdecken Sie, wie die Compliance-Intelligenzschicht Dokumentationsausrichtung kontinuierlich aufrechterhält, ohne die Systeme zu ersetzen, denen Ihre Organisation bereits vertraut."
     },
     "leadership": {
       "heroTitleBefore": "Gebaut von Menschen, die das Problem",
@@ -1102,20 +1102,20 @@
       "readFullProfile": "Vollständiges Profil lesen",
       "leaders": {
         "mj": {
-          "title": "Gründer & Chief Executive Officer",
+          "title": "Gründer & Geschäftsführer",
           "bio": [
             "MJ Khan hat mehr als zwei Jahrzehnte damit verbracht, Unternehmen-Vertrieb und Go-to-Market-Strategien für einige der weltweit führenden Unternehmen-Technologieunternehmen aufzubauen, darunter Google Cloud und Splunk.",
             "Durch jahrelange Arbeit mit Organisationen in stark regulierten Branchen beobachtete er wiederholt dieselbe strukturelle Einschränkung. Compliance-Systeme konnten Dokumentation speichern, Workflows steuern und Freigaben kontrollieren — aber nicht die Beziehungen dazwischen verstehen.",
             "Diese Erkenntnis wurde die Grundlage von Suricat.",
-            "Er gründete das Unternehmen, um die Compliance Intelligence Layer als neue Kategorie zu etablieren, und stellte ein Gründungsteam zusammen, das Unternehmen-Technologie-Führung mit direkter FDA-Qualitäts- und Regulatorik-Expertise verbindet."
+            "Er gründete das Unternehmen, um die Compliance-Intelligenzschicht als neue Kategorie zu etablieren, und stellte ein Gründungsteam zusammen, das Unternehmen-Technologie-Führung mit direkter FDA-Qualitäts- und Regulatorik-Expertise verbindet."
           ]
         },
         "fahad": {
-          "title": "Mitgründer & Chief Technology Officer",
+          "title": "Mitgründer & Technologievorstand",
           "bio": [
             "Fahad Ehsan hat mehr als zwei Jahrzehnte Cloud-, KI- und Cybersecurity-Infrastruktur für Unternehmen unter anspruchsvollen Sicherheits- und Regulierungsanforderungen aufgebaut. Als Gründer des in Silicon Valley ansässigen Unternehmens eForte Inc. entwarf er Unternehmen-Systeme, in denen Vertrauen, Nachvollziehbarkeit und Datenintegrität für jede Entscheidung wesentlich waren.",
             "Diese Erfahrung wurde die technische Grundlage von Suricat.",
-            "Als Mitgründer und Chief Technology Officer führt Fahad die Architektur der Compliance Intelligence Layer. Er entwarf die grundlegenden Technologien der Plattform, einschließlich des privaten Large Language Models für regulierte Compliance-Umgebungen, des Canonical Intelligence Schema, der Regulatory Ontology und des Quality Validation Rating Frameworks. Gemeinsam stellen diese Technologien sicher, dass jedes Compliance-Finding nachvollziehbar, erklärbar und inspektionssicher ist."
+            "Als Mitgründer und Technologievorstand führt Fahad die Architektur der Compliance-Intelligenzschicht. Er entwarf die grundlegenden Technologien der Plattform, einschließlich des privaten Large Language Models für regulierte Compliance-Umgebungen, des Canonical Intelligence Schema, der Regulatory Ontology und des Quality Validation Rating Frameworks. Gemeinsam stellen diese Technologien sicher, dass jedes Compliance-Finding nachvollziehbar, erklärbar und inspektionssicher ist."
           ]
         },
         "matthew": {
@@ -1123,7 +1123,7 @@
           "bio": [
             "Matthew Fortson hat mehr als zwei Jahrzehnte Quality Management Systems, Design-Control-Programme und regulatorische Dokumentation für Medizinprodukthersteller unter FDA-Anforderungen aufgebaut. Durch Jahre der Inspektionsvorbereitung, CAPA-Untersuchungen und Produktentwicklung erlebte er aus erster Hand, wie Dokumentationsausrichtung mit Systemen, Teams und Vorschriften degradiert.",
             "Diese Erfahrung wurde die operative Grundlage von Suricat.",
-            "Als Mitgründer stellt Matthew sicher, dass die Compliance Intelligence Layer die Realitäten der Qualitätspraxis widerspiegelt. Seine Erfahrung prägt, wie die Plattform Dokumentationsfehlausrichtung erkennt, Evidenz bewertet und inspektionssichere Findings validiert."
+            "Als Mitgründer stellt Matthew sicher, dass die Compliance-Intelligenzschicht die Realitäten der Qualitätspraxis widerspiegelt. Seine Erfahrung prägt, wie die Plattform Dokumentationsfehlausrichtung erkennt, Evidenz bewertet und inspektionssichere Findings validiert."
           ]
         },
         "kim": {
@@ -1131,7 +1131,7 @@
           "bio": [
             "Kim Tompkins hat mehr als drei Jahrzehnte regulatorische Strategie für Medizinprodukthersteller unter FDA-Anforderungen geleitet. Durch Jahre der Sicherstellung regulatorischer Clearances, der Leitung von FDA-Inspektionen und der Begleitung komplexer Einreichungen entwickelte sie ein tiefes Verständnis der Standards, die compliant Dokumentation von inspektionssicherer Evidenz unterscheiden.",
             "Diese Erfahrung wurde die regulatorische Grundlage von Suricat.",
-            "Als Senior Advisor stellt Kim sicher, dass die Compliance Intelligence Layer sowohl Erwartungen von Regulierungsbehörden als auch Branchenrealitäten widerspiegelt. Ihre Erfahrung prägt, wie die Plattform Evidenz bewertet, Dokumentationsqualität misst und Findings an realen regulatorischen Standards validiert. Im Laufe ihrer Karriere hat sie mehr als fünfzehn FDA 510(k)-Clearances gesichert und FDA-Inspektionen mit null Form-483-Observations geleitet."
+            "Als Senior-Beraterin stellt Kim sicher, dass die Compliance-Intelligenzschicht sowohl Erwartungen von Regulierungsbehörden als auch Branchenrealitäten widerspiegelt. Ihre Erfahrung prägt, wie die Plattform Evidenz bewertet, Dokumentationsqualität misst und Findings an realen regulatorischen Standards validiert. Im Laufe ihrer Karriere hat sie mehr als fünfzehn FDA 510(k)-Clearances gesichert und FDA-Inspektionen mit null Form-483-Observations geleitet."
           ]
         }
       }
@@ -1249,7 +1249,7 @@
       "items": [
         {
           "question": "Müssen wir unsere bestehenden Systeme ändern?",
-          "answer": "Nein. Suricat arbeitet als schreibgeschützte Compliance Intelligence Layer oberhalb Ihrer bestehenden Qualitäts- und Dokumentationssysteme. Es gibt kein Rip-and-Replace, keine Datenmigration und keine Störung Ihrer validierten Umgebung."
+          "answer": "Nein. Suricat arbeitet als schreibgeschützte Compliance-Intelligenzschicht oberhalb Ihrer bestehenden Qualitäts- und Dokumentationssysteme. Es gibt kein Rip-and-Replace, keine Datenmigration und keine Störung Ihrer validierten Umgebung."
         },
         {
           "question": "Müssen wir eine NDA unterzeichnen?",
@@ -1336,7 +1336,7 @@
         "capa": "CAPA",
         "inspection": "Inspektionsbereitschaft"
       },
-      "layerTitle": "Compliance Intelligence Layer",
+      "layerTitle": "Compliance-Intelligenzschicht",
       "layerBody": "Bewertet kontinuierlich die Dokumentationsausrichtung über jede Phase des Produktlebenszyklus hinweg.",
       "whyMdEyebrow": "Warum Medizinprodukte",
       "whyMdTitle": "Gebaut für eine der anspruchsvollsten regulatorischen Umgebungen der Welt",
@@ -1344,12 +1344,12 @@
       "whyMdP2": "Wenn Dokumentation über mehrere Systeme und Teams hinweg evolviert, wird die Bewahrung von Ausrichtung zunehmend schwieriger.",
       "whyMdCallout1": "Die Herausforderung ist selten fehlende Dokumentation.",
       "whyMdCallout2": "Die Herausforderung ist, Beziehungen zwischen Dokumentation über die Zeit zu bewahren.",
-      "whyMdClose": "Genau dort beginnt die Compliance Intelligence Layer.",
+      "whyMdClose": "Genau dort beginnt die Compliance-Intelligenzschicht.",
       "whyFirstEyebrow": "Warum diese Branche zuerst",
       "whyFirstTitle": "Ein Fundament für regulierte Branchen",
       "whyFirstP1": "Medizinprodukte verbinden komplexe Technik, rigorose Qualitätssysteme und kontinuierliche regulatorische Aufsicht in einer einzigen Betriebsumgebung.",
       "whyFirstP2": "Organisationen müssen nachvollziehbare Evidenz über den gesamten Produktlebenszyklus nachweisen und sich zugleich auf Inspektionen unter FDA QMSR und ISO 13485 vorbereiten.",
-      "whyFirstCallout": "Wenn die Compliance Intelligence Layer hier Vertrauen verdient, schafft sie ein starkes Fundament für die Expansion in andere regulierte Branchen.",
+      "whyFirstCallout": "Wenn die Compliance-Intelligenzschicht hier Vertrauen verdient, schafft sie ein starkes Fundament für die Expansion in andere regulierte Branchen.",
       "capabilitiesEyebrow": "Fähigkeiten",
       "capabilitiesTitle": "Was Suricat ermöglicht",
       "enables": {
@@ -1380,7 +1380,7 @@
       },
       "bannerTitleBefore": "Medizinprodukte sind",
       "bannerTitleAccent": "wo wir beginnen.",
-      "bannerBody": "Die Compliance Intelligence Layer wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt. Entdecken Sie als Nächstes, wie derselbe Ansatz auf weitere regulierte Branchen ausgeweitet wird.",
+      "bannerBody": "Die Compliance-Intelligenzschicht wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt. Entdecken Sie als Nächstes, wie derselbe Ansatz auf weitere regulierte Branchen ausgeweitet wird.",
       "bannerCta": "Branchenexpansion erkunden"
     },
     "expansion": {
@@ -1392,7 +1392,7 @@
       },
       "heroTitle1": "Die Branche ändert sich.",
       "heroTitleAccent": "Die Dokumentationsherausforderung nicht.",
-      "heroSubtitle": "Jede regulierte Branche arbeitet in ihrem eigenen regulatorischen Rahmen, mit eigener Terminologie, Dokumentation und Prozessen. Die strukturelle Herausforderung bleibt jedoch dieselbe. Dokumentation evolviert. Beziehungen schwächen sich. Evidenz wird getrennt. Die Compliance Intelligence Layer wurde entworfen, um diese Beziehungen branchenunabhängig kontinuierlich zu bewerten.",
+      "heroSubtitle": "Jede regulierte Branche arbeitet in ihrem eigenen regulatorischen Rahmen, mit eigener Terminologie, Dokumentation und Prozessen. Die strukturelle Herausforderung bleibt jedoch dieselbe. Dokumentation evolviert. Beziehungen schwächen sich. Evidenz wird getrennt. Die Compliance-Intelligenzschicht wurde entworfen, um diese Beziehungen branchenunabhängig kontinuierlich zu bewerten.",
       "availableEyebrow": "Heute verfügbar",
       "availableTitle": "Medizinprodukte sind, wo wir beginnen",
       "badges": {
@@ -1402,10 +1402,10 @@
       },
       "mdCard": {
         "title": "Medizinprodukte",
-        "body": "Die Compliance Intelligence Layer wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt — Medizinprodukte. Gebaut, um komplexe regulatorische Dokumentation zu vereinfachen, bietet sie das Fundament für konforme, nachvollziehbare und skalierbare Prozesse. Erkunden Sie, wie dieser bewährte Ansatz auf weitere regulierte Branchen ausgeweitet werden kann."
+        "body": "Die Compliance-Intelligenzschicht wurde zuerst für eine der anspruchsvollsten Dokumentationsumgebungen der Welt entwickelt — Medizinprodukte. Gebaut, um komplexe regulatorische Dokumentation zu vereinfachen, bietet sie das Fundament für konforme, nachvollziehbare und skalierbare Prozesse. Erkunden Sie, wie dieser bewährte Ansatz auf weitere regulierte Branchen ausgeweitet werden kann."
       },
       "extendsEyebrow": "Wohin sie sich erweitern kann",
-      "extendsTitle": "Wohin sich die Compliance Intelligence Layer erweitern kann",
+      "extendsTitle": "Wohin sich die Compliance-Intelligenzschicht erweitern kann",
       "current": {
         "biotech": {
           "title": "Biotechnologie",
@@ -1441,7 +1441,7 @@
         }
       },
       "structuralTitleBefore": "Eine strukturelle Herausforderung.",
-      "structuralTitleAccent": "Eine Compliance Intelligence Layer.",
+      "structuralTitleAccent": "Eine Compliance-Intelligenzschicht.",
       "structuralBody": "Obwohl jede regulierte Branche anders arbeitet, bleibt der Bedarf, Dokumentationsausrichtung, Evidenz-Nachvollziehbarkeit und regulatorisches Vertrauen zu bewahren, konsistent.",
       "structuralCta": "Die Plattform erkunden"
     }
@@ -1457,7 +1457,7 @@
       "heroTitle": "Die Compliance-Situation verändert sich zwischen Überprüfungen.",
       "heroTitleAccent": "Die Transparenz sollte nicht zurückbleiben.",
       "heroSubtitle": "Audits, Inspektionen und Management-Reviews liefern regelmäßige Bewertungen der Compliance. Dokumentation, Aufzeichnungen, Untersuchungen, Schulungsaktivitäten und operative Prozesse entwickeln sich jedoch täglich weiter – auch zwischen diesen Meilensteinen.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Transparenz über compliance-kritische Dokumentation zwischen Audits, Inspektionen und Überprüfungen aufrechtzuerhalten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, die Transparenz über compliance-kritische Dokumentation zwischen Audits, Inspektionen und Überprüfungen aufrechtzuerhalten.",
       "problem": {
         "title": "Stichtagsbewertungen hinterlassen Lücken zwischen Überprüfungen.",
         "paragraphs": [
@@ -1546,7 +1546,7 @@
       "heroTitle": "Vertrauen in eine Entscheidung hängt ab von",
       "heroTitleAccent": "Vertrauen in die Nachweise.",
       "heroSubtitle": "Qualitäts- und regulatorische Entscheidungen sind nur so belastbar wie die sie stützenden Nachweise. Ob bei der Reaktion auf ein Audit, der Bewertung eines CAPA, der Risikobeurteilung, der Genehmigung einer Änderung oder der Vorbereitung auf eine Inspektion: Teams müssen sicher sein, dass die unterstützenden Nachweise vollständig, rückverfolgbar und unmittelbar verfügbar sind.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, das Vertrauen in die Nachweise hinter Qualitäts- und regulatorischen Entscheidungen zu stärken.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, das Vertrauen in die Nachweise hinter Qualitäts- und regulatorischen Entscheidungen zu stärken.",
       "problem": {
         "title": "Nicht alle Nachweise bieten das gleiche Maß an Unterstützung",
         "paragraphs": [
@@ -1635,7 +1635,7 @@
       "heroTitle": "Nachweise stützen ein Finding.",
       "heroTitleAccent": "Eine Erklärung verteidigt es.",
       "heroSubtitle": "Quality- und Regulatory-Teams schließen routinemäßig CAPAs ab, beenden Untersuchungen, dokumentieren Risikobeurteilungen und reagieren auf Auditbeobachtungen. Jede dieser Aktivitäten führt zu einem Finding, hinter dem die Organisation stehen können muss. Wird dieses Finding geprüft, geht es selten darum, ob die Nachweise existieren. Entscheidend ist, ob die Argumentation, die diese Nachweise mit der Schlussfolgerung verbindet, klar dargestellt werden kann.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Erklärungen hinter Findings und Schlussfolgerungen zu stärken.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, die Erklärungen hinter Findings und Schlussfolgerungen zu stärken.",
       "problem": {
         "title": "Die Argumentation hinter einem Finding wird selten als eigenständiges Artefakt dokumentiert",
         "paragraphs": [
@@ -1724,7 +1724,7 @@
       "heroTitle": "Änderungen bleiben selten begrenzt.",
       "heroTitleAccent": "Ihre Auswirkungen reichen oft über das Geänderte hinaus.",
       "heroSubtitle": "Eine Änderung an einem Verfahren, einer Anforderung, Aufzeichnung, Risikodatei, einem CAPA oder Designdokument kann mehrere Bereiche des Qualitätssystems beeinflussen. Diese Beziehungen zu verstehen, ist entscheidend, um die Compliance bei Änderungen aufrechtzuerhalten.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die potenziellen Auswirkungen von Änderungen über compliance-kritische Dokumentation hinweg zu bewerten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, die potenziellen Auswirkungen von Änderungen über compliance-kritische Dokumentation hinweg zu bewerten.",
       "problem": {
         "title": "Die vollständigen Auswirkungen einer Änderung sind nicht immer sofort sichtbar.",
         "paragraphs": [
@@ -1813,7 +1813,7 @@
       "heroTitle": "Inspektionsvorbereitung schafft keine Bereitschaft.",
       "heroTitleAccent": "Sie zeigt, ob Bereitschaft bereits besteht.",
       "heroSubtitle": "Regulatorische Inspektionen und Audits prüfen nicht nur die Dokumentation. Sie bewerten, ob eine Organisation den aktuellen Zustand ihres Qualitätssystems über Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Schulungen und unterstützende Nachweise hinweg darlegen kann – von denen die meisten bereits lange vor Beginn der Vorbereitung bestanden.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, Inspektionsbereitschaft im gesamten Qualitätssystem aufzubauen und aufrechtzuerhalten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, Inspektionsbereitschaft im gesamten Qualitätssystem aufzubauen und aufrechtzuerhalten.",
       "problem": {
         "title": "Vorbereitung macht Bereitschaft sichtbar. Sie schafft sie nicht.",
         "paragraphs": [
@@ -1902,7 +1902,7 @@
       "heroTitle": "Dokumentationsabweichungen entstehen selten auf einmal.",
       "heroTitleAccent": "Sie nehmen im Laufe der Zeit zu.",
       "heroSubtitle": "Qualitäts- und regulatorische Entscheidungen hängen von Dokumentation ab, die über Verfahren, Aufzeichnungen, Risikodateien, CAPAs, Designdokumentation und unterstützende Nachweise hinweg konsistent bleibt. Mit der Weiterentwicklung von Organisationen wird es zunehmend schwieriger, diese Konsistenz aufrechtzuerhalten.",
-      "readinessNote": "Erfahren Sie, wie die Compliance Intelligence Layer Ihrer Organisation helfen kann, die Ausrichtung compliance-kritischer Dokumentation aufrechtzuerhalten.",
+      "readinessNote": "Erfahren Sie, wie die Compliance-Intelligenzschicht Ihrer Organisation helfen kann, die Ausrichtung compliance-kritischer Dokumentation aufrechtzuerhalten.",
       "problem": {
         "title": "Änderungen erfolgen selten isoliert.",
         "paragraphs": [
@@ -1991,7 +1991,7 @@
   "pricing": {
     "common": {
       "viewPricingStartEvaluation": "Preise ansehen & Evaluation starten",
-      "complianceIntelligenceLayer": "Compliance Intelligence Layer"
+      "complianceIntelligenceLayer": "Compliance-Intelligenzschicht"
     },
     "main": {
       "heroTitleBefore": "Der Umfang liegt in der Dokumentation.",
@@ -2045,7 +2045,7 @@
         },
         {
           "question": "Gibt es Gebühren pro Nutzer?",
-          "answer": "Nein. Suricat berechnet keine Gebühren pro Nutzer. Die Preise basieren auf der Dokumentenkapazität – der Anzahl aktiver, Compliance-relevanter Dokumente, die während Ihrer Abonnementlaufzeit in der Compliance Intelligence Layer verwaltet werden. Der Nutzerzugang wird durch Ihre Abonnementstufe festgelegt und beeinflusst die Preisgestaltung nicht."
+          "answer": "Nein. Suricat berechnet keine Gebühren pro Nutzer. Die Preise basieren auf der Dokumentenkapazität – der Anzahl aktiver, Compliance-relevanter Dokumente, die während Ihrer Abonnementlaufzeit in der Compliance-Intelligenzschicht verwaltet werden. Der Nutzerzugang wird durch Ihre Abonnementstufe festgelegt und beeinflusst die Preisgestaltung nicht."
         },
         {
           "question": "Sind Abonnements jährlich?",
@@ -2057,7 +2057,7 @@
         },
         {
           "question": "Was gilt als aktives Dokument?",
-          "answer": "Jedes Compliance-relevante Dokument, das während Ihrer Abonnementlaufzeit in der Compliance Intelligence Layer verwaltet wird – einschließlich Verfahren, Arbeitsanweisungen, Richtlinien, Risikodateien, CAPAs, Untersuchungen, Schulungsnachweisen, Entwicklungsdokumentation und unterstützenden Qualitätsaufzeichnungen."
+          "answer": "Jedes Compliance-relevante Dokument, das während Ihrer Abonnementlaufzeit in der Compliance-Intelligenzschicht verwaltet wird – einschließlich Verfahren, Arbeitsanweisungen, Richtlinien, Risikodateien, CAPAs, Untersuchungen, Schulungsnachweisen, Entwicklungsdokumentation und unterstützenden Qualitätsaufzeichnungen."
         },
         {
           "question": "Was passiert, wenn ich meine Dokumentenkapazität überschreite?",
@@ -2065,7 +2065,7 @@
         },
         {
           "question": "Kann ich Dokumente entfernen, um innerhalb meiner Kapazität zu bleiben?",
-          "answer": "Ja. Dokumente können jederzeit aus der Compliance Intelligence Layer entfernt werden. Entfernte Dokumente zählen nicht zur aktiven Dokumentenkapazität."
+          "answer": "Ja. Dokumente können jederzeit aus der Compliance-Intelligenzschicht entfernt werden. Entfernte Dokumente zählen nicht zur aktiven Dokumentenkapazität."
         },
         {
           "question": "Wird die Dokumentenkapazität übertragen?",
@@ -2092,12 +2092,12 @@
     "license": {
       "heroTitleBefore": "Jedes Suricat-Abonnement beginnt mit einer",
       "heroTitleAccent": "jährlichen Plattformlizenz.",
-      "heroSubtitle": "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance Intelligence Layer sowie zu den operativen Funktionen, die erforderlich sind, um Compliance-relevante Dokumentation während Ihrer Abonnementlaufzeit zu bewerten, zu überwachen, zu verwalten und darüber zu berichten.",
+      "heroSubtitle": "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance-Intelligenzschicht sowie zu den operativen Funktionen, die erforderlich sind, um Compliance-relevante Dokumentation während Ihrer Abonnementlaufzeit zu bewerten, zu überwachen, zu verwalten und darüber zu berichten.",
       "includesEyebrow": "Was die Plattformlizenz bietet",
       "includesTitle": "Alles, was Sie brauchen, um Compliance aufrechtzuerhalten, Abläufe zu optimieren und auditbereit zu bleiben.",
       "cards": {
         "intelligenceLayer": {
-          "title": "Compliance Intelligence Layer",
+          "title": "Compliance-Intelligenzschicht",
           "body": "Zugang zu allen sechs Compliance Intelligence-Lösungen, die Quality- und Regulatory-Teams dabei helfen, die Übereinstimmung von Dokumentation zu bewerten, die Auswirkungen von Änderungen zu verstehen, die Inspektionsbereitschaft zu stärken und Vertrauen in Compliance-relevante Dokumentation zu wahren."
         },
         "monitoring": {
@@ -2117,7 +2117,7 @@
       "calloutBody": "Eine einzige jährliche Abonnementgebühr. Die Plattformlizenz erhöht sich nicht mit der Anzahl generierter Erkenntnisse, durchgeführter Analysen, erkannter Überwachungsereignisse oder bewerteter Evidenzbeziehungen.",
       "calloutBullets": [
         "Die Dokumentenkapazität bestimmt den Umfang der Dokumentation, die auf der Plattform verwaltet wird.",
-        "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance Intelligence Layer selbst."
+        "Die jährliche Plattformlizenz ermöglicht den Zugang zur Compliance-Intelligenzschicht selbst."
       ],
       "bottomCtaLabel": "Preise ansehen & Evaluation starten",
       "bottomCtaNote": "Entdecken Sie Abonnementoptionen, Dokumentenkapazität, Supportstufen und starten Sie eine kostenlose Evaluation über 90 Tage."
@@ -2238,7 +2238,7 @@
         "noConfiguration": "Keine Konfiguration erforderlich"
       },
       "bottomCtaLabel": "Sandbox-Zugang anfordern",
-      "bottomCtaNote": "Sehen Sie, wie die Compliance Intelligence Layer funktioniert, bevor Sie sie mit Ihrer eigenen Dokumentation evaluieren."
+      "bottomCtaNote": "Sehen Sie, wie die Compliance-Intelligenzschicht funktioniert, bevor Sie sie mit Ihrer eigenen Dokumentation evaluieren."
     },
     "startWithEvaluate": {
       "heroTitleBefore": "Validieren Sie Suricat mit Ihrer eigenen",
@@ -2253,7 +2253,7 @@
         },
         "allSolutions": {
           "title": "Alle sechs Compliance Intelligence-Lösungen",
-          "body": "Erhalten Sie während des Evaluierungszeitraums Zugang zu allen sechs Compliance Intelligence-Lösungen, die innerhalb der Compliance Intelligence Layer verfügbar sind."
+          "body": "Erhalten Sie während des Evaluierungszeitraums Zugang zu allen sechs Compliance Intelligence-Lösungen, die innerhalb der Compliance-Intelligenzschicht verfügbar sind."
         },
         "focusedScope": {
           "title": "Fokussierter Umfang",
@@ -2261,7 +2261,7 @@
         },
         "guidedOnboarding": {
           "title": "Begleitetes Onboarding",
-          "body": "Begleitete Onboarding-Ressourcen helfen Ihrem Team, sich mit der Compliance Intelligence Layer vertraut zu machen und zu verstehen, wie Erkenntnisse, Evidenzbeziehungen und Dokumentationsanalysen dargestellt werden."
+          "body": "Begleitete Onboarding-Ressourcen helfen Ihrem Team, sich mit der Compliance-Intelligenzschicht vertraut zu machen und zu verstehen, wie Erkenntnisse, Evidenzbeziehungen und Dokumentationsanalysen dargestellt werden."
         }
       },
       "calloutEyebrow": "Validieren, bevor Sie erweitern.",
@@ -2274,7 +2274,7 @@
         "Bestimmen Sie die organisatorische Eignung, bevor Sie die Kapazität erweitern."
       ],
       "bottomCtaLabel": "Die Interaktive Sandbox entdecken",
-      "bottomCtaNote": "Sehen Sie anhand repräsentativer Medizinproduktdokumentation, wie die Compliance Intelligence Layer funktioniert, bevor Sie Ihre eigene hochladen."
+      "bottomCtaNote": "Sehen Sie anhand repräsentativer Medizinproduktdokumentation, wie die Compliance-Intelligenzschicht funktioniert, bevor Sie Ihre eigene hochladen."
     }
   },
   "sitemapPage": {

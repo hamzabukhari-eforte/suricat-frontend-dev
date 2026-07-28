@@ -380,14 +380,19 @@ nav[data-locale="es"] .nav-center-menu > .nav-mega-group {
 
 nav[data-locale="de"] .nav-mega-trigger,
 nav[data-locale="es"] .nav-mega-trigger {
+  display: flex;
   max-width: 100%;
   min-width: 0;
   flex-shrink: 1;
+  overflow: hidden;
 }
 
 nav[data-locale="de"] .nav-mega-trigger-label,
 nav[data-locale="es"] .nav-mega-trigger-label {
+  display: block;
+  flex: 1 1 auto;
   min-width: 0;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2588,14 +2593,16 @@ input[type="radio"]:checked + span {
   }
 }
 
-/* Design Partners hero: 100px taller than original 500px min-height */
+/* Design Partners hero: keep original height and shrink illustration */
 #design-partners-hero {
   min-height: 0;
 }
 
 @media (min-width: 1024px) {
   #design-partners-hero {
-    min-height: 600px;
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
   }
 }
 
@@ -2620,15 +2627,16 @@ input[type="radio"]:checked + span {
 }
 
 #dp-hero-svg {
-  width: 85%;
+  width: 76%;
   max-width: none;
-  transform: scale(1.12);
+  transform: scale(1);
   transform-origin: center center;
 }
 
 @media (min-width: 1280px) {
   #dp-hero-svg {
-    transform: scale(1.2);
+    width: 82%;
+    transform: scale(1.04);
   }
 }
 
