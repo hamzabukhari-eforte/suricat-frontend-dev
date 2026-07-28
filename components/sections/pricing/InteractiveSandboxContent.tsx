@@ -1,3 +1,5 @@
+"use client";
+
 import { FaCheck, resolveFaIcon } from "@/components/ui/icons";
 import { PricingBottomCta } from "@/components/sections/pricing/PricingSubpageBlocks";
 import { useTranslations } from "@/components/i18n/LocaleProvider";

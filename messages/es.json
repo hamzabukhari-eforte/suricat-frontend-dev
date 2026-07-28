@@ -44,24 +44,24 @@
       "platform": {
         "label": "Plataforma",
         "introTitle": "Plataforma",
-        "introText": "Una Compliance Intelligence Layer de solo lectura para entornos regulados, con arquitectura propietaria para Bounded Reasoning y resultados defendibles.",
+        "introText": "Una Capa de inteligencia de cumplimiento de solo lectura para entornos regulados, con arquitectura propietaria para Bounded Reasoning y resultados defendibles.",
         "ctaLabel": "Explorar la plataforma",
         "links": {
-          "intelligenceLayer": "Intelligence Layer",
-          "readOnly": "Solo lectura by Design",
-          "noRipReplace": "Sin Rip and Replace",
+          "intelligenceLayer": "Capa de inteligencia",
+          "readOnly": "Solo lectura por diseño",
+          "noRipReplace": "Sin reemplazo total",
           "humanAccountability": "Responsabilidad humana",
           "deployment": "Despliegue",
-          "regulatoryOntology": "Regulatory Ontology",
-          "canonicalSchema": "Canonical Intelligence Schema",
-          "qvr": "Quality Validation Rating",
-          "boundedReasoning": "Bounded Reasoning"
+          "regulatoryOntology": "Ontología regulatoria",
+          "canonicalSchema": "Esquema canónico de inteligencia",
+          "qvr": "Calificación de validación de calidad",
+          "boundedReasoning": "Razonamiento acotado"
         }
       },
       "solutions": {
         "label": "Soluciones",
         "introTitle": "Soluciones",
-        "introText": "Seis capacidades enfocadas que aplican la Compliance Intelligence Layer a la confianza documental, la preparación para inspecciones, continuous compliance y más.",
+        "introText": "Seis capacidades enfocadas que aplican la Capa de inteligencia de cumplimiento a la confianza documental, la preparación para inspecciones, continuous compliance y más.",
         "ctaLabel": "Ver todas las soluciones",
         "links": {
           "documentationConfidence": "Confianza documental",
@@ -196,7 +196,7 @@
     },
     "continuousCompliance": {
       "title": "Cumplimiento continuo",
-      "description": "Mantenga visibilidad continua de compliance con la Compliance Intelligence Layer de Suricat."
+      "description": "Mantenga visibilidad continua de compliance con la Capa de inteligencia de cumplimiento de Suricat."
     },
     "documentationConfidence": {
       "title": "Confianza documental",
@@ -519,8 +519,8 @@
   "home": {
     "hero": {
       "titleBefore": "El sentinel de",
-      "titleCompliance": "Compliance",
-      "titleIntelligence": "Intelligence",
+      "titleCompliance": "Cumplimiento",
+      "titleIntelligence": "Inteligencia",
       "body": "Evalúa continuamente la alineación entre documentos y genera hallazgos defendibles ante inspección para una revisión más temprana.",
       "explorePlatform": "Explorar la plataforma",
       "becomeDesignPartner": "Convertirse en partner de diseño",
@@ -647,35 +647,35 @@
     "platform": {
       "sectionTitle": "Plataforma",
       "headline": "Los sistemas permanecen. La Intelligence Layer se sitúa por encima.",
-      "intro": "Suricat es una Compliance Intelligence Layer de solo lectura que evalúa continuamente la documentación regulada en cuanto a alineación, integridad y preparación para inspección.",
+      "intro": "Suricat es una Capa de inteligencia de cumplimiento de solo lectura que evalúa continuamente la documentación regulada en cuanto a alineación, integridad y preparación para inspección.",
       "continue": "Continuar",
       "checkReadiness": "Compruebe su preparación",
       "tabs": {
-        "intelligenceLayer": "Intelligence Layer",
-        "readOnly": "Solo lectura by Design",
-        "noRipReplace": "Sin Rip and Replace",
+        "intelligenceLayer": "Capa de inteligencia",
+        "readOnly": "Solo lectura por diseño",
+        "noRipReplace": "Sin reemplazo total",
         "humanAccountability": "Responsabilidad humana",
         "deployment": "Despliegue",
-        "regulatoryOntology": "Regulatory Ontology",
-        "canonicalSchema": "Canonical Intelligence Schema",
-        "qvr": "Quality Validation Rating",
-        "boundedReasoning": "Bounded Reasoning"
+        "regulatoryOntology": "Ontología regulatoria",
+        "canonicalSchema": "Esquema canónico de inteligencia",
+        "qvr": "Calificación de validación de calidad",
+        "boundedReasoning": "Razonamiento acotado"
       },
       "panes": {
         "intelligenceLayer": {
-          "title": "Intelligence Layer",
+          "title": "Capa de inteligencia",
           "body": "Suricat opera como una capa de inteligencia neutral y de solo lectura por encima de los systems of record existentes. No sustituye la infraestructura validada ni altera los límites del sistema.",
-          "imageAlt": "Intelligence Layer"
+          "imageAlt": "Capa de inteligencia"
         },
         "readOnly": {
-          "title": "Solo lectura by Design",
+          "title": "Solo lectura por diseño",
           "body": "Suricat se integra en los sistemas empresariales sin modificar un solo registro.",
-          "imageAlt": "Solo lectura by Design"
+          "imageAlt": "Solo lectura por diseño"
         },
         "noRipReplace": {
-          "title": "Sin Rip and Replace",
+          "title": "Sin reemplazo total",
           "body": "Sus plataformas QMS y RIM, sistemas de control documental e infraestructura de validación permanecen exactamente como están.",
-          "imageAlt": "Sin Rip and Replace"
+          "imageAlt": "Sin reemplazo total"
         },
         "humanAccountability": {
           "title": "Responsabilidad humana",
@@ -688,24 +688,24 @@
           "imageAlt": "Despliegue"
         },
         "regulatoryOntology": {
-          "title": "Regulatory Ontology",
+          "title": "Ontología regulatoria",
           "body": "En el núcleo de Suricat hay un marco de conocimiento propietario que codifica cómo se interpretan las regulaciones en la práctica.",
-          "imageAlt": "Regulatory Ontology"
+          "imageAlt": "Ontología regulatoria"
         },
         "canonicalSchema": {
-          "title": "Canonical Intelligence Schema",
+          "title": "Esquema canónico de inteligencia",
           "body": "Cada documento que entra en Suricat se transforma en evidencia estructurada y trazable que refleja cómo los profesionales regulatorios experimentados evalúan artefactos durante las inspecciones.",
-          "imageAlt": "Canonical Intelligence Schema"
+          "imageAlt": "Esquema canónico de inteligencia"
         },
         "qvr": {
-          "title": "Quality Validation Rating",
+          "title": "Calificación de validación de calidad",
           "body": "Suricat evalúa continuamente la documentación mediante un sistema de puntuación de confianza que determina la preparación para inspección.",
-          "imageAlt": "Quality Validation Rating"
+          "imageAlt": "Calificación de validación de calidad"
         },
         "boundedReasoning": {
-          "title": "Bounded Reasoning",
+          "title": "Razonamiento acotado",
           "body": "El motor de Bounded Reasoning de Suricat es una arquitectura propietaria diseñada para entornos regulados donde una salida incorrecta no es una inconveniencia.",
-          "imageAlt": "Bounded Reasoning"
+          "imageAlt": "Razonamiento acotado"
         }
       }
     },
@@ -713,10 +713,10 @@
       "sectionTitle": "Soluciones",
       "headline": "Ningún documento cuenta la historia completa.",
       "headlineLine2": "Las conexiones entre ellos sí.",
-      "body": "Comprenda cómo la Compliance Intelligence Layer ayuda a los equipos de Quality y Regulatory a identificar posibles preocupaciones antes, entender su impacto y mantener mayor confianza en la documentación crítica de compliance.",
+      "body": "Comprenda cómo la Capa de inteligencia de cumplimiento ayuda a los equipos de Quality y Regulatory a identificar posibles preocupaciones antes, entender su impacto y mantener mayor confianza en la documentación crítica de compliance.",
       "viewSolution": "Ver solución",
       "cta": "Compruebe su preparación",
-      "ctaHint": "Explore cada solución para ver cómo la Compliance Intelligence Layer la aplica.",
+      "ctaHint": "Explore cada solución para ver cómo la Capa de inteligencia de cumplimiento la aplica.",
       "cards": {
         "c1": {
           "label": "Confianza documental",
@@ -754,12 +754,12 @@
       "sectionTitle": "Industrias",
       "headline": "Creado para industrias reguladas.",
       "headlineLine2": "Empezando por dispositivos médicos.",
-      "body": "Los fabricantes de dispositivos médicos operan en uno de los entornos documentales más exigentes del mundo. Suricat comienza aquí porque si la Compliance Intelligence Layer puede ganarse la confianza donde la complejidad documental y las expectativas regulatorias son más altas, puede extenderse de forma natural a otras industrias reguladas.",
+      "body": "Los fabricantes de dispositivos médicos operan en uno de los entornos documentales más exigentes del mundo. Suricat comienza aquí porque si la Capa de inteligencia de cumplimiento puede ganarse la confianza donde la complejidad documental y las expectativas regulatorias son más altas, puede extenderse de forma natural a otras industrias reguladas.",
       "medicalTitle": "Dispositivos médicos",
-      "medicalBody": "Conozca por qué los dispositivos médicos representan la primera implementación de la Compliance Intelligence Layer y cómo Suricat ayuda a los equipos de Quality y Regulatory a mantener la alineación documental y la preparación para inspección.",
+      "medicalBody": "Conozca por qué los dispositivos médicos representan la primera implementación de la Capa de inteligencia de cumplimiento y cómo Suricat ayuda a los equipos de Quality y Regulatory a mantener la alineación documental y la preparación para inspección.",
       "medicalCta": "Explorar dispositivos médicos",
       "expansionTitle": "Expansión industrial",
-      "expansionBody": "Explore cómo la Compliance Intelligence Layer puede extenderse a industrias reguladas adicionales donde la calidad documental, la trazabilidad de evidencias y la supervisión regulatoria son igualmente críticas.",
+      "expansionBody": "Explore cómo la Capa de inteligencia de cumplimiento puede extenderse a industrias reguladas adicionales donde la calidad documental, la trazabilidad de evidencias y la supervisión regulatoria son igualmente críticas.",
       "expansionCta": "Explorar expansión industrial"
     },
     "pricingPlans": {
@@ -1003,7 +1003,7 @@
   "contact": {
     "eyebrow": "Contacto",
     "title": "Inicie una conversación.",
-    "body": "Ya sea una consulta general, un posible engagement como partner de diseño o más información sobre la Compliance Intelligence Layer: nos alegra saber de usted.",
+    "body": "Ya sea una consulta general, un posible engagement como partner de diseño o más información sobre la Capa de inteligencia de cumplimiento: nos alegra saber de usted.",
     "hqGlobal": "Sede global",
     "hqGlobalAddr": "Palo Alto, California 94306,\nUSA",
     "hqEurope": "Sede europea",
@@ -1029,7 +1029,7 @@
       "s2p3Before": "Esa experiencia dejó algo claro. La capacidad que faltaba nunca fue otro flujo de trabajo.",
       "s2p3Strong": "Era inteligencia de compliance continua.",
       "s3Title": "Eso se convirtió en el fundamento de Suricat.",
-      "s3p1": "Construimos la Compliance Intelligence Layer para operar por encima de los sistemas en los que las organizaciones ya confían.",
+      "s3p1": "Construimos la Capa de inteligencia de cumplimiento para operar por encima de los sistemas en los que las organizaciones ya confían.",
       "s3p2": "No para reemplazarlos.",
       "s3p3Before": "Para evaluar de forma continua la alineación documental, mostrar findings explicables e identificar posibles desalineaciones",
       "s3p3Strong": "antes de que afecten decisiones críticas.",
@@ -1050,8 +1050,8 @@
         }
       },
       "exploreTitleLead": "Explore la",
-      "exploreTitleAccent": "Compliance Intelligence Layer.",
-      "exploreDescription": "Vea cómo la Compliance Intelligence Layer opera por encima de los sistemas existentes para evaluar de forma continua la alineación documental en su organización."
+      "exploreTitleAccent": "Capa de inteligencia de cumplimiento.",
+      "exploreDescription": "Vea cómo la Capa de inteligencia de cumplimiento opera por encima de los sistemas existentes para evaluar de forma continua la alineación documental en su organización."
     },
     "missionVision": {
       "heroTitleBefore": "Creemos que la Compliance Intelligence debe ser continua.",
@@ -1064,7 +1064,7 @@
       "missionP2Strong": "preservar la alineación",
       "missionP2After": "se vuelve cada vez más difícil.",
       "missionP3Strong": "Nuestra misión es cambiar eso.",
-      "missionP4Before": "Estamos construyendo la Compliance Intelligence Layer que permite a las organizaciones comprender de forma continua las relaciones en su",
+      "missionP4Before": "Estamos construyendo la Capa de inteligencia de cumplimiento que permite a las organizaciones comprender de forma continua las relaciones en su",
       "missionP4Strong": "documentación crítica de compliance.",
       "sources": {
         "systems": "Sistemas",
@@ -1091,7 +1091,7 @@
       "flowEndSub": "Hacia donde iremos",
       "exploreTitleLead": "El futuro comienza con",
       "exploreTitleAccent": "una capa distinta.",
-      "exploreDescription": "Descubra cómo la Compliance Intelligence Layer mantiene de forma continua la alineación documental sin reemplazar los sistemas en los que su organización ya confía."
+      "exploreDescription": "Descubra cómo la Capa de inteligencia de cumplimiento mantiene de forma continua la alineación documental sin reemplazar los sistemas en los que su organización ya confía."
     },
     "leadership": {
       "heroTitleBefore": "Construido por las personas que vivieron",
@@ -1102,20 +1102,20 @@
       "readFullProfile": "Leer perfil completo",
       "leaders": {
         "mj": {
-          "title": "Fundador y Chief Executive Officer",
+          "title": "Fundador y Director Ejecutivo",
           "bio": [
             "MJ Khan ha dedicado más de dos décadas a construir estrategias de ventas empresariales y go-to-market para algunas de las principales empresas de tecnología empresarial del mundo, incluidas Google Cloud y Splunk.",
             "Tras años de trabajar con organizaciones en industrias altamente reguladas, observó reiteradamente la misma limitación estructural. Los sistemas de compliance podían almacenar documentación, gestionar flujos y controlar aprobaciones, pero no podían comprender las relaciones entre ellos.",
             "Esa idea se convirtió en el fundamento de Suricat.",
-            "Fundó la empresa para establecer la Compliance Intelligence Layer como una nueva categoría y reunió un equipo fundador que combina liderazgo en tecnología empresarial con experiencia directa en calidad y regulación de la FDA."
+            "Fundó la empresa para establecer la Capa de inteligencia de cumplimiento como una nueva categoría y reunió un equipo fundador que combina liderazgo en tecnología empresarial con experiencia directa en calidad y regulación de la FDA."
           ]
         },
         "fahad": {
-          "title": "Cofundador y Chief Technology Officer",
+          "title": "Cofundador y Director de Tecnología",
           "bio": [
             "Fahad Ehsan ha dedicado más de dos décadas a construir infraestructura de cloud, IA y ciberseguridad para empresas bajo exigentes requisitos de seguridad y regulación. Como fundador de eForte Inc., con sede en Silicon Valley, diseñó sistemas empresariales donde la confianza, la trazabilidad y la integridad de los datos eran esenciales en cada decisión.",
             "Esa experiencia se convirtió en el fundamento técnico de Suricat.",
-            "Como Cofundador y Chief Technology Officer, Fahad lidera la arquitectura de la Compliance Intelligence Layer. Diseñó las tecnologías fundamentales de la plataforma, incluido su large language model privado para entornos de compliance regulados, el Canonical Intelligence Schema, la Regulatory Ontology y el marco Quality Validation Rating. Juntas, estas tecnologías aseguran que cada finding de compliance sea trazable, explicable y defendible ante inspección."
+            "Como Cofundador y Director de Tecnología, Fahad lidera la arquitectura de la Capa de inteligencia de cumplimiento. Diseñó las tecnologías fundamentales de la plataforma, incluido su large language model privado para entornos de compliance regulados, el Canonical Intelligence Schema, la Regulatory Ontology y el marco Quality Validation Rating. Juntas, estas tecnologías aseguran que cada finding de compliance sea trazable, explicable y defendible ante inspección."
           ]
         },
         "matthew": {
@@ -1123,7 +1123,7 @@
           "bio": [
             "Matthew Fortson ha dedicado más de dos décadas a construir Quality Management Systems, programas de Design Control y documentación regulatoria para fabricantes de dispositivos médicos bajo requisitos de la FDA. Tras años preparando inspecciones, gestionando investigaciones CAPA y apoyando el desarrollo de productos, vivió de primera mano cómo se degrada la alineación documental a medida que evolucionan sistemas, equipos y regulaciones.",
             "Esa experiencia se convirtió en el fundamento operativo de Suricat.",
-            "Como Cofundador, Matthew ayuda a asegurar que la Compliance Intelligence Layer refleje las realidades de la práctica de calidad. Su experiencia guía cómo la plataforma identifica desalineación documental, evalúa evidencia y valida findings defendibles ante inspección."
+            "Como Cofundador, Matthew ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las realidades de la práctica de calidad. Su experiencia guía cómo la plataforma identifica desalineación documental, evalúa evidencia y valida findings defendibles ante inspección."
           ]
         },
         "kim": {
@@ -1131,7 +1131,7 @@
           "bio": [
             "Kim Tompkins ha dedicado más de tres décadas a liderar estrategia regulatoria para fabricantes de dispositivos médicos bajo requisitos de la FDA. Tras años asegurando clearances regulatorios, liderando inspecciones de la FDA y guiando presentaciones complejas, desarrolló una comprensión profunda de los estándares que distinguen la documentación conforme de la evidencia defendible ante inspección.",
             "Esa experiencia se convirtió en el fundamento regulatorio de Suricat.",
-            "Como Senior Advisor, Kim ayuda a asegurar que la Compliance Intelligence Layer refleje las expectativas de los reguladores y las realidades de la industria. Su experiencia guía cómo la plataforma evalúa evidencia, mide la calidad documental y valida findings frente a estándares regulatorios reales. A lo largo de su carrera, ha asegurado más de quince clearances FDA 510(k) y liderado inspecciones de la FDA con cero observaciones Form 483."
+            "Como Asesora sénior, Kim ayuda a asegurar que la Capa de inteligencia de cumplimiento refleje las expectativas de los reguladores y las realidades de la industria. Su experiencia guía cómo la plataforma evalúa evidencia, mide la calidad documental y valida findings frente a estándares regulatorios reales. A lo largo de su carrera, ha asegurado más de quince clearances FDA 510(k) y liderado inspecciones de la FDA con cero observaciones Form 483."
           ]
         }
       }
@@ -1249,7 +1249,7 @@
       "items": [
         {
           "question": "¿Necesitamos cambiar nuestros sistemas existentes?",
-          "answer": "No. Suricat opera como una Compliance Intelligence Layer de solo lectura por encima de sus sistemas de calidad y documentación existentes. No hay rip-and-replace, migración de datos ni interrupción de su entorno validado."
+          "answer": "No. Suricat opera como una Capa de inteligencia de cumplimiento de solo lectura por encima de sus sistemas de calidad y documentación existentes. No hay rip-and-replace, migración de datos ni interrupción de su entorno validado."
         },
         {
           "question": "¿Necesitamos firmar un NDA?",
@@ -1336,7 +1336,7 @@
         "capa": "CAPA",
         "inspection": "Preparación para inspección"
       },
-      "layerTitle": "Compliance Intelligence Layer",
+      "layerTitle": "Capa de inteligencia de cumplimiento",
       "layerBody": "Evalúa de forma continua la alineación documental en cada etapa del ciclo de vida del producto.",
       "whyMdEyebrow": "Por qué dispositivos médicos",
       "whyMdTitle": "Construido para uno de los entornos regulatorios más exigentes del mundo",
@@ -1344,12 +1344,12 @@
       "whyMdP2": "A medida que la documentación evoluciona en múltiples sistemas y equipos, preservar la alineación se vuelve cada vez más difícil.",
       "whyMdCallout1": "El desafío rara vez es la documentación faltante.",
       "whyMdCallout2": "El desafío es preservar las relaciones entre documentación a lo largo del tiempo.",
-      "whyMdClose": "Ahí es donde comienza la Compliance Intelligence Layer.",
+      "whyMdClose": "Ahí es donde comienza la Capa de inteligencia de cumplimiento.",
       "whyFirstEyebrow": "Por qué esta industria primero",
       "whyFirstTitle": "Un fundamento para industrias reguladas",
       "whyFirstP1": "Los dispositivos médicos combinan ingeniería compleja, sistemas de calidad rigurosos y supervisión regulatoria continua en un solo entorno operativo.",
       "whyFirstP2": "Las organizaciones deben demostrar evidencia trazable en todo el ciclo de vida del producto mientras se preparan para inspecciones bajo FDA QMSR e ISO 13485.",
-      "whyFirstCallout": "Si la Compliance Intelligence Layer puede ganar confianza aquí, establece un fundamento sólido para expandirse a otras industrias reguladas.",
+      "whyFirstCallout": "Si la Capa de inteligencia de cumplimiento puede ganar confianza aquí, establece un fundamento sólido para expandirse a otras industrias reguladas.",
       "capabilitiesEyebrow": "Capacidades",
       "capabilitiesTitle": "Lo que Suricat posibilita",
       "enables": {
@@ -1380,7 +1380,7 @@
       },
       "bannerTitleBefore": "Los dispositivos médicos son",
       "bannerTitleAccent": "donde comenzamos.",
-      "bannerBody": "La Compliance Intelligence Layer se desarrolló primero para uno de los entornos documentales más exigentes del mundo. A continuación, descubra cómo el mismo enfoque se extiende a otras industrias reguladas.",
+      "bannerBody": "La Capa de inteligencia de cumplimiento se desarrolló primero para uno de los entornos documentales más exigentes del mundo. A continuación, descubra cómo el mismo enfoque se extiende a otras industrias reguladas.",
       "bannerCta": "Explorar expansión industrial"
     },
     "expansion": {
@@ -1392,7 +1392,7 @@
       },
       "heroTitle1": "La industria cambia.",
       "heroTitleAccent": "El desafío documental no.",
-      "heroSubtitle": "Cada industria regulada opera con su propio marco regulatorio, terminología, documentación y procesos. El desafío estructural, sin embargo, es el mismo. La documentación evoluciona. Las relaciones se debilitan. La evidencia se desconecta. La Compliance Intelligence Layer fue diseñada para evaluar esas relaciones de forma continua, independientemente de la industria.",
+      "heroSubtitle": "Cada industria regulada opera con su propio marco regulatorio, terminología, documentación y procesos. El desafío estructural, sin embargo, es el mismo. La documentación evoluciona. Las relaciones se debilitan. La evidencia se desconecta. La Capa de inteligencia de cumplimiento fue diseñada para evaluar esas relaciones de forma continua, independientemente de la industria.",
       "availableEyebrow": "Disponible hoy",
       "availableTitle": "Los dispositivos médicos son donde comenzamos",
       "badges": {
@@ -1402,10 +1402,10 @@
       },
       "mdCard": {
         "title": "Dispositivos médicos",
-        "body": "La Compliance Intelligence Layer se desarrolló primero para uno de los entornos documentales más exigentes del mundo: dispositivos médicos. Construida para simplificar la documentación regulatoria compleja, ofrece el fundamento para procesos conformes, trazables y escalables. Explore cómo este enfoque probado puede extenderse a otras industrias reguladas."
+        "body": "La Capa de inteligencia de cumplimiento se desarrolló primero para uno de los entornos documentales más exigentes del mundo: dispositivos médicos. Construida para simplificar la documentación regulatoria compleja, ofrece el fundamento para procesos conformes, trazables y escalables. Explore cómo este enfoque probado puede extenderse a otras industrias reguladas."
       },
       "extendsEyebrow": "Hacia dónde puede extenderse",
-      "extendsTitle": "Hacia dónde puede extenderse la Compliance Intelligence Layer",
+      "extendsTitle": "Hacia dónde puede extenderse la Capa de inteligencia de cumplimiento",
       "current": {
         "biotech": {
           "title": "Biotecnología",
@@ -1441,7 +1441,7 @@
         }
       },
       "structuralTitleBefore": "Un desafío estructural.",
-      "structuralTitleAccent": "Una Compliance Intelligence Layer.",
+      "structuralTitleAccent": "Una Capa de inteligencia de cumplimiento.",
       "structuralBody": "Aunque cada industria regulada opera de forma distinta, la necesidad de preservar la alineación documental, la trazabilidad de evidencia y la confianza regulatoria permanece consistente.",
       "structuralCta": "Explorar la plataforma"
     }
@@ -1457,7 +1457,7 @@
       "heroTitle": "La postura de cumplimiento cambia entre revisiones.",
       "heroTitleAccent": "La visibilidad no debería quedarse atrás.",
       "heroSubtitle": "Las auditorías, inspecciones y revisiones por la dirección ofrecen evaluaciones periódicas del cumplimiento. Sin embargo, la documentación, los registros, las investigaciones, las actividades de formación y los procesos operativos siguen evolucionando cada día entre esos hitos.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a mantener visibilidad sobre la documentación crítica para el cumplimiento entre auditorías, inspecciones y revisiones.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a mantener visibilidad sobre la documentación crítica para el cumplimiento entre auditorías, inspecciones y revisiones.",
       "problem": {
         "title": "Las evaluaciones puntuales dejan brechas entre revisiones.",
         "paragraphs": [
@@ -1546,7 +1546,7 @@
       "heroTitle": "La confianza en una decisión depende de",
       "heroTitleAccent": "la confianza en la evidencia.",
       "heroSubtitle": "Las decisiones de calidad y regulatorias solo son tan defendibles como la evidencia que las respalda. Ya sea al responder a una auditoría, evaluar un CAPA, valorar un riesgo, aprobar un cambio o prepararse para una inspección, los equipos deben confiar en que la evidencia de respaldo esté completa, sea trazable y esté disponible fácilmente.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a reforzar la confianza en la evidencia que respalda las decisiones de calidad y regulatorias.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a reforzar la confianza en la evidencia que respalda las decisiones de calidad y regulatorias.",
       "problem": {
         "title": "No toda la evidencia ofrece el mismo nivel de respaldo",
         "paragraphs": [
@@ -1635,7 +1635,7 @@
       "heroTitle": "La evidencia respalda un hallazgo.",
       "heroTitleAccent": "Una explicación lo defiende.",
       "heroSubtitle": "Los equipos de Calidad y Regulatorio cierran habitualmente CAPA, completan investigaciones, documentan determinaciones de riesgo y responden a observaciones de auditoría. Cada una de estas actividades produce un hallazgo que la organización debe estar preparada para respaldar y, cuando se examina ese hallazgo, la pregunta rara vez es si existe la evidencia. Es si puede mostrarse claramente el razonamiento que conecta esa evidencia con la conclusión.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a reforzar las explicaciones que sustentan los hallazgos y las conclusiones.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a reforzar las explicaciones que sustentan los hallazgos y las conclusiones.",
       "problem": {
         "title": "El razonamiento que sustenta un hallazgo rara vez se documenta como un artefacto independiente",
         "paragraphs": [
@@ -1724,7 +1724,7 @@
       "heroTitle": "Los cambios rara vez permanecen aislados.",
       "heroTitleAccent": "Su impacto suele extenderse más allá de lo que cambió.",
       "heroSubtitle": "Un cambio realizado en un procedimiento, requisito, registro, archivo de riesgo, CAPA o documento de diseño puede afectar a múltiples áreas del sistema de calidad. Comprender esas relaciones es fundamental para mantener el cumplimiento a medida que se producen los cambios.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a evaluar el impacto potencial de los cambios en la documentación crítica para el cumplimiento.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a evaluar el impacto potencial de los cambios en la documentación crítica para el cumplimiento.",
       "problem": {
         "title": "El impacto completo de un cambio no siempre es visible de inmediato.",
         "paragraphs": [
@@ -1813,7 +1813,7 @@
       "heroTitle": "La preparación para inspección no crea preparación.",
       "heroTitleAccent": "Revela si la preparación ya existe.",
       "heroSubtitle": "Las inspecciones regulatorias y las auditorías no solo revisan la documentación. Evalúan si una organización puede demostrar el estado actual de su sistema de calidad en procedimientos, registros, archivos de riesgo, CAPA, formación y evidencia de respaldo, la mayor parte de los cuales ya estaba establecida mucho antes de que comenzara cualquier actividad de preparación.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a desarrollar y mantener la preparación para inspección en todo el sistema de calidad.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a desarrollar y mantener la preparación para inspección en todo el sistema de calidad.",
       "problem": {
         "title": "La preparación hace visible el estado de preparación. No lo crea.",
         "paragraphs": [
@@ -1902,7 +1902,7 @@
       "heroTitle": "La desviación documental rara vez ocurre de una vez.",
       "heroTitleAccent": "Se acumula con el tiempo.",
       "heroSubtitle": "Las decisiones de calidad y regulatorias dependen de documentación que se mantenga coherente entre procedimientos, registros, archivos de riesgo, CAPA, documentación de diseño y evidencia de respaldo. A medida que las organizaciones evolucionan, mantener esa coherencia se vuelve cada vez más difícil.",
-      "readinessNote": "Descubra cómo Compliance Intelligence Layer puede ayudar a su organización a mantener la alineación en la documentación crítica para el cumplimiento.",
+      "readinessNote": "Descubra cómo Capa de inteligencia de cumplimiento puede ayudar a su organización a mantener la alineación en la documentación crítica para el cumplimiento.",
       "problem": {
         "title": "Los cambios rara vez ocurren de forma aislada.",
         "paragraphs": [
@@ -1991,7 +1991,7 @@
   "pricing": {
     "common": {
       "viewPricingStartEvaluation": "Ver precios y comenzar su evaluación",
-      "complianceIntelligenceLayer": "Compliance Intelligence Layer"
+      "complianceIntelligenceLayer": "Capa de inteligencia de cumplimiento"
     },
     "main": {
       "heroTitleBefore": "El alcance está en la documentación.",
@@ -2045,7 +2045,7 @@
         },
         {
           "question": "¿Hay cargos por usuario?",
-          "answer": "No. Suricat no cobra por usuario. Los precios se basan en la Capacidad documental: la cantidad de documentos activos críticos para el cumplimiento mantenidos en la Compliance Intelligence Layer durante su período de suscripción. El acceso de los usuarios se define según su nivel de suscripción y no afecta al precio."
+          "answer": "No. Suricat no cobra por usuario. Los precios se basan en la Capacidad documental: la cantidad de documentos activos críticos para el cumplimiento mantenidos en la Capa de inteligencia de cumplimiento durante su período de suscripción. El acceso de los usuarios se define según su nivel de suscripción y no afecta al precio."
         },
         {
           "question": "¿Las suscripciones son anuales?",
@@ -2057,7 +2057,7 @@
         },
         {
           "question": "¿Qué se considera un documento activo?",
-          "answer": "Cualquier documento crítico para el cumplimiento mantenido en la Compliance Intelligence Layer durante su período de suscripción, incluidos procedimientos, instrucciones de trabajo, políticas, CAPA, investigaciones, registros de formación, documentación de diseño y registros de calidad complementarios."
+          "answer": "Cualquier documento crítico para el cumplimiento mantenido en la Capa de inteligencia de cumplimiento durante su período de suscripción, incluidos procedimientos, instrucciones de trabajo, políticas, CAPA, investigaciones, registros de formación, documentación de diseño y registros de calidad complementarios."
         },
         {
           "question": "¿Qué sucede si supero mi Capacidad documental?",
@@ -2065,7 +2065,7 @@
         },
         {
           "question": "¿Puedo eliminar documentos para mantenerme dentro de mi capacidad?",
-          "answer": "Sí. Los documentos pueden eliminarse de la Compliance Intelligence Layer en cualquier momento. Los documentos eliminados no cuentan para la Capacidad documental activa."
+          "answer": "Sí. Los documentos pueden eliminarse de la Capa de inteligencia de cumplimiento en cualquier momento. Los documentos eliminados no cuentan para la Capacidad documental activa."
         },
         {
           "question": "¿La Capacidad documental se acumula?",
@@ -2092,12 +2092,12 @@
     "license": {
       "heroTitleBefore": "Cada suscripción de Suricat comienza con una",
       "heroTitleAccent": "Licencia de plataforma anual.",
-      "heroSubtitle": "La Licencia de plataforma anual proporciona acceso a la Compliance Intelligence Layer y a las capacidades operativas necesarias para evaluar, supervisar, gestionar e informar sobre documentación crítica para el cumplimiento durante todo su período de suscripción.",
+      "heroSubtitle": "La Licencia de plataforma anual proporciona acceso a la Capa de inteligencia de cumplimiento y a las capacidades operativas necesarias para evaluar, supervisar, gestionar e informar sobre documentación crítica para el cumplimiento durante todo su período de suscripción.",
       "includesEyebrow": "Lo que proporciona la Licencia de plataforma",
       "includesTitle": "Todo lo que necesita para mantener el cumplimiento, optimizar las operaciones y estar preparado para auditorías.",
       "cards": {
         "intelligenceLayer": {
-          "title": "Compliance Intelligence Layer",
+          "title": "Capa de inteligencia de cumplimiento",
           "body": "Acceso a las seis soluciones de Compliance Intelligence que ayudan a los equipos de Calidad y Asuntos Regulatorios a evaluar la alineación de la documentación, comprender el impacto de los cambios, reforzar la preparación para inspecciones y mantener la confianza en la documentación crítica para el cumplimiento."
         },
         "monitoring": {
@@ -2117,7 +2117,7 @@
       "calloutBody": "Una única tarifa anual de suscripción. La Licencia de plataforma no aumenta según la cantidad de hallazgos generados, análisis realizados, eventos de supervisión detectados o relaciones de evidencia evaluadas.",
       "calloutBullets": [
         "La Capacidad documental determina el volumen de documentación mantenida en la plataforma.",
-        "La Licencia de plataforma anual proporciona acceso a la propia Compliance Intelligence Layer."
+        "La Licencia de plataforma anual proporciona acceso a la propia Capa de inteligencia de cumplimiento."
       ],
       "bottomCtaLabel": "Ver precios y comenzar su evaluación",
       "bottomCtaNote": "Explore las opciones de suscripción, la capacidad documental, los niveles de soporte y comience una evaluación gratuita de 90 días."
@@ -2238,7 +2238,7 @@
         "noConfiguration": "No se requiere configuración"
       },
       "bottomCtaLabel": "Solicitar acceso al Sandbox",
-      "bottomCtaNote": "Vea cómo funciona la Compliance Intelligence Layer antes de evaluarla con su propia documentación."
+      "bottomCtaNote": "Vea cómo funciona la Capa de inteligencia de cumplimiento antes de evaluarla con su propia documentación."
     },
     "startWithEvaluate": {
       "heroTitleBefore": "Valide Suricat con su propia",
@@ -2253,7 +2253,7 @@
         },
         "allSolutions": {
           "title": "Las seis soluciones de Compliance Intelligence",
-          "body": "Acceda a las seis soluciones de Compliance Intelligence disponibles en la Compliance Intelligence Layer durante el período de evaluación."
+          "body": "Acceda a las seis soluciones de Compliance Intelligence disponibles en la Capa de inteligencia de cumplimiento durante el período de evaluación."
         },
         "focusedScope": {
           "title": "Alcance enfocado",
@@ -2261,7 +2261,7 @@
         },
         "guidedOnboarding": {
           "title": "Incorporación guiada",
-          "body": "Los recursos de incorporación guiada ayudan a su equipo a familiarizarse con la Compliance Intelligence Layer y a comprender cómo se presentan los hallazgos, las relaciones de evidencia y el análisis de documentación."
+          "body": "Los recursos de incorporación guiada ayudan a su equipo a familiarizarse con la Capa de inteligencia de cumplimiento y a comprender cómo se presentan los hallazgos, las relaciones de evidencia y el análisis de documentación."
         }
       },
       "calloutEyebrow": "Valide antes de ampliar.",
@@ -2274,7 +2274,7 @@
         "Determine la adecuación organizacional antes de ampliar la capacidad."
       ],
       "bottomCtaLabel": "Explorar el Sandbox interactivo",
-      "bottomCtaNote": "Vea cómo funciona la Compliance Intelligence Layer con documentación representativa de dispositivos médicos antes de cargar la suya."
+      "bottomCtaNote": "Vea cómo funciona la Capa de inteligencia de cumplimiento con documentación representativa de dispositivos médicos antes de cargar la suya."
     }
   },
   "sitemapPage": {

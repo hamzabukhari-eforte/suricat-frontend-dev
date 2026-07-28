@@ -78,7 +78,7 @@ export function DesignPartnersContent() {
       >
         <div className="w-full max-w-7xl mx-auto px-6 flex items-center relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-10 w-full items-center">
-            <div className="flex flex-col justify-center min-w-0 md:col-span-5 pb-1">
+            <div className="flex flex-col justify-center min-w-0 md:col-span-6 pb-1">
               <h1 className="text-4xl lg:text-[36px] font-bold mb-4 leading-[44px] transform translate-y-4 opacity-0 animate-fade-in-up">
                 {tp("heroTitleBefore")}
                 <br />
@@ -130,7 +130,7 @@ export function DesignPartnersContent() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center justify-center relative md:col-span-7 overflow-visible">
+            <div className="hidden md:flex items-center justify-center relative md:col-span-6 overflow-visible">
               <div className="relative z-10 w-full flex flex-col items-center justify-center transform md:translate-x-2 lg:translate-x-4 opacity-0 animate-slide-in-right">
                 <Image
                   id="dp-hero-svg"
