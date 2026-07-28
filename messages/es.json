@@ -66,7 +66,7 @@
         "links": {
           "documentationConfidence": "Confianza documental",
           "continuousCompliance": "Cumplimiento continuo",
-          "inspectionHallazgos": "Hallazgos defendibles ante inspección",
+          "inspectionFindings": "Hallazgos defendibles ante inspección",
           "changeImpact": "Evaluación de impacto del cambio",
           "inspectionReadiness": "Preparación para inspección",
           "documentAlignment": "Alineación documental"
@@ -202,7 +202,7 @@
       "title": "Confianza documental",
       "description": "Construya confianza documental con Suricat — inteligencia documental defendible y lista para inspección."
     },
-    "inspectionHallazgos": {
+    "inspectionFindings": {
       "title": "Hallazgos defendibles ante inspección",
       "description": "Produzca hallazgos defendibles ante inspección con Bounded Reasoning y Ontología regulatoria de Suricat."
     },
@@ -1373,7 +1373,7 @@
           "title": "Preparación para inspección",
           "body": "Mantener preparación continua en lugar de prepararse solo justo antes de las inspecciones."
         },
-        "hallazgos": {
+        "findings": {
           "title": "Hallazgos defendibles ante inspección",
           "body": "Producir hallazgos explicables respaldados por evidencia trazable."
         }
@@ -1631,7 +1631,7 @@
         ]
       }
     },
-    "inspection-hallazgos": {
+    "inspection-findings": {
       "heroTitle": "La evidencia respalda un hallazgo.",
       "heroTitleAccent": "Una explicación lo defiende.",
       "heroSubtitle": "Los equipos de Calidad y Regulatorio cierran habitualmente CAPA, completan investigaciones, documentan determinaciones de riesgo y responden a observaciones de auditoría. Cada una de estas actividades produce un hallazgo que la organización debe estar preparada para respaldar y, cuando se examina ese hallazgo, la pregunta rara vez es si existe la evidencia. Es si puede mostrarse claramente el razonamiento que conecta esa evidencia con la conclusión.",
@@ -2314,7 +2314,7 @@
       "industryExpansion": "Expansión industrial",
       "documentationConfidence": "Confianza documental",
       "continuousCompliance": "Cumplimiento continuo",
-      "inspectionHallazgos": "Hallazgos defendibles ante inspección",
+      "inspectionFindings": "Hallazgos defendibles ante inspección",
       "changeImpact": "Evaluación de impacto del cambio",
       "inspectionReadiness": "Preparación para inspección",
       "documentAlignment": "Alineación documental",
