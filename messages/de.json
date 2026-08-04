@@ -513,7 +513,10 @@
       "subtitle": "Wählen Sie einen passenden Termin · alle Zeiten in Ihrer lokalen Zeitzone",
       "prevMonth": "Vorheriger Monat",
       "nextMonth": "Nächster Monat",
-      "selectedNote": "30-minütiges Einführungsgespräch · Ihre lokale Zeitzone"
+      "selectedNote": "30-minütiges Einführungsgespräch · Ihre lokale Zeitzone",
+      "loading": "Verfügbare Zeiten werden geladen",
+      "noSlots": "An diesem Tag sind keine Zeiten verfügbar. Bitte wählen Sie ein anderes Datum.",
+      "slotTaken": "Dieser Termin ist nicht mehr verfügbar. Bitte wählen Sie einen anderen Slot."
     }
   },
   "home": {

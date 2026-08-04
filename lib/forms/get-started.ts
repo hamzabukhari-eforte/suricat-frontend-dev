@@ -1,4 +1,5 @@
-import { postInquiry, type FormResult } from "@/lib/api/client";
+import { bookCalendlySlot, type BookCalendlyResult } from "@/lib/api/calendly";
+import type { FormResult } from "@/lib/api/client";
 
 export type GetStartedPayload = {
   name: string;
@@ -9,14 +10,23 @@ export type GetStartedPayload = {
   priority?: string;
   priorityOther?: string;
   context?: string;
+  /** Local calendar date YYYY-MM-DD (UI selection). */
   date?: string;
+  /** UTC ISO start_time from Calendly availability. */
+  startTime?: string;
+  /** Human-readable local time for confirmation display. */
   time?: string;
   captchaToken?: string;
 };
 
 export type GetStartedFormResult =
   | { ok: true; data?: unknown }
-  | { ok: false; error: string; fieldErrors?: Record<string, string> };
+  | {
+      ok: false;
+      error: string;
+      fieldErrors?: Record<string, string>;
+      slotTaken?: boolean;
+    };
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -38,7 +48,8 @@ export function validateGetStarted(
   if (payload.priority === "other" && !payload.priorityOther?.trim()) {
     fieldErrors.priorityOther = "Please describe your focus.";
   }
-  if (!payload.date || !payload.time) {
+  // Keep ISO date for schedule validation; human-readable for confirmation.
+  if (!payload.startTime) {
     fieldErrors.schedule = "Select a date and time.";
   }
 
@@ -59,7 +70,32 @@ export async function submitGetStarted(
   const validated = validateGetStarted(payload);
   if (!validated.ok) return validated;
 
-  return postInquiry("get-started", payload);
+  const result: BookCalendlyResult = await bookCalendlySlot({
+    name: payload.name,
+    email: payload.email,
+    company: payload.company,
+    role: payload.role,
+    companySize: payload.companySize,
+    priority: payload.priority,
+    priorityOther: payload.priorityOther,
+    context: payload.context,
+    start_time: payload.startTime!,
+    formSource: "get-started",
+    ...(payload.captchaToken ? { captchaToken: payload.captchaToken } : {}),
+  });
+
+  if (!result.ok) {
+    return {
+      ok: false,
+      error: result.error,
+      slotTaken: result.slotTaken,
+      ...(result.slotTaken
+        ? { fieldErrors: { schedule: result.error } }
+        : {}),
+    };
+  }
+
+  return { ok: true, data: result.data };
 }
 
 export function buildDiscussionConfirmedQuery(

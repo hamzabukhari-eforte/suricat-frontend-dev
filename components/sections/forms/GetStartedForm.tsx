@@ -11,6 +11,7 @@ import {
 } from "@/lib/forms/get-started";
 import {
   formatScheduleDate,
+  formatSlotTime,
   ScheduleCalendar,
 } from "@/components/sections/forms/ScheduleCalendar";
 import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNote";
@@ -42,10 +43,13 @@ export function GetStartedForm() {
   const [priorityOther, setPriorityOther] = useState("");
   const [context, setContext] = useState("");
   const [date, setDate] = useState<string | null>(null);
-  const [time, setTime] = useState<string | null>(null);
+  const [startTime, setStartTime] = useState<string | null>(null);
+  const [scheduleError, setScheduleError] = useState<string | null>(null);
+  const [reloadToken, setReloadToken] = useState(0);
   const [emailError, setEmailError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const turnstile = useTurnstileAction();
+  const tSchedule = useTranslations("forms.scheduleCalendar");
 
   const priorities = useMemo(
     () => [
@@ -63,7 +67,7 @@ export function GetStartedForm() {
     if (!name.trim() || !email.trim() || !company.trim()) return false;
     if (!priority) return false;
     if (priority === "other" && !priorityOther.trim()) return false;
-    if (date == null || !time) return false;
+    if (date == null || !startTime) return false;
     if (turnstile.isCaptchaBlockingSubmit) return false;
     return true;
   }, [
@@ -73,7 +77,7 @@ export function GetStartedForm() {
     priority,
     priorityOther,
     date,
-    time,
+    startTime,
     turnstile.isCaptchaBlockingSubmit,
   ]);
 
@@ -85,6 +89,11 @@ export function GetStartedForm() {
       return;
     }
 
+    const timeLabel =
+      startTime != null ? formatSlotTime(startTime, locale) : undefined;
+    const dateLabel =
+      date != null ? formatScheduleDate(date, locale) : undefined;
+
     const payload: GetStartedPayload = {
       name,
       email,
@@ -94,25 +103,33 @@ export function GetStartedForm() {
       priority,
       priorityOther,
       context,
-      date: date != null ? formatScheduleDate(date, locale) : undefined,
-      time: time ?? undefined,
+      date: dateLabel,
+      startTime: startTime ?? undefined,
+      time: timeLabel,
       ...(turnstile.isTurnstileEnabled
         ? { captchaToken: turnstile.captchaToken }
         : {}),
     };
 
     setSubmitting(true);
+    setScheduleError(null);
     const result = await submitGetStarted(payload);
     setSubmitting(false);
 
     if (!result.ok) {
       turnstile.resetCaptcha();
       if (result.fieldErrors?.email) setEmailError(true);
+      if (result.slotTaken) {
+        setScheduleError(result.error || tSchedule("slotTaken"));
+        setStartTime(null);
+        setReloadToken((n) => n + 1);
+        return;
+      }
       toast.error(result.error);
       return;
     }
 
-    const { captchaToken: _token, ...stored } = payload;
+    const { captchaToken: _token, startTime: _start, ...stored } = payload;
     const qs = buildDiscussionConfirmedQuery(payload);
     if (typeof window !== "undefined") {
       sessionStorage.setItem("suricat-discussion", JSON.stringify(stored));
@@ -127,7 +144,8 @@ export function GetStartedForm() {
     setPriorityOther("");
     setContext("");
     setDate(null);
-    setTime(null);
+    setStartTime(null);
+    setScheduleError(null);
     setEmailError(false);
     turnstile.resetCaptcha();
     toast.success(t("toastSuccess"));
@@ -310,9 +328,17 @@ export function GetStartedForm() {
           <div className="min-w-0 max-w-full space-y-6 max-sm:space-y-3 lg:sticky lg:top-24">
             <ScheduleCalendar
               selectedDate={date}
-              selectedTime={time}
-              onSelectDate={setDate}
-              onSelectTime={setTime}
+              selectedStartTime={startTime}
+              onSelectDate={(iso) => {
+                setDate(iso);
+                setScheduleError(null);
+              }}
+              onSelectStartTime={(slot) => {
+                setStartTime(slot);
+                setScheduleError(null);
+              }}
+              scheduleError={scheduleError}
+              reloadToken={reloadToken}
             />
             <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-sm max-sm:p-3">
               <p className="mb-4 text-xs leading-relaxed text-navy max-sm:mb-3 max-sm:text-[11px] max-sm:leading-snug">

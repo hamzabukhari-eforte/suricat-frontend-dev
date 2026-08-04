@@ -513,7 +513,10 @@
       "subtitle": "Choose a time that works for you · all times in your local timezone",
       "prevMonth": "Previous month",
       "nextMonth": "Next month",
-      "selectedNote": "30-minute introductory discussion · Your local timezone"
+      "selectedNote": "30-minute introductory discussion · Your local timezone",
+      "loading": "Loading available times",
+      "noSlots": "No times available on this day. Please choose another date.",
+      "slotTaken": "That time is no longer available. Please choose another slot."
     }
   },
   "home": {

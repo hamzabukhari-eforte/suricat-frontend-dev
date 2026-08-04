@@ -513,7 +513,10 @@
       "subtitle": "Elija un horario que le convenga · todas las horas en su zona horaria local",
       "prevMonth": "Mes anterior",
       "nextMonth": "Mes siguiente",
-      "selectedNote": "Conversación introductoria de 30 minutos · Su zona horaria local"
+      "selectedNote": "Conversación introductoria de 30 minutos · Su zona horaria local",
+      "loading": "Cargando horarios disponibles",
+      "noSlots": "No hay horarios disponibles este día. Elija otra fecha.",
+      "slotTaken": "Ese horario ya no está disponible. Elija otro turno."
     }
   },
   "home": {
