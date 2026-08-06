@@ -21,7 +21,7 @@ export function HeroSection() {
               <h1 className="text-3xl md:text-[1.75rem] lg:text-[36px] font-bold mb-5 md:mb-4 lg:mb-6 transform translate-y-4 opacity-0 animate-fade-in-up leading-tight lg:leading-[44px]">
                 {t("titleBefore")} <br />
                 {t("titleCompliance")}
-                <span className="text-teal">{t("titleIntelligence")}</span>
+                <span className="text-teal ms-1.5">{t("titleIntelligence")}</span>
               </h1>
               <div className="w-12 h-1 bg-teal mb-5 md:mb-4 lg:mb-6 transform scale-x-0 animate-scale-x origin-left"></div>
               <p className="text-base lg:text-[22px] text-gray-100 mb-6 md:mb-5 lg:mb-8 font-normal md:pr-0 lg:pr-4 transform translate-y-4 opacity-0 animate-fade-in-up-delayed leading-relaxed lg:leading-[32px]">
