@@ -1,6 +1,6 @@
 # Public inquiries API contract
 
-Marketing forms in this app POST JSON to the Nest API in `suricat-dev`.
+Marketing forms in this app POST JSON to the Nest API in `suricat-apps`.
 
 ## Base URL
 

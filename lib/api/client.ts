@@ -1,6 +1,6 @@
 /**
  * Shared API client for marketing-site form submissions.
- * Targets suricat-dev Nest API: {NEXT_PUBLIC_API_URL}/public/inquiries/*
+ * Targets suricat-apps Nest API: {NEXT_PUBLIC_API_URL}/public/inquiries/*
  */
 
 export type FormResult =

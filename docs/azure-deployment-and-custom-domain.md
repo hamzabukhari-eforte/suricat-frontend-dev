@@ -38,7 +38,7 @@ Browsers
   └─ https://www.suricat.ai
        └─ Azure App Service (public-dev-suricat)
             └─ node server.js  (Next.js standalone)
-                 └─ forms → NEXT_PUBLIC_API_URL (Nest API in suricat-dev)
+                 └─ forms → NEXT_PUBLIC_API_URL (Nest API in suricat-apps)
 ```
 
 **Important:** `NEXT_PUBLIC_*` values are baked in at **build time** in GitHub Actions. Changing the API URL requires updating the GitHub secret and redeploying — App Service app settings alone do not rewrite an already-built Next.js bundle for those vars.
