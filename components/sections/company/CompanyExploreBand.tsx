@@ -13,7 +13,7 @@ export function CompanyExploreBand({
   titleLead,
   titleAccent,
   description,
-  ctaHref = "/#platform-intelligence-section",
+  ctaHref = "/#platform",
   ctaLabel = "Explore The Platform",
 }: CompanyExploreBandProps) {
   return (

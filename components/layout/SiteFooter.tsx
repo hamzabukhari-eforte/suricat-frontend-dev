@@ -9,17 +9,17 @@ import {
   FaYoutube,
   MdOutlineLocationOn,
 } from "@/components/ui/icons";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  footerCompanyLinks,
-  footerPlatformLinks,
-  footerResourceLinks,
-  footerTopLinks,
-  footerWhyLinks,
+  buildFooterCompanyLinks,
+  buildFooterPlatformLinks,
+  buildFooterResourceLinks,
+  buildFooterTopLinks,
+  buildFooterWhyLinks,
   isNavHrefActive,
-  LANGUAGES,
 } from "@/lib/navigation";
 import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
 
@@ -54,7 +54,7 @@ function FooterLinkList({ links }: { links: FooterLink[] }) {
       {links.map((link) => {
         const active = isNavHrefActive(link.href, pathname, hash);
         return (
-          <li key={link.label}>
+          <li key={link.href + link.label}>
             <Link
               href={link.href}
               className={`nav-link-animated inline-block hover:text-white${
@@ -115,16 +115,37 @@ function FooterColumn({
   );
 }
 
-const FOOTER_COLUMNS = [
-  { id: "company", title: "Company", links: footerCompanyLinks },
-  { id: "why", title: "Why Suricat", links: footerWhyLinks },
-  { id: "platform", title: "Platform", links: footerPlatformLinks },
-  { id: "resources", title: "Resources", links: footerResourceLinks },
-] as const;
-
 export function SiteFooter() {
+  const t = useTranslations();
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [isDesktop, setIsDesktop] = useState(false);
+
+  const footerTopLinks = useMemo(() => buildFooterTopLinks(t), [t]);
+  const footerColumns = useMemo(
+    () => [
+      {
+        id: "company",
+        title: t("footer.columns.company"),
+        links: buildFooterCompanyLinks(t),
+      },
+      {
+        id: "why",
+        title: t("footer.columns.why"),
+        links: buildFooterWhyLinks(t),
+      },
+      {
+        id: "platform",
+        title: t("footer.columns.platform"),
+        links: buildFooterPlatformLinks(t),
+      },
+      {
+        id: "resources",
+        title: t("footer.columns.resources"),
+        links: buildFooterResourceLinks(t),
+      },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -147,28 +168,28 @@ export function SiteFooter() {
             <a
               href="#"
               className="transition-colors hover:text-teal"
-              aria-label="Facebook"
+              aria-label={t("footer.social.facebook")}
             >
               <FaFacebookF aria-hidden="true" />
             </a>
             <a
               href="#"
               className="transition-colors hover:text-teal"
-              aria-label="Twitter"
+              aria-label={t("footer.social.twitter")}
             >
               <FaTwitter aria-hidden="true" />
             </a>
             <a
               href="#"
               className="transition-colors hover:text-teal"
-              aria-label="LinkedIn"
+              aria-label={t("footer.social.linkedin")}
             >
               <FaLinkedinIn aria-hidden="true" />
             </a>
             <a
               href="#"
               className="transition-colors hover:text-teal"
-              aria-label="YouTube"
+              aria-label={t("footer.social.youtube")}
             >
               <FaYoutube aria-hidden="true" />
             </a>
@@ -176,7 +197,7 @@ export function SiteFooter() {
           <div className="hidden flex-wrap gap-12 text-sm font-bold uppercase tracking-wider lg:flex">
             {footerTopLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href + link.label}
                 href={link.href}
                 className="hover:text-teal"
               >
@@ -192,7 +213,7 @@ export function SiteFooter() {
               href="/contact"
               className="mb-4 inline-flex w-full items-center justify-center rounded-full border-2 border-teal px-8 py-2.5 font-bold text-teal transition-all hover:bg-teal hover:text-navy lg:mb-10 lg:py-3"
             >
-              Contact us
+              {t("footer.contactUs")}
             </Link>
             <div className="mb-5 space-y-2.5 lg:mb-8 lg:space-y-3">
               <div className="flex items-start gap-3">
@@ -201,7 +222,7 @@ export function SiteFooter() {
                   aria-hidden="true"
                 />
                 <p className="text-sm text-gray-400">
-                  Palo Alto, California 94306, USA
+                  {t("footer.addressPaloAlto")}
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -210,7 +231,7 @@ export function SiteFooter() {
                   aria-hidden="true"
                 />
                 <p className="text-sm text-gray-400">
-                  Akadeemia tee 12618, Tallinn, Estonia
+                  {t("footer.addressTallinn")}
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -226,24 +247,9 @@ export function SiteFooter() {
                 </a>
               </div>
             </div>
-            <div className="relative mb-2 inline-block w-full lg:mb-0">
-              <select
-                className="w-full cursor-pointer appearance-none rounded-full border border-white/20 bg-navy px-6 py-2 text-sm focus:outline-none"
-                defaultValue="English"
-                aria-label="Language"
-              >
-                {LANGUAGES.map((lang) => (
-                  <option key={lang}>{lang}</option>
-                ))}
-              </select>
-              <FaChevronDown
-                className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 text-xs"
-                aria-hidden="true"
-              />
-            </div>
           </div>
 
-          {FOOTER_COLUMNS.map((col) => (
+          {footerColumns.map((col) => (
             <FooterColumn
               key={col.id}
               id={col.id}
@@ -256,25 +262,34 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center gap-3 border-t border-white/10 pt-4 text-center text-[10px] uppercase tracking-widest text-gray-500 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:text-left">
-          <p>© 2026 Suricat. All rights reserved.</p>
+          <p>{t("footer.copyright", { year: 2026 })}</p>
           <nav
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 pb-1"
-            aria-label="Legal"
+            aria-label={t("footer.legal")}
           >
             <a href="#" className="nav-link-animated inline-block hover:text-white">
-              Terms &amp; Conditions
+              {t("footer.terms")}
             </a>
             <span aria-hidden="true" className="text-gray-500/80">
               |
             </span>
             <a href="#" className="nav-link-animated inline-block hover:text-white">
-              Privacy Policy
+              {t("footer.privacy")}
             </a>
             <span aria-hidden="true" className="text-gray-500/80">
               |
             </span>
             <a href="#" className="nav-link-animated inline-block hover:text-white">
-              Cookie Settings
+              {t("footer.cookieSettings")}
+            </a>
+            <span aria-hidden="true" className="text-gray-500/80">
+              |
+            </span>
+            <a
+              href="/sitemap"
+              className="nav-link-animated inline-block hover:text-white"
+            >
+              {t("footer.sitemap")}
             </a>
           </nav>
         </div>

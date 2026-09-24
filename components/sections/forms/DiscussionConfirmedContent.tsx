@@ -4,6 +4,7 @@ import { FaArrowLeft, FaCircleInfo, FaRegCalendar, FaRegFileLines, FaRegUser } f
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 type Summary = {
   name: string;
@@ -17,7 +18,7 @@ type Summary = {
 
 const DEFAULTS: Summary = {
   name: "Shahzad",
-  email: "shahzad@suricat.com",
+  email: "shahzad@suricat.ai",
   company: "eForte Solutions Inc.",
   date: "Tuesday, June 30, 2026",
   time: "4:00 PM",
@@ -46,6 +47,7 @@ function readSession(): Partial<Summary> {
 }
 
 export function DiscussionConfirmedContent() {
+  const t = useTranslations("forms.discussionConfirmed");
   const searchParams = useSearchParams();
 
   const summary = useMemo(() => {
@@ -105,27 +107,25 @@ export function DiscussionConfirmedContent() {
             className="conf-reveal text-[28px] font-extrabold text-teal mb-3 tracking-tight"
             style={{ animationDelay: "0.15s" }}
           >
-            Your Discussion Is Confirmed
+            {t("title")}
           </h1>
           <p
             className="conf-reveal text-navy font-semibold text-lg mb-3"
             style={{ animationDelay: "0.25s" }}
           >
-            Thank you for scheduling time with us.
+            {t("thanks")}
           </p>
           <p
             className="conf-reveal text-navy text-sm leading-relaxed mb-3 max-w-xl mx-auto"
             style={{ animationDelay: "0.35s" }}
           >
-            Our team will review your responses before the discussion so we can
-            focus on understanding your priorities and exploring next steps
-            together.
+            {t("body")}
           </p>
           <p
             className="conf-reveal text-navy font-medium text-base mb-6"
             style={{ animationDelay: "0.45s" }}
           >
-            We look forward to the conversation.
+            {t("lookForward")}
           </p>
 
           <div
@@ -134,7 +134,7 @@ export function DiscussionConfirmedContent() {
           >
             <div className="bg-gray-50 border-b border-gray-200 px-5 py-2">
               <p className="text-sm font-bold text-navy uppercase tracking-widest">
-                Confirmation Summary
+                {t("summaryTitle")}
               </p>
             </div>
             <div className="divide-y divide-gray-100">
@@ -144,7 +144,7 @@ export function DiscussionConfirmedContent() {
                 </span>
                 <div>
                   <p className="text-[12px] font-bold text-navy uppercase tracking-widest mb-1">
-                    Scheduled Time
+                    {t("scheduledTime")}
                   </p>
                   <p className="text-sm font-medium text-navy">{scheduled}</p>
                 </div>
@@ -155,7 +155,7 @@ export function DiscussionConfirmedContent() {
                 </span>
                 <div>
                   <p className="text-[12px] font-bold text-navy uppercase tracking-widest mb-1">
-                    Your Details
+                    {t("yourDetails")}
                   </p>
                   <p className="text-sm font-medium text-navy">{summary.name}</p>
                   <p className="text-xs text-navy mt-0.5">{contact}</p>
@@ -167,7 +167,7 @@ export function DiscussionConfirmedContent() {
                 </span>
                 <div>
                   <p className="text-[12px] font-bold text-navy uppercase tracking-widest mb-2">
-                    Discussion Focus
+                    {t("discussionFocus")}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {focusTags.map((tag) => (
@@ -190,15 +190,14 @@ export function DiscussionConfirmedContent() {
           >
             <FaCircleInfo className="text-navy text-sm mt-0.5" aria-hidden="true" />
             <p className="text-xs text-navy leading-relaxed">
-              A calendar invitation has been sent to{" "}
+              {t("inviteSentBefore")}{" "}
               <a
                 href={`mailto:${summary.email}`}
                 className="text-teal font-bold underline"
               >
                 {summary.email}
               </a>
-              . Our team will reach out if any additional preparation is needed
-              before your session.
+              {t("inviteSentAfter")}
             </p>
           </div>
 
@@ -211,7 +210,7 @@ export function DiscussionConfirmedContent() {
               className="suricat-teal-btn group inline-flex items-center justify-center gap-2 font-bold px-7 py-3 rounded-full text-sm transition-all"
             >
               <FaArrowLeft className="text-xs group-hover:-translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              Return to Website
+              {t("returnWebsite")}
             </Link>
           </div>
         </div>
@@ -219,8 +218,7 @@ export function DiscussionConfirmedContent() {
           className="conf-reveal text-center text-navy text-xs mt-4"
           style={{ animationDelay: "0.85s" }}
         >
-          Built for Medical Device Manufacturers operating under FDA QMSR and ISO
-          13485.
+          {t("footerNote")}
         </p>
       </div>
     </section>

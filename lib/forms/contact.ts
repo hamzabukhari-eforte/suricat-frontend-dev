@@ -6,6 +6,7 @@ export type ContactPayload = {
   workEmail: string;
   intent: string;
   message: string;
+  captchaToken?: string;
 };
 
 export type { FormResult };

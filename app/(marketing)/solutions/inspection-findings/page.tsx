@@ -1,9 +1,10 @@
 import { SolutionPageContent } from "@/components/sections/solutions/SolutionPageContent";
-import { solutionPages } from "@/lib/content/solutions";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.inspectionFindings;
+export async function generateMetadata() {
+  return getPageMetadata("inspectionFindings");
+}
 
 export default function Page() {
-  return <SolutionPageContent data={solutionPages["inspection-findings"]} />;
+  return <SolutionPageContent slug="inspection-findings" />;
 }

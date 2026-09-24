@@ -1,9 +1,11 @@
 import { Suspense } from "react";
 import { DiscussionConfirmedContent } from "@/components/sections/forms/DiscussionConfirmedContent";
 import { LoginSlimHeader } from "@/components/sections/forms/LoginForm";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.discussionConfirmed;
+export async function generateMetadata() {
+  return getPageMetadata("discussionConfirmed");
+}
 
 export default function DiscussionConfirmedPage() {
   return (

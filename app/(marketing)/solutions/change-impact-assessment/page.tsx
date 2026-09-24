@@ -1,9 +1,10 @@
 import { SolutionPageContent } from "@/components/sections/solutions/SolutionPageContent";
-import { solutionPages } from "@/lib/content/solutions";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.changeImpact;
+export async function generateMetadata() {
+  return getPageMetadata("changeImpact");
+}
 
 export default function Page() {
-  return <SolutionPageContent data={solutionPages["change-impact-assessment"]} />;
+  return <SolutionPageContent slug="change-impact-assessment" />;
 }

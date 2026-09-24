@@ -1,29 +1,31 @@
 import { CtaBand } from "@/components/sections/CtaBand";
 import {
+  AlignmentGapSection,
+  ChangeImpactSection,
   ComplianceCostSection,
+  ExistingSystemsSection,
   HeroSection,
-  IndustriesSection,
-  PlatformIntelligenceSection,
-  PricingComparisonSection,
-  PricingPlansSection,
-  SolutionsSection,
+  PractitionersSection,
+  RegulatedEnvironmentsSection,
   WhySuricatSection,
 } from "@/components/sections/home";
-import { pageSeo } from "@/lib/seo/metadata";
+import { getPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = pageSeo.home;
+export async function generateMetadata() {
+  return getPageMetadata("home");
+}
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
       <ComplianceCostSection />
+      <AlignmentGapSection />
+      <ChangeImpactSection />
+      <ExistingSystemsSection />
+      <PractitionersSection />
+      <RegulatedEnvironmentsSection />
       <WhySuricatSection />
-      <PlatformIntelligenceSection />
-      <SolutionsSection />
-      <IndustriesSection />
-      <PricingPlansSection />
-      <PricingComparisonSection />
       <CtaBand />
     </>
   );

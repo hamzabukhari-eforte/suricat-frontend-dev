@@ -1,3 +1,6 @@
+import { HOME_SECTION_IDS, platformTabHref } from "@/lib/homeHashes";
+import type { Translator } from "@/lib/i18n/types";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -36,226 +39,390 @@ export type MegaMenuItem = {
   linkColumns?: number;
 };
 
-export const LANGUAGES = ["English", "German", "Spanish"] as const;
+type MegaMenuDef = {
+  id: string;
+  labelKey: string;
+  intro: {
+    titleKey: string;
+    textKey: string;
+    ctaLabelKey: string;
+    ctaHref: string;
+  };
+  links: { labelKey: string; href: string }[];
+  linkColumns?: number;
+};
 
-export const megaMenus: MegaMenuItem[] = [
+const megaMenuDefs: MegaMenuDef[] = [
   {
     id: "why",
-    label: "Why Suricat",
+    labelKey: "nav.menus.why.label",
     intro: {
-      title: "Why Suricat",
-      text: "Understand the structural compliance challenge, how Suricat was built to address it, and what it enables for regulated organizations.",
-      ctaLabel: "Explore Why Suricat",
-      ctaHref: "/#why-suricat-section",
+      titleKey: "nav.menus.why.introTitle",
+      textKey: "nav.menus.why.introText",
+      ctaLabelKey: "nav.menus.why.ctaLabel",
+      ctaHref: `/#${HOME_SECTION_IDS.why}`,
     },
     links: [
-      { label: "Suricat's Mission", href: "/#why-tab-0" },
-      { label: "How Suricat Works", href: "/#why-tab-4" },
-      { label: "Built by Practitioners", href: "/#why-tab-1" },
-      { label: "Designed for Regulated Environments", href: "/#why-tab-5" },
-      { label: "The Structural Problem", href: "/#why-tab-2" },
-      { label: "What Suricat Enables", href: "/#why-tab-6" },
-      { label: "Why Existing Systems Fall Short", href: "/#why-tab-3" },
+      {
+        labelKey: "nav.menus.why.links.costOfMisalignment",
+        href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.alignmentGap",
+        href: `/#${HOME_SECTION_IDS.alignmentGap}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.changeImpact",
+        href: `/#${HOME_SECTION_IDS.changeImpact}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.existingSystems",
+        href: `/#${HOME_SECTION_IDS.platform}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.practitioners",
+        href: `/#${HOME_SECTION_IDS.practitioners}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.regulated",
+        href: `/#${HOME_SECTION_IDS.regulated}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.whySuricat",
+        href: `/#${HOME_SECTION_IDS.why}`,
+      },
     ],
     linkColumns: 2,
   },
   {
     id: "platform",
-    label: "Platform",
+    labelKey: "nav.menus.platform.label",
     intro: {
-      title: "Platform",
-      text: "A read-only compliance intelligence layer built for regulated environments, with proprietary architecture for bounded reasoning and defensible outputs.",
-      ctaLabel: "Explore the Platform",
-      ctaHref: "/#platform-intelligence-section",
+      titleKey: "nav.menus.platform.introTitle",
+      textKey: "nav.menus.platform.introText",
+      ctaLabelKey: "nav.menus.platform.ctaLabel",
+      ctaHref: `/#${HOME_SECTION_IDS.platform}`,
     },
     links: [
-      { label: "Intelligence Layer", href: "/#platform-tab-0" },
-      { label: "Read Only by Design", href: "/#platform-tab-1" },
-      { label: "No Rip and Replace", href: "/#platform-tab-2" },
-      { label: "Human Accountability", href: "/#platform-tab-3" },
-      { label: "Deployment", href: "/#platform-tab-4" },
-      { label: "Regulatory Ontology", href: "/#platform-tab-5" },
-      { label: "Canonical Intelligence Schema", href: "/#platform-tab-6" },
-      { label: "Quality Validation Rating", href: "/#platform-tab-7" },
-      { label: "Bounded Reasoning", href: "/#platform-tab-8" },
+      {
+        labelKey: "nav.menus.platform.links.intelligenceLayer",
+        href: platformTabHref(0),
+      },
+      { labelKey: "nav.menus.platform.links.readOnly", href: platformTabHref(1) },
+      {
+        labelKey: "nav.menus.platform.links.noRipReplace",
+        href: platformTabHref(2),
+      },
+      {
+        labelKey: "nav.menus.platform.links.humanAccountability",
+        href: platformTabHref(3),
+      },
+      {
+        labelKey: "nav.menus.platform.links.deployment",
+        href: platformTabHref(4),
+      },
+      {
+        labelKey: "nav.menus.platform.links.regulatoryOntology",
+        href: platformTabHref(5),
+      },
+      {
+        labelKey: "nav.menus.platform.links.canonicalSchema",
+        href: platformTabHref(6),
+      },
+      { labelKey: "nav.menus.platform.links.qvr", href: platformTabHref(7) },
+      {
+        labelKey: "nav.menus.platform.links.boundedReasoning",
+        href: platformTabHref(8),
+      },
     ],
     linkColumns: 3,
   },
   {
     id: "solutions",
-    label: "Solutions",
+    labelKey: "nav.menus.solutions.label",
     intro: {
-      title: "Solutions",
-      text: "Six focused capabilities that apply the Compliance Intelligence Layer to documentation confidence, inspection readiness, continuous compliance, and more.",
-      ctaLabel: "View All Solutions",
-      ctaHref: "/#solutions-section",
+      titleKey: "nav.menus.solutions.introTitle",
+      textKey: "nav.menus.solutions.introText",
+      ctaLabelKey: "nav.menus.solutions.ctaLabel",
+      ctaHref: "/solutions/documentation-confidence",
     },
     links: [
       {
-        label: "Documentation Confidence",
+        labelKey: "nav.menus.solutions.links.documentationConfidence",
         href: "/solutions/documentation-confidence",
       },
       {
-        label: "Continuous Compliance",
+        labelKey: "nav.menus.solutions.links.continuousCompliance",
         href: "/solutions/continuous-compliance",
       },
       {
-        label: "Inspection-Defensible Findings",
+        labelKey: "nav.menus.solutions.links.inspectionFindings",
         href: "/solutions/inspection-findings",
       },
       {
-        label: "Change Impact Assessment",
+        labelKey: "nav.menus.solutions.links.changeImpact",
         href: "/solutions/change-impact-assessment",
       },
       {
-        label: "Inspection Readiness",
+        labelKey: "nav.menus.solutions.links.inspectionReadiness",
         href: "/solutions/inspection-readiness",
       },
       {
-        label: "Documentation Alignment",
+        labelKey: "nav.menus.solutions.links.documentAlignment",
         href: "/solutions/document-alignment",
       },
     ],
     linkColumns: 2,
   },
   {
-    id: "industry",
-    label: "Industry",
-    intro: {
-      title: "Industry",
-      text: "Built for regulated industries. Starting with medical devices and expanding across biotechnology, biopharma, diagnostics, and beyond.",
-      ctaLabel: "Explore Industries",
-      ctaHref: "/#industries-section",
-    },
-    links: [
-      { label: "Medical Devices", href: "/industries/medical-devices" },
-      { label: "Industry Expansion", href: "/industries/expansion" },
-    ],
-    linkColumns: 2,
-  },
-  {
-    id: "pricing",
-    label: "Pricing",
-    intro: {
-      title: "Pricing",
-      text: "Annual Platform License and Document Capacity-based subscriptions with published pricing, flexible evaluation paths, and no per-seat fees.",
-      ctaLabel: "Explore Pricing",
-      ctaHref: "/pricing",
-    },
-    links: [
-      { label: "Subscription Options", href: "/pricing#subscription-options" },
-      { label: "Capability Comparison", href: "/pricing#capability-comparison" },
-      { label: "Platform License", href: "/pricing/license" },
-      { label: "Document Capacity", href: "/pricing/document-capacity" },
-      { label: "Capacity Expansion", href: "/pricing/capacity-expansion" },
-      { label: "Interactive Sandbox", href: "/pricing/interactive-sandbox" },
-      { label: "Start With Evaluate", href: "/pricing/start-with-evaluate" },
-      { label: "Pricing FAQs", href: "/pricing/faq" },
-    ],
-    linkColumns: 2,
-  },
-  {
     id: "company",
-    label: "Company",
+    labelKey: "nav.menus.company.label",
     intro: {
-      title: "Company",
-      text: "Learn about Suricat's story, mission, leadership, and how to get in touch with our team.",
-      ctaLabel: "Our Story",
+      titleKey: "nav.menus.company.introTitle",
+      textKey: "nav.menus.company.introText",
+      ctaLabelKey: "nav.menus.company.ctaLabel",
       ctaHref: "/company/our-story",
     },
     links: [
-      { label: "Our Story", href: "/company/our-story" },
-      { label: "Mission and Vision", href: "/company/mission-vision" },
-      { label: "Leadership", href: "/company/leadership" },
-      { label: "Contact Us", href: "/contact" },
+      {
+        labelKey: "nav.menus.company.links.ourStory",
+        href: "/company/our-story",
+      },
+      {
+        labelKey: "nav.menus.company.links.missionVision",
+        href: "/company/mission-vision",
+      },
+      {
+        labelKey: "nav.menus.company.links.leadership",
+        href: "/company/leadership",
+      },
+      { labelKey: "nav.menus.company.links.contactUs", href: "/contact" },
     ],
     linkColumns: 2,
   },
 ];
 
-export const footerTopLinks: NavLink[] = [
-  { label: "Why Suricat", href: "/#why-suricat-section" },
-  { label: "Platform", href: "/#platform-intelligence-section" },
-  { label: "Solutions", href: "/#solutions-section" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Company", href: "/company/our-story" },
-];
+export function buildMegaMenus(t: Translator): MegaMenuItem[] {
+  return megaMenuDefs.map((menu) => ({
+    id: menu.id,
+    label: t(menu.labelKey),
+    intro: {
+      title: t(menu.intro.titleKey),
+      text: t(menu.intro.textKey),
+      ctaLabel: t(menu.intro.ctaLabelKey),
+      ctaHref: menu.intro.ctaHref,
+    },
+    links: menu.links.map((link) => ({
+      label: t(link.labelKey),
+      href: link.href,
+    })),
+    linkColumns: menu.linkColumns,
+  }));
+}
 
-export const footerCompanyLinks: NavLink[] = [
-  { label: "Our Story", href: "/company/our-story" },
-  { label: "Mission and Vision", href: "/company/mission-vision" },
-  { label: "Leadership", href: "/company/leadership" },
-  { label: "Contact us", href: "/contact" },
-];
+export function buildFooterTopLinks(t: Translator): NavLink[] {
+  return [
+    { label: t("nav.menus.why.label"), href: `/#${HOME_SECTION_IDS.why}` },
+    {
+      label: t("nav.menus.platform.label"),
+      href: `/#${HOME_SECTION_IDS.platform}`,
+    },
+    {
+      label: t("nav.menus.solutions.label"),
+      href: "/solutions/documentation-confidence",
+    },
+    {
+      label: t("nav.menus.company.label"),
+      href: "/company/our-story",
+    },
+  ];
+}
 
-export const footerWhyLinks: NavLink[] = [
-  { label: "Suricat's Mission", href: "/#why-tab-0" },
-  { label: "Built by Practitioners", href: "/#why-tab-1" },
-  { label: "The Structural Problem", href: "/#why-tab-2" },
-  { label: "Why Existing Systems Fall Short", href: "/#why-tab-3" },
-  { label: "How Suricat Works", href: "/#why-tab-4" },
-  { label: "Designed for Regulated Environments", href: "/#why-tab-5" },
-  { label: "What Suricat Enables", href: "/#why-tab-6" },
-];
+export function buildFooterCompanyLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.company.links.ourStory"),
+      href: "/company/our-story",
+    },
+    {
+      label: t("nav.menus.company.links.missionVision"),
+      href: "/company/mission-vision",
+    },
+    {
+      label: t("nav.menus.company.links.leadership"),
+      href: "/company/leadership",
+    },
+    { label: t("footer.contactUs"), href: "/contact" },
+  ];
+}
 
-export const footerPlatformLinks: NavLink[] = [
-  { label: "Intelligence Layer", href: "/#platform-tab-0" },
-  { label: "Read Only by Design", href: "/#platform-tab-1" },
-  { label: "No Rip and Replace", href: "/#platform-tab-2" },
-  { label: "Human Accountability", href: "/#platform-tab-3" },
-  { label: "Deployment", href: "/#platform-tab-4" },
-  { label: "Regulatory Ontology", href: "/#platform-tab-5" },
-  { label: "Canonical Intelligence Schema", href: "/#platform-tab-6" },
-  { label: "Quality Validation Rating", href: "/#platform-tab-7" },
-  { label: "Bounded Reasoning", href: "/#platform-tab-8" },
-];
+export function buildFooterWhyLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.why.links.costOfMisalignment"),
+      href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
+    },
+    {
+      label: t("nav.menus.why.links.alignmentGap"),
+      href: `/#${HOME_SECTION_IDS.alignmentGap}`,
+    },
+    {
+      label: t("nav.menus.why.links.changeImpact"),
+      href: `/#${HOME_SECTION_IDS.changeImpact}`,
+    },
+    {
+      label: t("nav.menus.why.links.existingSystems"),
+      href: `/#${HOME_SECTION_IDS.platform}`,
+    },
+    {
+      label: t("nav.menus.why.links.practitioners"),
+      href: `/#${HOME_SECTION_IDS.practitioners}`,
+    },
+    {
+      label: t("nav.menus.why.links.regulated"),
+      href: `/#${HOME_SECTION_IDS.regulated}`,
+    },
+    {
+      label: t("nav.menus.why.links.whySuricat"),
+      href: `/#${HOME_SECTION_IDS.why}`,
+    },
+  ];
+}
 
-export const footerResourceLinks: NavLink[] = [
-  { label: "Design Partner", href: "/design-partners" },
-  { label: "Industry", href: "/industries/medical-devices" },
-  { label: "FAQs", href: "/pricing/faq" },
-  { label: "Blog", href: "#" },
-  { label: "Events", href: "#" },
-];
+export function buildFooterPlatformLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.platform.links.intelligenceLayer"),
+      href: platformTabHref(0),
+    },
+    { label: t("nav.menus.platform.links.readOnly"), href: platformTabHref(1) },
+    {
+      label: t("nav.menus.platform.links.noRipReplace"),
+      href: platformTabHref(2),
+    },
+    {
+      label: t("nav.menus.platform.links.humanAccountability"),
+      href: platformTabHref(3),
+    },
+    {
+      label: t("nav.menus.platform.links.deployment"),
+      href: platformTabHref(4),
+    },
+    {
+      label: t("nav.menus.platform.links.regulatoryOntology"),
+      href: platformTabHref(5),
+    },
+    {
+      label: t("nav.menus.platform.links.canonicalSchema"),
+      href: platformTabHref(6),
+    },
+    { label: t("nav.menus.platform.links.qvr"), href: platformTabHref(7) },
+    {
+      label: t("nav.menus.platform.links.boundedReasoning"),
+      href: platformTabHref(8),
+    },
+  ];
+}
 
-export const companySubnavLinks: NavLink[] = [
-  { label: "Our Story", href: "/company/our-story" },
-  { label: "Mission and Vision", href: "/company/mission-vision" },
-  { label: "Leadership", href: "/company/leadership" },
-  { label: "Contact Us", href: "/contact" },
-];
+export function buildFooterResourceLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("footer.resources.designPartner"),
+      href: "/design-partners",
+    },
+    {
+      label: t("footer.resources.industry"),
+      href: "/industries/medical-devices",
+    },
+    { label: t("footer.resources.faqs"), href: "/pricing/faq" },
+  ];
+}
 
-export const industrySubnavLinks: NavLink[] = [
-  { label: "Medical Devices", href: "/industries/medical-devices" },
-  { label: "Industry Expansion", href: "/industries/expansion" },
-];
+export function buildCompanySubnavLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.company.links.ourStory"),
+      href: "/company/our-story",
+    },
+    {
+      label: t("nav.menus.company.links.missionVision"),
+      href: "/company/mission-vision",
+    },
+    {
+      label: t("nav.menus.company.links.leadership"),
+      href: "/company/leadership",
+    },
+    { label: t("nav.menus.company.links.contactUs"), href: "/contact" },
+  ];
+}
 
-export const solutionNavLinks: NavLink[] = [
-  {
-    label: "Documentation Confidence",
-    href: "/solutions/documentation-confidence",
-  },
-  {
-    label: "Continuous Compliance",
-    href: "/solutions/continuous-compliance",
-  },
-  {
-    label: "Inspection-Defensible Findings",
-    href: "/solutions/inspection-findings",
-  },
-  {
-    label: "Change Impact Assessment",
-    href: "/solutions/change-impact-assessment",
-  },
-  { label: "Inspection Readiness", href: "/solutions/inspection-readiness" },
-  { label: "Documentation Alignment", href: "/solutions/document-alignment" },
-];
+export function buildIndustrySubnavLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.industry.links.medicalDevices"),
+      href: "/industries/medical-devices",
+    },
+    {
+      label: t("nav.menus.industry.links.expansion"),
+      href: "/industries/expansion",
+    },
+  ];
+}
 
-export const pricingSubnavLinks: NavLink[] = [
-  { label: "Platform License", href: "/pricing/license" },
-  { label: "Document Capacity", href: "/pricing/document-capacity" },
-  { label: "Capacity Expansion", href: "/pricing/capacity-expansion" },
-  { label: "Interactive Sandbox", href: "/pricing/interactive-sandbox" },
-  { label: "Start With Evaluate", href: "/pricing/start-with-evaluate" },
-  { label: "Pricing FAQs", href: "/pricing/faq" },
-];
+export function buildSolutionNavLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.solutions.links.documentationConfidence"),
+      href: "/solutions/documentation-confidence",
+    },
+    {
+      label: t("nav.menus.solutions.links.continuousCompliance"),
+      href: "/solutions/continuous-compliance",
+    },
+    {
+      label: t("nav.menus.solutions.links.inspectionFindings"),
+      href: "/solutions/inspection-findings",
+    },
+    {
+      label: t("nav.menus.solutions.links.changeImpact"),
+      href: "/solutions/change-impact-assessment",
+    },
+    {
+      label: t("nav.menus.solutions.links.inspectionReadiness"),
+      href: "/solutions/inspection-readiness",
+    },
+    {
+      label: t("nav.menus.solutions.links.documentAlignment"),
+      href: "/solutions/document-alignment",
+    },
+  ];
+}
+
+export function buildPricingSubnavLinks(t: Translator): NavLink[] {
+  return [
+    {
+      label: t("nav.menus.pricing.links.platformLicense"),
+      href: "/pricing/license",
+    },
+    {
+      label: t("nav.menus.pricing.links.documentCapacity"),
+      href: "/pricing/document-capacity",
+    },
+    {
+      label: t("nav.menus.pricing.links.capacityExpansion"),
+      href: "/pricing/capacity-expansion",
+    },
+    {
+      label: t("nav.menus.pricing.links.interactiveSandbox"),
+      href: "/pricing/interactive-sandbox",
+    },
+    {
+      label: t("nav.menus.pricing.links.startWithEvaluate"),
+      href: "/pricing/start-with-evaluate",
+    },
+    {
+      label: t("nav.menus.pricing.links.pricingFaqs"),
+      href: "/pricing/faq",
+    },
+  ];
+}

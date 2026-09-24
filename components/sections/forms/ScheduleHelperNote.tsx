@@ -2,15 +2,14 @@
 
 import { FaCircleExclamation, FaEnvelope } from "@/components/ui/icons";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 type ScheduleHelperNoteProps = {
   canSubmit: boolean;
 };
 
-const TIP_TEXT =
-  "30-minute introductory discussion with a Suricat specialist. No preparation required—simply select a convenient time.";
-
 export function ScheduleHelperNote({ canSubmit }: ScheduleHelperNoteProps) {
+  const t = useTranslations("forms.scheduleHelper");
   const [tipOpen, setTipOpen] = useState(false);
   const tipRef = useRef<HTMLSpanElement>(null);
 
@@ -28,7 +27,7 @@ export function ScheduleHelperNote({ canSubmit }: ScheduleHelperNoteProps) {
   }, [tipOpen]);
 
   return (
-    <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy md:items-center md:justify-center">
+    <p className="mt-3 flex w-full items-start gap-1.5 text-xs leading-snug text-navy max-sm:mt-2 max-sm:text-[11px] md:items-center md:justify-center">
       {canSubmit ? (
         <FaEnvelope
           className="mt-[2px] shrink-0 text-[10px] text-teal md:mt-0"
@@ -39,7 +38,7 @@ export function ScheduleHelperNote({ canSubmit }: ScheduleHelperNoteProps) {
           <button
             type="button"
             className="inline-flex cursor-help p-0 text-[10px] text-gray-400"
-            aria-label="Discussion details"
+            aria-label={t("ariaLabel")}
             aria-expanded={tipOpen}
             onClick={() => setTipOpen((open) => !open)}
             onMouseEnter={() => {
@@ -61,14 +60,12 @@ export function ScheduleHelperNote({ canSubmit }: ScheduleHelperNoteProps) {
               tipOpen ? "opacity-100" : "opacity-0"
             }`}
           >
-            {TIP_TEXT}
+            {t("tip")}
           </span>
         </span>
       )}
       <span className="min-w-0 md:text-center">
-        {canSubmit
-          ? "Confirmation email on the way"
-          : "Complete all required fields to schedule your discussion."}
+        {canSubmit ? t("emailOnTheWay") : t("completeFields")}
       </span>
     </p>
   );

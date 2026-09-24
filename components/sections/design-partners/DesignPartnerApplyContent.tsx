@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { LoginSlimHeader } from "@/components/sections/forms/LoginForm";
 import { DesignPartnerForm } from "@/components/sections/design-partners/DesignPartnerForm";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
   FaArrowRight,
   FaRegCalendarCheck,
@@ -18,6 +19,7 @@ import {
 
 export function DesignPartnerApplyContent() {
   const [submitted, setSubmitted] = useState(false);
+  const ta = useTranslations("designPartners.apply");
 
   if (submitted) {
     return (
@@ -41,17 +43,16 @@ export function DesignPartnerApplyContent() {
             </svg>
           </div>
           <h2 className="text-3xl font-extrabold text-navy mb-4">
-            Application Submitted
+            {ta("successTitle")}
           </h2>
           <p className="text-navy text-base sm:text-lg max-w-md mx-auto mb-8 leading-relaxed">
-            Thank you for your interest. Our team will review your application
-            and contact you within 1 business day regarding the next steps.
+            {ta("successBody")}
           </p>
           <Link
             href="/"
-            className="suricat-teal-btn hero-cta-hover inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full font-semibold transition-all group text-navy"
+            className="suricat-teal-btn hero-cta-hover inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full font-bold transition-all group text-navy"
           >
-            Return to Home
+            {ta("returnHome")}
             <FaArrowRight
               className="group-hover:translate-x-1 transition-transform duration-300"
               aria-hidden="true"
@@ -74,42 +75,41 @@ export function DesignPartnerApplyContent() {
         />
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10 lg:py-0 relative z-10 flex flex-col items-center justify-center text-center">
           <p className="text-teal font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 animate-fade-up-2">
-            Design Partner Application
+            {ta("eyebrow")}
           </p>
           <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-bold !leading-[32px] sm:!leading-[44px] mb-3 sm:mb-4 tracking-tight max-w-4xl animate-fade-up-2">
-            Become a <span className="text-teal">Design Partner</span>
+            {ta("titleBefore")} <span className="text-teal">{ta("titleAccent")}</span>
           </h1>
           <p className="text-white text-base sm:text-lg lg:text-[22px] font-normal !leading-[32px] mb-5 sm:mb-6 max-w-3xl mx-auto animate-fade-up-3">
-            For medical device manufacturers evaluating documentation alignment,
-            inspection readiness, and compliance operations.
+            {ta("subtitle")}
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 animate-fade-up-3 max-w-5xl">
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[12px] font-medium">
               <FaRegClock className="text-teal shrink-0 text-[12px]" aria-hidden="true" />
-              Estimated time:{" "}
-              <span className="text-teal font-semibold">5 minutes</span>
+              {ta("chipTimeLabel")}{" "}
+              <span className="text-teal font-semibold">{ta("chipTimeValue")}</span>
             </span>
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[12px] font-medium">
               <FaRegCalendarCheck
                 className="text-teal shrink-0 text-[12px]"
                 aria-hidden="true"
               />
-              Reviewed within:{" "}
-              <span className="text-teal font-semibold">1 business day</span>
+              {ta("chipReviewLabel")}{" "}
+              <span className="text-teal font-semibold">{ta("chipReviewValue")}</span>
             </span>
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[12px] font-medium">
               <FaShieldHalved
                 className="text-teal shrink-0 text-[12px]"
                 aria-hidden="true"
               />
-              Mutual NDA before documentation review
+              {ta("chipNda")}
             </span>
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[12px] font-medium">
               <FaRegCircleCheck
                 className="text-teal shrink-0 text-[12px]"
                 aria-hidden="true"
               />
-              No obligation
+              {ta("chipNoObligation")}
             </span>
           </div>
         </div>
@@ -119,29 +119,24 @@ export function DesignPartnerApplyContent() {
         <div className="max-w-7xl mx-auto">
           <DesignPartnerForm onSubmitted={() => setSubmitted(true)} />
 
-          {/* Trust Badges Footer */}
           <div className="mt-16 flex flex-col items-start gap-8 border-t border-gray-200 pt-12 md:flex-row md:flex-wrap md:justify-center md:gap-12">
             <div className="flex items-center gap-4">
               <FaRegEye className="text-2xl text-teal" aria-hidden="true" />
               <div>
                 <h5 className="text-sm font-bold text-navy">
-                  Read-only Deployment
+                  {ta("trustReadOnlyTitle")}
                 </h5>
-                <p className="text-xs text-gray-500">
-                  No system access
-                  <br />
-                  or data migration
+                <p className="text-xs text-gray-500 whitespace-pre-line">
+                  {ta("trustReadOnlyBody")}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <FaRegFileLines className="text-2xl text-teal" aria-hidden="true" />
               <div>
-                <h5 className="text-sm font-bold text-navy">Mutual NDA</h5>
-                <p className="text-xs text-gray-500">
-                  Before documentation
-                  <br />
-                  review begins
+                <h5 className="text-sm font-bold text-navy">{ta("trustNdaTitle")}</h5>
+                <p className="text-xs text-gray-500 whitespace-pre-line">
+                  {ta("trustNdaBody")}
                 </p>
               </div>
             </div>
@@ -161,11 +156,11 @@ export function DesignPartnerApplyContent() {
                 <path d="M8 11V8a4 4 0 0 1 8 0v3" />
               </svg>
               <div>
-                <h5 className="text-sm font-bold text-navy">No System Changes</h5>
-                <p className="text-xs text-gray-500">
-                  Works within your
-                  <br />
-                  existing environment
+                <h5 className="text-sm font-bold text-navy">
+                  {ta("trustNoChangesTitle")}
+                </h5>
+                <p className="text-xs text-gray-500 whitespace-pre-line">
+                  {ta("trustNoChangesBody")}
                 </p>
               </div>
             </div>
@@ -173,22 +168,19 @@ export function DesignPartnerApplyContent() {
               <FaRegCircleUser className="text-2xl text-teal" aria-hidden="true" />
               <div>
                 <h5 className="text-sm font-bold text-navy">
-                  Human Accountability
+                  {ta("trustHumanTitle")}
                 </h5>
-                <p className="text-xs text-gray-500">
-                  Every finding remains
-                  <br />
-                  subject to human review
+                <p className="text-xs text-gray-500 whitespace-pre-line">
+                  {ta("trustHumanBody")}
                 </p>
               </div>
             </div>
           </div>
 
           <p className="text-center text-xs text-gray-400 mt-12">
-            Suricat is building the leading Compliance Intelligence platform for
-            medical device manufacturers.
+            {ta("footerLine1")}
             <br />
-            Your partnership helps build it right.
+            {ta("footerLine2")}
           </p>
         </div>
       </div>

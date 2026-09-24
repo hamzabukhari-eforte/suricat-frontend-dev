@@ -2,34 +2,18 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import {
+  sectionIdForHash,
+  parseWhyTabIndex,
+  parsePlatformTabIndex,
+} from "@/lib/homeHashes";
 
 const PENDING_HASH_KEY = "suricat-pending-hash";
 
 /** Fired after the URL hash is set so home tab sections can activate before scroll. */
 export const HOME_HASH_EVENT = "suricat:home-hash";
 
-/** Map Designs tab hashes to the section they belong to. */
-export function sectionIdForHash(hash: string): string | null {
-  const id = decodeURIComponent(hash.replace(/^#/, ""));
-  if (!id) return null;
-  if (/^why-tab-\d+$/.test(id)) return "why-suricat-section";
-  if (/^platform-tab-\d+$/.test(id)) return "platform-intelligence-section";
-  return id;
-}
-
-export function parseWhyTabIndex(hash: string): number | null {
-  const match = hash.match(/why-tab-(\d+)/);
-  if (!match) return null;
-  const index = Number.parseInt(match[1], 10);
-  return Number.isNaN(index) ? null : index;
-}
-
-export function parsePlatformTabIndex(hash: string): number | null {
-  const match = hash.match(/platform-tab-(\d+)/);
-  if (!match) return null;
-  const index = Number.parseInt(match[1], 10);
-  return Number.isNaN(index) ? null : index;
-}
+export { sectionIdForHash, parseWhyTabIndex, parsePlatformTabIndex };
 
 function notifyHomeHashConsumers(hash: string) {
   window.dispatchEvent(
@@ -71,7 +55,7 @@ function samePagePath(destPath: string, pathname: string) {
   );
 }
 
-/** Smooth hash scrolling with sticky nav offset + why/platform tab hashes (Designs). */
+/** Smooth hash scrolling with sticky nav offset + why/platform tab hashes. */
 export function SmoothHashScroll() {
   const pathname = usePathname();
 

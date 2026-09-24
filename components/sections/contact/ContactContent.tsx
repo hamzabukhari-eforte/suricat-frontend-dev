@@ -1,8 +1,11 @@
+"use client";
+
 import { CtaBand } from "@/components/sections/CtaBand";
 import { StickySubnav } from "@/components/layout/StickySubnav";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/contact/ContactForm";
-import { companySubnavLinks } from "@/lib/navigation";
+import { useCompanySubnavLinks } from "@/lib/i18n/use-nav-links";
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
   MdOutlineEmail,
   MdOutlineLanguage,
@@ -19,28 +22,30 @@ function ContactIcon({ children }: { children: ReactNode }) {
 }
 
 export function ContactContent() {
+  const t = useTranslations();
+  const tc = useTranslations("contact");
+  const companySubnavLinks = useCompanySubnavLinks();
+
   return (
     <>
       <StickySubnav
         links={companySubnavLinks}
-        category="Company"
-        navLabel="Company pages"
+        category={t("nav.menus.company.label")}
+        navLabel={t("nav.menus.company.label")}
       />
       <section className="bg-gray-50 py-8">
         <Container>
-          <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 items-start gap-16 max-sm:gap-8 lg:grid-cols-2">
+            <div className="min-w-0 space-y-8">
               <div className="space-y-4">
                 <span className="inline-block rounded-full py-1.5 text-sm font-bold uppercase tracking-wider text-teal">
-                  Contact
+                  {tc("eyebrow")}
                 </span>
                 <h1 className="text-[28px] font-bold leading-[36px] tracking-tight text-navy lg:text-[36px] lg:leading-[44px]">
-                  Start A Conversation.
+                  {tc("title")}
                 </h1>
                 <p className="max-w-xl text-base leading-relaxed text-navy lg:text-[22px] lg:leading-[30px]">
-                  Whether you have a general inquiry, are exploring a Design
-                  Partner engagement, or want to learn more about the Compliance
-                  Intelligence Layer, we would be glad to hear from you.
+                  {tc("body")}
                 </p>
               </div>
               <div className="space-y-6">
@@ -50,12 +55,10 @@ export function ContactContent() {
                   </ContactIcon>
                   <div>
                     <h3 className="text-lg font-bold text-navy">
-                      Global Headquarters
+                      {tc("hqGlobal")}
                     </h3>
-                    <p className="text-navy">
-                      Palo Alto, California 94306,
-                      <br />
-                      USA
+                    <p className="text-navy whitespace-pre-line">
+                      {tc("hqGlobalAddr")}
                     </p>
                   </div>
                 </div>
@@ -66,26 +69,24 @@ export function ContactContent() {
                   </ContactIcon>
                   <div>
                     <h3 className="text-lg font-bold text-navy">
-                      European Headquarters
+                      {tc("hqEurope")}
                     </h3>
-                    <p className="text-navy">
-                      Akadeemia tee 12618,
-                      <br />
-                      Tallinn, Estonia
+                    <p className="text-navy whitespace-pre-line">
+                      {tc("hqEuropeAddr")}
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="ml-14 text-lg font-bold text-navy">
-                    Contact Information
+                    {tc("contactInfo")}
                   </h3>
                   <div className="flex items-start gap-4">
                     <ContactIcon>
                       <MdOutlineEmail className="h-5 w-5" aria-hidden="true" />
                     </ContactIcon>
                     <div>
-                      <h3 className="text-lg font-bold text-navy">Email</h3>
+                      <h3 className="text-lg font-bold text-navy">{tc("emailLabel")}</h3>
                       <p className="text-navy">
                         <a
                           href="mailto:info@suricat.ai"
@@ -101,7 +102,7 @@ export function ContactContent() {
                       <MdOutlineLanguage className="h-5 w-5" aria-hidden="true" />
                     </ContactIcon>
                     <div>
-                      <h3 className="text-lg font-bold text-navy">Website</h3>
+                      <h3 className="text-lg font-bold text-navy">{tc("webLabel")}</h3>
                       <p className="text-navy">
                         <a
                           href="https://www.suricat.ai"
@@ -118,7 +119,7 @@ export function ContactContent() {
               </div>
             </div>
 
-            <div className="rounded-[4px] border border-gray-200 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+            <div className="min-w-0 max-w-full overflow-x-hidden rounded-[4px] border border-gray-200 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] max-sm:p-4">
               <ContactForm />
             </div>
           </div>

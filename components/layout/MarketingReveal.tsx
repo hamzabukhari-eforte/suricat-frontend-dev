@@ -24,7 +24,16 @@ const CARD_SELECTOR = [
   "main section .shadow-sm",
 ].join(", ");
 
-const EXCLUDED = ["platform-tab-pane", "tab-pane", "animated-tab-pane"];
+const EXCLUDED = [
+  "platform-tab-pane",
+  "tab-pane",
+  "animated-tab-pane",
+  "change-impact-infographic",
+  "existing-systems-story",
+  "practitioners-story",
+  "regulated-register",
+  "why-attention",
+];
 
 // Sections that run their own bespoke reveal choreography and must not be
 // double-driven by the generic observer.
