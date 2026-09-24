@@ -1,12 +1,12 @@
 import { CtaBand } from "@/components/sections/CtaBand";
 import {
+  AlignmentGapSection,
+  ChangeImpactSection,
   ComplianceCostSection,
+  ExistingSystemsSection,
   HeroSection,
-  IndustriesSection,
-  PlatformIntelligenceSection,
-  PricingComparisonSection,
-  PricingPlansSection,
-  SolutionsSection,
+  PractitionersSection,
+  RegulatedEnvironmentsSection,
   WhySuricatSection,
 } from "@/components/sections/home";
 import { getPageMetadata } from "@/lib/seo/metadata";
@@ -20,12 +20,12 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ComplianceCostSection />
+      <AlignmentGapSection />
+      <ChangeImpactSection />
+      <ExistingSystemsSection />
+      <PractitionersSection />
+      <RegulatedEnvironmentsSection />
       <WhySuricatSection />
-      <PlatformIntelligenceSection />
-      <SolutionsSection />
-      <IndustriesSection />
-      <PricingPlansSection />
-      <PricingComparisonSection />
       <CtaBand />
     </>
   );

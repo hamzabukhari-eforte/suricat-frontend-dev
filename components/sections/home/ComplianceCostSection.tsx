@@ -56,9 +56,9 @@ export function ComplianceCostSection() {
   const t = useTranslations("home.complianceCost");
 
   return (
-    <section id="compliance-cost-section" className="pt-8 max-w-7xl mx-auto">
+    <section id="compliance-cost-section" className="pt-12 max-w-7xl mx-auto">
       <div className="mb-6 lg:pt-0">
-        <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+        <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
           {t("eyebrow")}
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px] font-bold mb-4 sm:mb-4 max-w-3xl">
@@ -82,7 +82,14 @@ export function ComplianceCostSection() {
                 return (
                   <div key={card.id} className="compliance-cost-card">
                     <div className="compliance-cost-card-header">
-                      <div className="compliance-cost-card-icon">
+                      <div
+                        className="compliance-cost-card-icon"
+                        style={
+                          {
+                            "--icon-create-delay": `${0.12 + index * 0.1}s`,
+                          } as React.CSSProperties
+                        }
+                      >
                         <Icon aria-hidden="true" />
                       </div>
                       <span className="compliance-cost-card-index" aria-hidden="true">
@@ -99,7 +106,15 @@ export function ComplianceCostSection() {
                           {title ? <> {title}</> : null}
                         </>
                       ) : (
-                        title
+                        title.split(/(\d+)/).map((part, i) =>
+                          /^\d+$/.test(part) ? (
+                            <span key={i} className="compliance-stat-emphasis">
+                              {part}
+                            </span>
+                          ) : (
+                            <span key={i}>{part}</span>
+                          ),
+                        )
                       )}
                     </p>
                     <p className="compliance-cost-card-body">

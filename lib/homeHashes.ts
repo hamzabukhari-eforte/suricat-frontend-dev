@@ -5,9 +5,14 @@ export const HOME_SECTION_IDS = {
   platform: "platform",
   solutions: "solutions",
   industries: "industries",
+  costOfMisalignment: "compliance-cost-section",
+  alignmentGap: "alignment-gap",
+  changeImpact: "change-impact",
+  practitioners: "built-by-practitioners",
+  regulated: "designed-for-regulated-environments",
 } as const;
 
-/** Why Suricat tab order — index matches WhySuricatSection tabs. */
+/** Why Suricat tab order — index matches legacy nav/footer links. */
 export const WHY_TAB_SLUGS = [
   "suricats-mission",
   "built-by-practitioners",
@@ -18,7 +23,7 @@ export const WHY_TAB_SLUGS = [
   "what-suricat-enables",
 ] as const;
 
-/** Platform tab order — index matches PlatformIntelligenceSection tabs. */
+/** Platform tab order — index matches legacy nav/footer links. */
 export const PLATFORM_TAB_SLUGS = [
   "intelligence-layer",
   "read-only-by-design",
@@ -40,6 +45,33 @@ const LEGACY_SECTION_IDS: Record<string, string> = {
   "platform-intelligence-section": HOME_SECTION_IDS.platform,
   "solutions-section": HOME_SECTION_IDS.solutions,
   "industries-section": HOME_SECTION_IDS.industries,
+};
+
+const HASH_TO_SECTION: Record<string, string> = {
+  [HOME_SECTION_IDS.why]: HOME_SECTION_IDS.why,
+  [HOME_SECTION_IDS.platform]: HOME_SECTION_IDS.platform,
+  [HOME_SECTION_IDS.solutions]: HOME_SECTION_IDS.solutions,
+  [HOME_SECTION_IDS.industries]: HOME_SECTION_IDS.industries,
+  [HOME_SECTION_IDS.costOfMisalignment]: HOME_SECTION_IDS.costOfMisalignment,
+  [HOME_SECTION_IDS.alignmentGap]: HOME_SECTION_IDS.alignmentGap,
+  [HOME_SECTION_IDS.changeImpact]: HOME_SECTION_IDS.changeImpact,
+  [HOME_SECTION_IDS.practitioners]: HOME_SECTION_IDS.practitioners,
+  [HOME_SECTION_IDS.regulated]: HOME_SECTION_IDS.regulated,
+  "existing-systems-fall-short": HOME_SECTION_IDS.platform,
+  "suricats-mission": HOME_SECTION_IDS.alignmentGap,
+  "the-structural-problem": HOME_SECTION_IDS.alignmentGap,
+  "why-existing-systems-fall-short": HOME_SECTION_IDS.platform,
+  "how-suricat-works": HOME_SECTION_IDS.changeImpact,
+  "what-suricat-enables": HOME_SECTION_IDS.why,
+  "intelligence-layer": HOME_SECTION_IDS.platform,
+  "read-only-by-design": HOME_SECTION_IDS.regulated,
+  "no-rip-and-replace": HOME_SECTION_IDS.regulated,
+  "human-accountability": HOME_SECTION_IDS.regulated,
+  "deployment": HOME_SECTION_IDS.regulated,
+  "regulatory-ontology": HOME_SECTION_IDS.platform,
+  "canonical-intelligence-schema": HOME_SECTION_IDS.platform,
+  "quality-validation-rating": HOME_SECTION_IDS.why,
+  "bounded-reasoning": HOME_SECTION_IDS.regulated,
 };
 
 function normalizeHashId(hash: string): string {
@@ -87,10 +119,22 @@ export function sectionIdForHash(hash: string): string | null {
   const id = normalizeHashId(hash);
   if (!id) return null;
 
-  if (parseWhyTabIndex(`#${id}`) !== null) return HOME_SECTION_IDS.why;
-  if (parsePlatformTabIndex(`#${id}`) !== null) return HOME_SECTION_IDS.platform;
-
+  if (id in HASH_TO_SECTION) return HASH_TO_SECTION[id];
   if (id in LEGACY_SECTION_IDS) return LEGACY_SECTION_IDS[id];
+
+  const whyIndex = parseWhyTabIndex(`#${id}`);
+  if (whyIndex !== null) {
+    const slug = WHY_TAB_SLUGS[whyIndex];
+    return slug ? HASH_TO_SECTION[slug] ?? HOME_SECTION_IDS.why : HOME_SECTION_IDS.why;
+  }
+
+  const platformIndex = parsePlatformTabIndex(`#${id}`);
+  if (platformIndex !== null) {
+    const slug = PLATFORM_TAB_SLUGS[platformIndex];
+    return slug
+      ? HASH_TO_SECTION[slug] ?? HOME_SECTION_IDS.platform
+      : HOME_SECTION_IDS.platform;
+  }
 
   return id;
 }

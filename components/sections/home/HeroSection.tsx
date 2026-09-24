@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/Button";
 import { FaArrowRight } from "@/components/ui/icons";
+import { HeroDiagramInteractive } from "@/components/sections/home/HeroDiagramInteractive";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
-import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -13,7 +13,7 @@ export function HeroSection() {
     <>
       <header
         id="hero-section"
-        className="bg-navy text-white relative overflow-hidden py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center"
+        className="bg-navy text-white relative overflow-x-clip overflow-y-visible py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center"
       >
         <div className="w-full max-w-7xl mx-auto px-6 flex items-center relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-6 lg:gap-12 w-full items-center">
@@ -52,20 +52,14 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center justify-center relative md:col-span-5 lg:col-span-7">
-              <div className="relative z-10 w-full flex flex-col items-center justify-center transform translate-x-0 lg:translate-x-8 opacity-0 animate-slide-in-right">
+            <div className="hidden md:flex items-center justify-center relative md:col-span-5 lg:col-span-7 overflow-visible">
+              <div className="relative z-20 w-full flex flex-col items-center justify-center transform translate-x-0 lg:translate-x-8 opacity-0 animate-slide-in-right overflow-visible">
                 <p className="text-teal font-bold text-xs lg:text-lg uppercase tracking-widest mb-3 lg:mb-4 text-center">
                   {t("bannerLabel")}
                 </p>
-                <Image
-                  id="hero-animated-svg"
-                  src="/assets/images/Hero-section-01.svg"
+                <HeroDiagramInteractive
+                  src="/assets/images/Hero-section-01.svg?v=logo-mark-v1"
                   alt={t("bannerAlt")}
-                  width={900}
-                  height={520}
-                  className="relative z-10 h-auto w-full max-w-[280px] lg:max-w-none lg:w-[90%] object-contain"
-                  style={{ height: "auto" }}
-                  priority
                 />
               </div>
             </div>

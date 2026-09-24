@@ -1,13 +1,12 @@
 "use client";
 
-import { FaArrowRight, FaBars, FaChevronDown, FaGlobe, FaHandshake, FaTimes } from "@/components/ui/icons";
+import { FaArrowRight, FaBars, FaChevronDown, FaHandshake, FaTimes } from "@/components/ui/icons";
 import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { buildMegaMenus, isNavHrefActive } from "@/lib/navigation";
 
 function closeDesktopMegaMenus() {
@@ -25,11 +24,9 @@ export function SiteHeader() {
   const megaMenus = useMemo(() => buildMegaMenus(t), [t]);
   const [hash, setHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(
     () => new Set(),
   );
-  const mobileLangRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const syncHash = (next?: string) => {
@@ -58,23 +55,9 @@ export function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  useEffect(() => {
-    if (!mobileLangOpen) return;
-
-    const onPointerDown = (event: PointerEvent) => {
-      const root = mobileLangRef.current;
-      if (!root || root.contains(event.target as Node)) return;
-      setMobileLangOpen(false);
-    };
-
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [mobileLangOpen]);
-
   const closeMobile = () => {
     setMobileOpen(false);
     setOpenAccordions(new Set());
-    setMobileLangOpen(false);
   };
 
   const toggleAccordion = (id: string) => {
@@ -92,6 +75,28 @@ export function SiteHeader() {
   };
 
   const linkIsActive = (href: string) => isNavHrefActive(href, pathname, hash);
+  const isHome = pathname === "/";
+  const designPartnersActive = pathname.startsWith("/design-partners");
+
+  /** Top-level mega labels stay neutral on home, except Why Suricat after a panel pick. */
+  const isMegaTriggerActive = (menu: (typeof megaMenus)[number]) => {
+    const childActive =
+      linkIsActive(menu.intro.ctaHref) ||
+      menu.links.some((link) => linkIsActive(link.href));
+
+    if (isHome) return menu.id === "why" && childActive;
+    return childActive;
+  };
+
+  /**
+   * On home, only a clicked Why Suricat mega item shows active.
+   * Other menus (and home hashes from hero/platform) stay unhighlighted.
+   */
+  const isMegaPanelLinkActive = (href: string, menuId: string) => {
+    if (!linkIsActive(href)) return false;
+    if (isHome) return menuId === "why";
+    return true;
+  };
 
   return (
     <nav
@@ -105,30 +110,18 @@ export function SiteHeader() {
               src="/assets/images/suricat-logo-nav.png"
               alt={t("common.suricatAlt")}
               id="ig8vb"
-              width={2048}
-              height={470}
+              width={300}
+              height={68}
               className="nav-logo shrink-0 object-contain object-left"
               style={{ width: "auto" }}
               priority
             />
           </Link>
-          <Link
-            href="/design-partners"
-            className={`nav-design-partners-btn hidden xl:inline-flex items-center rounded-full font-bold transition-all whitespace-nowrap shrink-0${
-              pathname.startsWith("/design-partners") ? " is-active" : ""
-            }`}
-            title={t("nav.designPartners")}
-          >
-            <FaHandshake aria-hidden="true" />
-            <span className="nav-design-partners-label">{t("nav.designPartners")}</span>
-          </Link>
         </div>
 
-        <div className="nav-center-menu hidden xl:flex flex-1 self-stretch items-stretch justify-center min-w-0 font-semibold">
+        <div className="nav-center-menu hidden xl:flex flex-1 self-stretch items-stretch justify-center min-w-0">
           {megaMenus.map((menu) => {
-            const menuActive =
-              linkIsActive(menu.intro.ctaHref) ||
-              menu.links.some((link) => linkIsActive(link.href));
+            const menuActive = isMegaTriggerActive(menu);
 
             return (
               <div
@@ -162,7 +155,9 @@ export function SiteHeader() {
                         <Link
                           href={menu.intro.ctaHref}
                           className={`nav-mega-intro-cta${
-                            linkIsActive(menu.intro.ctaHref) ? " is-active" : ""
+                            isMegaPanelLinkActive(menu.intro.ctaHref, menu.id)
+                              ? " is-active"
+                              : ""
                           }`}
                           onClick={onMegaLinkClick}
                         >
@@ -178,7 +173,7 @@ export function SiteHeader() {
                         }`}
                       >
                         {menu.links.map((link) => {
-                          const active = linkIsActive(link.href);
+                          const active = isMegaPanelLinkActive(link.href, menu.id);
                           return (
                             <Link
                               key={link.href + link.label}
@@ -201,68 +196,28 @@ export function SiteHeader() {
         </div>
 
         <div className="nav-header-actions hidden xl:flex items-center justify-end shrink-0">
-          <div className="relative group text-gray-600">
-            <button
-              type="button"
-              className="nav-language-trigger"
-              aria-label={t("common.chooseLanguage")}
-            >
-              <FaGlobe className="text-lg" aria-hidden="true" />
-              <FaChevronDown className="text-xs transition-transform duration-300 group-hover:rotate-180" aria-hidden="true" />
-            </button>
-            <div className="nav-language-dropdown absolute right-0 top-full pt-3 w-44 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-opacity duration-200 z-50">
-              <div className="nav-language-panel">
-                <LanguageSwitcher variant="nav-dropdown" />
-              </div>
-            </div>
-          </div>
           <div className="nav-header-cta-group flex items-center">
             <Link
               href="/login"
-              className={`nav-login-link nav-link-animated font-bold transition-colors${
-                linkIsActive("/login")
-                  ? " is-active text-teal hover:text-teal"
-                  : " text-navy hover:text-navy/90"
-              }`}
+              className="nav-login-link inline-flex items-center whitespace-nowrap shrink-0"
               aria-current={linkIsActive("/login") ? "page" : undefined}
             >
               {t("nav.login")}
             </Link>
             <Link
-              href="/get-started"
-              className="nav-cta-btn inline-flex items-center justify-center cursor-pointer rounded-full border-2 border-navy bg-navy font-bold text-white transition-colors hover:bg-navy/90"
+              href="/design-partners"
+              className={`nav-design-partners-btn inline-flex items-center justify-center rounded-full font-bold transition-all whitespace-nowrap shrink-0${
+                designPartnersActive ? " is-active" : ""
+              }`}
+              title={t("nav.designPartners")}
             >
-              {t("nav.getStarted")}
+              <FaHandshake aria-hidden="true" />
+              <span className="nav-design-partners-label">{t("nav.designPartners")}</span>
             </Link>
           </div>
         </div>
 
         <div className="flex xl:hidden items-center justify-end gap-3 ml-auto shrink-0">
-          <div className="relative" ref={mobileLangRef}>
-            <button
-              className="p-2 text-gray-600 flex items-center gap-1"
-              type="button"
-              onClick={() => setMobileLangOpen((v) => !v)}
-              aria-expanded={mobileLangOpen}
-              aria-label={t("common.chooseLanguage")}
-            >
-              <FaGlobe className="text-lg" aria-hidden="true" />
-              <FaChevronDown
-                className={`text-xs transition-transform duration-300 ${
-                  mobileLangOpen ? "rotate-180" : ""
-                }`}
-                aria-hidden="true"
-              />
-            </button>
-            {mobileLangOpen ? (
-              <div className="absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 rounded-[4px] shadow-lg py-2 z-[60]">
-                <LanguageSwitcher
-                  variant="nav-mobile"
-                  onSelect={() => setMobileLangOpen(false)}
-                />
-              </div>
-            ) : null}
-          </div>
           <button
             onClick={() => setMobileOpen(true)}
             className="p-2 text-gray-600"
@@ -283,8 +238,8 @@ export function SiteHeader() {
           <Image
             src="/assets/images/suricat-logo-nav.png"
             alt={t("common.suricatAlt")}
-            width={2048}
-            height={470}
+            width={300}
+            height={68}
             className="nav-logo shrink-0 object-contain object-left"
             style={{ width: "auto" }}
           />
@@ -300,9 +255,7 @@ export function SiteHeader() {
 
         <div className="mobile-menu-body p-4 space-y-4">
           {megaMenus.map((menu) => {
-            const menuActive =
-              linkIsActive(menu.intro.ctaHref) ||
-              menu.links.some((link) => linkIsActive(link.href));
+            const menuActive = isMegaTriggerActive(menu);
 
             return (
               <div key={menu.id} className="border-b border-gray-100">
@@ -329,7 +282,9 @@ export function SiteHeader() {
                       <Link
                         href={menu.intro.ctaHref}
                         className={`nav-mega-intro-cta py-2 px-2${
-                          linkIsActive(menu.intro.ctaHref) ? " is-active" : ""
+                          isMegaPanelLinkActive(menu.intro.ctaHref, menu.id)
+                            ? " is-active"
+                            : ""
                         }`}
                         onClick={closeMobile}
                       >
@@ -340,7 +295,7 @@ export function SiteHeader() {
                       </Link>
                     )}
                     {menu.links.map((link) => {
-                      const active = linkIsActive(link.href);
+                      const active = isMegaPanelLinkActive(link.href, menu.id);
                       return (
                         <Link
                           key={link.href + link.label}
@@ -367,29 +322,16 @@ export function SiteHeader() {
         <div className="mobile-menu-footer flex flex-col gap-3 border-t border-gray-200 bg-white p-4">
           <Link
             href="/login"
-            className={`cursor-pointer rounded-full border-2 px-6 py-3 text-center font-bold${
-              linkIsActive("/login")
-                ? " border-teal bg-white text-teal"
-                : " border-navy bg-white text-navy"
-            }`}
+            className="nav-login-link py-2 text-center"
             aria-current={linkIsActive("/login") ? "page" : undefined}
             onClick={closeMobile}
           >
             {t("nav.login")}
           </Link>
           <Link
-            href="/get-started"
-            className="nav-cta-btn cursor-pointer rounded-full border-2 border-navy bg-navy px-6 py-3 text-center font-bold text-white"
-            onClick={closeMobile}
-          >
-            {t("nav.getStarted")}
-          </Link>
-          <Link
             href="/design-partners"
             className={`suricat-teal-btn inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-sm font-bold transition-all md:text-base${
-              pathname.startsWith("/design-partners")
-                ? " ring-2 ring-teal ring-offset-2"
-                : ""
+              designPartnersActive ? " ring-2 ring-teal ring-offset-2" : ""
             }`}
             onClick={closeMobile}
           >

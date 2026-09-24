@@ -21,6 +21,7 @@
   },
   "nav": {
     "designPartners": "Partners de diseño",
+    "designPartner": "Partner de diseño",
     "login": "Acceder",
     "getStarted": "Empezar",
     "toggleMenu": "Abrir o cerrar el menú de navegación",
@@ -29,23 +30,23 @@
       "why": {
         "label": "Por qué",
         "introTitle": "Por qué Suricat",
-        "introText": "Comprenda el desafío estructural de compliance, cómo Suricat se creó para abordarlo y lo que permite a las organizaciones reguladas.",
+        "introText": "Desde el costo de la desalineación hasta por qué los sistemas actuales se quedan cortos: vea cómo Suricat fue creado por profesionales para entornos regulados.",
         "ctaLabel": "Explorar Por qué Suricat",
         "links": {
-          "mission": "La misión de Suricat",
-          "howItWorks": "Cómo funciona Suricat",
+          "costOfMisalignment": "El costo de la desalineación",
+          "alignmentGap": "La brecha de alineación",
+          "changeImpact": "El impacto del cambio",
+          "existingSystems": "Los sistemas actuales se quedan cortos",
           "practitioners": "Creado por profesionales",
-          "regulated": "Diseñado para entornos regulados",
-          "structural": "El problema estructural",
-          "enables": "Lo que Suricat permite",
-          "existingSystems": "Por qué los sistemas existentes no bastan"
+          "regulated": "Hecho para entornos regulados",
+          "whySuricat": "Por qué Suricat"
         }
       },
       "platform": {
-        "label": "Plataforma",
-        "introTitle": "Plataforma",
+        "label": "The Suricat Engine",
+        "introTitle": "The Suricat Engine",
         "introText": "Una Capa de inteligencia de cumplimiento de solo lectura para entornos regulados, con arquitectura propietaria para Bounded Reasoning y resultados defendibles.",
-        "ctaLabel": "Explorar la plataforma",
+        "ctaLabel": "Explorar The Suricat Engine",
         "links": {
           "intelligenceLayer": "Capa de inteligencia",
           "readOnly": "Solo lectura por diseño",
@@ -99,8 +100,8 @@
         }
       },
       "company": {
-        "label": "Empresa",
-        "introTitle": "Empresa",
+        "label": "Sobre nosotros",
+        "introTitle": "Sobre nosotros",
         "introText": "Conozca la historia, misión y liderazgo de Suricat, y cómo contactar a nuestro equipo.",
         "ctaLabel": "Nuestra historia",
         "links": {
@@ -123,9 +124,9 @@
     "cookieSettings": "Configuración de cookies",
     "sitemap": "Mapa del sitio",
     "columns": {
-      "company": "Empresa",
+      "company": "About Us",
       "why": "Por qué Suricat",
-      "platform": "Plataforma",
+      "platform": "The Suricat Engine",
       "resources": "Recursos"
     },
     "resources": {
@@ -525,127 +526,93 @@
       "titleCompliance": "Cumplimiento",
       "titleIntelligence": "Inteligencia",
       "body": "Evalúa continuamente la alineación entre documentos y genera hallazgos defendibles ante inspección para una revisión más temprana.",
-      "explorePlatform": "Explorar la plataforma",
+      "explorePlatform": "Solicitar un piloto GRATIS",
       "becomeDesignPartner": "Convertirse en partner de diseño",
       "bannerLabel": "PLATAFORMA DE INTELIGENCIA DE CUMPLIMIENTO",
-      "bannerAlt": "Banner de fundadores de Suricat"
+      "bannerAlt": "Banner de fundadores de Suricat",
+      "diagram": {
+        "close": "Cerrar",
+        "openHint": "Mostrar detalles",
+        "stageInput": "Input",
+        "stageEngine": "Engine",
+        "stageOutput": "Output",
+        "proceduresTitle": "Procedures",
+        "proceduresSubtitle": "SOPs, políticas, instrucciones de trabajo",
+        "proceduresBody": "Procedimientos operativos estándar (SOPs), políticas corporativas, guías regulatorias e instrucciones de trabajo paso a paso que rigen los procesos organizativos.",
+        "recordsTitle": "Records",
+        "recordsSubtitle": "Formularios, registros, datos operativos",
+        "recordsBody": "Formularios completados, registros operativos y registros controlados que muestran cómo se ejecutaron los procedimientos en la práctica.",
+        "riskFilesTitle": "Risk Files",
+        "riskFilesSubtitle": "Evaluaciones de riesgo, análisis de peligros",
+        "riskFilesBody": "Evaluaciones de riesgo y análisis de peligros que documentan riesgos identificados, controles y decisiones de riesgo residual.",
+        "capasTitle": "CAPAs",
+        "capasSubtitle": "Acciones correctivas y preventivas",
+        "capasBody": "Acciones correctivas y preventivas que capturan investigaciones, causas raíz y verificación de eficacia.",
+        "evidenceTitle": "Evidence",
+        "evidenceSubtitle": "Informes, resultados, certificados, datos de ensayo",
+        "evidenceBody": "Informes de apoyo, resultados de ensayo, certificados y otra evidencia usada para defender la alineación documental.",
+        "engineTitle": "Suricat Engine",
+        "engineSubtitle": "Evalúa continuamente la alineación documental",
+        "engineBody": "Lee procedures, records, risk files, CAPAs y evidence para evaluar alineación y generar hallazgos defendibles ante inspección.",
+        "reviewTitle": "Human Review & Governance",
+        "reviewSubtitle": "Validación experta y disposición",
+        "reviewBody": "Revisores cualificados validan hallazgos del motor, deciden la disposición y mantienen la responsabilidad en el equipo de QA/RA.",
+        "misalignmentsTitle": "Potential Misalignments",
+        "misalignmentsSubtitle": "Riesgos y desalineaciones priorizados",
+        "misalignmentsBody": "Desalineaciones potenciales priorizadas para que los equipos centren la atención donde las relaciones documentales corren más riesgo.",
+        "traceableTitle": "Traceable Evidence",
+        "traceableSubtitle": "Vinculada a registros fuente de apoyo",
+        "traceableBody": "Los hallazgos permanecen vinculados a los registros fuente que los respaldan, para conclusiones explicables y defendibles.",
+        "readinessTitle": "Inspection Readiness",
+        "readinessSubtitle": "Visibilidad continua de la preparación documental",
+        "readinessBody": "Visibilidad continua de la preparación documental para ver brechas antes, no solo durante la preparación de inspección."
+      }
     },
     "why": {
       "sectionTitle": "Por qué Suricat",
-      "headline": "Los sistemas están en su lugar. La alineación entre ellos, no.",
-      "intro": "Los requisitos cambian. Los documentos evolucionan. La evidencia se acumula. Con el tiempo, demostrar que la documentación crítica de calidad y regulación permanece alineada se vuelve cada vez más difícil.",
-      "continue": "Continuar",
-      "tabs": {
-        "mission": "La misión de Suricat",
-        "practitioners": "Creado por profesionales",
-        "structural": "El problema estructural",
-        "existingSystems": "Por qué los sistemas existentes no bastan",
-        "howItWorks": "Cómo funciona Suricat",
-        "regulated": "Diseñado para entornos regulados",
-        "enables": "Lo que Suricat permite"
-      },
-      "readMore": "Leer más",
-      "readLess": "Leer menos",
-      "mission": {
-        "eyebrow": "Alineación continua",
-        "bullets": {
-          "0": "Detecta la desalineación antes de la inspección.",
-          "1": "Preserva la responsabilidad humana.",
-          "2": "Permite decisiones listas para inspección."
+      "headline": "Vea lo que está conectado. Sepa qué necesita su atención.",
+      "intro": "Suricat ofrece a los equipos de QA/RA una vista conectada de su información de cumplimiento para que dediquen menos tiempo a buscar, cruzar y conciliar información y más tiempo a revisar lo que importa.",
+      "lessLabel": "Menos tiempo buscando",
+      "moreLabel": "Más tiempo revisando",
+      "boardAria": "Cómo Suricat desplaza el tiempo de QA/RA de buscar a revisar",
+      "cards": {
+        "evidence": {
+          "title": "Encuentre evidencia más rápido",
+          "body": "Encuentre evidencia de respaldo relevante en sistemas y documentos."
         },
-        "title": "La misión de Suricat",
-        "paragraphs": {
-          "0": "Transformar el cumplimiento regulatorio mediante inteligencia explicable que detecta la desalineación antes, preserva la responsabilidad humana y permite decisiones listas para inspección."
+        "gaps": {
+          "title": "Vea brechas e inconsistencias",
+          "body": "Haga visibles las áreas que pueden necesitar revisión de QA/RA."
+        },
+        "impact": {
+          "title": "Entienda el impacto del cambio",
+          "body": "Vea qué más puede verse afectado cuando algo cambia."
+        },
+        "traceability": {
+          "title": "Refuerce la trazabilidad",
+          "body": "Siga las relaciones entre requisitos, riesgos, controles y evidencia."
+        },
+        "reconciliation": {
+          "title": "Reduzca la conciliación manual",
+          "body": "Pase menos tiempo cruzando y comparando información entre sistemas y documentos."
+        },
+        "prepared": {
+          "title": "Esté mejor preparado",
+          "body": "Reúna la documentación y la evidencia de respaldo adecuadas para auditorías e inspecciones."
         }
       },
-      "practitioners": {
-        "eyebrow": "Creado por profesionales",
-        "bullets": {
-          "0": "Décadas en Quality, Regulatory Affairs y Compliance.",
-          "1": "Construido dentro de entornos regulados.",
-          "2": "Amplia experiencia en inspecciones FDA y CAPA."
-        },
-        "title": "Creado por profesionales",
-        "paragraphs": {
-          "0": "Suricat se construyó a partir de experiencia regulatoria y operativa vivida.",
-          "1": "El equipo fundador aporta décadas de experiencia en Quality, Regulatory Affairs, inspecciones FDA, investigaciones CAPA y transiciones MDR.",
-          "2": "Construimos la capa de inteligencia que deseábamos que existiera para que la evaluación de cumplimiento sea continua, no episódica."
-        }
+      "closingLead": "Sus sistemas contienen la información.",
+      "closingAccent": "Suricat conecta los puntos.",
+      "closingBody": "Vea qué cambió, qué puede verse afectado, dónde está la evidencia y qué necesita su atención.",
+      "see": {
+        "changed": "Qué cambió",
+        "affected": "Qué puede verse afectado",
+        "evidence": "Dónde está la evidencia",
+        "attention": "Qué necesita su atención"
       },
-      "structural": {
-        "eyebrow": "Cumplimiento episódico",
-        "bullets": {
-          "0": "Las organizaciones concilian documentos periódicamente, no de forma continua.",
-          "1": "Los requisitos se mapean manualmente entre sistemas fragmentados.",
-          "2": "El conocimiento institucional vive en las personas, no en los sistemas."
-        },
-        "title": "El problema estructural",
-        "paragraphs": {
-          "0": "Tras décadas de digitalización empresarial, el cumplimiento sigue siendo episódico. Las organizaciones siempre van a remolque.",
-          "1": "Las organizaciones reguladas gestionan ecosistemas documentales que abarcan calidad, riesgo, regulación, operaciones, finanzas y gobernanza en múltiples entornos y jurisdicciones.",
-          "2": "Cuando cambian los requisitos, la evidencia previamente conforme resulta insuficiente. Los systems of record preservan la integridad de los datos; no evalúan la alineación entre ellos.",
-          "3": "La desalineación se detecta tarde, cuando la remediación es costosa y la exposición regulatoria ya es material.",
-          "4": "Esto no es una brecha que cierre una mejor herramienta de flujo de trabajo. Es una condición estructural que requiere una clase de infraestructura totalmente distinta."
-        }
-      },
-      "existingSystems": {
-        "eyebrow": "Brechas del sistema",
-        "bullets": {
-          "0": "Pequeños cambios entre documentos crean divergencia invisible.",
-          "1": "La conciliación periódica es reactiva, redundante y consume recursos.",
-          "2": "La desalineación descubierta durante la inspección genera retrasos, exposición y mayor coste."
-        },
-        "title": "Por qué los sistemas existentes no bastan",
-        "paragraphs": {
-          "0": "La complejidad no anuncia sus consecuencias. Una revisión de diseño aquí. Un procedimiento actualizado allá. Un requisito que cambió sin disparar actualizaciones coordinadas en cada artefacto que tocaba. Cada cambio es defendible por separado. Juntos producen un ecosistema documental que ya no se sostiene bajo escrutinio.",
-          "1": "Las organizaciones invierten mucho en conciliación periódica: reunir evidencia, cruzar registros, reconstruir la justificación. Ese esfuerzo es en gran medida reactivo y prevenible.",
-          "2": "Cuando la desalineación aparece durante la inspección en lugar de antes, la remediación se alarga y la exposición se intensifica. La solución no es más proceso: es alineación continua integrada en las operaciones."
-        }
-      },
-      "howItWorks": {
-        "eyebrow": "Ciclo continuo de inteligencia",
-        "bullets": {
-          "0": "Ingiere documentos y metadatos de forma continua.",
-          "1": "Mapea requisitos a evidencia entre sistemas.",
-          "2": "Superficie hallazgos con trazabilidad completa a la fuente."
-        },
-        "title": "Cómo funciona Suricat",
-        "paragraphs": {
-          "0": "Suricat opera en un ciclo continuo que convierte la documentación fragmentada en confianza lista para inspección.",
-          "1": "Conecta sistemas y contenidos dispares, mapea requisitos a evidencia y aplica razonamiento regulatorio para evaluar alineación, consistencia y riesgo — de forma continua, no periódica.",
-          "2": "Los equipos actúan sobre los hallazgos dentro de los flujos de trabajo existentes. Suricat aprende de los resultados para mejorar continuamente la precisión, reducir falsos positivos y fortalecer la preparación para inspección."
-        }
-      },
-      "regulated": {
-        "eyebrow": "Hecho para la realidad regulada",
-        "bullets": {
-          "0": "Nivel regulatorio.",
-          "1": "Seguridad desde el diseño.",
-          "2": "Global y escalable."
-        },
-        "title": "Diseñado para entornos regulados",
-        "paragraphs": {
-          "0": "Suricat está diseñado para organizaciones que operan bajo obligaciones regulatorias complejas y en evolución. Cada capacidad está pensada para cumplir las expectativas de los reguladores y las necesidades de los equipos regulados.",
-          "1": "Integramos seguridad, privacidad y controles de acceso en cada capa. Los datos están protegidos, la evidencia es trazable y cada resultado es explicable y defendible.",
-          "2": "Suricat respalda operaciones globales en industrias y jurisdicciones. Nuestra plataforma se adapta a sus requisitos, escala con su crecimiento y se mantiene alineada a medida que evolucionan las regulaciones y normas.",
-          "3": "Obtiene una infraestructura de cumplimiento en la que puede confiar — construida para operar en el mundo real de los entornos regulados."
-        }
-      },
-      "enables": {
-        "eyebrow": "Resultados que importan",
-        "bullets": {
-          "0": "Preparación para inspección.",
-          "1": "Reducción de riesgo.",
-          "2": "Eficiencia operativa."
-        },
-        "title": "Lo que Suricat permite",
-        "paragraphs": {
-          "0": "Suricat transforma el cumplimiento de un esfuerzo periódico y manual en una capacidad de inteligencia continua integrada en las operaciones diarias.",
-          "1": "Las organizaciones dejan de reunir evidencia a posteriori. En su lugar, evalúan continuamente la alineación entre documentación, requisitos y realidad operativa a medida que evolucionan las condiciones.",
-          "2": "Los equipos de calidad, regulatory y compliance ganan visibilidad más temprana del riesgo emergente, mayor preparación para inspección y más confianza en la toma de decisiones mediante hallazgos explicables y evidencia trazable.",
-          "3": "No se trata simplemente de trabajo de cumplimiento más rápido. Permite un modelo operativo más resiliente, diseñado para escalar con productos, regulaciones y crecimiento organizacional."
-        }
-      }
+      "cta": "Conviértase en Design Partner",
+      "pilotPrompt": "¿Quiere evaluar Suricat primero?",
+      "pilotCta": "Solicite un piloto GRATIS"
     },
     "platform": {
       "sectionTitle": "Plataforma",
@@ -952,9 +919,9 @@
       }
     },
     "complianceCost": {
-      "eyebrow": "Coste de la desalineación",
-      "title": "La desalineación en compliance no se anuncia sola. Estas son sus consecuencias",
-      "body": "La desalineación suele permanecer oculta hasta que una inspección, un CAPA o una retirada (recall) la pone al descubierto. Para entonces, el impacto ya es medible. Los datos siguientes reflejan las realidades que enfrentan los fabricantes de dispositivos médicos bajo QMSR e ISO 13485.",
+      "eyebrow": "El costo de la desalineación",
+      "title": "La desalineación puede permanecer oculta hasta que una auditoría, inspección o retiro la exponga.",
+      "body": "Para entonces, el impacto puede ir más allá del cumplimiento e impulsar investigación, remediación, retrabajo, interrupción operativa y exposición regulatoria.",
       "cta": "Compruebe su preparación",
       "ctaHint": "Descubra cómo Suricat aborda inteligencia de cumplimiento",
       "cards": {
@@ -1001,6 +968,154 @@
           "link": "Reglamento del sistema de calidad de la FDA"
         }
       }
+    },
+    "alignmentGap": {
+      "sectionTitle": "La brecha de alineación",
+      "headline": "Los sistemas están en su lugar. La alineación entre ellos, no.",
+      "lead": "Los requisitos cambian. Los documentos evolucionan. La evidencia se acumula.",
+      "p1": "La información de calidad y regulatoria abarca requisitos, procedimientos, riesgos, controles, CAPAs, documentación de diseño, formación, registros y evidencia de respaldo.",
+      "p2": "Estos elementos están conectados, aunque la información viva en distintos sistemas y documentos.",
+      "questionsIntro": "A medida que las cosas cambian, los equipos de QA/RA siguen necesitando responder preguntas críticas:",
+      "questions": {
+        "q1": "¿Qué cambió?",
+        "q2": "¿Qué más se ve afectado?",
+        "q3": "¿Sigue todo alineado?",
+        "q4": "¿Dónde está la evidencia de respaldo?"
+      },
+      "closer": "Suricat está diseñado para ayudar a responder esas preguntas.",
+      "answerLabel": "La respuesta",
+      "cta": "Solicite un piloto GRATIS"
+    },
+    "changeImpact": {
+      "sectionTitle": "El impacto del cambio",
+      "headline": "Cuando algo cambia, ¿qué más se ve afectado?",
+      "lead": "Un requisito cambia. Un procedimiento se revisa. Un riesgo se actualiza.",
+      "p1": "El cambio en sí puede ser claro. Entender todo lo que afecta es más difícil.",
+      "chain": {
+        "requirement": "Requisito",
+        "procedure": "Procedimiento",
+        "risk": "Riesgo",
+        "control": "Control",
+        "design": "Documentación de diseño",
+        "vv": "V&V",
+        "training": "Formación",
+        "evidence": "Evidencia y registros"
+      },
+      "processLabel": "Cómo se propaga un cambio en el sistema de calidad",
+      "p2": "Los equipos de QA/RA necesitan entender estas relaciones para identificar qué más puede requerir revisión.",
+      "closer": "El reto no es solo gestionar el cambio. Es entender su impacto.",
+      "cta": "Programe una conversación",
+      "tooltips": {
+        "requirement": "Un cambio de requisito puede afectar procedimientos, riesgos y evidencia.",
+        "procedure": "Un procedimiento revisado puede afectar formación, controles y registros.",
+        "risk": "Un riesgo actualizado puede exigir revisar controles y documentación de diseño.",
+        "control": "Un cambio de control puede desalinear riesgos, procedimientos o evidencia.",
+        "design": "Una actualización de diseño puede afectar V&V, requisitos y registros defendibles.",
+        "vv": "La verificación y validación pueden requerir nueva revisión si cambian las entradas.",
+        "training": "Los registros de formación pueden quedar desactualizados si cambian procedimientos.",
+        "evidence": "La evidencia de respaldo debe coincidir con el requisito, riesgo y rastro actuales."
+      }
+    },
+    "existingSystems": {
+      "sectionTitle": "Los sistemas actuales se quedan cortos",
+      "headline": "Sus sistemas hacen su trabajo. Pero no conectan los puntos.",
+      "p1": "QMS, RIM, PLM, control documental y otros sistemas gestionan registros, documentos, flujos, aprobaciones, versiones y procesos.",
+      "p2": "Pero el cumplimiento no vive en un solo sistema o documento. Depende de las relaciones entre requisitos, procedimientos, riesgos, controles, documentación de diseño, CAPAs, formación, registros y evidencia.",
+      "p3": "La ontología regulatoria de Suricat crea un modelo conectado de esta información de cumplimiento y de las relaciones entre ella.",
+      "p4": "En lugar de mirar documentos y registros aislados, los equipos de QA/RA pueden ver cómo se conecta la información, qué puede verse afectado cuando algo cambia y dónde vive la evidencia de respaldo.",
+      "closer": "Suricat trabaja sobre los sistemas que ya usa, añadiendo la capa de inteligencia que conecta los puntos.",
+      "silosLabel": "Los sistemas trabajan aislados",
+      "layerLabel": "La capa de inteligencia",
+      "systems": {
+        "qms": "QMS",
+        "rim": "RIM",
+        "plm": "PLM",
+        "documents": "Control documental"
+      },
+      "hub": {
+        "documents": "Docs"
+      },
+      "tooltips": {
+        "qms": "Sistema de gestión de calidad — CAPAs, auditorías, quejas y registros de calidad.",
+        "rim": "Gestión de información regulatoria — presentaciones, registros y datos regulatorios del producto.",
+        "plm": "Gestión del ciclo de vida del producto — historial de diseño, BOM y control de cambios.",
+        "documents": "Control documental — SOPs aprobados, versiones y documentos controlados vigentes."
+      },
+      "relations": {
+        "requirements": "Requisitos",
+        "procedures": "Procedimientos",
+        "risks": "Riesgos",
+        "capas": "CAPAs",
+        "evidence": "Evidencia"
+      }
+    },
+    "practitioners": {
+      "sectionTitle": "Creado por profesionales",
+      "headline": "Diseñado alrededor de la realidad del trabajo de QA/RA.",
+      "p1": "Suricat se construye sobre experiencia práctica en Quality, Regulatory Affairs, inspecciones de la FDA e investigaciones CAPA.",
+      "p2": "Entendemos que el cumplimiento no consiste solo en encontrar información. Se trata de comprender el contexto, rastrear evidencia, evaluar el impacto y tomar decisiones que resistan el escrutinio regulatorio.",
+      "p3": "Esa experiencia da forma a Suricat en torno a las relaciones que los equipos de QA/RA necesitan ver, la evidencia que deben verificar y el juicio profesional del que siguen siendo responsables.",
+      "closer": "Creado por profesionales de QA/RA, para profesionales de QA/RA.",
+      "docketTitle": "Registro de observaciones",
+      "docketMeta": "Las salas en las que se construyó este producto",
+      "stamp": "Vivido",
+      "entries": {
+        "quality": {
+          "title": "Quality",
+          "detail": "Sistemas, registros, quejas e investigaciones."
+        },
+        "regulatory": {
+          "title": "Regulatory Affairs",
+          "detail": "Presentaciones, registros y datos de producto."
+        },
+        "inspections": {
+          "title": "Inspecciones FDA",
+          "detail": "Las preguntas que hay que responder en la sala."
+        },
+        "capas": {
+          "title": "Investigaciones CAPA",
+          "detail": "Causa raíz, eficacia y qué más puede verse afectado."
+        }
+      }
+    },
+    "regulated": {
+      "sectionTitle": "Hecho para entornos regulados",
+      "headline": "Inteligencia sin ceder el control.",
+      "intro": "Suricat está diseñado para trabajar dentro de su entorno de calidad y regulación existente, manteniendo a los profesionales de QA/RA al mando.",
+      "cards": {
+        "accountability": {
+          "title": "Responsabilidad humana",
+          "kind": "Gobernanza",
+          "body": "Suricat muestra inteligencia. Los profesionales cualificados toman las decisiones.",
+          "residual": "La decisión permanece en la persona cualificada."
+        },
+        "evidence": {
+          "title": "Respaldado por evidencia y explicable",
+          "kind": "Evidencia",
+          "body": "Vea la evidencia de respaldo detrás de lo que Suricat muestra para que su equipo pueda revisarla y verificarla.",
+          "residual": "Cada resultado se puede revisar y cuestionar."
+        },
+        "readOnly": {
+          "title": "Solo lectura por diseño",
+          "kind": "Arquitectura",
+          "body": "Suricat trabaja sobre sus sistemas existentes sin modificar registros fuente controlados.",
+          "residual": "Los registros fuente controlados no se modifican."
+        },
+        "data": {
+          "title": "Sus datos siguen siendo suyos",
+          "kind": "Datos",
+          "body": "Su documentación sigue siendo de su propiedad. No se comparte con otros clientes ni se usa para entrenar modelos fundacionales.",
+          "residual": "La documentación no se usa para entrenar modelos."
+        },
+        "noRipReplace": {
+          "title": "Sin sustituir lo existente",
+          "kind": "Integración",
+          "body": "Conserve su QMS, RIM, PLM, control documental e infraestructura de validación. Suricat trabaja con lo que ya tiene.",
+          "residual": "Los sistemas validados existentes se mantienen."
+        }
+      },
+      "closer": "La tecnología debe apoyar a los profesionales de QA/RA, no reemplazar su juicio ni su responsabilidad.",
+      "cta": "Programe una conversación"
     }
   },
   "contact": {

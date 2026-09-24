@@ -9,7 +9,6 @@ import {
   FaYoutube,
   MdOutlineLocationOn,
 } from "@/components/ui/icons";
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -247,13 +246,6 @@ export function SiteFooter() {
                   info@suricat.ai
                 </a>
               </div>
-            </div>
-            <div className="relative mb-2 inline-block w-full lg:mb-0">
-              <LanguageSwitcher variant="footer-select" />
-              <FaChevronDown
-                className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 text-xs"
-                aria-hidden="true"
-              />
             </div>
           </div>
 

@@ -253,8 +253,8 @@ export function LoginSlimHeader() {
           <Image
             src="/assets/images/suricat-logo-nav.png"
             alt={tCommon("suricatAlt")}
-            width={2048}
-            height={470}
+            width={300}
+            height={68}
             className="h-8 shrink-0 object-contain object-left sm:h-11"
             style={{ width: "auto" }}
             priority

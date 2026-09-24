@@ -1,8 +1,4 @@
-import {
-  HOME_SECTION_IDS,
-  platformTabHref,
-  whyTabHref,
-} from "@/lib/homeHashes";
+import { HOME_SECTION_IDS, platformTabHref } from "@/lib/homeHashes";
 import type { Translator } from "@/lib/i18n/types";
 
 export type NavLink = {
@@ -67,13 +63,34 @@ const megaMenuDefs: MegaMenuDef[] = [
       ctaHref: `/#${HOME_SECTION_IDS.why}`,
     },
     links: [
-      { labelKey: "nav.menus.why.links.mission", href: whyTabHref(0) },
-      { labelKey: "nav.menus.why.links.howItWorks", href: whyTabHref(4) },
-      { labelKey: "nav.menus.why.links.practitioners", href: whyTabHref(1) },
-      { labelKey: "nav.menus.why.links.regulated", href: whyTabHref(5) },
-      { labelKey: "nav.menus.why.links.structural", href: whyTabHref(2) },
-      { labelKey: "nav.menus.why.links.enables", href: whyTabHref(6) },
-      { labelKey: "nav.menus.why.links.existingSystems", href: whyTabHref(3) },
+      {
+        labelKey: "nav.menus.why.links.costOfMisalignment",
+        href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.alignmentGap",
+        href: `/#${HOME_SECTION_IDS.alignmentGap}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.changeImpact",
+        href: `/#${HOME_SECTION_IDS.changeImpact}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.existingSystems",
+        href: `/#${HOME_SECTION_IDS.platform}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.practitioners",
+        href: `/#${HOME_SECTION_IDS.practitioners}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.regulated",
+        href: `/#${HOME_SECTION_IDS.regulated}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.whySuricat",
+        href: `/#${HOME_SECTION_IDS.why}`,
+      },
     ],
     linkColumns: 2,
   },
@@ -127,7 +144,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       titleKey: "nav.menus.solutions.introTitle",
       textKey: "nav.menus.solutions.introText",
       ctaLabelKey: "nav.menus.solutions.ctaLabel",
-      ctaHref: `/#${HOME_SECTION_IDS.solutions}`,
+      ctaHref: "/solutions/documentation-confidence",
     },
     links: [
       {
@@ -153,72 +170,6 @@ const megaMenuDefs: MegaMenuDef[] = [
       {
         labelKey: "nav.menus.solutions.links.documentAlignment",
         href: "/solutions/document-alignment",
-      },
-    ],
-    linkColumns: 2,
-  },
-  {
-    id: "industry",
-    labelKey: "nav.menus.industry.label",
-    intro: {
-      titleKey: "nav.menus.industry.introTitle",
-      textKey: "nav.menus.industry.introText",
-      ctaLabelKey: "nav.menus.industry.ctaLabel",
-      ctaHref: `/#${HOME_SECTION_IDS.industries}`,
-    },
-    links: [
-      {
-        labelKey: "nav.menus.industry.links.medicalDevices",
-        href: "/industries/medical-devices",
-      },
-      {
-        labelKey: "nav.menus.industry.links.expansion",
-        href: "/industries/expansion",
-      },
-    ],
-    linkColumns: 2,
-  },
-  {
-    id: "pricing",
-    labelKey: "nav.menus.pricing.label",
-    intro: {
-      titleKey: "nav.menus.pricing.introTitle",
-      textKey: "nav.menus.pricing.introText",
-      ctaLabelKey: "nav.menus.pricing.ctaLabel",
-      ctaHref: "/pricing",
-    },
-    links: [
-      {
-        labelKey: "nav.menus.pricing.links.subscriptionOptions",
-        href: "/pricing#subscription-options",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.capabilityComparison",
-        href: "/pricing#capability-comparison",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.platformLicense",
-        href: "/pricing/license",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.documentCapacity",
-        href: "/pricing/document-capacity",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.capacityExpansion",
-        href: "/pricing/capacity-expansion",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.interactiveSandbox",
-        href: "/pricing/interactive-sandbox",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.startWithEvaluate",
-        href: "/pricing/start-with-evaluate",
-      },
-      {
-        labelKey: "nav.menus.pricing.links.pricingFaqs",
-        href: "/pricing/faq",
       },
     ],
     linkColumns: 2,
@@ -278,9 +229,8 @@ export function buildFooterTopLinks(t: Translator): NavLink[] {
     },
     {
       label: t("nav.menus.solutions.label"),
-      href: `/#${HOME_SECTION_IDS.solutions}`,
+      href: "/solutions/documentation-confidence",
     },
-    { label: t("nav.menus.pricing.label"), href: "/pricing" },
     {
       label: t("nav.menus.company.label"),
       href: "/company/our-story",
@@ -308,13 +258,34 @@ export function buildFooterCompanyLinks(t: Translator): NavLink[] {
 
 export function buildFooterWhyLinks(t: Translator): NavLink[] {
   return [
-    { label: t("nav.menus.why.links.mission"), href: whyTabHref(0) },
-    { label: t("nav.menus.why.links.practitioners"), href: whyTabHref(1) },
-    { label: t("nav.menus.why.links.structural"), href: whyTabHref(2) },
-    { label: t("nav.menus.why.links.existingSystems"), href: whyTabHref(3) },
-    { label: t("nav.menus.why.links.howItWorks"), href: whyTabHref(4) },
-    { label: t("nav.menus.why.links.regulated"), href: whyTabHref(5) },
-    { label: t("nav.menus.why.links.enables"), href: whyTabHref(6) },
+    {
+      label: t("nav.menus.why.links.costOfMisalignment"),
+      href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
+    },
+    {
+      label: t("nav.menus.why.links.alignmentGap"),
+      href: `/#${HOME_SECTION_IDS.alignmentGap}`,
+    },
+    {
+      label: t("nav.menus.why.links.changeImpact"),
+      href: `/#${HOME_SECTION_IDS.changeImpact}`,
+    },
+    {
+      label: t("nav.menus.why.links.existingSystems"),
+      href: `/#${HOME_SECTION_IDS.platform}`,
+    },
+    {
+      label: t("nav.menus.why.links.practitioners"),
+      href: `/#${HOME_SECTION_IDS.practitioners}`,
+    },
+    {
+      label: t("nav.menus.why.links.regulated"),
+      href: `/#${HOME_SECTION_IDS.regulated}`,
+    },
+    {
+      label: t("nav.menus.why.links.whySuricat"),
+      href: `/#${HOME_SECTION_IDS.why}`,
+    },
   ];
 }
 
@@ -361,7 +332,7 @@ export function buildFooterResourceLinks(t: Translator): NavLink[] {
     },
     {
       label: t("footer.resources.industry"),
-      href: `/#${HOME_SECTION_IDS.industries}`,
+      href: "/industries/medical-devices",
     },
     { label: t("footer.resources.faqs"), href: "/pricing/faq" },
   ];
