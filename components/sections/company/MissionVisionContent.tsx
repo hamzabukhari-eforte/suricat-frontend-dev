@@ -42,7 +42,6 @@ export function MissionVisionContent() {
           </>
         }
         subtitle={ts("heroSubtitle")}
-        measure="max-w-4xl"
       />
 
       <section id="mission-vision" className="bg-white pb-6 pt-8">

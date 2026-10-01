@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 type Summary = {
   name: string;
@@ -74,7 +75,7 @@ export function DiscussionConfirmedContent() {
 
   return (
     <section className="py-8 w-full bg-[#f5f7fa] min-h-[70vh]">
-      <div className="max-w-3xl mx-auto px-6">
+      <Container>
         <div className="bg-white rounded-[4px] shadow-[0_8px_60px_rgba(0,0,0,0.08)] border border-gray-100 px-8 lg:px-12 py-6 text-center">
           <div className="w-16 h-16 mx-auto mb-4">
             <svg
@@ -220,7 +221,7 @@ export function DiscussionConfirmedContent() {
         >
           {t("footerNote")}
         </p>
-      </div>
+      </Container>
     </section>
   );
 }

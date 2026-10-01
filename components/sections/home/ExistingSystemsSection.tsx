@@ -5,126 +5,370 @@ import {
   HomeNarrativeText,
 } from "@/components/sections/home/HomeNarrativeHeader";
 import {
-  FaClipboardCheck,
-  FaDatabase,
+  FaBuildingColumns,
+  FaClipboardList,
+  FaCopy,
+  FaCube,
   FaFileLines,
-  FaLayerGroup,
+  FaFolderOpen,
+  FaMagnifyingGlass,
+  FaUsers,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
-import { useState } from "react";
+import type { ReactNode } from "react";
 import type { IconType } from "react-icons";
+import { Container } from "@/components/ui/Container";
 
-const SYSTEMS: {
-  id: "qms" | "rim" | "plm" | "documents";
-  icon: IconType;
+const TODAY_NODES: {
+  id: "qms" | "plm" | "rim" | "documents";
+  Icon: IconType;
+  slot: "qms" | "plm" | "rim" | "documents";
 }[] = [
-  { id: "qms", icon: FaClipboardCheck },
-  { id: "rim", icon: FaDatabase },
-  { id: "plm", icon: FaLayerGroup },
-  { id: "documents", icon: FaFileLines },
+  { id: "qms", Icon: FaClipboardList, slot: "qms" },
+  { id: "plm", Icon: FaCube, slot: "plm" },
+  { id: "rim", Icon: FaFolderOpen, slot: "rim" },
+  { id: "documents", Icon: FaFileLines, slot: "documents" },
 ];
 
-const RELATIONS = [
-  "requirements",
-  "procedures",
-  "risks",
-  "capas",
-  "evidence",
-] as const;
+const MANUAL_PILLS = ["spreadsheets", "crossRef", "email"] as const;
 
-const HUB_CX = 124;
-const HUB_CY = 84;
-const HUB_RING = 44;
-
-const HUB_NODES: {
-  id: "qms" | "rim" | "plm" | "documents";
-  x: number;
-  y: number;
-  anchor: "start" | "end";
-}[] = [
-  { id: "qms", x: 32, y: 26, anchor: "start" },
-  { id: "plm", x: 216, y: 26, anchor: "end" },
-  { id: "rim", x: 32, y: 142, anchor: "start" },
-  { id: "documents", x: 216, y: 142, anchor: "end" },
-];
-
-function hubLineStart(x: number, y: number) {
-  const dx = x - HUB_CX;
-  const dy = y - HUB_CY;
-  const length = Math.hypot(dx, dy);
-  return {
-    x: HUB_CX + (dx / length) * HUB_RING,
-    y: HUB_CY + (dy / length) * HUB_RING,
-  };
+function SystemChip({
+  label,
+  Icon,
+  tone,
+}: {
+  label: string;
+  Icon: IconType;
+  tone: "today" | "suricat";
+}) {
+  return (
+    <div className={`es-chip es-chip-${tone}`}>
+      <Icon aria-hidden="true" />
+      <span>{label}</span>
+    </div>
+  );
 }
 
-function SystemsHub({
-  labels,
-  descriptions,
-}: {
-  labels: Record<(typeof HUB_NODES)[number]["id"], string>;
-  descriptions: Record<(typeof HUB_NODES)[number]["id"], string>;
-}) {
-  const [openId, setOpenId] = useState<(typeof HUB_NODES)[number]["id"] | null>(
-    null,
-  );
-
+function TodayPanel({ t }: { t: (key: string) => string }) {
   return (
-    <div className="existing-systems-hub">
-      <svg
-        className="existing-systems-hub-svg"
-        viewBox="0 0 248 168"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle
-          className="existing-systems-hub-ring"
-          cx={HUB_CX}
-          cy={HUB_CY}
-          r={HUB_RING}
-        />
-        {HUB_NODES.map(({ id, x, y }) => {
-          const start = hubLineStart(x, y);
-          return (
-            <line
-              key={id}
-              className="existing-systems-hub-line"
-              x1={start.x}
-              y1={start.y}
-              x2={x}
-              y2={y}
-            />
-          );
-        })}
-        <circle className="existing-systems-hub-traveler" r="3.5" />
-      </svg>
-      <Image
-        src="/assets/images/suricat-logo-mark.png"
-        alt=""
-        width={72}
-        height={72}
-        className="existing-systems-hub-logo"
+    <article className="es-panel es-panel-today">
+      <p className="es-panel-label">{t("todayLabel")}</p>
+
+      <div className="es-diagram" aria-hidden="true">
+        <svg className="es-diagram-svg" viewBox="0 0 360 280" fill="none">
+          <line className="es-line-today es-line-today-slow" x1="180" y1="40" x2="180" y2="105" />
+          <line className="es-line-today es-line-today-slow" x1="54" y1="78" x2="145" y2="120" />
+          <line className="es-line-today es-line-today-slow" x1="306" y1="78" x2="215" y2="120" />
+          <line className="es-line-today es-line-today-slow" x1="54" y1="170" x2="145" y2="140" />
+          <line className="es-line-today es-line-today-slow" x1="306" y1="170" x2="215" y2="140" />
+        </svg>
+
+        <div className="es-node es-node-regs">
+          <FaBuildingColumns aria-hidden="true" />
+          <span>{t("regulations")}</span>
+        </div>
+
+        {TODAY_NODES.map(({ id, Icon, slot }) => (
+          <div key={id} className={`es-node es-node-${slot}`}>
+            <SystemChip label={t(`systems.${id}`)} Icon={Icon} tone="today" />
+          </div>
+        ))}
+
+        <div className="es-node es-node-team">
+          <div className="es-team-circle es-team-circle-today es-team-slow">
+            <FaUsers aria-hidden="true" />
+            <span>{t("yourTeam")}</span>
+          </div>
+        </div>
+
+        <div className="es-node es-node-manual">
+          {MANUAL_PILLS.map((id) => (
+            <span key={id} className="es-manual-pill es-manual-slow">
+              {t(`manual.${id}`)}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <p className="es-panel-caption">{t("todayCaption")}</p>
+    </article>
+  );
+}
+
+function FlowDocIcon() {
+  return (
+    <g filter="url(#es-glow-teal)" transform="scale(0.72)">
+      <rect
+        x="-9"
+        y="-11"
+        width="18"
+        height="22"
+        rx="2.5"
+        fill="#071022"
+        stroke="#19d3c5"
+        strokeWidth="1.5"
       />
-      {HUB_NODES.map(({ id, x, y, anchor }) => (
-        <button
-          key={id}
-          type="button"
-          className={`existing-systems-hub-hotspot existing-systems-hub-hotspot-${id} existing-systems-hub-hotspot-${anchor}${openId === id ? " is-open" : ""}`}
-          style={{ left: `${(x / 248) * 100}%`, top: `${(y / 168) * 100}%` }}
-          onMouseEnter={() => setOpenId(id)}
-          onMouseLeave={() => setOpenId(null)}
-          onFocus={() => setOpenId(id)}
-          onBlur={() => setOpenId(null)}
-        >
-          <span className="existing-systems-hub-node" />
-          <span className="existing-systems-hub-caption">{labels[id]}</span>
-          <span className="existing-systems-hub-tooltip" role="tooltip">
-            {descriptions[id]}
-          </span>
-        </button>
-      ))}
+      <path
+        d="M2 -11 V-5 H8"
+        fill="none"
+        stroke="#19d3c5"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M2 -11 L8 -5" stroke="#19d3c5" strokeWidth="1.5" />
+      <line x1="-5" y1="0" x2="4" y2="0" stroke="#19d3c5" strokeWidth="1.25" />
+      <line x1="-5" y1="3.5" x2="4" y2="3.5" stroke="#19d3c5" strokeWidth="1.25" />
+      <line x1="-5" y1="7" x2="1" y2="7" stroke="#19d3c5" strokeWidth="1.25" />
+    </g>
+  );
+}
+
+function FlowingDoc({
+  pathId,
+  dur,
+  begin,
+}: {
+  pathId: string;
+  dur: string;
+  begin: string;
+}) {
+  return (
+    <g className="es-flow-doc">
+      <FlowDocIcon />
+      <animateMotion
+        dur={dur}
+        begin={begin}
+        repeatCount="indefinite"
+        rotate="0"
+        keyPoints="0;1"
+        keyTimes="0;1"
+        calcMode="linear"
+      >
+        <mpath href={`#${pathId}`} />
+      </animateMotion>
+      <animate
+        attributeName="opacity"
+        values="0;1;1;0"
+        keyTimes="0;0.12;0.82;1"
+        dur={dur}
+        begin={begin}
+        repeatCount="indefinite"
+      />
+    </g>
+  );
+}
+
+function SuricatChip({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="es-chip es-chip-suricat">
+      <span className="es-chip-icon" aria-hidden="true">
+        {children}
+      </span>
+      <span>{label}</span>
     </div>
+  );
+}
+
+function SuricatPanel({ t }: { t: (key: string) => string }) {
+  return (
+    <article className="es-panel es-panel-suricat">
+      <p className="es-panel-label es-panel-label-suricat">{t("suricatLabel")}</p>
+
+      <div className="es-diagram es-diagram-suricat" aria-hidden="true">
+        <svg className="es-diagram-svg" viewBox="0 0 400 280" fill="none">
+          <defs>
+            <marker
+              id="es-arr-teal"
+              viewBox="0 0 12 12"
+              refX="9"
+              refY="6"
+              markerWidth="7"
+              markerHeight="7"
+              orient="auto"
+            >
+              <path
+                d="M1.5 2 L10 6 L1.5 10"
+                fill="none"
+                stroke="#19d3c5"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </marker>
+            <marker
+              id="es-arr-violet"
+              viewBox="0 0 12 12"
+              refX="9"
+              refY="6"
+              markerWidth="7"
+              markerHeight="7"
+              orient="auto"
+            >
+              <path
+                d="M1.5 2 L10 6 L1.5 10"
+                fill="none"
+                stroke="#5c3d8f"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </marker>
+            <filter id="es-glow-teal" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow
+                dx="0"
+                dy="0"
+                stdDeviation="1.4"
+                floodColor="#19d3c5"
+                floodOpacity="0.65"
+              />
+            </filter>
+          </defs>
+
+          {/* Motion paths: systems → Suricat */}
+          <path id="es-path-qms" d="M95 72 L168 108" fill="none" />
+          <path id="es-path-rim" d="M305 72 L232 108" fill="none" />
+          <path id="es-path-plm" d="M95 165 L168 130" fill="none" />
+          <path id="es-path-docs" d="M305 165 L232 130" fill="none" />
+          <path id="es-path-regs" d="M200 38 L200 88" fill="none" />
+          {/* Hub → Potential misalignments */}
+          <path id="es-path-hub-misalign" d="M200 135 L200 158" fill="none" />
+          {/* Potential misalignments → Your Team — stop short of the circle */}
+          <path id="es-path-misalign-team" d="M200 178 L200 215" fill="none" />
+
+          {/* Visible connectors */}
+          <use href="#es-path-regs" stroke="#5c3d8f" strokeWidth="2" markerEnd="url(#es-arr-violet)" />
+          <use
+            href="#es-path-qms"
+            stroke="#19d3c5"
+            strokeWidth="2"
+            filter="url(#es-glow-teal)"
+            markerEnd="url(#es-arr-teal)"
+          />
+          <use
+            href="#es-path-rim"
+            stroke="#19d3c5"
+            strokeWidth="2"
+            filter="url(#es-glow-teal)"
+            markerEnd="url(#es-arr-teal)"
+          />
+          <use
+            href="#es-path-plm"
+            stroke="#19d3c5"
+            strokeWidth="2"
+            filter="url(#es-glow-teal)"
+            markerEnd="url(#es-arr-teal)"
+          />
+          <use
+            href="#es-path-docs"
+            stroke="#19d3c5"
+            strokeWidth="2"
+            filter="url(#es-glow-teal)"
+            markerEnd="url(#es-arr-teal)"
+          />
+          <use
+            href="#es-path-hub-misalign"
+            stroke="#19d3c5"
+            strokeWidth="2.25"
+            filter="url(#es-glow-teal)"
+            markerEnd="url(#es-arr-teal)"
+          />
+          <use
+            href="#es-path-misalign-team"
+            stroke="#19d3c5"
+            strokeWidth="2.25"
+            filter="url(#es-glow-teal)"
+          />
+
+          {/* Docs leave each system and fly into Suricat */}
+          <FlowingDoc pathId="es-path-qms" dur="3.2s" begin="0.4s" />
+          <FlowingDoc pathId="es-path-qms" dur="3.2s" begin="2s" />
+          <FlowingDoc pathId="es-path-rim" dur="3.2s" begin="0.85s" />
+          <FlowingDoc pathId="es-path-rim" dur="3.2s" begin="2.45s" />
+          <FlowingDoc pathId="es-path-plm" dur="3.2s" begin="1.3s" />
+          <FlowingDoc pathId="es-path-plm" dur="3.2s" begin="2.9s" />
+          <FlowingDoc pathId="es-path-docs" dur="3.2s" begin="1.75s" />
+          <FlowingDoc pathId="es-path-docs" dur="3.2s" begin="3.35s" />
+        </svg>
+
+        <div className="es-node es-node-regs es-node-regs-suricat">
+          <FaBuildingColumns aria-hidden="true" />
+          <span>{t("regulations")}</span>
+        </div>
+
+        <div className="es-node es-node-qms es-node-suricat-qms">
+          <SuricatChip label={t("systems.qms")}>
+            <FaClipboardList />
+          </SuricatChip>
+        </div>
+
+        <div className="es-node es-node-rim es-node-suricat-rim">
+          <SuricatChip label={t("systems.rim")}>
+            <span className="es-rim-icon">
+              <FaFileLines />
+              <FaMagnifyingGlass className="es-rim-glass" />
+            </span>
+          </SuricatChip>
+        </div>
+
+        <div className="es-node es-node-plm es-node-suricat-plm">
+          <SuricatChip label={t("systems.plm")}>
+            <FaCube />
+          </SuricatChip>
+        </div>
+
+        <div className="es-node es-node-documents es-node-suricat-docs">
+          <SuricatChip label={t("systems.documents")}>
+            <FaCopy />
+          </SuricatChip>
+        </div>
+
+        <div className="es-node es-node-hub">
+          <div className="es-suricat-hub es-suricat-hub-pulse">
+            <Image
+              src="/assets/images/suricat-logo-mark-center.svg"
+              alt=""
+              width={36}
+              height={36}
+              className="es-suricat-hub-logo"
+            />
+            <span>{t("suricatName")}</span>
+          </div>
+        </div>
+
+        <div className="es-node es-node-misalign">
+          <span className="es-misalign-pill es-misalign-pill-outline es-misalign-fast">
+            <span className="es-misalign-dot" />
+            {t("misalignments")}
+          </span>
+        </div>
+
+        {/* Explicit HTML connector so the line stays visible above the diagram */}
+        <div className="es-link-misalign-team" aria-hidden="true">
+          <span className="es-link-misalign-team-arrow" />
+        </div>
+
+        <div className="es-node es-node-team-bottom">
+          <div className="es-team-circle es-team-circle-suricat es-team-fast">
+            <FaUsers aria-hidden="true" />
+            <span>{t("yourTeam")}</span>
+          </div>
+        </div>
+      </div>
+
+      <p className="es-panel-note">{t("suricatNote")}</p>
+      <div className="es-panel-divider" aria-hidden="true" />
+      <p className="es-panel-caption es-panel-caption-suricat">
+        <span>{t("suricatCaptionLead")}</span>{" "}
+        <span className="es-caption-accent">{t("suricatCaptionAccent")}</span>
+      </p>
+    </article>
   );
 }
 
@@ -132,67 +376,22 @@ export function ExistingSystemsSection() {
   const t = useTranslations("home.existingSystems");
 
   return (
-    <section id="platform" className="bg-surface-muted px-6 pt-12 pb-10">
-      <div className="mx-auto max-w-7xl">
+    <section id="existing-systems" className="bg-surface-muted pt-12 pb-10">
+      <Container>
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
-          <HomeNarrativeText>{t("p1")}</HomeNarrativeText>
-          <HomeNarrativeText>{t("p2")}</HomeNarrativeText>
-          <HomeNarrativeText>{t("p3")}</HomeNarrativeText>
-          <HomeNarrativeText>{t("p4")}</HomeNarrativeText>
+          <HomeNarrativeText fullWidth>{t("p1")}</HomeNarrativeText>
+          <HomeNarrativeText fullWidth>{t("p2")}</HomeNarrativeText>
+          <HomeNarrativeText fullWidth>{t("p3")}</HomeNarrativeText>
+          <p className="mb-0 max-w-none text-base font-semibold leading-relaxed text-navy sm:text-lg lg:text-[20px] lg:leading-[28px]">
+            {t("p4")}
+          </p>
         </HomeNarrativeHeader>
 
-        <div className="existing-systems-story">
-          <p className="existing-systems-silos-label">{t("silosLabel")}</p>
-          <div className="existing-systems-silos">
-            {SYSTEMS.map(({ id, icon: Icon }) => (
-              <article key={id} className="existing-systems-silo">
-                <div className="existing-systems-silo-icon">
-                  <Icon aria-hidden="true" />
-                </div>
-                <p className="existing-systems-silo-name">{t(`systems.${id}`)}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="existing-systems-bridge" aria-hidden="true">
-            <span className="existing-systems-bridge-stems">
-              <span />
-              <span />
-              <span />
-              <span />
-            </span>
-            <span className="existing-systems-bridge-line" />
-          </div>
-
-          <div className="existing-systems-closer">
-            <div className="existing-systems-closer-copy">
-              <p className="existing-systems-layer-label">{t("layerLabel")}</p>
-              <p className="existing-systems-closer-text">{t("closer")}</p>
-              <ul className="existing-systems-chips">
-                {RELATIONS.map((id) => (
-                  <li key={id} className="existing-systems-chip">
-                    {t(`relations.${id}`)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <SystemsHub
-              labels={{
-                qms: t("systems.qms"),
-                rim: t("systems.rim"),
-                plm: t("systems.plm"),
-                documents: t("hub.documents"),
-              }}
-              descriptions={{
-                qms: t("tooltips.qms"),
-                rim: t("tooltips.rim"),
-                plm: t("tooltips.plm"),
-                documents: t("tooltips.documents"),
-              }}
-            />
-          </div>
+        <div className="existing-systems-story es-compare">
+          <TodayPanel t={t} />
+          <SuricatPanel t={t} />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

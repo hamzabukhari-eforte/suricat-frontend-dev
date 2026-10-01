@@ -1,6 +1,7 @@
 "use client";
 
 import { FaChevronLeft, FaChevronRight } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { useCallback, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
@@ -64,8 +65,8 @@ export function StickySubnav({ links, category, navLabel }: SubnavProps) {
   };
 
   return (
-    <div className="border-b border-gray-200 bg-gray-50 px-4 py-3 sm:px-6">
-      <div className="mx-auto flex max-w-7xl items-center gap-3 text-sm sm:gap-4">
+    <div className="border-b border-gray-200 bg-gray-50 py-3">
+      <Container className="flex items-center gap-3 text-sm sm:gap-4">
         <div className="flex shrink-0 items-center gap-2 text-gray-500">
           <Link href="/" className="transition-colors hover:text-teal">
             Home
@@ -112,7 +113,7 @@ export function StickySubnav({ links, category, navLabel }: SubnavProps) {
             <FaChevronRight className="text-sm" aria-hidden="true" />
           </button>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { FaqItem } from "@/lib/pricing/faq";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 type PricingFaqProps = {
   items: FaqItem[];
@@ -63,7 +64,7 @@ export function PricingFaq({
   viewAllHref,
   viewAllLabel,
   sectionId = "pricing-faq",
-  sectionClassName = "py-8 px-4 sm:px-6 bg-white",
+  sectionClassName = "py-8 bg-white",
   defaultOpenIndex = null,
 }: PricingFaqProps) {
   const t = useTranslations("pricing.faq");
@@ -95,7 +96,7 @@ export function PricingFaq({
 
   return (
     <section id={sectionId} className={sectionClassName}>
-      <div className="max-w-7xl mx-auto">
+      <Container>
         <div className="mb-8 sm:mb-10">
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {eyebrow ?? t("eyebrow")}
@@ -157,7 +158,7 @@ export function PricingFaq({
             </Link>
           </div>
         ) : null}
-      </div>
+      </Container>
     </section>
   );
 }

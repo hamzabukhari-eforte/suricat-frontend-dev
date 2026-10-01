@@ -1,6 +1,6 @@
 import { FaArrowRight, FaShieldHalved } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
 import type { MaxWidth } from "@/lib/layout/measure";
-import { DEFAULT_DESCRIPTION_MAX } from "@/lib/layout/measure";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -11,8 +11,6 @@ type FormHeroProps = {
   ctaLabel: string;
   ctaHref?: string;
   complianceNote?: string;
-  /** Hero copy container width. Defaults to `max-w-4xl`. */
-  measure?: MaxWidth;
   /** Title measure. Defaults to `max-w-full`. */
   titleMaxWidth?: MaxWidth;
   /** Paragraph measure. Defaults to `max-w-full`. */
@@ -26,7 +24,6 @@ export function FormHero({
   ctaLabel,
   ctaHref = "#intake",
   complianceNote = "Built for Medical Device Manufacturers operating under FDA QMSR and ISO 13485.",
-  measure = DEFAULT_DESCRIPTION_MAX,
   titleMaxWidth = "max-w-full",
   paragraphMaxWidth = "max-w-full",
 }: FormHeroProps) {
@@ -39,9 +36,7 @@ export function FormHero({
         className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"
         aria-hidden="true"
       />
-      <div
-        className={`w-full ${measure} mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center mt-8`}
-      >
+      <Container className="relative z-10 mt-8 flex flex-col items-center text-center">
         {eyebrow ? (
           <div className="text-xs sm:text-[14px] text-teal font-bold mb-3 sm:mb-4 tracking-[0.12em] sm:tracking-[0.18em] uppercase max-w-full">
             {eyebrow}
@@ -75,7 +70,7 @@ export function FormHero({
             <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

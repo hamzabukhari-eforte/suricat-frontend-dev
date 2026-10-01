@@ -72,16 +72,8 @@ const megaMenuDefs: MegaMenuDef[] = [
         href: `/#${HOME_SECTION_IDS.alignmentGap}`,
       },
       {
-        labelKey: "nav.menus.why.links.changeImpact",
-        href: `/#${HOME_SECTION_IDS.changeImpact}`,
-      },
-      {
         labelKey: "nav.menus.why.links.existingSystems",
-        href: `/#${HOME_SECTION_IDS.platform}`,
-      },
-      {
-        labelKey: "nav.menus.why.links.practitioners",
-        href: `/#${HOME_SECTION_IDS.practitioners}`,
+        href: `/#${HOME_SECTION_IDS.existingSystems}`,
       },
       {
         labelKey: "nav.menus.why.links.regulated",
@@ -221,107 +213,23 @@ export function buildMegaMenus(t: Translator): MegaMenuItem[] {
 }
 
 export function buildFooterTopLinks(t: Translator): NavLink[] {
-  return [
-    { label: t("nav.menus.why.label"), href: `/#${HOME_SECTION_IDS.why}` },
-    {
-      label: t("nav.menus.platform.label"),
-      href: `/#${HOME_SECTION_IDS.platform}`,
-    },
-    {
-      label: t("nav.menus.solutions.label"),
-      href: "/solutions/documentation-confidence",
-    },
-    {
-      label: t("nav.menus.company.label"),
-      href: "/company/our-story",
-    },
-  ];
+  return buildMegaMenus(t).map((menu) => ({
+    label: menu.label,
+    href: menu.intro.ctaHref,
+  }));
 }
 
-export function buildFooterCompanyLinks(t: Translator): NavLink[] {
-  return [
-    {
-      label: t("nav.menus.company.links.ourStory"),
-      href: "/company/our-story",
-    },
-    {
-      label: t("nav.menus.company.links.missionVision"),
-      href: "/company/mission-vision",
-    },
-    {
-      label: t("nav.menus.company.links.leadership"),
-      href: "/company/leadership",
-    },
-    { label: t("footer.contactUs"), href: "/contact" },
-  ];
-}
-
-export function buildFooterWhyLinks(t: Translator): NavLink[] {
-  return [
-    {
-      label: t("nav.menus.why.links.costOfMisalignment"),
-      href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
-    },
-    {
-      label: t("nav.menus.why.links.alignmentGap"),
-      href: `/#${HOME_SECTION_IDS.alignmentGap}`,
-    },
-    {
-      label: t("nav.menus.why.links.changeImpact"),
-      href: `/#${HOME_SECTION_IDS.changeImpact}`,
-    },
-    {
-      label: t("nav.menus.why.links.existingSystems"),
-      href: `/#${HOME_SECTION_IDS.platform}`,
-    },
-    {
-      label: t("nav.menus.why.links.practitioners"),
-      href: `/#${HOME_SECTION_IDS.practitioners}`,
-    },
-    {
-      label: t("nav.menus.why.links.regulated"),
-      href: `/#${HOME_SECTION_IDS.regulated}`,
-    },
-    {
-      label: t("nav.menus.why.links.whySuricat"),
-      href: `/#${HOME_SECTION_IDS.why}`,
-    },
-  ];
-}
-
-export function buildFooterPlatformLinks(t: Translator): NavLink[] {
-  return [
-    {
-      label: t("nav.menus.platform.links.intelligenceLayer"),
-      href: platformTabHref(0),
-    },
-    { label: t("nav.menus.platform.links.readOnly"), href: platformTabHref(1) },
-    {
-      label: t("nav.menus.platform.links.noRipReplace"),
-      href: platformTabHref(2),
-    },
-    {
-      label: t("nav.menus.platform.links.humanAccountability"),
-      href: platformTabHref(3),
-    },
-    {
-      label: t("nav.menus.platform.links.deployment"),
-      href: platformTabHref(4),
-    },
-    {
-      label: t("nav.menus.platform.links.regulatoryOntology"),
-      href: platformTabHref(5),
-    },
-    {
-      label: t("nav.menus.platform.links.canonicalSchema"),
-      href: platformTabHref(6),
-    },
-    { label: t("nav.menus.platform.links.qvr"), href: platformTabHref(7) },
-    {
-      label: t("nav.menus.platform.links.boundedReasoning"),
-      href: platformTabHref(8),
-    },
-  ];
+/** Footer link columns — same menus/order/links as the header mega menu. */
+export function buildFooterColumns(t: Translator): {
+  id: string;
+  title: string;
+  links: NavLink[];
+}[] {
+  return buildMegaMenus(t).map((menu) => ({
+    id: menu.id,
+    title: menu.label,
+    links: menu.links,
+  }));
 }
 
 export function buildFooterResourceLinks(t: Translator): NavLink[] {

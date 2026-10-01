@@ -9,6 +9,7 @@ import { StickySubnav } from "@/components/layout/StickySubnav";
 import { SolutionSectionPills } from "@/components/sections/solutions/SolutionSectionPills";
 import { useIndustrySubnavLinks } from "@/lib/i18n/use-nav-links";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 import {
   FaArrowRight,
   FaChartColumn,
@@ -73,7 +74,7 @@ export function MedicalDevicesContent() {
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"
           aria-hidden="true"
         />
-        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center justify-center px-4 text-center sm:px-6">
+        <Container className="relative z-10 flex flex-col items-center justify-center text-center">
           <h1 className="mb-4 max-w-5xl text-2xl font-bold tracking-tight !leading-[32px] sm:mb-6 sm:text-3xl sm:!leading-[44px] lg:text-[36px]">
             {tm("heroTitleBefore")}{" "}
             <span className="text-teal">{tm("heroTitleAccent")}</span>
@@ -91,7 +92,7 @@ export function MedicalDevicesContent() {
               <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
 
       <SolutionSectionPills pills={pills} />
@@ -101,7 +102,7 @@ export function MedicalDevicesContent() {
         className="bg-[#f8f9fa] px-4 pb-3 pt-8 sm:px-6"
       >
         <LifecycleReveal />
-        <div className="mx-auto max-w-7xl">
+        <Container>
           <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
             {tm("lifecycleEyebrow")}
           </span>
@@ -162,11 +163,11 @@ export function MedicalDevicesContent() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section id="challenges-2" className="bg-white px-4 pb-6 pt-8 sm:px-6">
-        <div className="mx-auto max-w-7xl">
+      <section id="challenges-2" className="bg-white pb-6 pt-8">
+        <Container>
           <div className="grid gap-12 md:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
@@ -205,14 +206,14 @@ export function MedicalDevicesContent() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <section
         id="capabilities"
         className="w-full scroll-mt-24 bg-navy pb-3 pt-8"
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <Container>
           <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
@@ -243,11 +244,11 @@ export function MedicalDevicesContent() {
               </article>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section id="industry-expansion" className="bg-white px-4 py-8 sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 lg:flex-row">
+      <section id="industry-expansion" className="bg-white py-8">
+        <Container className="flex flex-col items-center justify-between gap-8 lg:flex-row">
           <div className="max-w-2xl flex-1">
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
               {tm("bannerTitleBefore")}{" "}
@@ -266,7 +267,7 @@ export function MedicalDevicesContent() {
               <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
 
       <CtaBand />

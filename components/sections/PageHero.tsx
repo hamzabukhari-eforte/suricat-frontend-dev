@@ -1,11 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 import type { MaxWidth } from "@/lib/layout/measure";
-import {
-  DEFAULT_HERO_MAX,
-  DEFAULT_TITLE_MAX,
-} from "@/lib/layout/measure";
+import { DEFAULT_TITLE_MAX } from "@/lib/layout/measure";
 
 type PageHeroProps = {
   title: string | ReactNode;
@@ -15,8 +13,6 @@ type PageHeroProps = {
   secondaryCta?: { label: string; href: string };
   className?: string;
   children?: ReactNode;
-  /** Hero copy container width. Defaults to `max-w-5xl`. */
-  measure?: MaxWidth;
   /** Subtitle measure. Defaults to `max-w-3xl`. */
   subtitleMaxWidth?: MaxWidth;
 };
@@ -29,7 +25,6 @@ export function PageHero({
   secondaryCta,
   className = "",
   children,
-  measure = DEFAULT_HERO_MAX,
   subtitleMaxWidth = DEFAULT_TITLE_MAX,
 }: PageHeroProps) {
   return (
@@ -40,9 +35,7 @@ export function PageHero({
         className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"
         aria-hidden="true"
       />
-      <div
-        className={`w-full ${measure} mx-auto px-4 sm:px-6 py-8 lg:py-0 relative z-10 flex flex-col items-center justify-center text-center`}
-      >
+      <Container className="relative z-10 flex flex-col items-center justify-center py-8 text-center lg:py-0">
         {eyebrow ? (
           <p className="animate-fade-up text-sm uppercase tracking-widest text-teal font-semibold mb-4">
             {eyebrow}
@@ -82,7 +75,7 @@ export function PageHero({
           </div>
         )}
         {children}
-      </div>
+      </Container>
     </section>
   );
 }

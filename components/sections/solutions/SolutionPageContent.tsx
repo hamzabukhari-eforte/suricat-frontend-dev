@@ -12,11 +12,11 @@ import type { MaxWidth } from "@/lib/layout/measure";
 import {
   DEFAULT_DESCRIPTION_MAX,
   DEFAULT_HERO_SUBTITLE_MAX,
-  DEFAULT_SECTION_MAX,
   DEFAULT_TITLE_MAX,
 } from "@/lib/layout/measure";
 import { useSolutionNavLinks } from "@/lib/i18n/use-nav-links";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { useMemo } from "react";
 import type { IconType } from "react-icons";
@@ -186,9 +186,9 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
 
       <section
         id="challenge"
-        className="bg-[#f8f9fa] px-4 pb-6 pt-8 sm:px-6"
+        className="bg-[#f8f9fa] pb-6 pt-8"
       >
-        <div className={`mx-auto ${DEFAULT_SECTION_MAX}`}>
+        <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
@@ -219,18 +219,18 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
               ))}
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <section
         id="how-suricat-helps"
-        className="relative overflow-hidden bg-navy px-4 pb-3 pt-8 text-white sm:px-6"
+        className="relative overflow-hidden bg-navy pb-3 pt-8 text-white"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px]"
           aria-hidden="true"
         />
-        <div className={`relative z-10 mx-auto ${DEFAULT_SECTION_MAX}`}>
+        <Container className="relative z-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
@@ -261,11 +261,11 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
               ))}
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section id="outcomes" className="bg-white px-4 py-8 sm:px-6">
-        <div className={`mx-auto ${DEFAULT_SECTION_MAX}`}>
+      <section id="outcomes" className="bg-white py-8">
+        <Container>
           <div className="mb-6 lg:pt-0">
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
               {tShared("outcomes")}
@@ -313,7 +313,7 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <CtaBand />

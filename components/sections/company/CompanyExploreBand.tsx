@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaArrowRight } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
 
 type CompanyExploreBandProps = {
   titleLead: string;
@@ -13,12 +14,12 @@ export function CompanyExploreBand({
   titleLead,
   titleAccent,
   description,
-  ctaHref = "/#platform",
+  ctaHref = "/#existing-systems",
   ctaLabel = "Explore The Platform",
 }: CompanyExploreBandProps) {
   return (
-    <section className="bg-gray-50 px-4 py-8 sm:px-6">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 lg:flex-row">
+    <section className="bg-gray-50 py-8">
+      <Container className="flex flex-col items-center justify-between gap-8 lg:flex-row">
         <div className="max-w-2xl flex-1">
           <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy lg:text-[28px] lg:leading-[36px]">
             {titleLead} <span className="text-teal">{titleAccent}</span>
@@ -39,7 +40,7 @@ export function CompanyExploreBand({
             />
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

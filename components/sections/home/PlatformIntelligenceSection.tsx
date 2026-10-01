@@ -11,6 +11,7 @@ import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Container } from "@/components/ui/Container";
 
 export function PlatformIntelligenceSection() {
   const t = useTranslations("home.platform");
@@ -115,14 +116,11 @@ export function PlatformIntelligenceSection() {
   return (
     <section
       id="platform"
-      className="bg-white pt-8 px-6"
+      className="bg-white pt-8"
       style={{ backgroundColor: "#ffffff" }}
     >
-      <div
-        id="immaak"
-        className="relative mx-auto w-full max-w-7xl text-left"
-        style={{ backgroundColor: "#ffffff" }}
-      >
+      <Container className="relative w-full text-left">
+        <div id="immaak" style={{ backgroundColor: "#ffffff" }}>
         <div className="relative z-10">
           <span
             className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal"
@@ -141,7 +139,7 @@ export function PlatformIntelligenceSection() {
             {t("intro")}
           </p>
 
-          <div className="max-w-7xl mx-auto text-left">
+          <div className="text-left">
             <HomeSectionTabNav
               tabs={PLATFORM_TABS}
               active={active}
@@ -510,7 +508,8 @@ export function PlatformIntelligenceSection() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

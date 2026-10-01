@@ -8,6 +8,7 @@ import { submitLogin } from "@/lib/forms/login";
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 const inputClass =
   "input-transition block w-full pl-10 pr-4 py-2.5 bg-surface-muted/50 border border-gray-200 rounded-[4px] text-[#374151] placeholder-[#6b7280]/60 focus:bg-white focus:outline-none focus:border-navy";
@@ -248,7 +249,7 @@ export function LoginSlimHeader() {
   const tCommon = useTranslations("common");
   return (
     <nav className="border-b border-gray-200 sticky top-0 bg-white z-50 relative">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-24 flex items-center">
+      <Container className="h-16 lg:h-24 flex items-center">
         <Link href="/">
           <Image
             src="/assets/images/suricat-logo-nav.png"
@@ -260,7 +261,7 @@ export function LoginSlimHeader() {
             priority
           />
         </Link>
-      </div>
+      </Container>
     </nav>
   );
 }

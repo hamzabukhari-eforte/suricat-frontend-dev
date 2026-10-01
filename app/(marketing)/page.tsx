@@ -1,11 +1,9 @@
 import { CtaBand } from "@/components/sections/CtaBand";
 import {
   AlignmentGapSection,
-  ChangeImpactSection,
   ComplianceCostSection,
   ExistingSystemsSection,
   HeroSection,
-  PractitionersSection,
   RegulatedEnvironmentsSection,
   WhySuricatSection,
 } from "@/components/sections/home";
@@ -21,9 +19,7 @@ export default function HomePage() {
       <HeroSection />
       <ComplianceCostSection />
       <AlignmentGapSection />
-      <ChangeImpactSection />
       <ExistingSystemsSection />
-      <PractitionersSection />
       <RegulatedEnvironmentsSection />
       <WhySuricatSection />
       <CtaBand />

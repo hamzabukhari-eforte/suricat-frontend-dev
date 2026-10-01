@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" fill="none" role="img" aria-labelledby="heroCipTitle heroCipDesc">
+  <title id="heroCipTitle">Suricat Compliance Intelligence Platform</title>
+  <desc id="heroCipDesc">Your information and regulatory requirements flow into Suricat; findings that need your attention come out.</desc>
+
+  <defs>
+    <style>
+      .cip-font { font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif; }
+      .cip-label { fill: #19D3C5; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+      .cip-head { fill: #19D3C5; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+      .cip-title { fill: #FFFFFF; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
+      .cip-sub { fill: #FFFFFF; font-weight: 400; opacity: 0.92; }
+      .cip-engine-name { fill: #FFFFFF; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+      .cip-engine-sub { fill: #19D3C5; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .cip-trust-title { fill: #FFFFFF; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+      .cip-trust-body { fill: #FFFFFF; font-weight: 400; opacity: 0.85; }
+    </style>
+    <marker id="cipArrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#19D3C5"/>
+    </marker>
+    <marker id="cipArrowViolet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5C3D8F"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="640" fill="#0D1B3E"/>
+
+  <!-- ========== CONNECTORS ========== -->
+  <g id="cip-lines" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M390 135 H455" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M390 225 H455" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M390 315 H455" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M390 405 H455" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M455 135 V405" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M455 320 H530" stroke="#19D3C5" stroke-width="2" marker-end="url(#cipArrowTeal)"/>
+    <path d="M700 148 V198" stroke="#5C3D8F" stroke-width="2" marker-end="url(#cipArrowViolet)"/>
+    <path d="M870 320 H945" stroke="#19D3C5" stroke-width="2" marker-end="url(#cipArrowTeal)"/>
+    <path d="M945 135 V405" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M945 135 H1010" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M945 225 H1010" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M945 315 H1010" stroke="#19D3C5" stroke-width="2"/>
+    <path d="M945 405 H1010" stroke="#19D3C5" stroke-width="2"/>
+  </g>
+
+  <!-- ========== INPUT COLUMN ========== -->
+  <g id="cip-inputs" class="cip-font">
+    <text class="cip-label" x="40" y="48" font-size="22">INPUT</text>
+    <text class="cip-head" x="40" y="72" font-size="13">WHAT YOU ALREADY HAVE</text>
+
+    <!-- Policies -->
+    <g id="cip-card-policies">
+      <rect x="40" y="100" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="78" cy="135" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(68 123)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 2 h10 l4 4 v14 H4 Z"/>
+        <path d="M14 2 v4 h4"/>
+        <path d="M8 12 h8M8 16 h6"/>
+      </g>
+      <text class="cip-title" x="112" y="130" font-size="13">POLICIES &amp; PROCEDURES</text>
+      <text class="cip-sub" x="112" y="150" font-size="12">Quality manuals, SOPs, work instructions</text>
+    </g>
+
+    <!-- Technical -->
+    <g id="cip-card-technical">
+      <rect x="40" y="190" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="78" cy="225" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(68 213)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 2 h10 l4 4 v14 H3 Z"/>
+        <path d="M13 2 v4 h4"/>
+        <circle cx="11" cy="15" r="3.2"/>
+        <path d="M11 10.5 v1.5M11 18 v1.5M6.5 15 h1.5M14 15 h1.5"/>
+      </g>
+      <text class="cip-title" x="112" y="220" font-size="13">TECHNICAL DOCUMENTS</text>
+      <text class="cip-sub" x="112" y="240" font-size="12">Plans, protocols, specifications, risk files</text>
+    </g>
+
+    <!-- Records -->
+    <g id="cip-card-records">
+      <rect x="40" y="280" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="78" cy="315" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(68 303)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="10" cy="5" rx="8" ry="3"/>
+        <path d="M2 5 v8 c0 1.7 3.6 3 8 3 s8-1.3 8-3 V5"/>
+        <path d="M2 9 c0 1.7 3.6 3 8 3 s8-1.3 8-3"/>
+      </g>
+      <text class="cip-title" x="112" y="310" font-size="13">RECORDS &amp; LOGS</text>
+      <text class="cip-sub" x="112" y="330" font-size="12">Executed records, CAPAs, complaints, registers</text>
+    </g>
+
+    <!-- Submissions -->
+    <g id="cip-card-submissions">
+      <rect x="40" y="370" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="78" cy="405" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(66 392)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 2 h9 l4 4 v14 H3 Z"/>
+        <path d="M12 2 v4 h4"/>
+        <circle cx="14" cy="16" r="4"/>
+        <path d="M17 19 l3 3"/>
+      </g>
+      <text class="cip-title" x="112" y="400" font-size="13">SUBMISSIONS &amp; LABELING</text>
+      <text class="cip-sub" x="112" y="420" font-size="12">Regulatory dossiers, IFUs, user-facing content</text>
+    </g>
+  </g>
+
+  <!-- ========== REGULATORY ========== -->
+  <g id="cip-regulatory" class="cip-font">
+    <rect x="500" y="70" width="400" height="70" rx="10" stroke="#5C3D8F" stroke-width="1.75" fill="#0D1B3E"/>
+    <circle cx="540" cy="105" r="20" stroke="#5C3D8F" stroke-width="1.5" fill="rgba(92,61,143,0.18)"/>
+    <g transform="translate(528 93)" stroke="#FFFFFF" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 22 V10 L12 4 L22 10 V22"/>
+      <path d="M6 22 V14 h4 v8M12 22 V12 h4 v10M18 22 V14 h4 v8"/>
+      <path d="M2 22 h20"/>
+    </g>
+    <text class="cip-title" x="575" y="100" font-size="13">REGULATORY REQUIREMENTS</text>
+    <text class="cip-sub" x="575" y="120" font-size="12">Laws, regulations, standards, and guidance</text>
+  </g>
+
+  <!-- ========== ENGINE ========== -->
+  <g id="cip-engine" class="cip-font">
+    <rect x="530" y="205" width="340" height="230" rx="10" stroke="#19D3C5" stroke-width="2" fill="#0D1B3E"/>
+    <!-- Suricat mark  centered, matches reference (antenna + arcs + cyan accents) -->
+    <g transform="translate(700 268)">
+      <g transform="translate(-36 -36) scale(1.05)">
+        <!-- Stem -->
+        <path fill="#FFFFFF" d="M35.45,23.47c6.95-.64,9.51,9.03,3.17,12.04-.24.11-.81.19-.85.46v31.45c-.47,2.04-3.23,1.96-3.61-.08v-31.44l-.08-.09c-4.18-1.31-5.72-6.44-3.04-9.93,1.03-1.33,2.73-2.25,4.41-2.4h0Z"/>
+        <!-- Outer arcs -->
+        <path fill="#FFFFFF" d="M65.03,29.61l-3.45.82c-.76-4.27-2.68-8.35-5.42-11.7-3.02-3.69-7.06-6.43-11.65-7.76l.98-3.53c2.94.67,5.69,2.08,8.12,3.83,5.15,3.71,8.93,9.13,10.72,15.22.24.81.56,1.87.68,2.69.02.14.03.29.02.43Z"/>
+        <path fill="#FFFFFF" d="M27.42,10.96c-8.77,2.64-15.15,10.55-16.99,19.38l-3.41-.82c1.98-10.09,9.44-19.29,19.5-22.09,0,0,.9,3.53.9,3.53Z"/>
+        <path fill="#FFFFFF" d="M44.43,62.78c2.33-.79,4.56-1.83,6.59-3.22,3.92-2.7,6.9-6.58,8.92-10.87l.19-.03,3.14,1.3c.04.06-.44,1.12-.52,1.29-3.32,6.99-9.85,12.78-17.29,14.96-.09-.03-.11-.11-.14-.19-.13-.33-.25-.83-.36-1.2-.08-.27-.59-1.96-.53-2.05h0Z"/>
+        <path fill="#FFFFFF" d="M12.15,48.66c2.76,6.69,8.45,11.88,15.36,14.04l-.98,3.49-2.32-.8c-6.95-2.84-12.59-8.46-15.5-15.37l3.45-1.35h0Z"/>
+        <!-- Inner arcs -->
+        <path fill="#FFFFFF" d="M23.61,25.75c.7.82,1.71,1.56,2.38,2.38.07.09.22.25.19.36,0,.05-.5.58-.6.72-3.04,4.26-2.88,9.3.05,13.57.11.17.58.68.55.82l-2.08,2.35-.32.24c-1.93-2.15-3.23-4.84-3.72-7.7-.76-4.47.53-9.36,3.55-12.74Z"/>
+        <path fill="#FFFFFF" d="M48.36,25.75c0,.08.03.15.08.21,3.35,4.08,4.51,9.02,3.02,14.18-.64,2.23-1.79,4.3-3.3,6.06l-2.41-2.6c.38-.62.85-1.17,1.21-1.81,2.27-3.99,2.11-8.67-.49-12.45-.15-.21-.64-.72-.64-.92,0-.16.48-.54.62-.69.09-.1.15-.23.24-.33.53-.57,1.11-1.11,1.68-1.64h0Z"/>
+        <!-- Cyan accents: top solid + side rings -->
+        <path fill="#19D3C5" d="M35.78,3.11c1.81-.14,3.73,1.12,4.39,2.8,1.43,3.62-1.74,7.6-5.6,6.34-4.58-1.5-4.05-8.72,1.21-9.13h0Z"/>
+        <path fill="#FFFFFF" d="M63.12,35.78c3.57-.48,5.98,3.45,4.11,6.49-1.97,3.21-6.8,2.36-7.58-1.34-.5-2.34,1.04-4.83,3.47-5.16h0ZM63.04,36.6c-1.03.17-2.13,1.14-2.48,2.12-1.21,3.36,2.64,6.26,5.34,3.94s.66-6.64-2.85-6.06h0Z"/>
+        <path fill="#19D3C5" d="M7.79,35.79c3.44-.42,5.84,3.31,4.19,6.33-1.1,2.01-3.71,2.82-5.73,1.65-3.5-2.03-2.46-7.5,1.53-7.98h.01ZM7.7,36.61c-2.04.28-3.22,2.53-2.67,4.43.91,3.14,5.29,3.32,6.45.25.96-2.55-1.08-5.05-3.78-4.68Z"/>
+      </g>
+    </g>
+    <text class="cip-engine-name" x="700" y="355" text-anchor="middle" font-size="30">SURICAT</text>
+    <text class="cip-engine-sub" x="700" y="382" text-anchor="middle" font-size="11">COMPLIANCE INTELLIGENCE PLATFORM</text>
+  </g>
+
+  <!-- ========== OUTPUT COLUMN ========== -->
+  <g id="cip-outputs" class="cip-font">
+    <text class="cip-label" x="1010" y="48" font-size="22">OUTPUT</text>
+    <text class="cip-head" x="1010" y="72" font-size="13">WHAT NEEDS YOUR ATTENTION</text>
+
+    <!-- Compliance Gaps (orange) -->
+    <g id="cip-card-gaps">
+      <rect x="1010" y="100" width="350" height="70" rx="10" stroke="#FF6B35" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="1048" cy="135" r="20" stroke="#FF6B35" stroke-width="1.5" fill="rgba(255,107,53,0.12)"/>
+      <g transform="translate(1038 123)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3 L19 19 H1 Z" stroke="#FF6B35" stroke-width="1.7"/>
+        <path d="M10 9 v5" stroke="#FFFFFF" stroke-width="1.7"/>
+        <circle cx="10" cy="16.5" r="0.9" fill="#FFFFFF" stroke="none"/>
+      </g>
+      <text class="cip-title" x="1082" y="130" font-size="13">COMPLIANCE GAPS</text>
+      <text class="cip-sub" x="1082" y="150" font-size="12">Documents vs. Regulatory Requirements</text>
+    </g>
+
+    <!-- Document Quality -->
+    <g id="cip-card-doc">
+      <rect x="1010" y="190" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="1048" cy="225" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(1038 213)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 2 h9 l4 4 v14 H4 Z"/>
+        <path d="M13 2 v4 h4"/>
+        <path d="M7 12 l2 2 4-4"/>
+        <path d="M7 18 l2 2 4-4"/>
+      </g>
+      <text class="cip-title" x="1082" y="220" font-size="13">DOCUMENT QUALITY ISSUES</text>
+      <text class="cip-sub" x="1082" y="240" font-size="12">Documents vs. Readiness Criteria</text>
+    </g>
+
+    <!-- Record Quality -->
+    <g id="cip-card-rec">
+      <rect x="1010" y="280" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="1048" cy="315" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(1038 303)" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="3" width="12" height="16" rx="1.5"/>
+        <path d="M7 1.5 h6 v3 H7 Z"/>
+        <path d="M7 10 h6M7 14 h4"/>
+      </g>
+      <text class="cip-title" x="1082" y="310" font-size="13">RECORD QUALITY ISSUES</text>
+      <text class="cip-sub" x="1082" y="330" font-size="12">Records vs. Governing Procedures</text>
+    </g>
+
+    <!-- Cross-Document -->
+    <g id="cip-card-cross">
+      <rect x="1010" y="370" width="350" height="70" rx="10" stroke="#19D3C5" stroke-width="1.75" fill="#0D1B3E"/>
+      <circle cx="1048" cy="405" r="20" stroke="#19D3C5" stroke-width="1.5" fill="rgba(25,211,197,0.08)"/>
+      <g transform="translate(1038 393)" stroke="#FFFFFF" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 7 a4 4 0 0 0-4 4 4 4 0 4 4 4 4 0 0 0 4 4"/>
+        <path d="M12 15 a4 4 0 0 0 4-4 4 4 0 0 0-4-4 4 4 0 0 0-4 4"/>
+        <path d="M8.5 12.5 l3-3"/>
+      </g>
+      <text class="cip-title" x="1082" y="400" font-size="13">CROSS-DOCUMENT ISSUES</text>
+      <text class="cip-sub" x="1082" y="420" font-size="12">Documents vs. Each Other</text>
+    </g>
+  </g>
+
+  <!-- ========== TRUST FOOTER ========== -->
+  <g id="cip-trust" class="cip-font">
+    <line x1="40" y1="520" x2="1360" y2="520" stroke="#19D3C5" stroke-width="1" opacity="0.55"/>
+
+    <!-- Traceability -->
+    <g id="cip-trust-traceability">
+      <g transform="translate(70 555)" stroke="#19D3C5" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 2 h10 l4 4 v14 H4 Z"/>
+        <path d="M14 2 v4 h4"/>
+        <circle cx="18" cy="18" r="5"/>
+        <path d="M21.5 21.5 L25 25"/>
+      </g>
+      <text class="cip-trust-title" x="110" y="572" font-size="13">TRACEABILITY</text>
+      <text class="cip-trust-body" x="110" y="592" font-size="12">Every finding traced to source</text>
+    </g>
+    <line x1="390" y1="545" x2="390" y2="610" stroke="#19D3C5" stroke-width="1" opacity="0.45"/>
+
+    <!-- Explainability -->
+    <g id="cip-trust-explainability">
+      <g transform="translate(420 555)" stroke="#19D3C5" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 2 a7 7 0 0 1 4 13 v3 H6 v-3 A7 7 0 0 1 10 2 Z"/>
+        <path d="M7 20 h6M8 23 h4"/>
+      </g>
+      <text class="cip-trust-title" x="460" y="572" font-size="13">EXPLAINABILITY</text>
+      <text class="cip-trust-body" x="460" y="592" font-size="12">Clear reasoning and context</text>
+    </g>
+    <line x1="730" y1="545" x2="730" y2="610" stroke="#19D3C5" stroke-width="1" opacity="0.45"/>
+
+    <!-- Human Review -->
+    <g id="cip-trust-human">
+      <g transform="translate(760 555)" stroke="#19D3C5" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="8" cy="7" r="3.5"/>
+        <path d="M1.5 18 c0-4 3-6.5 6.5-6.5 s6.5 2.5 6.5 6.5"/>
+        <circle cx="18" cy="8" r="3"/>
+        <path d="M14 18 c.4-3 2.4-5 4.8-5 2.6 0 4.7 2 5.2 5"/>
+      </g>
+      <text class="cip-trust-title" x="800" y="572" font-size="13">HUMAN REVIEW</text>
+      <text class="cip-trust-body" x="800" y="592" font-size="12">Your team validates every finding</text>
+    </g>
+    <line x1="1070" y1="545" x2="1070" y2="610" stroke="#19D3C5" stroke-width="1" opacity="0.45"/>
+
+    <!-- Read-Only -->
+    <g id="cip-trust-readonly">
+      <g transform="translate(1100 555)" stroke="#19D3C5" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="11" width="14" height="11" rx="2"/>
+        <path d="M8 11 V8 a4 4 0 0 1 8 0 v3"/>
+      </g>
+      <text class="cip-trust-title" x="1140" y="572" font-size="13">READ-ONLY</text>
+      <text class="cip-trust-body" x="1140" y="592" font-size="12">No changes to your systems</text>
+    </g>
+  </g>
+</svg>

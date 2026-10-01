@@ -2,6 +2,7 @@
 
 import { FaCheck, resolveFaIcon } from "@/components/ui/icons";
 import { PricingBottomCta } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { Container } from "@/components/ui/Container";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 const HIGHLIGHT_KEYS = [
@@ -17,8 +18,8 @@ export function InteractiveSandboxContent() {
 
   return (
     <>
-      <section className="pt-8 px-4 sm:px-6 bg-surface-muted">
-        <div className="max-w-5xl mx-auto">
+      <section className="pt-8 bg-surface-muted">
+        <Container>
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {t("exploreEyebrow")}
           </span>
@@ -38,11 +39,11 @@ export function InteractiveSandboxContent() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="pt-8 pb-6 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="pt-8 pb-6 bg-white">
+        <Container>
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {t("noRequirementEyebrow")}
           </span>
@@ -81,17 +82,17 @@ export function InteractiveSandboxContent() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="pb-8 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="pb-8 bg-white">
+        <Container>
           <PricingBottomCta
             href="/get-started"
             label={t("bottomCtaLabel")}
             note={t("bottomCtaNote")}
           />
-        </div>
+        </Container>
       </section>
     </>
   );

@@ -4,6 +4,7 @@ import { FaBolt, FaBuilding, FaCheck, FaEye, FaLayerGroup, FaPaperPlane, FaPuzzl
 import { PricingStaggerReveal } from "@/components/sections/pricing/PricingStaggerReveal";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import type { IconType } from "react-icons";
+import { Container } from "@/components/ui/Container";
 
 type Cell = "check" | "dash" | "limited" | "optional";
 
@@ -128,9 +129,9 @@ export function PricingComparisonSection() {
 
   return (
     <>
-      <section id="pricing-comparison-section" className="pricing-plans-scope pt-8 pb-3 px-4 sm:px-6 bg-white">
+      <section id="pricing-comparison-section" className="pricing-plans-scope pt-8 pb-3 bg-white">
             <PricingStaggerReveal />
-            <div className="max-w-7xl mx-auto">
+            <Container>
               <div
                 id="pricing-compare-sticky-bar"
                 className="pricing-compare-sticky-bar"
@@ -267,7 +268,7 @@ export function PricingComparisonSection() {
                   >
                 </div>
               </div>
-            </div>
+            </Container>
           </section>
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Container } from "@/components/ui/Container";
 
 export type SectionPill = { id: string; label: string };
 
@@ -132,7 +133,7 @@ export function SolutionSectionPills({
       id="solution-nav"
       className="sticky top-16 z-40 border-b border-gray-100 bg-white shadow-sm lg:top-24"
     >
-      <div className="mx-auto max-w-7xl overflow-x-auto scroll-smooth">
+      <Container className="overflow-x-auto scroll-smooth">
         <div className="flex w-max min-w-full justify-center gap-1 py-3 lg:justify-start">
           {pills.map((pill) => (
             <a
@@ -151,7 +152,7 @@ export function SolutionSectionPills({
             </a>
           ))}
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

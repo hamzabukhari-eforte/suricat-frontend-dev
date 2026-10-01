@@ -6,6 +6,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { LoginSlimHeader } from "@/components/sections/forms/LoginForm";
 import { DesignPartnerForm } from "@/components/sections/design-partners/DesignPartnerForm";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 import {
   FaArrowRight,
   FaRegCalendarCheck,
@@ -73,7 +74,7 @@ export function DesignPartnerApplyContent() {
           className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)] pointer-events-none"
           aria-hidden="true"
         />
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10 lg:py-0 relative z-10 flex flex-col items-center justify-center text-center">
+        <Container className="relative z-10 flex flex-col items-center justify-center py-10 text-center lg:py-0">
           <p className="text-teal font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 animate-fade-up-2">
             {ta("eyebrow")}
           </p>
@@ -112,11 +113,11 @@ export function DesignPartnerApplyContent() {
               {ta("chipNoObligation")}
             </span>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <div className="application-main px-4 py-12 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="application-main py-12">
+        <Container>
           <DesignPartnerForm onSubmitted={() => setSubmitted(true)} />
 
           <div className="mt-16 flex flex-col items-start gap-8 border-t border-gray-200 pt-12 md:flex-row md:flex-wrap md:justify-center md:gap-12">
@@ -182,7 +183,7 @@ export function DesignPartnerApplyContent() {
             <br />
             {ta("footerLine2")}
           </p>
-        </div>
+        </Container>
       </div>
 
       <CtaBand />

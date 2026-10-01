@@ -13,6 +13,7 @@ import { MobileAutoplayCardSlider } from "@/components/ui/MobileAutoplayCardSlid
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 import type { IconType } from "react-icons";
+import { Container } from "@/components/ui/Container";
 
 const CARDS: {
   id: "c1" | "c2" | "c3" | "c4" | "c5" | "c6";
@@ -56,7 +57,7 @@ export function SolutionsSection() {
 
   return (
     <section id="solutions" className="pt-8 bg-surface-muted">
-      <div className="max-w-7xl mx-auto">
+      <Container>
         <div className="mb-6 lg:pt-0">
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {t("sectionTitle")}
@@ -123,7 +124,7 @@ export function SolutionsSection() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

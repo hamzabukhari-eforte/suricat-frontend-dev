@@ -5,6 +5,7 @@ import {
   PricingCallout,
   PricingInfoGrid,
 } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { Container } from "@/components/ui/Container";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 export function LicenseContent() {
@@ -35,8 +36,8 @@ export function LicenseContent() {
           },
         ]}
       />
-      <section className="py-8 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-8 bg-white">
+        <Container>
           <PricingCallout
             eyebrow={t("calloutEyebrow")}
             body={t("calloutBody")}
@@ -48,7 +49,7 @@ export function LicenseContent() {
             note={t("bottomCtaNote")}
             noteClassName="text-sm"
           />
-        </div>
+        </Container>
       </section>
     </>
   );
