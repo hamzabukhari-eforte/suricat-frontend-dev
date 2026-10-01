@@ -14,14 +14,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import {
-  buildFooterCompanyLinks,
-  buildFooterPlatformLinks,
-  buildFooterResourceLinks,
+  buildFooterColumns,
   buildFooterTopLinks,
-  buildFooterWhyLinks,
   isNavHrefActive,
 } from "@/lib/navigation";
 import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
+import { Container } from "@/components/ui/Container";
 
 type FooterLink = { label: string; href: string };
 
@@ -50,7 +48,7 @@ function FooterLinkList({ links }: { links: FooterLink[] }) {
   }, [pathname]);
 
   return (
-    <ul className="space-y-4 pb-1.5 text-sm text-gray-400">
+    <ul className="space-y-4 pb-1.5 text-sm text-white/90">
       {links.map((link) => {
         const active = isNavHrefActive(link.href, pathname, hash);
         return (
@@ -85,7 +83,7 @@ function FooterColumn({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-white/10 lg:border-0">
+    <div className="border-b border-white/20 lg:border-0">
       <button
         type="button"
         className="flex w-full items-center justify-between py-3 text-left lg:pointer-events-none lg:cursor-default lg:mb-6 lg:py-0"
@@ -93,9 +91,9 @@ function FooterColumn({
         aria-controls={`footer-panel-${id}`}
         onClick={onToggle}
       >
-        <h3 className="text-sm font-bold uppercase tracking-widest">{title}</h3>
+        <h3 className="text-sm font-bold uppercase tracking-widest text-white">{title}</h3>
         <FaChevronDown
-          className={`text-xs text-white/70 transition-transform duration-300 lg:hidden ${
+          className={`text-xs text-white/80 transition-transform duration-300 lg:hidden ${
             open ? "rotate-180" : ""
           }`}
           aria-hidden="true"
@@ -121,31 +119,7 @@ export function SiteFooter() {
   const [isDesktop, setIsDesktop] = useState(false);
 
   const footerTopLinks = useMemo(() => buildFooterTopLinks(t), [t]);
-  const footerColumns = useMemo(
-    () => [
-      {
-        id: "company",
-        title: t("footer.columns.company"),
-        links: buildFooterCompanyLinks(t),
-      },
-      {
-        id: "why",
-        title: t("footer.columns.why"),
-        links: buildFooterWhyLinks(t),
-      },
-      {
-        id: "platform",
-        title: t("footer.columns.platform"),
-        links: buildFooterPlatformLinks(t),
-      },
-      {
-        id: "resources",
-        title: t("footer.columns.resources"),
-        links: buildFooterResourceLinks(t),
-      },
-    ],
-    [t],
-  );
+  const footerColumns = useMemo(() => buildFooterColumns(t), [t]);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -161,10 +135,10 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="footer-bg bg-navy px-6 pb-6 pt-6 text-white lg:pt-8" id="footer">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-4 border-b border-white/10 pb-6 lg:mb-10 lg:justify-between lg:gap-8 lg:pb-10">
-          <div className="flex gap-6 text-xl">
+    <footer className="footer-bg px-6 pb-6 pt-6 text-white lg:pt-8" id="footer">
+      <Container>
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-4 border-b border-white/20 pb-6 lg:mb-10 lg:justify-between lg:gap-8 lg:pb-10">
+          <div className="flex gap-6 text-xl text-white">
             <a
               href="#"
               className="transition-colors hover:text-teal"
@@ -194,7 +168,7 @@ export function SiteFooter() {
               <FaYoutube aria-hidden="true" />
             </a>
           </div>
-          <div className="hidden flex-wrap gap-12 text-sm font-bold uppercase tracking-wider lg:flex">
+          <div className="hidden flex-wrap gap-12 text-sm font-bold uppercase tracking-wider text-white lg:flex">
             {footerTopLinks.map((link) => (
               <Link
                 key={link.href + link.label}
@@ -211,7 +185,7 @@ export function SiteFooter() {
           <div className="mb-4 md:col-span-2 lg:col-span-1 lg:mb-0">
             <Link
               href="/contact"
-              className="mb-4 inline-flex w-full items-center justify-center rounded-full border-2 border-teal px-8 py-2.5 font-bold text-teal transition-all hover:bg-teal hover:text-navy lg:mb-10 lg:py-3"
+              className="mb-4 inline-flex w-full items-center justify-center rounded-full border-2 border-white px-8 py-2.5 font-bold text-white transition-all hover:bg-white hover:text-[#5C3D8F] lg:mb-10 lg:py-3"
             >
               {t("footer.contactUs")}
             </Link>
@@ -221,7 +195,7 @@ export function SiteFooter() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-teal"
                   aria-hidden="true"
                 />
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-white/90">
                   {t("footer.addressPaloAlto")}
                 </p>
               </div>
@@ -230,7 +204,7 @@ export function SiteFooter() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-teal"
                   aria-hidden="true"
                 />
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-white/90">
                   {t("footer.addressTallinn")}
                 </p>
               </div>
@@ -241,7 +215,7 @@ export function SiteFooter() {
                 />
                 <a
                   href="mailto:info@suricat.ai"
-                  className="text-sm text-gray-400 transition-colors hover:text-white"
+                  className="text-sm text-white/90 transition-colors hover:text-white"
                 >
                   info@suricat.ai
                 </a>
@@ -261,39 +235,39 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-3 border-t border-white/10 pt-4 text-center text-[10px] uppercase tracking-widest text-gray-500 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:text-left">
+        <div className="flex flex-col items-center gap-3 border-t border-white/20 pt-4 text-center text-[10px] uppercase tracking-widest text-white/85 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:text-left">
           <p>{t("footer.copyright", { year: 2026 })}</p>
           <nav
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 pb-1"
             aria-label={t("footer.legal")}
           >
-            <a href="#" className="nav-link-animated inline-block hover:text-white">
+            <a href="#" className="nav-link-animated inline-block text-white/85 hover:text-white">
               {t("footer.terms")}
             </a>
-            <span aria-hidden="true" className="text-gray-500/80">
+            <span aria-hidden="true" className="text-white/50">
               |
             </span>
-            <a href="#" className="nav-link-animated inline-block hover:text-white">
+            <a href="#" className="nav-link-animated inline-block text-white/85 hover:text-white">
               {t("footer.privacy")}
             </a>
-            <span aria-hidden="true" className="text-gray-500/80">
+            <span aria-hidden="true" className="text-white/50">
               |
             </span>
-            <a href="#" className="nav-link-animated inline-block hover:text-white">
+            <a href="#" className="nav-link-animated inline-block text-white/85 hover:text-white">
               {t("footer.cookieSettings")}
             </a>
-            <span aria-hidden="true" className="text-gray-500/80">
+            <span aria-hidden="true" className="text-white/50">
               |
             </span>
             <a
               href="/sitemap"
-              className="nav-link-animated inline-block hover:text-white"
+              className="nav-link-animated inline-block text-white/85 hover:text-white"
             >
               {t("footer.sitemap")}
             </a>
           </nav>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

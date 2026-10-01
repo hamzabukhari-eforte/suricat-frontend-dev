@@ -1,7 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { FaArrowRight, FaHandshake } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 type CtaBandProps = {
   title?: string;
@@ -11,42 +13,52 @@ type CtaBandProps = {
   secondaryLabel?: string;
 };
 
-const ctaBtnBase =
-  "hero-cta-hover inline-flex h-[42px] w-full items-center justify-center whitespace-nowrap rounded-full border-2 px-4 text-sm font-bold leading-none transition-all sm:px-6 md:px-8 md:text-base";
-
 export function CtaBand({
   title,
   primaryHref = "/design-partners/apply",
   primaryLabel,
-  secondaryHref = "/readiness",
+  secondaryHref = "/get-started",
   secondaryLabel,
 }: CtaBandProps) {
   const t = useTranslations("cta");
   const resolvedTitle = title ?? t("readyTitle");
+  const body = t("body");
   const resolvedPrimary = primaryLabel ?? t("becomeDesignPartner");
-  const resolvedSecondary = secondaryLabel ?? t("scheduleDiscussion");
+  const resolvedSecondary = secondaryLabel ?? t("requestFreePilot");
 
   return (
-    <section id="cta-section" className="px-4 py-4 text-center text-white sm:px-6 md:py-5 lg:py-6">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 xl:flex-row xl:flex-nowrap xl:gap-8">
-        <h2 className="shrink-0 text-xl font-semibold sm:text-2xl md:text-3xl xl:whitespace-nowrap">
-          {resolvedTitle}
-        </h2>
-        <div className="grid w-full max-w-sm grid-cols-1 gap-3 sm:max-w-md md:w-auto md:max-w-none md:grid-cols-2 md:gap-4">
-          <Link
-            href={primaryHref}
-            className={`${ctaBtnBase} border-white bg-transparent text-white hover:bg-white hover:text-navy md:min-w-[15rem]`}
-          >
-            {resolvedPrimary}
-          </Link>
-          <Link
-            href={secondaryHref}
-            className={`${ctaBtnBase} border-transparent bg-navy text-white hover:bg-white hover:text-navy md:min-w-[15rem]`}
-          >
-            {resolvedSecondary}
-          </Link>
+    <section id="cta-section" className="cta-band">
+      <Container>
+        <div className="cta-band-inner">
+          <h2 className="cta-band-title">{resolvedTitle}</h2>
+          <p className="cta-band-body">{body}</p>
+
+          <div className="cta-band-actions">
+            <Button
+              variant="outline-white"
+              href={primaryHref}
+              className="cta-band-btn group gap-2 whitespace-nowrap"
+            >
+              <FaHandshake
+                className="text-base shrink-0"
+                aria-hidden="true"
+              />
+              {resolvedPrimary}
+            </Button>
+            <Button
+              variant="navy"
+              href={secondaryHref}
+              className="cta-band-btn group gap-2 whitespace-nowrap"
+            >
+              {resolvedSecondary}
+              <FaArrowRight
+                className="cta-band-btn-arrow"
+                aria-hidden="true"
+              />
+            </Button>
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

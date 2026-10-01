@@ -17,7 +17,7 @@
     "checkYourReadiness": "Check Your Readiness",
     "scheduleDiscussion": "Schedule a Discussion",
     "exploreThePlatform": "Explore The Platform",
-    "becomeDesignPartner": "Become a Design Partner"
+    "becomeDesignPartner": "Join as a Design Partner"
   },
   "nav": {
     "designPartners": "Design Partners",
@@ -36,7 +36,7 @@
           "costOfMisalignment": "The Cost of Misalignment",
           "alignmentGap": "The Alignment Gap",
           "changeImpact": "The Change Impact",
-          "existingSystems": "Existing Systems Fall Short",
+          "existingSystems": "Where Existing Systems Stop",
           "practitioners": "Built by Practitioners",
           "regulated": "Built for Regulated Environments",
           "whySuricat": "Why Suricat"
@@ -153,9 +153,13 @@
     "acceptCookies": "Accept Cookies"
   },
   "cta": {
-    "readyTitle": "Ready to Get Started?",
-    "becomeDesignPartner": "Become a Design Partner",
-    "scheduleDiscussion": "Schedule a Discussion"
+    "eyebrow": "Design Partner Program",
+    "readyTitle": "Help Define the Future of Compliance Intelligence.",
+    "body": "Get early access to Suricat and work directly with our founding team to shape how MedTech QA/RA teams manage compliance.",
+    "becomeDesignPartner": "Join as a Design Partner",
+    "gotQuestions": "Got Questions?",
+    "scheduleDiscussion": "Schedule a Discussion",
+    "requestFreePilot": "Request a Free Pilot"
   },
   "marquee": {
     "text": "QMSR enforcement is now active. Are you inspection-ready?",
@@ -525,94 +529,70 @@
       "titleBefore": "The Sentinel for",
       "titleCompliance": "Compliance",
       "titleIntelligence": "Intelligence",
-      "body": "Continuously evaluates cross-document alignment and surfaces inspection-defensible findings for earlier review.",
-      "explorePlatform": "Request a FREE Pilot",
-      "becomeDesignPartner": "Become a Design Partner",
+      "body": "Suricat works alongside existing QMS and other quality systems to uncover potential compliance gaps and quality issues in documentation, trace each one to its source, and help QA/RA teams resolve them before an auditor finds them.",
+      "explorePlatform": "Request a Free Pilot",
+      "becomeDesignPartner": "Join as a Design Partner",
+      "gotQuestions": "Got Questions?",
       "bannerLabel": "COMPLIANCE INTELLIGENCE PLATFORM",
       "bannerAlt": "Suricat founders banner",
       "diagram": {
+        "visualAria": "Compliance Intelligence Platform flow: your information and regulatory requirements into Suricat, with findings that need your attention",
+        "inputLabel": "Input",
+        "inputHeadline": "What You Already Have",
+        "outputLabel": "Output",
+        "outputHeadline": "What Needs Your Attention",
+        "policiesTitle": "Policies & Procedures",
+        "policiesSubtitle": "Quality manuals, SOPs, work instructions",
+        "policiesBody": "Suricat reviews your quality manuals, SOPs, and work instructions to confirm they stay aligned with how work is actually performed.",
+        "technicalTitle": "Technical Documents",
+        "technicalSubtitle": "Plans, protocols, specifications, risk files",
+        "technicalBody": "Plans, protocols, specifications, and risk files are checked for consistency so technical evidence supports your quality decisions.",
+        "recordsTitle": "Records & Logs",
+        "recordsSubtitle": "Executed records, CAPAs, complaints, registers",
+        "recordsBody": "Executed records, CAPAs, complaints, and registers are evaluated against governing procedures for completeness and traceability.",
+        "submissionsTitle": "Submissions & Labeling",
+        "submissionsSubtitle": "Regulatory dossiers, IFUs, user-facing content",
+        "submissionsBody": "Regulatory dossiers, IFUs, and labeling content are assessed for alignment with approved documentation and current requirements.",
+        "regulatoryTitle": "Regulatory Requirements",
+        "regulatorySubtitle": "Laws, regulations, standards, and guidance",
+        "regulatoryBody": "Applicable laws, regulations, standards, and guidance are the reference Suricat uses when evaluating your documentation.",
+        "engineTitle": "Suricat",
+        "engineSubtitle": "Compliance Intelligence Platform",
+        "gapsTitle": "Compliance Gaps",
+        "gapsSubtitle": "Documents vs. Regulatory Requirements",
+        "gapsBody": "Surfaces where documents may not meet regulatory requirements so your team can prioritize what needs attention.",
+        "docQualityTitle": "Document Quality Issues",
+        "docQualitySubtitle": "Documents vs. Readiness Criteria",
+        "docQualityBody": "Flags document quality issues against readiness criteria before they become inspection findings.",
+        "recQualityTitle": "Record Quality Issues",
+        "recQualitySubtitle": "Records vs. Governing Procedures",
+        "recQualityBody": "Identifies records that may not match governing procedures, helping you close gaps with clear evidence.",
+        "crossDocTitle": "Cross-Document Issues",
+        "crossDocSubtitle": "Documents vs. Each Other",
+        "crossDocBody": "Finds inconsistencies across related documents so cross-references stay coherent and inspection-defensible.",
+        "tourHint": "Card details",
         "close": "Close",
-        "openHint": "Show details",
-        "stageInput": "Input",
-        "stageEngine": "Engine",
-        "stageOutput": "Output",
-        "proceduresTitle": "Procedures",
-        "proceduresSubtitle": "SOP's, Policies, Work Instructions",
-        "proceduresBody": "Standard Operating Procedures (SOPs), corporate policies, regulatory guidelines, and step-by-step work instructions governing all organizational processes.",
-        "recordsTitle": "Records",
-        "recordsSubtitle": "Forms, Logs, Operational Data",
-        "recordsBody": "Completed forms, operational logs, and controlled records that show how procedures were executed in practice.",
-        "riskFilesTitle": "Risk Files",
-        "riskFilesSubtitle": "Risk Assessments, Hazard Analyses",
-        "riskFilesBody": "Risk assessments and hazard analyses that document identified risks, controls, and residual risk decisions.",
-        "capasTitle": "CAPAs",
-        "capasSubtitle": "Corrective & Preventive Actions",
-        "capasBody": "Corrective and preventive actions that capture investigations, root causes, and verification of effectiveness.",
-        "evidenceTitle": "Evidence",
-        "evidenceSubtitle": "Reports, Results, Certificates, Test Data",
-        "evidenceBody": "Supporting reports, test results, certificates, and other evidence used to defend documentation alignment.",
-        "engineTitle": "Suricat Engine",
-        "engineSubtitle": "Continuously Evaluates Documentation Alignment",
-        "engineBody": "Reads across procedures, records, risk files, CAPAs, and evidence to evaluate alignment and surface inspection-defensible findings.",
-        "reviewTitle": "Human Review & Governance",
-        "reviewSubtitle": "Expert validation and disposition",
-        "reviewBody": "Qualified reviewers validate engine findings, decide disposition, and keep accountability with your QA/RA team.",
-        "misalignmentsTitle": "Potential Misalignments",
-        "misalignmentsSubtitle": "Ranked risks and misalignments",
-        "misalignmentsBody": "Ranked potential misalignments so teams can focus attention where documentation relationships are most at risk.",
-        "traceableTitle": "Traceable Evidence",
-        "traceableSubtitle": "Linked to supporting source records",
-        "traceableBody": "Findings stay linked to the source records that support them, so conclusions remain explainable and defensible.",
-        "readinessTitle": "Inspection Readiness",
-        "readinessSubtitle": "Continuous visibility into documentation readiness",
-        "readinessBody": "Ongoing visibility into documentation readiness so teams can see gaps earlier, not just during inspection prep."
+        "trustTraceabilityTitle": "Traceability",
+        "trustTraceabilityBody": "Every finding traced to source",
+        "trustExplainabilityTitle": "Explainability",
+        "trustExplainabilityBody": "Clear reasoning and context",
+        "trustHumanTitle": "Human Review",
+        "trustHumanBody": "Your team validates every finding",
+        "trustReadonlyTitle": "Read-Only",
+        "trustReadonlyBody": "No changes to your systems"
       }
     },
     "why": {
       "sectionTitle": "Why Suricat",
-      "headline": "See What's Connected. Know What Needs Your Attention.",
-      "intro": "Suricat gives QA/RA teams a connected view of their compliance information so they can spend less time finding, cross-referencing, and reconciling information and more time reviewing what matters.",
-      "lessLabel": "Less time searching",
-      "moreLabel": "More time reviewing",
-      "boardAria": "How Suricat shifts QA/RA time from searching to reviewing",
-      "cards": {
-        "evidence": {
-          "title": "Find Evidence Faster",
-          "body": "Find relevant supporting evidence across systems and documents."
-        },
-        "gaps": {
-          "title": "See Gaps and Inconsistencies",
-          "body": "Surface areas that may need QA/RA review."
-        },
-        "impact": {
-          "title": "Understand Change Impact",
-          "body": "See what else may be affected when something changes."
-        },
-        "traceability": {
-          "title": "Strengthen Traceability",
-          "body": "Follow relationships across requirements, risks, controls, and evidence."
-        },
-        "reconciliation": {
-          "title": "Reduce Manual Reconciliation",
-          "body": "Spend less time cross-referencing and comparing information across systems and documents."
-        },
-        "prepared": {
-          "title": "Be Better Prepared",
-          "body": "Bring the right documentation and supporting evidence together for audits and inspections."
-        }
-      },
-      "closingLead": "Your systems hold the information.",
-      "closingAccent": "Suricat connects the dots.",
-      "closingBody": "See what changed, what may be affected, where the evidence is, and what needs your attention.",
-      "see": {
-        "changed": "What changed",
-        "affected": "What may be affected",
-        "evidence": "Where the evidence is",
-        "attention": "What needs your attention"
-      },
-      "cta": "Become a Design Partner",
-      "pilotPrompt": "Want to evaluate Suricat first?",
-      "pilotCta": "Request a FREE Pilot"
+      "headlineLine1": "Know What Needs Attention.",
+      "headlineLine2": "Before It Becomes a Finding.",
+      "body1": "Your systems hold the information. The challenge is knowing where weak documents, gaps, and misalignments are hiding across your quality system.",
+      "body2": "Suricat brings those issues to the surface and traces each one back to its source, giving QA/RA teams the evidence they need to review, verify, and act.",
+      "tagline": "Less time searching. More confidence in what you review.",
+      "evaluateTitle": "Want to evaluate Suricat first?",
+      "ctaDesignPartner": "Join as a Design Partner",
+      "ctaPilot": "Request a Free Pilot",
+      "gotQuestions": "Got Questions?"
     },
     "platform": {
       "sectionTitle": "Platform",
@@ -921,7 +901,8 @@
     "complianceCost": {
       "eyebrow": "The Cost of Misalignment",
       "title": "Misalignment can remain hidden until an audit, inspection, or recall exposes it.",
-      "body": "By then, the impact can extend beyond compliance, driving investigation, remediation, rework, operational disruption, and regulatory exposure.",
+      "body": "Gaps between your documentation and the requirements that govern it can stay hidden until an audit, inspection, or recall exposes them. By then, the cost can reach far beyond compliance.",
+      "body2": "Suricat helps you find those gaps first.",
       "cta": "Check Your Readiness",
       "ctaHint": "Learn how Suricat approaches compliance intelligence",
       "cards": {
@@ -971,20 +952,49 @@
     },
     "alignmentGap": {
       "sectionTitle": "The Alignment Gap",
-      "headline": "The Systems Are in Place. The Alignment Between Them Is Not.",
+      "headline": "Your Systems Are in Place. Alignment Is the Hard Part.",
       "lead": "Requirements change. Documents evolve. Evidence accumulates.",
-      "p1": "Quality and regulatory information spans requirements, procedures, risks, controls, CAPAs, design documentation, training, records, and supporting evidence.",
-      "p2": "These elements are connected, even when the information lives across different systems and documents.",
-      "questionsIntro": "As things change, QA/RA teams still need to answer critical questions:",
-      "questions": {
-        "q1": "What changed?",
-        "q2": "What else is affected?",
-        "q3": "Does everything still align?",
-        "q4": "Where is the supporting evidence?"
+      "p1": "Procedures, risks, controls, CAPAs, design documentation, and training records are all connected, even across different systems.",
+      "p2": "When one changes, what else is affected?",
+      "closer": "Suricat shows you the impact across those connections.",
+      "visual": {
+        "kicker": "One change. Connected impact.",
+        "example": "Illustrative example"
       },
-      "closer": "Suricat is built to help answer those questions.",
-      "answerLabel": "The answer",
-      "cta": "Request a FREE Pilot"
+      "nodes": {
+        "requirement": "Regulatory\nRequirement",
+        "procedure": "Procedure",
+        "risk": "Risk",
+        "training": "Training Records",
+        "control": "Control",
+        "capa": "CAPA",
+        "evidence": "Evidence",
+        "design": "Design Documentation"
+      },
+      "badges": {
+        "revised": "Revised",
+        "affected": "Affected",
+        "needsAttention": "Needs Attention"
+      },
+      "alignmentIssue": "Alignment Issue",
+      "steps": {
+        "s1": {
+          "q": "What changed?",
+          "a": "Requirement revised"
+        },
+        "s2": {
+          "q": "What else is affected?",
+          "a": "Procedure · Risk · Training Records"
+        },
+        "s3": {
+          "q": "Does everything still align?",
+          "a": "Alignment issue identified"
+        },
+        "s4": {
+          "q": "Where is the supporting evidence?",
+          "a": "Supporting evidence\nneeds attention"
+        }
+      }
     },
     "changeImpact": {
       "sectionTitle": "The Change Impact",
@@ -1017,36 +1027,33 @@
       }
     },
     "existingSystems": {
-      "sectionTitle": "Existing Systems Fall Short",
-      "headline": "Your Systems Do Their Jobs. But They Don't Connect the Dots.",
-      "p1": "QMS, RIM, PLM, document control, and other systems manage records, documents, workflows, approvals, versions, and processes.",
-      "p2": "But compliance doesn't live in any one system or document. It depends on the relationships between requirements, procedures, risks, controls, design documentation, CAPAs, training, records, and evidence.",
-      "p3": "Suricat's regulatory ontology creates a connected model of this compliance information and the relationships across it.",
-      "p4": "Instead of looking at isolated documents and records, QA/RA teams can see how information connects, what may be affected when something changes, and where the supporting evidence lives.",
-      "closer": "Suricat works across the systems you already use, adding the intelligence layer that connects the dots.",
-      "silosLabel": "Systems work in isolation",
-      "layerLabel": "The intelligence layer",
+      "sectionTitle": "Where Existing Systems Stop",
+      "headline": "Your Systems Manage the Information. Connecting It Is Still Your Job.",
+      "p1": "Your QMS and other systems manage documents, records, workflows, and approvals.",
+      "p2": "But compliance depends on understanding how that information relates to applicable regulations and standards, and to your other documents and records.",
+      "p3": "The information is there. The intelligence across it is not.",
+      "p4": "Suricat connects what your systems manage and shows you where it no longer aligns.",
+      "todayLabel": "Today",
+      "suricatLabel": "With Suricat",
+      "regulations": "Regulations & Standards",
+      "yourTeam": "Your Team",
+      "suricatName": "Suricat",
+      "misalignments": "Potential misalignments",
+      "todayCaption": "Your team connects it manually.",
+      "suricatNote": "Works from documents you provide. No integration required.",
+      "suricatCaption": "Suricat connects it. Your team reviews it.",
+      "suricatCaptionLead": "Suricat connects it.",
+      "suricatCaptionAccent": "Your team reviews it.",
       "systems": {
         "qms": "QMS",
         "rim": "RIM",
         "plm": "PLM",
         "documents": "Document Control"
       },
-      "hub": {
-        "documents": "Docs"
-      },
-      "tooltips": {
-        "qms": "Quality Management System — CAPAs, audits, complaints, and quality records.",
-        "rim": "Regulatory Information Management — submissions, registrations, and product regulatory data.",
-        "plm": "Product Lifecycle Management — design history, BOM, and change control across the product life.",
-        "documents": "Document control — approved SOPs, versions, and effective controlled documents."
-      },
-      "relations": {
-        "requirements": "Requirements",
-        "procedures": "Procedures",
-        "risks": "Risks",
-        "capas": "CAPAs",
-        "evidence": "Evidence"
+      "manual": {
+        "spreadsheets": "Spreadsheets",
+        "crossRef": "Cross-reference reviews",
+        "email": "Email and meetings"
       }
     },
     "practitioners": {
@@ -1082,39 +1089,30 @@
       "sectionTitle": "Built for Regulated Environments",
       "headline": "Intelligence Without Giving Up Control.",
       "intro": "Suricat is designed to work within your existing quality and regulatory environment while keeping QA/RA professionals in control.",
+      "featuredLabel": "Non-negotiable",
+      "featuredFootnote": "You review. You decide. You stay accountable.",
       "cards": {
         "accountability": {
           "title": "Human Accountability",
-          "kind": "Governance",
-          "body": "Suricat surfaces intelligence. Qualified professionals make the decisions.",
-          "residual": "The decision stays with the qualified person."
-        },
-        "evidence": {
-          "title": "Evidence-Backed and Explainable",
-          "kind": "Evidence",
-          "body": "See the supporting evidence behind what Suricat surfaces so your team can review and verify it.",
-          "residual": "Every output can be reviewed and challenged."
-        },
-        "readOnly": {
-          "title": "Read Only by Design",
-          "kind": "Architecture",
-          "body": "Suricat works across your existing systems without modifying controlled source records.",
-          "residual": "Controlled source records are not modified."
-        },
-        "data": {
-          "title": "Your Data Stays Yours",
-          "kind": "Data",
-          "body": "Your documentation remains your property. It is not shared with other customers or used to train foundation models.",
-          "residual": "Documentation is not used to train models."
+          "body": "Suricat identifies potential compliance issues and provides supporting evidence. Your qualified professionals review the findings, verify the evidence, and retain full responsibility for every decision."
         },
         "noRipReplace": {
           "title": "No Rip and Replace",
-          "kind": "Integration",
-          "body": "Keep your QMS, RIM, PLM, document control, and validation infrastructure. Suricat works with what you already have.",
-          "residual": "Existing validated systems stay in place."
+          "body": "Keep your existing QMS and document control systems. Suricat works alongside the systems and established processes you already trust."
+        },
+        "readOnly": {
+          "title": "Read-Only by Design",
+          "body": "Suricat analyzes your compliance information without modifying controlled documents or source records. Your existing approval processes and document controls remain intact."
+        },
+        "data": {
+          "title": "Your Data Stays Yours",
+          "body": "Your documents, records, and compliance information remain your property. Your data is not shared with other customers or used to train AI models without your explicit written consent."
+        },
+        "dedicated": {
+          "title": "Dedicated Instance",
+          "body": "Every customer receives a dedicated Suricat instance, keeping your compliance information isolated from other organizations."
         }
       },
-      "closer": "Technology should support QA/RA professionals, not replace their judgment or accountability.",
       "cta": "Schedule a discussion"
     }
   },
@@ -1261,7 +1259,7 @@
       "heroTitleAccent": "Compliance Intelligence",
       "heroSubtitle": "Join a select group of medical device manufacturers collaborating directly with the Suricat founding team to shape the future of Compliance Intelligence.",
       "heroCohortNote": "Limited to a small cohort of medical device manufacturers.",
-      "ctaApply": "Become a Design Partner",
+      "ctaApply": "Join as a Design Partner",
       "ctaDiscuss": "Schedule a Discussion",
       "metaApp": "5-minute application",
       "metaResponse": "Response within 3 business days",
@@ -1353,7 +1351,7 @@
       "ctaTitleBefore": "Become One of Suricat's",
       "ctaTitleAccent": "Founding Design Partners.",
       "ctaBody": "Join a small group of industry leaders driving the next generation of Compliance Intelligence—together with Suricat.",
-      "ctaApplyLong": "Apply to Become a Design Partner",
+      "ctaApplyLong": "Join as a Design Partner",
       "trust": {
         "securityTitle": "Enterprise-grade security",
         "securityBody": "Your data stays in your environment.",
@@ -2436,7 +2434,7 @@
       "changeImpact": "Change Impact Assessment",
       "inspectionReadiness": "Inspection Readiness",
       "documentAlignment": "Documentation Alignment",
-      "becomeDesignPartner": "Become a Design Partner",
+      "becomeDesignPartner": "Join as a Design Partner",
       "scheduleDiscussion": "Schedule a Discussion",
       "readinessDiscussion": "Readiness Discussion"
     }

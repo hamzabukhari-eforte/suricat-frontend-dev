@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
+  <!-- Outer broken ring (4 arcs) -->
+  <path
+    d="M18.2 10.8 A28 28 0 0 1 53.8 10.8"
+    stroke="#FFFFFF"
+    strokeWidth="5.2"
+    strokeLinecap="round"
+  />
+  <path
+    d="M61.2 18.2 A28 28 0 0 1 61.2 53.8"
+    stroke="#FFFFFF"
+    strokeWidth="5.2"
+    strokeLinecap="round"
+  />
+  <path
+    d="M53.8 61.2 A28 28 0 0 1 18.2 61.2"
+    stroke="#FFFFFF"
+    strokeWidth="5.2"
+    strokeLinecap="round"
+  />
+  <path
+    d="M10.8 53.8 A28 28 0 0 1 10.8 18.2"
+    stroke="#FFFFFF"
+    strokeWidth="5.2"
+    strokeLinecap="round"
+  />
+
+  <!-- Inner arcs -->
+  <path
+    d="M24.5 22.5 A14.5 14.5 0 0 0 24.5 49.5"
+    stroke="#FFFFFF"
+    strokeWidth="4.2"
+    strokeLinecap="round"
+  />
+  <path
+    d="M47.5 22.5 A14.5 14.5 0 0 1 47.5 49.5"
+    stroke="#FFFFFF"
+    strokeWidth="4.2"
+    strokeLinecap="round"
+  />
+
+  <!-- Center pin -->
+  <line
+    x1="36"
+    y1="24"
+    x2="36"
+    y2="50"
+    stroke="#FFFFFF"
+    strokeWidth="4.5"
+    strokeLinecap="round"
+  />
+  <circle cx="36" cy="22" r="5" fill="#FFFFFF" />
+
+  <!-- Teal nodes -->
+  <circle cx="36" cy="8" r="4.2" fill="#19D3C5" />
+  <circle cx="8" cy="36" r="4.2" fill="none" stroke="#19D3C5" strokeWidth="3.2" />
+  <circle cx="64" cy="36" r="4.2" fill="none" stroke="#19D3C5" strokeWidth="3.2" />
+</svg>

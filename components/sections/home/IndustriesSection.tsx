@@ -3,13 +3,14 @@
 import { FaArrowRight } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
+import { Container } from "@/components/ui/Container";
 
 export function IndustriesSection() {
   const t = useTranslations("home.industries");
 
   return (
     <section id="industries" className="industries-scope pt-8 bg-white">
-      <div className="max-w-7xl mx-auto">
+      <Container>
         <div className="mb-8 sm:mb-10">
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {t("sectionTitle")}
@@ -61,7 +62,7 @@ export function IndustriesSection() {
             </Link>
           </article>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

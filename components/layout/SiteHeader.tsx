@@ -3,6 +3,7 @@
 import { FaArrowRight, FaBars, FaChevronDown, FaHandshake, FaTimes } from "@/components/ui/icons";
 import { HOME_HASH_EVENT } from "@/components/layout/SmoothHashScroll";
 import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -103,18 +104,19 @@ export function SiteHeader() {
       className="border-b border-gray-200 sticky top-0 bg-white z-50 overflow-x-clip overflow-y-visible"
       data-locale={locale}
     >
-      <div className="nav-header-bar max-w-7xl mx-auto px-4 xl:px-0 h-16 lg:h-24 flex items-center">
+      <Container padded={false} className="nav-header-bar px-4 xl:px-0 h-16 lg:h-24 flex items-center">
         <div className="nav-brand-cluster flex items-center shrink-0">
           <Link href="/" className="shrink-0 flex items-center" onClick={closeMobile}>
             <Image
-              src="/assets/images/suricat-logo-nav.png"
+              src="/assets/images/suricat-logo-header.png"
               alt={t("common.suricatAlt")}
               id="ig8vb"
               width={300}
-              height={68}
+              height={66}
               className="nav-logo shrink-0 object-contain object-left"
               style={{ width: "auto" }}
               priority
+              unoptimized
             />
           </Link>
         </div>
@@ -147,7 +149,7 @@ export function SiteHeader() {
                   <FaChevronDown className="nav-mega-chevron" aria-hidden="true" />
                 </button>
                 <div className="nav-mega-panel">
-                  <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+                  <Container className="py-8">
                     <div className="grid grid-cols-12 gap-10">
                       <div className="col-span-4 border-r border-gray-300 pr-8">
                         <p className="nav-mega-intro-title">{menu.intro.title}</p>
@@ -188,7 +190,7 @@ export function SiteHeader() {
                         })}
                       </div>
                     </div>
-                  </div>
+                  </Container>
                 </div>
               </div>
             );
@@ -209,10 +211,10 @@ export function SiteHeader() {
               className={`nav-design-partners-btn inline-flex items-center justify-center rounded-full font-bold transition-all whitespace-nowrap shrink-0${
                 designPartnersActive ? " is-active" : ""
               }`}
-              title={t("nav.designPartners")}
+              title={t("common.becomeDesignPartner")}
             >
               <FaHandshake aria-hidden="true" />
-              <span className="nav-design-partners-label">{t("nav.designPartners")}</span>
+              <span className="nav-design-partners-label">{t("common.becomeDesignPartner")}</span>
             </Link>
           </div>
         </div>
@@ -227,7 +229,7 @@ export function SiteHeader() {
             <FaBars className="text-lg" aria-hidden="true" />
           </button>
         </div>
-      </div>
+      </Container>
 
       <div
         className={`mobile-menu fixed inset-0 bg-white z-50 xl:hidden ${
@@ -236,12 +238,13 @@ export function SiteHeader() {
       >
         <div className="mobile-menu-header p-4 border-b border-gray-200 flex items-center justify-between">
           <Image
-            src="/assets/images/suricat-logo-nav.png"
+            src="/assets/images/suricat-logo-header.png"
             alt={t("common.suricatAlt")}
             width={300}
-            height={68}
+            height={66}
             className="nav-logo shrink-0 object-contain object-left"
             style={{ width: "auto" }}
+            unoptimized
           />
           <button
             onClick={closeMobile}
@@ -336,7 +339,7 @@ export function SiteHeader() {
             onClick={closeMobile}
           >
             <FaHandshake className="text-lg" aria-hidden="true" />
-            {t("nav.designPartners")}
+            {t("common.becomeDesignPartner")}
           </Link>
         </div>
       </div>

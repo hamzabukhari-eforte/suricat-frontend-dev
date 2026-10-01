@@ -2,13 +2,13 @@
 
 export const HOME_SECTION_IDS = {
   why: "why-suricat",
-  platform: "platform",
+  /** @deprecated Platform engine section removed; kept as alias to Existing Systems. */
+  platform: "existing-systems",
+  existingSystems: "existing-systems",
   solutions: "solutions",
   industries: "industries",
   costOfMisalignment: "compliance-cost-section",
   alignmentGap: "alignment-gap",
-  changeImpact: "change-impact",
-  practitioners: "built-by-practitioners",
   regulated: "designed-for-regulated-environments",
 } as const;
 
@@ -42,34 +42,35 @@ export type PlatformTabSlug = (typeof PLATFORM_TAB_SLUGS)[number];
 /** Legacy numeric hashes kept for old bookmarks. */
 const LEGACY_SECTION_IDS: Record<string, string> = {
   "why-suricat-section": HOME_SECTION_IDS.why,
-  "platform-intelligence-section": HOME_SECTION_IDS.platform,
+  "platform-intelligence-section": HOME_SECTION_IDS.existingSystems,
   "solutions-section": HOME_SECTION_IDS.solutions,
   "industries-section": HOME_SECTION_IDS.industries,
 };
 
 const HASH_TO_SECTION: Record<string, string> = {
   [HOME_SECTION_IDS.why]: HOME_SECTION_IDS.why,
-  [HOME_SECTION_IDS.platform]: HOME_SECTION_IDS.platform,
+  [HOME_SECTION_IDS.existingSystems]: HOME_SECTION_IDS.existingSystems,
+  platform: HOME_SECTION_IDS.existingSystems,
   [HOME_SECTION_IDS.solutions]: HOME_SECTION_IDS.solutions,
   [HOME_SECTION_IDS.industries]: HOME_SECTION_IDS.industries,
   [HOME_SECTION_IDS.costOfMisalignment]: HOME_SECTION_IDS.costOfMisalignment,
   [HOME_SECTION_IDS.alignmentGap]: HOME_SECTION_IDS.alignmentGap,
-  [HOME_SECTION_IDS.changeImpact]: HOME_SECTION_IDS.changeImpact,
-  [HOME_SECTION_IDS.practitioners]: HOME_SECTION_IDS.practitioners,
   [HOME_SECTION_IDS.regulated]: HOME_SECTION_IDS.regulated,
-  "existing-systems-fall-short": HOME_SECTION_IDS.platform,
+  "existing-systems-fall-short": HOME_SECTION_IDS.existingSystems,
   "suricats-mission": HOME_SECTION_IDS.alignmentGap,
   "the-structural-problem": HOME_SECTION_IDS.alignmentGap,
-  "why-existing-systems-fall-short": HOME_SECTION_IDS.platform,
-  "how-suricat-works": HOME_SECTION_IDS.changeImpact,
+  "why-existing-systems-fall-short": HOME_SECTION_IDS.existingSystems,
+  "how-suricat-works": HOME_SECTION_IDS.alignmentGap,
+  "change-impact": HOME_SECTION_IDS.alignmentGap,
+  "built-by-practitioners": HOME_SECTION_IDS.regulated,
   "what-suricat-enables": HOME_SECTION_IDS.why,
-  "intelligence-layer": HOME_SECTION_IDS.platform,
+  "intelligence-layer": HOME_SECTION_IDS.existingSystems,
   "read-only-by-design": HOME_SECTION_IDS.regulated,
   "no-rip-and-replace": HOME_SECTION_IDS.regulated,
   "human-accountability": HOME_SECTION_IDS.regulated,
   "deployment": HOME_SECTION_IDS.regulated,
-  "regulatory-ontology": HOME_SECTION_IDS.platform,
-  "canonical-intelligence-schema": HOME_SECTION_IDS.platform,
+  "regulatory-ontology": HOME_SECTION_IDS.existingSystems,
+  "canonical-intelligence-schema": HOME_SECTION_IDS.existingSystems,
   "quality-validation-rating": HOME_SECTION_IDS.why,
   "bounded-reasoning": HOME_SECTION_IDS.regulated,
 };
@@ -85,7 +86,7 @@ export function whyTabHref(index: number): string {
 
 export function platformTabHref(index: number): string {
   const slug = PLATFORM_TAB_SLUGS[index];
-  return slug ? `/#${slug}` : `/#${HOME_SECTION_IDS.platform}`;
+  return slug ? `/#${slug}` : `/#${HOME_SECTION_IDS.existingSystems}`;
 }
 
 export function parseWhyTabIndex(hash: string): number | null {
@@ -132,8 +133,8 @@ export function sectionIdForHash(hash: string): string | null {
   if (platformIndex !== null) {
     const slug = PLATFORM_TAB_SLUGS[platformIndex];
     return slug
-      ? HASH_TO_SECTION[slug] ?? HOME_SECTION_IDS.platform
-      : HOME_SECTION_IDS.platform;
+      ? HASH_TO_SECTION[slug] ?? HOME_SECTION_IDS.existingSystems
+      : HOME_SECTION_IDS.existingSystems;
   }
 
   return id;

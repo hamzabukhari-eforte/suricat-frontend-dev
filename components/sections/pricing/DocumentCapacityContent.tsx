@@ -5,6 +5,7 @@ import {
   PricingCallout,
   PricingInfoGrid,
 } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { Container } from "@/components/ui/Container";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 export function DocumentCapacityContent() {
@@ -34,8 +35,8 @@ export function DocumentCapacityContent() {
           },
         ]}
       />
-      <section className="py-8 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-8 bg-white">
+        <Container>
           <PricingCallout
             eyebrow={t("calloutEyebrow")}
             body={t("calloutBody")}
@@ -46,7 +47,7 @@ export function DocumentCapacityContent() {
             label={t("bottomCtaLabel")}
             note={t("bottomCtaNote")}
           />
-        </div>
+        </Container>
       </section>
     </>
   );

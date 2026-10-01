@@ -76,7 +76,7 @@ export function DesignPartnersContent() {
         id="design-partners-hero"
         className="bg-navy text-white relative overflow-x-clip overflow-y-visible py-8 md:py-10 lg:py-12 flex items-center"
       >
-        <div className="w-full max-w-7xl mx-auto px-6 flex items-center relative z-10">
+        <Container className="flex items-center relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-10 w-full items-center">
             <div className="flex flex-col justify-center min-w-0 md:col-span-6 pb-1">
               <h1 className="text-4xl lg:text-[36px] font-bold mb-4 leading-[44px] transform translate-y-4 opacity-0 animate-fade-in-up">
@@ -95,13 +95,10 @@ export function DesignPartnersContent() {
               <div className="dp-hero-ctas flex flex-col gap-2 mb-6 transform translate-y-4 opacity-0 animate-fade-in-up-more-delayed sm:flex-row sm:flex-wrap sm:items-stretch">
                 <Link
                   href="/design-partners/apply"
-                  className="hero-cta-hover hero-banner-cta-btn dp-hero-cta-btn group border-2 border-teal text-teal hover:bg-teal hover:text-navy inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition-all w-full sm:w-auto sm:max-w-full"
+                  className="suricat-teal-btn hero-cta-hover hero-banner-cta-btn dp-hero-cta-btn group inline-flex items-center justify-center gap-2 rounded-full font-bold transition-all w-full sm:w-auto sm:max-w-full"
                 >
+                  <FaHandshake className="text-base shrink-0 text-navy" aria-hidden="true" />
                   {tp("ctaApply")}
-                  <FaArrowRight
-                    className="text-[10px] shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
                 </Link>
                 <Link
                   href="/readiness"
@@ -145,7 +142,7 @@ export function DesignPartnersContent() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </header>
 
       <section id="program" className="pt-8 bg-white">
@@ -315,7 +312,7 @@ export function DesignPartnersContent() {
       <PricingFaq
         items={faqItems}
         sectionId="design-partners-faq"
-        sectionClassName="pt-8 px-4 sm:px-6 bg-white"
+        sectionClassName="pt-8 bg-white"
         eyebrow={tp("faqEyebrow")}
         title=""
         description=""
@@ -324,7 +321,7 @@ export function DesignPartnersContent() {
 
       <section
         id="founding-partners-cta"
-        className="py-8 px-4 sm:px-6 bg-surface-muted text-navy relative overflow-hidden"
+        className="py-8 bg-surface-muted text-navy relative overflow-hidden"
       >
         <Container>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 pb-8">
@@ -344,11 +341,8 @@ export function DesignPartnersContent() {
                 href="/design-partners/apply"
                 className="hero-cta-hover group !px-8"
               >
+                <FaHandshake className="text-base shrink-0 text-navy" aria-hidden="true" />
                 {tp("ctaApplyLong")}
-                <FaArrowRight
-                  className="text-[10px] transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
               </Button>
               <Link
                 href="/readiness"

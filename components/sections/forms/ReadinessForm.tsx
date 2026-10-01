@@ -18,6 +18,7 @@ import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNo
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 const inputClass =
   "w-full px-4 py-2.5 text-sm bg-[#F3F4F6]/50 border border-[#E5E7EB] rounded-[4px] text-[#374151] placeholder-[#6B7280]/60 focus:bg-white focus:outline-none focus:border-navy transition-all";
@@ -167,7 +168,7 @@ export function ReadinessForm() {
 
   return (
     <section id="intake" className="relative w-full bg-[#f5f7fa] py-8 max-sm:py-5">
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+      <Container className="relative z-10">
         <div className="mb-6 max-sm:mb-4">
           <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
             {t("sectionEyebrow")}
@@ -396,7 +397,7 @@ export function ReadinessForm() {
             </div>
           </div>
         </form>
-      </div>
+      </Container>
     </section>
   );
 }

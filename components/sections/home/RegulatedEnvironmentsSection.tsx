@@ -4,76 +4,90 @@ import {
   HomeNarrativeHeader,
   HomeNarrativeText,
 } from "@/components/sections/home/HomeNarrativeHeader";
+import {
+  FaFileShield,
+  FaPlug,
+  FaServer,
+  FaShieldHalved,
+  FaUsers,
+} from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
-import { useEffect, useRef, useState } from "react";
+import type { IconType } from "react-icons";
+import { Container } from "@/components/ui/Container";
 
-const CONTROLS = [
-  "accountability",
-  "evidence",
-  "readOnly",
-  "data",
-  "noRipReplace",
-] as const;
+const FEATURED = {
+  id: "accountability" as const,
+  Icon: FaUsers,
+};
+
+const GRID_CARDS: { id: "noRipReplace" | "readOnly" | "data" | "dedicated"; Icon: IconType }[] = [
+  { id: "noRipReplace", Icon: FaPlug },
+  { id: "readOnly", Icon: FaFileShield },
+  { id: "data", Icon: FaShieldHalved },
+  { id: "dedicated", Icon: FaServer },
+];
 
 export function RegulatedEnvironmentsSection() {
   const t = useTranslations("home.regulated");
-  const registerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const node = registerRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setInView(true);
-        observer.disconnect();
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const FeaturedIcon = FEATURED.Icon;
 
   return (
     <section
       id="designed-for-regulated-environments"
-      className="bg-surface-muted px-6 pt-12 pb-10"
+      className="bg-surface-muted pt-12 pb-10"
     >
-      <div className="mx-auto max-w-7xl">
+      <Container>
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
           <HomeNarrativeText>{t("intro")}</HomeNarrativeText>
         </HomeNarrativeHeader>
 
-        <div
-          ref={registerRef}
-          className={`regulated-register${inView ? " is-in" : ""}`}
-        >
-          {CONTROLS.map((id) => (
-            <article
-              key={id}
-              className="regulated-control"
-              onAnimationEnd={(event) => {
-                if (event.animationName !== "regulated-control-in") return;
-                event.currentTarget.classList.add("is-settled");
-              }}
-            >
-              <p className="regulated-control-kind">{t(`cards.${id}.kind`)}</p>
-              <h3 className="regulated-control-title">
-                {t(`cards.${id}.title`)}
-              </h3>
-              <p className="regulated-control-body">{t(`cards.${id}.body`)}</p>
-              <p className="regulated-control-residual">
-                {t(`cards.${id}.residual`)}
-              </p>
-            </article>
-          ))}
-        </div>
+        <div className="regulated-bento">
+          <article className="regulated-bento-featured">
+            <div className="regulated-bento-featured-glow" aria-hidden="true" />
+            <div className="regulated-bento-featured-orb regulated-bento-featured-orb-a" aria-hidden="true" />
+            <div className="regulated-bento-featured-orb regulated-bento-featured-orb-b" aria-hidden="true" />
 
-        <p className="regulated-closer">{t("closer")}</p>
-      </div>
+            <div className="regulated-bento-featured-inner">
+              <p className="regulated-bento-featured-kicker">
+                {t("featuredLabel")}
+              </p>
+
+              <span className="regulated-bento-featured-icon" aria-hidden="true">
+                <span className="regulated-bento-featured-icon-ring" />
+                <FeaturedIcon />
+              </span>
+
+              <h3 className="regulated-bento-featured-title">
+                {t(`cards.${FEATURED.id}.title`)}
+              </h3>
+
+              <p className="regulated-bento-featured-body">
+                {t(`cards.${FEATURED.id}.body`)}
+              </p>
+
+              <p className="regulated-bento-featured-footnote">
+                {t("featuredFootnote")}
+              </p>
+            </div>
+          </article>
+
+          <div className="regulated-bento-grid">
+            {GRID_CARDS.map(({ id, Icon }) => (
+              <article key={id} className="regulated-bento-card">
+                <span className="regulated-bento-card-icon" aria-hidden="true">
+                  <Icon />
+                </span>
+                <h3 className="regulated-bento-card-title">
+                  {t(`cards.${id}.title`)}
+                </h3>
+                <p className="regulated-bento-card-body">
+                  {t(`cards.${id}.body`)}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Container>
     </section>
   );
 }

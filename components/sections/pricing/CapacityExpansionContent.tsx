@@ -5,6 +5,7 @@ import {
   PricingCallout,
   PricingInfoGrid,
 } from "@/components/sections/pricing/PricingSubpageBlocks";
+import { Container } from "@/components/ui/Container";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 
 type ExpansionRow = { range: string; price: string };
@@ -15,8 +16,8 @@ export function CapacityExpansionContent() {
 
   return (
     <>
-      <section className="pt-8 px-4 sm:px-6 bg-surface-muted">
-        <div className="max-w-5xl mx-auto">
+      <section className="pt-8 bg-surface-muted">
+        <Container>
           <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
             {t("pricingEyebrow")}
           </span>
@@ -57,7 +58,7 @@ export function CapacityExpansionContent() {
               </tbody>
             </table>
           </div>
-        </div>
+        </Container>
       </section>
 
       <PricingInfoGrid
@@ -84,8 +85,8 @@ export function CapacityExpansionContent() {
         ]}
       />
 
-      <section className="py-8 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-8 bg-white">
+        <Container>
           <PricingCallout
             eyebrow={t("calloutEyebrow")}
             body={t("calloutBody")}
@@ -95,7 +96,7 @@ export function CapacityExpansionContent() {
             label={t("bottomCtaLabel")}
             note={t("bottomCtaNote")}
           />
-        </div>
+        </Container>
       </section>
     </>
   );

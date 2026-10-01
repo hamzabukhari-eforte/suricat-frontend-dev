@@ -35,7 +35,6 @@ export function OurStoryContent() {
           </>
         }
         subtitle={ts("heroSubtitle")}
-        measure="max-w-4xl"
       />
 
       <section id="our-story" className="bg-white pb-6 pt-8">

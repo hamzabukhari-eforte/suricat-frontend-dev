@@ -14,6 +14,7 @@ import { MobileAutoplayCardSlider } from "@/components/ui/MobileAutoplayCardSlid
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 import type { IconType } from "react-icons";
+import { Container } from "@/components/ui/Container";
 
 const CARDS: {
   id: "c1" | "c2" | "c3" | "c4" | "c5" | "c6";
@@ -56,7 +57,8 @@ export function ComplianceCostSection() {
   const t = useTranslations("home.complianceCost");
 
   return (
-    <section id="compliance-cost-section" className="pt-12 max-w-7xl mx-auto">
+    <section id="compliance-cost-section" className="pt-12">
+      <Container>
       <div className="mb-6 lg:pt-0">
         <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
           {t("eyebrow")}
@@ -67,9 +69,12 @@ export function ComplianceCostSection() {
         <p className="text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy max-w-4xl">
           {t("body")}
         </p>
+        <p className="mt-4 text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy max-w-4xl">
+          {t("body2")}
+        </p>
       </div>
       <div className="relative mt-4 pl-0 extend_top-left o-flow-vis">
-        <div className="compliance-cost-banner-bg rounded-[4px] p-10 lg:p-6 relative z-10 text-white extend_top-left-base">
+        <div className="compliance-cost-banner-bg rounded-[12px] p-10 lg:p-6 relative z-10 text-white extend_top-left-base">
           <div className="relative">
             <MobileAutoplayCardSlider
               id="compliance-cards-grid"
@@ -152,6 +157,7 @@ export function ComplianceCostSection() {
           </div>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

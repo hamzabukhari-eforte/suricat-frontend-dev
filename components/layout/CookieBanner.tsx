@@ -1,6 +1,7 @@
 "use client";
 
 import { FaTimes } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import { useEffect, useState } from "react";
 
@@ -46,7 +47,7 @@ export function CookieBanner() {
       >
         <FaTimes className="text-gray-400" aria-hidden="true" />
       </button>
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 pr-6 lg:flex-row lg:items-center lg:pr-8">
+      <Container className="flex flex-col items-center justify-between gap-6 pr-6 lg:flex-row lg:items-center lg:pr-8">
         <p className="w-full max-w-4xl text-[11px] leading-relaxed text-gray-600 lg:min-w-0 lg:flex-1">
           {t("body")}{" "}
           <a href="#" className="cursor-pointer text-navy underline">
@@ -77,7 +78,7 @@ export function CookieBanner() {
             </button>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -18,6 +18,7 @@ import { ScheduleHelperNote } from "@/components/sections/forms/ScheduleHelperNo
 import { TurnstileField } from "@/components/ui/TurnstileField";
 import { useTurnstileAction } from "@/hooks/useTurnstileAction";
 import { useLocale, useTranslations } from "@/components/i18n/LocaleProvider";
+import { Container } from "@/components/ui/Container";
 
 const COMPANY_SIZES = [
   { value: "lt50", label: "<50" },
@@ -155,7 +156,7 @@ export function GetStartedForm() {
 
   return (
     <section id="intake" className="relative w-full bg-[#f5f7fa] py-8 max-sm:py-5">
-      <div className="max-w-7xl mx-auto px-6 relative z-10 max-sm:px-4">
+      <Container className="relative z-10">
         <div className="mb-6 max-sm:mb-4">
           <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
             {t("sectionEyebrow")}
@@ -366,7 +367,7 @@ export function GetStartedForm() {
             </div>
           </div>
         </form>
-      </div>
+      </Container>
     </section>
   );
 }

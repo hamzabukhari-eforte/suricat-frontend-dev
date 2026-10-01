@@ -1,8 +1,8 @@
 import { FaArrowRight } from "@/components/ui/icons";
+import { Container } from "@/components/ui/Container";
 import type { MaxWidth } from "@/lib/layout/measure";
 import {
   DEFAULT_DESCRIPTION_MAX,
-  DEFAULT_HERO_MAX,
   DEFAULT_TITLE_MAX,
 } from "@/lib/layout/measure";
 import Link from "next/link";
@@ -20,8 +20,6 @@ type PricingInfoGridProps = {
   description?: string;
   cards: InfoCard[];
   muted?: boolean;
-  /** Section shell width. Defaults to `max-w-5xl`. */
-  maxWidth?: MaxWidth;
   /** Title measure. Defaults to `max-w-3xl`. */
   titleMaxWidth?: MaxWidth;
   /** Description measure. Defaults to `max-w-4xl`. */
@@ -34,15 +32,12 @@ export function PricingInfoGrid({
   description,
   cards,
   muted = true,
-  maxWidth = DEFAULT_HERO_MAX,
   titleMaxWidth = DEFAULT_TITLE_MAX,
   descriptionMaxWidth = DEFAULT_DESCRIPTION_MAX,
 }: PricingInfoGridProps) {
   return (
-    <section
-      className={`pt-8 px-4 sm:px-6 ${muted ? "bg-surface-muted" : "bg-white"}`}
-    >
-      <div className={`${maxWidth} mx-auto`}>
+    <section className={`pt-8 ${muted ? "bg-surface-muted" : "bg-white"}`}>
+      <Container>
         <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
           {eyebrow}
         </span>
@@ -74,7 +69,7 @@ export function PricingInfoGrid({
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

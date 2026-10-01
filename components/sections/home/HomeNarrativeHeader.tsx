@@ -26,9 +26,19 @@ export function HomeNarrativeHeader({
   );
 }
 
-export function HomeNarrativeText({ children }: { children: ReactNode }) {
+export function HomeNarrativeText({
+  children,
+  fullWidth = false,
+}: {
+  children: ReactNode;
+  fullWidth?: boolean;
+}) {
   return (
-    <p className="mb-4 max-w-4xl text-base leading-relaxed text-navy last:mb-0 sm:text-lg lg:text-[20px] lg:leading-[28px]">
+    <p
+      className={`mb-4 text-base leading-relaxed text-navy last:mb-0 sm:text-lg lg:text-[20px] lg:leading-[28px] ${
+        fullWidth ? "max-w-none" : "max-w-4xl"
+      }`}
+    >
       {children}
     </p>
   );

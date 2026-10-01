@@ -4,6 +4,7 @@ import { FaCheck, FaFileLines } from "@/components/ui/icons";
 import { PricingStaggerReveal } from "@/components/sections/pricing/PricingStaggerReveal";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
+import { Container } from "@/components/ui/Container";
 
 type PricingPlansSectionProps = {
   showIntro?: boolean;
@@ -12,7 +13,7 @@ type PricingPlansSectionProps = {
 
 export function PricingPlansSection({
   showIntro = true,
-  sectionClassName = "pricing-plans-scope pt-8 px-4 sm:px-6 bg-surface-muted",
+  sectionClassName = "pricing-plans-scope pt-8 bg-surface-muted",
 }: PricingPlansSectionProps) {
   const t = useTranslations("home.pricingPlans");
 
@@ -23,7 +24,7 @@ export function PricingPlansSection({
             className={sectionClassName}
           >
             <PricingStaggerReveal />
-            <div className="max-w-7xl mx-auto">
+            <Container>
               {showIntro ? <div className="mb-8 sm:mb-10">
                 <span
                   className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block"
@@ -529,7 +530,7 @@ export function PricingPlansSection({
                 </div>
               </div>
 
-            </div>
+            </Container>
           </section>
     </>
   );
