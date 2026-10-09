@@ -2,124 +2,133 @@
 
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
-  useCallback,
+  FaClipboardList,
+  FaFileLines,
+  FaFileShield,
+  FaRotate,
+  FaTriangleExclamation,
+} from "@/components/ui/icons";
+import {
   useEffect,
   useMemo,
   useRef,
   useState,
-  type KeyboardEvent,
-  type MouseEvent,
+  type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
+import type { IconType } from "react-icons";
 
-const CIP_VB = { w: 1400, h: 830 };
-const TOUR_DWELL_MS = 2200;
-const TOUR_START_MS = 550;
+/* Dwell on each large focus card so users can read */
+const TOUR_DWELL_MS = 3100;
+const TOUR_START_MS = 350;
+const TRUST_START_MS = 140;
+const TRUST_STAGGER_MS = 130;
+const TRUST_ITEM_COUNT = 4;
 
 type CipGlow = "teal" | "violet" | "orange";
-type PopoverSide = "left" | "right" | "bottom";
+type CipStage = "input" | "regulatory" | "engine" | "output";
 
 type TourCardMeta = {
   id: string;
   titleKey: string;
+  subtitleKey: string;
   bodyKey: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  side: PopoverSide;
+  glow: CipGlow;
+  stage: CipStage;
+  Icon?: IconType;
+  useLogo?: boolean;
 };
 
 const TOUR_CARDS: TourCardMeta[] = [
   {
     id: "input-1",
     titleKey: "policiesTitle",
+    subtitleKey: "policiesSubtitle",
     bodyKey: "policiesBody",
-    x: 40,
-    y: 102,
-    w: 380,
-    h: 112,
-    side: "right",
+    glow: "teal",
+    stage: "input",
+    Icon: FaClipboardList,
   },
   {
     id: "input-2",
     titleKey: "technicalTitle",
+    subtitleKey: "technicalSubtitle",
     bodyKey: "technicalBody",
-    x: 40,
-    y: 236,
-    w: 380,
-    h: 112,
-    side: "right",
+    glow: "teal",
+    stage: "input",
+    Icon: FaFileLines,
   },
   {
     id: "input-3",
     titleKey: "recordsTitle",
+    subtitleKey: "recordsSubtitle",
     bodyKey: "recordsBody",
-    x: 40,
-    y: 370,
-    w: 380,
-    h: 112,
-    side: "right",
+    glow: "teal",
+    stage: "input",
+    Icon: FaFileLines,
   },
   {
     id: "input-4",
     titleKey: "submissionsTitle",
+    subtitleKey: "submissionsSubtitle",
     bodyKey: "submissionsBody",
-    x: 40,
-    y: 504,
-    w: 380,
-    h: 112,
-    side: "right",
+    glow: "teal",
+    stage: "input",
+    Icon: FaFileLines,
   },
   {
     id: "regulatory",
     titleKey: "regulatoryTitle",
+    subtitleKey: "regulatorySubtitle",
     bodyKey: "regulatoryBody",
-    x: 510,
-    y: 42,
-    w: 380,
-    h: 112,
-    side: "bottom",
+    glow: "violet",
+    stage: "regulatory",
+    Icon: FaFileShield,
+  },
+  {
+    id: "engine",
+    titleKey: "engineTitle",
+    subtitleKey: "engineSubtitle",
+    bodyKey: "engineBody",
+    glow: "teal",
+    stage: "engine",
+    useLogo: true,
   },
   {
     id: "output-1",
     titleKey: "gapsTitle",
+    subtitleKey: "gapsSubtitle",
     bodyKey: "gapsBody",
-    x: 980,
-    y: 102,
-    w: 380,
-    h: 112,
-    side: "left",
+    glow: "orange",
+    stage: "output",
+    Icon: FaTriangleExclamation,
   },
   {
     id: "output-2",
     titleKey: "docQualityTitle",
+    subtitleKey: "docQualitySubtitle",
     bodyKey: "docQualityBody",
-    x: 980,
-    y: 236,
-    w: 380,
-    h: 112,
-    side: "left",
+    glow: "teal",
+    stage: "output",
+    Icon: FaFileLines,
   },
   {
     id: "output-3",
     titleKey: "recQualityTitle",
+    subtitleKey: "recQualitySubtitle",
     bodyKey: "recQualityBody",
-    x: 980,
-    y: 370,
-    w: 380,
-    h: 112,
-    side: "left",
+    glow: "teal",
+    stage: "output",
+    Icon: FaRotate,
   },
   {
     id: "output-4",
     titleKey: "crossDocTitle",
+    subtitleKey: "crossDocSubtitle",
     bodyKey: "crossDocBody",
-    x: 980,
-    y: 504,
-    w: 380,
-    h: 112,
-    side: "left",
+    glow: "teal",
+    stage: "output",
+    Icon: FaFileLines,
   },
 ];
 
@@ -129,7 +138,6 @@ type CipCardProps = {
   glow: CipGlow;
   readingId: string | null;
   forcedVisible: ReadonlySet<string>;
-  onActivate: (id: string) => void;
   hit: { x: number; y: number; w: number; h: number };
   children: ReactNode;
 };
@@ -140,20 +148,11 @@ function CipCard({
   glow,
   readingId,
   forcedVisible,
-  onActivate,
   hit,
   children,
 }: CipCardProps) {
   const isReading = readingId === id;
   const isForced = forcedVisible.has(id);
-
-  const activate = useCallback(
-    (event: MouseEvent | KeyboardEvent) => {
-      event.stopPropagation();
-      onActivate(id);
-    },
-    [id, onActivate],
-  );
 
   return (
     <g
@@ -166,17 +165,8 @@ function CipCard({
         .filter(Boolean)
         .join(" ")}
       style={{ ["--cip-stagger" as string]: String(stagger) }}
+      data-cip-hold="card"
       data-cip-card={id}
-      role="button"
-      tabIndex={0}
-      aria-pressed={isReading}
-      onClick={activate}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          activate(event);
-        }
-      }}
     >
       {children}
       <rect
@@ -193,55 +183,209 @@ function CipCard({
 }
 
 /**
- * Hero CIP diagram — staggered card animation, auto description tour,
- * and click/touch reading-mode freeze.
+ * Hero CIP diagram — diagram stays as backdrop; active card pops as a
+ * large focus panel (stage + title + one-liner + full description).
  */
 export function HeroCipAnimation() {
   const t = useTranslations("home.hero.diagram");
+  const rootRef = useRef<HTMLDivElement>(null);
   const [readingId, setReadingId] = useState<string | null>(null);
   const [forcedVisible, setForcedVisible] = useState<ReadonlySet<string>>(
     () => new Set(),
   );
-  const [tourActive, setTourActive] = useState(true);
-  const [tourPaused, setTourPaused] = useState(false);
+  const [tourActive, setTourActive] = useState(false);
+  const [cardsComplete, setCardsComplete] = useState(false);
+  const [trustCount, setTrustCount] = useState(0);
+  const [playKey, setPlayKey] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const tourIndexRef = useRef(0);
+  const isPausedRef = useRef(false);
+  const holdPointerIdRef = useRef<number | null>(null);
+  const tourTimeoutRef = useRef(0);
+  const trustTimeoutRef = useRef(0);
+  const tourDeadlineRef = useRef(0);
+  const trustDeadlineRef = useRef(0);
+  const tourRemainingRef = useRef(TOUR_START_MS);
+  const trustRemainingRef = useRef(TRUST_START_MS);
+  const trustCountRef = useRef(0);
+  const cardsCompleteRef = useRef(false);
+  const runTourStepRef = useRef<(() => void) | null>(null);
+  const runTrustTickRef = useRef<(() => void) | null>(null);
 
-  const activateCard = useCallback((id: string) => {
-    setTourPaused(true);
-    setReadingId(id);
-    setForcedVisible((prev) => {
-      if (prev.has(id)) return prev;
-      const next = new Set(prev);
-      next.add(id);
-      return next;
-    });
-  }, []);
+  const clearTourTimeout = () => {
+    if (tourTimeoutRef.current) {
+      window.clearTimeout(tourTimeoutRef.current);
+      tourTimeoutRef.current = 0;
+    }
+  };
 
-  const clearReading = useCallback(() => {
+  const clearTrustTimeout = () => {
+    if (trustTimeoutRef.current) {
+      window.clearTimeout(trustTimeoutRef.current);
+      trustTimeoutRef.current = 0;
+    }
+  };
+
+  const scheduleTour = (delay: number, fn: () => void) => {
+    clearTourTimeout();
+    tourDeadlineRef.current = performance.now() + delay;
+    tourTimeoutRef.current = window.setTimeout(fn, delay);
+  };
+
+  const scheduleTrust = (delay: number, fn: () => void) => {
+    clearTrustTimeout();
+    trustDeadlineRef.current = performance.now() + delay;
+    trustTimeoutRef.current = window.setTimeout(fn, delay);
+  };
+
+  const pauseHold = () => {
+    if (isPausedRef.current) return;
+    isPausedRef.current = true;
+    setIsPaused(true);
+    if (tourTimeoutRef.current) {
+      tourRemainingRef.current = Math.max(
+        80,
+        tourDeadlineRef.current - performance.now(),
+      );
+      clearTourTimeout();
+    }
+    if (trustTimeoutRef.current) {
+      trustRemainingRef.current = Math.max(
+        40,
+        trustDeadlineRef.current - performance.now(),
+      );
+      clearTrustTimeout();
+    }
+  };
+
+  const resumeHold = () => {
+    if (!isPausedRef.current) return;
+    isPausedRef.current = false;
+    setIsPaused(false);
+    if (runTourStepRef.current && !cardsCompleteRef.current) {
+      scheduleTour(tourRemainingRef.current, () => {
+        if (isPausedRef.current) return;
+        runTourStepRef.current?.();
+      });
+    } else if (
+      runTrustTickRef.current &&
+      cardsCompleteRef.current &&
+      trustCountRef.current < TRUST_ITEM_COUNT
+    ) {
+      scheduleTrust(trustRemainingRef.current, () => {
+        if (isPausedRef.current) return;
+        runTrustTickRef.current?.();
+      });
+    }
+  };
+
+  const resetTour = () => {
+    clearTourTimeout();
+    clearTrustTimeout();
+    isPausedRef.current = false;
+    holdPointerIdRef.current = null;
+    setIsPaused(false);
     setReadingId(null);
-    if (tourActive) setTourPaused(false);
-  }, [tourActive]);
+    setForcedVisible(new Set());
+    setCardsComplete(false);
+    cardsCompleteRef.current = false;
+    setTrustCount(0);
+    trustCountRef.current = 0;
+    setTourActive(false);
+    tourIndexRef.current = 0;
+    tourRemainingRef.current = TOUR_START_MS;
+    trustRemainingRef.current = TRUST_START_MS;
+  };
 
+  const isHoldTarget = (target: EventTarget | null) => {
+    if (!(target instanceof Element)) return false;
+    return Boolean(target.closest("[data-cip-hold]"));
+  };
+
+  const onRootPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return;
+    if (!isHoldTarget(event.target)) return;
+    holdPointerIdRef.current = event.pointerId;
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      /* ignore */
+    }
+    pauseHold();
+  };
+
+  const onRootPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (holdPointerIdRef.current === null) return;
+    if (event.pointerId !== holdPointerIdRef.current) return;
+    holdPointerIdRef.current = null;
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    } catch {
+      /* ignore */
+    }
+    resumeHold();
+  };
+
+  // Replay full sequence whenever the diagram re-enters the viewport
   useEffect(() => {
-    if (!tourActive || tourPaused) return;
-    if (typeof window === "undefined") return;
+    const el = rootRef.current;
+    if (!el || typeof window === "undefined") return;
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setForcedVisible(new Set(TOUR_CARDS.map((card) => card.id)));
+      setReadingId(null);
+      setCardsComplete(true);
+      cardsCompleteRef.current = true;
+      setTrustCount(TRUST_ITEM_COUNT);
+      trustCountRef.current = TRUST_ITEM_COUNT;
       setTourActive(false);
       return;
     }
 
+    if (!("IntersectionObserver" in window)) {
+      setTourActive(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          resetTour();
+          setPlayKey((k) => k + 1);
+          requestAnimationFrame(() => {
+            setTourActive(true);
+          });
+        } else {
+          resetTour();
+        }
+      },
+      { threshold: 0.28 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!tourActive) return;
+    if (typeof window === "undefined") return;
+
     let cancelled = false;
-    let timeoutId = 0;
 
     const step = () => {
-      if (cancelled) return;
+      if (cancelled || isPausedRef.current) return;
       const index = tourIndexRef.current;
       if (index >= TOUR_CARDS.length) {
         setReadingId(null);
+        setCardsComplete(true);
+        cardsCompleteRef.current = true;
         setTourActive(false);
+        runTourStepRef.current = null;
         return;
       }
       const card = TOUR_CARDS[index];
+      // Reveal only this card in the diagram; unrevealed cards stay hidden
       setReadingId(card.id);
       setForcedVisible((prev) => {
         if (prev.has(card.id)) return prev;
@@ -250,49 +394,84 @@ export function HeroCipAnimation() {
         return next;
       });
       tourIndexRef.current = index + 1;
-      timeoutId = window.setTimeout(step, TOUR_DWELL_MS);
+      tourRemainingRef.current = TOUR_DWELL_MS;
+      scheduleTour(TOUR_DWELL_MS, step);
     };
 
-    timeoutId = window.setTimeout(step, TOUR_START_MS);
+    runTourStepRef.current = step;
+    tourRemainingRef.current = TOUR_START_MS;
+    scheduleTour(TOUR_START_MS, step);
+
     return () => {
       cancelled = true;
-      window.clearTimeout(timeoutId);
+      runTourStepRef.current = null;
+      clearTourTimeout();
     };
-  }, [tourActive, tourPaused]);
+  }, [tourActive, playKey]);
+
+  // Trust footer loads after the full card tour finishes (separate so it isn't cancelled)
+  useEffect(() => {
+    if (!cardsComplete) return;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let cancelled = false;
+    trustCountRef.current = 0;
+    setTrustCount(0);
+
+    const tick = () => {
+      if (cancelled || isPausedRef.current) return;
+      const n = trustCountRef.current + 1;
+      trustCountRef.current = n;
+      setTrustCount(n);
+      if (n < TRUST_ITEM_COUNT) {
+        trustRemainingRef.current = TRUST_STAGGER_MS;
+        scheduleTrust(TRUST_STAGGER_MS, tick);
+      } else {
+        runTrustTickRef.current = null;
+      }
+    };
+
+    runTrustTickRef.current = tick;
+    trustRemainingRef.current = TRUST_START_MS;
+    scheduleTrust(TRUST_START_MS, tick);
+
+    return () => {
+      cancelled = true;
+      runTrustTickRef.current = null;
+      clearTrustTimeout();
+    };
+  }, [cardsComplete, playKey]);
 
   const activeMeta = useMemo(
     () => TOUR_CARDS.find((card) => card.id === readingId) ?? null,
     [readingId],
   );
 
-  const popoverStyle = useMemo(() => {
-    if (!activeMeta) return undefined;
-    const topPct = (activeMeta.y / CIP_VB.h) * 100;
-    if (activeMeta.side === "right") {
-      return {
-        left: `${((activeMeta.x + activeMeta.w) / CIP_VB.w) * 100}%`,
-        top: `${topPct}%`,
-      };
-    }
-    if (activeMeta.side === "left") {
-      return {
-        right: `${((CIP_VB.w - activeMeta.x) / CIP_VB.w) * 100}%`,
-        left: "auto" as const,
-        top: `${topPct}%`,
-      };
-    }
-    return {
-      left: `${((activeMeta.x + activeMeta.w / 2) / CIP_VB.w) * 100}%`,
-      top: `${((activeMeta.y + activeMeta.h) / CIP_VB.h) * 100}%`,
-    };
-  }, [activeMeta]);
+  const showInputs = useMemo(
+    () => TOUR_CARDS.some((card) => card.stage === "input" && forcedVisible.has(card.id)),
+    [forcedVisible],
+  );
+  const showRegulatory = forcedVisible.has("regulatory");
+  const showEngine = forcedVisible.has("engine");
+  const showOutputs = useMemo(
+    () => TOUR_CARDS.some((card) => card.stage === "output" && forcedVisible.has(card.id)),
+    [forcedVisible],
+  );
+
+  const ActiveIcon = activeMeta?.Icon;
 
   return (
     <div
-      className={`hero-cip${readingId ? " is-reading-mode" : ""}`}
-      onClick={clearReading}
+      ref={rootRef}
+      className={`hero-cip${readingId ? " is-reading-mode" : ""}${isPaused ? " is-paused" : ""}`}
+      onPointerDown={onRootPointerDown}
+      onPointerUp={onRootPointerUp}
+      onPointerCancel={onRootPointerUp}
+      onLostPointerCapture={onRootPointerUp}
     >
       <svg
+        key={playKey}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1400 830"
         fill="none"
@@ -343,55 +522,70 @@ export function HeroCipAnimation() {
 
         <rect width="1400" height="830" fill="#0D1B3E" />
 
-        {/* Connectors — static (no flow dots) */}
+        {/* Connectors — only for sections already revealed */}
         <g strokeLinecap="round" strokeLinejoin="round" fill="none">
-          <path d="M420 158 H455" stroke="#19D3C5" strokeWidth={4} />
-          <path d="M420 292 H455" stroke="#19D3C5" strokeWidth={4} />
-          <path d="M420 426 H455" stroke="#19D3C5" strokeWidth={4} />
-          <path d="M420 560 H455" stroke="#19D3C5" strokeWidth={4} />
-          <path d="M455 158 V560" stroke="#19D3C5" strokeWidth={4} />
-          <path
-            d="M455 359 H498"
-            stroke="#19D3C5"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowTeal)"
-          />
-          <path
-            d="M700 160 V232"
-            stroke="#5C3D8F"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowViolet)"
-          />
-          <path d="M902 359 H945" stroke="#19D3C5" strokeWidth={4} />
-          <path d="M945 158 V560" stroke="#19D3C5" strokeWidth={4} />
-          <path
-            d="M945 158 H968"
-            stroke="#19D3C5"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowTeal)"
-          />
-          <path
-            d="M945 292 H968"
-            stroke="#19D3C5"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowTeal)"
-          />
-          <path
-            d="M945 426 H968"
-            stroke="#19D3C5"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowTeal)"
-          />
-          <path
-            d="M945 560 H968"
-            stroke="#19D3C5"
-            strokeWidth={4}
-            markerEnd="url(#cipArrowTeal)"
-          />
+          {showInputs ? (
+            <>
+              <path d="M420 158 H455" stroke="#19D3C5" strokeWidth={4} />
+              <path d="M420 292 H455" stroke="#19D3C5" strokeWidth={4} />
+              <path d="M420 426 H455" stroke="#19D3C5" strokeWidth={4} />
+              <path d="M420 560 H455" stroke="#19D3C5" strokeWidth={4} />
+              <path d="M455 158 V560" stroke="#19D3C5" strokeWidth={4} />
+            </>
+          ) : null}
+          {showEngine ? (
+            <path
+              d="M455 359 H498"
+              stroke="#19D3C5"
+              strokeWidth={4}
+              markerEnd="url(#cipArrowTeal)"
+            />
+          ) : null}
+          {showRegulatory && showEngine ? (
+            <path
+              d="M700 160 V232"
+              stroke="#5C3D8F"
+              strokeWidth={4}
+              markerEnd="url(#cipArrowViolet)"
+            />
+          ) : null}
+          {showOutputs && showEngine ? (
+            <>
+              <path d="M902 359 H945" stroke="#19D3C5" strokeWidth={4} />
+              <path d="M945 158 V560" stroke="#19D3C5" strokeWidth={4} />
+              <path
+                d="M945 158 H968"
+                stroke="#19D3C5"
+                strokeWidth={4}
+                markerEnd="url(#cipArrowTeal)"
+              />
+              <path
+                d="M945 292 H968"
+                stroke="#19D3C5"
+                strokeWidth={4}
+                markerEnd="url(#cipArrowTeal)"
+              />
+              <path
+                d="M945 426 H968"
+                stroke="#19D3C5"
+                strokeWidth={4}
+                markerEnd="url(#cipArrowTeal)"
+              />
+              <path
+                d="M945 560 H968"
+                stroke="#19D3C5"
+                strokeWidth={4}
+                markerEnd="url(#cipArrowTeal)"
+              />
+            </>
+          ) : null}
         </g>
 
         {/* Inputs */}
-        <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
+        <g
+          className={showInputs ? undefined : "hero-cip-section-hidden"}
+          style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}
+        >
           <text
             x={230}
             y={40}
@@ -421,7 +615,6 @@ export function HeroCipAnimation() {
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 40, y: 102, w: 380, h: 112 }}
           >
             <rect
@@ -463,11 +656,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="input-2"
-            stagger={1}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 40, y: 236, w: 380, h: 112 }}
           >
             <rect
@@ -510,11 +702,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="input-3"
-            stagger={2}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 40, y: 370, w: 380, h: 112 }}
           >
             <rect
@@ -557,11 +748,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="input-4"
-            stagger={3}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 40, y: 504, w: 380, h: 112 }}
           >
             <rect
@@ -601,15 +791,17 @@ export function HeroCipAnimation() {
           </CipCard>
         </g>
 
-        {/* Regulatory */}
-        <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
+        {/* Regulatory — hidden until its turn */}
+        <g
+          className={showRegulatory ? undefined : "hero-cip-section-hidden"}
+          style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}
+        >
           <CipCard
             id="regulatory"
-            stagger={4}
+            stagger={0}
             glow="violet"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 510, y: 42, w: 380, h: 112 }}
           >
             <rect
@@ -653,9 +845,32 @@ export function HeroCipAnimation() {
           </CipCard>
         </g>
 
-        {/* Engine — no entrance animation */}
-        <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
-          <rect x={510} y={244} width={380} height={230} rx={10} stroke="#19D3C5" strokeWidth={4} fill="#0D1B3E" />
+        {/* Engine — pops after Regulatory Requirements */}
+        <g
+          className={[
+            "hero-cip-anim-card",
+            "hero-cip-glow-teal",
+            "hero-cip-engine",
+            showEngine ? "is-forced-visible" : "",
+            readingId === "engine" ? "is-reading" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}
+          data-cip-hold="card"
+          data-cip-card="engine"
+        >
+          <rect
+            className="hero-cip-card-border"
+            x={510}
+            y={244}
+            width={380}
+            height={230}
+            rx={10}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            fill="#0D1B3E"
+          />
           <g transform="translate(700 359)">
             <image
               href="/assets/images/suricat-logo-mark-center.svg"
@@ -690,8 +905,11 @@ export function HeroCipAnimation() {
           </g>
         </g>
 
-        {/* Outputs */}
-        <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
+        {/* Outputs — hidden until first output card loads */}
+        <g
+          className={showOutputs ? undefined : "hero-cip-section-hidden"}
+          style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}
+        >
           <text
             x={1170}
             y={40}
@@ -717,11 +935,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="output-1"
-            stagger={5}
+            stagger={0}
             glow="orange"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 980, y: 102, w: 380, h: 112 }}
           >
             <rect
@@ -762,11 +979,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="output-2"
-            stagger={6}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 980, y: 236, w: 380, h: 112 }}
           >
             <rect
@@ -805,11 +1021,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="output-3"
-            stagger={7}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 980, y: 370, w: 380, h: 112 }}
           >
             <rect
@@ -853,11 +1068,10 @@ export function HeroCipAnimation() {
 
           <CipCard
             id="output-4"
-            stagger={8}
+            stagger={0}
             glow="teal"
             readingId={readingId}
             forcedVisible={forcedVisible}
-            onActivate={activateCard}
             hit={{ x: 980, y: 504, w: 380, h: 112 }}
           >
             <rect
@@ -896,11 +1110,22 @@ export function HeroCipAnimation() {
           </CipCard>
         </g>
 
-        {/* Trust footer */}
+        {/* Trust footer — after Cross-Document Issues */}
         <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
-          <line x1={40} y1={684} x2={1360} y2={684} stroke="#19D3C5" strokeWidth={1} opacity={0.55} />
+          <line
+            className={trustCount >= 1 ? "hero-cip-trust-line is-in" : "hero-cip-trust-line"}
+            x1={40}
+            y1={684}
+            x2={1360}
+            y2={684}
+            stroke="#19D3C5"
+            strokeWidth={1}
+          />
 
-          <g transform="translate(92 734)">
+          <g
+            className={trustCount >= 1 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            transform="translate(92 734)"
+          >
             <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 4) scale(1.25)">
                 <path d="M3 2 h10 l4 4 v14 H3 Z" stroke="#FFFFFF" strokeWidth={1.5} />
@@ -917,9 +1142,20 @@ export function HeroCipAnimation() {
               </text>
             </g>
           </g>
-          <line x1={382} y1={704} x2={382} y2={764} stroke="#19D3C5" strokeWidth={1} opacity={0.45} />
+          <line
+            className={trustCount >= 2 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
+            x1={382}
+            y1={704}
+            x2={382}
+            y2={764}
+            stroke="#19D3C5"
+            strokeWidth={1}
+          />
 
-          <g transform="translate(408 734)">
+          <g
+            className={trustCount >= 2 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            transform="translate(408 734)"
+          >
             <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.25)">
                 <path
@@ -938,9 +1174,20 @@ export function HeroCipAnimation() {
               </text>
             </g>
           </g>
-          <line x1={688} y1={704} x2={688} y2={764} stroke="#19D3C5" strokeWidth={1} opacity={0.45} />
+          <line
+            className={trustCount >= 3 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
+            x1={688}
+            y1={704}
+            x2={688}
+            y2={764}
+            stroke="#19D3C5"
+            strokeWidth={1}
+          />
 
-          <g transform="translate(714 734)">
+          <g
+            className={trustCount >= 3 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            transform="translate(714 734)"
+          >
             <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 4) scale(1.25)">
                 <circle cx={9} cy={7} r={4} stroke="#FFFFFF" strokeWidth={1.5} />
@@ -956,9 +1203,20 @@ export function HeroCipAnimation() {
               </text>
             </g>
           </g>
-          <line x1={1030} y1={704} x2={1030} y2={764} stroke="#19D3C5" strokeWidth={1} opacity={0.45} />
+          <line
+            className={trustCount >= 4 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
+            x1={1030}
+            y1={704}
+            x2={1030}
+            y2={764}
+            stroke="#19D3C5"
+            strokeWidth={1}
+          />
 
-          <g transform="translate(1056 734)">
+          <g
+            className={trustCount >= 4 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            transform="translate(1056 734)"
+          >
             <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.25)">
                 <rect x={3} y={11} width={16} height={12} rx={2.2} stroke="#FFFFFF" strokeWidth={1.5} />
@@ -979,14 +1237,34 @@ export function HeroCipAnimation() {
 
       {activeMeta ? (
         <div
-          className={`hero-cip-popover hero-cip-popover-${activeMeta.side} is-open`}
-          style={popoverStyle}
-          role="dialog"
-          aria-label={t(activeMeta.titleKey)}
-          onClick={(event) => event.stopPropagation()}
+          key={activeMeta.id}
+          className={`hero-cip-focus hero-cip-focus-${activeMeta.glow} is-open`}
+          data-cip-hold="focus"
+          role="status"
+          aria-live="polite"
         >
-          <p className="hero-cip-popover-title">{t(activeMeta.titleKey)}</p>
-          <p className="hero-cip-popover-body">{t(activeMeta.bodyKey)}</p>
+          <div className="hero-cip-focus-head">
+            <span
+              className={`hero-cip-focus-icon${activeMeta.useLogo ? " hero-cip-focus-icon-logo" : ""}`}
+              aria-hidden="true"
+            >
+              {activeMeta.useLogo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/assets/images/suricat-logo-mark-center.svg"
+                  alt=""
+                  className="hero-cip-focus-logo"
+                />
+              ) : ActiveIcon ? (
+                <ActiveIcon />
+              ) : null}
+            </span>
+            <div className="hero-cip-focus-copy">
+              <p className="hero-cip-focus-title">{t(activeMeta.titleKey)}</p>
+              <p className="hero-cip-focus-sub">{t(activeMeta.subtitleKey)}</p>
+            </div>
+          </div>
+          <p className="hero-cip-focus-body">{t(activeMeta.bodyKey)}</p>
         </div>
       ) : null}
     </div>
