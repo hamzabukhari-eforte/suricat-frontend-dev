@@ -381,10 +381,7 @@ export function ExistingSystemsSection() {
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
           <HomeNarrativeText fullWidth>{t("p1")}</HomeNarrativeText>
           <HomeNarrativeText fullWidth>{t("p2")}</HomeNarrativeText>
-          <HomeNarrativeText fullWidth>{t("p3")}</HomeNarrativeText>
-          <p className="mb-0 max-w-none text-base font-semibold leading-relaxed text-navy sm:text-lg lg:text-[20px] lg:leading-[28px]">
-            {t("p4")}
-          </p>
+          <p className="es-p3-emphasis">{t("p3")}</p>
         </HomeNarrativeHeader>
 
         <div className="existing-systems-story es-compare">

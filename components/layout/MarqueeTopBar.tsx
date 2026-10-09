@@ -1,6 +1,5 @@
 "use client";
 
-import { FaAngleDoubleRight } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 
@@ -8,20 +7,19 @@ export function MarqueeTopBar() {
   const t = useTranslations("marquee");
 
   const content = (
-    <p className="font-semibold text-navy">
-      {t("text")}
-      <Link
-        href="/readiness"
-        className="font-extrabold underline ml-2 text-navy group"
-      >
+    <p className="marquee-banner">
+      <span className="marquee-banner-text">{t("text")}</span>{" "}
+      <Link href="/get-started" className="marquee-banner-cta">
         {t("cta")}
-        <FaAngleDoubleRight className="inline-block text-xs transition-transform duration-300 group-hover:translate-x-1 ml-1" aria-hidden="true" />
+        <span className="marquee-banner-chevron" aria-hidden="true">
+          »
+        </span>
       </Link>
     </p>
   );
 
   return (
-    <div className="marquee-wrapper">
+    <div className="marquee-wrapper" role="region" aria-label={t("text")}>
       <div className="marquee-track">
         <div className="marquee-content">{content}</div>
         <div className="marquee-content" aria-hidden="true">

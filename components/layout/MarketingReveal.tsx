@@ -37,7 +37,11 @@ const EXCLUDED = [
 
 // Sections that run their own bespoke reveal choreography and must not be
 // double-driven by the generic observer.
-const EXCLUDED_SCOPES = ["#lifecycle-diagram-section", ".pricing-plans-scope"];
+const EXCLUDED_SCOPES = [
+  "#lifecycle-diagram-section",
+  ".pricing-plans-scope",
+  "#alignment-gap",
+];
 
 function isExcluded(el: Element): boolean {
   return (

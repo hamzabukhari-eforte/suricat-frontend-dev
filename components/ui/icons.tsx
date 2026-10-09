@@ -94,6 +94,7 @@ export {
   FaShieldHalved,
   FaSitemap,
   FaStar,
+  FaTableCells,
   FaTimeline,
   FaTriangleExclamation,
   FaUser,

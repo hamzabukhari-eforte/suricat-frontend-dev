@@ -43,32 +43,21 @@ export function RegulatedEnvironmentsSection() {
 
         <div className="regulated-bento">
           <article className="regulated-bento-featured">
-            <div className="regulated-bento-featured-glow" aria-hidden="true" />
-            <div className="regulated-bento-featured-orb regulated-bento-featured-orb-a" aria-hidden="true" />
-            <div className="regulated-bento-featured-orb regulated-bento-featured-orb-b" aria-hidden="true" />
+            <span className="regulated-bento-featured-icon" aria-hidden="true">
+              <FeaturedIcon />
+            </span>
 
-            <div className="regulated-bento-featured-inner">
-              <p className="regulated-bento-featured-kicker">
-                {t("featuredLabel")}
-              </p>
+            <h3 className="regulated-bento-featured-title">
+              {t(`cards.${FEATURED.id}.title`)}
+            </h3>
 
-              <span className="regulated-bento-featured-icon" aria-hidden="true">
-                <span className="regulated-bento-featured-icon-ring" />
-                <FeaturedIcon />
-              </span>
+            <p className="regulated-bento-featured-body">
+              {t(`cards.${FEATURED.id}.body`)}
+            </p>
 
-              <h3 className="regulated-bento-featured-title">
-                {t(`cards.${FEATURED.id}.title`)}
-              </h3>
-
-              <p className="regulated-bento-featured-body">
-                {t(`cards.${FEATURED.id}.body`)}
-              </p>
-
-              <p className="regulated-bento-featured-footnote">
-                {t("featuredFootnote")}
-              </p>
-            </div>
+            <p className="regulated-bento-featured-footnote">
+              {t("featuredFootnote")}
+            </p>
           </article>
 
           <div className="regulated-bento-grid">
