@@ -3380,6 +3380,164 @@ input[type="radio"]:checked + span {
   }
 }
 
+/* Platform hero diagram — smooth step-by-step reveal (ease-in-out) */
+.platform-hero-diagram .ph-reveal {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
+.platform-hero-diagram.ph-anim .ph-reveal {
+  animation: platform-hero-reveal 0.65s cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation-delay: calc(var(--ph-i, 0) * 0.18s);
+}
+
+.platform-hero-diagram.ph-anim .ph-ring {
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation:
+    platform-hero-reveal 0.6s cubic-bezier(0.45, 0, 0.55, 1) both,
+    platform-hero-ring-draw 0.75s cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation-delay:
+    calc(var(--ph-i, 0) * 0.18s),
+    calc(var(--ph-i, 0) * 0.18s);
+}
+
+.platform-hero-diagram.ph-anim .ph-feed,
+.platform-hero-diagram.ph-anim .ph-out-arrow {
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  animation:
+    platform-hero-reveal 0.55s cubic-bezier(0.45, 0, 0.55, 1) both,
+    platform-hero-line-draw 0.8s cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation-delay:
+    calc(var(--ph-i, 0) * 0.18s),
+    calc(var(--ph-i, 0) * 0.18s);
+}
+
+.platform-hero-diagram.ph-anim .ph-core {
+  animation:
+    platform-hero-reveal 0.7s cubic-bezier(0.45, 0, 0.55, 1) both,
+    platform-hero-core-pulse 2.8s ease-in-out infinite;
+  animation-delay: calc(var(--ph-i, 0) * 0.18s), 4.2s;
+}
+
+.platform-hero-diagram.ph-anim .ph-orbit {
+  animation:
+    platform-hero-fade 0.6s cubic-bezier(0.45, 0, 0.55, 1) both,
+    platform-hero-orbit-spin 22s linear infinite;
+  animation-delay: calc(var(--ph-i, 0) * 0.18s), 3.8s;
+}
+
+.platform-hero-diagram.ph-anim .ph-step {
+  animation: platform-hero-reveal-step 0.7s cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation-delay: calc(var(--ph-i, 0) * 0.18s);
+}
+
+/* Hidden while off-screen / between replays */
+.platform-hero-diagram.ph-reset .ph-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: none;
+  filter: none;
+}
+
+.platform-hero-diagram.ph-static .ph-reveal,
+.platform-hero-diagram.ph-static .ph-ring,
+.platform-hero-diagram.ph-static .ph-feed,
+.platform-hero-diagram.ph-static .ph-out-arrow,
+.platform-hero-diagram.ph-static .ph-core,
+.platform-hero-diagram.ph-static .ph-orbit {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  stroke-dashoffset: 0;
+  filter: none;
+}
+
+@keyframes platform-hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes platform-hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes platform-hero-reveal-step {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes platform-hero-ring-draw {
+  from {
+    stroke-dashoffset: 140;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes platform-hero-line-draw {
+  from {
+    stroke-dashoffset: 280;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes platform-hero-core-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(25, 211, 197, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(25, 211, 197, 0.32));
+  }
+}
+
+@keyframes platform-hero-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-hero-diagram .ph-reveal,
+  .platform-hero-diagram .ph-ring,
+  .platform-hero-diagram .ph-feed,
+  .platform-hero-diagram .ph-out-arrow,
+  .platform-hero-diagram .ph-core,
+  .platform-hero-diagram .ph-orbit {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    filter: none !important;
+  }
+}
+
 .platform-step-card {
   display: flex;
   gap: 1.1rem;
