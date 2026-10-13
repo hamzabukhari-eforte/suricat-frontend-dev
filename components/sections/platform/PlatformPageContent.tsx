@@ -78,7 +78,7 @@ export function PlatformPageContent() {
         </Container>
       </header>
 
-      <section className="bg-white">
+      <section className="bg-surface-muted">
         <Container>
           <div
             id="platform-step-regulatory"
@@ -97,7 +97,11 @@ export function PlatformPageContent() {
             </div>
             <PlatformRegulatoryDiagram />
           </div>
+        </Container>
+      </section>
 
+      <section className="bg-white">
+        <Container>
           <div id="platform-step-document" className="platform-doc-section">
             <p className="platform-reg-eyebrow">
               {t("steps.document.phase")}
@@ -112,7 +116,11 @@ export function PlatformPageContent() {
             </div>
             <PlatformDocumentDiagram />
           </div>
+        </Container>
+      </section>
 
+      <section className="bg-surface-muted">
+        <Container>
           <div id="platform-step-quality" className="platform-iq-section">
             <p className="platform-reg-eyebrow is-teal">
               {t("steps.quality.phase")}
@@ -125,7 +133,11 @@ export function PlatformPageContent() {
             </div>
             <PlatformQualityDiagram />
           </div>
+        </Container>
+      </section>
 
+      <section className="bg-white">
+        <Container>
           <div id="platform-step-gap" className="platform-iq-section">
             <p className="platform-reg-eyebrow is-teal">
               {t("steps.gap.phase")}
@@ -138,7 +150,11 @@ export function PlatformPageContent() {
             </div>
             <PlatformGapDiagram />
           </div>
+        </Container>
+      </section>
 
+      <section className="bg-surface-muted">
+        <Container>
           <div id="platform-step-cross" className="platform-iq-section">
             <p className="platform-reg-eyebrow is-teal">
               {t("steps.cross.phase")}
@@ -151,7 +167,11 @@ export function PlatformPageContent() {
             </div>
             <PlatformCrossDiagram />
           </div>
+        </Container>
+      </section>
 
+      <section className="bg-white">
+        <Container>
           <div id="platform-step-record" className="platform-iq-section">
             <p className="platform-reg-eyebrow is-teal">
               {t("steps.record.phase")}

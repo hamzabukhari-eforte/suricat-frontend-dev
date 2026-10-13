@@ -3801,7 +3801,7 @@ input[type="radio"]:checked + span {
 .platform-doc-section {
   padding-top: 2.5rem;
   padding-bottom: 2.75rem;
-  border-top: 1px solid rgba(13, 27, 62, 0.06);
+  border-top: 0;
 }
 
 .platform-doc-diagram {
@@ -4045,7 +4045,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-doc-identified {
-  background: #f3eef8;
+  background: #fff;
   border: 1.5px solid rgba(92, 61, 143, 0.28);
   border-radius: 16px;
   padding: 0.55rem 0.6rem;
@@ -4129,7 +4129,7 @@ input[type="radio"]:checked + span {
 
 @media (min-width: 1024px) {
   .platform-doc-section {
-    padding-top: 3rem;
+    padding-top: 3.25rem;
     padding-bottom: 3.25rem;
   }
 
@@ -4666,10 +4666,6 @@ input[type="radio"]:checked + span {
 .platform-iq-section {
   padding-top: 2.5rem;
   padding-bottom: 2.25rem;
-  border-top: 1px solid rgb(226 232 240);
-}
-
-.platform-iq-section:first-child {
   border-top: 0;
 }
 
@@ -5276,6 +5272,10 @@ input[type="radio"]:checked + span {
   max-width: none;
   width: 100%;
   min-width: 0;
+}
+
+.platform-q-identified.platform-cross-panel {
+  background: #f8f9fa;
 }
 
 @media (min-width: 1024px) {
@@ -5897,7 +5897,7 @@ input[type="radio"]:checked + span {
   }
 
   .platform-iq-section {
-    padding-top: 3rem;
+    padding-top: 3.25rem;
     padding-bottom: 2.5rem;
   }
 }
@@ -5908,8 +5908,8 @@ input[type="radio"]:checked + span {
   position: relative;
   overflow: hidden;
   background: #f8f9fa;
-  padding: 4.5rem 0 4.75rem;
-  border-top: 1px solid rgb(226 232 240);
+  padding: 2.5rem 0 2rem;
+  border-top: 0;
 }
 
 .platform-closing-glow {
@@ -5919,7 +5919,13 @@ input[type="radio"]:checked + span {
 .platform-closing-head {
   position: relative;
   text-align: left;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .platform-closing {
+    padding: 3.25rem 0 2rem;
+  }
 }
 
 .platform-closing-title {
@@ -6215,7 +6221,7 @@ input[type="radio"]:checked + span {
 .platform-closing-body {
   position: relative;
   margin: 2.35rem auto 0;
-  max-width: 44rem;
+  max-width: 56rem;
   text-align: center;
   font-size: 1.02rem;
   line-height: 1.65;
