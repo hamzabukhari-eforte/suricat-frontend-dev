@@ -1,5 +1,7 @@
 "use client";
 
+import { CtaBand } from "@/components/sections/CtaBand";
+import { WhySuricatSection } from "@/components/sections/home";
 import { PlatformClosingSection } from "@/components/sections/platform/PlatformClosingSection";
 import { PlatformCrossDiagram } from "@/components/sections/platform/PlatformCrossDiagram";
 import { PlatformDocumentDiagram } from "@/components/sections/platform/PlatformDocumentDiagram";
@@ -166,6 +168,8 @@ export function PlatformPageContent() {
       </section>
 
       <PlatformClosingSection />
+      <WhySuricatSection />
+      <CtaBand />
     </>
   );
 }
