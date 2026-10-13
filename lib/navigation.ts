@@ -93,7 +93,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       titleKey: "nav.menus.platform.introTitle",
       textKey: "nav.menus.platform.introText",
       ctaLabelKey: "nav.menus.platform.ctaLabel",
-      ctaHref: `/#${HOME_SECTION_IDS.platform}`,
+      ctaHref: "/platform",
     },
     links: [
       {
