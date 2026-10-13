@@ -35,23 +35,23 @@ function QualityHubIcon() {
       fill="none"
       aria-hidden="true"
     >
-      <circle cx="7" cy="12" r="1.6" stroke="#fff" strokeWidth="1" />
+      <circle cx="7" cy="12" r="1.6" stroke="#fff" strokeWidth="1.25" />
       <path
         d="M10.2 8.2a6.2 6.2 0 0 1 0 7.6"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
         d="M13.2 5.6a10.2 10.2 0 0 1 0 12.8"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
         d="M16.2 3.2a14 14 0 0 1 0 17.6"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
     </svg>

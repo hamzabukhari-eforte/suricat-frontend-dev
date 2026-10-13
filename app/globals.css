@@ -4601,12 +4601,20 @@ input[type="radio"]:checked + span {
 
 .platform-q-hub-icon:has(svg.platform-gap-hub-icon) {
   width: 52px;
-  height: 52px;
+  height: 58px;
+  margin: 0;
+  line-height: 0;
 }
 
 .platform-q-hub-icon svg.platform-gap-hub-icon {
   width: 52px;
-  height: 52px;
+  height: 58px;
+  display: block;
+  margin-bottom: -6px;
+}
+
+.platform-gap-diagram .platform-q-hub .platform-doc-hub-title {
+  margin-top: -4px;
 }
 
 .platform-q-hub .platform-doc-hub-title {

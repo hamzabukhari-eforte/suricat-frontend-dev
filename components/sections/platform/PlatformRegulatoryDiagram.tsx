@@ -64,7 +64,7 @@ function FunnelIcon() {
       <path
         d="M4 5h16l-6 7.5V18l-4 2v-7.5L4 5z"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinejoin="round"
         fill="none"
       />

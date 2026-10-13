@@ -20,8 +20,8 @@ function GapHubIcon() {
     <svg
       className="platform-gap-hub-icon"
       width="52"
-      height="52"
-      viewBox="0 0 24 24"
+      height="58"
+      viewBox="1.2 8.4 21.6 8.8"
       fill="none"
       aria-hidden="true"
     >
@@ -29,7 +29,7 @@ function GapHubIcon() {
       <path
         d="M2 9h5.5V16h9V9H22"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -37,13 +37,13 @@ function GapHubIcon() {
       <path
         d="M10.6 12.5H8.2"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
         d="M9.4 11l-1.6 1.5 1.6 1.5"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -51,13 +51,13 @@ function GapHubIcon() {
       <path
         d="M13.4 12.5h2.4"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
         d="M14.6 11l1.6 1.5-1.6 1.5"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

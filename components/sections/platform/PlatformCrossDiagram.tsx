@@ -84,14 +84,14 @@ function CrossHubIcon() {
       <path
         d="M11.2 4.2h5.6a2 2 0 0 1 2 2v5.6a2 2 0 0 1-2 2h-1.4"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M11.2 11.8V6.2a2 2 0 0 1 2-2"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -99,7 +99,7 @@ function CrossHubIcon() {
       <path
         d="M12.6 8.6l1.5 1.5 2.8-2.9"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -108,14 +108,14 @@ function CrossHubIcon() {
       <path
         d="M12.8 19.8H7.2a2 2 0 0 1-2-2v-5.6a2 2 0 0 1 2-2h1.4"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M12.8 12.2v5.6a2 2 0 0 1-2 2"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -123,7 +123,7 @@ function CrossHubIcon() {
       <path
         d="M7.8 13.6l4 4M11.8 13.6l-4 4"
         stroke="#fff"
-        strokeWidth="1"
+        strokeWidth="1.25"
         strokeLinecap="round"
       />
     </svg>
