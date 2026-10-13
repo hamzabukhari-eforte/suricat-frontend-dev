@@ -64,7 +64,7 @@ function FunnelIcon() {
       <path
         d="M4 5h16l-6 7.5V18l-4 2v-7.5L4 5z"
         stroke="currentColor"
-        strokeWidth="1.8"
+        strokeWidth="1"
         strokeLinejoin="round"
         fill="none"
       />
@@ -212,7 +212,9 @@ export function PlatformRegulatoryDiagram() {
 
         {/* Right: what applies */}
         <div className="platform-reg-col">
-          <p className="platform-reg-col-label">{t("appliesLabel")}</p>
+          <p className="platform-reg-col-label platform-reg-col-label-right">
+            {t("appliesLabel")}
+          </p>
           <div className="platform-reg-applies">
             <div className="platform-reg-applies-head">
               <span className="platform-reg-applies-icon" aria-hidden="true">
@@ -239,9 +241,6 @@ export function PlatformRegulatoryDiagram() {
         </div>
       </div>
 
-      <div className="platform-reg-footnotes">
-        <p>{t("dashedNote")}</p>
-      </div>
     </div>
   );
 }

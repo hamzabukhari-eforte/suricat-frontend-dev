@@ -14,39 +14,52 @@ const COVERAGE = [
   { key: "c4", status: "insufficient" as const, sourceKey: "sourceC4" as const },
 ] as const;
 
-/** Outline clipboard with missing check — gap / what's missing */
+/** Gap trench with outward arrows — Gap Intelligence */
 function GapHubIcon() {
   return (
     <svg
-      width="48"
-      height="48"
+      className="platform-gap-hub-icon"
+      width="52"
+      height="52"
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
+      {/* Surface with rectangular gap */}
       <path
-        d="M9 4.2h6a1.2 1.2 0 0 1 1.2 1.2v1.1H7.8V5.4A1.2 1.2 0 0 1 9 4.2z"
+        d="M2 9h5.5V16h9V9H22"
         stroke="#fff"
-        strokeWidth="1.55"
+        strokeWidth="1"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Left arrow */}
       <path
-        d="M8 5.5H6.6A1.6 1.6 0 0 0 5 7.1v12.2A1.6 1.6 0 0 0 6.6 21h10.8a1.6 1.6 0 0 0 1.6-1.7V7.1a1.6 1.6 0 0 0-1.6-1.6H16"
+        d="M10.6 12.5H8.2"
         stroke="#fff"
-        strokeWidth="1.55"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.5 11.2h3.2M8.5 14.2h7M8.5 17.2h4.5"
-        stroke="#fff"
-        strokeWidth="1.5"
+        strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M16.2 10.4l2.3 2.3M18.5 10.4l-2.3 2.3"
+        d="M9.4 11l-1.6 1.5 1.6 1.5"
         stroke="#fff"
-        strokeWidth="1.55"
+        strokeWidth="1"
         strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Right arrow */}
+      <path
+        d="M13.4 12.5h2.4"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.6 11l1.6 1.5-1.6 1.5"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -70,81 +70,61 @@ function MisalignBridgeIcon() {
   );
 }
 
-/** Two docs with exchange arrows — Cross Document Intelligence */
+/** Interlocked boxes ✓ / ✕ — Cross Document Intelligence */
 function CrossHubIcon() {
   return (
     <svg
       width="48"
       height="48"
-      viewBox="0 0 48 48"
+      viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
-      {/* Left document */}
+      {/* Top-right linked square (check) — gap at bottom-left link */}
       <path
-        d="M6 8h10.5L20 11.5V38a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"
+        d="M11.2 4.2h5.6a2 2 0 0 1 2 2v5.6a2 2 0 0 1-2 2h-1.4"
         stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16.5 8v3.5H20"
-        stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.5 18h7M8.5 23h7M8.5 28h5"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      {/* Right document */}
-      <path
-        d="M28 8h10.5L42 11.5V38a2 2 0 0 1-2 2H28a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"
-        stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M38.5 8v3.5H42"
-        stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M30.5 18h7M30.5 23h7M30.5 28h5"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      {/* Top arrow → */}
-      <path
-        d="M21.5 19.5h5"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M24.5 17l2.8 2.5L24.5 22"
-        stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Bottom arrow ← */}
       <path
-        d="M26.5 28.5h-5"
+        d="M11.2 11.8V6.2a2 2 0 0 1 2-2"
         stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M23.5 26l-2.8 2.5 2.8 2.5"
-        stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+      {/* Check mark */}
+      <path
+        d="M12.6 8.6l1.5 1.5 2.8-2.9"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Bottom-left linked square (X) — gap at top-right link */}
+      <path
+        d="M12.8 19.8H7.2a2 2 0 0 1-2-2v-5.6a2 2 0 0 1 2-2h1.4"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12.8 12.2v5.6a2 2 0 0 1-2 2"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* X mark */}
+      <path
+        d="M7.8 13.6l4 4M11.8 13.6l-4 4"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
       />
     </svg>
   );

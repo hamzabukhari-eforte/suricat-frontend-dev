@@ -13,57 +13,72 @@ const STEPS = [
   { key: "s3", num: "3", status: "ok" as const },
 ] as const;
 
-/** Procedure vs record — outline Record Intelligence */
+/** ID / record card with outflow arrows — Record Intelligence */
 function RecordHubIcon() {
   return (
     <svg
       width="48"
       height="48"
-      viewBox="0 0 48 48"
+      viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
+      {/* Card frame — broken on right where arrows exit */}
       <path
-        d="M16 6.5h10a2 2 0 0 1 2 2v2.2H14V8.5a2 2 0 0 1 2-2z"
+        d="M16.5 4.5H7.5A1.5 1.5 0 0 0 6 6v12a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 18v-1.2"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M14 9.2H11.8A2.3 2.3 0 0 0 9.5 11.5v26A2.3 2.3 0 0 0 11.8 39.8h18.4a2.3 2.3 0 0 0 2.3-2.3v-14"
+        d="M18 13.4V6A1.5 1.5 0 0 0 16.5 4.5"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Person */}
+      <circle cx="12" cy="8.2" r="1.55" stroke="#fff" strokeWidth="1" />
       <path
-        d="M15.5 18h10M15.5 23.5h10M15.5 29h7"
+        d="M9.2 12.2c.4-1.35 1.45-2 2.8-2s2.4.65 2.8 2"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+      {/* Text lines (1st & 3rd stay inside) */}
+      <path
+        d="M8.2 14.2h5.2M8.2 17.6h4.4"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+      {/* Lines that exit → with arrows */}
+      <path
+        d="M8.2 15.9H20"
+        stroke="#fff"
+        strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M28.5 22.5h11.5L43 25.8V41a2 2 0 0 1-2 2H28.5a2 2 0 0 1-2-2V24.5a2 2 0 0 1 2-2z"
+        d="M18.6 14.5l1.9 1.4-1.9 1.4"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M40 22.5V25.8H43"
+        d="M8.2 19.3H20"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+      <path
+        d="M18.6 17.9l1.9 1.4-1.9 1.4"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <path
-        d="M31.5 32.5h8M31.5 37h5.5"
-        stroke="#fff"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-      />
-      <path
-        d="M38.2 30.2l3.2 3.2M41.4 30.2l-3.2 3.2"
-        stroke="#fff"
-        strokeWidth="1.9"
-        strokeLinecap="round"
       />
     </svg>
   );

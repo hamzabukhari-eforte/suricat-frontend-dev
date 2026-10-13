@@ -3653,12 +3653,16 @@ input[type="radio"]:checked + span {
 
 .platform-reg-col-label {
   margin: 0 0 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.68px;
   text-transform: uppercase;
+  color: #6b7280;
+  text-align: left;
+}
+
+.platform-reg-col-label-right {
   color: #5c3d8f;
-  text-align: center;
 }
 
 .platform-reg-universe {
@@ -3839,7 +3843,7 @@ input[type="radio"]:checked + span {
 
 .platform-reg-hub-title {
   margin: 0 0 0.45rem;
-  font-size: 0.92rem;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.2;
 }
@@ -3984,16 +3988,17 @@ input[type="radio"]:checked + span {
 
 .platform-doc-col-label {
   margin: 0 0 0.8rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.68px;
   text-transform: uppercase;
   color: #6b7280;
-  text-align: center;
+  text-align: left;
 }
 
 .platform-doc-col-label-right {
   color: #5c3d8f;
+  text-align: left;
 }
 
 .platform-doc-files-block {
@@ -4188,10 +4193,10 @@ input[type="radio"]:checked + span {
 
 .platform-doc-hub-title {
   margin: 0 0 0.45rem;
-  font-size: 0.92rem;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.2;
-  max-width: 8.5rem;
+  max-width: 9.5rem;
 }
 
 .platform-doc-hub-sub {
@@ -4308,7 +4313,7 @@ input[type="radio"]:checked + span {
   }
 
   .platform-doc-col-label-right {
-    text-align: center;
+    text-align: left;
     padding-left: 0;
   }
 
@@ -4582,10 +4587,9 @@ input[type="radio"]:checked + span {
   justify-content: center;
   margin: 0 0 0.4rem;
   color: #fff;
-  font-size: 2rem;
   line-height: 1;
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
 }
 
@@ -4595,12 +4599,22 @@ input[type="radio"]:checked + span {
   height: 48px;
 }
 
+.platform-q-hub-icon:has(svg.platform-gap-hub-icon) {
+  width: 52px;
+  height: 52px;
+}
+
+.platform-q-hub-icon svg.platform-gap-hub-icon {
+  width: 52px;
+  height: 52px;
+}
+
 .platform-q-hub .platform-doc-hub-title {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.2;
-  max-width: 8.5rem;
+  max-width: 9.5rem;
 }
 
 /* Labels out of flow so left/right content centers with the hub */
@@ -4999,7 +5013,7 @@ input[type="radio"]:checked + span {
 
 .platform-iq-hub-title {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.2;
   color: #fff;
@@ -5235,7 +5249,7 @@ input[type="radio"]:checked + span {
 .platform-gap-diagram .platform-doc-col-label,
 .platform-gap-diagram .platform-doc-col-label-right,
 .platform-gap-diagram .platform-q-label-right {
-  letter-spacing: 0.08em;
+  letter-spacing: 1.68px;
 }
 
 .platform-gap-diagram .platform-doc-col-label-right,
@@ -6051,7 +6065,7 @@ input[type="radio"]:checked + span {
   }
 
   .platform-iq-hub-title {
-    font-size: 0.88rem;
+    font-size: 16px;
   }
 
   .platform-iq-section {

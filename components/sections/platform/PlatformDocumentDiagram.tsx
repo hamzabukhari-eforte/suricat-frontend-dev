@@ -57,21 +57,21 @@ function DocSearchIcon() {
       <path
         d="M6.5 3h7.4L19 8.1V19.2A1.3 1.3 0 0 1 17.7 20.5H6.5A1.3 1.3 0 0 1 5.2 19.2V4.3A1.3 1.3 0 0 1 6.5 3z"
         stroke="#fff"
-        strokeWidth="1.55"
+        strokeWidth="1"
         strokeLinejoin="round"
       />
-      <path d="M13.7 3v5.1H19" stroke="#fff" strokeWidth="1.55" />
+      <path d="M13.7 3v5.1H19" stroke="#fff" strokeWidth="1" />
       <path
         d="M8.2 10.2h5.2M8.2 12.6h3.6"
         stroke="#fff"
-        strokeWidth="1.4"
+        strokeWidth="1"
         strokeLinecap="round"
       />
-      <circle cx="13.6" cy="15.4" r="2.55" stroke="#fff" strokeWidth="1.55" />
+      <circle cx="13.6" cy="15.4" r="2.55" stroke="#fff" strokeWidth="1" />
       <path
         d="M15.4 17.2L17.6 19.4"
         stroke="#fff"
-        strokeWidth="1.55"
+        strokeWidth="1"
         strokeLinecap="round"
       />
     </svg>

@@ -2472,7 +2472,7 @@
     "steps": {
       "regulatory": {
         "short": "Regulatory Context",
-        "phase": "01 · Foundation · Regulatory Context",
+        "phase": "Foundation · Regulatory Context",
         "title": "Know What Applies.",
         "lead": "Compliance documentation can only be evaluated against the requirements it needs to support.",
         "body": "Suricat establishes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.",
@@ -2480,7 +2480,7 @@
       },
       "document": {
         "short": "Document Intelligence",
-        "phase": "02 · Foundation · Document Intelligence",
+        "phase": "Foundation · Document Intelligence",
         "title": "Understand What Is Being Reviewed.",
         "lead": "An SOP is not a CAPA. A risk file is not a training document. Different compliance documents serve different purposes.",
         "body": "Suricat identifies what it is reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.",
@@ -2488,7 +2488,7 @@
       },
       "quality": {
         "short": "Quality Intelligence",
-        "phase": "03 · Intelligence · Quality Intelligence",
+        "phase": "Intelligence · Quality Intelligence",
         "title": "Measure Quality. Not Just Presence.",
         "lead": "Having the document does not mean the document is ready.",
         "body": "Suricat Quality Signals evaluate whether each document is complete, clear, strong, and usable for its intended purpose.",
@@ -2496,7 +2496,7 @@
       },
       "gap": {
         "short": "Gap Intelligence",
-        "phase": "04 · Intelligence · Gap Intelligence",
+        "phase": "Intelligence · Gap Intelligence",
         "title": "Know What Is Missing.",
         "lead": "An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.",
         "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.",
@@ -2504,7 +2504,7 @@
       },
       "cross": {
         "short": "Cross-Document",
-        "phase": "05 · Intelligence · Cross Document Intelligence",
+        "phase": "Intelligence · Cross Document Intelligence",
         "title": "See Where Related Documents Stop Lining Up.",
         "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while related risk documentation still reflects the old condition.",
         "body": "Suricat surfaces potential misalignment across related documents, with each one linked to the source evidence behind it.",
@@ -2512,7 +2512,7 @@
       },
       "record": {
         "short": "Record Intelligence",
-        "phase": "06 · Intelligence · Record Intelligence",
+        "phase": "Intelligence · Record Intelligence",
         "title": "Compare What Should Happen with What Actually Happened.",
         "lead": "A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.",
         "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, with each one linked to the source evidence behind it.",

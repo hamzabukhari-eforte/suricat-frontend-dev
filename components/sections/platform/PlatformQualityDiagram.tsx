@@ -25,60 +25,34 @@ const DOCS: {
 
 const SIGNALS = ["complete", "clear", "strong", "usable"] as const;
 
-/** Document + quality seal — outline Quality Intelligence */
+/** Signal waves — Suricat Quality Signals */
 function QualityHubIcon() {
   return (
     <svg
       width="48"
       height="48"
-      viewBox="0 0 48 48"
+      viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
-      {/* Document */}
+      <circle cx="7" cy="12" r="1.6" stroke="#fff" strokeWidth="1" />
       <path
-        d="M10 6h16.5L34 13.5V40a2.5 2.5 0 0 1-2.5 2.5H10A2.5 2.5 0 0 1 7.5 40V8.5A2.5 2.5 0 0 1 10 6z"
+        d="M10.2 8.2a6.2 6.2 0 0 1 0 7.6"
         stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M26.5 6v7.5H34"
-        stroke="#fff"
-        strokeWidth="2.1"
-        strokeLinejoin="round"
-      />
-      {/* Text lines */}
-      <path
-        d="M13.5 20h12M13.5 25.5h12M13.5 31h8"
-        stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
       />
-      {/* Quality seal circle */}
-      <circle
-        cx="34.5"
-        cy="33.5"
-        r="9.2"
-        stroke="#fff"
-        strokeWidth="2.1"
-      />
-      {/* Inner ring */}
-      <circle
-        cx="34.5"
-        cy="33.5"
-        r="6.2"
-        stroke="#fff"
-        strokeWidth="1.5"
-        strokeDasharray="2.2 2.4"
-      />
-      {/* Check */}
       <path
-        d="M30.8 33.4l2.4 2.4 5-5.2"
+        d="M13.2 5.6a10.2 10.2 0 0 1 0 12.8"
         stroke="#fff"
-        strokeWidth="2.1"
+        strokeWidth="1"
         strokeLinecap="round"
-        strokeLinejoin="round"
+      />
+      <path
+        d="M16.2 3.2a14 14 0 0 1 0 17.6"
+        stroke="#fff"
+        strokeWidth="1"
+        strokeLinecap="round"
       />
     </svg>
   );
