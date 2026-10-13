@@ -11,12 +11,12 @@ export function HomeNarrativeHeader({
   eyebrow,
   title,
   children,
-  titleClassName = "text-2xl sm:text-3xl lg:text-[32px] font-semibold mb-4 sm:mb-6 leading-tight lg:leading-[36px] text-navy",
+  titleClassName = "mb-4 text-[32px] font-bold leading-tight text-navy sm:mb-6 lg:leading-[36px]",
 }: HomeNarrativeHeaderProps) {
   return (
     <div className="mb-10 lg:mb-12">
       {eyebrow ? (
-        <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+        <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-teal">
           {eyebrow}
         </span>
       ) : null}
@@ -35,7 +35,7 @@ export function HomeNarrativeText({
 }) {
   return (
     <p
-      className={`mb-4 text-base leading-relaxed text-navy last:mb-0 sm:text-lg lg:text-[20px] lg:leading-[28px] ${
+      className={`mb-4 text-[20px] font-normal leading-relaxed text-navy last:mb-0 lg:leading-[28px] ${
         fullWidth ? "max-w-none" : "max-w-4xl"
       }`}
     >

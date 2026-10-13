@@ -1,0 +1,46 @@
+Suricat Website Redesign (Platform Section)
+TOP BANNER:
+Navigation BAR:
+1) Hero:
+THE PLATFORM
+From Compliance Evidence to Compliance Intelligence.
+Six steps. The same path a careful QA or RA reviewer would follow, from what applies to what actually happened.
+Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.
+Join as a Design Partner  Request a Free Pilot
+Got Questions?
+Dynamic Visual for the HERO Section
+01 · FOUNDATION · REGULATORY CONTEXT
+Know What Applies.
+Compliance documentation can only be evaluated against the requirements it needs to support.
+Suricat establishes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.
+Every later step builds on this foundation.
+02 · FOUNDATION · DOCUMENT INTELLIGENCE
+Understand What Is Being Reviewed.
+An SOP is not a CAPA. A risk file is not a training document. Different compliance documents serve different purposes.
+Suricat identifies what it is reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.
+With the foundation in place, the intelligence can begin.
+03 · INTELLIGENCE · QUALITY INTELLIGENCE
+Measure Quality. Not Just Presence.
+Having the document does not mean the document is ready.
+Suricat Quality Signals evaluate whether each document is complete, clear, strong, and usable for its intended purpose.
+Suricat shows where documentation appears ready and where closer review may be needed.
+04 · INTELLIGENCE · GAP INTELLIGENCE
+Know What Is Missing.
+An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.
+Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.
+QA and RA teams verify each potential gap and decide what to do.
+05 · INTELLIGENCE · CROSS DOCUMENT INTELLIGENCE
+See Where Related Documents Stop Lining Up.
+Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while related risk documentation still reflects the old condition.
+Suricat surfaces potential misalignment across related documents, with each one linked to the source evidence behind it.
+QA and RA teams verify each potential misalignment and decide what to do.
+06 · INTELLIGENCE · RECORD INTELLIGENCE
+Compare What Should Happen with What Actually Happened.
+A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.
+Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, with each one linked to the source evidence behind it.
+QA and RA teams verify each potential discrepancy and decide what to do.
+THE PLATFORM (CLOSING PUNCHLINE)
+Know What Needs Attention. Before It Becomes a Finding.
+Suricat brings regulatory context, document understanding, quality, gaps, relationships, and records together so QA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.
+DESIGN PARTNER BAND
+FOOTER

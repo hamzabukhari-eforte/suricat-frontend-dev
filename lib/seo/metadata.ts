@@ -30,7 +30,8 @@ export type PageSeoKey =
   | "readiness"
   | "discussionConfirmed"
   | "login"
-  | "sitemap";
+  | "sitemap"
+  | "platform";
 
 const pagePaths: Record<PageSeoKey, string> = {
   home: "/",
@@ -60,6 +61,7 @@ const pagePaths: Record<PageSeoKey, string> = {
   discussionConfirmed: "/discussion-confirmed",
   login: "/login",
   sitemap: "/sitemap",
+  platform: "/platform",
 };
 
 const absoluteTitleKeys = new Set<PageSeoKey>(["home"]);

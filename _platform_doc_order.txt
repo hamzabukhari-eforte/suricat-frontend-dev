@@ -1,0 +1,32 @@
+TEXT: Suricat Website Redesign (Platform Section)TOP BANNER:
+IMG: media/image14.png
+TEXT: Navigation BAR:
+IMG: media/image18.png
+TEXT: at may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.Join as a Design Partner  Request a Free PilotGot Questions?
+IMG: media/image12.png
+TEXT: Dynamic Visual for the HERO Section
+IMG: media/image11.png
+TEXT: hes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.Every later step builds on this foundation.
+IMG: media/image19.png
+IMG: media/image7.png
+TEXT: reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.With the foundation in place, the intelligence can begin.
+IMG: media/image15.png
+IMG: media/image1.png
+TEXT:  document is complete, clear, strong, and usable for its intended purpose.Suricat shows where documentation appears ready and where closer review may be needed.
+IMG: media/image8.png
+IMG: media/image9.png
+TEXT: r insufficient, with each potential gap linked to the requirement and source evidence behind it.QA and RA teams verify each potential gap and decide what to do.
+IMG: media/image16.png
+IMG: media/image2.png
+TEXT: gnment across related documents, with each one linked to the source evidence behind it.QA and RA teams verify each potential misalignment and decide what to do.
+IMG: media/image13.png
+IMG: media/image5.png
+TEXT: surfaces potential discrepancies, with each one linked to the source evidence behind it.QA and RA teams verify each potential discrepancy and decide what to do.
+IMG: media/image17.png
+IMG: media/image6.png
+TEXT: , quality, gaps, relationships, and records together so QA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.
+IMG: media/image3.png
+TEXT: DESIGN PARTNER BAND
+IMG: media/image10.png
+TEXT: FOOTER
+IMG: media/image4.png

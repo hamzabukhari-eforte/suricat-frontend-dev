@@ -274,6 +274,10 @@
     "sitemap": {
       "title": "Sitemap",
       "description": "Browse all public Suricat pages. Find solutions, pricing, company information, and more."
+    },
+    "platform": {
+      "title": "The Platform",
+      "description": "From compliance evidence to compliance intelligence — six steps Suricat follows so QA and RA teams can see what may need attention, with source evidence behind it."
     }
   },
   "forms": {
@@ -1094,23 +1098,32 @@
       "suricatLabel": "With Suricat",
       "regulations": "Regulations & Standards",
       "yourTeam": "Your Team",
+      "qaRaTeams": "QA and RA Teams",
       "suricatName": "Suricat",
       "misalignments": "Potential misalignments",
-      "todayCaption": "Your team connects it manually.",
-      "suricatNote": "Works from documents you provide. No integration required.",
-      "suricatCaption": "Suricat connects it. Your team reviews it.",
-      "suricatCaptionLead": "Suricat connects it.",
-      "suricatCaptionAccent": "Your team reviews it.",
+      "evidenceLinked": "Source evidence linked",
+      "relationshipsMissed": "Relationships can be missed",
+      "todayCaption": "Each system manages its own information.",
+      "todayCaptionLead": "Each system manages its own information.",
+      "todayCaptionAccent": "Alignment is still the challenge.",
+      "suricatNote": "Works alongside existing systems.",
+      "suricatCaption": "Suricat surfaces what may no longer line up. QA and RA teams review, verify, and decide.",
+      "suricatCaptionLead": "Suricat surfaces what may no longer line up.",
+      "suricatCaptionAccent": "QA and RA teams review, verify, and decide.",
       "systems": {
         "qms": "QMS",
+        "qmsDetail": "Records · Workflows",
         "rim": "RIM",
+        "rimDetail": "Submissions",
         "plm": "PLM",
-        "documents": "Document Control"
+        "plmDetail": "Design data",
+        "documents": "Document Control",
+        "documentsDetail": "Documents · Approvals"
       },
       "manual": {
         "spreadsheets": "Spreadsheets",
-        "crossRef": "Cross-reference reviews",
-        "email": "Email and meetings"
+        "crossRef": "Manual reviews",
+        "email": "Emails and meetings"
       }
     },
     "practitioners": {
@@ -2448,6 +2461,297 @@
       "bottomCtaNote": "See how the Compliance Intelligence Layer works using representative Medical Device documentation before uploading your own."
     }
   },
+  "platformPage": {
+    "heroEyebrow": "THE PLATFORM",
+    "heroLead": "Six steps. The same path a careful QA or RA reviewer would follow, from what applies to what actually happened.",
+    "heroBody": "Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.",
+    "pathEyebrow": "How Suricat Works",
+    "pathTitle": "Six steps from what applies to what actually happened.",
+    "closeTitle": "Know What Needs Attention. Before It Becomes a Finding.",
+    "closeBody": "Suricat brings regulatory context, document understanding, quality, gaps, relationships, and records together so QA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.",
+    "steps": {
+      "regulatory": {
+        "short": "Regulatory Context",
+        "phase": "01 · Foundation · Regulatory Context",
+        "title": "Know What Applies.",
+        "lead": "Compliance documentation can only be evaluated against the requirements it needs to support.",
+        "body": "Suricat establishes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.",
+        "close": "Every later step builds on this foundation."
+      },
+      "document": {
+        "short": "Document Intelligence",
+        "phase": "02 · Foundation · Document Intelligence",
+        "title": "Understand What Is Being Reviewed.",
+        "lead": "An SOP is not a CAPA. A risk file is not a training document. Different compliance documents serve different purposes.",
+        "body": "Suricat identifies what it is reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.",
+        "close": "With the foundation in place, the intelligence can begin."
+      },
+      "quality": {
+        "short": "Quality Intelligence",
+        "phase": "03 · Intelligence · Quality Intelligence",
+        "title": "Measure Quality. Not Just Presence.",
+        "lead": "Having the document does not mean the document is ready.",
+        "body": "Suricat Quality Signals evaluate whether each document is complete, clear, strong, and usable for its intended purpose.",
+        "close": "Suricat shows where documentation appears ready and where closer review may be needed."
+      },
+      "gap": {
+        "short": "Gap Intelligence",
+        "phase": "04 · Intelligence · Gap Intelligence",
+        "title": "Know What Is Missing.",
+        "lead": "An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.",
+        "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.",
+        "close": "QA and RA teams verify each potential gap and decide what to do."
+      },
+      "cross": {
+        "short": "Cross-Document",
+        "phase": "05 · Intelligence · Cross Document Intelligence",
+        "title": "See Where Related Documents Stop Lining Up.",
+        "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while related risk documentation still reflects the old condition.",
+        "body": "Suricat surfaces potential misalignment across related documents, with each one linked to the source evidence behind it.",
+        "close": "QA and RA teams verify each potential misalignment and decide what to do."
+      },
+      "record": {
+        "short": "Record Intelligence",
+        "phase": "06 · Intelligence · Record Intelligence",
+        "title": "Compare What Should Happen with What Actually Happened.",
+        "lead": "A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.",
+        "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, with each one linked to the source evidence behind it.",
+        "close": "QA and RA teams verify each potential discrepancy and decide what to do."
+      }
+    },
+    "heroTitleBefore": "From Compliance Evidence to",
+    "heroTitleAccent": "Compliance Intelligence.",
+    "regulatoryDiagram": {
+      "universeLabel": "Regulatory & Standards Universe",
+      "appliesLabel": "What Applies",
+      "appliesTitle": "Applicable Requirements",
+      "stepPill": "What applies",
+      "hubTitle": "Organizational Context",
+      "hubProducts": "Products",
+      "hubMarkets": "Markets",
+      "hubOperations": "Operations",
+      "dashedNote": "Dashed = does not apply to this organization",
+      "exampleNote": "Illustrative example",
+      "cards": {
+        "regulations": "Regulations",
+        "standards": "Standards",
+        "guidance": "Guidance"
+      }
+    },
+    "documentDiagram": {
+      "filesLabel": "Compliance Documents",
+      "identifiedLabel": "Identified by Type and Role",
+      "stepPill": "What exists",
+      "hubTitle": "Document Intelligence",
+      "hubSub": "Type · Role",
+      "exampleNote": "Illustrative example",
+      "types": {
+        "sop": {
+          "name": "SOP",
+          "role": "Defines the process"
+        },
+        "capa": {
+          "name": "CAPA",
+          "role": "Corrects and prevents"
+        },
+        "risk": {
+          "name": "Risk File",
+          "role": "Manages risk"
+        },
+        "design": {
+          "name": "Design Control Documentation",
+          "role": "Demonstrates design control"
+        },
+        "training": {
+          "name": "Training Document",
+          "role": "Demonstrates competence"
+        },
+        "records": {
+          "name": "Records",
+          "role": "Show what actually happened"
+        }
+      }
+    },
+    "closeTitleLine1": "Know What Needs Attention.",
+    "closeTitleLine2": "Before It Becomes a Finding.",
+    "qualityDiagram": {
+      "leftLabel": "Identified Documents",
+      "rightLabel": "Document Readiness",
+      "stepPill": "How good it is",
+      "hubTitle": "Suricat Quality Signals",
+      "appearsReady": "Appears ready",
+      "closerReview": "Closer review may be needed",
+      "exampleNote": "Illustrative example",
+      "docs": {
+        "sop": "SOP",
+        "capa": "CAPA",
+        "risk": "Risk File",
+        "design": "Design Control Documentation",
+        "training": "Training Document"
+      },
+      "signals": {
+        "complete": "Complete",
+        "strong": "Strong",
+        "clear": "Clear",
+        "usable": "Usable"
+      }
+    },
+    "gapDiagram": {
+      "leftLabel": "Requirements & Documentation",
+      "rightLabel": "Requirement Coverage",
+      "stepPill": "What is missing",
+      "hubTitle": "Gap Intelligence",
+      "applicableTitle": "Applicable Requirements",
+      "from01": "FROM 01",
+      "hundredsDocs": "Hundreds of documents and records",
+      "forReview": "For QA/RA review",
+      "exampleNote": "Illustrative example",
+      "requirements": {
+        "r1": "ISO 13485 §8.5.2 · Corrective action",
+        "r2": "ISO 14971 · Risk control",
+        "r3": "ISO 13485 §7.3.3 · Design inputs",
+        "r4": "ISO 13485 §6.2 · Competence"
+      },
+      "coverage": {
+        "c1": {
+          "title": "ISO 13485 §8.5.2 · Corrective action",
+          "badge": "Appears supported"
+        },
+        "c2": {
+          "title": "ISO 14971 · Risk control",
+          "badge": "Appears supported"
+        },
+        "c3": {
+          "title": "ISO 13485 §7.3.3 · Design inputs",
+          "badge": "Potential gap · Missing",
+          "detail": "Design inputs for Product Y not found in\navailable documentation."
+        },
+        "c4": {
+          "title": "ISO 13485 §6.2 · Competence",
+          "badge": "Potential gap · Insufficient",
+          "detail": "Training evidence does not cover all affected roles."
+        }
+      },
+      "sourceC3": "Reviewed: SOP-DES-001 · Design Plan",
+      "sourceC4": "Source evidence: TRN-104"
+    },
+    "crossDiagram": {
+      "leftLabel": "Identified Documents",
+      "rightLabel": "Alignment Across Documents",
+      "stepPill": "What does not align",
+      "hubTitle": "Cross Document Intelligence",
+      "forReview": "For QA/RA review",
+      "exampleNote": "Illustrative example",
+      "types": {
+        "capa": "CAPA",
+        "risk": "Risk File",
+        "sop": "SOP",
+        "training": "Training Document"
+      },
+      "pair1": {
+        "title": "CAPA · Risk File",
+        "badge": "Potential misalignment",
+        "left": {
+          "id": "CAPA-0217",
+          "meta": "Closed Mar 2026",
+          "kind": "CORRECTIVE ACTION",
+          "claim": "Inspection added at receiving",
+          "source": "Source evidence · §4"
+        },
+        "right": {
+          "id": "RF-014",
+          "meta": "Last updated Aug 2025",
+          "kind": "RISK CONTROL",
+          "claim": "No inspection at receiving",
+          "source": "Source evidence · Row 12"
+        }
+      },
+      "pair2": {
+        "title": "SOP · Training Document",
+        "badge": "Appears aligned",
+        "left": {
+          "id": "SOP-PRD-003",
+          "meta": "Rev C · Mar 2026"
+        },
+        "right": {
+          "id": "TRN-104",
+          "meta": "Rev C · Mar 2026"
+        }
+      }
+    },
+    "recordDiagram": {
+      "leftLabel": "Procedures & Records",
+      "rightLabel": "Expected vs. Documented Execution",
+      "stepPill": "What actually happened",
+      "hubTitle": "Record Intelligence",
+      "sopId": "SOP-PRD-003",
+      "sopMeta": "Procedure · Rev C",
+      "sopHeader": "SOP-PRD-003 · Rev C",
+      "lotId": "LOT-2611 · Production record",
+      "lotHeader": "LOT-2611 · Production record",
+      "hundredsRecords": "Hundreds of production records",
+      "reviewed": "Reviewed: SOP-PRD-003 §5.2 · LOT-2611 p.3",
+      "forReview": "For QA/RA review",
+      "exampleNote": "Illustrative example",
+      "clauses": {
+        "c1": "§5.1 · Material received",
+        "c2": "§5.2 · Incoming inspection",
+        "c3": "§5.3 · Release to production"
+      },
+      "rows": {
+        "s1": {
+          "title": "Material received",
+          "required": "Required by §5.1",
+          "result": "Received · 14 Mar 2026",
+          "badge": "Appears documented"
+        },
+        "s2": {
+          "title": "Incoming inspection",
+          "required": "Required by §5.2",
+          "result": "Inspection entry not found",
+          "badge": "Potential discrepancy"
+        },
+        "s3": {
+          "title": "Release to production",
+          "required": "Required by §5.3",
+          "result": "Released · 17 Mar 2026",
+          "badge": "Appears documented"
+        }
+      }
+    },
+    "closingDiagram": {
+      "foundation": "Foundation",
+      "intelligence": "Intelligence",
+      "whatNeedsAttention": "What Needs Attention",
+      "readyTitle": "Ready to See Suricat in Action?",
+      "cards": {
+        "applies": {
+          "title": "What Applies",
+          "body": "Which regulations, standards, and requirements apply?"
+        },
+        "exists": {
+          "title": "What Exists",
+          "body": "What is being reviewed, and what role does each document play?"
+        },
+        "quality": {
+          "title": "How Good It Is",
+          "body": "Is the documentation complete, clear, strong, and usable?"
+        },
+        "missing": {
+          "title": "What Is Missing",
+          "body": "Where may support be missing or insufficient?"
+        },
+        "align": {
+          "title": "What Does Not Align",
+          "body": "Where do related documents no longer line up?"
+        },
+        "happened": {
+          "title": "What Actually Happened",
+          "body": "Do records show the procedure was followed?"
+        }
+      }
+    }
+  },
   "sitemapPage": {
     "title": "Sitemap",
     "introBefore": "Browse all public pages on our website. For the XML sitemap used by search engines, see",
@@ -2491,7 +2795,8 @@
       "documentAlignment": "Documentation Alignment",
       "becomeDesignPartner": "Join as a Design Partner",
       "scheduleDiscussion": "Schedule a Discussion",
-      "readinessDiscussion": "Readiness Discussion"
+      "readinessDiscussion": "Readiness Discussion",
+      "platform": "The Platform"
     }
   }
 }

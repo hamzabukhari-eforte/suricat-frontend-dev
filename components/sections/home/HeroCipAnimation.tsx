@@ -19,8 +19,8 @@ import {
 import type { IconType } from "react-icons";
 
 /* Dwell on each large focus card so users can read */
-const TOUR_DWELL_MS = 3100;
-const TOUR_START_MS = 350;
+const TOUR_DWELL_MS = 2400;
+const TOUR_START_MS = 300;
 const TRUST_START_MS = 140;
 const TRUST_STAGGER_MS = 130;
 const TRUST_ITEM_COUNT = 4;

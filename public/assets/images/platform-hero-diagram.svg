@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 452" width="1024" height="452" fill="none" role="img" aria-label="Suricat: from compliance evidence to compliance intelligence">
+  <defs>
+    <marker id="arr-w" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0L7 3.5L0 7z" fill="rgba(255,255,255,0.7)"/>
+    </marker>
+    <marker id="arr-t" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0L9 4.5L0 9z" fill="#19d3c5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .lbl { font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- transparent bg so navy hero shows through -->
+
+  <!-- ========== LEFT: Compliance Evidence ========== -->
+  <text class="lbl" x="118" y="48" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-size="10" font-weight="700" letter-spacing="1.8">COMPLIANCE EVIDENCE</text>
+
+  <!-- pills -->
+  <g id="evidence">
+    <!-- SOP -->
+    <rect x="28" y="66" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 74)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <rect x="0" y="0" width="13" height="17" rx="1.5"/><path d="M3.5 5.5h6M3.5 9h6M3.5 12.5h4"/>
+    </g>
+    <text class="lbl" x="66" y="89" fill="#fff" font-size="12.5" font-weight="600">SOP</text>
+
+    <!-- CAPA -->
+    <rect x="28" y="112" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 120)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <rect x="0" y="0" width="13" height="17" rx="1.5"/><path d="M3.5 5.5h6M3.5 9h6M3.5 12.5h4"/>
+    </g>
+    <text class="lbl" x="66" y="135" fill="#fff" font-size="12.5" font-weight="600">CAPA</text>
+
+    <!-- Risk File -->
+    <rect x="28" y="158" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 166)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <rect x="0" y="0" width="13" height="17" rx="1.5"/><path d="M3.5 5.5h6M3.5 9h6M3.5 12.5h4"/>
+    </g>
+    <text class="lbl" x="66" y="181" fill="#fff" font-size="12.5" font-weight="600">Risk File</text>
+
+    <!-- Design Control -->
+    <rect x="28" y="204" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 212)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <rect x="0" y="0" width="13" height="17" rx="1.5"/><path d="M3.5 5.5h6M3.5 9h6M3.5 12.5h4"/>
+    </g>
+    <text class="lbl" x="66" y="227" fill="#fff" font-size="11.5" font-weight="600">Design Control Documentation</text>
+
+    <!-- Training -->
+    <rect x="28" y="250" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 258)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <rect x="0" y="0" width="13" height="17" rx="1.5"/><path d="M3.5 5.5h6M3.5 9h6M3.5 12.5h4"/>
+    </g>
+    <text class="lbl" x="66" y="273" fill="#fff" font-size="12.5" font-weight="600">Training Document</text>
+
+    <!-- Records -->
+    <rect x="28" y="296" width="176" height="36" rx="8" fill="#121c38" stroke="rgba(255,255,255,0.12)"/>
+    <g transform="translate(42 304)" stroke="#19d3c5" stroke-width="1.35" fill="none">
+      <ellipse cx="6.5" cy="3" rx="6.5" ry="2.8"/>
+      <path d="M0 3v11c0 1.55 2.9 2.8 6.5 2.8S13 15.55 13 14V3"/>
+      <path d="M0 8c0 1.55 2.9 2.8 6.5 2.8S13 9.55 13 8"/>
+    </g>
+    <text class="lbl" x="66" y="319" fill="#fff" font-size="12.5" font-weight="600">Records</text>
+  </g>
+
+  <!-- bracket + dashed arrow -->
+  <path d="M214 84v230" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+  <path d="M214 84h8M214 314h8" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+  <path d="M222 199h62" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-dasharray="4 3.5" marker-end="url(#arr-w)"/>
+
+  <!-- ========== CENTER HUB ========== -->
+  <g transform="translate(470 226)">
+    <!-- outer dashed orbit -->
+    <circle r="152" stroke="rgba(25,211,197,0.28)" stroke-width="1.1" stroke-dasharray="2.5 4.5" fill="none"/>
+
+    <!-- segmented ring: 6 arcs of 60deg, start at -120deg (top-leftish)
+         Foundation purple: segments 0,1 (01,02) ~ -120 to 0
+         Intelligence teal: segments 2,3,4,5 -->
+    <!-- 01 arc ~ -150 to -90 -->
+    <path d="M-95.26 -95.26 A134.5 134.5 0 0 1 0 -134.5" stroke="#8b6fd4" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <!-- 02 arc ~ -90 to -30 -->
+    <path d="M0 -134.5 A134.5 134.5 0 0 1 116.48 -67.25" stroke="#9b7ee0" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <!-- 03 arc ~ -30 to 30 -->
+    <path d="M116.48 -67.25 A134.5 134.5 0 0 1 116.48 67.25" stroke="#19d3c5" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <!-- 04 arc ~ 30 to 90 -->
+    <path d="M116.48 67.25 A134.5 134.5 0 0 1 0 134.5" stroke="#19d3c5" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <!-- 05 arc ~ 90 to 150 -->
+    <path d="M0 134.5 A134.5 134.5 0 0 1 -116.48 67.25" stroke="#19d3c5" stroke-width="11" stroke-linecap="butt" fill="none"/>
+    <!-- 06 arc ~ 150 to 210 (-150) -->
+    <path d="M-116.48 67.25 A134.5 134.5 0 0 1 -95.26 -95.26" stroke="#19d3c5" stroke-width="11" stroke-linecap="butt" fill="none"/>
+
+    <!-- gap ticks between segments -->
+    <g stroke="#0a1128" stroke-width="3.5">
+      <line x1="-91" y1="-99" x2="-99" y2="-107"/>
+      <line x1="8" y1="-133" x2="8" y2="-144"/>
+      <line x1="118" y1="-62" x2="128" y2="-68"/>
+      <line x1="118" y1="62" x2="128" y2="68"/>
+      <line x1="8" y1="133" x2="8" y2="144"/>
+      <line x1="-118" y1="62" x2="-128" y2="68"/>
+    </g>
+
+    <!-- inner disk -->
+    <circle r="92" fill="#0c1630" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <circle r="84" fill="#080f22" stroke="rgba(25,211,197,0.22)" stroke-width="1.2" filter="url(#soft)"/>
+
+    <!-- logo mark -->
+    <image href="/assets/images/suricat-logo-mark-center.svg" x="-22" y="-48" width="44" height="44" xlink:href="/assets/images/suricat-logo-mark-center.svg"/>
+    <text class="lbl" y="22" text-anchor="middle" fill="#fff" font-size="16" font-weight="800" letter-spacing="1.8">SURICAT</text>
+    <text class="lbl" y="38" text-anchor="middle" fill="#19d3c5" font-size="7.5" font-weight="700" letter-spacing="1.4">COMPLIANCE INTELLIGENCE</text>
+
+    <!-- FOUNDATION / INTELLIGENCE -->
+    <text class="lbl" x="-78" y="-162" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700" letter-spacing="2.2">FOUNDATION</text>
+    <text class="lbl" x="78" y="172" text-anchor="middle" fill="#19d3c5" font-size="10" font-weight="700" letter-spacing="2.2">INTELLIGENCE</text>
+
+    <!-- Step callouts -->
+    <!-- 01 -->
+    <line x1="-105" y1="-78" x2="-168" y2="-88" stroke="#8b6fd4" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="-105" cy="-78" r="3.5" fill="#8b6fd4"/>
+    <rect x="-268" y="-112" width="118" height="42" rx="9" fill="#121c38" stroke="rgba(139,111,212,0.4)"/>
+    <circle cx="-248" cy="-91" r="10" fill="#8b6fd4"/>
+    <text class="lbl" x="-248" y="-87" text-anchor="middle" fill="#fff" font-size="9" font-weight="800">01</text>
+    <text class="lbl" x="-232" y="-94" fill="#fff" font-size="11" font-weight="700">What applies</text>
+    <text class="lbl" x="-232" y="-80" fill="#8b6fd4" font-size="7.5" font-weight="700" letter-spacing="0.4">REGULATORY CONTEXT</text>
+
+    <!-- 02 -->
+    <line x1="-20" y1="-138" x2="-8" y2="-178" stroke="#8b6fd4" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="-20" cy="-138" r="3.5" fill="#8b6fd4"/>
+    <rect x="-70" y="-214" width="128" height="42" rx="9" fill="#121c38" stroke="rgba(139,111,212,0.4)"/>
+    <circle cx="-50" cy="-193" r="10" fill="#8b6fd4"/>
+    <text class="lbl" x="-50" y="-189" text-anchor="middle" fill="#fff" font-size="9" font-weight="800">02</text>
+    <text class="lbl" x="-34" y="-196" fill="#fff" font-size="11" font-weight="700">What exists</text>
+    <text class="lbl" x="-34" y="-182" fill="#8b6fd4" font-size="7.5" font-weight="700" letter-spacing="0.4">DOCUMENT INTELLIGENCE</text>
+
+    <!-- 03 -->
+    <line x1="105" y1="-78" x2="158" y2="-92" stroke="#19d3c5" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="105" cy="-78" r="3.5" fill="#19d3c5"/>
+    <rect x="150" y="-118" width="132" height="42" rx="9" fill="#121c38" stroke="rgba(25,211,197,0.4)"/>
+    <circle cx="170" cy="-97" r="10" fill="#19d3c5"/>
+    <text class="lbl" x="170" y="-93" text-anchor="middle" fill="#0d1b3e" font-size="9" font-weight="800">03</text>
+    <text class="lbl" x="186" y="-100" fill="#fff" font-size="11" font-weight="700">How good it is</text>
+    <text class="lbl" x="186" y="-86" fill="#19d3c5" font-size="7.5" font-weight="700" letter-spacing="0.4">QUALITY INTELLIGENCE</text>
+
+    <!-- 04 -->
+    <line x1="112" y1="62" x2="158" y2="78" stroke="#19d3c5" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="112" cy="62" r="3.5" fill="#19d3c5"/>
+    <rect x="150" y="52" width="128" height="42" rx="9" fill="#121c38" stroke="rgba(25,211,197,0.4)"/>
+    <circle cx="170" cy="73" r="10" fill="#19d3c5"/>
+    <text class="lbl" x="170" y="77" text-anchor="middle" fill="#0d1b3e" font-size="9" font-weight="800">04</text>
+    <text class="lbl" x="186" y="70" fill="#fff" font-size="11" font-weight="700">What is missing</text>
+    <text class="lbl" x="186" y="84" fill="#19d3c5" font-size="7.5" font-weight="700" letter-spacing="0.4">GAP INTELLIGENCE</text>
+
+    <!-- 05 -->
+    <line x1="8" y1="140" x2="12" y2="168" stroke="#19d3c5" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="8" cy="140" r="3.5" fill="#19d3c5"/>
+    <rect x="-78" y="168" width="168" height="42" rx="9" fill="#121c38" stroke="rgba(25,211,197,0.4)"/>
+    <circle cx="-58" cy="189" r="10" fill="#19d3c5"/>
+    <text class="lbl" x="-58" y="193" text-anchor="middle" fill="#0d1b3e" font-size="9" font-weight="800">05</text>
+    <text class="lbl" x="-42" y="186" fill="#fff" font-size="11" font-weight="700">What does not align</text>
+    <text class="lbl" x="-42" y="200" fill="#19d3c5" font-size="7" font-weight="700" letter-spacing="0.3">CROSS DOCUMENT INTELLIGENCE</text>
+
+    <!-- 06 -->
+    <line x1="-112" y1="62" x2="-168" y2="78" stroke="#19d3c5" stroke-width="1.15" stroke-dasharray="2 2.5" opacity="0.85"/>
+    <circle cx="-112" cy="62" r="3.5" fill="#19d3c5"/>
+    <rect x="-290" y="54" width="148" height="42" rx="9" fill="#121c38" stroke="rgba(25,211,197,0.4)"/>
+    <circle cx="-270" cy="75" r="10" fill="#19d3c5"/>
+    <text class="lbl" x="-270" y="79" text-anchor="middle" fill="#0d1b3e" font-size="9" font-weight="800">06</text>
+    <text class="lbl" x="-254" y="72" fill="#fff" font-size="10.5" font-weight="700">What actually happened</text>
+    <text class="lbl" x="-254" y="86" fill="#19d3c5" font-size="7.5" font-weight="700" letter-spacing="0.4">RECORD INTELLIGENCE</text>
+  </g>
+
+  <!-- teal arrow to right panel -->
+  <path d="M618 220h48" stroke="#19d3c5" stroke-width="3.2" marker-end="url(#arr-t)"/>
+
+  <!-- ========== RIGHT: Compliance Intelligence ========== -->
+  <text class="lbl" x="828" y="42" text-anchor="middle" fill="#19d3c5" font-size="10" font-weight="700" letter-spacing="1.6">COMPLIANCE INTELLIGENCE</text>
+
+  <rect x="678" y="56" width="300" height="360" rx="12" fill="#121c38" stroke="rgba(25,211,197,0.3)" stroke-width="1.4"/>
+
+  <!-- eye + title -->
+  <g transform="translate(698 78)">
+    <ellipse cx="10" cy="7" rx="11" ry="7" stroke="#19d3c5" stroke-width="1.5" fill="none"/>
+    <circle cx="10" cy="7" r="2.8" fill="#19d3c5"/>
+    <text class="lbl" x="28" y="11" fill="#fff" font-size="13.5" font-weight="700">What Needs Attention</text>
+  </g>
+
+  <!-- cards -->
+  <g id="attention-cards">
+    <rect x="696" y="108" width="264" height="52" rx="8" fill="#0a1530" stroke="rgba(255,255,255,0.08)"/>
+    <text class="lbl" x="712" y="128" fill="#fff" font-size="12.5" font-weight="700">Document Quality</text>
+    <circle cx="718" cy="142" r="3.2" fill="#ff6b35"/>
+    <text class="lbl" x="728" y="146" fill="rgba(255,255,255,0.72)" font-size="11">Potential quality issue</text>
+    <text class="lbl" x="712" y="152" fill="#19d3c5" font-size="10" font-weight="600" opacity="0">.</text>
+    <text class="lbl" x="712" y="154" fill="#19d3c5" font-size="10.5" font-weight="600">Source evidence linked</text>
+
+    <rect x="696" y="170" width="264" height="52" rx="8" fill="#0a1530" stroke="rgba(255,255,255,0.08)"/>
+    <text class="lbl" x="712" y="190" fill="#fff" font-size="12.5" font-weight="700">Potential Gaps</text>
+    <circle cx="718" cy="204" r="3.2" fill="#ff6b35"/>
+    <text class="lbl" x="728" y="208" fill="rgba(255,255,255,0.72)" font-size="11">Missing or insufficient</text>
+    <text class="lbl" x="712" y="216" fill="#19d3c5" font-size="10.5" font-weight="600">Source evidence linked</text>
+
+    <rect x="696" y="232" width="264" height="52" rx="8" fill="#0a1530" stroke="rgba(255,255,255,0.08)"/>
+    <text class="lbl" x="712" y="252" fill="#fff" font-size="12.5" font-weight="700">Relationships</text>
+    <circle cx="718" cy="266" r="3.2" fill="#ff6b35"/>
+    <text class="lbl" x="728" y="270" fill="rgba(255,255,255,0.72)" font-size="11">Potential misalignment</text>
+    <text class="lbl" x="712" y="278" fill="#19d3c5" font-size="10.5" font-weight="600">Source evidence linked</text>
+
+    <rect x="696" y="294" width="264" height="52" rx="8" fill="#0a1530" stroke="rgba(255,255,255,0.08)"/>
+    <text class="lbl" x="712" y="314" fill="#fff" font-size="12.5" font-weight="700">Records</text>
+    <circle cx="718" cy="328" r="3.2" fill="#ff6b35"/>
+    <text class="lbl" x="728" y="332" fill="rgba(255,255,255,0.72)" font-size="11">Potential discrepancy</text>
+    <text class="lbl" x="712" y="340" fill="#19d3c5" font-size="10.5" font-weight="600">Source evidence linked</text>
+  </g>
+
+  <!-- QA CTA -->
+  <rect x="696" y="360" width="264" height="40" rx="8" fill="#19d3c5"/>
+  <g transform="translate(714 370)" fill="#0d1b3e">
+    <circle cx="5" cy="7" r="4"/>
+    <circle cx="14" cy="7" r="4"/>
+    <path d="M0 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5M9 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5"/>
+  </g>
+  <text class="lbl" x="742" y="385" fill="#0d1b3e" font-size="12" font-weight="800">QA and RA teams verify and decide.</text>
+</svg>

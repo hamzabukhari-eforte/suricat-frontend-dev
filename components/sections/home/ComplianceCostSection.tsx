@@ -57,13 +57,13 @@ export function ComplianceCostSection() {
       <div className="cc-cost-band bg-surface-muted pt-12 pb-14 lg:pb-16">
         <Container>
           <div className="mb-8 lg:mb-10">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-orange">
+            <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-orange">
               {t("eyebrow")}
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-[32px] leading-tight font-bold mb-4 max-w-4xl text-navy">
+            <h2 className="mb-4 max-w-4xl text-[32px] font-bold leading-tight text-navy">
               {t("title")}
             </h2>
-            <p className="text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[28px] text-navy max-w-4xl">
+            <p className="max-w-4xl text-[20px] font-normal leading-relaxed text-navy lg:leading-[28px]">
               {t("body")}
             </p>
           </div>
@@ -139,16 +139,16 @@ export function ComplianceCostSection() {
       </div>
 
       {/* Explore the Evidence — white band, clear gap after Cost */}
-      <div className="cc-evidence-band bg-white pt-20 pb-12 lg:pt-24 lg:pb-14">
+      <div className="cc-evidence-band bg-white pt-12 pb-10">
         <Container>
           <div className="cc-evidence">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-orange">
+            <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-orange">
               {t("evidence.eyebrow")}
             </span>
-            <h3 className="text-2xl sm:text-3xl lg:text-[28px] leading-tight font-bold mb-4 max-w-4xl text-navy">
+            <h3 className="mb-4 max-w-4xl text-[32px] font-bold leading-tight text-navy">
               {t("evidence.title")}
             </h3>
-            <p className="text-base sm:text-lg lg:text-[18px] leading-relaxed text-navy/80 max-w-4xl mb-8">
+            <p className="mb-8 max-w-4xl text-[20px] font-normal leading-relaxed text-navy/80">
               {t("evidence.intro")}
             </p>
 

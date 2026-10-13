@@ -14,6 +14,7 @@ export const sitemapPageSections: SitemapSectionDef[] = [
     titleKey: "main",
     links: [
       { href: "/", labelKey: "home" },
+      { href: "/platform", labelKey: "platform" },
       { href: "/pricing", labelKey: "pricing" },
       { href: "/get-started", labelKey: "getStarted" },
       { href: "/readiness", labelKey: "readiness" },
