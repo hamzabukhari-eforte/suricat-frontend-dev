@@ -26,8 +26,7 @@ const STAT_CARDS = [
 const FEATURED_STAT_HREF =
   "https://www.fda.gov/media/191127/download?attachment=";
 
-const WHY_NOW_HREF =
-  "https://www.fda.gov/medical-devices/quality-system-qs-regulationmedical-device-good-manufacturing-practices/quality-management-system-regulation-final-rule-amending-quality-system-regulation";
+const WHY_NOW_HREF = "https://www.fda.gov/media/191960/download";
 
 export function ComplianceCostSection() {
   const t = useTranslations("home.complianceCost");
