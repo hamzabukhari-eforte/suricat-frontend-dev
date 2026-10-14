@@ -25,7 +25,7 @@ const DOCS: {
 
 const SIGNALS = ["complete", "clear", "strong", "usable"] as const;
 
-/** Signal waves — Suricat Quality Signals */
+/** Signal waves — upright (no rotate), Suricat Quality Signals */
 function QualityHubIcon() {
   return (
     <svg
@@ -35,21 +35,21 @@ function QualityHubIcon() {
       fill="none"
       aria-hidden="true"
     >
-      <circle cx="7" cy="12" r="1.6" stroke="#fff" strokeWidth="1.25" />
+      <circle cx="12" cy="18" r="1.6" fill="#fff" />
       <path
-        d="M10.2 8.2a6.2 6.2 0 0 1 0 7.6"
+        d="M8.2 14.8a5.4 5.4 0 0 1 7.6 0"
         stroke="#fff"
         strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
-        d="M13.2 5.6a10.2 10.2 0 0 1 0 12.8"
+        d="M5.6 11.8a9.2 9.2 0 0 1 12.8 0"
         stroke="#fff"
         strokeWidth="1.25"
         strokeLinecap="round"
       />
       <path
-        d="M16.2 3.2a14 14 0 0 1 0 17.6"
+        d="M3.2 8.8a13 13 0 0 1 17.6 0"
         stroke="#fff"
         strokeWidth="1.25"
         strokeLinecap="round"
