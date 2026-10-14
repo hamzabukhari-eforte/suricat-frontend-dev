@@ -157,13 +157,13 @@
     "readyTitle": "Ayude a definir el futuro de Compliance Intelligence.",
     "body": "Aporte desafíos reales de cumplimiento. Trabaje directamente con el equipo fundador de Suricat, obtenga acceso anticipado a la plataforma y ayude a definir cómo se construye la inteligencia de cumplimiento para equipos QA y RA de MedTech.",
     "becomeDesignPartner": "Unirse como Design Partner",
-    "gotQuestions": "¿Tiene preguntas?",
+    "gotQuestions": "Háblenos",
     "scheduleDiscussion": "Programar una conversación",
-    "requestFreePilot": "Solicitar un piloto gratis"
+    "requestFreePilot": "Solicitar un piloto"
   },
   "marquee": {
     "text": "La aplicación de QMSR ya está activa. ¿Está listo para la inspección?",
-    "cta": "Solicitar un piloto gratis"
+    "cta": "Solicitar un piloto"
   },
   "metadata": {
     "defaultDescription": "Suricat es la plataforma de inteligencia de cumplimiento para industrias altamente reguladas — de solo lectura por diseño, creada para confianza documental lista para inspección.",
@@ -533,10 +533,10 @@
       "titleBefore": "El sentinel de",
       "titleCompliance": "Cumplimiento",
       "titleIntelligence": "Inteligencia",
-      "body": "Evalúa continuamente la alineación entre documentos y genera hallazgos defendibles ante inspección para una revisión más temprana.",
-      "explorePlatform": "Solicitar un piloto gratis",
+      "body": "Suricat trabaja junto a QMS y otros sistemas de calidad existentes para descubrir posibles brechas de cumplimiento, problemas de calidad y desalineaciones en documentos y registros, rastrear cada uno hasta su origen y ayudar a los equipos de QA/RA a revisarlos y abordarlos antes de auditorías e inspecciones.",
+      "explorePlatform": "Solicitar un piloto",
       "becomeDesignPartner": "Unirse como Design Partner",
-      "gotQuestions": "¿Tiene preguntas?",
+      "gotQuestions": "Háblenos",
       "bannerLabel": "PLATAFORMA DE INTELIGENCIA DE CUMPLIMIENTO",
       "bannerAlt": "Banner de fundadores de Suricat",
       "diagram": {
@@ -596,8 +596,8 @@
       "tagline": "Menos tiempo buscando. Más confianza en cada revisión.",
       "evaluateTitle": "¿Listo para ver Suricat en acción?",
       "ctaDesignPartner": "Unirse como Design Partner",
-      "ctaPilot": "Solicitar un piloto gratis",
-      "gotQuestions": "¿Tiene preguntas?"
+      "ctaPilot": "Solicitar un piloto",
+      "gotQuestions": "Háblenos"
     },
     "platform": {
       "sectionTitle": "Plataforma",
@@ -905,43 +905,51 @@
     },
     "complianceCost": {
       "eyebrow": "El costo de la desalineación",
-      "title": "La desalineación puede permanecer oculta hasta que importa.",
-      "body": "Los problemas de calidad y cumplimiento pueden pasar desapercibidos cuando la información relacionada entre requisitos, documentos y registros deja de alinearse. Para cuando una auditoría, inspección o retirada los expone, el impacto financiero y operativo puede ser significativo.",
+      "title": "Los documentos de calidad, procedimientos y registros desalineados pueden dificultar identificar brechas, conciliar evidencia y responder al escrutinio regulatorio.",
+      "body": "Los datos de la FDA revelan los desafíos más amplios que enfrentan los fabricantes de dispositivos médicos, incluidas deficiencias de inspección, enforcement, solicitudes de información adicional y revisiones prolongadas de submissions.",
       "stats": {
         "costOfQuality": {
-          "label": "Cost of Quality",
-          "stat": "$26B TO $36B",
-          "body": "Costo directo anual estimado de la calidad en la industria de dispositivos médicos.",
-          "thirdTitle": "ABOUT ONE THIRD",
-          "thirdBody": "Costo de asegurar la calidad",
-          "twoThirdsTitle": "ABOUT TWO THIRDS",
-          "twoThirdsBody": "Costo de la mala calidad",
-          "source": "Source · McKinsey"
+          "category": "High-Risk Device Submissions",
+          "stat": "74%",
+          "label": "Major deficiencies in nearly three of four high-risk device reviews",
+          "body": "43 of 58 completed reviews of original PMAs, PDPs, panel-track supplements, and premarket reports. Preliminary FY2025.",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "failures": {
-          "label": "Quality and Compliance Failures",
-          "stat": "$7.5B TO $9.5B",
-          "body": "Costo anual estimado de fallos de calidad externos no rutinarios, incluidas retiradas y acciones regulatorias importantes.",
-          "source": "Source · McKinsey"
+          "category": "510(k) Submissions",
+          "stat": "66%",
+          "label": "Two in three 510(k) reviews required additional information",
+          "body": "FY2025, preliminary",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "exposure": {
-          "label": "Company Exposure",
-          "stat": "UP TO $1B",
-          "body": "Impacto potencial en ingresos asociado a eventos de calidad de alto impacto en dispositivos médicos.",
-          "source": "Source · McKinsey"
+          "category": "PMA Review Timelines",
+          "stat": "149 days",
+          "label": "Manufacturer responses consume months of PMA review",
+          "body": "FY2024 original PMAs and panel-track supplements, of 320 days total",
+          "source": "Source: FDA, MDUFA Quarterly Report, Aug. 2026"
         },
         "remediation": {
-          "label": "Remediation Burden",
-          "stat": "0.4% TO 0.7% OF SALES",
-          "body": "Costos estimados de remediación en investigaciones, CAPAs, quejas, MDRs y acciones de campo.",
-          "source": "Source · McKinsey"
+          "category": "FDA Enforcement",
+          "stat": "26 of 59",
+          "label": "Design controls and CAPA lead FDA quality-system enforcement",
+          "body": "2025 warning letters. Design controls also led in 2024 with 22 of 45.",
+          "source": "Sources: Covington & Burling, 2025 · 2024"
         },
         "design": {
-          "label": "Design Control Exposure",
-          "stat": "34.8%",
-          "body": "Los controles de diseño deficientes representaron el 34,8% de los motivos de retirada de dispositivos médicos en el análisis de Deloitte de datos de la FDA de 2012 a 2022.",
-          "source": "Source · Deloitte"
+          "category": "FDA Inspections",
+          "stat": "279",
+          "label": "CAPA procedures top FDA inspection observations",
+          "body": "FY2025, followed by complaint handling at 211",
+          "source": "Source: FDA, FY2025 Inspection Observations"
         }
+      },
+      "whyNow": {
+        "eyebrow": "Why This Matters Now",
+        "body": "FDA's updated inspection framework places greater emphasis on risk-management evidence. Under QMSR, effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
+        "date": "2 feb 2026",
+        "dateLabel": "QMSR vigente",
+        "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
       },
       "punchline": {
         "line1": "La información puede existir.",
@@ -1001,7 +1009,7 @@
       "sectionTitle": "La brecha de alineación",
       "headline": "Los sistemas de calidad están en su lugar. La alineación es la parte difícil.",
       "lead": "Los requisitos cambian. Los documentos evolucionan. La evidencia se acumula.",
-      "p1": "Los procedimientos, archivos de riesgo, CAPAs, documentación de control de diseño y registros de formación dependen unos de otros, incluso entre sistemas diferentes.",
+      "p1": "Los documentos y registros del sistema de calidad dependen unos de otros, incluso entre sistemas diferentes.",
       "p2": "Cuando uno cambia, ¿qué más se ve afectado?",
       "closer": "Suricat le muestra el impacto a través de esas conexiones.",
       "visual": {
@@ -1024,6 +1032,7 @@
         "affected": "Afectado",
         "affectedQ": "Affected?",
         "updatedRevD": "Updated to Rev D",
+        "referencesRevC": "References Rev C",
         "trainedRevC": "Trained on Rev C",
         "needsAttention": "Requiere atención"
       },
@@ -1103,8 +1112,8 @@
       "misalignments": "Posibles desalineaciones",
       "evidenceLinked": "Evidencia fuente vinculada",
       "relationshipsMissed": "Las relaciones pueden pasarse por alto",
-      "todayCaption": "Cada sistema gestiona su propia información.",
-      "todayCaptionLead": "Cada sistema gestiona su propia información.",
+      "todayCaption": "Quality information lives in separate places.",
+      "todayCaptionLead": "Quality information lives in separate places.",
       "todayCaptionAccent": "La alineación sigue siendo el reto.",
       "suricatNote": "Funciona junto a los sistemas existentes.",
       "suricatCaption": "Suricat muestra lo que puede haber dejado de alinearse. Los equipos de QA y RA revisan, verifican y deciden.",
@@ -1113,12 +1122,14 @@
       "systems": {
         "qms": "QMS",
         "qmsDetail": "Registros · Flujos",
-        "rim": "RIM",
+        "rim": "Regulatory Files",
         "rimDetail": "Presentaciones",
-        "plm": "PLM",
+        "plm": "Design and\nDevelopment Files",
         "plmDetail": "Datos de diseño",
         "documents": "Control documental",
-        "documentsDetail": "Documentos · Aprobaciones"
+        "documentsDetail": "Documentos · Aprobaciones",
+        "regulatoryFiles": "Regulatory Files",
+        "designDevFiles": "Design and\nDevelopment Files"
       },
       "manual": {
         "spreadsheets": "Hojas de cálculo",
@@ -1159,11 +1170,12 @@
       "sectionTitle": "Hecho para entornos regulados",
       "headline": "Inteligencia sin ceder el control.",
       "intro": "Suricat encaja en entornos de calidad y regulación existentes, manteniendo a los profesionales de QA y RA al mando.",
+      "featuredCategory": "En el centro",
       "featuredFootnote": "Revisar. Verificar. Decidir.",
       "cards": {
         "accountability": {
           "title": "Responsabilidad humana",
-          "body": "Suricat identifica posibles problemas de cumplimiento y vincula cada uno con su evidencia de origen. Los profesionales de QA y RA revisan cada posible problema, verifican la evidencia y deciden qué hacer. La responsabilidad de cada decisión sigue siendo suya."
+          "body": "Los profesionales de QA y RA permanecen en el centro de cada revisión. Su experiencia guía la evaluación de posibles problemas y la verificación de la evidencia. Conservan plena autoridad sobre cada decisión y acción."
         },
         "noRipReplace": {
           "title": "Sin sustituir lo existente",
@@ -1175,11 +1187,11 @@
         },
         "data": {
           "title": "Propiedad de los datos",
-          "body": "Los documentos, registros e información de cumplimiento siguen siendo propiedad del cliente. Los datos del cliente no se comparten con otros clientes ni se usan para entrenar modelos de IA sin consentimiento escrito explícito."
+          "body": "Los datos del cliente nunca se usan para entrenar modelos de IA. Los datos del cliente siguen siendo propiedad del cliente, con opciones de control de retención."
         },
         "dedicated": {
-          "title": "Instancia dedicada",
-          "body": "Cada cliente recibe una instancia dedicada de Suricat, manteniendo la información de cumplimiento aislada de otras organizaciones."
+          "title": "Aislado por diseño",
+          "body": "La información de cumplimiento de cada organización está aislada de los datos de otras organizaciones."
         }
       }
     }

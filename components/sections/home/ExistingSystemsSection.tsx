@@ -197,13 +197,19 @@ function SuricatPanel({ t }: { t: (key: string) => string }) {
         </div>
 
         <div className="es-node es-node-rim es-node-suricat-rim">
-          <SuricatChip label={t("systems.rim")} detail={t("systems.rimDetail")}>
+          <SuricatChip
+            label={t("systems.regulatoryFiles")}
+            detail={t("systems.rimDetail")}
+          >
             <FaPaperPlane />
           </SuricatChip>
         </div>
 
         <div className="es-node es-node-plm es-node-suricat-plm">
-          <SuricatChip label={t("systems.plm")} detail={t("systems.plmDetail")}>
+          <SuricatChip
+            label={t("systems.designDevFiles")}
+            detail={t("systems.plmDetail")}
+          >
             <FaCompassDrafting />
           </SuricatChip>
         </div>

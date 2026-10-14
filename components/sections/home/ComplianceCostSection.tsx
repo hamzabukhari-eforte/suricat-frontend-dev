@@ -7,95 +7,58 @@ import { Container } from "@/components/ui/Container";
 const STAT_CARDS = [
   {
     id: "failures" as const,
-    href: "https://www.mckinsey.com/industries/life-sciences/our-insights/capturing-the-value-of-good-quality-in-medical-devices",
+    href: "https://www.fda.gov/media/191127/download?attachment=",
   },
   {
     id: "exposure" as const,
-    href: "https://www.mckinsey.com/industries/life-sciences/our-insights/capturing-the-value-of-good-quality-in-medical-devices",
+    href: "https://www.fda.gov/about-fda/fda-track-agency-wide-program-performance/fda-track-medical-device-user-fee-amendments-mdufa-performance-reports",
   },
   {
     id: "remediation" as const,
-    href: "https://www.mckinsey.com/industries/life-sciences/our-insights/capturing-the-value-of-good-quality-in-medical-devices",
+    href: "https://www.cov.com/en/news-and-insights",
   },
   {
     id: "design" as const,
-    href: "https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/medtech-quality-costs.html",
+    href: "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-references/inspection-observations",
   },
-];
+] as const;
 
-const STORY_CARDS = [
-  {
-    id: "zoll" as const,
-    href: "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/zoll-medical-corporation-711320-04302026",
-  },
-  {
-    id: "medline" as const,
-    href: "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/medline-industries-lp-723866-03252026",
-  },
-  {
-    id: "bd" as const,
-    href: "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/becton-dickinson-and-companycarefusion-303-inc-691601-11222024",
-  },
-  {
-    id: "meridian" as const,
-    href: "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/meridian-bioscience-inc-720826-12222025",
-  },
-];
+const FEATURED_STAT_HREF =
+  "https://www.fda.gov/media/191127/download?attachment=";
 
-const MEDTRONIC_HREF =
-  "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/medtronic-inc-617539-12092021";
-
-const COST_OF_QUALITY_HREF =
-  "https://www.mckinsey.com/industries/life-sciences/our-insights/capturing-the-value-of-good-quality-in-medical-devices";
+const WHY_NOW_HREF =
+  "https://www.fda.gov/medical-devices/quality-system-qs-regulationmedical-device-good-manufacturing-practices/quality-management-system-regulation-final-rule-amending-quality-system-regulation";
 
 export function ComplianceCostSection() {
   const t = useTranslations("home.complianceCost");
 
   return (
     <section id="compliance-cost-section">
-      {/* Cost of Misalignment — gray band like Alignment Gap */}
       <div className="cc-cost-band bg-surface-muted pt-12 pb-14 lg:pb-16">
         <Container>
           <div className="mb-8 lg:mb-10">
             <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-orange">
               {t("eyebrow")}
             </span>
-            <h2 className="mb-4 max-w-4xl text-[32px] font-bold leading-tight text-navy">
+            <h2 className="mb-4 w-full text-[32px] font-bold leading-tight text-navy">
               {t("title")}
             </h2>
-            <p className="max-w-4xl text-[20px] font-normal leading-relaxed text-navy lg:leading-[28px]">
+            <p className="w-full text-[20px] font-normal leading-relaxed text-navy lg:leading-[28px]">
               {t("body")}
             </p>
           </div>
 
           <div className="cc-stats-layout">
             <a
-              href={COST_OF_QUALITY_HREF}
+              href={FEATURED_STAT_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="cc-featured-stat"
             >
-              <p className="cc-featured-stat-label">{t("stats.costOfQuality.label")}</p>
+              <p className="cc-stat-category">{t("stats.costOfQuality.category")}</p>
               <p className="cc-featured-stat-value">{t("stats.costOfQuality.stat")}</p>
+              <p className="cc-featured-stat-label">{t("stats.costOfQuality.label")}</p>
               <p className="cc-featured-stat-body">{t("stats.costOfQuality.body")}</p>
-              <div className="cc-featured-stat-split">
-                <div>
-                  <p className="cc-featured-stat-split-value">
-                    {t("stats.costOfQuality.thirdTitle")}
-                  </p>
-                  <p className="cc-featured-stat-split-text">
-                    {t("stats.costOfQuality.thirdBody")}
-                  </p>
-                </div>
-                <div>
-                  <p className="cc-featured-stat-split-value">
-                    {t("stats.costOfQuality.twoThirdsTitle")}
-                  </p>
-                  <p className="cc-featured-stat-split-text">
-                    {t("stats.costOfQuality.twoThirdsBody")}
-                  </p>
-                </div>
-              </div>
               <p className="cc-featured-stat-source">
                 <span>{t("stats.costOfQuality.source")}</span>
                 <FaUpRightFromSquare
@@ -115,8 +78,11 @@ export function ComplianceCostSection() {
                   rel="noopener noreferrer"
                   className="cc-stat-card"
                 >
-                  <p className="cc-stat-card-label">{t(`stats.${card.id}.label`)}</p>
+                  <p className="cc-stat-category cc-stat-category-light">
+                    {t(`stats.${card.id}.category`)}
+                  </p>
                   <p className="cc-stat-card-value">{t(`stats.${card.id}.stat`)}</p>
+                  <p className="cc-stat-card-label">{t(`stats.${card.id}.label`)}</p>
                   <p className="cc-stat-card-body">{t(`stats.${card.id}.body`)}</p>
                   <p className="cc-stat-card-source">
                     <span>{t(`stats.${card.id}.source`)}</span>
@@ -131,90 +97,29 @@ export function ComplianceCostSection() {
             </div>
           </div>
 
-          <p className="cc-punchline">
-            <span className="cc-punchline-line1">{t("punchline.line1")}</span>{" "}
-            <span className="cc-punchline-line2">{t("punchline.line2")}</span>
-          </p>
-        </Container>
-      </div>
-
-      {/* Explore the Evidence — white band, clear gap after Cost */}
-      <div className="cc-evidence-band bg-white pt-12 pb-10">
-        <Container>
-          <div className="cc-evidence">
-            <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-orange">
-              {t("evidence.eyebrow")}
-            </span>
-            <h3 className="mb-4 max-w-4xl text-[32px] font-bold leading-tight text-navy">
-              {t("evidence.title")}
-            </h3>
-            <p className="mb-8 max-w-4xl text-[20px] font-normal leading-relaxed text-navy/80">
-              {t("evidence.intro")}
-            </p>
-
-            <div className="cc-evidence-layout">
-              <a
-                href={MEDTRONIC_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cc-story-featured"
-              >
-                <p className="cc-story-meta">{t("stories.medtronic.meta")}</p>
-                <p className="cc-story-question">{t("stories.medtronic.question")}</p>
-                <div className="cc-story-featured-stats">
-                  <div>
-                    <p className="cc-story-stat">{t("stories.medtronic.stat1")}</p>
-                    <p className="cc-story-stat-body">{t("stories.medtronic.stat1Body")}</p>
-                  </div>
-                  <div>
-                    <p className="cc-story-stat-md">{t("stories.medtronic.stat2")}</p>
-                    <p className="cc-story-stat-body">{t("stories.medtronic.stat2Body")}</p>
-                  </div>
-                  <div>
-                    <p className="cc-story-stat-md">{t("stories.medtronic.stat3")}</p>
-                    <p className="cc-story-stat-body">{t("stories.medtronic.stat3Body")}</p>
-                  </div>
-                </div>
-                <span className="cc-story-link">
-                  {t("evidence.readStory")}
-                  <FaUpRightFromSquare className="text-xs" aria-hidden="true" />
-                </span>
-              </a>
-
-              <div className="cc-story-grid">
-                {STORY_CARDS.map((card) => (
-                  <a
-                    key={card.id}
-                    href={card.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cc-story-card"
-                  >
-                    <p className="cc-story-card-meta">
-                      {t(`stories.${card.id}.meta`)}
-                    </p>
-                    <p className="cc-story-card-question">
-                      {t(`stories.${card.id}.question`)}
-                    </p>
-                    <p className="cc-story-card-stat">{t(`stories.${card.id}.stat`)}</p>
-                    <p className="cc-story-card-stat-note">
-                      {t(`stories.${card.id}.statNote`)}
-                    </p>
-                    <p className="cc-story-card-body">{t(`stories.${card.id}.body`)}</p>
-                    <span className="cc-story-card-link">
-                      {t("evidence.readStory")}
-                      <FaUpRightFromSquare className="text-xs" aria-hidden="true" />
-                    </span>
-                  </a>
-                ))}
-              </div>
+          <a
+            href={WHY_NOW_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cc-why-now"
+          >
+            <div className="cc-why-now-copy">
+              <span className="cc-why-now-eyebrow">{t("whyNow.eyebrow")}</span>
+              <p className="cc-why-now-body">{t("whyNow.body")}</p>
+              <p className="cc-why-now-source">
+                <span>{t("whyNow.source")}</span>
+                <FaUpRightFromSquare
+                  className="cc-source-icon"
+                  aria-hidden="true"
+                  size={14}
+                />
+              </p>
             </div>
-
-            <p className="cc-evidence-disclaimer">
-              <span>{t("evidence.disclaimerLine1")}</span>
-              <span>{t("evidence.disclaimerLine2")}</span>
-            </p>
-          </div>
+            <div className="cc-why-now-aside" aria-hidden="true">
+              <p className="cc-why-now-date">{t("whyNow.date")}</p>
+              <p className="cc-why-now-date-label">{t("whyNow.dateLabel")}</p>
+            </div>
+          </a>
         </Container>
       </div>
     </section>

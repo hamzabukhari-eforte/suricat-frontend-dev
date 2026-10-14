@@ -157,13 +157,13 @@
     "readyTitle": "Help Define the Future of Compliance Intelligence.",
     "body": "Bring real compliance challenges. Work directly with the Suricat founding team, get early access to the platform, and help shape how compliance intelligence is built for MedTech QA and RA teams.",
     "becomeDesignPartner": "Join as a Design Partner",
-    "gotQuestions": "Got Questions?",
+    "gotQuestions": "Talk to Us",
     "scheduleDiscussion": "Schedule a Discussion",
-    "requestFreePilot": "Request a Free Pilot"
+    "requestFreePilot": "Request a Pilot"
   },
   "marquee": {
     "text": "QMSR enforcement is now active. Are you inspection-ready?",
-    "cta": "Request a Free Pilot"
+    "cta": "Request a Pilot"
   },
   "metadata": {
     "defaultDescription": "Suricat is the Compliance Intelligence Platform for highly regulated industries — read-only by design, built for inspection-ready documentation confidence.",
@@ -533,10 +533,10 @@
       "titleBefore": "The Sentinel for",
       "titleCompliance": "Compliance",
       "titleIntelligence": "Intelligence",
-      "body": "Suricat works alongside existing QMS and other quality systems to surface potential quality issues, compliance gaps, and misalignments across documents and records, link each one to its source evidence, and help QA/RA teams address them before an auditor finds them.",
-      "explorePlatform": "Request a Free Pilot",
+      "body": "Suricat works alongside existing QMS and other quality systems to uncover potential compliance gaps, quality issues, and misalignments across documents and records, trace each one to its source, and help QA/RA teams review and address them ahead of audits and inspections.",
+      "explorePlatform": "Request a Pilot",
       "becomeDesignPartner": "Join as a Design Partner",
-      "gotQuestions": "Got Questions?",
+      "gotQuestions": "Talk to Us",
       "bannerLabel": "COMPLIANCE INTELLIGENCE PLATFORM",
       "bannerAlt": "Suricat founders banner",
       "diagram": {
@@ -596,8 +596,8 @@
       "tagline": "Less time searching. More confidence in every review.",
       "evaluateTitle": "Ready to See Suricat in Action?",
       "ctaDesignPartner": "Join as a Design Partner",
-      "ctaPilot": "Request a Free Pilot",
-      "gotQuestions": "Got Questions?"
+      "ctaPilot": "Request a Pilot",
+      "gotQuestions": "Talk to Us"
     },
     "platform": {
       "sectionTitle": "Platform",
@@ -905,43 +905,51 @@
     },
     "complianceCost": {
       "eyebrow": "The Cost of Misalignment",
-      "title": "Misalignment Can Stay Hidden Until It Matters.",
-      "body": "Quality and compliance issues can go unnoticed when related information across requirements, documents, and records no longer lines up. By the time an audit, inspection, or recall exposes them, the financial and operational impact can be significant.",
+      "title": "Misaligned quality documents, procedures, and records can make it harder to identify gaps, reconcile evidence, and respond to regulatory scrutiny.",
+      "body": "FDA data reveals the broader challenges medical device manufacturers face, including inspection deficiencies, enforcement, additional information requests, and lengthy submission reviews.",
       "stats": {
         "costOfQuality": {
-          "label": "Cost of Quality",
-          "stat": "$26B TO $36B",
-          "body": "Estimated annual direct cost of quality across the medical device industry.",
-          "thirdTitle": "ABOUT ONE THIRD",
-          "thirdBody": "Cost of ensuring quality",
-          "twoThirdsTitle": "ABOUT TWO THIRDS",
-          "twoThirdsBody": "Cost of poor quality",
-          "source": "Source · McKinsey"
+          "category": "High-Risk Device Submissions",
+          "stat": "74%",
+          "label": "Major deficiencies in nearly three of four high-risk device reviews",
+          "body": "43 of 58 completed reviews of original PMAs, PDPs, panel-track supplements, and premarket reports. Preliminary FY2025.",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "failures": {
-          "label": "Quality and Compliance Failures",
-          "stat": "$7.5B TO $9.5B",
-          "body": "Estimated annual cost of nonroutine external quality failures including recalls and major regulatory actions.",
-          "source": "Source · McKinsey"
+          "category": "510(k) Submissions",
+          "stat": "66%",
+          "label": "Two in three 510(k) reviews required additional information",
+          "body": "FY2025, preliminary",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "exposure": {
-          "label": "Company Exposure",
-          "stat": "UP TO $1B",
-          "body": "Potential revenue impact associated with selected high impact medical device quality events.",
-          "source": "Source · McKinsey"
+          "category": "PMA Review Timelines",
+          "stat": "149 days",
+          "label": "Manufacturer responses consume months of PMA review",
+          "body": "FY2024 original PMAs and panel-track supplements, of 320 days total",
+          "source": "Source: FDA, MDUFA Quarterly Report, Aug. 2026"
         },
         "remediation": {
-          "label": "Remediation Burden",
-          "stat": "0.4% TO 0.7% OF SALES",
-          "body": "Estimated remediation costs across investigations, CAPAs, complaints, MDRs, and field actions.",
-          "source": "Source · McKinsey"
+          "category": "FDA Enforcement",
+          "stat": "26 of 59",
+          "label": "Design controls and CAPA lead FDA quality-system enforcement",
+          "body": "2025 warning letters. Design controls also led in 2024 with 22 of 45.",
+          "source": "Sources: Covington & Burling, 2025 · 2024"
         },
         "design": {
-          "label": "Design Control Exposure",
-          "stat": "34.8%",
-          "body": "Poor design controls accounted for 34.8% of medical device recall reasons in Deloitte’s analysis of FDA recall data from 2012 through 2022.",
-          "source": "Source · Deloitte"
+          "category": "FDA Inspections",
+          "stat": "279",
+          "label": "CAPA procedures top FDA inspection observations",
+          "body": "FY2025, followed by complaint handling at 211",
+          "source": "Source: FDA, FY2025 Inspection Observations"
         }
+      },
+      "whyNow": {
+        "eyebrow": "Why This Matters Now",
+        "body": "FDA's updated inspection framework places greater emphasis on risk-management evidence. Under QMSR, effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
+        "date": "Feb 2, 2026",
+        "dateLabel": "QMSR Effective",
+        "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
       },
       "punchline": {
         "line1": "The information may exist.",
@@ -1001,7 +1009,7 @@
       "sectionTitle": "The Alignment Gap",
       "headline": "Quality Systems Are in Place. Alignment Is the Hard Part.",
       "lead": "Requirements change. Documents evolve. Evidence accumulates.",
-      "p1": "Procedures, risk files, CAPAs, design control documentation, and training records depend on one another, even across different systems.",
+      "p1": "Quality system documents and records depend on one another, even across different systems.",
       "p2": "When one changes, what else is affected?",
       "closer": "Suricat shows you the impact across those connections.",
       "visual": {
@@ -1024,6 +1032,7 @@
         "affected": "Affected",
         "affectedQ": "Affected?",
         "updatedRevD": "Updated to Rev D",
+        "referencesRevC": "References Rev C",
         "trainedRevC": "Trained on Rev C",
         "needsAttention": "Needs Attention"
       },
@@ -1045,7 +1054,7 @@
         },
         "s2": {
           "q": "What else is affected?",
-          "a": "Procedure · Risk · Training Records"
+          "a": "Procedure · Risk · Design Control"
         },
         "s3": {
           "q": "Does everything still align?",
@@ -1103,8 +1112,8 @@
       "misalignments": "Potential misalignments",
       "evidenceLinked": "Source evidence linked",
       "relationshipsMissed": "Relationships can be missed",
-      "todayCaption": "Each system manages its own information.",
-      "todayCaptionLead": "Each system manages its own information.",
+      "todayCaption": "Quality information lives in separate places.",
+      "todayCaptionLead": "Quality information lives in separate places.",
       "todayCaptionAccent": "Alignment is still the challenge.",
       "suricatNote": "Works alongside existing systems.",
       "suricatCaption": "Suricat surfaces what may no longer line up. QA and RA teams review, verify, and decide.",
@@ -1113,12 +1122,14 @@
       "systems": {
         "qms": "QMS",
         "qmsDetail": "Records · Workflows",
-        "rim": "RIM",
+        "rim": "Regulatory Files",
         "rimDetail": "Submissions",
-        "plm": "PLM",
+        "plm": "Design and\nDevelopment Files",
         "plmDetail": "Design data",
         "documents": "Document Control",
-        "documentsDetail": "Documents · Approvals"
+        "documentsDetail": "Documents · Approvals",
+        "regulatoryFiles": "Regulatory Files",
+        "designDevFiles": "Design and\nDevelopment Files"
       },
       "manual": {
         "spreadsheets": "Spreadsheets",
@@ -1159,11 +1170,12 @@
       "sectionTitle": "Built for Regulated Environments",
       "headline": "Intelligence Without Giving Up Control.",
       "intro": "Suricat fits into existing quality and regulatory environments while keeping QA and RA professionals in control.",
+      "featuredCategory": "At the Center",
       "featuredFootnote": "Review. Verify. Decide.",
       "cards": {
         "accountability": {
           "title": "Human Accountability",
-          "body": "Suricat identifies potential compliance issues and links each one to its source evidence. QA and RA professionals review each potential issue, verify the evidence, and decide what to do. Responsibility for every decision remains with them."
+          "body": "QA and RA professionals remain at the center of every review. Their expertise guides the assessment of potential issues and verification of evidence. They retain full authority over every decision and action."
         },
         "noRipReplace": {
           "title": "No Rip and Replace",
@@ -1175,11 +1187,11 @@
         },
         "data": {
           "title": "Data Ownership",
-          "body": "Documents, records, and compliance information remain the customer's property. Customer data is not shared with other customers or used to train AI models without explicit written consent."
+          "body": "Customer data is never used to train AI models. Customer data remains the customer's property, with data retention control options."
         },
         "dedicated": {
-          "title": "Dedicated Instance",
-          "body": "Each customer receives a dedicated Suricat instance, keeping compliance information isolated from other organizations."
+          "title": "Isolated by Design",
+          "body": "Each organization's compliance information is isolated from other organizations' data."
         }
       }
     }

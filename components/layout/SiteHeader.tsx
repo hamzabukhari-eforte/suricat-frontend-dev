@@ -124,6 +124,8 @@ export function SiteHeader() {
         <div className="nav-center-menu hidden xl:flex flex-1 self-stretch items-stretch justify-center min-w-0">
           {megaMenus.map((menu) => {
             const menuActive = isMegaTriggerActive(menu);
+            const linkCols = menu.linkColumns === 3 ? 3 : 2;
+            const linkRows = Math.ceil(menu.links.length / linkCols);
 
             return (
               <div
@@ -170,12 +172,18 @@ export function SiteHeader() {
                         </Link>
                       </div>
                       <div
-                        className={`col-span-8 grid gap-x-6 gap-y-1 ${
-                          menu.linkColumns === 3 ? "grid-cols-3" : "grid-cols-2"
+                        className={`nav-mega-links col-span-8 grid gap-x-6 gap-y-1 grid-flow-col ${
+                          linkCols === 3 ? "grid-cols-3" : "grid-cols-2"
                         }`}
+                        style={{
+                          gridTemplateRows: `repeat(${linkRows}, auto)`,
+                        }}
                       >
                         {menu.links.map((link) => {
-                          const active = isMegaPanelLinkActive(link.href, menu.id);
+                          const active = isMegaPanelLinkActive(
+                            link.href,
+                            menu.id,
+                          );
                           return (
                             <Link
                               key={link.href + link.label}
