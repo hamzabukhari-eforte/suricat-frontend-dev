@@ -1513,13 +1513,17 @@ a.solution-nav-pill,
   animation: agv-draw-y 0.65s cubic-bezier(0.45, 0, 0.55, 1) 0.72s both;
 }
 
-/* Orange badge→badge band draws with misalignment pill step */
+/* Orange badge→badge band draws, then dashes keep running */
 .agv-visual.is-agv-play .agv-orange-v {
-  animation: agv-draw-y 0.7s cubic-bezier(0.45, 0, 0.55, 1) 1.8s both;
+  animation:
+    agv-draw-y 0.7s cubic-bezier(0.45, 0, 0.55, 1) 1.8s both,
+    agv-dash-run-y 0.85s linear 2.5s infinite;
 }
 
 .agv-visual.is-agv-play .agv-orange-h {
-  animation: agv-draw-x-gap 0.75s cubic-bezier(0.45, 0, 0.55, 1) 1.9s both;
+  animation:
+    agv-draw-x-gap 0.75s cubic-bezier(0.45, 0, 0.55, 1) 1.9s both,
+    agv-dash-run-x 0.85s linear 2.65s infinite;
 }
 
 .agv-visual.is-agv-play .agv-gap-pill {
@@ -1535,9 +1539,30 @@ a.solution-nav-pill,
   }
 }
 
-/* Blue dotted legs: mid-cards → Records (stagger left → right) */
+/* Marching dashes on dotted connectors */
+@keyframes agv-dash-run-y {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 11px;
+  }
+}
+
+@keyframes agv-dash-run-x {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 11px 0;
+  }
+}
+
+/* Blue dotted legs: draw, then dashes keep running */
 .agv-visual.is-agv-play .agv-blue-v {
-  animation: agv-draw-y 0.7s cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation:
+    agv-draw-y 0.7s cubic-bezier(0.45, 0, 0.55, 1) var(--agv-leg-delay, 2.1s) both,
+    agv-dash-run-y 0.85s linear calc(var(--agv-leg-delay, 2.1s) + 0.7s) infinite;
 }
 
 /* Records doc icons — one-by-one, snappy */
@@ -1666,6 +1691,9 @@ a.solution-nav-pill,
   .agv-visual .agv-orange-h,
   .agv-visual .agv-gap-pill,
   .agv-visual .agv-blue-v,
+  .agv-visual.is-agv-play .agv-orange-v,
+  .agv-visual.is-agv-play .agv-orange-h,
+  .agv-visual.is-agv-play .agv-blue-v,
   .agv-visual .agv-doc-icon,
   .agv-visual .agv-records-arrow,
   .agv-visual .agv-records-arrow::after {
@@ -1964,7 +1992,7 @@ a.solution-nav-pill,
   margin-top: auto;
   padding: 0.22rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.62rem;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
@@ -2024,6 +2052,7 @@ a.solution-nav-pill,
     rgba(147, 197, 253, 0.8) 0 5px,
     transparent 5px 11px
   );
+  background-size: 100% 11px;
 }
 
 /* Chevron tip — kept short so it only kisses the Records top edge */
@@ -2056,6 +2085,7 @@ a.solution-nav-pill,
     #ff6b35 0 5px,
     transparent 5px 11px
   );
+  background-size: 100% 11px;
 }
 
 .agv-orange-h {
@@ -2067,6 +2097,7 @@ a.solution-nav-pill,
     #ff6b35 0 5px,
     transparent 5px 11px
   );
+  background-size: 11px 100%;
 }
 
 .agv-gap-pill {
@@ -6346,7 +6377,7 @@ a.solution-nav-pill,
 
 /* Cost of Misalignment — Oct 2026 redesign */
 #compliance-cost-section .cc-cost-band {
-  background-color: #f8f9fa; /* surface-muted — same as Alignment Gap */
+  background-color: #fff;
 }
 
 #compliance-cost-section .cc-evidence-band {
@@ -6458,7 +6489,7 @@ a.solution-nav-pill,
 
 #compliance-cost-section .cc-featured-stat-label {
   margin: 0 0 0.85rem;
-  font-size: 1.12rem;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.45;
   color: #fff;
@@ -6466,10 +6497,10 @@ a.solution-nav-pill,
 
 #compliance-cost-section .cc-featured-stat-body {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 18px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
-  max-width: 28ch;
+  max-width: none;
 }
 
 #compliance-cost-section .cc-featured-stat-split {
@@ -6643,7 +6674,7 @@ a.solution-nav-pill,
 #compliance-cost-section .cc-why-now-eyebrow {
   display: block;
   margin: 0 0 0.65rem;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;

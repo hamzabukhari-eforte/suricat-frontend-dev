@@ -425,7 +425,7 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
                 left: leg.x,
                 top: leg.yTop,
                 height: leg.height,
-                animationDelay: `${2.1 + i * 0.1}s`,
+                ["--agv-leg-delay" as string]: `${2.1 + i * 0.1}s`,
               }}
             />
           ))}
