@@ -64,7 +64,7 @@ export function PlatformPageContent() {
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-flex w-fit text-sm font-semibold text-white underline decoration-white/70 underline-offset-4 transition-colors hover:text-teal hover:decoration-teal md:text-base"
+                  className="inline-flex w-fit text-lg font-semibold text-white underline decoration-white/70 underline-offset-4 transition-colors hover:text-teal hover:decoration-teal md:text-xl"
                 >
                   {tCta("gotQuestions")}
                 </Link>

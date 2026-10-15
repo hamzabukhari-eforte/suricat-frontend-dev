@@ -49,15 +49,15 @@ export function HeroSection() {
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-flex w-fit text-sm font-semibold text-white underline underline-offset-4 decoration-white/70 transition-colors hover:text-teal hover:decoration-teal md:text-base"
+                  className="inline-flex w-fit text-lg font-semibold text-white underline underline-offset-4 decoration-white/70 transition-colors hover:text-teal hover:decoration-teal md:text-xl"
                 >
                   {t("gotQuestions")}
                 </Link>
               </div>
             </div>
 
-            <div className="flex items-center justify-center relative md:col-span-5 lg:col-span-7 overflow-x-clip overflow-y-visible mt-6 md:mt-0">
-              <div className="relative z-10 lg:z-20 w-full flex flex-col items-center justify-center transform translate-x-0 lg:translate-x-8 animate-slide-in-right overflow-x-clip overflow-y-visible">
+            <div className="flex items-center justify-center relative md:col-span-5 lg:col-span-7 overflow-visible mt-6 md:mt-0">
+              <div className="relative z-10 lg:z-20 w-full flex flex-col items-center justify-center animate-slide-in-right overflow-visible">
                 <HeroCipAnimation />
               </div>
             </div>
