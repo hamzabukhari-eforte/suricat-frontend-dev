@@ -26,14 +26,10 @@ export function PlatformPageContent() {
         <Container className="relative z-10 flex items-center">
           <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
             <div className="flex min-w-0 flex-col justify-center lg:col-span-4">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal">
-                {t("heroEyebrow")}
-              </p>
               <h1 className="mb-3 text-3xl font-bold leading-tight tracking-tight md:text-[1.75rem] lg:mb-4 lg:text-[36px] lg:leading-[44px]">
                 {t("heroTitleBefore")}{" "}
                 <span className="text-teal">{t("heroTitleAccent")}</span>
               </h1>
-              <div className="mb-4 h-1 w-12 bg-teal lg:mb-5" />
               <p className="mb-3 text-[16px] font-normal leading-relaxed text-gray-100 lg:leading-[26px]">
                 {t("heroLead")}
               </p>
