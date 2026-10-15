@@ -439,7 +439,7 @@ export function AlignmentGapSection() {
   const t = useTranslations("home.alignmentGap");
 
   return (
-    <section id="alignment-gap" className="bg-surface-muted pt-12 pb-10">
+    <section id="alignment-gap" className="bg-surface-muted pt-12 pb-6">
       <Container>
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
           <HomeNarrativeText fullWidth>{t("lead")}</HomeNarrativeText>

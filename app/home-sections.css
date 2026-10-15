@@ -1,4 +1,4 @@
-﻿/* Home page section styles ported from Designs/index.html */
+/* Home page section styles ported from Designs/index.html */
 
 .tab-active {
         border-bottom: 3px solid #FF6B35;
@@ -533,7 +533,7 @@
         }
       }
 
-/* Short laptop viewports: tighten Cost band only — do NOT pad
+/* Short laptop viewports: tighten Cost band only � do NOT pad
    #compliance-cost-section itself (inner .cc-cost-band already has pt-*). */
 @media screen and (min-width: 1024px) and (max-height: 900px) {
         #hero-section + section {
@@ -818,7 +818,7 @@
         border-color: #16A7A4;
       }
 
-/* Document capacity callouts Ã¢â‚¬â€ center icon + copy like Designs (react-icons SVG). */
+/* Document capacity callouts â€” center icon + copy like Designs (react-icons SVG). */
 .pricing-plans-scope .pricing-doc-capacity {
         display: flex;
         flex-direction: column;
@@ -1321,7 +1321,7 @@ a.solution-nav-pill,
         }
       }
 
-/* Grow with content — locked height+max-height was clipping CTAs /
+/* Grow with content � locked height+max-height was clipping CTAs /
    "Talk to Us" on ~1600px-wide laptops and leaving a dead white gap below. */
 @media (min-width: 1024px) {
         #hero-section,
@@ -1357,7 +1357,7 @@ a.solution-nav-pill,
   letter-spacing: -0.01em;
 }
 
-/* Alignment Gap visual — Oct 2026 screenshot match */
+/* Alignment Gap visual � Oct 2026 screenshot match */
 .agv-visual {
   position: relative;
   border-radius: 8px;
@@ -1369,7 +1369,7 @@ a.solution-nav-pill,
   color: #fff;
 }
 
-/* —— Step-by-step loading sequence (triggered by .is-agv-play) —— */
+/* �� Step-by-step loading sequence (triggered by .is-agv-play) �� */
 @keyframes agv-step-in {
   0% {
     opacity: 0;
@@ -1436,7 +1436,7 @@ a.solution-nav-pill,
   animation: agv-step-in 0.55s cubic-bezier(0.45, 0, 0.55, 1) both;
 }
 
-/* 0 header → 1 Regulatory → 2 Procedure → 3 CAPA → 4 Risk → 5 Design → 6 pill → 7 Records */
+/* 0 header ? 1 Regulatory ? 2 Procedure ? 3 CAPA ? 4 Risk ? 5 Design ? 6 pill ? 7 Records */
 .agv-visual.is-agv-play .agv-step-0 {
   animation-delay: 0s;
 }
@@ -1469,7 +1469,7 @@ a.solution-nav-pill,
   animation-delay: 2s;
 }
 
-/* —— Smooth connector draw (no running dash) —— */
+/* �� Smooth connector draw (no running dash) �� */
 .agv-visual .agv-req-drop,
 .agv-visual .agv-branch-bar,
 .agv-visual .agv-branch-leg-group > span,
@@ -1529,7 +1529,7 @@ a.solution-nav-pill,
   animation: agv-draw-y 0.65s cubic-bezier(0.45, 0, 0.55, 1) 0.72s both;
 }
 
-/* Orange badge→badge band draws, then dashes keep running */
+/* Orange badge?badge band draws, then dashes keep running */
 .agv-visual.is-agv-play .agv-orange-v {
   animation:
     agv-draw-y 0.7s cubic-bezier(0.45, 0, 0.55, 1) 1.8s both,
@@ -1581,7 +1581,7 @@ a.solution-nav-pill,
     agv-dash-run-y 0.85s linear calc(var(--agv-leg-delay, 2.1s) + 0.7s) infinite;
 }
 
-/* Records doc icons — one-by-one, snappy */
+/* Records doc icons � one-by-one, snappy */
 @keyframes agv-doc-in {
   0% {
     opacity: 0;
@@ -1651,7 +1651,7 @@ a.solution-nav-pill,
   animation-delay: 3.05s;
 }
 
-/* Records horizontal arrow — last in sequence, fast + smooth */
+/* Records horizontal arrow � last in sequence, fast + smooth */
 @keyframes agv-arrow-draw {
   0% {
     transform: scaleX(0);
@@ -1765,7 +1765,7 @@ a.solution-nav-pill,
   padding: 0.85rem 1rem;
   border-radius: 8px;
   background: rgba(92, 61, 143, 0.28);
-  border: 2px solid #7c5aa8;
+  border: 2px solid #5c3d8f;
   z-index: 2;
 }
 
@@ -1777,7 +1777,7 @@ a.solution-nav-pill,
   width: 2.5px;
   height: 0.95rem;
   transform: translateX(-50%);
-  background: #7c5aa8;
+  background: #5c3d8f;
   pointer-events: none;
 }
 
@@ -1834,14 +1834,14 @@ a.solution-nav-pill,
   pointer-events: none;
 }
 
-/* Horizontal bar — left/width set by JS after measure; hidden until then */
+/* Horizontal bar � left/width set by JS after measure; hidden until then */
 .agv-branch-bar {
   position: absolute;
   left: 0;
   top: 0;
   width: 0;
   height: 2.5px;
-  background: #7c5aa8;
+  background: #5c3d8f;
   visibility: hidden;
   pointer-events: none;
 }
@@ -1901,7 +1901,7 @@ a.solution-nav-pill,
   justify-self: start;
 }
 
-/* Vertical drop — overlaps H-bar by 1px so junction has no gap */
+/* Vertical drop � overlaps H-bar by 1px so junction has no gap */
 .agv-branch-leg-group > span::before {
   content: "";
   position: absolute;
@@ -1910,7 +1910,7 @@ a.solution-nav-pill,
   bottom: 0;
   width: 2.5px;
   margin-left: -1.25px;
-  background: #7c5aa8;
+  background: #5c3d8f;
 }
 
 .agv-branch-leg-group > span::after {
@@ -1922,7 +1922,7 @@ a.solution-nav-pill,
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 6px solid #7c5aa8;
+  border-top: 6px solid #5c3d8f;
   transform: translateX(-50%);
 }
 
@@ -1938,7 +1938,7 @@ a.solution-nav-pill,
   display: none;
 }
 
-/* Work Instructions ↔ Risk File (measured card-to-card) */
+/* Work Instructions ? Risk File (measured card-to-card) */
 .agv-wi-risk-link {
   display: none;
 }
@@ -1960,11 +1960,11 @@ a.solution-nav-pill,
     height: 2.5px;
     margin-top: -1.25px;
     border-radius: 0;
-    background: #7c5aa8;
+    background: #5c3d8f;
     box-shadow: none;
     z-index: 3;
     pointer-events: none;
-    /* Hidden while measuring / cards still animating — avoids jump */
+    /* Hidden while measuring / cards still animating � avoids jump */
     opacity: 0;
     visibility: hidden;
     transform: scaleX(0);
@@ -1978,14 +1978,14 @@ a.solution-nav-pill,
     animation: none !important;
   }
 
-  /* Draw left→right after WI + Risk cards have settled */
+  /* Draw left?right after WI + Risk cards have settled */
   .agv-visual.is-agv-play .agv-wi-risk-link.is-agv-measured {
     visibility: visible;
     animation: agv-draw-x 0.65s cubic-bezier(0.45, 0, 0.55, 1) 1.55s both;
   }
 }
 
-/* Mid desktop: 4 cards across — shrink type so titles stay inside cards */
+/* Mid desktop: 4 cards across � shrink type so titles stay inside cards */
 @media (min-width: 900px) and (max-width: 1199px) {
   .agv-mid-title {
     font-size: 16px;
@@ -2029,7 +2029,7 @@ a.solution-nav-pill,
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* Card | center link | card — cards slightly narrower than half */
+/* Card | center link | card � cards slightly narrower than half */
 .agv-group-cards {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 1.65rem minmax(0, 1fr);
@@ -2060,7 +2060,7 @@ a.solution-nav-pill,
   width: 100%;
   height: 2.5px;
   border-radius: 0;
-  background: #7c5aa8;
+  background: #5c3d8f;
   box-shadow: none;
   z-index: 3;
   pointer-events: none;
@@ -2099,7 +2099,7 @@ a.solution-nav-pill,
   z-index: 4;
 }
 
-/* Main navy — matches brand / diagram */
+/* Main navy � matches brand / diagram */
 .agv-mid-card-teal,
 .agv-mid-card-purple,
 .agv-mid-card-orange {
@@ -2111,7 +2111,7 @@ a.solution-nav-pill,
   z-index: 4;
 }
 
-/* Icon first, then title — horizontal like screenshot */
+/* Icon first, then title � horizontal like screenshot */
 .agv-mid-head {
   display: flex;
   flex-direction: row;
@@ -2186,7 +2186,7 @@ a.solution-nav-pill,
   box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.1);
 }
 
-/* Spacer under groups — room for blue drops into Records */
+/* Spacer under groups � room for blue drops into Records */
 .agv-gap {
   position: relative;
   min-height: 1.35rem;
@@ -2196,7 +2196,7 @@ a.solution-nav-pill,
   pointer-events: none;
 }
 
-/* Measured orange link: Updated to Rev D → References Rev C */
+/* Measured orange link: Updated to Rev D ? References Rev C */
 .agv-orange-link {
   position: absolute;
   inset: 0;
@@ -2204,7 +2204,7 @@ a.solution-nav-pill,
   z-index: 5;
 }
 
-/* Measured blue dotted drops: Procedure / CAPA / Risk / Design → Records */
+/* Measured blue dotted drops: Procedure / CAPA / Risk / Design ? Records */
 .agv-blue-link {
   position: absolute;
   inset: 0;
@@ -2225,7 +2225,7 @@ a.solution-nav-pill,
   background-size: 100% 11px;
 }
 
-/* Chevron tip — kept short so it only kisses the Records top edge */
+/* Chevron tip � kept short so it only kisses the Records top edge */
 .agv-blue-v::after {
   content: "";
   position: absolute;
@@ -2348,7 +2348,7 @@ a.solution-nav-pill,
 /* Solid outline frame for Records and Evidence */
 .agv-records-box {
   position: relative;
-  /* Above blue drops — solid fill masks any line overshoot into the box */
+  /* Above blue drops � solid fill masks any line overshoot into the box */
   z-index: 5;
   display: flex;
   align-items: center;
@@ -2370,9 +2370,9 @@ a.solution-nav-pill,
   position: absolute;
   left: 0;
   right: 0;
-  /* Stop below group box bottoms — only cover gap band + space under groups */
+  /* Stop below group box bottoms � only cover gap band + space under groups */
   top: -4.5rem;
-  /* End higher in the padding — clear gap above the outline box */
+  /* End higher in the padding � clear gap above the outline box */
   bottom: calc(100% - 0.7rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2405,7 +2405,7 @@ a.solution-nav-pill,
   );
 }
 
-/* Outlined arrowhead — short of the Records box, no touch */
+/* Outlined arrowhead � short of the Records box, no touch */
 .agv-records-leg::after {
   content: "";
   position: absolute;
@@ -2492,7 +2492,7 @@ a.solution-nav-pill,
   min-width: 0;
   align-self: center;
   min-height: 1.35rem;
-  /* label is absolute above icons — keeps gray + orange on same center line */
+  /* label is absolute above icons � keeps gray + orange on same center line */
   padding-top: 0;
 }
 
@@ -2563,8 +2563,8 @@ a.solution-nav-pill,
   pointer-events: none;
 }
 
-/* Records → misalignment → audits (solid orange, no arrowheads —
-   triangles were reading as side “hooks” on the junctions) */
+/* Records ? misalignment ? audits (solid orange, no arrowheads �
+   triangles were reading as side �hooks� on the junctions) */
 .agv-flow-drop {
   display: block;
   width: 2.5px;
@@ -2627,7 +2627,7 @@ a.solution-nav-pill,
   padding: 0.85rem 1rem;
   border-radius: 8px;
   background: rgba(92, 61, 143, 0.28);
-  border: 2px solid #7c5aa8;
+  border: 2px solid #5c3d8f;
 }
 
 .agv-audits-icon {
@@ -2727,7 +2727,7 @@ a.solution-nav-pill,
   }
 }
 
-/* Existing Systems — closing emphasis line */
+/* Existing Systems � closing emphasis line */
 #existing-systems .es-p3-emphasis {
   margin: 0;
   max-width: none;
@@ -4138,7 +4138,7 @@ a.solution-nav-pill,
   overflow: visible;
 }
 
-/* Clean vertical rhythm: regs → sides/hub → pill → team */
+/* Clean vertical rhythm: regs ? sides/hub ? pill ? team */
 .es-diagram-suricat .es-node-regs {
   top: 6%;
 }
@@ -4244,7 +4244,7 @@ a.solution-nav-pill,
   background: #0a1530;
 }
 
-/* Exact midpoints of hub connector paths (26/74 → 50,36) */
+/* Exact midpoints of hub connector paths (26/74 ? 50,36) */
 .es-hub-doc-qms {
   left: 38%;
   top: 28%;
@@ -4326,13 +4326,13 @@ a.solution-nav-pill,
   border: 0 !important;
 }
 
-/* Continuous stem: Suricat hub → misalignment pill → QA/RA */
+/* Continuous stem: Suricat hub ? misalignment pill ? QA/RA */
 .es-link-hub-misalign {
   top: 40%;
   height: 26%;
 }
 
-/* Stop at circle rim — do not reach into the people icon */
+/* Stop at circle rim � do not reach into the people icon */
 .es-link-misalign-team {
   top: 72%;
   height: 9%;
@@ -4815,7 +4815,7 @@ a.solution-nav-pill,
   box-shadow: 0 0 12px rgba(25, 211, 197, 0.15);
 }
 
-/* Match Today chip icon tile — light bg behind icon */
+/* Match Today chip icon tile � light bg behind icon */
 .es-chip-suricat-icon {
   display: inline-flex;
   align-items: center;
@@ -4843,7 +4843,7 @@ a.solution-nav-pill,
   line-height: 1.15;
 }
 
-/* Shared title/detail sizes — Today + With Suricat equal */
+/* Shared title/detail sizes � Today + With Suricat equal */
 .es-chip-title {
   font-size: 0.72rem;
   font-weight: 800;
@@ -5371,7 +5371,7 @@ a.solution-nav-pill,
   overflow: visible;
 }
 
-/* Featured navy card — same language as Cost of Misalignment featured */
+/* Featured navy card � same language as Cost of Misalignment featured */
 .regulated-bento-featured {
   position: relative;
   display: flex;
@@ -5387,7 +5387,7 @@ a.solution-nav-pill,
   overflow: hidden;
 }
 
-/* Left teal accent — loading draw + soft pulse */
+/* Left teal accent � loading draw + soft pulse */
 .regulated-bento-featured::before {
   content: "";
   position: absolute;
@@ -5517,7 +5517,7 @@ a.solution-nav-pill,
   overflow: visible;
 }
 
-/* White cards — zoom + teal outline (no shadow), like upper cards' orange outline */
+/* White cards � zoom + teal outline (no shadow), like upper cards' orange outline */
 .regulated-bento-card {
   display: flex;
   flex-direction: column;
@@ -5674,7 +5674,7 @@ a.solution-nav-pill,
   line-height: 1.45;
 }
 
-/* Right CTA card — solid navy */
+/* Right CTA card � solid navy */
 .why-suricat-card {
   display: flex;
   flex-direction: column;
@@ -6118,7 +6118,7 @@ a.solution-nav-pill,
   }
 }
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero diagram card popovers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* â”€â”€ Hero diagram card popovers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-diagram-interactive {
   isolation: isolate;
   overflow: visible;
@@ -6342,7 +6342,7 @@ a.solution-nav-pill,
   max-width: 100%;
 }
 
-/* Tour-driven pop: card stays hidden until revealed (Input → Regulatory → Output) */
+/* Tour-driven pop: card stays hidden until revealed (Input ? Regulatory ? Output) */
 .hero-cip-anim-card {
   --cip-glow: rgba(25, 211, 197, 0.75);
   cursor: default;
@@ -6439,8 +6439,8 @@ a.solution-nav-pill,
   visibility: visible;
 }
 
-/* Trust footer — fast one-by-one after full CIP tour
-   (opacity only — do not CSS-transform SVG nodes that use transform="") */
+/* Trust footer � fast one-by-one after full CIP tour
+   (opacity only � do not CSS-transform SVG nodes that use transform="") */
 .hero-cip-trust-item,
 .hero-cip-trust-line,
 .hero-cip-trust-sep {
@@ -6503,7 +6503,7 @@ a.solution-nav-pill,
   }
 }
 
-/* Large focus card — video-style spotlight panel */
+/* Large focus card � video-style spotlight panel */
 .hero-cip-focus {
   position: absolute;
   z-index: 40;
@@ -6815,7 +6815,7 @@ a.solution-nav-pill,
   }
 }
 
-/* Cost of Misalignment — Oct 2026 redesign */
+/* Cost of Misalignment � Oct 2026 redesign */
 #compliance-cost-section .cc-cost-band {
   background-color: #fff;
 }
@@ -6857,13 +6857,13 @@ a.solution-nav-pill,
   background: #0d1b3e;
   color: #fff;
   border-radius: 8px;
-  padding: 2rem 1.75rem 1.75rem;
+  padding: 1.65rem 1.75rem 1.5rem;
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Left orange accent — same loading draw + pulse as regulated featured */
+/* Left orange accent � same loading draw + pulse as regulated featured */
 #compliance-cost-section .cc-featured-stat::before {
   content: "";
   position: absolute;
@@ -6909,7 +6909,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-featured-stat .cc-stat-category {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.55rem;
   color: rgba(255, 255, 255, 0.88);
   letter-spacing: 0.14em;
 }
@@ -6919,7 +6919,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-featured-stat-value {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   font-size: 52px;
   font-weight: 800;
   line-height: 1;
@@ -6928,7 +6928,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-featured-stat-label {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.5rem;
   font-size: 20px;
   font-weight: 800;
   line-height: 1.45;
@@ -6938,7 +6938,7 @@ a.solution-nav-pill,
 #compliance-cost-section .cc-featured-stat-body {
   margin: 0;
   font-size: 18px;
-  line-height: 1.55;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.88);
   max-width: none;
 }
@@ -6979,7 +6979,7 @@ a.solution-nav-pill,
 
 #compliance-cost-section .cc-featured-stat-source {
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding-top: 1.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 0.9rem;
   font-weight: 700;
@@ -7018,7 +7018,7 @@ a.solution-nav-pill,
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 1.25rem 1.15rem;
+  padding: 20px 1.15rem;
   text-decoration: none;
   color: #0d1b3e;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
@@ -7030,8 +7030,12 @@ a.solution-nav-pill,
   transform: translateY(-2px);
 }
 
+#compliance-cost-section .cc-stat-card .cc-stat-category {
+  margin: 0 0 0.35rem;
+}
+
 #compliance-cost-section .cc-stat-card-value {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.3rem;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.15;
@@ -7040,7 +7044,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-stat-card-label {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.35rem;
   font-size: 18px;
   font-weight: 800;
   line-height: 1.35;
@@ -7048,7 +7052,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-stat-card-body {
-  margin: 0 0 1rem;
+  margin: 0;
   font-size: 0.98rem;
   line-height: 1.5;
   color: #0d1b3e !important;
@@ -7057,7 +7061,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-stat-card-source {
-  margin: 1.25rem 0 0;
+  margin: 0.65rem 0 0;
   font-size: 0.9rem;
   font-weight: 700;
   color: #2563eb;

@@ -34,7 +34,7 @@ export function RegulatedEnvironmentsSection() {
   return (
     <section
       id="designed-for-regulated-environments"
-      className="bg-surface-muted pt-12 pb-10"
+      className="bg-surface-muted pt-8 pb-10"
     >
       <Container>
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
