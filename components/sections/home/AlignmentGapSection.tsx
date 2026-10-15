@@ -5,12 +5,13 @@ import {
   HomeNarrativeText,
 } from "@/components/sections/home/HomeNarrativeHeader";
 import {
+  FaClipboardCheck,
   FaClipboardList,
   FaCompassDrafting,
   FaFileLines,
-  FaFileShield,
+  FaMagnifyingGlass,
   FaRegFileLines,
-  FaRotate,
+  FaTriangleExclamation,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import type { IconType } from "react-icons";
@@ -68,18 +69,6 @@ function MidCard({
   );
 }
 
-type OrangeLink = {
-  x1: number;
-  x2: number;
-  yTop1: number;
-  yTop2: number;
-  yBand: number;
-  pillX: number;
-  pillY: number;
-  pillW: number;
-  pillH: number;
-};
-
 type BlueLeg = {
   x: number;
   yTop: number;
@@ -88,20 +77,21 @@ type BlueLeg = {
 
 function AlignmentDiagram({ t }: { t: (key: string) => string }) {
   const visualRef = useRef<HTMLDivElement>(null);
-  const procBadgeRef = useRef<HTMLSpanElement>(null);
-  const riskBadgeRef = useRef<HTMLSpanElement>(null);
-  const pillRef = useRef<HTMLSpanElement>(null);
   const recordsBoxRef = useRef<HTMLDivElement>(null);
   const procCardRef = useRef<HTMLDivElement>(null);
   const capaCardRef = useRef<HTMLDivElement>(null);
   const riskCardRef = useRef<HTMLDivElement>(null);
   const designCardRef = useRef<HTMLDivElement>(null);
   const branchRef = useRef<HTMLDivElement>(null);
-  const [link, setLink] = useState<OrangeLink | null>(null);
   const [blueLegs, setBlueLegs] = useState<BlueLeg[]>([]);
   const [branchBar, setBranchBar] = useState<{ left: number; width: number } | null>(
     null,
   );
+  const [wiRiskLink, setWiRiskLink] = useState<{
+    left: number;
+    top: number;
+    width: number;
+  } | null>(null);
 
   const measureLinksRef = useRef<(() => void) | null>(null);
 
@@ -129,15 +119,19 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) {
+          // Hide WI↔Risk link until cards settle — prevents wrong-position flash
+          setWiRiskLink(null);
           el.classList.remove("is-agv-play");
           void el.offsetWidth;
           el.classList.add("is-agv-play");
           kickMeasure();
           window.setTimeout(kickMeasure, 600);
+          window.setTimeout(kickMeasure, 1500);
           window.setTimeout(kickMeasure, 1600);
           window.setTimeout(kickMeasure, 2400);
         } else {
           el.classList.remove("is-agv-play");
+          setWiRiskLink(null);
         }
       },
       { threshold: 0.28 },
@@ -149,32 +143,12 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
 
   useLayoutEffect(() => {
     const visual = visualRef.current;
-    const procBadge = procBadgeRef.current;
-    const riskBadge = riskBadgeRef.current;
-    if (!visual || !procBadge || !riskBadge) return;
+    if (!visual) return;
 
     const measure = () => {
       const v = visual.getBoundingClientRect();
-      // Absolute children are positioned against the padding edge
       const borderLeft = visual.clientLeft;
       const borderTop = visual.clientTop;
-      const p = procBadge.getBoundingClientRect();
-      const r = riskBadge.getBoundingClientRect();
-      const pill = pillRef.current?.getBoundingClientRect();
-
-      const x1 = p.left + p.width / 2 - v.left - borderLeft;
-      const x2 = r.left + r.width / 2 - v.left - borderLeft;
-      const yTop1 = p.bottom - v.top - borderTop;
-      const yTop2 = r.bottom - v.top - borderTop;
-
-      // Horizontal band + pill sit below badges / group labels
-      const yBand = Math.max(yTop1, yTop2) + 96;
-      const pillW = pill?.width ?? 220;
-      const pillH = pill?.height ?? 36;
-      const pillX = (x1 + x2) / 2 - pillW / 2 - 88;
-      const pillY = yBand - pillH / 2;
-
-      setLink({ x1, x2, yTop1, yTop2, yBand, pillX, pillY, pillW, pillH });
 
       const recordsBox = recordsBoxRef.current;
       const cards = [
@@ -185,33 +159,56 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
       ];
       if (recordsBox && cards.every(Boolean)) {
         const rb = recordsBox.getBoundingClientRect();
-        // Stop a bit above Records so the tip is not stuck flush to the card
         const yEnd = rb.top - v.top - borderTop - 14;
         setBlueLegs(
           cards.map((card) => {
             const c = card!.getBoundingClientRect();
             const x = c.left + c.width / 2 - v.left - borderLeft;
-            // Start at mid-card bottom so the line touches then leaves the card
             const yTop = c.bottom - v.top - borderTop;
             return { x, yTop, height: Math.max(0, yEnd - yTop) };
           }),
         );
       }
 
-      // Purple bar ends exactly on first/last drop legs (no overhang)
       const branch = branchRef.current;
-      const procCard = procCardRef.current;
-      const designCard = designCardRef.current;
-      if (branch && procCard && designCard) {
+      if (branch) {
         const br = branch.getBoundingClientRect();
-        const pc = procCard.getBoundingClientRect();
-        const dc = designCard.getBoundingClientRect();
-        const xFirst = pc.left + pc.width / 2 - br.left;
-        const xLast = dc.left + dc.width / 2 - br.left;
-        setBranchBar({
-          left: xFirst,
-          width: Math.max(0, xLast - xFirst),
-        });
+        // Measure from actual vertical legs so H-bar meets outer drops flush
+        const legs = branch.querySelectorAll<HTMLElement>(
+          ".agv-branch-leg-group > span",
+        );
+        if (legs.length >= 2) {
+          const first = legs[0]!.getBoundingClientRect();
+          const last = legs[legs.length - 1]!.getBoundingClientRect();
+          const xFirst = first.left + first.width / 2 - br.left;
+          const xLast = last.left + last.width / 2 - br.left;
+          // Half-stroke pad so bar visually covers leg tops at both ends
+          const pad = 1.25;
+          setBranchBar({
+            left: xFirst - pad,
+            width: Math.max(0, xLast - xFirst + pad * 2),
+          });
+        }
+      }
+
+      const wiCard = capaCardRef.current;
+      const riskCard = riskCardRef.current;
+      if (wiCard && riskCard) {
+        const wi = wiCard.getBoundingClientRect();
+        const risk = riskCard.getBoundingClientRect();
+        // Only draw when cards sit side-by-side (desktop groups row)
+        if (risk.left > wi.right - 2) {
+          setWiRiskLink({
+            left: wi.right - v.left - borderLeft,
+            top:
+              (wi.top + wi.height / 2 + risk.top + risk.height / 2) / 2 -
+              v.top -
+              borderTop,
+            width: Math.max(0, risk.left - wi.right),
+          });
+        } else {
+          setWiRiskLink(null);
+        }
       }
     };
 
@@ -219,8 +216,6 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
     measure();
     const ro = new ResizeObserver(() => measure());
     ro.observe(visual);
-    ro.observe(procBadge);
-    ro.observe(riskBadge);
     if (recordsBoxRef.current) ro.observe(recordsBoxRef.current);
     for (const card of [
       procCardRef.current,
@@ -244,15 +239,6 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
       window.clearTimeout(t3);
     };
   }, []);
-
-  const leftX = link ? Math.min(link.x1, link.x2) : 0;
-  const rightX = link ? Math.max(link.x1, link.x2) : 0;
-  const pillGap = 14;
-  const hLeftW = link
-    ? Math.max(0, link.pillX - pillGap - leftX)
-    : 0;
-  const hRightX = link ? link.pillX + link.pillW + pillGap : 0;
-  const hRightW = link ? Math.max(0, rightX - hRightX) : 0;
 
   return (
     <div
@@ -280,7 +266,7 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
         aria-hidden="true"
       >
         <span
-          className="agv-branch-bar"
+          className={`agv-branch-bar${branchBar ? " is-agv-measured" : ""}`}
           style={
             branchBar
               ? {
@@ -288,7 +274,7 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
                   width: branchBar.width,
                   right: "auto",
                 }
-              : undefined
+              : { width: 0, opacity: 0 }
           }
         />
         <div className="agv-branch-legs">
@@ -309,17 +295,17 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
             <MidCard
               title={t("nodes.procedure")}
               Icon={FaClipboardList}
-              badge={t("badges.updatedRevD")}
-              badgeTone="purple"
-              iconTone="purple"
+              badge={t("badges.notYetReflected")}
+              badgeTone="orange"
+              iconTone="teal"
               orangeDrop
               step={2}
-              badgeRef={procBadgeRef}
               cardRef={procCardRef}
             />
+            <span className="agv-pair-link" aria-hidden="true" />
             <MidCard
-              title={t("nodes.capa")}
-              Icon={FaRotate}
+              title={t("nodes.workInstructions")}
+              Icon={FaClipboardCheck}
               badge={t("badges.affectedQ")}
               badgeTone="blue"
               iconTone="teal"
@@ -330,19 +316,21 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
           <p className="agv-group-label">{t("groups.qms")}</p>
         </div>
 
+        <span className="agv-groups-gutter" aria-hidden="true" />
+
         <div className="agv-group agv-step agv-step-4">
           <div className="agv-group-cards">
             <MidCard
               title={t("nodes.risk")}
-              Icon={FaFileShield}
-              badge={t("badges.referencesRevC")}
+              Icon={FaTriangleExclamation}
+              badge={t("badges.notYetReflected")}
               badgeTone="orange"
               iconTone="teal"
               orangeDrop
               step={4}
-              badgeRef={riskBadgeRef}
               cardRef={riskCardRef}
             />
+            <span className="agv-pair-link" aria-hidden="true" />
             <MidCard
               title={t("nodes.design")}
               Icon={FaCompassDrafting}
@@ -357,63 +345,20 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
         </div>
       </div>
 
-      {/* Spacer so records stay clear of the measured orange band + pill */}
-      <div className="agv-gap agv-step agv-step-6" aria-hidden="true" />
+      {wiRiskLink ? (
+        <span
+          className="agv-wi-risk-link is-agv-measured"
+          style={{
+            left: wiRiskLink.left,
+            top: wiRiskLink.top,
+            width: wiRiskLink.width,
+          }}
+          aria-hidden="true"
+        />
+      ) : null}
 
-      {link ? (
-        <div className="agv-orange-link" aria-hidden="true">
-          <span
-            className="agv-orange-v"
-            style={{
-              left: link.x1,
-              top: link.yTop1,
-              height: Math.max(0, link.yBand - link.yTop1),
-            }}
-          />
-          <span
-            className="agv-orange-v"
-            style={{
-              left: link.x2,
-              top: link.yTop2,
-              height: Math.max(0, link.yBand - link.yTop2),
-            }}
-          />
-          <span
-            className="agv-orange-h"
-            style={{
-              left: leftX,
-              top: link.yBand,
-              width: hLeftW,
-            }}
-          />
-          <span
-            className="agv-orange-h"
-            style={{
-              left: hRightX,
-              top: link.yBand,
-              width: hRightW,
-            }}
-          />
-          <span
-            ref={pillRef}
-            className="agv-gap-pill"
-            style={{
-              left: link.pillX,
-              top: link.pillY,
-            }}
-          >
-            <span className="agv-gap-pill-rev">{t("gap.rev")}</span>
-            <span className="agv-gap-pill-sep" />
-            <span className="agv-gap-pill-text">{t("gap.label")}</span>
-          </span>
-        </div>
-      ) : (
-        <span ref={pillRef} className="agv-gap-pill agv-gap-pill-measure">
-          <span className="agv-gap-pill-rev">{t("gap.rev")}</span>
-          <span className="agv-gap-pill-sep" />
-          <span className="agv-gap-pill-text">{t("gap.label")}</span>
-        </span>
-      )}
+      {/* Spacer so records stay clear of blue drops */}
+      <div className="agv-gap agv-step agv-step-6" aria-hidden="true" />
 
       {blueLegs.length > 0 ? (
         <div className="agv-blue-link" aria-hidden="true">
@@ -439,15 +384,50 @@ function AlignmentDiagram({ t }: { t: (key: string) => string }) {
             <div className="agv-records-rail" aria-hidden="true">
               <div className="agv-records-docs">
                 <div className="agv-docs-spaced">
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <span key={`s-${i}`} className="agv-doc-icon">
-                      <FaRegFileLines />
+                  {/* 30 icons — ~25% gray (8) · ~75% orange (22) */}
+                  <div className="agv-docs-muted">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                      <span key={`g-${i}`} className="agv-doc-icon is-muted">
+                        <FaRegFileLines />
+                      </span>
+                    ))}
+                  </div>
+                  <div className="agv-records-sep" aria-hidden="true">
+                    <span className="agv-records-sep-bar" />
+                  </div>
+                  <div className="agv-docs-alert">
+                    <span className="agv-records-revised-label">
+                      {t("requirementRevised")}
                     </span>
-                  ))}
+                    <div className="agv-docs-alert-row">
+                      {Array.from({ length: 22 }).map((_, i) => (
+                        <span key={`o-${i}`} className="agv-doc-icon is-alert">
+                          <FaRegFileLines />
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-              <span className="agv-records-arrow" />
             </div>
+          </div>
+        </div>
+        <span className="agv-flow-drop agv-flow-drop-records" aria-hidden="true" />
+      </div>
+
+      <div className="agv-outcome agv-step agv-step-7">
+        <p className="agv-misalignment">
+          <span className="agv-misalignment-dot" aria-hidden="true" />
+          {t("misalignment")}
+        </p>
+        <span className="agv-flow-drop agv-flow-drop-misalign" aria-hidden="true" />
+        <div className="agv-audits">
+          <span className="agv-audits-icon" aria-hidden="true">
+            <FaMagnifyingGlass />
+          </span>
+          <div className="agv-audits-copy">
+            <p className="agv-audits-title">{t("nodes.audits")}</p>
+            <span className="agv-audits-badge">{t("badges.observations")}</span>
           </div>
         </div>
       </div>

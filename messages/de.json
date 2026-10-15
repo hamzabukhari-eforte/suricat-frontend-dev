@@ -911,42 +911,43 @@
         "costOfQuality": {
           "category": "High-Risk Device Submissions",
           "stat": "74%",
-          "label": "Major deficiencies in nearly three of four high-risk device reviews",
-          "body": "43 of 58 completed reviews of original PMAs, PDPs, panel-track supplements, and premarket reports. Preliminary FY2025.",
+          "label": "Major deficiencies flagged in nearly three of four completed high-risk device reviews",
+          "body": "In preliminary FY2025 data, FDA issued 43 major-deficiency letters among 58 completed substantive reviews covering original PMAs, PDPs, panel-track supplements, and premarket reports.",
           "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "failures": {
           "category": "510(k) Submissions",
           "stat": "66%",
           "label": "Two in three 510(k) reviews required additional information",
-          "body": "FY2025, preliminary",
+          "body": "In preliminary FY2025 data, FDA issued Additional Information requests in 1,976 of 2,989 completed substantive reviews.",
           "source": "Source: FDA, FY2025 MDUFA Report to Congress"
         },
         "exposure": {
           "category": "PMA Review Timelines",
           "stat": "149 days",
           "label": "Manufacturer responses consume months of PMA review",
-          "body": "FY2024 original PMAs and panel-track supplements, of 320 days total",
+          "body": "For FY2024 original PMAs and panel-track supplements without panel review, time on the manufacturer’s side of the review averaged approximately 149 days of the 320-day total time to FDA decision.",
           "source": "Source: FDA, MDUFA Quarterly Report, Aug. 2026"
         },
         "remediation": {
           "category": "FDA Enforcement",
           "stat": "26 of 59",
           "label": "Design controls and CAPA lead FDA quality-system enforcement",
-          "body": "2025 warning letters. Design controls also led in 2024 with 22 of 45.",
+          "body": "In 2025, design-control and CAPA violations were each alleged in 26 of 59 FDA medical-device warning letters. In 2024, design controls led QSR subcategories with 22 of 45.",
           "source": "Sources: Covington & Burling, 2025 · 2024"
         },
         "design": {
           "category": "FDA Inspections",
           "stat": "279",
           "label": "CAPA procedures top FDA inspection observations",
-          "body": "FY2025, followed by complaint handling at 211",
+          "body": "In FY2025, FDA recorded 279 observations involving inadequate CAPA procedures, followed by 211 involving complaint-handling procedures.",
           "source": "Source: FDA, FY2025 Inspection Observations"
         }
       },
       "whyNow": {
         "eyebrow": "Why This Matters Now",
-        "body": "FDA's updated inspection framework places greater emphasis on risk-management evidence. Under QMSR, effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
+        "title": "FDA's updated inspection framework places greater emphasis on risk-management evidence.",
+        "body": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
         "date": "2. Feb 2026",
         "dateLabel": "QMSR wirksam",
         "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
@@ -1013,40 +1014,47 @@
       "p2": "Wenn sich eines ändert — was ist sonst betroffen?",
       "closer": "Suricat zeigt Ihnen die Auswirkungen über diese Verbindungen hinweg.",
       "visual": {
-        "kicker": "When a requirement changes",
-        "example": "Illustratives Beispiel"
+        "kicker": "When a Requirement Changes",
+        "example": "Illustrative Example",
+        "docsNote": "Illustrative examples of quality system documents and records"
       },
       "nodes": {
         "requirement": "Regulatory Requirement",
         "requirementSub": "e.g., the FDA QMSR transition",
         "procedure": "Procedure",
+        "workInstructions": "Work Instructions",
         "risk": "Risk File",
         "training": "Training Record",
         "control": "Kontrolle",
         "capa": "CAPA",
         "evidence": "Nachweis",
-        "design": "Design Control Documentation"
+        "design": "Design Control Documentation",
+        "audits": "Audits, Inspections, and Submissions"
       },
       "badges": {
         "revised": "Revised",
         "affected": "Betroffen",
         "affectedQ": "Affected?",
+        "notYetReflected": "Not yet reflected",
         "updatedRevD": "Updated to Rev D",
         "referencesRevC": "References Rev C",
         "trainedRevC": "Trained on Rev C",
-        "needsAttention": "Handlungsbedarf"
+        "needsAttention": "Handlungsbedarf",
+        "observations": "Potential observations and delays"
       },
       "groups": {
         "qms": "QMS",
         "design": "Design System",
         "training": "Training System"
       },
-      "alignmentIssue": "Rev D ≠ Rev C | Potential misalignment",
+      "alignmentIssue": "Potential misalignment across documents and records",
       "gap": {
-        "rev": "Rev D ≠ Rev C",
-        "label": "Potential misalignment"
+        "rev": "",
+        "label": "Potential misalignment across documents and records"
       },
       "recordsLabel": "Records and Evidence",
+      "requirementRevised": "Requirement revised",
+      "misalignment": "Potential misalignment across documents and records",
       "steps": {
         "s1": {
           "q": "Was hat sich geändert?",
@@ -1187,7 +1195,7 @@
         },
         "data": {
           "title": "Dateneigentum",
-          "body": "Kundendaten werden niemals zum Trainieren von KI-Modellen verwendet. Kundendaten bleiben Eigentum des Kunden, mit Optionen zur Steuerung der Datenspeicherung."
+          "body": "Kundendaten bleiben Eigentum des Kunden, werden niemals zum Trainieren von KI-Modellen verwendet und nach Vertragsende sicher gelöscht."
         },
         "dedicated": {
           "title": "Isolation durch Design",

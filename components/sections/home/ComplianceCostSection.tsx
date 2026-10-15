@@ -104,6 +104,7 @@ export function ComplianceCostSection() {
           >
             <div className="cc-why-now-copy">
               <span className="cc-why-now-eyebrow">{t("whyNow.eyebrow")}</span>
+              <p className="cc-why-now-title">{t("whyNow.title")}</p>
               <p className="cc-why-now-body">{t("whyNow.body")}</p>
               <p className="cc-why-now-source">
                 <span>{t("whyNow.source")}</span>
