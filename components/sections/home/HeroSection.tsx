@@ -49,7 +49,7 @@ export function HeroSection() {
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-flex w-fit text-lg font-semibold text-white underline underline-offset-4 decoration-white/70 transition-colors hover:text-teal hover:decoration-teal md:text-xl"
+                  className="inline-flex w-fit text-base font-semibold text-white underline underline-offset-4 decoration-white/70 transition-colors hover:text-teal hover:decoration-teal md:text-lg"
                 >
                   {t("gotQuestions")}
                 </Link>
