@@ -131,7 +131,7 @@ function SuricatChip({
 }) {
   return (
     <div className="es-chip es-chip-suricat">
-      <span className="es-chip-icon" aria-hidden="true">
+      <span className="es-chip-suricat-icon" aria-hidden="true">
         {children}
       </span>
       <span className="es-chip-copy">
@@ -175,10 +175,11 @@ function SuricatPanel({ t }: { t: (key: string) => string }) {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path className="es-link-to-hub" d="M14 20 L50 36" />
-          <path className="es-link-to-hub" d="M86 20 L50 36" />
-          <path className="es-link-to-hub" d="M14 52 L50 36" />
-          <path className="es-link-to-hub" d="M86 52 L50 36" />
+          {/* Anchor on inward-facing side centers (not box corners) */}
+          <path className="es-link-to-hub" d="M26 20 L50 36" />
+          <path className="es-link-to-hub" d="M74 20 L50 36" />
+          <path className="es-link-to-hub" d="M26 52 L50 36" />
+          <path className="es-link-to-hub" d="M74 52 L50 36" />
         </svg>
         <span className="es-hub-doc es-hub-doc-qms" aria-hidden="true" />
         <span className="es-hub-doc es-hub-doc-rim" aria-hidden="true" />
@@ -221,20 +222,6 @@ function SuricatPanel({ t }: { t: (key: string) => string }) {
           >
             <FaFileCircleCheck />
           </SuricatChip>
-        </div>
-
-        {/* PLM ↔ Document Control — dotted curve */}
-        <div className="es-link-plm-docs" aria-hidden="true">
-          <svg viewBox="0 0 100 20" fill="none" preserveAspectRatio="none">
-            <path
-              className="es-line-suricat-flow es-link-plm-docs-path"
-              d="M6 4 Q50 16 94 4"
-              stroke="#19d3c5"
-              strokeWidth="2"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
         </div>
 
         <div className="es-node es-node-hub">
