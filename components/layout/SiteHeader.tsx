@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { buildMegaMenus, isNavHrefActive } from "@/lib/navigation";
 
 function closeDesktopMegaMenus() {
@@ -25,9 +25,33 @@ export function SiteHeader() {
   const megaMenus = useMemo(() => buildMegaMenus(t), [t]);
   const [hash, setHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [logoTooltipVisible, setLogoTooltipVisible] = useState(false);
+  const logoTooltipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(
     () => new Set(),
   );
+
+  const clearLogoTooltipTimer = () => {
+    if (logoTooltipTimerRef.current) {
+      clearTimeout(logoTooltipTimerRef.current);
+      logoTooltipTimerRef.current = null;
+    }
+  };
+
+  const hideLogoTooltip = () => {
+    clearLogoTooltipTimer();
+    setLogoTooltipVisible(false);
+  };
+
+  const onLogoMouseEnter = () => {
+    if (pathname === "/") return;
+    clearLogoTooltipTimer();
+    logoTooltipTimerRef.current = setTimeout(() => {
+      setLogoTooltipVisible(true);
+    }, 1000);
+  };
 
   useEffect(() => {
     const syncHash = (next?: string) => {
@@ -55,6 +79,14 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    hideLogoTooltip();
+  }, [pathname]);
+
+  useEffect(() => {
+    return () => clearLogoTooltipTimer();
+  }, []);
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -101,24 +133,39 @@ export function SiteHeader() {
 
   return (
     <nav
-      className="border-b border-gray-200 sticky top-0 bg-white z-50 overflow-x-clip overflow-y-visible"
+      className="border-b border-gray-200 sticky top-0 bg-white z-50 overflow-visible"
       data-locale={locale}
     >
       <Container padded={false} className="nav-header-bar px-4 xl:px-0 h-16 lg:h-24 flex items-center">
         <div className="nav-brand-cluster flex items-center shrink-0">
-          <Link href="/" className="shrink-0 flex items-center" onClick={closeMobile}>
-            <Image
-              src="/assets/images/suricat-logo-header.png"
-              alt={t("common.suricatAlt")}
-              id="ig8vb"
-              width={300}
-              height={66}
-              className="nav-logo shrink-0 object-contain object-left"
-              style={{ width: "auto" }}
-              priority
-              unoptimized
-            />
-          </Link>
+          <div
+            className="nav-logo-wrap relative shrink-0"
+            onMouseEnter={onLogoMouseEnter}
+            onMouseLeave={hideLogoTooltip}
+          >
+            <Link
+              href="/"
+              className="shrink-0 flex items-center"
+              onClick={closeMobile}
+            >
+              <Image
+                src="/assets/images/suricat-logo-header.png"
+                alt={t("common.suricatAlt")}
+                id="ig8vb"
+                width={300}
+                height={66}
+                className="nav-logo shrink-0 object-contain object-left"
+                style={{ width: "auto" }}
+                priority
+                unoptimized
+              />
+            </Link>
+            {!isHome && logoTooltipVisible ? (
+              <span className="nav-logo-tooltip" role="tooltip">
+                {t("nav.goToHomePage")}
+              </span>
+            ) : null}
+          </div>
         </div>
 
         <div className="nav-center-menu hidden xl:flex flex-1 self-stretch items-stretch justify-center min-w-0">
