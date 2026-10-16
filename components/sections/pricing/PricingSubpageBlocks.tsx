@@ -38,7 +38,7 @@ export function PricingInfoGrid({
   return (
     <section className={`pt-8 ${muted ? "bg-surface-muted" : "bg-white"}`}>
       <Container>
-        <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+        <span className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block">
           {eyebrow}
         </span>
         <h2
@@ -88,7 +88,7 @@ export function PricingCallout({ eyebrow, body, bullets }: PricingCalloutProps) 
         aria-hidden="true"
       />
       <div className="relative z-10">
-        <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+        <span className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block">
           {eyebrow}
         </span>
         <div className="text-base sm:text-lg lg:text-[22px] leading-relaxed lg:leading-[32px] text-white mb-8 max-w-4xl">

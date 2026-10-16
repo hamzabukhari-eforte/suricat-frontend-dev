@@ -12,7 +12,7 @@ export function IndustriesSection() {
     <section id="industries" className="industries-scope pt-8 bg-white">
       <Container>
         <div className="mb-8 sm:mb-10">
-          <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block">
             {t("sectionTitle")}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px] font-bold mb-4 text-navy max-w-3xl">

@@ -191,7 +191,7 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+              <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
                 {tShared("challenge")}
               </span>
               <h2
@@ -233,7 +233,7 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
         <Container className="relative z-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+              <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
                 {tShared("howSuricatHelps")}
               </span>
               <h2
@@ -267,7 +267,7 @@ export function SolutionPageContent({ slug }: SolutionPageContentProps) {
       <section id="outcomes" className="bg-white py-8">
         <Container>
           <div className="mb-6 lg:pt-0">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {tShared("outcomes")}
             </span>
             <h2

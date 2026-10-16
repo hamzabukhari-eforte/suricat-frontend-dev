@@ -123,7 +123,7 @@ export function PlatformIntelligenceSection() {
         <div id="immaak" style={{ backgroundColor: "#ffffff" }}>
         <div className="relative z-10">
           <span
-            className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal"
+            className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal"
           >
             {t("sectionTitle")}
           </span>

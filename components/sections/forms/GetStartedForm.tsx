@@ -158,7 +158,7 @@ export function GetStartedForm() {
     <section id="intake" className="relative w-full bg-[#f5f7fa] py-8 max-sm:py-5">
       <Container className="relative z-10">
         <div className="mb-6 max-sm:mb-4">
-          <p className="mb-3 text-[14px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
+          <p className="mb-3 text-[16px] font-bold uppercase tracking-[0.15em] text-teal max-sm:mb-2">
             {t("sectionEyebrow")}
           </p>
           <h2 className="mb-3 text-[28px] font-bold tracking-tight text-navy max-sm:mb-2 max-sm:text-[1.5rem]">

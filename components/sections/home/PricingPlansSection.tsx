@@ -27,7 +27,7 @@ export function PricingPlansSection({
             <Container>
               {showIntro ? <div className="mb-8 sm:mb-10">
                 <span
-                  className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block"
+                  className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block"
                   >{t("eyebrow")}</span
                 >
                 <h2

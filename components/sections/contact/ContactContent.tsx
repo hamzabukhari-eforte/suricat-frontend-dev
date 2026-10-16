@@ -38,7 +38,7 @@ export function ContactContent() {
           <div className="grid grid-cols-1 items-start gap-16 max-sm:gap-8 lg:grid-cols-2">
             <div className="min-w-0 space-y-8">
               <div className="space-y-4">
-                <span className="inline-block rounded-full py-1.5 text-sm font-bold uppercase tracking-wider text-teal">
+                <span className="inline-block rounded-full py-1.5 text-[16px] font-bold uppercase tracking-wider text-teal">
                   {tc("eyebrow")}
                 </span>
                 <h1 className="text-[28px] font-bold leading-[36px] tracking-tight text-navy lg:text-[36px] lg:leading-[44px]">

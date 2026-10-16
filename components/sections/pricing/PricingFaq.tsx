@@ -98,7 +98,7 @@ export function PricingFaq({
     <section id={sectionId} className={sectionClassName}>
       <Container>
         <div className="mb-8 sm:mb-10">
-          <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block">
             {eyebrow ?? t("eyebrow")}
           </span>
           {title ?? t("title") ? (

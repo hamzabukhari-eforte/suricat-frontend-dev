@@ -33,7 +33,7 @@ export function SectionHeader({
   return (
     <div className={`${alignClass} ${className}`.trim()}>
       {eyebrow ? (
-        <p className="text-sm uppercase tracking-widest text-teal font-semibold mb-3">
+        <p className="text-[16px] uppercase tracking-widest text-teal font-semibold mb-3">
           {eyebrow}
         </p>
       ) : null}

@@ -103,7 +103,7 @@ export function MedicalDevicesContent() {
       >
         <LifecycleReveal />
         <Container>
-          <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+          <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
             {tm("lifecycleEyebrow")}
           </span>
           <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
@@ -170,7 +170,7 @@ export function MedicalDevicesContent() {
         <Container>
           <div className="grid gap-12 md:grid-cols-2 lg:gap-20">
             <div>
-              <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+              <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
                 {tm("whyMdEyebrow")}
               </span>
               <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
@@ -189,7 +189,7 @@ export function MedicalDevicesContent() {
               <p className="text-base font-bold text-teal">{tm("whyMdClose")}</p>
             </div>
             <div>
-              <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+              <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
                 {tm("whyFirstEyebrow")}
               </span>
               <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
@@ -216,7 +216,7 @@ export function MedicalDevicesContent() {
         <Container>
           <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+              <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
                 {tm("capabilitiesEyebrow")}
               </span>
               <h2 className="max-w-3xl text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-[28px] lg:leading-[36px]">

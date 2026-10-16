@@ -37,7 +37,7 @@ export function PageHero({
       />
       <Container className="relative z-10 flex flex-col items-center justify-center py-8 text-center lg:py-0">
         {eyebrow ? (
-          <p className="animate-fade-up text-sm uppercase tracking-widest text-teal font-semibold mb-4">
+          <p className="animate-fade-up text-[16px] uppercase tracking-widest text-teal font-semibold mb-4">
             {eyebrow}
           </p>
         ) : null}

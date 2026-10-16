@@ -109,7 +109,7 @@ export function IndustryExpansionContent() {
       <section className="relative overflow-hidden bg-gray-50 py-8 text-navy">
         <Container className="relative z-10">
           <div id="available-today" className="scroll-mt-40">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {te("availableEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
@@ -126,7 +126,7 @@ export function IndustryExpansionContent() {
           </div>
 
           <div id="where-it-extends" className="mt-10 scroll-mt-40">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {te("extendsEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">
@@ -146,7 +146,7 @@ export function IndustryExpansionContent() {
           </div>
 
           <div id="future-industries" className="mt-10 scroll-mt-40">
-            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-teal">
+            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {te("futureEyebrow")}
             </span>
             <h2 className="mb-4 max-w-3xl text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-[28px] lg:leading-[36px]">

@@ -148,7 +148,7 @@ export function DesignPartnersContent() {
       <section id="program" className="pt-8 bg-white">
         <Container>
           <div className="mb-8 sm:mb-10">
-            <span className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block">
               {tp("programEyebrow")}
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-[28px] leading-tight lg:leading-[36px] font-bold mb-4 text-navy max-w-3xl">
@@ -272,7 +272,7 @@ export function DesignPartnersContent() {
           <div className="mt-10 bg-navy rounded-2xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
               <div className="lg:col-span-3 p-10 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10">
-                <div className="text-teal font-bold text-sm uppercase tracking-widest mb-2">
+                <div className="text-teal font-bold text-[16px] uppercase tracking-widest mb-2">
                   {tp("idealEyebrow")}
                 </div>
                 <h3 className="text-2xl font-bold text-white leading-tight mb-4">

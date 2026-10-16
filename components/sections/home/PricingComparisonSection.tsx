@@ -80,7 +80,7 @@ function CategoryRow({ icon: Icon, label }: { icon: IconType; label: string }) {
         className="px-4 sm:px-5 py-3 bg-gray-50 border-b border-gray-100"
       >
         <span
-          className="inline-flex items-center gap-2 text-teal text-[14px] font-bold uppercase tracking-[0.12em]"
+          className="inline-flex items-center gap-2 text-teal text-[16px] font-bold uppercase tracking-[0.12em]"
         >
           <Icon aria-hidden="true" /> {label}
         </span>
@@ -147,7 +147,7 @@ export function PricingComparisonSection() {
               <div id="pricing-comparison">
                 <div id="capability-comparison" className="pricing-compare-header mb-8 sm:mb-10">
                   <span
-                    className="text-teal font-bold text-sm uppercase tracking-widest mb-4 block"
+                    className="text-teal font-bold text-[16px] uppercase tracking-widest mb-4 block"
                     >{t("eyebrow")}</span
                   >
                   <h2

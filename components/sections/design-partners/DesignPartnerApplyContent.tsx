@@ -75,7 +75,7 @@ export function DesignPartnerApplyContent() {
           aria-hidden="true"
         />
         <Container className="relative z-10 flex flex-col items-center justify-center py-10 text-center lg:py-0">
-          <p className="text-teal font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 animate-fade-up-2">
+          <p className="text-teal font-bold text-[16px] uppercase tracking-widest mb-3 sm:mb-4 animate-fade-up-2">
             {ta("eyebrow")}
           </p>
           <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-bold !leading-[32px] sm:!leading-[44px] mb-3 sm:mb-4 tracking-tight max-w-4xl animate-fade-up-2">

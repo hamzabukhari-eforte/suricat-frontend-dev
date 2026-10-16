@@ -38,7 +38,7 @@ export function FormHero({
       />
       <Container className="relative z-10 mt-8 flex flex-col items-center text-center">
         {eyebrow ? (
-          <div className="text-xs sm:text-[14px] text-teal font-bold mb-3 sm:mb-4 tracking-[0.12em] sm:tracking-[0.18em] uppercase max-w-full">
+          <div className="text-[16px] text-teal font-bold mb-3 sm:mb-4 tracking-[0.12em] sm:tracking-[0.18em] uppercase max-w-full">
             {eyebrow}
           </div>
         ) : null}

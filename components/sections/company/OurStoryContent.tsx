@@ -88,7 +88,7 @@ export function OurStoryContent() {
             </div>
 
             <div className="lg:sticky lg:top-28">
-              <p className="mb-8 text-xs font-bold uppercase tracking-widest text-navy sm:text-sm">
+              <p className="mb-8 text-[16px] font-bold uppercase tracking-widest text-navy">
                 {ts("timelineEyebrowBefore")} <br />
                 <span className="text-teal">{ts("timelineEyebrowAccent")}</span>
               </p>
