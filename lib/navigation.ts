@@ -79,10 +79,6 @@ const megaMenuDefs: MegaMenuDef[] = [
         labelKey: "nav.menus.why.links.regulated",
         href: `/#${HOME_SECTION_IDS.regulated}`,
       },
-      {
-        labelKey: "nav.menus.why.links.whySuricat",
-        href: `/#${HOME_SECTION_IDS.why}`,
-      },
     ],
     linkColumns: 2,
   },
