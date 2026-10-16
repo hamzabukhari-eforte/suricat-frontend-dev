@@ -32,7 +32,7 @@ export function WhySuricatSection() {
               <Button
                 variant="teal"
                 href="/design-partners/apply"
-                className="why-suricat-cta group gap-2 whitespace-nowrap"
+                className="why-suricat-cta group w-full shrink-0 gap-2 whitespace-nowrap sm:w-auto"
               >
                 <FaHandshake
                   className="text-base shrink-0 text-navy"
@@ -43,7 +43,7 @@ export function WhySuricatSection() {
               <Button
                 variant="outline-white"
                 href="/get-started"
-                className="why-suricat-cta group whitespace-nowrap"
+                className="why-suricat-cta group w-full shrink-0 whitespace-nowrap sm:w-auto"
               >
                 {t("ctaPilot")}
               </Button>
