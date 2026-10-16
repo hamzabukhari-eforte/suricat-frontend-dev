@@ -5648,13 +5648,21 @@ a.solution-nav-pill,
 .why-suricat-title {
   margin: 0 0 1.25rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   color: #0d1b3e;
-  font-size: 32px !important;
+  font-size: 31.5px !important;
   font-weight: 700;
   line-height: 1.15 !important;
   letter-spacing: -0.02em;
+}
+
+@media (min-width: 1024px) {
+  .why-suricat-title {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
 }
 
 .why-suricat-body {
@@ -7187,7 +7195,7 @@ a.solution-nav-pill,
 
 #compliance-cost-section .cc-why-now-date-label {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
