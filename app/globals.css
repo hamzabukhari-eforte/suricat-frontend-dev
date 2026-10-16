@@ -911,7 +911,7 @@ nav[data-locale="es"] .nav-mega-trigger-label {
   display: block;
   margin: 0;
   color: #0d1b3e;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3634,7 +3634,7 @@ input[type="radio"]:checked + span {
 
 .platform-reg-eyebrow {
   margin: 0 0 0.75rem;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;

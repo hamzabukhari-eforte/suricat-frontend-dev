@@ -43,10 +43,6 @@ export function RegulatedEnvironmentsSection() {
 
         <div className="regulated-bento">
           <article className="regulated-bento-featured">
-            <p className="regulated-bento-featured-category">
-              {t("featuredCategory")}
-            </p>
-
             <span className="regulated-bento-featured-icon" aria-hidden="true">
               <FeaturedIcon />
             </span>

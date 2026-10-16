@@ -16,7 +16,7 @@ export function HomeNarrativeHeader({
   return (
     <div className="mb-10 lg:mb-12">
       {eyebrow ? (
-        <span className="mb-4 block text-[14px] font-bold uppercase tracking-widest text-teal">
+        <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
           {eyebrow}
         </span>
       ) : null}
