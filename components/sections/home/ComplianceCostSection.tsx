@@ -56,7 +56,6 @@ export function ComplianceCostSection() {
               <p className="cc-stat-category">{t("stats.costOfQuality.category")}</p>
               <p className="cc-featured-stat-value">{t("stats.costOfQuality.stat")}</p>
               <p className="cc-featured-stat-label">{t("stats.costOfQuality.label")}</p>
-              <p className="cc-featured-stat-body">{t("stats.costOfQuality.body")}</p>
               <a
                 href={FEATURED_STAT_HREF}
                 target="_blank"
@@ -80,7 +79,6 @@ export function ComplianceCostSection() {
                   </p>
                   <p className="cc-stat-card-value">{t(`stats.${card.id}.stat`)}</p>
                   <p className="cc-stat-card-label">{t(`stats.${card.id}.label`)}</p>
-                  <p className="cc-stat-card-body">{t(`stats.${card.id}.body`)}</p>
                   <a
                     href={card.href}
                     target="_blank"
@@ -103,7 +101,11 @@ export function ComplianceCostSection() {
             <div className="cc-why-now-copy">
               <span className="cc-why-now-eyebrow">{t("whyNow.eyebrow")}</span>
               <p className="cc-why-now-title">{t("whyNow.title")}</p>
-              <p className="cc-why-now-body">{t("whyNow.body")}</p>
+              <p className="cc-why-now-body">
+                {t("whyNow.bodyLine1")}
+                <br />
+                {t("whyNow.bodyLine2")}
+              </p>
               <a
                 href={WHY_NOW_HREF}
                 target="_blank"
