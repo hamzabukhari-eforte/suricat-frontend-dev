@@ -13,10 +13,10 @@ import {
 /* Faster tour; still enough hold to read card text */
 const POP_STEP_MS = 1200;
 const STUB_STEP_MS = 360;
-const CONN_STEP_MS = 480;
+const CONN_STEP_MS = 560;
 const TOUR_START_MS = 200;
-const TRUST_START_MS = 120;
-const TRUST_STAGGER_MS = 160;
+const TRUST_START_MS = 180;
+const TRUST_STAGGER_MS = 420;
 const TRUST_ITEM_COUNT = 4;
 
 type CipGlow = "teal" | "violet" | "orange";
@@ -38,7 +38,7 @@ type TourCardMeta = {
 
 type TourStep =
   | { kind: "card"; id: string }
-  | { kind: "conn"; id: ConnId };
+  | { kind: "conn"; ids: ConnId[] };
 
 const TOUR_CARDS: TourCardMeta[] = [
   { id: "input-1", stage: "input" },
@@ -53,22 +53,21 @@ const TOUR_CARDS: TourCardMeta[] = [
   { id: "output-4", stage: "output" },
 ];
 
-/* Card first, then its stub — then Suricat → Regulatory → Outputs */
+/* Card → stub; Suricat; then bus+into-Suricat together; Regulatory → Outputs */
 const TOUR_STEPS: TourStep[] = [
   { kind: "card", id: "input-1" },
-  { kind: "conn", id: "stub-input-1" },
+  { kind: "conn", ids: ["stub-input-1"] },
   { kind: "card", id: "input-2" },
-  { kind: "conn", id: "stub-input-2" },
+  { kind: "conn", ids: ["stub-input-2"] },
   { kind: "card", id: "input-3" },
-  { kind: "conn", id: "stub-input-3" },
+  { kind: "conn", ids: ["stub-input-3"] },
   { kind: "card", id: "input-4" },
-  { kind: "conn", id: "stub-input-4" },
-  { kind: "conn", id: "in-bus" },
+  { kind: "conn", ids: ["stub-input-4"] },
   { kind: "card", id: "engine" },
-  { kind: "conn", id: "to-engine" },
-  { kind: "conn", id: "to-regulatory" },
+  { kind: "conn", ids: ["in-bus", "to-engine"] },
+  { kind: "conn", ids: ["to-regulatory"] },
   { kind: "card", id: "regulatory" },
-  { kind: "conn", id: "to-outputs" },
+  { kind: "conn", ids: ["to-outputs"] },
   { kind: "card", id: "output-1" },
   { kind: "card", id: "output-2" },
   { kind: "card", id: "output-3" },
@@ -346,12 +345,19 @@ export function HeroCipAnimation() {
         delay = POP_STEP_MS;
       } else {
         setDrawnConns((prev) => {
-          if (prev.has(item.id)) return prev;
           const next = new Set(prev);
-          next.add(item.id);
-          return next;
+          let changed = false;
+          for (const id of item.ids) {
+            if (!next.has(id)) {
+              next.add(id);
+              changed = true;
+            }
+          }
+          return changed ? next : prev;
         });
-        delay = item.id.startsWith("stub-") ? STUB_STEP_MS : CONN_STEP_MS;
+        delay = item.ids.some((id) => id.startsWith("stub-"))
+          ? STUB_STEP_MS
+          : CONN_STEP_MS;
       }
       tourIndexRef.current = index + 1;
       tourRemainingRef.current = delay;
@@ -489,21 +495,21 @@ export function HeroCipAnimation() {
           />
           <path
             className={connClass("stub-input-2")}
-            d="M420 292 H455"
+            d="M420 295 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
             className={connClass("stub-input-3")}
-            d="M420 426 H455"
+            d="M420 432 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
             className={connClass("stub-input-4")}
-            d="M420 560 H455"
+            d="M420 569 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -511,7 +517,7 @@ export function HeroCipAnimation() {
           {/* Input vertical bus */}
           <path
             className={connClass("in-bus")}
-            d="M455 158 V560"
+            d="M455 158 V569"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -519,7 +525,7 @@ export function HeroCipAnimation() {
           {/* Into Suricat */}
           <path
             className={connClass("to-engine")}
-            d="M455 359 H498"
+            d="M455 359 H493"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -539,14 +545,14 @@ export function HeroCipAnimation() {
           {/* Suricat → right to Outputs */}
           <path
             className={connClass("to-outputs")}
-            d="M902 359 H945"
+            d="M907 359 H945"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
             className={connClass("to-outputs")}
-            d="M945 158 V560"
+            d="M945 158 V569"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -561,7 +567,7 @@ export function HeroCipAnimation() {
           />
           <path
             className={connClass("to-outputs")}
-            d="M945 292 H968"
+            d="M945 295 H968"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -569,7 +575,7 @@ export function HeroCipAnimation() {
           />
           <path
             className={connClass("to-outputs")}
-            d="M945 426 H968"
+            d="M945 432 H968"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -577,7 +583,7 @@ export function HeroCipAnimation() {
           />
           <path
             className={connClass("to-outputs")}
-            d="M945 560 H968"
+            d="M945 569 H968"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -606,7 +612,7 @@ export function HeroCipAnimation() {
             y={80}
             textAnchor="middle"
             fill="#19D3C5"
-            fontSize={20}
+            fontSize={21}
             fontWeight={700}
             letterSpacing="0.04em"
           >
@@ -647,7 +653,7 @@ export function HeroCipAnimation() {
             <text x={136} y={136} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               POLICIES &amp; PROCEDURES
             </text>
-            <text x={136} y={168} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={136} y={168} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={136} dy={0}>
                 Quality manuals, SOPs, work
               </tspan>
@@ -662,12 +668,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 40, y: 236, w: 380, h: 112 }}
+            hit={{ x: 40, y: 239, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={40}
-              y={236}
+              y={239}
               width={380}
               height={112}
               rx={10}
@@ -675,10 +681,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={88} cy={292} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={88} cy={295} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(88 292) scale(1.28) translate(-12 -12)"
+              transform="translate(88 295) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -689,10 +695,10 @@ export function HeroCipAnimation() {
               <circle cx={16.2} cy={17.8} r={3.4} stroke="#19D3C5" strokeWidth={1.45} />
               <path d="M16.2 15.4 v1M16.2 19.2 v1M14 17.8 h1M17.4 17.8 h1" stroke="#19D3C5" strokeWidth={1.2} />
             </g>
-            <text x={136} y={270} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={136} y={273} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               TECHNICAL DOCUMENTS
             </text>
-            <text x={136} y={302} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={136} y={305} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={136} dy={0}>
                 Plans, protocols, specifications,
               </tspan>
@@ -707,12 +713,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 40, y: 370, w: 380, h: 112 }}
+            hit={{ x: 40, y: 376, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={40}
-              y={370}
+              y={376}
               width={380}
               height={112}
               rx={10}
@@ -720,10 +726,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={88} cy={426} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={88} cy={432} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(88 426) scale(1.28) translate(-12 -12)"
+              transform="translate(88 432) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -734,10 +740,10 @@ export function HeroCipAnimation() {
               <path d="M4 10.7 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2" stroke="#19D3C5" strokeWidth={1.45} />
               <path d="M4 15.9 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2" stroke="#19D3C5" strokeWidth={1.45} />
             </g>
-            <text x={136} y={404} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={136} y={410} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               RECORDS &amp; LOGS
             </text>
-            <text x={136} y={436} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={136} y={442} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={136} dy={0}>
                 Executed records, CAPAs,
               </tspan>
@@ -752,12 +758,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 40, y: 504, w: 380, h: 112 }}
+            hit={{ x: 40, y: 513, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={40}
-              y={504}
+              y={513}
               width={380}
               height={112}
               rx={10}
@@ -765,10 +771,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={88} cy={560} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={88} cy={569} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(88 560) scale(1.28) translate(-12 -12)"
+              transform="translate(88 569) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -777,10 +783,10 @@ export function HeroCipAnimation() {
               <circle cx={15.5} cy={8.5} r={2.1} fill="#19D3C5" stroke="none" />
               <path d="M6.2 14.8 L11.5 9.5" stroke="#19D3C5" strokeWidth={1.5} />
             </g>
-            <text x={136} y={538} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={136} y={547} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               SUBMISSIONS &amp; LABELING
             </text>
-            <text x={136} y={570} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={136} y={579} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={136} dy={0}>
                 Regulatory dossiers, IFUs,
               </tspan>
@@ -833,7 +839,7 @@ export function HeroCipAnimation() {
             <text x={606} y={88} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               REGULATORY REQUIREMENTS
             </text>
-            <text x={606} y={116} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={606} y={116} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={606} dy={0}>
                 Laws, regulations, standards,
               </tspan>
@@ -860,9 +866,9 @@ export function HeroCipAnimation() {
         >
           <rect
             className="hero-cip-card-border"
-            x={510}
+            x={505}
             y={244}
-            width={380}
+            width={390}
             height={230}
             rx={10}
             stroke="#19D3C5"
@@ -894,9 +900,9 @@ export function HeroCipAnimation() {
               y={88}
               textAnchor="middle"
               fill="#19D3C5"
-              fontSize={15}
+              fontSize={16}
               fontWeight={700}
-              letterSpacing="0.08em"
+              letterSpacing="0.06em"
             >
               COMPLIANCE INTELLIGENCE PLATFORM
             </text>
@@ -924,7 +930,7 @@ export function HeroCipAnimation() {
             y={80}
             textAnchor="middle"
             fill="#19D3C5"
-            fontSize={20}
+            fontSize={21}
             fontWeight={700}
             letterSpacing="0.04em"
           >
@@ -964,7 +970,7 @@ export function HeroCipAnimation() {
             <text x={1076} y={136} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               COMPLIANCE GAPS
             </text>
-            <text x={1076} y={168} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={1076} y={168} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={1076} dy={0}>
                 Documents vs. Regulatory
               </tspan>
@@ -979,12 +985,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 980, y: 236, w: 380, h: 112 }}
+            hit={{ x: 980, y: 239, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={980}
-              y={236}
+              y={239}
               width={380}
               height={112}
               rx={10}
@@ -992,10 +998,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={1028} cy={292} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={1028} cy={295} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(1028 292) scale(1.28) translate(-12 -12)"
+              transform="translate(1028 295) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -1007,11 +1013,16 @@ export function HeroCipAnimation() {
               <path d="M17 14.7 v2.3" stroke="#0D1B3E" strokeWidth={1.5} />
               <circle cx={17} cy={18.7} r={0.7} fill="#0D1B3E" stroke="none" />
             </g>
-            <text x={1076} y={282} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={1076} y={285} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               DOCUMENT QUALITY ISSUES
             </text>
-            <text x={1076} y={310} fill="#FFFFFF" fontSize={17} opacity={0.92}>
-              Documents vs. Readiness Criteria
+            <text x={1076} y={313} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+              <tspan x={1076} dy={0}>
+                Documents vs. Readiness
+              </tspan>
+              <tspan x={1076} dy={22}>
+                Criteria
+              </tspan>
             </text>
           </CipCard>
 
@@ -1020,12 +1031,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 980, y: 370, w: 380, h: 112 }}
+            hit={{ x: 980, y: 376, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={980}
-              y={370}
+              y={376}
               width={380}
               height={112}
               rx={10}
@@ -1033,10 +1044,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={1028} cy={426} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={1028} cy={432} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(1028 426) scale(1.28) translate(-12 -12)"
+              transform="translate(1028 432) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -1048,10 +1059,10 @@ export function HeroCipAnimation() {
               <path d="M16.5 15.4 v2" stroke="#FFFFFF" strokeWidth={1.4} />
               <circle cx={16.5} cy={18.8} r={0.65} fill="#FFFFFF" stroke="none" />
             </g>
-            <text x={1076} y={404} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={1076} y={410} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               RECORD QUALITY ISSUES
             </text>
-            <text x={1076} y={436} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={1076} y={442} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               <tspan x={1076} dy={0}>
                 Records vs. Governing
               </tspan>
@@ -1066,12 +1077,12 @@ export function HeroCipAnimation() {
             stagger={0}
             glow="teal"
             forcedVisible={forcedVisible}
-            hit={{ x: 980, y: 504, w: 380, h: 112 }}
+            hit={{ x: 980, y: 513, w: 380, h: 112 }}
           >
             <rect
               className="hero-cip-card-border"
               x={980}
-              y={504}
+              y={513}
               width={380}
               height={112}
               rx={10}
@@ -1079,10 +1090,10 @@ export function HeroCipAnimation() {
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={1028} cy={560} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
+            <circle cx={1028} cy={569} r={32} stroke="#19D3C5" strokeWidth={1.6} fill="#19D3C5" fillOpacity={0.1} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(1028 560) scale(1.28) translate(-12 -12)"
+              transform="translate(1028 569) scale(1.28) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -1095,10 +1106,10 @@ export function HeroCipAnimation() {
               <circle cx={8.2} cy={16.8} r={1.25} fill="#19D3C5" stroke="none" />
               <circle cx={15.6} cy={16.8} r={1.25} fill="#19D3C5" stroke="none" />
             </g>
-            <text x={1076} y={550} fill="#FFFFFF" fontSize={18} fontWeight={800}>
+            <text x={1076} y={559} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               CROSS-DOCUMENT ISSUES
             </text>
-            <text x={1076} y={578} fill="#FFFFFF" fontSize={17} opacity={0.92}>
+            <text x={1076} y={587} fill="#FFFFFF" fontSize={18} opacity={0.92}>
               Documents vs. Each Other
             </text>
           </CipCard>
@@ -1117,10 +1128,10 @@ export function HeroCipAnimation() {
           />
 
           {/* Spread across full top line; more gap between the four blocks */}
-          <g
-            className={trustCount >= 1 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(48 748)"
-          >
+          <g transform="translate(48 748)">
+            <g
+              className={trustCount >= 1 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            >
             <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.5)">
                 <path d="M3 2 h10 l4 4 v14 H3 Z" stroke="#FFFFFF" strokeWidth={1.5} />
@@ -1129,10 +1140,10 @@ export function HeroCipAnimation() {
                 <circle cx={20} cy={18} r={4.5} stroke="#19D3C5" strokeWidth={1.5} />
                 <path d="M18.2 18 h3.6M20 16.2 v3.6" stroke="#19D3C5" strokeWidth={1.35} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
                 TRACEABILITY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Every finding traced
                 </tspan>
@@ -1140,6 +1151,7 @@ export function HeroCipAnimation() {
                   to source
                 </tspan>
               </text>
+            </g>
             </g>
           </g>
           <line
@@ -1152,10 +1164,10 @@ export function HeroCipAnimation() {
             strokeWidth={1.25}
           />
 
-          <g
-            className={trustCount >= 2 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(400 748)"
-          >
+          <g transform="translate(400 748)">
+            <g
+              className={trustCount >= 2 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            >
             <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 0) scale(1.5)">
                 <path
@@ -1166,10 +1178,10 @@ export function HeroCipAnimation() {
                 <path d="M8.5 20.5 h7M9.5 23.2 h5" stroke="#FFFFFF" strokeWidth={1.4} />
                 <path d="M12 8.5 v4M10 10.5 h4" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
                 EXPLAINABILITY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Clear reasoning
                 </tspan>
@@ -1177,6 +1189,7 @@ export function HeroCipAnimation() {
                   and context
                 </tspan>
               </text>
+            </g>
             </g>
           </g>
           <line
@@ -1189,10 +1202,10 @@ export function HeroCipAnimation() {
             strokeWidth={1.25}
           />
 
-          <g
-            className={trustCount >= 3 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(750 748)"
-          >
+          <g transform="translate(750 748)">
+            <g
+              className={trustCount >= 3 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            >
             <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.5)">
                 <circle cx={9} cy={7} r={4} stroke="#FFFFFF" strokeWidth={1.5} />
@@ -1200,10 +1213,10 @@ export function HeroCipAnimation() {
                 <circle cx={20} cy={16.5} r={4.2} fill="#19D3C5" stroke="none" />
                 <path d="M17.8 16.5 l1.4 1.4 3-3.2" stroke="#0D1B3E" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
                 HUMAN REVIEW
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Your team validates
                 </tspan>
@@ -1211,6 +1224,7 @@ export function HeroCipAnimation() {
                   every finding
                 </tspan>
               </text>
+            </g>
             </g>
           </g>
           <line
@@ -1223,10 +1237,10 @@ export function HeroCipAnimation() {
             strokeWidth={1.25}
           />
 
-          <g
-            className={trustCount >= 4 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(1100 748)"
-          >
+          <g transform="translate(1100 748)">
+            <g
+              className={trustCount >= 4 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
+            >
             <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 0) scale(1.5)">
                 <rect x={3} y={11} width={16} height={12} rx={2.2} stroke="#FFFFFF" strokeWidth={1.5} />
@@ -1234,10 +1248,10 @@ export function HeroCipAnimation() {
                 <circle cx={11} cy={16.5} r={1.4} fill="#19D3C5" stroke="none" />
                 <path d="M11 17.8 v2.2" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
                 READ-ONLY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   No changes to
                 </tspan>
@@ -1245,6 +1259,7 @@ export function HeroCipAnimation() {
                   your systems
                 </tspan>
               </text>
+            </g>
             </g>
           </g>
         </g>
