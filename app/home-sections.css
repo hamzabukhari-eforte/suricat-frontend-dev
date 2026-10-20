@@ -6406,7 +6406,7 @@ a.solution-nav-pill,
 .hero-cip-anim-card.is-forced-visible {
   pointer-events: auto;
   cursor: default;
-  animation: hero-cip-card-pop 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-cip-card-pop 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-cip.is-paused .hero-cip-anim-card.is-forced-visible {
@@ -6414,7 +6414,7 @@ a.solution-nav-pill,
 }
 
 .hero-cip-anim-card.is-forced-visible .hero-cip-card-border {
-  animation: hero-cip-border-glow 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-cip-border-glow 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon path[stroke]:not([stroke="none"]),

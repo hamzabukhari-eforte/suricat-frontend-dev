@@ -680,7 +680,7 @@ export function HeroCipAnimation() {
             <text x={136} y={136} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               POLICIES &amp; PROCEDURES
             </text>
-            <text x={136} y={168} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={136} y={168} fill="#FFFFFF" fontSize={18}>
               <tspan x={136} dy={0}>
                 Quality manuals, SOPs, work
               </tspan>
@@ -725,7 +725,7 @@ export function HeroCipAnimation() {
             <text x={136} y={273} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               TECHNICAL DOCUMENTS
             </text>
-            <text x={136} y={305} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={136} y={305} fill="#FFFFFF" fontSize={18}>
               <tspan x={136} dy={0}>
                 Plans, protocols, specifications,
               </tspan>
@@ -770,7 +770,7 @@ export function HeroCipAnimation() {
             <text x={136} y={410} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               RECORDS &amp; LOGS
             </text>
-            <text x={136} y={442} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={136} y={442} fill="#FFFFFF" fontSize={18}>
               <tspan x={136} dy={0}>
                 Executed records, CAPAs,
               </tspan>
@@ -813,7 +813,7 @@ export function HeroCipAnimation() {
             <text x={136} y={547} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               SUBMISSIONS &amp; LABELING
             </text>
-            <text x={136} y={579} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={136} y={579} fill="#FFFFFF" fontSize={18}>
               <tspan x={136} dy={0}>
                 Regulatory dossiers, IFUs,
               </tspan>
@@ -859,13 +859,13 @@ export function HeroCipAnimation() {
               <path d="M2.5 9.2 L12 3.2 L21.5 9.2 Z" stroke="#FFFFFF" strokeWidth={1.5} />
               <path d="M3.2 9.2 H20.8" stroke="#FFFFFF" strokeWidth={1.45} />
               <path d="M5.2 9.2 V17.2 M8.7 9.2 V17.2 M12 9.2 V17.2 M15.3 9.2 V17.2 M18.8 9.2 V17.2" stroke="#FFFFFF" strokeWidth={1.45} />
-              <path d="M3.5 17.2 H20.5" stroke="#5C3D8F" strokeWidth={1.5} />
-              <path d="M2.5 19.2 H21.5 M4 21 H20" stroke="#5C3D8F" strokeWidth={1.45} />
+              <path d="M3.5 17.2 H20.5" stroke="#FFFFFF" strokeWidth={1.5} />
+              <path d="M2.5 19.2 H21.5 M4 21 H20" stroke="#FFFFFF" strokeWidth={1.45} />
             </g>
             <text x={606} y={88} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               REGULATORY REQUIREMENTS
             </text>
-            <text x={606} y={116} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={606} y={116} fill="#FFFFFF" fontSize={18}>
               <tspan x={606} dy={0}>
                 Laws, regulations, standards,
               </tspan>
@@ -996,7 +996,7 @@ export function HeroCipAnimation() {
             <text x={1076} y={136} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               COMPLIANCE GAPS
             </text>
-            <text x={1076} y={168} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={1076} y={168} fill="#FFFFFF" fontSize={18}>
               <tspan x={1076} dy={0}>
                 Documents vs. Regulatory
               </tspan>
@@ -1042,7 +1042,7 @@ export function HeroCipAnimation() {
             <text x={1076} y={285} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               DOCUMENT QUALITY ISSUES
             </text>
-            <text x={1076} y={313} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={1076} y={313} fill="#FFFFFF" fontSize={18}>
               <tspan x={1076} dy={0}>
                 Documents vs. Readiness
               </tspan>
@@ -1088,7 +1088,7 @@ export function HeroCipAnimation() {
             <text x={1076} y={410} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               RECORD QUALITY ISSUES
             </text>
-            <text x={1076} y={442} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={1076} y={442} fill="#FFFFFF" fontSize={18}>
               <tspan x={1076} dy={0}>
                 Records vs. Governing
               </tspan>
@@ -1135,7 +1135,7 @@ export function HeroCipAnimation() {
             <text x={1076} y={559} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               CROSS-DOCUMENT ISSUES
             </text>
-            <text x={1076} y={587} fill="#FFFFFF" fontSize={18} opacity={0.92}>
+            <text x={1076} y={587} fill="#FFFFFF" fontSize={18}>
               Documents vs. Each Other
             </text>
           </CipCard>
