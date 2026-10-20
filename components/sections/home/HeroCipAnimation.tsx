@@ -2,13 +2,6 @@
 
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
-  FaClipboardList,
-  FaFileLines,
-  FaFileShield,
-  FaRotate,
-  FaTriangleExclamation,
-} from "@/components/ui/icons";
-import {
   useEffect,
   useMemo,
   useRef,
@@ -16,127 +9,70 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
-import type { IconType } from "react-icons";
 
-/* Dwell on each large focus card so users can read */
-const TOUR_DWELL_MS = 2400;
-const TOUR_START_MS = 300;
-const TRUST_START_MS = 140;
-const TRUST_STAGGER_MS = 130;
+/* Faster tour; still enough hold to read card text */
+const POP_STEP_MS = 1350;
+const CONN_STEP_MS = 480;
+const TOUR_START_MS = 200;
+const TRUST_START_MS = 100;
+const TRUST_STAGGER_MS = 110;
 const TRUST_ITEM_COUNT = 4;
 
 type CipGlow = "teal" | "violet" | "orange";
 type CipStage = "input" | "regulatory" | "engine" | "output";
+type ConnId = "in-bus" | "to-engine" | "to-regulatory" | "to-outputs";
 
 type TourCardMeta = {
   id: string;
-  titleKey: string;
-  subtitleKey: string;
-  bodyKey: string;
-  glow: CipGlow;
   stage: CipStage;
-  Icon?: IconType;
-  useLogo?: boolean;
 };
 
+type TourStep =
+  | { kind: "card"; id: string }
+  | { kind: "conn"; id: ConnId };
+
 const TOUR_CARDS: TourCardMeta[] = [
-  {
-    id: "input-1",
-    titleKey: "policiesTitle",
-    subtitleKey: "policiesSubtitle",
-    bodyKey: "policiesBody",
-    glow: "teal",
-    stage: "input",
-    Icon: FaClipboardList,
-  },
-  {
-    id: "input-2",
-    titleKey: "technicalTitle",
-    subtitleKey: "technicalSubtitle",
-    bodyKey: "technicalBody",
-    glow: "teal",
-    stage: "input",
-    Icon: FaFileLines,
-  },
-  {
-    id: "input-3",
-    titleKey: "recordsTitle",
-    subtitleKey: "recordsSubtitle",
-    bodyKey: "recordsBody",
-    glow: "teal",
-    stage: "input",
-    Icon: FaFileLines,
-  },
-  {
-    id: "input-4",
-    titleKey: "submissionsTitle",
-    subtitleKey: "submissionsSubtitle",
-    bodyKey: "submissionsBody",
-    glow: "teal",
-    stage: "input",
-    Icon: FaFileLines,
-  },
-  {
-    id: "regulatory",
-    titleKey: "regulatoryTitle",
-    subtitleKey: "regulatorySubtitle",
-    bodyKey: "regulatoryBody",
-    glow: "violet",
-    stage: "regulatory",
-    Icon: FaFileShield,
-  },
-  {
-    id: "engine",
-    titleKey: "engineTitle",
-    subtitleKey: "engineSubtitle",
-    bodyKey: "engineBody",
-    glow: "teal",
-    stage: "engine",
-    useLogo: true,
-  },
-  {
-    id: "output-1",
-    titleKey: "gapsTitle",
-    subtitleKey: "gapsSubtitle",
-    bodyKey: "gapsBody",
-    glow: "orange",
-    stage: "output",
-    Icon: FaTriangleExclamation,
-  },
-  {
-    id: "output-2",
-    titleKey: "docQualityTitle",
-    subtitleKey: "docQualitySubtitle",
-    bodyKey: "docQualityBody",
-    glow: "teal",
-    stage: "output",
-    Icon: FaFileLines,
-  },
-  {
-    id: "output-3",
-    titleKey: "recQualityTitle",
-    subtitleKey: "recQualitySubtitle",
-    bodyKey: "recQualityBody",
-    glow: "teal",
-    stage: "output",
-    Icon: FaRotate,
-  },
-  {
-    id: "output-4",
-    titleKey: "crossDocTitle",
-    subtitleKey: "crossDocSubtitle",
-    bodyKey: "crossDocBody",
-    glow: "teal",
-    stage: "output",
-    Icon: FaFileLines,
-  },
+  { id: "input-1", stage: "input" },
+  { id: "input-2", stage: "input" },
+  { id: "input-3", stage: "input" },
+  { id: "input-4", stage: "input" },
+  { id: "engine", stage: "engine" },
+  { id: "regulatory", stage: "regulatory" },
+  { id: "output-1", stage: "output" },
+  { id: "output-2", stage: "output" },
+  { id: "output-3", stage: "output" },
+  { id: "output-4", stage: "output" },
+];
+
+/* Inputs → Suricat → up to Regulatory → right out → Outputs */
+const TOUR_STEPS: TourStep[] = [
+  { kind: "card", id: "input-1" },
+  { kind: "card", id: "input-2" },
+  { kind: "card", id: "input-3" },
+  { kind: "card", id: "input-4" },
+  { kind: "conn", id: "in-bus" },
+  { kind: "card", id: "engine" },
+  { kind: "conn", id: "to-engine" },
+  { kind: "conn", id: "to-regulatory" },
+  { kind: "card", id: "regulatory" },
+  { kind: "conn", id: "to-outputs" },
+  { kind: "card", id: "output-1" },
+  { kind: "card", id: "output-2" },
+  { kind: "card", id: "output-3" },
+  { kind: "card", id: "output-4" },
+];
+
+const ALL_CONN_IDS: ConnId[] = [
+  "in-bus",
+  "to-engine",
+  "to-regulatory",
+  "to-outputs",
 ];
 
 type CipCardProps = {
   id: string;
   stagger: number;
   glow: CipGlow;
-  readingId: string | null;
   forcedVisible: ReadonlySet<string>;
   hit: { x: number; y: number; w: number; h: number };
   children: ReactNode;
@@ -146,12 +82,10 @@ function CipCard({
   id,
   stagger,
   glow,
-  readingId,
   forcedVisible,
   hit,
   children,
 }: CipCardProps) {
-  const isReading = readingId === id;
   const isForced = forcedVisible.has(id);
 
   return (
@@ -159,7 +93,6 @@ function CipCard({
       className={[
         "hero-cip-anim-card",
         `hero-cip-glow-${glow}`,
-        isReading ? "is-reading" : "",
         isForced ? "is-forced-visible" : "",
       ]
         .filter(Boolean)
@@ -183,14 +116,15 @@ function CipCard({
 }
 
 /**
- * Hero CIP diagram — diagram stays as backdrop; active card pops as a
- * large focus panel (stage + title + one-liner + full description).
+ * Hero CIP diagram — cards appear one-by-one with a short pop, then settle.
  */
 export function HeroCipAnimation() {
   const t = useTranslations("home.hero.diagram");
   const rootRef = useRef<HTMLDivElement>(null);
-  const [readingId, setReadingId] = useState<string | null>(null);
   const [forcedVisible, setForcedVisible] = useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
+  const [drawnConns, setDrawnConns] = useState<ReadonlySet<ConnId>>(
     () => new Set(),
   );
   const [tourActive, setTourActive] = useState(false);
@@ -285,8 +219,8 @@ export function HeroCipAnimation() {
     isPausedRef.current = false;
     holdPointerIdRef.current = null;
     setIsPaused(false);
-    setReadingId(null);
     setForcedVisible(new Set());
+    setDrawnConns(new Set());
     setCardsComplete(false);
     cardsCompleteRef.current = false;
     setTrustCount(0);
@@ -333,7 +267,7 @@ export function HeroCipAnimation() {
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setForcedVisible(new Set(TOUR_CARDS.map((card) => card.id)));
-      setReadingId(null);
+      setDrawnConns(new Set(ALL_CONN_IDS));
       setCardsComplete(true);
       cardsCompleteRef.current = true;
       setTrustCount(TRUST_ITEM_COUNT);
@@ -376,26 +310,35 @@ export function HeroCipAnimation() {
     const step = () => {
       if (cancelled || isPausedRef.current) return;
       const index = tourIndexRef.current;
-      if (index >= TOUR_CARDS.length) {
-        setReadingId(null);
+      if (index >= TOUR_STEPS.length) {
         setCardsComplete(true);
         cardsCompleteRef.current = true;
         setTourActive(false);
         runTourStepRef.current = null;
         return;
       }
-      const card = TOUR_CARDS[index];
-      // Reveal only this card in the diagram; unrevealed cards stay hidden
-      setReadingId(card.id);
-      setForcedVisible((prev) => {
-        if (prev.has(card.id)) return prev;
-        const next = new Set(prev);
-        next.add(card.id);
-        return next;
-      });
+      const item = TOUR_STEPS[index];
+      let delay = POP_STEP_MS;
+      if (item.kind === "card") {
+        setForcedVisible((prev) => {
+          if (prev.has(item.id)) return prev;
+          const next = new Set(prev);
+          next.add(item.id);
+          return next;
+        });
+        delay = POP_STEP_MS;
+      } else {
+        setDrawnConns((prev) => {
+          if (prev.has(item.id)) return prev;
+          const next = new Set(prev);
+          next.add(item.id);
+          return next;
+        });
+        delay = CONN_STEP_MS;
+      }
       tourIndexRef.current = index + 1;
-      tourRemainingRef.current = TOUR_DWELL_MS;
-      scheduleTour(TOUR_DWELL_MS, step);
+      tourRemainingRef.current = delay;
+      scheduleTour(delay, step);
     };
 
     runTourStepRef.current = step;
@@ -443,11 +386,6 @@ export function HeroCipAnimation() {
     };
   }, [cardsComplete, playKey]);
 
-  const activeMeta = useMemo(
-    () => TOUR_CARDS.find((card) => card.id === readingId) ?? null,
-    [readingId],
-  );
-
   const showInputs = useMemo(
     () => TOUR_CARDS.some((card) => card.stage === "input" && forcedVisible.has(card.id)),
     [forcedVisible],
@@ -458,13 +396,15 @@ export function HeroCipAnimation() {
     () => TOUR_CARDS.some((card) => card.stage === "output" && forcedVisible.has(card.id)),
     [forcedVisible],
   );
-
-  const ActiveIcon = activeMeta?.Icon;
+  const connClass = (id: ConnId) =>
+    drawnConns.has(id) ? "hero-cip-conn is-drawn" : "hero-cip-conn";
+  const stubClass = (cardId: string) =>
+    forcedVisible.has(cardId) ? "hero-cip-conn is-drawn" : "hero-cip-conn";
 
   return (
     <div
       ref={rootRef}
-      className={`hero-cip${readingId ? " is-reading-mode" : ""}${isPaused ? " is-paused" : ""}`}
+      className={`hero-cip${isPaused ? " is-paused" : ""}`}
       onPointerDown={onRootPointerDown}
       onPointerUp={onRootPointerUp}
       onPointerCancel={onRootPointerUp}
@@ -522,63 +462,112 @@ export function HeroCipAnimation() {
 
         <rect width="1400" height="830" fill="#0D1B3E" />
 
-        {/* Connectors — only for sections already revealed */}
+        {/* Connectors — draw smoothly in tour order */}
         <g strokeLinecap="round" strokeLinejoin="round" fill="none">
-          {showInputs ? (
-            <>
-              <path d="M420 158 H455" stroke="#19D3C5" strokeWidth={4} />
-              <path d="M420 292 H455" stroke="#19D3C5" strokeWidth={4} />
-              <path d="M420 426 H455" stroke="#19D3C5" strokeWidth={4} />
-              <path d="M420 560 H455" stroke="#19D3C5" strokeWidth={4} />
-              <path d="M455 158 V560" stroke="#19D3C5" strokeWidth={4} />
-            </>
-          ) : null}
-          {showEngine ? (
-            <path
-              d="M455 359 H498"
-              stroke="#19D3C5"
-              strokeWidth={4}
-              markerEnd="url(#cipArrowTeal)"
-            />
-          ) : null}
-          {showRegulatory && showEngine ? (
-            <path
-              d="M700 160 V232"
-              stroke="#5C3D8F"
-              strokeWidth={4}
-              markerEnd="url(#cipArrowViolet)"
-            />
-          ) : null}
-          {showOutputs && showEngine ? (
-            <>
-              <path d="M902 359 H945" stroke="#19D3C5" strokeWidth={4} />
-              <path d="M945 158 V560" stroke="#19D3C5" strokeWidth={4} />
-              <path
-                d="M945 158 H968"
-                stroke="#19D3C5"
-                strokeWidth={4}
-                markerEnd="url(#cipArrowTeal)"
-              />
-              <path
-                d="M945 292 H968"
-                stroke="#19D3C5"
-                strokeWidth={4}
-                markerEnd="url(#cipArrowTeal)"
-              />
-              <path
-                d="M945 426 H968"
-                stroke="#19D3C5"
-                strokeWidth={4}
-                markerEnd="url(#cipArrowTeal)"
-              />
-              <path
-                d="M945 560 H968"
-                stroke="#19D3C5"
-                strokeWidth={4}
-                markerEnd="url(#cipArrowTeal)"
-              />
-            </>
-          ) : null}
+          {/* Input stubs — appear with each input card */}
+          <path
+            className={stubClass("input-1")}
+            d="M420 158 H455"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={stubClass("input-2")}
+            d="M420 292 H455"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={stubClass("input-3")}
+            d="M420 426 H455"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={stubClass("input-4")}
+            d="M420 560 H455"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          {/* Input vertical bus */}
+          <path
+            className={connClass("in-bus")}
+            d="M455 158 V560"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          {/* Into Suricat */}
+          <path
+            className={connClass("to-engine")}
+            d="M455 359 H498"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            markerEnd={drawnConns.has("to-engine") ? "url(#cipArrowTeal)" : undefined}
+          />
+          {/* Suricat → up to Regulatory */}
+          <path
+            className={connClass("to-regulatory")}
+            d="M700 232 V160"
+            pathLength={1}
+            stroke="#5C3D8F"
+            strokeWidth={4}
+            markerEnd={
+              drawnConns.has("to-regulatory") ? "url(#cipArrowViolet)" : undefined
+            }
+          />
+          {/* Suricat → right to Outputs */}
+          <path
+            className={connClass("to-outputs")}
+            d="M902 359 H945"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={connClass("to-outputs")}
+            d="M945 158 V560"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={connClass("to-outputs")}
+            d="M945 158 H968"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            markerEnd={drawnConns.has("to-outputs") ? "url(#cipArrowTeal)" : undefined}
+          />
+          <path
+            className={connClass("to-outputs")}
+            d="M945 292 H968"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            markerEnd={drawnConns.has("to-outputs") ? "url(#cipArrowTeal)" : undefined}
+          />
+          <path
+            className={connClass("to-outputs")}
+            d="M945 426 H968"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            markerEnd={drawnConns.has("to-outputs") ? "url(#cipArrowTeal)" : undefined}
+          />
+          <path
+            className={connClass("to-outputs")}
+            d="M945 560 H968"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+            markerEnd={drawnConns.has("to-outputs") ? "url(#cipArrowTeal)" : undefined}
+          />
         </g>
 
         {/* Inputs */}
@@ -613,7 +602,6 @@ export function HeroCipAnimation() {
             id="input-1"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 40, y: 102, w: 380, h: 112 }}
           >
@@ -658,7 +646,6 @@ export function HeroCipAnimation() {
             id="input-2"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 40, y: 236, w: 380, h: 112 }}
           >
@@ -704,7 +691,6 @@ export function HeroCipAnimation() {
             id="input-3"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 40, y: 370, w: 380, h: 112 }}
           >
@@ -750,7 +736,6 @@ export function HeroCipAnimation() {
             id="input-4"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 40, y: 504, w: 380, h: 112 }}
           >
@@ -800,7 +785,6 @@ export function HeroCipAnimation() {
             id="regulatory"
             stagger={0}
             glow="violet"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 510, y: 42, w: 380, h: 112 }}
           >
@@ -852,7 +836,6 @@ export function HeroCipAnimation() {
             "hero-cip-glow-teal",
             "hero-cip-engine",
             showEngine ? "is-forced-visible" : "",
-            readingId === "engine" ? "is-reading" : "",
           ]
             .filter(Boolean)
             .join(" ")}
@@ -937,7 +920,6 @@ export function HeroCipAnimation() {
             id="output-1"
             stagger={0}
             glow="orange"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 980, y: 102, w: 380, h: 112 }}
           >
@@ -981,7 +963,6 @@ export function HeroCipAnimation() {
             id="output-2"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 980, y: 236, w: 380, h: 112 }}
           >
@@ -1023,7 +1004,6 @@ export function HeroCipAnimation() {
             id="output-3"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 980, y: 370, w: 380, h: 112 }}
           >
@@ -1070,7 +1050,6 @@ export function HeroCipAnimation() {
             id="output-4"
             stagger={0}
             glow="teal"
-            readingId={readingId}
             forcedVisible={forcedVisible}
             hit={{ x: 980, y: 504, w: 380, h: 112 }}
           >
@@ -1110,54 +1089,59 @@ export function HeroCipAnimation() {
           </CipCard>
         </g>
 
-        {/* Trust footer — after Cross-Document Issues */}
+        {/* Trust footer — 4 columns; body lines wrap so seps stay in gutters */}
         <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
           <line
             className={trustCount >= 1 ? "hero-cip-trust-line is-in" : "hero-cip-trust-line"}
             x1={40}
-            y1={684}
+            y1={678}
             x2={1360}
-            y2={684}
+            y2={678}
             stroke="#19D3C5"
-            strokeWidth={1}
+            strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 1 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(92 734)"
+            transform="translate(48 740)"
           >
-            <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <g transform="translate(0 4) scale(1.25)">
+            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <g transform="translate(0 2) scale(1.5)">
                 <path d="M3 2 h10 l4 4 v14 H3 Z" stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M13 2 v4 h4" stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M7 11 h6M7 14.5 h4" stroke="#FFFFFF" strokeWidth={1.25} />
                 <circle cx={20} cy={18} r={4.5} stroke="#19D3C5" strokeWidth={1.5} />
                 <path d="M18.2 18 h3.6M20 16.2 v3.6" stroke="#19D3C5" strokeWidth={1.35} />
               </g>
-              <text x={54} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.05em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
                 TRACEABILITY
               </text>
-              <text x={54} y={40} fill="#FFFFFF" fontSize={16} opacity={0.88}>
-                Every finding traced to source
+              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+                <tspan x={58} dy={0}>
+                  Every finding traced
+                </tspan>
+                <tspan x={58} dy={20}>
+                  to source
+                </tspan>
               </text>
             </g>
           </g>
           <line
             className={trustCount >= 2 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={382}
-            y1={704}
-            x2={382}
-            y2={764}
+            x1={360}
+            y1={696}
+            x2={360}
+            y2={790}
             stroke="#19D3C5"
-            strokeWidth={1}
+            strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 2 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(408 734)"
+            transform="translate(382 740)"
           >
-            <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <g transform="translate(0 2) scale(1.25)">
+            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <g transform="translate(0 0) scale(1.5)">
                 <path
                   d="M12 2.5 a7 7 0 0 1 4.2 12.6 v2.4 H7.8 v-2.4 A7 7 0 0 1 12 2.5 Z"
                   stroke="#FFFFFF"
@@ -1166,107 +1150,89 @@ export function HeroCipAnimation() {
                 <path d="M8.5 20.5 h7M9.5 23.2 h5" stroke="#FFFFFF" strokeWidth={1.4} />
                 <path d="M12 8.5 v4M10 10.5 h4" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={54} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.05em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
                 EXPLAINABILITY
               </text>
-              <text x={54} y={40} fill="#FFFFFF" fontSize={16} opacity={0.88}>
-                Clear reasoning and context
+              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+                <tspan x={58} dy={0}>
+                  Clear reasoning
+                </tspan>
+                <tspan x={58} dy={20}>
+                  and context
+                </tspan>
               </text>
             </g>
           </g>
           <line
             className={trustCount >= 3 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={688}
-            y1={704}
-            x2={688}
-            y2={764}
+            x1={700}
+            y1={696}
+            x2={700}
+            y2={790}
             stroke="#19D3C5"
-            strokeWidth={1}
+            strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 3 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(714 734)"
+            transform="translate(722 740)"
           >
-            <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <g transform="translate(0 4) scale(1.25)">
+            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <g transform="translate(0 2) scale(1.5)">
                 <circle cx={9} cy={7} r={4} stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M1.5 20 c0-4.2 3.2-7 7.5-7 s7.5 2.8 7.5 7" stroke="#FFFFFF" strokeWidth={1.5} />
                 <circle cx={20} cy={16.5} r={4.2} fill="#19D3C5" stroke="none" />
                 <path d="M17.8 16.5 l1.4 1.4 3-3.2" stroke="#0D1B3E" strokeWidth={1.4} />
               </g>
-              <text x={54} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.05em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
                 HUMAN REVIEW
               </text>
-              <text x={54} y={40} fill="#FFFFFF" fontSize={16} opacity={0.88}>
-                Your team validates every finding
+              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+                <tspan x={58} dy={0}>
+                  Your team validates
+                </tspan>
+                <tspan x={58} dy={20}>
+                  every finding
+                </tspan>
               </text>
             </g>
           </g>
           <line
             className={trustCount >= 4 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={1030}
-            y1={704}
-            x2={1030}
-            y2={764}
+            x1={1040}
+            y1={696}
+            x2={1040}
+            y2={790}
             stroke="#19D3C5"
-            strokeWidth={1}
+            strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 4 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(1056 734)"
+            transform="translate(1062 740)"
           >
-            <g transform="translate(0 -22)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <g transform="translate(0 2) scale(1.25)">
+            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <g transform="translate(0 0) scale(1.5)">
                 <rect x={3} y={11} width={16} height={12} rx={2.2} stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M7 11 V7.5 a4 4 0 0 1 8 0 V11" stroke="#19D3C5" strokeWidth={1.6} />
                 <circle cx={11} cy={16.5} r={1.4} fill="#19D3C5" stroke="none" />
                 <path d="M11 17.8 v2.2" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={54} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.05em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
                 READ-ONLY
               </text>
-              <text x={54} y={40} fill="#FFFFFF" fontSize={16} opacity={0.88}>
-                No changes to your systems
+              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+                <tspan x={58} dy={0}>
+                  No changes to
+                </tspan>
+                <tspan x={58} dy={20}>
+                  your systems
+                </tspan>
               </text>
             </g>
           </g>
         </g>
       </svg>
-
-      {activeMeta ? (
-        <div
-          key={activeMeta.id}
-          className={`hero-cip-focus hero-cip-focus-${activeMeta.glow} is-open`}
-          data-cip-hold="focus"
-          role="status"
-          aria-live="polite"
-        >
-          <div className="hero-cip-focus-head">
-            <span
-              className={`hero-cip-focus-icon${activeMeta.useLogo ? " hero-cip-focus-icon-logo" : ""}`}
-              aria-hidden="true"
-            >
-              {activeMeta.useLogo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/assets/images/suricat-logo-mark-center.svg"
-                  alt=""
-                  className="hero-cip-focus-logo"
-                />
-              ) : ActiveIcon ? (
-                <ActiveIcon />
-              ) : null}
-            </span>
-            <div className="hero-cip-focus-copy">
-              <p className="hero-cip-focus-title">{t(activeMeta.titleKey)}</p>
-              <p className="hero-cip-focus-sub">{t(activeMeta.subtitleKey)}</p>
-            </div>
-          </div>
-          <p className="hero-cip-focus-body">{t(activeMeta.bodyKey)}</p>
-        </div>
-      ) : null}
     </div>
   );
 }
