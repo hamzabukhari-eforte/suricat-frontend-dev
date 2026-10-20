@@ -6442,7 +6442,7 @@ a.solution-nav-pill,
   visibility: visible;
 }
 
-/* Trust footer */
+/* Trust footer — smooth staggered fade (opacity only; SVG transform attrs stay intact) */
 .hero-cip-trust-item,
 .hero-cip-trust-line,
 .hero-cip-trust-sep {
@@ -6450,40 +6450,40 @@ a.solution-nav-pill,
 }
 
 .hero-cip-trust-item.is-in {
-  animation: hero-cip-trust-fade 0.28s ease both;
+  animation: hero-cip-trust-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-cip-trust-line.is-in {
-  animation: hero-cip-trust-fade-line 0.22s ease both;
+  animation: hero-cip-trust-fade-line 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-cip-trust-sep.is-in {
-  animation: hero-cip-trust-fade-sep 0.22s ease both;
+  animation: hero-cip-trust-fade-sep 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes hero-cip-trust-fade {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes hero-cip-trust-fade-line {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  100% {
     opacity: 0.55;
   }
 }
 
 @keyframes hero-cip-trust-fade-sep {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  100% {
     opacity: 0.45;
   }
 }

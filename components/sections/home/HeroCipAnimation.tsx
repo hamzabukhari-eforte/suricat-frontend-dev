@@ -11,16 +11,25 @@ import {
 } from "react";
 
 /* Faster tour; still enough hold to read card text */
-const POP_STEP_MS = 1350;
+const POP_STEP_MS = 1200;
+const STUB_STEP_MS = 360;
 const CONN_STEP_MS = 480;
 const TOUR_START_MS = 200;
-const TRUST_START_MS = 100;
-const TRUST_STAGGER_MS = 110;
+const TRUST_START_MS = 120;
+const TRUST_STAGGER_MS = 160;
 const TRUST_ITEM_COUNT = 4;
 
 type CipGlow = "teal" | "violet" | "orange";
 type CipStage = "input" | "regulatory" | "engine" | "output";
-type ConnId = "in-bus" | "to-engine" | "to-regulatory" | "to-outputs";
+type ConnId =
+  | "stub-input-1"
+  | "stub-input-2"
+  | "stub-input-3"
+  | "stub-input-4"
+  | "in-bus"
+  | "to-engine"
+  | "to-regulatory"
+  | "to-outputs";
 
 type TourCardMeta = {
   id: string;
@@ -44,12 +53,16 @@ const TOUR_CARDS: TourCardMeta[] = [
   { id: "output-4", stage: "output" },
 ];
 
-/* Inputs → Suricat → up to Regulatory → right out → Outputs */
+/* Card first, then its stub — then Suricat → Regulatory → Outputs */
 const TOUR_STEPS: TourStep[] = [
   { kind: "card", id: "input-1" },
+  { kind: "conn", id: "stub-input-1" },
   { kind: "card", id: "input-2" },
+  { kind: "conn", id: "stub-input-2" },
   { kind: "card", id: "input-3" },
+  { kind: "conn", id: "stub-input-3" },
   { kind: "card", id: "input-4" },
+  { kind: "conn", id: "stub-input-4" },
   { kind: "conn", id: "in-bus" },
   { kind: "card", id: "engine" },
   { kind: "conn", id: "to-engine" },
@@ -63,6 +76,10 @@ const TOUR_STEPS: TourStep[] = [
 ];
 
 const ALL_CONN_IDS: ConnId[] = [
+  "stub-input-1",
+  "stub-input-2",
+  "stub-input-3",
+  "stub-input-4",
   "in-bus",
   "to-engine",
   "to-regulatory",
@@ -334,7 +351,7 @@ export function HeroCipAnimation() {
           next.add(item.id);
           return next;
         });
-        delay = CONN_STEP_MS;
+        delay = item.id.startsWith("stub-") ? STUB_STEP_MS : CONN_STEP_MS;
       }
       tourIndexRef.current = index + 1;
       tourRemainingRef.current = delay;
@@ -398,8 +415,6 @@ export function HeroCipAnimation() {
   );
   const connClass = (id: ConnId) =>
     drawnConns.has(id) ? "hero-cip-conn is-drawn" : "hero-cip-conn";
-  const stubClass = (cardId: string) =>
-    forcedVisible.has(cardId) ? "hero-cip-conn is-drawn" : "hero-cip-conn";
 
   return (
     <div
@@ -464,30 +479,30 @@ export function HeroCipAnimation() {
 
         {/* Connectors — draw smoothly in tour order */}
         <g strokeLinecap="round" strokeLinejoin="round" fill="none">
-          {/* Input stubs — appear with each input card */}
+          {/* Input stubs — after each card pops (not with the card) */}
           <path
-            className={stubClass("input-1")}
+            className={connClass("stub-input-1")}
             d="M420 158 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
-            className={stubClass("input-2")}
+            className={connClass("stub-input-2")}
             d="M420 292 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
-            className={stubClass("input-3")}
+            className={connClass("stub-input-3")}
             d="M420 426 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
           <path
-            className={stubClass("input-4")}
+            className={connClass("stub-input-4")}
             d="M420 560 H455"
             pathLength={1}
             stroke="#19D3C5"
@@ -588,7 +603,7 @@ export function HeroCipAnimation() {
           </text>
           <text
             x={230}
-            y={66}
+            y={80}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={20}
@@ -906,7 +921,7 @@ export function HeroCipAnimation() {
           </text>
           <text
             x={1170}
-            y={66}
+            y={80}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={20}
@@ -1089,7 +1104,7 @@ export function HeroCipAnimation() {
           </CipCard>
         </g>
 
-        {/* Trust footer — 4 columns; body lines wrap so seps stay in gutters */}
+        {/* Trust footer — equal columns; seps centered between neighboring items */}
         <g style={{ fontFamily: '"Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif' }}>
           <line
             className={trustCount >= 1 ? "hero-cip-trust-line is-in" : "hero-cip-trust-line"}
@@ -1101,11 +1116,12 @@ export function HeroCipAnimation() {
             strokeWidth={1.25}
           />
 
+          {/* Spread across full top line; more gap between the four blocks */}
           <g
             className={trustCount >= 1 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(48 740)"
+            transform="translate(48 748)"
           >
-            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.5)">
                 <path d="M3 2 h10 l4 4 v14 H3 Z" stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M13 2 v4 h4" stroke="#FFFFFF" strokeWidth={1.5} />
@@ -1113,14 +1129,14 @@ export function HeroCipAnimation() {
                 <circle cx={20} cy={18} r={4.5} stroke="#19D3C5" strokeWidth={1.5} />
                 <path d="M18.2 18 h3.6M20 16.2 v3.6" stroke="#19D3C5" strokeWidth={1.35} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
                 TRACEABILITY
               </text>
-              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Every finding traced
                 </tspan>
-                <tspan x={58} dy={20}>
+                <tspan x={58} dy={28}>
                   to source
                 </tspan>
               </text>
@@ -1128,19 +1144,19 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 2 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={360}
-            y1={696}
-            x2={360}
-            y2={790}
+            x1={365}
+            y1={712}
+            x2={365}
+            y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 2 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(382 740)"
+            transform="translate(400 748)"
           >
-            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 0) scale(1.5)">
                 <path
                   d="M12 2.5 a7 7 0 0 1 4.2 12.6 v2.4 H7.8 v-2.4 A7 7 0 0 1 12 2.5 Z"
@@ -1150,14 +1166,14 @@ export function HeroCipAnimation() {
                 <path d="M8.5 20.5 h7M9.5 23.2 h5" stroke="#FFFFFF" strokeWidth={1.4} />
                 <path d="M12 8.5 v4M10 10.5 h4" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
                 EXPLAINABILITY
               </text>
-              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Clear reasoning
                 </tspan>
-                <tspan x={58} dy={20}>
+                <tspan x={58} dy={28}>
                   and context
                 </tspan>
               </text>
@@ -1165,33 +1181,33 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 3 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={700}
-            y1={696}
-            x2={700}
-            y2={790}
+            x1={715}
+            y1={712}
+            x2={715}
+            y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 3 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(722 740)"
+            transform="translate(750 748)"
           >
-            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 2) scale(1.5)">
                 <circle cx={9} cy={7} r={4} stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M1.5 20 c0-4.2 3.2-7 7.5-7 s7.5 2.8 7.5 7" stroke="#FFFFFF" strokeWidth={1.5} />
                 <circle cx={20} cy={16.5} r={4.2} fill="#19D3C5" stroke="none" />
                 <path d="M17.8 16.5 l1.4 1.4 3-3.2" stroke="#0D1B3E" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
                 HUMAN REVIEW
               </text>
-              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Your team validates
                 </tspan>
-                <tspan x={58} dy={20}>
+                <tspan x={58} dy={28}>
                   every finding
                 </tspan>
               </text>
@@ -1199,33 +1215,33 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 4 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={1040}
-            y1={696}
-            x2={1040}
-            y2={790}
+            x1={1065}
+            y1={712}
+            x2={1065}
+            y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}
           />
 
           <g
             className={trustCount >= 4 ? "hero-cip-trust-item is-in" : "hero-cip-trust-item"}
-            transform="translate(1062 740)"
+            transform="translate(1100 748)"
           >
-            <g transform="translate(0 -26)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <g transform="translate(0 -28)" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <g transform="translate(0 0) scale(1.5)">
                 <rect x={3} y={11} width={16} height={12} rx={2.2} stroke="#FFFFFF" strokeWidth={1.5} />
                 <path d="M7 11 V7.5 a4 4 0 0 1 8 0 V11" stroke="#19D3C5" strokeWidth={1.6} />
                 <circle cx={11} cy={16.5} r={1.4} fill="#19D3C5" stroke="none" />
                 <path d="M11 17.8 v2.2" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={21} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={24} fontWeight={800} letterSpacing="0.04em">
                 READ-ONLY
               </text>
-              <text x={58} y={40} fill="#FFFFFF" fontSize={16} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={21} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   No changes to
                 </tspan>
-                <tspan x={58} dy={20}>
+                <tspan x={58} dy={28}>
                   your systems
                 </tspan>
               </text>
