@@ -850,18 +850,17 @@ export function HeroCipAnimation() {
             <circle cx={558} cy={98} r={32} stroke="#5C3D8F" strokeWidth={1.6} fill="#5C3D8F" fillOpacity={0.18} />
             <g
               className="hero-cip-card-icon"
-              transform="translate(558 98) scale(1.65) translate(-12 -12)"
+              transform="translate(558 98) scale(1.55) translate(-12 -12)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M12 3.2 V18.5" stroke="#FFFFFF" strokeWidth={1.55} />
-              <path d="M7.5 21 h9" stroke="#FFFFFF" strokeWidth={1.55} />
-              <path d="M9.5 21 V18.5 h5 V21" stroke="#FFFFFF" strokeWidth={1.4} />
-              <path d="M3.2 7.2 H20.8" stroke="#FFFFFF" strokeWidth={1.55} />
-              <path d="M5 7.2 L2.4 14.2 H7.6 Z" stroke="#5C3D8F" strokeWidth={1.45} />
-              <path d="M19 7.2 L16.4 14.2 H21.6 Z" stroke="#5C3D8F" strokeWidth={1.45} />
-              <circle cx={12} cy={7.2} r={1.55} fill="#5C3D8F" stroke="none" />
+              {/* US Supreme Court — pediment, columns, steps */}
+              <path d="M2.5 9.2 L12 3.2 L21.5 9.2 Z" stroke="#FFFFFF" strokeWidth={1.5} />
+              <path d="M3.2 9.2 H20.8" stroke="#FFFFFF" strokeWidth={1.45} />
+              <path d="M5.2 9.2 V17.2 M8.7 9.2 V17.2 M12 9.2 V17.2 M15.3 9.2 V17.2 M18.8 9.2 V17.2" stroke="#FFFFFF" strokeWidth={1.45} />
+              <path d="M3.5 17.2 H20.5" stroke="#5C3D8F" strokeWidth={1.5} />
+              <path d="M2.5 19.2 H21.5 M4 21 H20" stroke="#5C3D8F" strokeWidth={1.45} />
             </g>
             <text x={606} y={88} fill="#FFFFFF" fontSize={18} fontWeight={800}>
               REGULATORY REQUIREMENTS
