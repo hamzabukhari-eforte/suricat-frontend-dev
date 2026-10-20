@@ -907,7 +907,11 @@
     "complianceCost": {
       "eyebrow": "The Cost of Misalignment",
       "title": "Misaligned quality documents, procedures, and records can make it harder to identify gaps, reconcile evidence, and respond to regulatory scrutiny.",
+      "titleLine1": "Misaligned quality documents, procedures, and records can make it harder",
+      "titleLine2": "to identify gaps, reconcile evidence, and respond to regulatory scrutiny.",
       "body": "FDA data reveals the broader challenges medical device manufacturers face, including inspection deficiencies, enforcement, additional information requests, and lengthy submission reviews.",
+      "bodyLine1": "FDA data reveals the broader challenges medical device manufacturers face, including inspection deficiencies,",
+      "bodyLine2": "enforcement, additional information requests, and lengthy submission reviews.",
       "stats": {
         "costOfQuality": {
           "category": "High-Risk Device Submissions",

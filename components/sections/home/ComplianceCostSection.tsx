@@ -40,10 +40,14 @@ export function ComplianceCostSection() {
               {t("eyebrow")}
             </span>
             <h2 className="mb-4 w-full text-[32px] font-bold leading-tight text-navy">
-              {t("title")}
+              {t("titleLine1")}
+              <br />
+              {t("titleLine2")}
             </h2>
             <p className="w-full text-[20px] font-normal leading-relaxed text-navy lg:leading-[28px]">
-              {t("body")}
+              {t("bodyLine1")}
+              <br />
+              {t("bodyLine2")}
             </p>
           </div>
 

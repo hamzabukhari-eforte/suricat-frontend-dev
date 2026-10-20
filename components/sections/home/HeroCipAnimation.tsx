@@ -1166,10 +1166,10 @@ export function HeroCipAnimation() {
                 <circle cx={20} cy={18} r={4.5} stroke="#19D3C5" strokeWidth={1.5} />
                 <path d="M18.2 18 h3.6M20 16.2 v3.6" stroke="#19D3C5" strokeWidth={1.35} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={20} fontWeight={800} letterSpacing="0.04em">
                 TRACEABILITY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Every finding traced
                 </tspan>
@@ -1204,10 +1204,10 @@ export function HeroCipAnimation() {
                 <path d="M8.5 20.5 h7M9.5 23.2 h5" stroke="#FFFFFF" strokeWidth={1.4} />
                 <path d="M12 8.5 v4M10 10.5 h4" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={20} fontWeight={800} letterSpacing="0.04em">
                 EXPLAINABILITY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Clear reasoning
                 </tspan>
@@ -1239,10 +1239,10 @@ export function HeroCipAnimation() {
                 <circle cx={20} cy={16.5} r={4.2} fill="#19D3C5" stroke="none" />
                 <path d="M17.8 16.5 l1.4 1.4 3-3.2" stroke="#0D1B3E" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={20} fontWeight={800} letterSpacing="0.04em">
                 HUMAN REVIEW
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   Your team validates
                 </tspan>
@@ -1274,10 +1274,10 @@ export function HeroCipAnimation() {
                 <circle cx={11} cy={16.5} r={1.4} fill="#19D3C5" stroke="none" />
                 <path d="M11 17.8 v2.2" stroke="#19D3C5" strokeWidth={1.4} />
               </g>
-              <text x={58} y={16} fill="#FFFFFF" fontSize={18} fontWeight={800} letterSpacing="0.04em">
+              <text x={58} y={16} fill="#FFFFFF" fontSize={20} fontWeight={800} letterSpacing="0.04em">
                 READ-ONLY
               </text>
-              <text x={58} y={48} fill="#FFFFFF" fontSize={18} opacity={0.9}>
+              <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
                   No changes to
                 </tspan>

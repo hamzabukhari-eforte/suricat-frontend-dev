@@ -907,7 +907,11 @@
     "complianceCost": {
       "eyebrow": "Die Kosten fehlender Ausrichtung",
       "title": "Fehlausgerichtete Qualitätsdokumente, Procedures und Records können es erschweren, Lücken zu erkennen, Evidenz abzugleichen und auf regulatorische Prüfung zu reagieren.",
+      "titleLine1": "Fehlausgerichtete Qualitätsdokumente, Procedures und Records können es erschweren,",
+      "titleLine2": "Lücken zu erkennen, Evidenz abzugleichen und auf regulatorische Prüfung zu reagieren.",
       "body": "FDA-Daten zeigen die größeren Herausforderungen für Hersteller von Medizinprodukten, darunter Inspektionsmängel, Enforcement, Requests for Additional Information und lange Submission Reviews.",
+      "bodyLine1": "FDA-Daten zeigen die größeren Herausforderungen für Hersteller von Medizinprodukten, darunter Inspektionsmängel,",
+      "bodyLine2": "Enforcement, Requests for Additional Information und lange Submission Reviews.",
       "stats": {
         "costOfQuality": {
           "category": "High-Risk Device Submissions",

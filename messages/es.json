@@ -907,7 +907,11 @@
     "complianceCost": {
       "eyebrow": "El costo de la desalineación",
       "title": "Los documentos de calidad, procedimientos y registros desalineados pueden dificultar identificar brechas, conciliar evidencia y responder al escrutinio regulatorio.",
+      "titleLine1": "Los documentos de calidad, procedimientos y registros desalineados pueden dificultar",
+      "titleLine2": "identificar brechas, conciliar evidencia y responder al escrutinio regulatorio.",
       "body": "Los datos de la FDA revelan los desafíos más amplios que enfrentan los fabricantes de dispositivos médicos, incluidas deficiencias de inspección, enforcement, solicitudes de información adicional y revisiones prolongadas de submissions.",
+      "bodyLine1": "Los datos de la FDA revelan los desafíos más amplios que enfrentan los fabricantes de dispositivos médicos, incluidas deficiencias de inspección,",
+      "bodyLine2": "enforcement, solicitudes de información adicional y revisiones prolongadas de submissions.",
       "stats": {
         "costOfQuality": {
           "category": "High-Risk Device Submissions",
