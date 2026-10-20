@@ -777,8 +777,8 @@ nav[data-locale="es"] .nav-mega-trigger-label {
 }
 
 .marquee-wrapper {
-  background: #5c3d8f;
-  color: #fff;
+  background: #19D3C5;
+  color: #0D1B3E;
   overflow: hidden;
   white-space: nowrap;
   padding: 0.7rem 0;
@@ -803,7 +803,7 @@ nav[data-locale="es"] .nav-mega-trigger-label {
 .marquee-banner {
   margin: 0;
   display: inline;
-  color: #fff;
+  color: #0D1B3E;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
@@ -812,13 +812,13 @@ nav[data-locale="es"] .nav-mega-trigger-label {
 
 .marquee-banner-text {
   font-weight: 600;
-  color: #fff;
+  color: #0D1B3E;
 }
 
 .marquee-banner-cta {
   display: inline;
   margin-left: 0.5rem;
-  color: #fff;
+  color: #0D1B3E;
   font-size: 16px;
   font-weight: 800;
   text-decoration: underline;
@@ -830,7 +830,7 @@ nav[data-locale="es"] .nav-mega-trigger-label {
 
 .marquee-banner-cta:hover {
   opacity: 0.88;
-  color: #fff;
+  color: #0D1B3E;
 }
 
 .marquee-banner-chevron {
