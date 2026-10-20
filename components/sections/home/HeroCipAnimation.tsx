@@ -12,8 +12,9 @@ import {
 
 /* Faster tour; still enough hold to read card text */
 const POP_STEP_MS = 1200;
-const STUB_STEP_MS = 360;
-const CONN_STEP_MS = 560;
+const STUB_STEP_MS = 220;
+const BUS_STEP_MS = 260;
+const CONN_STEP_MS = 480;
 const TOUR_START_MS = 200;
 const TRUST_START_MS = 180;
 const TRUST_STAGGER_MS = 420;
@@ -26,7 +27,9 @@ type ConnId =
   | "stub-input-2"
   | "stub-input-3"
   | "stub-input-4"
-  | "in-bus"
+  | "bus-seg-1"
+  | "bus-seg-2"
+  | "bus-seg-3"
   | "to-engine"
   | "to-regulatory"
   | "to-outputs";
@@ -53,18 +56,25 @@ const TOUR_CARDS: TourCardMeta[] = [
   { id: "output-4", stage: "output" },
 ];
 
-/* Card → stub; Suricat; then bus+into-Suricat together; Regulatory → Outputs */
+/*
+ * All input cards first, then:
+ * Policies stub → vertical grow → Technical stub → grow → Records → grow → Submissions
+ * then Suricat → Regulatory → Outputs
+ */
 const TOUR_STEPS: TourStep[] = [
   { kind: "card", id: "input-1" },
-  { kind: "conn", ids: ["stub-input-1"] },
   { kind: "card", id: "input-2" },
-  { kind: "conn", ids: ["stub-input-2"] },
   { kind: "card", id: "input-3" },
-  { kind: "conn", ids: ["stub-input-3"] },
   { kind: "card", id: "input-4" },
+  { kind: "conn", ids: ["stub-input-1"] },
+  { kind: "conn", ids: ["bus-seg-1"] },
+  { kind: "conn", ids: ["stub-input-2"] },
+  { kind: "conn", ids: ["bus-seg-2"] },
+  { kind: "conn", ids: ["stub-input-3"] },
+  { kind: "conn", ids: ["bus-seg-3"] },
   { kind: "conn", ids: ["stub-input-4"] },
   { kind: "card", id: "engine" },
-  { kind: "conn", ids: ["in-bus", "to-engine"] },
+  { kind: "conn", ids: ["to-engine"] },
   { kind: "conn", ids: ["to-regulatory"] },
   { kind: "card", id: "regulatory" },
   { kind: "conn", ids: ["to-outputs"] },
@@ -79,7 +89,9 @@ const ALL_CONN_IDS: ConnId[] = [
   "stub-input-2",
   "stub-input-3",
   "stub-input-4",
-  "in-bus",
+  "bus-seg-1",
+  "bus-seg-2",
+  "bus-seg-3",
   "to-engine",
   "to-regulatory",
   "to-outputs",
@@ -357,7 +369,9 @@ export function HeroCipAnimation() {
         });
         delay = item.ids.some((id) => id.startsWith("stub-"))
           ? STUB_STEP_MS
-          : CONN_STEP_MS;
+          : item.ids.some((id) => id.startsWith("bus-seg-"))
+            ? BUS_STEP_MS
+            : CONN_STEP_MS;
       }
       tourIndexRef.current = index + 1;
       tourRemainingRef.current = delay;
@@ -485,10 +499,17 @@ export function HeroCipAnimation() {
 
         {/* Connectors — draw smoothly in tour order */}
         <g strokeLinecap="round" strokeLinejoin="round" fill="none">
-          {/* Input stubs — after each card pops (not with the card) */}
+          {/* Input stubs + vertical bus segments (grow after all cards) */}
           <path
             className={connClass("stub-input-1")}
             d="M420 158 H455"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
+            className={connClass("bus-seg-1")}
+            d="M455 158 V295"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -501,6 +522,13 @@ export function HeroCipAnimation() {
             strokeWidth={4}
           />
           <path
+            className={connClass("bus-seg-2")}
+            d="M455 295 V432"
+            pathLength={1}
+            stroke="#19D3C5"
+            strokeWidth={4}
+          />
+          <path
             className={connClass("stub-input-3")}
             d="M420 432 H455"
             pathLength={1}
@@ -508,16 +536,15 @@ export function HeroCipAnimation() {
             strokeWidth={4}
           />
           <path
-            className={connClass("stub-input-4")}
-            d="M420 569 H455"
+            className={connClass("bus-seg-3")}
+            d="M455 432 V569"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
           />
-          {/* Input vertical bus */}
           <path
-            className={connClass("in-bus")}
-            d="M455 158 V569"
+            className={connClass("stub-input-4")}
+            d="M420 569 H455"
             pathLength={1}
             stroke="#19D3C5"
             strokeWidth={4}
@@ -598,7 +625,7 @@ export function HeroCipAnimation() {
         >
           <text
             x={230}
-            y={40}
+            y={32}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={28}
@@ -609,7 +636,7 @@ export function HeroCipAnimation() {
           </text>
           <text
             x={230}
-            y={80}
+            y={70}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={21}
@@ -916,7 +943,7 @@ export function HeroCipAnimation() {
         >
           <text
             x={1170}
-            y={40}
+            y={32}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={28}
@@ -927,7 +954,7 @@ export function HeroCipAnimation() {
           </text>
           <text
             x={1170}
-            y={80}
+            y={70}
             textAnchor="middle"
             fill="#19D3C5"
             fontSize={21}
@@ -1156,9 +1183,9 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 2 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={365}
+            x1={352}
             y1={712}
-            x2={365}
+            x2={352}
             y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}
@@ -1194,9 +1221,9 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 3 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={715}
+            x1={682}
             y1={712}
-            x2={715}
+            x2={682}
             y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}
@@ -1229,9 +1256,9 @@ export function HeroCipAnimation() {
           </g>
           <line
             className={trustCount >= 4 ? "hero-cip-trust-sep is-in" : "hero-cip-trust-sep"}
-            x1={1065}
+            x1={1048}
             y1={712}
-            x2={1065}
+            x2={1048}
             y2={800}
             stroke="#19D3C5"
             strokeWidth={1.25}

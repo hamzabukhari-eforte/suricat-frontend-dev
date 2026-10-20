@@ -6722,7 +6722,7 @@ a.solution-nav-pill,
 
 .hero-cip-conn.is-drawn {
   opacity: 1;
-  animation: hero-cip-conn-draw 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: hero-cip-conn-draw 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes hero-cip-conn-draw {
