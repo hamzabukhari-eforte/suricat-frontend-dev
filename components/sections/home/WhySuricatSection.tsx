@@ -19,10 +19,15 @@ export function WhySuricatSection() {
               <span>{t("headlineLine1")}</span>
               <span>{t("headlineLine2")}</span>
           </h2>
-            <p className="why-suricat-body">{t("body1")}</p>
-            {t("body2") ? (
-              <p className="why-suricat-body">{t("body2")}</p>
-            ) : null}
+            <p className="why-suricat-body">
+              <span className="why-suricat-body-lead">{t("body1")}</span>
+              {t("body2") ? (
+                <>
+                  {" "}
+                  <span className="why-suricat-body-tail">{t("body2")}</span>
+                </>
+              ) : null}
+            </p>
             <p className="why-suricat-tagline">{t("tagline")}</p>
         </div>
 

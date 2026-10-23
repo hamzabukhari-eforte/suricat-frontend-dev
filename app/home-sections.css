@@ -5654,8 +5654,28 @@ a.solution-nav-pill,
   letter-spacing: -0.02em;
 }
 
-@media (min-width: 1024px) {
+/*
+ * 1024–1919 (incl. 1440): stack the two headline lines so they never
+ * collide with the CTA card. Single-line only when the row is wide enough.
+ */
+@media (min-width: 1024px) and (max-width: 1919px) {
   .why-suricat-title {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.2rem;
+    white-space: normal;
+  }
+
+  .why-suricat-title > span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1920px) {
+  .why-suricat-title {
+    flex-direction: row;
     flex-wrap: nowrap;
     white-space: nowrap;
   }
@@ -5665,9 +5685,20 @@ a.solution-nav-pill,
   margin: 0 0 1.15rem;
   max-width: none;
   color: #0d1b3e;
-  font-size: 19.5px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.65;
+}
+
+/* Keep the "so QA and RA…" clause together so the break prefers the comma. */
+.why-suricat-body-tail {
+  white-space: normal;
+}
+
+@media (min-width: 640px) {
+  .why-suricat-body-tail {
+    white-space: nowrap;
+  }
 }
 
 .why-suricat-tagline {
@@ -5762,8 +5793,13 @@ a.solution-nav-pill,
 @media (min-width: 1024px) {
   .why-suricat-layout {
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2.75rem;
+    gap: 2rem;
     align-items: center;
+  }
+
+  /* Keep the second clause atomic so wrapping prefers the comma. */
+  .why-suricat-body-tail {
+    display: inline-block;
   }
 
   .why-suricat-card {
@@ -5783,7 +5819,17 @@ a.solution-nav-pill,
     flex-direction: row;
     gap: 1rem;
   }
+}
 
+/* Wide desktops: locked 2-line body (clause, then "so QA and RA…"). */
+@media (min-width: 1920px) {
+  .why-suricat-body-lead {
+    white-space: nowrap;
+  }
+
+  .why-suricat-body-tail {
+    display: block;
+  }
 }
 
 /* -- Why Suricat legacy attention board (unused) ---------------------- */
