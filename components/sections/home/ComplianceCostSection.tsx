@@ -15,7 +15,7 @@ const STAT_CARDS = [
   },
   {
     id: "remediation" as const,
-    href: "https://www.cov.com/en/news-and-insights",
+    href: "https://www.cov.com/-/media/files/corporate/publications/2026/02/quarterly-medical-device-warning-letters-update-october--december-2025-and-2025-annual-summary.pdf",
   },
   {
     id: "design" as const,
