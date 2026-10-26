@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When a Requirement Changes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1733;
+    --panel: #121f3f;
+    --panel-2: #0f1b3a;
+    --text: #f2f5fb;
+    --muted: #c9d2e6;
+    --teal: #2ad7c0;
+    --teal-dim: rgba(42,215,192,.18);
+    --teal-fill: #0f2543;
+    --orange: #ff5f3c;
+    --orange-dim: rgba(255,95,60,.18);
+    --orange-fill: #271a33;
+    --purple: #6d6cf3;
+    --purple-dim: rgba(109,108,243,.22);
+    --line-blue: #5a6cf0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  body { display: flex; justify-content: center; padding: 16px; min-height: 100vh; }
+
+  .viewport { width: 100%; max-width: 905px; }
+  .stage {
+    position: relative; width: 905px; height: 574px;
+    transform-origin: top left;
+  }
+
+  /* ---------- header ---------- */
+  .header {
+    position: absolute; left: 20px; top: 16px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+  }
+  .header .sub { color: #8f9bbd; font-weight: 500; letter-spacing: .14em; }
+  .header .sep { color: #4b5780; font-weight: 400; }
+
+  /* ---------- generic box ---------- */
+  .box {
+    position: absolute; border-radius: 10px; border: 1.5px solid;
+    background: var(--panel);
+  }
+  .box.teal   { border-color: var(--teal);   background: var(--teal-fill);   box-shadow: 0 0 0 1px rgba(42,215,192,.08), 0 8px 24px rgba(0,0,0,.25); }
+  .box.orange { border-color: var(--orange); background: var(--orange-fill); box-shadow: 0 0 0 1px rgba(255,95,60,.08), 0 8px 24px rgba(0,0,0,.25); }
+  .box.purple { border-color: var(--line-blue); background: #121c44; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+  /* ---------- top node ---------- */
+  .top { left: 283px; top: 50px; width: 342px; height: 58px; display: flex; align-items: center; padding: 0 20px; gap: 14px; }
+  .top .ico { width: 34px; height: 34px; border-radius: 8px; background: var(--teal-dim); display: grid; place-items: center; }
+  .top .label { font-size: 16px; font-weight: 500; flex: 1; }
+  .badge { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; padding: 5px 10px; border-radius: 999px; background: var(--purple); color: #fff; }
+
+  /* ---------- pills ---------- */
+  .pill {
+    position: absolute; top: 150px; height: 27px; padding: 0 16px; border-radius: 999px; border: 1.5px solid;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .14em; display: flex; align-items: center; justify-content: center;
+    background: var(--panel-2);
+  }
+  .pill.teal   { color: var(--teal);   border-color: var(--teal); }
+  .pill.orange { color: var(--orange); border-color: var(--orange); }
+
+  /* ---------- document group boxes ---------- */
+  .group { top: 195px; width: 422px; height: 125px; padding: 14px 12px 0; }
+  .group .title { text-align: center; font-size: 14.5px; font-weight: 500; margin-bottom: 14px; }
+  .cards { display: flex; align-items: center; justify-content: space-between; }
+  .card {
+    width: 88px; height: 58px; border-radius: 7px; background: rgba(255,255,255,.04);
+    display: flex; align-items: center; gap: 7px; padding: 0 8px; border: 1px solid rgba(255,255,255,.06);
+  }
+  .card .ci { width: 22px; height: 22px; border-radius: 5px; display: grid; place-items: center; flex-shrink: 0; }
+  .teal .card .ci { background: var(--teal-dim); }
+  .orange .card .ci { background: var(--orange-dim); }
+  .card .cl { font-size: 8.5px; line-height: 1.2; font-weight: 500; color: var(--muted); }
+  .carrow { width: 15px; display: grid; place-items: center; }
+
+  /* ---------- status boxes ---------- */
+  .status { top: 335px; width: 422px; height: 70px; display: flex; align-items: center; gap: 18px; padding: 0 24px; }
+  .status .ico { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  .teal .ico.round   { background: var(--teal-dim); }
+  .orange .ico.round { background: var(--orange-dim); }
+  .status .label { font-size: 15px; font-weight: 500; }
+
+  /* ---------- risk boxes ---------- */
+  .risk { top: 437px; height: 93px; display: flex; align-items: center; gap: 18px; padding: 0 22px; }
+  .risk .ico { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  .risk .label { font-size: 19px; font-weight: 600; }
+  .outcome { left: 306px; top: 437px; width: 292px; height: 93px; display: flex; align-items: center; gap: 16px; padding: 0 22px; }
+  .outcome .ico { width: 58px; height: 58px; border-radius: 50%; background: var(--purple-dim); display: grid; place-items: center; flex-shrink: 0; }
+  .outcome .label { font-size: 13.5px; line-height: 1.45; font-weight: 500; text-align: center; flex: 1; }
+
+  /* ---------- connectors ---------- */
+  svg.lines { position: absolute; inset: 0; width: 905px; height: 574px; pointer-events: none; }
+  svg.lines .blue   { stroke: var(--line-blue); stroke-width: 1.5; fill: none; }
+  svg.lines .teal   { stroke: var(--teal);   stroke-width: 1.5; fill: none; }
+  svg.lines .orange { stroke: var(--orange); stroke-width: 1.5; fill: none; }
+</style>
+</head>
+<body>
+<div class="viewport">
+<div class="stage" id="stage">
+
+  <!-- header -->
+  <div class="header">
+    <span>When a Requirement Changes</span>
+    <span class="sep">|</span>
+    <span class="sub">Illustrative Example</span>
+  </div>
+
+  <!-- connector lines -->
+  <svg class="lines" viewBox="0 0 905 574" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2ad7c0"/>
+      </marker>
+      <marker id="arr-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#ff5f3c"/>
+      </marker>
+    </defs>
+
+    <!-- top split -->
+    <path class="blue" d="M454,108 V130 H232 V150"/>
+    <path class="blue" d="M454,130 H676 V150"/>
+
+    <!-- pills -> groups -->
+    <path class="teal"   d="M232,177 V193" marker-end="url(#arr-teal)"/>
+    <path class="orange" d="M676,177 V193" marker-end="url(#arr-orange)"/>
+
+    <!-- groups -> status -->
+    <path class="teal"   d="M229,320 V333" marker-end="url(#arr-teal)"/>
+    <path class="orange" d="M676,320 V333" marker-end="url(#arr-orange)"/>
+
+    <!-- status -> risk -->
+    <path class="teal"   d="M229,405 V435" marker-end="url(#arr-teal)"/>
+    <path class="orange" d="M676,405 V435" marker-end="url(#arr-orange)"/>
+
+    <!-- risk -> outcome -->
+    <path class="teal"   d="M277,484 H304" marker-end="url(#arr-teal)"/>
+    <path class="orange" d="M626,484 H600" marker-end="url(#arr-orange)"/>
+  </svg>
+
+  <!-- top node -->
+  <div class="box purple top">
+    <div class="ico">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/>
+      </svg>
+    </div>
+    <div class="label">Regulatory Requirement</div>
+    <div class="badge">REVISED</div>
+  </div>
+
+  <!-- pills -->
+  <div class="pill teal"   style="left:158px; width:148px;">INCORPORATED</div>
+  <div class="pill orange" style="left:596px; width:160px;">NOT INCORPORATED</div>
+
+  <!-- LEFT group -->
+  <div class="box teal group" style="left:18px;">
+    <div class="title">Update affected documents</div>
+    <div class="cards">
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="2.4" stroke-linecap="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1" fill="#2ad7c0"/><circle cx="4" cy="12" r="1" fill="#2ad7c0"/><circle cx="4" cy="18" r="1" fill="#2ad7c0"/></svg></div><div class="cl">Procedure</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#2ad7c0" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg></div><div class="cl">Work<br>Instructions</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#2ad7c0" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v5"/><circle cx="12" cy="17.5" r=".8" fill="#2ad7c0"/></svg></div><div class="cl">Risk File</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#2ad7c0" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M7 15l4-5 3 3 5-6"/></svg></div><div class="cl">Design Control<br>Documentation</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT group -->
+  <div class="box orange group" style="left:465px;">
+    <div class="title">Do not update affected documents</div>
+    <div class="cards">
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.4" stroke-linecap="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1" fill="#ff5f3c"/><circle cx="4" cy="12" r="1" fill="#ff5f3c"/><circle cx="4" cy="18" r="1" fill="#ff5f3c"/></svg></div><div class="cl">Procedure</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#ff5f3c" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg></div><div class="cl">Work<br>Instructions</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#ff5f3c" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v5"/><circle cx="12" cy="17.5" r=".8" fill="#ff5f3c"/></svg></div><div class="cl">Risk File</div></div>
+      <div class="carrow"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M0,5 H9 M6,1 L10,5 L6,9" stroke="#ff5f3c" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="card"><div class="ci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M7 15l4-5 3 3 5-6"/></svg></div><div class="cl">Design Control<br>Documentation</div></div>
+    </div>
+  </div>
+
+  <!-- status boxes -->
+  <div class="box teal status" style="left:18px;">
+    <div class="ico round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7V4a1 1 0 0 1 1-1h7l4 4v10a1 1 0 0 1-1 1h-3"/><path d="M16 3v4h4"/><rect x="4" y="7" width="12" height="14" rx="1"/><path d="M7 12h6M7 16h6"/></svg>
+    </div>
+    <div class="label">Documents and records remain aligned</div>
+  </div>
+  <div class="box orange status" style="left:465px;">
+    <div class="ico round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7V4a1 1 0 0 1 1-1h7l4 4v10a1 1 0 0 1-1 1h-3"/><path d="M16 3v4h4"/><rect x="4" y="7" width="12" height="14" rx="1"/><path d="M7 12h6M7 16h6"/></svg>
+    </div>
+    <div class="label">More misaligned documents and records</div>
+  </div>
+
+  <!-- bottom row -->
+  <div class="box teal risk" style="left:18px; width:258px;">
+    <div class="ico round">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2ad7c0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+    </div>
+    <div class="label">Minimized Risk</div>
+  </div>
+
+  <div class="box purple outcome">
+    <div class="ico">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+    </div>
+    <div class="label">Audit Findings,<br>Submission/Approval Delays,<br>Remediation Actions</div>
+  </div>
+
+  <div class="box orange risk" style="left:627px; width:260px;">
+    <div class="ico round">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v5"/><circle cx="12" cy="17.5" r=".9" fill="#ff5f3c"/></svg>
+    </div>
+    <div class="label">Increased Risk</div>
+  </div>
+
+</div>
+</div>
+
+<script>
+  // Scale the fixed-size stage to fit the available width.
+  (function () {
+    const stage = document.getElementById('stage');
+    const wrap = stage.parentElement;
+    function fit() {
+      const s = Math.min(1, wrap.clientWidth / 905);
+      stage.style.transform = 'scale(' + s + ')';
+      wrap.style.height = (574 * s) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+  })();
+</script>
+</body>
+</html>

@@ -54,7 +54,7 @@ export function RequirementChangeFlow() {
     >
       <div className="rcf-viewport">
         <div className="rcf-stage" ref={stageRef} id="requirement-change-stage">
-          {/* Inner is taller than stage; stage clips bottom empty so bottom pad ? top pad */}
+          {/* Inner slightly taller than stage; stage keeps a little bottom breathing room */}
           <div className="rcf-stage-inner">
           <div className="rcf-header rcf-step rcf-step-0">
             <span>{t("visual.kicker")}</span>
