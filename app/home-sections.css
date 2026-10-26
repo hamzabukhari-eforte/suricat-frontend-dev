@@ -8002,6 +8002,7 @@ a.solution-nav-pill,
 
 #compliance-cost-section .cc-featured-stat-source {
   margin-top: auto;
+  margin-bottom: 24px;
   padding-top: 1.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 0.9rem;
