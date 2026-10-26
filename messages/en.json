@@ -161,7 +161,7 @@
     "requestFreePilot": "Request a Pilot"
   },
   "marquee": {
-    "text": "QMSR enforcement is now active. Are you inspection-ready?",
+    "text": "QMSR is now in effect. Are you inspection-ready?",
     "cta": "Request a Pilot"
   },
   "metadata": {
@@ -532,7 +532,7 @@
       "titleBefore": "The Sentinel for",
       "titleCompliance": "Compliance",
       "titleIntelligence": "Intelligence",
-      "body": "Suricat is an AI-powered Compliance Intelligence platform that works alongside existing QMS and other quality systems to uncover potential compliance gaps, quality issues, and misalignments across documents and records. Every issue is traced to its source, helping QA/RA teams review and address it before it becomes a finding.",
+      "body": "Suricat is an AI-powered Compliance Intelligence platform that works alongside existing QMS and other quality systems to uncover potential compliance gaps, quality issues, and misalignments across documents and records. Each potential issue is traced to its source, helping QA/RA teams review and address it before it becomes a finding.",
       "explorePlatform": "Request a Pilot",
       "becomeDesignPartner": "Join as a Design Partner",
       "gotQuestions": "Talk to Us",
@@ -908,8 +908,8 @@
       "title": "Misaligned quality documents, procedures, and records can make it harder to identify gaps, reconcile evidence, and respond to regulatory scrutiny.",
       "titleLine1": "Misaligned quality documents, procedures, and records can make it harder",
       "titleLine2": "to identify gaps, reconcile evidence, and respond to regulatory scrutiny.",
-      "body": "FDA data reveals the broader challenges medical device manufacturers face, including inspection deficiencies, enforcement, additional information requests, and lengthy submission reviews.",
-      "bodyLine1": "FDA data reveals the broader challenges medical device manufacturers face, including inspection deficiencies,",
+      "body": "FDA data and industry analysis reveals the broader challenges medical device manufacturers face, including inspection deficiencies, enforcement, additional information requests, and lengthy submission reviews.",
+      "bodyLine1": "FDA data and industry analysis reveals the broader challenges medical device manufacturers face, including inspection deficiencies,",
       "bodyLine2": "enforcement, additional information requests, and lengthy submission reviews.",
       "stats": {
         "costOfQuality": {
