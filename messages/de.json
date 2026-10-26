@@ -591,7 +591,8 @@
       "headlineLine1": "Wissen Sie, was Aufmerksamkeit braucht.",
       "headlineLine2": "Bevor daraus ein Finding wird.",
       "body1": "Lücken und Fehlausrichtungen kündigen sich selten selbst an. Suricat macht potenzielle Themen mit der zugrunde liegenden Quellenevidenz sichtbar,",
-      "body2": "damit QA- und RA-Teams prüfen, verifizieren und entscheiden können.",
+      "body2Lead": "damit QA- und RA-Teams",
+      "body2Phrase": "prüfen, verifizieren und entscheiden können.",
       "tagline": "Weniger Zeit mit Suchen. Mehr Vertrauen in jede Prüfung.",
       "evaluateTitle": "Bereit, Suricat in Aktion zu sehen?",
       "ctaDesignPartner": "Als Design-Partner beitreten",
@@ -914,9 +915,9 @@
         "costOfQuality": {
           "category": "High-Risk Device Submissions",
           "stat": "74%",
-          "label": "Major deficiencies flagged in nearly three of four completed high-risk device reviews",
-          "body": "In preliminary FY2025 data, FDA issued 43 major-deficiency letters among 58 completed substantive reviews covering original PMAs, PDPs, panel-track supplements, and premarket reports.",
-          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
+          "label": "Major deficiency letters issued in 43 of 58 completed high-risk device submission reviews.",
+          "body": "A major deficiency letter places the application on hold until the manufacturer provides a complete response.",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress · FDA, Review Clock Guidance"
         },
         "failures": {
           "category": "510(k) Submissions",

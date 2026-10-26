@@ -6625,13 +6625,25 @@ a.solution-nav-pill,
   line-height: 1.65;
 }
 
-/* Keep the "so QA and RA…" clause together so the break prefers the comma. */
+/* ≤1800px: continuous / natural wrap. >1800px: force break after "behind them,". */
 .why-suricat-body-tail {
+  display: inline;
+  white-space: normal;
+}
+
+.why-suricat-body-phrase {
   white-space: normal;
 }
 
 @media (min-width: 640px) {
+  .why-suricat-body-phrase {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1801px) {
   .why-suricat-body-tail {
+    display: block;
     white-space: nowrap;
   }
 }
@@ -6730,15 +6742,6 @@ a.solution-nav-pill,
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 2rem;
     align-items: center;
-  }
-
-  /* Break before "so QA and RA…" */
-  .why-suricat-body-lead {
-    display: block;
-  }
-
-  .why-suricat-body-tail {
-    display: block;
   }
 
   .why-suricat-card {
@@ -7944,7 +7947,7 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-featured-stat-label {
-  margin: 0 0 0.75rem;
+  margin: 0;
   font-size: 18px;
   font-weight: 800;
   line-height: 1.45;
@@ -7952,10 +7955,11 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-featured-stat-body {
-  margin: 0.85rem 0 0;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #fff;
+  margin: 0.75rem 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
   max-width: none;
 }
 

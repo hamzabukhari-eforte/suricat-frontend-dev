@@ -20,10 +20,15 @@ export function WhySuricatSection() {
             </h2>
             <p className="why-suricat-body">
               <span className="why-suricat-body-lead">{t("body1")}</span>
-              {t("body2") ? (
+              {t("body2Lead") ? (
                 <>
                   {" "}
-                  <span className="why-suricat-body-tail">{t("body2")}</span>
+                  <span className="why-suricat-body-tail">
+                    {t("body2Lead")}{" "}
+                    <span className="why-suricat-body-phrase">
+                      {t("body2Phrase")}
+                    </span>
+                  </span>
                 </>
               ) : null}
             </p>

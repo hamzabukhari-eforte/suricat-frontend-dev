@@ -591,7 +591,8 @@
       "headlineLine1": "Know What Needs Attention.",
       "headlineLine2": "Before It Becomes a Finding.",
       "body1": "Gaps and misalignments rarely announce themselves. Suricat surfaces potential issues with the source evidence behind them,",
-      "body2": "so QA and RA teams can review, verify, and decide.",
+      "body2Lead": "so QA and RA teams can",
+      "body2Phrase": "review, verify, and decide.",
       "tagline": "Less time searching. More confidence in every review.",
       "evaluateTitle": "Ready to See Suricat in Action?",
       "ctaDesignPartner": "Join as a Design Partner",
@@ -914,9 +915,9 @@
         "costOfQuality": {
           "category": "High-Risk Device Submissions",
           "stat": "74%",
-          "label": "Major deficiencies flagged in nearly three of four completed high-risk device reviews",
-          "body": "In preliminary FY2025 data, FDA issued 43 major-deficiency letters among 58 completed substantive reviews covering original PMAs, PDPs, panel-track supplements, and premarket reports.",
-          "source": "Source: FDA, FY2025 MDUFA Report to Congress"
+          "label": "Major deficiency letters issued in 43 of 58 completed high-risk device submission reviews.",
+          "body": "A major deficiency letter places the application on hold until the manufacturer provides a complete response.",
+          "source": "Source: FDA, FY2025 MDUFA Report to Congress · FDA, Review Clock Guidance"
         },
         "failures": {
           "category": "510(k) Submissions",

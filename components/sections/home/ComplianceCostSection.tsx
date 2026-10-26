@@ -54,6 +54,7 @@ export function ComplianceCostSection() {
               <p className="cc-stat-category">{t("stats.costOfQuality.category")}</p>
               <p className="cc-featured-stat-value">{t("stats.costOfQuality.stat")}</p>
               <p className="cc-featured-stat-label">{t("stats.costOfQuality.label")}</p>
+              <p className="cc-featured-stat-body">{t("stats.costOfQuality.body")}</p>
               <a
                 href={FEATURED_STAT_HREF}
                 target="_blank"
