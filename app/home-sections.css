@@ -6450,7 +6450,7 @@ a.solution-nav-pill,
 }
 
 .regulated-bento-featured-footnote {
-  margin: auto 0 0;
+  margin: auto 0 24px;
   padding-top: 1.35rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   color: #19d3c5;
