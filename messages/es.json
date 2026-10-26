@@ -1178,7 +1178,9 @@
       "cards": {
         "accountability": {
           "title": "Responsabilidad humana",
-          "body": "Los profesionales de QA y RA permanecen en el centro de cada revisión. Su experiencia guía la evaluación de posibles problemas y la verificación de la evidencia. Conservan plena autoridad sobre cada decisión y acción."
+          "body": "Los profesionales de QA y RA permanecen en el centro de cada revisión. Su experiencia guía la evaluación de posibles problemas y la verificación de la evidencia. Conservan plena autoridad sobre cada decisión y acción.",
+          "bodyLine1": "Los profesionales de QA y RA permanecen en el centro de cada revisión. Su experiencia guía la evaluación de posibles problemas y la verificación de la evidencia.",
+          "bodyLine2": "Conservan plena autoridad sobre cada decisión y acción."
         },
         "noRipReplace": {
           "title": "Sin sustituir lo existente",

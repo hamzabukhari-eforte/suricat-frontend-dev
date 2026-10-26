@@ -52,7 +52,9 @@ export function RegulatedEnvironmentsSection() {
             </h3>
 
             <p className="regulated-bento-featured-body">
-              {t(`cards.${FEATURED.id}.body`)}
+              {t(`cards.${FEATURED.id}.bodyLine1`)}
+              <br />
+              {t(`cards.${FEATURED.id}.bodyLine2`)}
             </p>
 
             <p className="regulated-bento-featured-footnote">

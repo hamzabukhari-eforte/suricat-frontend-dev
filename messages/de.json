@@ -1210,7 +1210,9 @@
       "cards": {
         "accountability": {
           "title": "Menschliche Verantwortlichkeit",
-          "body": "QA- und RA-Fachleute stehen im Zentrum jeder Prüfung. Ihre Expertise leitet die Bewertung potenzieller Themen und die Verifizierung der Evidenz. Sie behalten die volle Entscheidungs- und Handlungsbefugnis."
+          "body": "QA- und RA-Fachleute stehen im Zentrum jeder Prüfung. Ihre Expertise leitet die Bewertung potenzieller Themen und die Verifizierung der Evidenz. Sie behalten die volle Entscheidungs- und Handlungsbefugnis.",
+          "bodyLine1": "QA- und RA-Fachleute stehen im Zentrum jeder Prüfung. Ihre Expertise leitet die Bewertung potenzieller Themen und die Verifizierung der Evidenz.",
+          "bodyLine2": "Sie behalten die volle Entscheidungs- und Handlungsbefugnis."
         },
         "noRipReplace": {
           "title": "Kein Rip-and-Replace",

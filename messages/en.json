@@ -1220,7 +1220,9 @@
       "cards": {
         "accountability": {
           "title": "Human Accountability",
-          "body": "QA and RA professionals remain at the center of every review. Their expertise guides the assessment of potential issues and verification of evidence. They retain full authority over every decision and action."
+          "body": "QA and RA professionals remain at the center of every review. Their expertise guides the assessment of potential issues and verification of evidence. They retain full authority over every decision and action.",
+          "bodyLine1": "QA and RA professionals remain at the center of every review. Their expertise guides the assessment of potential issues and verification of evidence.",
+          "bodyLine2": "They retain full authority over every decision and action."
         },
         "noRipReplace": {
           "title": "No Rip and Replace",

@@ -1385,7 +1385,12 @@ a.solution-nav-pill,
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  /* Equal space above and below the diagram */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
   background: var(--rcf-bg);
   border-radius: 8px;
   overflow: hidden;
@@ -1397,10 +1402,20 @@ a.solution-nav-pill,
   position: relative;
   width: min(100%, 1400px);
   max-width: 1400px;
-  /* Keep design proportions (~105% of prior 905/390 stage) */
-  aspect-ratio: 1400 / 634;
+  /* Crop extra bottom empty so top/bottom visual gaps match */
+  aspect-ratio: 1400 / 555;
   height: auto;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Full design coordinate space; bottom overflow clipped by stage-inner */
+.rcf-stage-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 114.2857%;
 }
 
 /* Concept-order reveal: requirement → fork → paths → docs → status → risk → audit */
@@ -6416,7 +6431,7 @@ a.solution-nav-pill,
 .regulated-bento-featured-title {
   margin: 0 0 1rem;
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -6425,9 +6440,9 @@ a.solution-nav-pill,
 .regulated-bento-featured-body {
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.8;
 }
 
 .regulated-bento-featured-footnote {

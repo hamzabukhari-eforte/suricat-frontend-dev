@@ -54,8 +54,9 @@ export function RequirementChangeFlow() {
     >
       <div className="rcf-viewport">
         <div className="rcf-stage" ref={stageRef} id="requirement-change-stage">
-          {/* Inner slightly taller than stage; stage keeps a little bottom breathing room */}
+          {/* Inner capped width; canvas keeps design coords, stage pads equally */}
           <div className="rcf-stage-inner">
+          <div className="rcf-stage-canvas">
           <div className="rcf-header rcf-step rcf-step-0">
             <span>{t("visual.kicker")}</span>
           </div>
@@ -293,6 +294,7 @@ export function RequirementChangeFlow() {
               </span>
               <span className="rcf-outcome-line">Remediation Actions</span>
             </div>
+          </div>
           </div>
           </div>
         </div>
