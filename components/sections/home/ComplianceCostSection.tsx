@@ -37,10 +37,9 @@ export function ComplianceCostSection() {
             <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {t("eyebrow")}
             </span>
-            <h2 className="mb-4 w-full text-[32px] font-bold leading-tight text-navy">
-              {t("titleLine1")}
-              <br />
-              {t("titleLine2")}
+            <h2 className="cc-cost-title mb-4 w-full text-[32px] font-bold leading-tight text-navy">
+              <span className="cc-cost-title-line">{t("titleLine1")}</span>
+              <span className="cc-cost-title-line">{t("titleLine2")}</span>
             </h2>
             <p className="w-full text-[20px] font-normal leading-relaxed text-navy lg:leading-[28px]">
               {t("bodyLine1")}

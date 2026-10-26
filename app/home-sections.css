@@ -7841,6 +7841,25 @@ a.solution-nav-pill,
 }
 
 /* Cost of Misalignment */
+/* <1342px: continuous title. ≥1342px: break after "make it harder". */
+#compliance-cost-section .cc-cost-title-line {
+  display: inline;
+}
+
+#compliance-cost-section .cc-cost-title-line + .cc-cost-title-line::before {
+  content: " ";
+}
+
+@media (min-width: 1342px) {
+  #compliance-cost-section .cc-cost-title-line {
+    display: block;
+  }
+
+  #compliance-cost-section .cc-cost-title-line + .cc-cost-title-line::before {
+    content: none;
+  }
+}
+
 #compliance-cost-section .cc-cost-band {
   background-color: #f8f9fa;
 }
