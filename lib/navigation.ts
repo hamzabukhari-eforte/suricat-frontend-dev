@@ -62,27 +62,27 @@ const megaMenuDefs: MegaMenuDef[] = [
       ctaLabelKey: "nav.menus.why.ctaLabel",
       ctaHref: `/#${HOME_SECTION_IDS.why}`,
     },
-    // Column-first mega grid: order yields visual rows 1|2, 3|4, 5|6.
+    // Column-first mega grid: left 1→2→3, right 4→5→6.
     links: [
       {
         labelKey: "nav.menus.why.links.costOfMisalignment",
         href: `/#${HOME_SECTION_IDS.costOfMisalignment}`,
       },
       {
-        labelKey: "nav.menus.why.links.alignmentGap",
-        href: `/#${HOME_SECTION_IDS.alignmentGap}`,
-      },
-      {
-        labelKey: "nav.menus.why.links.regulated",
-        href: `/#${HOME_SECTION_IDS.regulated}`,
-      },
-      {
         labelKey: "nav.menus.why.links.whyThisMattersNow",
         href: `/#${HOME_SECTION_IDS.whyThisMattersNow}`,
       },
       {
+        labelKey: "nav.menus.why.links.alignmentGap",
+        href: `/#${HOME_SECTION_IDS.alignmentGap}`,
+      },
+      {
         labelKey: "nav.menus.why.links.existingSystems",
         href: `/#${HOME_SECTION_IDS.existingSystems}`,
+      },
+      {
+        labelKey: "nav.menus.why.links.regulated",
+        href: `/#${HOME_SECTION_IDS.regulated}`,
       },
       {
         labelKey: "nav.menus.why.links.whySuricat",
