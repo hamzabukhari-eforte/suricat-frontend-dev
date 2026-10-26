@@ -6597,10 +6597,6 @@ a.solution-nav-pill,
 
 .why-suricat-title {
   margin: 0 0 1.25rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.35rem;
   color: #0d1b3e;
   font-size: 31.5px !important;
   font-weight: 700;
@@ -6608,11 +6604,22 @@ a.solution-nav-pill,
   letter-spacing: -0.02em;
 }
 
-/* Keep headline on one line beside the CTA card */
-@media (min-width: 1024px) {
+/* <1500px: break after full stop. ≥1500px: single line. */
+.why-suricat-title-line {
+  display: block;
+}
+
+@media (min-width: 1500px) {
   .why-suricat-title {
-    flex-wrap: nowrap;
     white-space: nowrap;
+  }
+
+  .why-suricat-title-line {
+    display: inline;
+  }
+
+  .why-suricat-title-line + .why-suricat-title-line::before {
+    content: " ";
   }
 }
 
@@ -7946,20 +7953,19 @@ a.solution-nav-pill,
   letter-spacing: 0.02em;
 }
 
-#compliance-cost-section .cc-featured-stat-label {
+#compliance-cost-section .cc-featured-stat-label,
+#compliance-cost-section .cc-featured-stat-body {
   margin: 0;
+  font-family: plusJakarta, "plusJakarta Fallback", "Plus Jakarta Sans",
+    ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
   font-weight: 800;
-  line-height: 1.45;
+  line-height: 26px;
   color: #fff;
 }
 
 #compliance-cost-section .cc-featured-stat-body {
-  margin: 0.75rem 0 0;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.65;
-  color: #fff;
+  margin-top: 0.75rem;
   max-width: none;
 }
 
@@ -8009,7 +8015,7 @@ a.solution-nav-pill,
   margin-bottom: 24px;
   padding-top: 1.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: 700;
   color: #60a5fa;
   text-decoration: underline;
