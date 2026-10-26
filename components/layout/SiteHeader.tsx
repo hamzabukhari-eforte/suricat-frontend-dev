@@ -173,6 +173,7 @@ export function SiteHeader() {
             const menuActive = isMegaTriggerActive(menu);
             const linkCols = menu.linkColumns === 3 ? 3 : 2;
             const linkRows = Math.ceil(menu.links.length / linkCols);
+            const linkFlowCol = menu.linkFlow !== "row";
 
             return (
               <div
@@ -219,12 +220,14 @@ export function SiteHeader() {
                         </Link>
                       </div>
                       <div
-                        className={`nav-mega-links col-span-8 grid gap-x-6 gap-y-1 grid-flow-col ${
-                          linkCols === 3 ? "grid-cols-3" : "grid-cols-2"
-                        }`}
-                        style={{
-                          gridTemplateRows: `repeat(${linkRows}, auto)`,
-                        }}
+                        className={`nav-mega-links col-span-8 grid gap-x-6 gap-y-1 ${
+                          linkFlowCol ? "grid-flow-col" : ""
+                        } ${linkCols === 3 ? "grid-cols-3" : "grid-cols-2"}`}
+                        style={
+                          linkFlowCol
+                            ? { gridTemplateRows: `repeat(${linkRows}, auto)` }
+                            : undefined
+                        }
                       >
                         {menu.links.map((link) => {
                           const active = isMegaPanelLinkActive(

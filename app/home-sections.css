@@ -6710,9 +6710,13 @@ a.solution-nav-pill,
     align-items: center;
   }
 
-  /* Keep the second clause atomic so wrapping prefers the comma. */
+  /* Break before "so QA and RA…" */
+  .why-suricat-body-lead {
+    display: block;
+  }
+
   .why-suricat-body-tail {
-    display: inline-block;
+    display: block;
   }
 
   .why-suricat-card {
@@ -6731,17 +6735,6 @@ a.solution-nav-pill,
   .why-suricat-actions {
     flex-direction: row;
     gap: 1rem;
-  }
-}
-
-/* Wide desktops: locked 2-line body (clause, then "so QA and RA…"). */
-@media (min-width: 1920px) {
-  .why-suricat-body-lead {
-    white-space: nowrap;
-  }
-
-  .why-suricat-body-tail {
-    display: block;
   }
 }
 

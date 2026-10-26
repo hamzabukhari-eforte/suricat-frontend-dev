@@ -37,6 +37,8 @@ export type MegaMenuItem = {
   };
   links: NavLink[];
   linkColumns?: number;
+  /** row = 1|2 / 3|4; column = 1|4 / 2|5 (default) */
+  linkFlow?: "row" | "column";
 };
 
 type MegaMenuDef = {
@@ -50,6 +52,7 @@ type MegaMenuDef = {
   };
   links: { labelKey: string; href: string }[];
   linkColumns?: number;
+  linkFlow?: "row" | "column";
 };
 
 const megaMenuDefs: MegaMenuDef[] = [
@@ -62,7 +65,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       ctaLabelKey: "nav.menus.why.ctaLabel",
       ctaHref: `/#${HOME_SECTION_IDS.why}`,
     },
-    // Column-first mega grid: left 1→2→3, right 4→5→6.
+    // Sequential order; row-first mega grid → 1|2, 3|4, 5|6 (client doc).
     links: [
       {
         labelKey: "nav.menus.why.links.costOfMisalignment",
@@ -90,6 +93,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       },
     ],
     linkColumns: 2,
+    linkFlow: "row",
   },
   {
     id: "platform",
@@ -100,7 +104,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       ctaLabelKey: "nav.menus.platform.ctaLabel",
       ctaHref: "/platform",
     },
-    // Column-first mega grid: left 1→2→3, right 4→5→6 (same as Why Suricat).
+    // Sequential order; row-first mega grid → 1|2, 3|4, 5|6 (same as Why Suricat).
     links: [
       {
         labelKey: "nav.menus.platform.links.organizationalContext",
@@ -128,6 +132,7 @@ const megaMenuDefs: MegaMenuDef[] = [
       },
     ],
     linkColumns: 2,
+    linkFlow: "row",
   },
   {
     id: "solutions",
@@ -209,6 +214,7 @@ export function buildMegaMenus(t: Translator): MegaMenuItem[] {
       href: link.href,
     })),
     linkColumns: menu.linkColumns,
+    linkFlow: menu.linkFlow,
   }));
 }
 
