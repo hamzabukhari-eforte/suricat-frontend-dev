@@ -8209,12 +8209,12 @@ a.solution-nav-pill,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 8px;
-  background: #19d3c5;
-  color: #0d1b3e;
-  font-size: 1rem;
+  background: #e8fbf8;
+  color: #19d3c5;
+  font-size: 1.15rem;
 }
 
 .wtmn-card-title {
