@@ -16,9 +16,8 @@ export function WhySuricatSection() {
           <div className="why-suricat-copy">
             <p className="why-suricat-eyebrow">{t("sectionTitle")}</p>
             <h2 className="why-suricat-title">
-              <span>{t("headlineLine1")}</span>
-              <span>{t("headlineLine2")}</span>
-          </h2>
+              {t("headlineLine1")} {t("headlineLine2")}
+            </h2>
             <p className="why-suricat-body">
               <span className="why-suricat-body-lead">{t("body1")}</span>
               {t("body2") ? (

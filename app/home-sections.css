@@ -6586,28 +6586,9 @@ a.solution-nav-pill,
   letter-spacing: -0.02em;
 }
 
-/*
- * 1024–1919 (incl. 1440): stack the two headline lines so they never
- * collide with the CTA card. Single-line only when the row is wide enough.
- */
-@media (min-width: 1024px) and (max-width: 1919px) {
+/* Keep headline on one line beside the CTA card */
+@media (min-width: 1024px) {
   .why-suricat-title {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 0.2rem;
-    white-space: normal;
-  }
-
-  .why-suricat-title > span {
-    display: block;
-    white-space: nowrap;
-  }
-}
-
-@media (min-width: 1920px) {
-  .why-suricat-title {
-    flex-direction: row;
     flex-wrap: nowrap;
     white-space: nowrap;
   }
@@ -7876,7 +7857,8 @@ a.solution-nav-pill,
   background: #0d1b3e;
   color: #fff;
   border-radius: 8px;
-  padding: 1.65rem 1.75rem 1.5rem;
+  /* Bottom pad matches WTMN cards (space under Source) */
+  padding: 1.65rem 1.75rem 1.35rem;
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -8044,7 +8026,8 @@ a.solution-nav-pill,
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 20px 1.15rem;
+  /* Bottom pad matches WTMN cards (space under Source) */
+  padding: 20px 1.15rem 1.35rem;
   text-decoration: none;
   color: #0d1b3e;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
@@ -8087,7 +8070,10 @@ a.solution-nav-pill,
 }
 
 #compliance-cost-section .cc-stat-card-source {
-  margin: 0.65rem 0 0;
+  /* Pin Source to card bottom like WTMN; keep gap above Source */
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 0.65rem;
   font-size: 0.9rem;
   font-weight: 700;
   color: #2563eb;
@@ -8141,7 +8127,8 @@ a.solution-nav-pill,
 
 .wtmn-body {
   margin: 0;
-  max-width: 58rem;
+  max-width: none;
+  width: 100%;
   color: #0d1b3e;
   font-size: 18px;
   font-weight: 400;
@@ -8229,10 +8216,12 @@ a.solution-nav-pill,
 .wtmn-card-body {
   margin: 0;
   flex: 1 1 auto;
-  color: #334155;
-  font-size: 15.5px;
-  font-weight: 400;
-  line-height: 1.55;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", ui-sans-serif,
+    system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #0d1b3e;
 }
 
 .wtmn-card-sources {

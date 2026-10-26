@@ -1008,6 +1008,8 @@
       "eyebrow": "Why This Matters Now",
       "title": "What regulators expect, and how they review, are both changing.",
       "body": "QMSR is now in effect, while FDA and an EU notified body have described using AI to support review work with human oversight. Manufacturers need documentation ready for evolving requirements and AI-assisted review.",
+      "bodyLine1": "QMSR is now in effect, while FDA and an EU notified body have described using AI to support review work with human oversight.",
+      "bodyLine2": "Manufacturers need documentation ready for evolving requirements and AI-assisted review.",
       "sourceLabel": "Source:",
       "cards": {
         "fdaRule": {

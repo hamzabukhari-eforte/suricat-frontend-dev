@@ -62,7 +62,11 @@ export function WhyThisMattersNowSection() {
         <div className="wtmn-header">
           <p className="wtmn-eyebrow">{t("eyebrow")}</p>
           <h2 className="wtmn-title">{t("title")}</h2>
-          <p className="wtmn-body">{t("body")}</p>
+          <p className="wtmn-body">
+            {t("bodyLine1")}
+            <br />
+            {t("bodyLine2")}
+          </p>
         </div>
 
         <div className="wtmn-grid">
