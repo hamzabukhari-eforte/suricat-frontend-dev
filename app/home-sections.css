@@ -8164,7 +8164,7 @@ a.solution-nav-pill,
 .wtmn-grid {
   display: grid;
   gap: 1.25rem;
-  padding: 1.15rem;
+  padding: 1.35rem;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background: #f8fafc;
@@ -8174,12 +8174,14 @@ a.solution-nav-pill,
 @media (min-width: 1024px) {
   .wtmn-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    padding: 1.25rem;
+    gap: 1.15rem;
+    padding: 1.5rem;
   }
 }
 
-.wtmn-card {
+/* Same hover as Built for Regulated Environments white cards */
+#why-this-matters-now .wtmn-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -8189,6 +8191,8 @@ a.solution-nav-pill,
   background: #fff;
   border: 1px solid #e8edf3;
   box-shadow: none;
+  text-decoration: none;
+  color: #0d1b3e;
   scale: 1;
   transform-origin: center center;
   transition:
@@ -8196,19 +8200,11 @@ a.solution-nav-pill,
     scale 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.wtmn-card:hover {
+#why-this-matters-now .wtmn-card:hover {
   border-color: #19d3c5;
   box-shadow: none;
   scale: 1.03;
   z-index: 2;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wtmn-card,
-  .wtmn-card:hover {
-    scale: 1;
-    transition: border-color 0.2s ease;
-  }
 }
 
 .wtmn-card-meta {
