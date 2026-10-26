@@ -50,15 +50,12 @@
         "introText": "A read-only compliance intelligence layer built for regulated environments, with proprietary architecture for bounded reasoning and defensible outputs.",
         "ctaLabel": "Explore the Platform",
         "links": {
-          "intelligenceLayer": "Intelligence Layer",
-          "readOnly": "Read Only by Design",
-          "noRipReplace": "No Rip and Replace",
-          "humanAccountability": "Human Accountability",
-          "deployment": "Deployment",
-          "regulatoryOntology": "Regulatory Ontology",
-          "canonicalSchema": "Canonical Intelligence Schema",
-          "qvr": "Quality Validation Rating",
-          "boundedReasoning": "Bounded Reasoning"
+          "organizationalContext": "Organizational Context",
+          "documentIntelligence": "Document Intelligence",
+          "qualityIntelligence": "Quality Intelligence",
+          "gapIntelligence": "Gap Intelligence",
+          "crossDocumentIntelligence": "Cross Document Intelligence",
+          "recordIntelligence": "Record Intelligence"
         }
       },
       "solutions": {

@@ -50,15 +50,12 @@
         "introText": "Una Capa de inteligencia de cumplimiento de solo lectura para entornos regulados, con arquitectura propietaria para Bounded Reasoning y resultados defendibles.",
         "ctaLabel": "Explorar The Platform",
         "links": {
-          "intelligenceLayer": "Capa de inteligencia",
-          "readOnly": "Solo lectura por diseño",
-          "noRipReplace": "Sin reemplazo total",
-          "humanAccountability": "Responsabilidad humana",
-          "deployment": "Despliegue",
-          "regulatoryOntology": "Ontología regulatoria",
-          "canonicalSchema": "Esquema canónico de inteligencia",
-          "qvr": "Calificación de validación de calidad",
-          "boundedReasoning": "Razonamiento acotado"
+          "organizationalContext": "Organizational Context",
+          "documentIntelligence": "Document Intelligence",
+          "qualityIntelligence": "Quality Intelligence",
+          "gapIntelligence": "Gap Intelligence",
+          "crossDocumentIntelligence": "Cross Document Intelligence",
+          "recordIntelligence": "Record Intelligence"
         }
       },
       "solutions": {

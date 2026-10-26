@@ -8142,6 +8142,7 @@ a.solution-nav-pill,
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background: #f8fafc;
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -8161,6 +8162,27 @@ a.solution-nav-pill,
   border-radius: 10px;
   background: #fff;
   border: 1px solid #e8edf3;
+  box-shadow: none;
+  scale: 1;
+  transform-origin: center center;
+  transition:
+    border-color 0.28s ease,
+    scale 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wtmn-card:hover {
+  border-color: #19d3c5;
+  box-shadow: none;
+  scale: 1.03;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wtmn-card,
+  .wtmn-card:hover {
+    scale: 1;
+    transition: border-color 0.2s ease;
+  }
 }
 
 .wtmn-card-meta {

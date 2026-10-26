@@ -50,15 +50,12 @@
         "introText": "Eine schreibgeschützte Compliance-Intelligenzschicht für regulierte Umgebungen, mit proprietärer Architektur für Bounded Reasoning und vertretbare Ergebnisse.",
         "ctaLabel": "The Platform entdecken",
         "links": {
-          "intelligenceLayer": "Intelligenzschicht",
-          "readOnly": "Nur-Lesen durch Design",
-          "noRipReplace": "Kein Ablösen und Ersetzen",
-          "humanAccountability": "Menschliche Verantwortlichkeit",
-          "deployment": "Bereitstellung",
-          "regulatoryOntology": "Regulatorische Ontologie",
-          "canonicalSchema": "Kanonisches Intelligenzschema",
-          "qvr": "Qualitätsvalidierungsbewertung",
-          "boundedReasoning": "Begrenztes Schlussfolgern"
+          "organizationalContext": "Organizational Context",
+          "documentIntelligence": "Document Intelligence",
+          "qualityIntelligence": "Quality Intelligence",
+          "gapIntelligence": "Gap Intelligence",
+          "crossDocumentIntelligence": "Cross Document Intelligence",
+          "recordIntelligence": "Record Intelligence"
         }
       },
       "solutions": {

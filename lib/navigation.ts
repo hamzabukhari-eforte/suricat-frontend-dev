@@ -1,4 +1,4 @@
-import { HOME_SECTION_IDS, platformTabHref } from "@/lib/homeHashes";
+import { HOME_SECTION_IDS } from "@/lib/homeHashes";
 import type { Translator } from "@/lib/i18n/types";
 
 export type NavLink = {
@@ -100,39 +100,34 @@ const megaMenuDefs: MegaMenuDef[] = [
       ctaLabelKey: "nav.menus.platform.ctaLabel",
       ctaHref: "/platform",
     },
+    // Column-first mega grid: left 1→2→3, right 4→5→6 (same as Why Suricat).
     links: [
       {
-        labelKey: "nav.menus.platform.links.intelligenceLayer",
-        href: platformTabHref(0),
-      },
-      { labelKey: "nav.menus.platform.links.readOnly", href: platformTabHref(1) },
-      {
-        labelKey: "nav.menus.platform.links.noRipReplace",
-        href: platformTabHref(2),
+        labelKey: "nav.menus.platform.links.organizationalContext",
+        href: "/platform#platform-step-regulatory",
       },
       {
-        labelKey: "nav.menus.platform.links.humanAccountability",
-        href: platformTabHref(3),
+        labelKey: "nav.menus.platform.links.documentIntelligence",
+        href: "/platform#platform-step-document",
       },
       {
-        labelKey: "nav.menus.platform.links.deployment",
-        href: platformTabHref(4),
+        labelKey: "nav.menus.platform.links.qualityIntelligence",
+        href: "/platform#platform-step-quality",
       },
       {
-        labelKey: "nav.menus.platform.links.regulatoryOntology",
-        href: platformTabHref(5),
+        labelKey: "nav.menus.platform.links.gapIntelligence",
+        href: "/platform#platform-step-gap",
       },
       {
-        labelKey: "nav.menus.platform.links.canonicalSchema",
-        href: platformTabHref(6),
+        labelKey: "nav.menus.platform.links.crossDocumentIntelligence",
+        href: "/platform#platform-step-cross",
       },
-      { labelKey: "nav.menus.platform.links.qvr", href: platformTabHref(7) },
       {
-        labelKey: "nav.menus.platform.links.boundedReasoning",
-        href: platformTabHref(8),
+        labelKey: "nav.menus.platform.links.recordIntelligence",
+        href: "/platform#platform-step-record",
       },
     ],
-    linkColumns: 3,
+    linkColumns: 2,
   },
   {
     id: "solutions",
