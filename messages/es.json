@@ -35,6 +35,7 @@
         "ctaLabel": "Explorar Por qué Suricat",
         "links": {
           "costOfMisalignment": "El costo de la desalineación",
+          "whyThisMattersNow": "Why This Matters Now",
           "alignmentGap": "La brecha de alineación",
           "changeImpact": "El impacto del cambio",
           "existingSystems": "Beyond Existing Systems",
@@ -948,16 +949,6 @@
           "body": "In FY2025, FDA recorded 279 observations involving inadequate CAPA procedures, followed by 211 involving complaint-handling procedures.",
           "source": "Source: FDA, FY2025 Inspection Observations"
         }
-      },
-      "whyNow": {
-        "eyebrow": "Why This Matters Now",
-        "title": "FDA's updated inspection framework places greater emphasis on risk-management evidence.",
-        "body": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "bodyLine1": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers'",
-        "bodyLine2": "risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "date": "2 feb 2026",
-        "dateLabel": "QMSR vigente",
-        "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
       },
       "punchline": {
         "line1": "La información puede existir.",

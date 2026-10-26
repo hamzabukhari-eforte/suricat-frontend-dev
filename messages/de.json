@@ -35,6 +35,7 @@
         "ctaLabel": "Warum Suricat entdecken",
         "links": {
           "costOfMisalignment": "Die Kosten fehlender Ausrichtung",
+          "whyThisMattersNow": "Why This Matters Now",
           "alignmentGap": "Die Ausrichtungslücke",
           "changeImpact": "Die Auswirkung von Änderungen",
           "existingSystems": "Beyond Existing Systems",
@@ -949,16 +950,6 @@
           "source": "Source: FDA, FY2025 Inspection Observations"
         }
       },
-      "whyNow": {
-        "eyebrow": "Why This Matters Now",
-        "title": "FDA's updated inspection framework places greater emphasis on risk-management evidence.",
-        "body": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "bodyLine1": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers'",
-        "bodyLine2": "risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "date": "2. Feb 2026",
-        "dateLabel": "QMSR wirksam",
-        "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
-      },
       "punchline": {
         "line1": "Die Informationen können vorhanden sein.",
         "line2": "Die Beziehungen können trotzdem fehlen."
@@ -1010,6 +1001,36 @@
           "stat": "31 COMPLAINTS",
           "statNote": "after CAPA closure",
           "body": "FDA stated 31 more complaints followed a May 2025 CAPA closure with no further action, and the DFMEA was not updated for the hazard."
+        }
+      }
+    },
+    "whyThisMattersNow": {
+      "eyebrow": "Why This Matters Now",
+      "title": "What regulators expect, and how they review, are both changing.",
+      "body": "QMSR is now in effect, while FDA and an EU notified body have described using AI to support review work with human oversight. Manufacturers need documentation ready for evolving requirements and AI-assisted review.",
+      "sourceLabel": "Source:",
+      "cards": {
+        "fdaRule": {
+          "tag": "FDA Rule",
+          "date": "Feb 2, 2026",
+          "title": "QMSR is now in effect",
+          "body": "Under FDA's Quality Management System Regulation (QMSR), investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
+          "source1": "FDA, QMSR Town Hall slides, Apr. 2026"
+        },
+        "fdaAi": {
+          "tag": "FDA AI Use",
+          "date": "Dec 1, 2025",
+          "title": "FDA has made AI available to staff for review work",
+          "body": "FDA has made AI tools available to staff for tasks including pre-market reviews, inspections, and compliance, with human oversight. In June 2025, FDA said it was already using AI to help identify high-priority inspection targets.",
+          "source1": "FDA, Dec. 2025",
+          "source2": "FDA, June 2025"
+        },
+        "euNotifiedBody": {
+          "tag": "EU Notified Body",
+          "date": "May 2026",
+          "title": "TÜV SÜD has described AI-assisted document checks",
+          "body": "Notified body TÜV SÜD has described using AI for completeness and consistency checks on technical documentation, with decisions made by people.",
+          "source1": "RAPS, May 2026"
         }
       }
     },

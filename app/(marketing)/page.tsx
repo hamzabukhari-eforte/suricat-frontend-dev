@@ -6,6 +6,7 @@ import {
   HeroSection,
   RegulatedEnvironmentsSection,
   WhySuricatSection,
+  WhyThisMattersNowSection,
 } from "@/components/sections/home";
 import { getPageMetadata } from "@/lib/seo/metadata";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ComplianceCostSection />
+      <WhyThisMattersNowSection />
       <AlignmentGapSection />
       <ExistingSystemsSection />
       <RegulatedEnvironmentsSection />

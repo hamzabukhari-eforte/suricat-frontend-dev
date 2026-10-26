@@ -26,17 +26,15 @@ const STAT_CARDS = [
 const FEATURED_STAT_HREF =
   "https://www.fda.gov/media/191127/download?attachment=";
 
-const WHY_NOW_HREF = "https://www.fda.gov/media/191960/download";
-
 export function ComplianceCostSection() {
   const t = useTranslations("home.complianceCost");
 
   return (
     <section id="compliance-cost-section">
-      <div className="cc-cost-band bg-white pt-12 pb-4 lg:pb-6">
+      <div className="cc-cost-band bg-surface-muted pt-12 pb-4 lg:pb-6">
         <Container>
           <div className="mb-8 lg:mb-10">
-            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-orange">
+            <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">
               {t("eyebrow")}
             </span>
             <h2 className="mb-4 w-full text-[32px] font-bold leading-tight text-navy">
@@ -96,35 +94,6 @@ export function ComplianceCostSection() {
               ))}
             </div>
           </div>
-
-          <article className="cc-why-now">
-            <div className="cc-why-now-copy">
-              <span className="cc-why-now-eyebrow">{t("whyNow.eyebrow")}</span>
-              <p className="cc-why-now-title">{t("whyNow.title")}</p>
-              <p className="cc-why-now-body">
-                {t("whyNow.bodyLine1")}
-                <br />
-                {t("whyNow.bodyLine2")}
-              </p>
-              <a
-                href={WHY_NOW_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cc-why-now-source"
-              >
-                <span>{t("whyNow.source")}</span>
-                <FaUpRightFromSquare
-                  className="cc-source-icon"
-                  aria-hidden="true"
-                  size={14}
-                />
-              </a>
-            </div>
-            <div className="cc-why-now-aside" aria-hidden="true">
-              <p className="cc-why-now-date">{t("whyNow.date")}</p>
-              <p className="cc-why-now-date-label">{t("whyNow.dateLabel")}</p>
-            </div>
-          </article>
         </Container>
       </div>
     </section>

@@ -8,6 +8,7 @@ export const HOME_SECTION_IDS = {
   solutions: "solutions",
   industries: "industries",
   costOfMisalignment: "compliance-cost-section",
+  whyThisMattersNow: "why-this-matters-now",
   alignmentGap: "alignment-gap",
   regulated: "designed-for-regulated-environments",
 } as const;
@@ -54,6 +55,7 @@ const HASH_TO_SECTION: Record<string, string> = {
   [HOME_SECTION_IDS.solutions]: HOME_SECTION_IDS.solutions,
   [HOME_SECTION_IDS.industries]: HOME_SECTION_IDS.industries,
   [HOME_SECTION_IDS.costOfMisalignment]: HOME_SECTION_IDS.costOfMisalignment,
+  [HOME_SECTION_IDS.whyThisMattersNow]: HOME_SECTION_IDS.whyThisMattersNow,
   [HOME_SECTION_IDS.alignmentGap]: HOME_SECTION_IDS.alignmentGap,
   [HOME_SECTION_IDS.regulated]: HOME_SECTION_IDS.regulated,
   "existing-systems-fall-short": HOME_SECTION_IDS.existingSystems,

@@ -35,6 +35,7 @@
         "ctaLabel": "Explore Why Suricat",
         "links": {
           "costOfMisalignment": "The Cost of Misalignment",
+          "whyThisMattersNow": "Why This Matters Now",
           "alignmentGap": "The Alignment Gap",
           "changeImpact": "The Change Impact",
           "existingSystems": "Beyond Existing Systems",
@@ -534,7 +535,7 @@
       "titleBefore": "The Sentinel for",
       "titleCompliance": "Compliance",
       "titleIntelligence": "Intelligence",
-      "body": "Suricat works alongside existing QMS and other quality systems to uncover potential compliance gaps, quality issues, and misalignments across documents and records, trace each one to its source, and help QA/RA teams review and address them before they become findings.",
+      "body": "Suricat is an AI-powered Compliance Intelligence platform that works alongside existing QMS and other quality systems to uncover potential compliance gaps, quality issues, and misalignments across documents and records. Every issue is traced to its source, helping QA/RA teams review and address it before it becomes a finding.",
       "explorePlatform": "Request a Pilot",
       "becomeDesignPartner": "Join as a Design Partner",
       "gotQuestions": "Talk to Us",
@@ -939,7 +940,7 @@
           "stat": "26 of 59",
           "label": "Design controls and CAPA lead FDA quality-system enforcement",
           "body": "In 2025, design-control and CAPA violations were each alleged in 26 of 59 FDA medical-device warning letters. In 2024, design controls led QSR subcategories with 22 of 45.",
-          "source": "Sources: Covington & Burling, 2025 · 2024"
+          "source": "Sources: Covington & Burling, Warning Letter Summaries: 2025 · 2024"
         },
         "design": {
           "category": "FDA Inspections",
@@ -948,16 +949,6 @@
           "body": "In FY2025, FDA recorded 279 observations involving inadequate CAPA procedures, followed by 211 involving complaint-handling procedures.",
           "source": "Source: FDA, FY2025 Inspection Observations"
         }
-      },
-      "whyNow": {
-        "eyebrow": "Why This Matters Now",
-        "title": "FDA's updated inspection framework places greater emphasis on risk-management evidence.",
-        "body": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "bodyLine1": "Under FDA's Quality Management System Regulation (QMSR), effective February 2, 2026, investigators review manufacturers'",
-        "bodyLine2": "risk-management documentation to guide inspections and evaluate quality-system controls.",
-        "date": "Feb 2, 2026",
-        "dateLabel": "QMSR Effective",
-        "source": "Source: FDA, QMSR Town Hall, Apr. 2026"
       },
       "punchline": {
         "line1": "The information may exist.",
@@ -1013,6 +1004,36 @@
         }
       }
     },
+    "whyThisMattersNow": {
+      "eyebrow": "Why This Matters Now",
+      "title": "What regulators expect, and how they review, are both changing.",
+      "body": "QMSR is now in effect, while FDA and an EU notified body have described using AI to support review work with human oversight. Manufacturers need documentation ready for evolving requirements and AI-assisted review.",
+      "sourceLabel": "Source:",
+      "cards": {
+        "fdaRule": {
+          "tag": "FDA Rule",
+          "date": "Feb 2, 2026",
+          "title": "QMSR is now in effect",
+          "body": "Under FDA's Quality Management System Regulation (QMSR), investigators review manufacturers' risk-management documentation to guide inspections and evaluate quality-system controls.",
+          "source1": "FDA, QMSR Town Hall slides, Apr. 2026"
+        },
+        "fdaAi": {
+          "tag": "FDA AI Use",
+          "date": "Dec 1, 2025",
+          "title": "FDA has made AI available to staff for review work",
+          "body": "FDA has made AI tools available to staff for tasks including pre-market reviews, inspections, and compliance, with human oversight. In June 2025, FDA said it was already using AI to help identify high-priority inspection targets.",
+          "source1": "FDA, Dec. 2025",
+          "source2": "FDA, June 2025"
+        },
+        "euNotifiedBody": {
+          "tag": "EU Notified Body",
+          "date": "May 2026",
+          "title": "TÜV SÜD has described AI-assisted document checks",
+          "body": "Notified body TÜV SÜD has described using AI for completeness and consistency checks on technical documentation, with decisions made by people.",
+          "source1": "RAPS, May 2026"
+        }
+      }
+    },
     "alignmentGap": {
       "sectionTitle": "The Alignment Gap",
       "headline": "Quality Systems Are in Place. Alignment Is the Hard Part.",
@@ -1036,7 +1057,7 @@
         "capa": "CAPA",
         "evidence": "Evidence",
         "design": "Design Control Documentation",
-        "audits": "Audits, Inspections, and Submissions"
+        "audits": "Audit Findings, Submission/Approval Delays, Remediation Actions"
       },
       "badges": {
         "revised": "Revised",
@@ -1048,6 +1069,16 @@
         "trainedRevC": "Trained on Rev C",
         "needsAttention": "Needs Attention",
         "observations": "Potential observations and delays"
+      },
+      "paths": {
+        "incorporated": "Incorporated",
+        "notIncorporated": "Not Incorporated",
+        "updateDocs": "Update affected documents",
+        "doNotUpdate": "Do not update affected documents",
+        "remainAligned": "Documents and records remain aligned",
+        "moreMisaligned": "More misaligned documents and records",
+        "minimizedRisk": "Minimized Risk",
+        "increasedRisk": "Increased Risk"
       },
       "groups": {
         "qms": "QMS",
