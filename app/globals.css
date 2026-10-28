@@ -6264,25 +6264,37 @@ input[type="radio"]:checked + span {
 /* Platform — Closing punchline (creative pipeline) */
 
 
+
 .platform-closing {
   position: relative;
   overflow: hidden;
-  background: #fff;
-  padding: 2.75rem 0 3rem;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(25, 211, 197, 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 12% 30%, rgba(92, 61, 143, 0.06), transparent 50%),
+    #f8f9fa;
+  padding: 3rem 0 3.25rem;
   border-top: 1px solid #eef1f6;
 }
 
 .platform-closing-head {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .platform-closing-title {
   margin: 0;
-  font-size: clamp(1.65rem, 2.4vw, 2.15rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.25rem);
   font-weight: 800;
   line-height: 1.2;
   color: #0d1b3e;
+  letter-spacing: -0.02em;
+}
+
+.platform-closing-title-lead {
+  display: inline;
 }
 
 .platform-closing-title .text-teal {
@@ -6290,6 +6302,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-closing-flow {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -6298,15 +6311,20 @@ input[type="radio"]:checked + span {
 
 .platform-closing-groups {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .platform-closing-group-label {
-  margin: 0 0 0.75rem;
-  font-size: 0.78rem;
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.55rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
 }
 
 .platform-closing-group.is-violet .platform-closing-group-label {
@@ -6320,7 +6338,8 @@ input[type="radio"]:checked + span {
 .platform-closing-group-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.85rem;
+  gap: 1rem;
+  align-items: stretch;
 }
 
 .platform-closing-group-cards.is-intel {
@@ -6331,57 +6350,82 @@ input[type="radio"]:checked + span {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.5rem;
   min-height: 100%;
-  padding: 1.15rem 1rem 1.7rem;
-  border-radius: 12px;
+  padding: 1.25rem 1.1rem 1.85rem;
+  border-radius: 8px;
   background: #fff;
-  border: 1px solid #e8ecf3;
-  box-shadow: 0 8px 22px rgba(13, 27, 62, 0.05);
-  animation: platform-closing-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--i, 0) * 0.05s);
+  border: 1px solid rgba(13, 27, 62, 0.06);
+  box-shadow:
+    0 1px 2px rgba(13, 27, 62, 0.03),
+    0 10px 28px rgba(13, 27, 62, 0.05);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+  animation: platform-closing-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.06s);
+}
+
+.platform-closing-step:hover {
+  /* No translate — keeps SVG fan connectors aligned */
+  border-color: rgba(13, 27, 62, 0.1);
+  box-shadow:
+    0 4px 10px rgba(13, 27, 62, 0.04),
+    0 18px 36px rgba(13, 27, 62, 0.08);
+}
+
+.platform-closing-step.is-violet:hover {
+  border-color: rgba(92, 61, 143, 0.22);
+}
+
+.platform-closing-step.is-teal:hover {
+  border-color: rgba(25, 211, 197, 0.35);
 }
 
 .platform-closing-step-icon-wrap {
   position: relative;
   width: fit-content;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.35rem;
 }
 
 .platform-closing-step-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 2.85rem;
+  height: 2.85rem;
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .platform-closing-step.is-violet .platform-closing-step-icon {
   background: rgba(92, 61, 143, 0.12);
   color: #5c3d8f;
+  box-shadow: inset 0 0 0 1px rgba(92, 61, 143, 0.08);
 }
 
 .platform-closing-step.is-teal .platform-closing-step-icon {
   background: rgba(25, 211, 197, 0.14);
-  color: #0d9e93;
+  color: #0f766e;
+  box-shadow: inset 0 0 0 1px rgba(25, 211, 197, 0.12);
 }
 
 .platform-closing-step-num {
   position: absolute;
-  top: -0.2rem;
-  right: -0.45rem;
+  top: -0.25rem;
+  right: -0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 999px;
   font-size: 0.62rem;
   font-weight: 800;
   color: #fff;
   border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(13, 27, 62, 0.12);
 }
 
 .platform-closing-step.is-violet .platform-closing-step-num {
@@ -6395,79 +6439,108 @@ input[type="radio"]:checked + span {
 
 .platform-closing-step h3 {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #0d1b3e;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .platform-closing-step p {
   margin: 0;
-  font-size: 0.84rem;
+  flex: 1;
+  font-size: 0.86rem;
   font-weight: 500;
-  line-height: 1.45;
-  color: #334155;
+  line-height: 1.5;
+  color: #475569;
 }
 
-.platform-closing-step-curve {
+/* SVG Bezier fan: cards → hub (screenshot match) */
+.platform-closing-fan {
   position: absolute;
-  left: 50%;
-  bottom: -1.35rem;
-  width: 2px;
-  height: 1.35rem;
-  transform: translateX(-50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    currentColor 0 4px,
-    transparent 4px 8px
-  );
-  opacity: 0.55;
-  z-index: 1;
+  z-index: 0;
+  overflow: visible;
 }
 
-.platform-closing-step.is-violet .platform-closing-step-curve {
-  color: #5c3d8f;
+.platform-closing-fan-path {
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.platform-closing-step.is-teal .platform-closing-step-curve {
-  color: #19d3c5;
+.platform-closing-fan-path.is-violet {
+  stroke: #5c3d8f;
+  stroke-dasharray: 5 5;
+  opacity: 0.85;
 }
 
+.platform-closing-fan-path.is-teal {
+  stroke: #19d3c5;
+  opacity: 0.95;
+}
+
+/* Outcome node — not a button */
 .platform-closing-hub-bar {
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  max-width: min(100%, 28rem);
+  margin: 3.75rem auto 0;
+  padding: 0.7rem 1.35rem 0.85rem;
+  border-radius: 12px;
+  background: #0d1b3e;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 22px rgba(13, 27, 62, 0.14);
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+}
+
+.platform-closing-hub-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(25, 211, 197, 0.9);
+}
+
+.platform-closing-hub-row {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  width: 100%;
-  max-width: 34rem;
-  margin: 1.35rem auto 0;
-  padding: 0.85rem 1.25rem;
-  border-radius: 999px;
-  background: #0d1b3e;
-  color: #fff;
-  box-shadow: 0 14px 32px rgba(13, 27, 62, 0.18);
+}
+
+.platform-closing-hub-search + .platform-closing-hub-label {
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+  padding-left: 0.75rem;
 }
 
 .platform-closing-hub-search {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 999px;
   background: #ff6b35;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   flex-shrink: 0;
 }
 
 .platform-closing-hub-label {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -6478,23 +6551,30 @@ input[type="radio"]:checked + span {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem 0.85rem;
+  gap: 0.55rem 0.65rem;
   width: fit-content;
   max-width: 100%;
-  margin: 1.75rem auto 0;
-  padding: 0.7rem 1.1rem;
+  margin: 2rem auto 0;
+  padding: 0.55rem 0.75rem;
   border-radius: 999px;
-  background: #f3f5f8;
-  border: 1px solid #e8ecf3;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  box-shadow: 0 6px 18px rgba(13, 27, 62, 0.04);
 }
 
 .platform-closing-process-item {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
   font-size: 0.84rem;
   font-weight: 700;
   color: #0d1b3e;
+}
+
+.platform-closing-process-item.is-focus {
+  background: #eef1f6;
 }
 
 .platform-closing-process-icon {
@@ -6504,30 +6584,39 @@ input[type="radio"]:checked + span {
 }
 
 .platform-closing-process-arrow {
-  color: #19d3c5;
-  font-weight: 800;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  background:
+    linear-gradient(135deg, transparent 48%, #19d3c5 48% 52%, transparent 52%)
+      center / 0.55rem 0.55rem no-repeat,
+    linear-gradient(45deg, transparent 48%, #19d3c5 48% 52%, transparent 52%)
+      center / 0.55rem 0.55rem no-repeat,
+    linear-gradient(90deg, #19d3c5, #19d3c5) center / 0.7rem 2px no-repeat;
+  opacity: 0.9;
 }
 
 .platform-closing-body {
-  margin: 1.5rem auto 0;
-  max-width: 48rem;
+  margin: 1.65rem auto 0;
+  max-width: 46rem;
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #475569;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #64748b;
 }
 
 .platform-closing-cta {
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
   text-align: center;
 }
 
 .platform-closing-cta-title {
-  margin: 0 0 1.15rem;
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.4rem, 2.1vw, 1.85rem);
   font-weight: 800;
   color: #0d1b3e;
   line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
 .platform-closing-cta-actions {
@@ -6535,7 +6624,7 @@ input[type="radio"]:checked + span {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem 1rem;
+  gap: 0.8rem 1.1rem;
 }
 
 .platform-closing-cta-link {
@@ -6544,7 +6633,7 @@ input[type="radio"]:checked + span {
   color: #0d1b3e;
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-color: rgba(13, 27, 62, 0.45);
+  text-decoration-color: rgba(13, 27, 62, 0.4);
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
@@ -6556,7 +6645,7 @@ input[type="radio"]:checked + span {
 @keyframes platform-closing-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -6576,21 +6665,28 @@ input[type="radio"]:checked + span {
 
 @media (min-width: 1100px) {
   .platform-closing {
-    padding: 3.5rem 0 3.5rem;
+    padding: 3.75rem 0 4rem;
   }
 
   .platform-closing-head {
-    margin-bottom: 2.35rem;
+    margin-bottom: 2.6rem;
   }
 
   .platform-closing-groups {
-    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-    gap: 1rem;
-    align-items: end;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    gap: 1.15rem;
+    align-items: stretch;
+  }
+
+  .platform-closing-group {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
   }
 
   .platform-closing-group-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: 1;
   }
 
   .platform-closing-group-cards.is-intel {
@@ -6598,22 +6694,21 @@ input[type="radio"]:checked + span {
   }
 
   .platform-closing-step {
-    padding: 1.2rem 1rem 1.85rem;
-  }
-
-  .platform-closing-step-curve {
-    bottom: -1.55rem;
-    height: 1.55rem;
+    padding: 1.3rem 1.05rem 1.5rem;
   }
 
   .platform-closing-hub-bar {
-    margin-top: 1.55rem;
+    margin-top: 4.75rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .platform-closing-step {
     animation: none;
+  }
+
+  .platform-closing-step:hover {
+    transform: none;
   }
 }
 
