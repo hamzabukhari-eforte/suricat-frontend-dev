@@ -16,12 +16,26 @@ import {
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Link from "next/link";
 import {
+  Fragment,
   useCallback,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
 } from "react";
+
+const PROCESS_KEYS = [
+  "sourceEvidence",
+  "qaRaReview",
+  "humanDecision",
+] as const;
+
+const PROCESS_ICONS = [
+  <FaFileLines key="src" />,
+  <FaUsers key="qa" />,
+  <FaCircleCheck key="dec" />,
+] as const;
 
 const STEPS = [
   {
@@ -122,9 +136,13 @@ export function PlatformClosingSection() {
 
   const flowRef = useRef<HTMLDivElement>(null);
   const hubRef = useRef<HTMLDivElement>(null);
+  const processRef = useRef<HTMLDivElement>(null);
+  const processPlayedRef = useRef(false);
+  const processTimersRef = useRef<number[]>([]);
   const cardRefs = useRef<(HTMLElement | null)[]>(Array(6).fill(null));
   const [paths, setPaths] = useState<FanPath[]>([]);
   const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const [activeProcess, setActiveProcess] = useState<number | null>(null);
 
   const setCardRef = useCallback((index: number, el: HTMLElement | null) => {
     cardRefs.current[index] = el;
@@ -158,7 +176,8 @@ export function PlatformClosingSection() {
       const y0 = r.bottom - flowRect.top;
       const tFrac = n === 1 ? 0.5 : i / (n - 1);
       const x1 = hubLeft + inset + usable * tFrac;
-      const y1 = hubTop - 1;
+      // 6px gap between connection tip and hub card
+      const y1 = hubTop - 6;
       const theme = i < 2 ? "violet" : "teal";
       return {
         d: buildFanPath(x0, y0, x1, y1),
@@ -186,11 +205,57 @@ export function PlatformClosingSection() {
     };
   }, [syncFan]);
 
+  useEffect(() => {
+    const el = processRef.current;
+    if (!el) return;
+
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduced) {
+      return;
+    }
+
+    const playOnce = () => {
+      if (processPlayedRef.current) return;
+      processPlayedRef.current = true;
+      // Smooth one-shot: 0 → 1 → 2 → clear (no leftover highlight)
+      setActiveProcess(0);
+      processTimersRef.current.push(
+        window.setTimeout(() => setActiveProcess(1), 900),
+      );
+      processTimersRef.current.push(
+        window.setTimeout(() => setActiveProcess(2), 1800),
+      );
+      processTimersRef.current.push(
+        window.setTimeout(() => setActiveProcess(null), 2700),
+      );
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          playOnce();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
+    );
+    io.observe(el);
+
+    return () => {
+      io.disconnect();
+      processTimersRef.current.forEach((id) => window.clearTimeout(id));
+      processTimersRef.current = [];
+    };
+  }, []);
+
   const foundation = STEPS.slice(0, 2);
   const intelligence = STEPS.slice(2);
 
   return (
-    <section className="platform-closing">
+    <section className="platform-closing bg-surface-muted">
       <Container>
         <div className="platform-closing-head">
           <p className="platform-reg-eyebrow">{t("closeEyebrow")}</p>
@@ -299,38 +364,41 @@ export function PlatformClosingSection() {
             <span className="platform-closing-hub-eyebrow">
               {tc("outcome")}
             </span>
-            <div className="platform-closing-hub-row">
-              <span className="platform-closing-hub-search" aria-hidden="true">
+            <p className="platform-closing-hub-label">
+              <span className="platform-closing-hub-mark" aria-hidden="true">
                 <FaMagnifyingGlass />
               </span>
-              <span className="platform-closing-hub-label">
-                {tc("whatNeedsAttention")}
-              </span>
-            </div>
+              {tc("whatNeedsAttention")}
+            </p>
           </div>
         </div>
 
-        <div className="platform-closing-process">
-          <div className="platform-closing-process-item">
-            <span className="platform-closing-process-icon" aria-hidden="true">
-              <FaFileLines />
-            </span>
-            <span>{tc("process.sourceEvidence")}</span>
-          </div>
-          <span className="platform-closing-process-arrow" aria-hidden="true" />
-          <div className="platform-closing-process-item is-focus">
-            <span className="platform-closing-process-icon" aria-hidden="true">
-              <FaUsers />
-            </span>
-            <span>{tc("process.qaRaReview")}</span>
-          </div>
-          <span className="platform-closing-process-arrow" aria-hidden="true" />
-          <div className="platform-closing-process-item">
-            <span className="platform-closing-process-icon" aria-hidden="true">
-              <FaCircleCheck />
-            </span>
-            <span>{tc("process.humanDecision")}</span>
-          </div>
+        <div className="platform-closing-process" ref={processRef}>
+          {PROCESS_KEYS.map((key, i) => (
+            <Fragment key={key}>
+              {i > 0 ? (
+                <span
+                  className="platform-closing-process-arrow"
+                  aria-hidden="true"
+                />
+              ) : null}
+              <div
+                className={
+                  activeProcess === i
+                    ? "platform-closing-process-item is-active"
+                    : "platform-closing-process-item"
+                }
+              >
+                <span
+                  className="platform-closing-process-icon"
+                  aria-hidden="true"
+                >
+                  {PROCESS_ICONS[i]}
+                </span>
+                <span>{tc(`process.${key}`)}</span>
+              </div>
+            </Fragment>
+          ))}
         </div>
 
         <div className="platform-closing-cta">
