@@ -447,7 +447,7 @@ export function PlatformHeroDiagram() {
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
           x="-215"
-          y="-198"
+          y="-210"
           textAnchor="middle"
           fill="#b8a4e8"
           fontSize="18"
@@ -461,7 +461,7 @@ export function PlatformHeroDiagram() {
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
           x="232"
-          y="-198"
+          y="-210"
           textAnchor="middle"
           fill="#19d3c5"
           fontSize="18"
@@ -481,10 +481,10 @@ export function PlatformHeroDiagram() {
               color: "#b8a4e8",
               hx: -100,
               hy: -68,
-              x: -290,
+              x: -288,
               y: -128,
               side: "left" as const,
-              w: 142,
+              w: 158,
             },
             {
               num: "02",
@@ -637,9 +637,9 @@ export function PlatformHeroDiagram() {
                 x={s.x + 40}
                 y={s.y + (s.titleLines ? 48 : 36)}
                 fill={s.color}
-                fontSize={isRight ? 9.5 : 8.5}
+                fontSize={isRight ? 9.5 : 8.25}
                 fontWeight="700"
-                letterSpacing="0.4"
+                letterSpacing={s.num === "01" ? "0.15" : "0.4"}
               >
                 {s.sub}
               </text>
@@ -694,7 +694,7 @@ export function PlatformHeroDiagram() {
               y="0"
               width="18"
               height="18"
-              rx="5"
+              rx="8"
               fill="rgba(25, 211, 197, 0.22)"
             />
             <g transform="translate(9 9) scale(0.72)">

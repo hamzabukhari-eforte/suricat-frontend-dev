@@ -3721,7 +3721,7 @@ input[type="radio"]:checked + span {
 .platform-reg-universe-card {
   background: #fff;
   border: 1px solid rgba(13, 27, 62, 0.08);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 0.95rem 1rem;
   box-shadow: 0 8px 22px rgba(13, 27, 62, 0.05);
 }
@@ -3905,7 +3905,7 @@ input[type="radio"]:checked + span {
 .platform-reg-applies {
   background: #f3eef8;
   border: 1px solid rgba(92, 61, 143, 0.16);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 1.1rem 1rem 1rem;
 }
 
@@ -3939,7 +3939,7 @@ input[type="radio"]:checked + span {
   align-items: flex-start;
   gap: 0.7rem;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 0.85rem 0.9rem;
   border: 1px solid rgba(13, 27, 62, 0.05);
   box-shadow: 0 4px 14px rgba(13, 27, 62, 0.04);
@@ -5299,7 +5299,7 @@ input[type="radio"]:checked + span {
 .platform-gap-req-box {
   width: 100%;
   box-sizing: border-box;
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid #e5e8f0;
   background: #fff;
   padding: 1rem 1.1rem;
@@ -5348,7 +5348,7 @@ input[type="radio"]:checked + span {
 
 .platform-gap-req-list li {
   position: relative;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #f3eef8;
   padding: 0.55rem 0.75rem 0.55rem 1.35rem;
   font-size: 14px;
@@ -5385,7 +5385,7 @@ input[type="radio"]:checked + span {
   gap: 0.75rem;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid #e5e8f0;
   background: #eef1f7;
   padding: 1rem 1.1rem;
@@ -5451,7 +5451,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-gap-cov {
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #19d3c5;
   background: #fff;
   padding: 0.85rem 1.05rem;
@@ -5671,7 +5671,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-cross-block {
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #e5e8f0;
   background: #fff;
   padding: 0.85rem 0.95rem;
@@ -5755,7 +5755,7 @@ input[type="radio"]:checked + span {
   align-items: flex-start;
   gap: 0.28rem;
   min-width: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #e5e8f0;
   background: #fff;
   padding: 0.7rem 0.75rem;
@@ -5967,7 +5967,7 @@ input[type="radio"]:checked + span {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #e5e8f0;
   background: #fff;
   padding: 0.7rem 0.7rem 0.65rem;
@@ -5991,7 +5991,7 @@ input[type="radio"]:checked + span {
   align-items: center;
   gap: 0.65rem;
   min-width: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #f3eef8;
   padding: 0.65rem 0.75rem;
 }
@@ -6075,7 +6075,7 @@ input[type="radio"]:checked + span {
   align-items: flex-start;
   gap: 0.35rem;
   min-width: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid rgba(25, 211, 197, 0.28);
   background: rgba(25, 211, 197, 0.1);
   padding: 0.65rem 0.75rem;
@@ -6505,7 +6505,7 @@ input[type="radio"]:checked + span {
   max-width: min(100%, 28rem);
   margin: 3.75rem auto 0;
   padding: 0.85rem 1.25rem 0.95rem;
-  border-radius: 10px;
+  border-radius: 8px;
   color: #0d1b3e;
   border: 1px solid transparent;
   background:
