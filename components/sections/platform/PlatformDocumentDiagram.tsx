@@ -1,23 +1,17 @@
 "use client";
 
 import {
+  FaClipboardCheck,
+  FaClipboardList,
   FaFileLines,
   FaRotate,
   FaSitemap,
   FaTableCells,
+  FaTriangleExclamation,
   FaUserGraduate,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import type { ReactNode } from "react";
-
-const FILES = [
-  "QMS_export_0142.pdf",
-  "Untitled document (3).docx",
-  "Scan_2025-04-11.pdf",
-  "Folder_B_attachment.pdf",
-  "Upload_0388.docx",
-  "Archive_2021_221.xlsx",
-] as const;
 
 function DesignControlIcon() {
   return (
@@ -32,6 +26,18 @@ function DesignControlIcon() {
     </svg>
   );
 }
+
+const FILES: { name: string; icon: ReactNode }[] = [
+  { name: "SOP 05 Design Control", icon: <FaClipboardList /> },
+  { name: "CAPA-00123", icon: <FaClipboardCheck /> },
+  { name: "RSK0054 FMEA", icon: <FaTriangleExclamation /> },
+  { name: "DHF 2504 Design History File", icon: <DesignControlIcon /> },
+  { name: "Log 0343 Training Records", icon: <FaUserGraduate /> },
+  {
+    name: "Cleanroom Cleaning Record 5-05-2024",
+    icon: <FaFileLines />,
+  },
+];
 
 const IDENTIFIED: {
   key: "sop" | "capa" | "risk" | "design" | "training" | "records";
@@ -89,10 +95,10 @@ export function PlatformDocumentDiagram() {
           <p className="platform-doc-col-label">{t("filesLabel")}</p>
           <div className="platform-doc-files-block">
             <ul className="platform-doc-files">
-              {FILES.map((name) => (
+              {FILES.map(({ name, icon }) => (
                 <li key={name} className="platform-doc-file">
-                  <span className="platform-doc-q" aria-hidden="true">
-                    ?
+                  <span className="platform-doc-file-icon" aria-hidden="true">
+                    {icon}
                   </span>
                   <span className="platform-doc-file-name">{name}</span>
                   <span className="platform-doc-file-stub" aria-hidden="true" />

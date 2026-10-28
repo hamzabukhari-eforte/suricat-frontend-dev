@@ -2599,7 +2599,7 @@
       }
     },
     "documentDiagram": {
-      "filesLabel": "Compliance Documents",
+      "filesLabel": "Compliance Evidence",
       "identifiedLabel": "Identified by Type and Role",
       "stepPill": "What exists",
       "hubTitle": "Document Intelligence",
@@ -2632,8 +2632,8 @@
         }
       }
     },
-    "closeTitleLine1": "Six Steps. One Clear View of",
-    "closeTitleLine2": "What Needs Attention.",
+    "closeTitleLine1": "Six Steps.",
+    "closeTitleLine2": "One Clear View of What Needs Attention.",
     "qualityDiagram": {
       "leftLabel": "Identified Documents",
       "rightLabel": "Document Readiness",
@@ -2784,25 +2784,30 @@
       "intelligence": "Intelligence",
       "whatNeedsAttention": "What Needs Attention",
       "readyTitle": "Ready to See Suricat in Action?",
+      "process": {
+        "sourceEvidence": "Source Evidence",
+        "qaRaReview": "QA/RA Review",
+        "humanDecision": "Human Decision"
+      },
       "cards": {
         "applies": {
           "title": "What Applies",
           "body": "Which regulations, standards, and requirements apply?"
         },
         "exists": {
-          "title": "What Exists",
+          "title": "What's Being Reviewed",
           "body": "What is being reviewed, and what role does each document play?"
         },
         "quality": {
-          "title": "How Good It Is",
-          "body": "Is the documentation complete, clear, strong, and usable?"
+          "title": "How Ready It Is",
+          "body": "Is the documentation complete, clear, consistent, and usable?"
         },
         "missing": {
           "title": "What Is Missing",
           "body": "Where may support be missing or insufficient?"
         },
         "align": {
-          "title": "What Does Not Align",
+          "title": "What Does Not Line Up",
           "body": "Where do related documents no longer line up?"
         },
         "happened": {

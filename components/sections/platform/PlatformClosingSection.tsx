@@ -1,173 +1,221 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import {
+  FaAward,
+  FaCircleCheck,
+  FaDatabase,
+  FaFileLines,
+  FaHandshake,
+  FaLinkSlash,
+  FaMagnifyingGlass,
+  FaTriangleExclamation,
+  FaUsers,
+} from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
-
-/** Focused attention mark — scan + iris */
-function AttentionIcon() {
-  return (
-    <svg
-      className="platform-closing-hub-svg"
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
-      fill="none"
-      aria-hidden="true"
-    >
-      <circle cx="14" cy="14" r="10.5" stroke="#0D1B3E" strokeWidth="1.5" opacity="0.2" />
-      <path
-        d="M3.5 14c2.4-4.2 5.7-6.4 10.5-6.4S22.1 9.8 24.5 14c-2.4 4.2-5.7 6.4-10.5 6.4S5.9 18.2 3.5 14z"
-        stroke="#0D1B3E"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <circle cx="14" cy="14" r="3.6" stroke="#0D1B3E" strokeWidth="1.6" />
-      <circle cx="14" cy="14" r="1.55" fill="#0D1B3E" />
-      <path
-        d="M14 4.2v2.1M14 21.7v2.1M4.2 14h2.1M21.7 14h2.1"
-        stroke="#0D1B3E"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity="0.55"
-      />
-    </svg>
-  );
-}
+import Link from "next/link";
+import type { ReactNode } from "react";
 
 const STEPS = [
-  { num: "01", key: "applies" as const, theme: "violet" as const },
-  { num: "02", key: "exists" as const, theme: "violet" as const },
-  { num: "03", key: "quality" as const, theme: "teal" as const },
-  { num: "04", key: "missing" as const, theme: "teal" as const },
-  { num: "05", key: "align" as const, theme: "teal" as const },
-  { num: "06", key: "happened" as const, theme: "teal" as const },
+  {
+    num: "01",
+    key: "applies" as const,
+    theme: "violet" as const,
+    icon: <FaFileLines />,
+  },
+  {
+    num: "02",
+    key: "exists" as const,
+    theme: "violet" as const,
+    icon: <FaMagnifyingGlass />,
+  },
+  {
+    num: "03",
+    key: "quality" as const,
+    theme: "teal" as const,
+    icon: <FaAward />,
+  },
+  {
+    num: "04",
+    key: "missing" as const,
+    theme: "teal" as const,
+    icon: <FaTriangleExclamation />,
+  },
+  {
+    num: "05",
+    key: "align" as const,
+    theme: "teal" as const,
+    icon: <FaLinkSlash />,
+  },
+  {
+    num: "06",
+    key: "happened" as const,
+    theme: "teal" as const,
+    icon: <FaDatabase />,
+  },
 ] as const;
+
+function StepCard({
+  num,
+  theme,
+  icon,
+  title,
+  body,
+  index,
+}: {
+  num: string;
+  theme: "violet" | "teal";
+  icon: ReactNode;
+  title: string;
+  body: string;
+  index: number;
+}) {
+  return (
+    <article
+      className={`platform-closing-step is-${theme}`}
+      style={{ ["--i" as string]: index }}
+    >
+      <div className="platform-closing-step-icon-wrap">
+        <span className="platform-closing-step-icon" aria-hidden="true">
+          {icon}
+        </span>
+        <span className="platform-closing-step-num">{num}</span>
+      </div>
+      <h3>{title}</h3>
+      <p>{body}</p>
+      <span className="platform-closing-step-curve" aria-hidden="true" />
+    </article>
+  );
+}
 
 export function PlatformClosingSection() {
   const t = useTranslations("platformPage");
   const tc = useTranslations("platformPage.closingDiagram");
+  const tCta = useTranslations("cta");
 
   const foundation = STEPS.slice(0, 2);
   const intelligence = STEPS.slice(2);
 
   return (
     <section className="platform-closing">
-      <div className="platform-closing-glow" aria-hidden="true" />
-
       <Container>
         <div className="platform-closing-head">
-          <h2 className="platform-closing-title platform-reg-title">
+          <h2 className="platform-closing-title">
             {t("closeTitleLine1")}{" "}
             <span className="text-teal">{t("closeTitleLine2")}</span>
           </h2>
         </div>
 
-        <div className="platform-closing-diagram">
-          {/* Foundation panel */}
-          <div className="platform-closing-panel is-violet">
-            <p className="platform-closing-panel-label">{tc("foundation")}</p>
-            <div className="platform-closing-panel-frame">
-              <div className="platform-closing-panel-cards is-stack">
+        <div className="platform-closing-flow">
+          <div className="platform-closing-groups">
+            <div className="platform-closing-group is-violet">
+              <p className="platform-closing-group-label">
+                {tc("foundation")}
+              </p>
+              <div className="platform-closing-group-cards">
                 {foundation.map((step, i) => (
-                  <article
+                  <StepCard
                     key={step.key}
-                    className={`platform-closing-card is-${step.theme} is-row`}
-                    style={{ ["--i" as string]: i }}
-                  >
-                    <span className="platform-closing-card-num">{step.num}</span>
-                    <div className="platform-closing-card-copy">
-                      <h3>{tc(`cards.${step.key}.title`)}</h3>
-                      <p>{tc(`cards.${step.key}.body`)}</p>
-                    </div>
-                  </article>
+                    num={step.num}
+                    theme={step.theme}
+                    icon={step.icon}
+                    title={tc(`cards.${step.key}.title`)}
+                    body={tc(`cards.${step.key}.body`)}
+                    index={i}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="platform-closing-group is-teal">
+              <p className="platform-closing-group-label">
+                {tc("intelligence")}
+              </p>
+              <div className="platform-closing-group-cards is-intel">
+                {intelligence.map((step, i) => (
+                  <StepCard
+                    key={step.key}
+                    num={step.num}
+                    theme={step.theme}
+                    icon={step.icon}
+                    title={tc(`cards.${step.key}.title`)}
+                    body={tc(`cards.${step.key}.body`)}
+                    index={i + 2}
+                  />
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="platform-closing-stem is-left" aria-hidden="true">
-            <svg
-              className="platform-closing-stem-svg"
-              viewBox="0 0 48 24"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 12 H36"
-                stroke="#19D3C5"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M32 6 L42 12 L32 18"
-                stroke="#19D3C5"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-          </div>
-
-          {/* Hub */}
-          <div className="platform-closing-hub">
-            <span className="platform-closing-hub-eye" aria-hidden="true">
-              <span className="platform-closing-hub-eye-ring" />
-              <AttentionIcon />
+          <div className="platform-closing-hub-bar">
+            <span className="platform-closing-hub-search" aria-hidden="true">
+              <FaMagnifyingGlass />
             </span>
             <span className="platform-closing-hub-label">
               {tc("whatNeedsAttention")}
             </span>
           </div>
+        </div>
 
-          <div className="platform-closing-stem is-right" aria-hidden="true">
-            <svg
-              className="platform-closing-stem-svg"
-              viewBox="0 0 48 24"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M48 12 H12"
-                stroke="#19D3C5"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M16 6 L6 12 L16 18"
-                stroke="#19D3C5"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
+        <div className="platform-closing-process">
+          <div className="platform-closing-process-item">
+            <span className="platform-closing-process-icon" aria-hidden="true">
+              <FaFileLines />
+            </span>
+            <span>{tc("process.sourceEvidence")}</span>
           </div>
-
-          {/* Intelligence panel */}
-          <div className="platform-closing-panel is-teal">
-            <p className="platform-closing-panel-label">{tc("intelligence")}</p>
-            <div className="platform-closing-panel-frame">
-              <div className="platform-closing-panel-cards is-intel-grid">
-                {intelligence.map((step, i) => (
-                  <article
-                    key={step.key}
-                    className={`platform-closing-card is-${step.theme} is-row`}
-                    style={{ ["--i" as string]: i + 2 }}
-                  >
-                    <span className="platform-closing-card-num">{step.num}</span>
-                    <div className="platform-closing-card-copy">
-                      <h3>{tc(`cards.${step.key}.title`)}</h3>
-                      <p>{tc(`cards.${step.key}.body`)}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+          <span className="platform-closing-process-arrow" aria-hidden="true">
+            →
+          </span>
+          <div className="platform-closing-process-item">
+            <span className="platform-closing-process-icon" aria-hidden="true">
+              <FaUsers />
+            </span>
+            <span>{tc("process.qaRaReview")}</span>
+          </div>
+          <span className="platform-closing-process-arrow" aria-hidden="true">
+            →
+          </span>
+          <div className="platform-closing-process-item">
+            <span className="platform-closing-process-icon" aria-hidden="true">
+              <FaCircleCheck />
+            </span>
+            <span>{tc("process.humanDecision")}</span>
           </div>
         </div>
 
         <p className="platform-closing-body">{t("closeBody")}</p>
+
+        <div className="platform-closing-cta">
+          <h3 className="platform-closing-cta-title">{tc("readyTitle")}</h3>
+          <div className="platform-closing-cta-actions">
+            <Button
+              variant="teal"
+              href="/design-partners/apply"
+              className="group gap-2 whitespace-nowrap"
+            >
+              <FaHandshake
+                className="shrink-0 text-base text-navy"
+                aria-hidden="true"
+              />
+              {tCta("becomeDesignPartner")}
+            </Button>
+            <Button
+              variant="outline-navy"
+              href="/get-started"
+              className="whitespace-nowrap"
+            >
+              {tCta("requestFreePilot")}
+            </Button>
+            <Link
+              href="/contact"
+              className="platform-closing-cta-link"
+            >
+              {tCta("gotQuestions")}
+            </Link>
+          </div>
+        </div>
       </Container>
     </section>
   );

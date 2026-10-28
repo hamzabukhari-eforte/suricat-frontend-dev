@@ -14,6 +14,7 @@ const STEPS = [
 ] as const;
 
 /** ID / record card with outflow arrows — Record Intelligence */
+/** Simple document — Record Intelligence */
 function RecordHubIcon() {
   return (
     <svg
@@ -23,62 +24,23 @@ function RecordHubIcon() {
       fill="none"
       aria-hidden="true"
     >
-      {/* Card frame — broken on right where arrows exit */}
       <path
-        d="M16.5 4.5H7.5A1.5 1.5 0 0 0 6 6v12a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 18v-1.2"
+        d="M6.5 3.2h7.4L18.2 7.5V19.4A1.4 1.4 0 0 1 16.8 20.8H6.5A1.4 1.4 0 0 1 5.1 19.4V4.6A1.4 1.4 0 0 1 6.5 3.2z"
         stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
+        strokeWidth="1.35"
         strokeLinejoin="round"
       />
       <path
-        d="M18 13.4V6A1.5 1.5 0 0 0 16.5 4.5"
+        d="M13.9 3.2V7.5H18.2"
         stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Person */}
-      <circle cx="12" cy="8.2" r="1.55" stroke="#fff" strokeWidth="1.25" />
-      <path
-        d="M9.2 12.2c.4-1.35 1.45-2 2.8-2s2.4.65 2.8 2"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-      />
-      {/* Text lines (1st & 3rd stay inside) */}
-      <path
-        d="M8.2 14.2h5.2M8.2 17.6h4.4"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-      />
-      {/* Lines that exit → with arrows */}
-      <path
-        d="M8.2 15.9H20"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-      />
-      <path
-        d="M18.6 14.5l1.9 1.4-1.9 1.4"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
+        strokeWidth="1.35"
         strokeLinejoin="round"
       />
       <path
-        d="M8.2 19.3H20"
+        d="M8.2 11h7.2M8.2 13.8h7.2M8.2 16.6h4.8"
         stroke="#fff"
-        strokeWidth="1.25"
+        strokeWidth="1.3"
         strokeLinecap="round"
-      />
-      <path
-        d="M18.6 17.9l1.9 1.4-1.9 1.4"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );

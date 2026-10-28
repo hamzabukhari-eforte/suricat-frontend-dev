@@ -14,52 +14,53 @@ const COVERAGE = [
   { key: "c4", status: "insufficient" as const, sourceKey: "sourceC4" as const },
 ] as const;
 
-/** Gap trench with outward arrows — Gap Intelligence */
+/**
+ * Document + search — Gap Intelligence
+ * Exact concept: rounded doc with TOP-RIGHT corner cut out;
+ * magnifier sits in that cut (partly inside doc), handle SE.
+ */
 function GapHubIcon() {
   return (
     <svg
       className="platform-gap-hub-icon"
-      width="52"
-      height="58"
-      viewBox="1.2 8.4 21.6 8.8"
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
-      {/* Surface with rectangular gap */}
+      {/*
+        Open path — top-right corner removed for the lens:
+        start at cut on top → left → bottom-left → bottom → bottom-right → up right side → stop at cut
+      */}
       <path
-        d="M2 9h5.5V16h9V9H22"
+        d="M11.85 4.9H6.45A1.5 1.5 0 0 0 4.95 6.4v11.15A1.5 1.5 0 0 0 6.45 19.05h9.2A1.5 1.5 0 0 0 17.15 17.55V10.85"
         stroke="#fff"
-        strokeWidth="1.25"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Left arrow */}
+      {/* Two text dashes inside doc */}
       <path
-        d="M10.6 12.5H8.2"
+        d="M7.4 12.4h5M7.4 14.85h3.5"
         stroke="#fff"
-        strokeWidth="1.25"
+        strokeWidth="1.4"
         strokeLinecap="round"
       />
-      <path
-        d="M9.4 11l-1.6 1.5 1.6 1.5"
+      {/* Magnifier fills the cut top-right corner */}
+      <circle
+        cx="15.2"
+        cy="7.4"
+        r="3.4"
         stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth="1.5"
       />
-      {/* Right arrow */}
+      {/* Handle 45° down-right */}
       <path
-        d="M13.4 12.5h2.4"
+        d="M17.65 9.85L20.45 12.65"
         stroke="#fff"
-        strokeWidth="1.25"
+        strokeWidth="1.55"
         strokeLinecap="round"
-      />
-      <path
-        d="M14.6 11l1.6 1.5-1.6 1.5"
-        stroke="#fff"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );
