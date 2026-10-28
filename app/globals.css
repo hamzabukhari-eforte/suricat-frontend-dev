@@ -3413,12 +3413,14 @@ input[type="radio"]:checked + span {
   height: auto;
   min-width: 100%;
   object-fit: contain;
-  transform: translateX(2.5rem);
+  transform-origin: center center;
+  /* Uniform scale — keeps every connector/card proportionally aligned */
+  transform: translateX(2.5rem) scale(1.12);
 }
 
 @media (min-width: 1024px) {
   .platform-hero-diagram {
-    transform: translateX(4rem);
+    transform: translateX(4rem) scale(1.12);
   }
 }
 

@@ -56,9 +56,9 @@ export function PlatformHeroDiagram() {
     <svg
       ref={svgRef}
       className="platform-hero-diagram"
-      viewBox="-130 0 1380 580"
+      viewBox="-130 0 1380 620"
       width={1380}
-      height={580}
+      height={620}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
@@ -104,11 +104,11 @@ export function PlatformHeroDiagram() {
       </defs>
 
       {/* Left: Compliance Evidence — pushed left, enlarged */}
-      <g className="ph-evidence" transform="translate(-148 -28) scale(1.2)">
+      <g className="ph-evidence" transform="translate(-125 -28) scale(1.2)">
         <text
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 0 }}
-          x="128"
+          x="115.5"
           y="48"
           textAnchor="middle"
           fill="#b8a4e8"
@@ -125,35 +125,35 @@ export function PlatformHeroDiagram() {
               y: 66,
               label: "SOP",
               lines: null as string[] | null,
-              fs: 16,
+              fs: 14,
               icon: "sop" as const,
             },
             {
               y: 140,
               label: "CAPA",
               lines: null,
-              fs: 16,
+              fs: 14,
               icon: "capa" as const,
             },
             {
               y: 214,
               label: "Risk File",
               lines: null,
-              fs: 16,
+              fs: 14,
               icon: "risk" as const,
             },
             {
               y: 288,
               label: "Design Control Documentation",
               lines: ["Design Control", "Documentation"],
-              fs: 16,
+              fs: 14,
               icon: "design" as const,
             },
             {
               y: 362,
               label: "Work Instructions",
               lines: ["Work", "Instructions"],
-              fs: 16,
+              fs: 14,
               icon: "training" as const,
             },
           ] as const
@@ -166,14 +166,14 @@ export function PlatformHeroDiagram() {
             <rect
               x="28"
               y={y}
-              width="200"
-              height="64"
+              width="175"
+              height="58"
               rx="8"
               fill="#121c38"
               stroke="rgba(255,255,255,0.12)"
             />
             <g
-              transform={`translate(40 ${y + 19}) scale(1.22)`}
+              transform={`translate(40 ${y + 16}) scale(1.22)`}
               stroke="#19d3c5"
               strokeWidth="1.45"
               fill="none"
@@ -224,24 +224,24 @@ export function PlatformHeroDiagram() {
             </g>
             {lines ? (
               <text
-                x="88"
-                y={y + 32}
+                x="80"
+                y={y + 29}
                 fill="#fff"
                 fontSize={fs}
                 fontWeight="600"
                 dominantBaseline="middle"
               >
-                <tspan x="88" dy="-9">
+                <tspan x="80" dy="-9">
                   {lines[0]}
                 </tspan>
-                <tspan x="88" dy="18">
+                <tspan x="80" dy="18">
                   {lines[1]}
                 </tspan>
               </text>
             ) : (
               <text
-                x="88"
-                y={y + 32}
+                x="80"
+                y={y + 29}
                 fill="#fff"
                 fontSize={fs}
                 fontWeight="600"
@@ -257,14 +257,14 @@ export function PlatformHeroDiagram() {
           <rect
             x="28"
             y="436"
-            width="200"
-            height="64"
+            width="175"
+            height="58"
             rx="8"
             fill="#121c38"
             stroke="rgba(255,255,255,0.12)"
           />
           <g
-            transform="translate(40 455) scale(1.22)"
+            transform="translate(40 452) scale(1.22)"
             stroke="#19d3c5"
             strokeWidth="1.45"
             fill="none"
@@ -277,10 +277,10 @@ export function PlatformHeroDiagram() {
             <path d="M2 10c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2" />
           </g>
           <text
-            x="88"
-            y="468"
+            x="80"
+            y="465"
             fill="#fff"
-            fontSize="16"
+            fontSize="14"
             fontWeight="600"
             dominantBaseline="middle"
           >
@@ -298,17 +298,17 @@ export function PlatformHeroDiagram() {
         >
           {(
             [
-              66 + 32, // SOP
-              140 + 32, // CAPA
-              214 + 32, // Risk File
-              288 + 32, // Design Control
-              362 + 32, // Training
-              436 + 32, // Records
+              66 + 29, // SOP
+              140 + 29, // CAPA
+              214 + 29, // Risk File
+              288 + 29, // Design Control
+              362 + 29, // Training
+              436 + 29, // Records
             ] as const
           ).map((cy) => (
-            <line key={cy} x1="228" y1={cy} x2="246" y2={cy} />
+            <line key={cy} x1="203" y1={cy} x2="221" y2={cy} />
           ))}
-          <line x1="246" y1={66 + 32} x2="246" y2={436 + 32} />
+          <line x1="221" y1={66 + 29} x2="221" y2={436 + 29} />
         </g>
       </g>
 
@@ -325,61 +325,63 @@ export function PlatformHeroDiagram() {
           fill="none"
         />
 
-        {/* Outer circle — screenshot: 6 equal segments, 2 lavender top + 4 teal */}
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 9 }}
-          d="M-99.48 -67.10 A120 120 0 0 1 -8.37 -119.71"
-          stroke="#b8a4e8"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 10 }}
-          d="M8.37 -119.71 A120 120 0 0 1 99.48 -67.10"
-          stroke="#b8a4e8"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 11 }}
-          d="M107.86 -52.60 A120 120 0 0 1 107.86 52.60"
-          stroke="#19d3c5"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 12 }}
-          d="M99.48 67.10 A120 120 0 0 1 8.37 119.71"
-          stroke="#19d3c5"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 13 }}
-          d="M-8.37 119.71 A120 120 0 0 1 -99.48 67.10"
-          stroke="#19d3c5"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
-        <path
-          className="ph-reveal ph-ring"
-          style={{ ["--ph-i" as string]: 14 }}
-          d="M-107.86 52.60 A120 120 0 0 1 -107.86 -52.60"
-          stroke="#19d3c5"
-          strokeWidth="16"
-          strokeLinecap="butt"
-          fill="none"
-        />
+        {/* Outer circle — 6 segments; rotate(-30) = purple block on LEFT */}
+        <g transform="rotate(-30)">
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 9 }}
+            d="M-99.48 -67.10 A120 120 0 0 1 -8.37 -119.71"
+            stroke="#b8a4e8"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 10 }}
+            d="M8.37 -119.71 A120 120 0 0 1 99.48 -67.10"
+            stroke="#b8a4e8"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 11 }}
+            d="M107.86 -52.60 A120 120 0 0 1 107.86 52.60"
+            stroke="#19d3c5"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 12 }}
+            d="M99.48 67.10 A120 120 0 0 1 8.37 119.71"
+            stroke="#19d3c5"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 13 }}
+            d="M-8.37 119.71 A120 120 0 0 1 -99.48 67.10"
+            stroke="#19d3c5"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+          <path
+            className="ph-reveal ph-ring"
+            style={{ ["--ph-i" as string]: 14 }}
+            d="M-107.86 52.60 A120 120 0 0 1 -107.86 -52.60"
+            stroke="#19d3c5"
+            strokeWidth="16"
+            strokeLinecap="butt"
+            fill="none"
+          />
+        </g>
 
         {/* Faint dashed orbit outside (screenshot tech detail) */}
         <circle
@@ -392,51 +394,43 @@ export function PlatformHeroDiagram() {
           fill="none"
         />
 
-        {/* Core disk */}
+        {/* Logo only — outer decorative circle removed */}
         <g className="ph-reveal ph-core" style={{ ["--ph-i" as string]: 16 }}>
-          <circle r="84" fill="#0d1b3e" />
-          <circle
-            r="84"
-            fill="none"
-            stroke="rgba(25,211,197,0.22)"
-            strokeWidth="1.25"
-          />
-          {/* Official Suricat logo mark */}
           <image
             href="/assets/images/suricat-logo-mark-center.svg"
-            x={-50}
-            y={-72}
-            width={100}
-            height={100}
+            x={-48}
+            y={-70}
+            width={96}
+            height={96}
             preserveAspectRatio="xMidYMid meet"
           />
           <text
-            y="46"
+            y="48"
             textAnchor="middle"
             fill="#fff"
-            fontSize="20"
+            fontSize="21"
             fontWeight="800"
             letterSpacing="2"
           >
             SURICAT
           </text>
           <text
-            y="62"
+            y="66"
             textAnchor="middle"
             fill="#19d3c5"
-            fontSize="5.5"
+            fontSize="9"
             fontWeight="700"
-            letterSpacing="1.2"
+            letterSpacing="1.3"
           >
             COMPLIANCE INTELLIGENCE
           </text>
         </g>
 
-        {/* Evidence spine → inner circle (tip on core edge) */}
+        {/* Evidence spine → stop 4px before outer ring (r≈128) */}
         <path
           className="ph-reveal ph-feed"
           style={{ ["--ph-i" as string]: 8.5 }}
-          d="M-310 0H-84"
+          d="M-310 0H-132"
           stroke="rgba(200,210,230,0.65)"
           strokeWidth="1.4"
           strokeDasharray="4 3.5"
@@ -449,7 +443,7 @@ export function PlatformHeroDiagram() {
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
           x="-215"
-          y="-178"
+          y="-198"
           textAnchor="middle"
           fill="#b8a4e8"
           fontSize="18"
@@ -462,8 +456,8 @@ export function PlatformHeroDiagram() {
         <text
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
-          x="258"
-          y="-178"
+          x="232"
+          y="-198"
           textAnchor="middle"
           fill="#19d3c5"
           fontSize="18"
@@ -484,7 +478,7 @@ export function PlatformHeroDiagram() {
               hx: -100,
               hy: -68,
               x: -290,
-              y: -108,
+              y: -128,
               side: "left" as const,
               w: 142,
             },
@@ -496,7 +490,8 @@ export function PlatformHeroDiagram() {
               color: "#b8a4e8",
               hx: 0,
               hy: -120,
-              x: -88,
+              // Card box centered on vertical connector (width 168+12=180 → x=-90)
+              x: -90,
               y: -224,
               side: "top" as const,
               w: 168,
@@ -509,8 +504,8 @@ export function PlatformHeroDiagram() {
               color: "#19d3c5",
               hx: 108,
               hy: -40,
-              x: 172,
-              y: -108,
+              x: 148,
+              y: -128,
               side: "right" as const,
               w: 160,
             },
@@ -522,7 +517,7 @@ export function PlatformHeroDiagram() {
               color: "#19d3c5",
               hx: 108,
               hy: 40,
-              x: 172,
+              x: 148,
               y: 64,
               side: "right" as const,
               w: 148,
@@ -535,7 +530,8 @@ export function PlatformHeroDiagram() {
               color: "#19d3c5",
               hx: 0,
               hy: 120,
-              x: -48,
+              // Card box centered on vertical connector (width 196+12=208 → x=-104)
+              x: -104,
               y: 182,
               side: "bottom" as const,
               w: 196,
@@ -548,8 +544,8 @@ export function PlatformHeroDiagram() {
               color: "#19d3c5",
               hx: -108,
               hy: 48,
-              x: -278,
-              y: 142,
+              x: -268,
+              y: 80,
               side: "left" as const,
               w: 148,
             },
@@ -557,8 +553,15 @@ export function PlatformHeroDiagram() {
         ).map((s, si) => {
           const numCx = s.x + 20;
           const numCy = s.y + (s.titleLines ? 28 : 24);
+          const boxW = s.w + 12;
+          const boxCenterX = s.x + boxW / 2;
           const isRight = s.side === "right";
+          const isTop = s.side === "top";
+          const isBottom = s.side === "bottom";
           const boxH = s.titleLines ? 58 : 48;
+          // Top/bottom cards: keep connector vertical into card center edge
+          const lineX2 = isTop || isBottom ? boxCenterX : numCx;
+          const lineY2 = isTop ? s.y : isBottom ? s.y : numCy;
           return (
             <g
               key={s.num}
@@ -569,8 +572,8 @@ export function PlatformHeroDiagram() {
               <line
                 x1={s.hx}
                 y1={s.hy}
-                x2={numCx}
-                y2={numCy}
+                x2={lineX2}
+                y2={lineY2}
                 stroke={s.color}
                 strokeWidth={isRight ? 1.35 : 1.15}
                 strokeLinecap="round"
@@ -645,19 +648,19 @@ export function PlatformHeroDiagram() {
       <path
         className="ph-reveal ph-out-arrow"
         style={{ ["--ph-i" as string]: 24 }}
-        d="M603 292H838"
+        d="M603 292H822"
         stroke="#19d3c5"
         strokeWidth="2.4"
         fill="none"
         markerEnd="url(#ph-arr-t)"
       />
 
-      {/* Right panel — pushed further right, enlarged */}
-      <g className="ph-right" transform="translate(48 -36) scale(1.2)">
+      {/* Right panel — shifted left */}
+      <g className="ph-right" transform="translate(12 -36) scale(1.2)">
         <text
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 25 }}
-          x="828"
+          x="803"
           y="42"
           textAnchor="middle"
           fill="#19d3c5"
@@ -672,26 +675,43 @@ export function PlatformHeroDiagram() {
           <rect
             x="678"
             y="56"
-            width="300"
-            height="448"
+            width="250"
+            height="468"
             rx="12"
             fill="#121c38"
-            stroke="rgba(25,211,197,0.3)"
-            strokeWidth="1.4"
+            stroke="rgba(25,211,197,0.45)"
+            strokeWidth="1.6"
           />
 
-          <g transform="translate(698 78)">
-            <ellipse
-              cx="10"
-              cy="7"
-              rx="11"
-              ry="7"
-              stroke="#19d3c5"
-              strokeWidth="1.5"
-              fill="none"
+          <g transform="translate(698 76)">
+            {/* Light teal badge + smaller outlined eye */}
+            <rect
+              x="0"
+              y="0"
+              width="18"
+              height="18"
+              rx="5"
+              fill="rgba(25, 211, 197, 0.22)"
             />
-            <circle cx="10" cy="7" r="2.8" fill="#19d3c5" />
-            <text x="28" y="11" fill="#fff" fontSize="13.5" fontWeight="700">
+            <g transform="translate(9 9) scale(0.72)">
+              <path
+                d="M-8.5 0C-6.2 -3.8 -3.4 -5.8 0 -5.8S6.2 -3.8 8.5 0C6.2 3.8 3.4 5.8 0 5.8S-6.2 3.8 -8.5 0z"
+                stroke="#19d3c5"
+                strokeWidth="1.7"
+                fill="none"
+                strokeLinejoin="round"
+              />
+              <circle
+                cx="0"
+                cy="0"
+                r="3.1"
+                stroke="#19d3c5"
+                strokeWidth="1.55"
+                fill="none"
+              />
+              <circle cx="0" cy="0" r="1.35" fill="#19d3c5" stroke="none" />
+            </g>
+            <text x="26" y="13" fill="#fff" fontSize="13.5" fontWeight="700">
               What Needs Attention
             </text>
           </g>
@@ -700,22 +720,22 @@ export function PlatformHeroDiagram() {
         {(
           [
             {
-              y: 106,
+              y: 104,
               title: "Document Quality",
               issue: "Potential quality issue",
             },
             {
-              y: 192,
+              y: 190,
               title: "Potential Gaps",
               issue: "Missing or insufficient",
             },
             {
-              y: 278,
+              y: 276,
               title: "Relationships",
               issue: "Potential misalignment",
             },
             {
-              y: 364,
+              y: 362,
               title: "Records",
               issue: "Potential discrepancy",
             },
@@ -729,25 +749,25 @@ export function PlatformHeroDiagram() {
             <rect
               x="696"
               y={y}
-              width="264"
-              height="78"
+              width="220"
+              height="74"
               rx="8"
               fill="#0a1530"
               stroke="rgba(255,255,255,0.08)"
             />
             <text
               x="712"
-              y={y + 24}
+              y={y + 22}
               fill="#fff"
-              fontSize="14.5"
+              fontSize="14"
               fontWeight="700"
             >
               {title}
             </text>
-            <circle cx="718" cy={y + 42} r="3.2" fill="#ff6b35" />
+            <circle cx="718" cy={y + 40} r="3.2" fill="#ff6b35" />
             <text
               x="728"
-              y={y + 46}
+              y={y + 44}
               fill="#fff"
               fontSize="13"
             >
@@ -755,7 +775,7 @@ export function PlatformHeroDiagram() {
             </text>
             <text
               x="712"
-              y={y + 64}
+              y={y + 60}
               fill="#19d3c5"
               fontSize="12.5"
               fontWeight="600"
@@ -768,21 +788,34 @@ export function PlatformHeroDiagram() {
         <g className="ph-reveal" style={{ ["--ph-i" as string]: 30 }}>
           <rect
             x="696"
-            y="452"
-            width="264"
-            height="40"
+            y="448"
+            width="220"
+            height="52"
             rx="8"
             fill="none"
             stroke="#19d3c5"
             strokeWidth="1.5"
           />
-          <g transform="translate(714 462)" fill="#19d3c5">
+          {/* Vertically centered icon + copy inside the outline box */}
+          <g transform="translate(714 465)" fill="#19d3c5">
             <circle cx="5" cy="7" r="4" />
             <circle cx="14" cy="7" r="4" />
             <path d="M0 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5M9 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5" />
           </g>
-          <text x="742" y="477" fill="#19d3c5" fontSize="14" fontWeight="800">
-            QA and RA teams verify and decide.
+          <text
+            x="742"
+            y="470"
+            fill="#19d3c5"
+            fontSize="14"
+            fontWeight="800"
+            letterSpacing="1.4"
+          >
+            <tspan x="742" dy="0">
+              QA and RA teams
+            </tspan>
+            <tspan x="742" dy="15">
+              verify and decide.
+            </tspan>
           </text>
         </g>
       </g>
