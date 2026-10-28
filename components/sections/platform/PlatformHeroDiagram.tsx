@@ -111,7 +111,7 @@ export function PlatformHeroDiagram() {
           x="128"
           y="48"
           textAnchor="middle"
-          fill="#fff"
+          fill="#b8a4e8"
           fontSize="14"
           fontWeight="700"
           letterSpacing="1.8"
@@ -151,8 +151,8 @@ export function PlatformHeroDiagram() {
             },
             {
               y: 362,
-              label: "Training Document",
-              lines: ["Training", "Document"],
+              label: "Work Instructions",
+              lines: ["Work", "Instructions"],
               fs: 16,
               icon: "training" as const,
             },
@@ -444,28 +444,30 @@ export function PlatformHeroDiagram() {
           markerEnd="url(#ph-arr-w)"
         />
 
+        {/* Left column label — above What applies / What actually happened */}
         <text
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
-          x="52"
-          y="-148"
+          x="-215"
+          y="-178"
           textAnchor="middle"
-          fill="rgba(255,255,255,0.7)"
-          fontSize="9"
-          fontWeight="700"
+          fill="#b8a4e8"
+          fontSize="18"
+          fontWeight="800"
           letterSpacing="2.6"
         >
           FOUNDATION
         </text>
+        {/* Right column label — above How good it is / What is missing */}
         <text
           className="ph-reveal"
           style={{ ["--ph-i" as string]: 17 }}
-          x="52"
-          y="162"
+          x="258"
+          y="-178"
           textAnchor="middle"
-          fill="rgba(255,255,255,0.7)"
-          fontSize="9"
-          fontWeight="700"
+          fill="#19d3c5"
+          fontSize="18"
+          fontWeight="800"
           letterSpacing="2.6"
         >
           INTELLIGENCE
@@ -764,13 +766,22 @@ export function PlatformHeroDiagram() {
         ))}
 
         <g className="ph-reveal" style={{ ["--ph-i" as string]: 30 }}>
-          <rect x="696" y="452" width="264" height="40" rx="8" fill="#19d3c5" />
-          <g transform="translate(714 462)" fill="#0d1b3e">
+          <rect
+            x="696"
+            y="452"
+            width="264"
+            height="40"
+            rx="8"
+            fill="none"
+            stroke="#19d3c5"
+            strokeWidth="1.5"
+          />
+          <g transform="translate(714 462)" fill="#19d3c5">
             <circle cx="5" cy="7" r="4" />
             <circle cx="14" cy="7" r="4" />
             <path d="M0 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5M9 18c.3-3.2 2.4-5 5-5s4.7 1.8 5 5" />
           </g>
-          <text x="742" y="477" fill="#0d1b3e" fontSize="12" fontWeight="800">
+          <text x="742" y="477" fill="#19d3c5" fontSize="14" fontWeight="800">
             QA and RA teams verify and decide.
           </text>
         </g>

@@ -25,15 +25,15 @@ export function PlatformPageContent() {
       <header className="bg-navy text-white relative overflow-x-clip overflow-y-visible py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center">
         <Container className="relative z-10 flex items-center">
           <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
-            <div className="flex min-w-0 flex-col justify-center lg:col-span-4">
+            <div className="platform-hero-copy flex min-w-0 flex-col justify-center lg:col-span-4">
               <h1 className="mb-3 text-3xl font-bold leading-tight tracking-tight md:text-[1.75rem] lg:mb-4 lg:text-[36px] lg:leading-[44px]">
                 {t("heroTitleBefore")}{" "}
                 <span className="text-teal">{t("heroTitleAccent")}</span>
               </h1>
-              <p className="mb-3 text-[16px] font-normal leading-relaxed text-gray-100 lg:leading-[26px]">
+              <p className="mb-3 text-[18px] font-normal leading-relaxed text-gray-100 lg:leading-[26px]">
                 {t("heroLead")}
               </p>
-              <p className="mb-8 text-[20px] font-normal leading-relaxed text-gray-100 lg:mb-10 lg:leading-[30px]">
+              <p className="platform-hero-body mb-8 lg:mb-10">
                 {t("heroBody")}
               </p>
 
