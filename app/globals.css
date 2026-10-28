@@ -3747,7 +3747,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-reg-universe-title {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 700;
   color: #0d1b3e;
 }
@@ -3799,8 +3799,8 @@ input[type="radio"]:checked + span {
   background: #fff;
   border: 1.5px solid rgba(92, 61, 143, 0.35);
   box-shadow: 0 4px 14px rgba(92, 61, 143, 0.1);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -3968,7 +3968,7 @@ input[type="radio"]:checked + span {
 
 .platform-reg-applies-card-detail {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 12px;
   color: #0d1b3e;
   line-height: 1.35;
 }
@@ -4112,8 +4112,8 @@ input[type="radio"]:checked + span {
 }
 
 .platform-doc-file-name {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   white-space: nowrap;
   overflow: hidden;
@@ -4154,8 +4154,8 @@ input[type="radio"]:checked + span {
   background: #fff;
   border: 1.5px solid rgba(92, 61, 143, 0.35);
   box-shadow: 0 4px 14px rgba(92, 61, 143, 0.1);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -4187,8 +4187,8 @@ input[type="radio"]:checked + span {
 }
 
 .platform-doc-step-text {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
 }
 
@@ -4305,8 +4305,8 @@ input[type="radio"]:checked + span {
 }
 
 .platform-doc-type-name {
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.2;
 }
@@ -4319,7 +4319,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-doc-type-role {
-  font-size: 0.84rem;
+  font-size: 12px;
   color: #0d1b3e;
   line-height: 1.3;
   margin-left: -1.1rem;
@@ -4923,7 +4923,7 @@ input[type="radio"]:checked + span {
 .platform-q-status {
   display: inline-flex;
   align-items: center;
-  font-size: 0.84rem;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.3;
   color: #0d1b3e;
@@ -5333,6 +5333,10 @@ input[type="radio"]:checked + span {
   letter-spacing: 0.04em;
 }
 
+.platform-rec-diagram .platform-gap-from {
+  font-size: 12px;
+}
+
 .platform-gap-req-list {
   list-style: none;
   margin: 0;
@@ -5347,13 +5351,13 @@ input[type="radio"]:checked + span {
   border-radius: 10px;
   background: #f3eef8;
   padding: 0.55rem 0.75rem 0.55rem 1.35rem;
-  font-size: 0.84rem;
+  font-size: 14px;
   line-height: 1.35;
   color: #0d1b3e;
 }
 
 .platform-gap-req-list li strong {
-  font-weight: 800;
+  font-weight: 700;
   color: #0d1b3e;
 }
 
@@ -5412,14 +5416,14 @@ input[type="radio"]:checked + span {
 }
 
 .platform-gap-docs-stack-text strong {
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.25;
 }
 
 .platform-gap-docs-stack-text span {
-  font-size: 0.84rem;
+  font-size: 14px;
   font-weight: 500;
   color: #0d1b3e;
   line-height: 1.3;
@@ -5472,15 +5476,15 @@ input[type="radio"]:checked + span {
 }
 
 .platform-gap-cov-title {
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.3;
 }
 
 .platform-gap-cov-detail {
   margin: 0.45rem 0 0;
-  font-size: 0.84rem;
+  font-size: 14px;
   font-weight: 500;
   color: #0d1b3e;
   line-height: 1.4;
@@ -5601,14 +5605,18 @@ input[type="radio"]:checked + span {
   color: #5c3d8f;
 }
 
-/* Identified Documents + Alignment card copy → navy */
+/* Identified Documents + Alignment card copy → navy, 14px */
 .platform-cross-diagram .platform-q-doc-meta strong,
 .platform-cross-diagram .platform-q-doc-meta small,
-.platform-cross-diagram .platform-cross-block-title,
 .platform-cross-diagram .platform-cross-card-id,
 .platform-cross-diagram .platform-cross-card-meta,
 .platform-cross-diagram .platform-cross-card-kind,
 .platform-cross-diagram .platform-cross-card-claim {
+  color: #0d1b3e;
+  font-size: 14px;
+}
+
+.platform-cross-diagram .platform-cross-block-title {
   color: #0d1b3e;
 }
 
@@ -5778,21 +5786,21 @@ input[type="radio"]:checked + span {
 }
 
 .platform-cross-card-id {
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.25;
 }
 
 .platform-cross-card-meta {
-  font-size: 0.82rem;
+  font-size: 14px;
   font-weight: 500;
   color: #0d1b3e;
   line-height: 1.25;
 }
 
 .platform-cross-card-kind {
-  font-size: 0.72rem;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -5802,8 +5810,8 @@ input[type="radio"]:checked + span {
 
 .platform-cross-card-claim {
   margin: 0.1rem 0 0;
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.3;
 }
@@ -6011,14 +6019,14 @@ input[type="radio"]:checked + span {
 }
 
 .platform-rec-expected-text strong {
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.25;
 }
 
 .platform-rec-expected-text small {
-  font-size: 0.76rem;
+  font-size: 14px;
   font-weight: 500;
   color: #6b7280;
   line-height: 1.25;
@@ -6084,8 +6092,8 @@ input[type="radio"]:checked + span {
 }
 
 .platform-rec-actual-result {
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #0d1b3e;
   line-height: 1.3;
 }
@@ -6439,8 +6447,8 @@ input[type="radio"]:checked + span {
 
 .platform-closing-step h3 {
   margin: 0;
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #0d1b3e;
@@ -6450,10 +6458,10 @@ input[type="radio"]:checked + span {
 .platform-closing-step p {
   margin: 0;
   flex: 1;
-  font-size: 0.86rem;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
-  color: #475569;
+  color: #0d1b3e;
 }
 
 /* SVG Bezier fan: cards → hub (screenshot match) */
@@ -6568,7 +6576,7 @@ input[type="radio"]:checked + span {
   gap: 0.45rem;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  font-size: 0.84rem;
+  font-size: 14px;
   font-weight: 700;
   color: #0d1b3e;
 }
@@ -6597,12 +6605,15 @@ input[type="radio"]:checked + span {
 }
 
 .platform-closing-body {
-  margin: 1.65rem auto 0;
-  max-width: 46rem;
+  margin: 1.65rem 0 0;
+  max-width: none;
+  width: 100%;
   text-align: center;
-  font-size: 1.02rem;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 1.7;
-  color: #64748b;
+  color: #0d1b3e;
+  white-space: pre-line;
 }
 
 .platform-closing-cta {
