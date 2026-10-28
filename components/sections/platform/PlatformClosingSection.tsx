@@ -193,12 +193,14 @@ export function PlatformClosingSection() {
     <section className="platform-closing">
       <Container>
         <div className="platform-closing-head">
+          <p className="platform-reg-eyebrow">{t("closeEyebrow")}</p>
           <h2 className="platform-closing-title">
             <span className="platform-closing-title-lead">
               {t("closeTitleLine1")}
             </span>{" "}
             <span className="text-teal">{t("closeTitleLine2")}</span>
           </h2>
+          <p className="platform-closing-body">{t("closeBody")}</p>
         </div>
 
         <div className="platform-closing-flow" ref={flowRef}>
@@ -330,8 +332,6 @@ export function PlatformClosingSection() {
             <span>{tc("process.humanDecision")}</span>
           </div>
         </div>
-
-        <p className="platform-closing-body">{t("closeBody")}</p>
 
         <div className="platform-closing-cta">
           <h3 className="platform-closing-cta-title">{tc("readyTitle")}</h3>
