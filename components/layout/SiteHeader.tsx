@@ -149,7 +149,7 @@ export function SiteHeader() {
               onClick={closeMobile}
             >
               <Image
-                src="/assets/images/suricat-logo-header.png"
+                src="/assets/images/suricat-logo-header.svg"
                 alt={t("common.suricatAlt")}
                 id="ig8vb"
                 width={300}
@@ -296,7 +296,7 @@ export function SiteHeader() {
       >
         <div className="mobile-menu-header p-4 border-b border-gray-200 flex items-center justify-between">
           <Image
-            src="/assets/images/suricat-logo-header.png"
+            src="/assets/images/suricat-logo-header.svg"
             alt={t("common.suricatAlt")}
             width={300}
             height={66}

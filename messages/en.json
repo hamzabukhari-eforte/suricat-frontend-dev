@@ -2527,12 +2527,12 @@
     "heroBody": "Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.",
     "pathEyebrow": "How Suricat Works",
     "pathTitle": "Six steps from what applies to what actually happened.",
-    "closeTitle": "Know What Needs Attention. Before It Becomes a Finding.",
-    "closeBody": "Suricat brings regulatory context, document understanding, quality, gaps, relationships, and records together so QA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.",
+    "closeTitle": "Six Steps. One Clear View of What Needs Attention.",
+    "closeBody": "Suricat follows the same review path a careful QA or RA reviewer would, from what applies to what actually happened. QA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.",
     "steps": {
       "regulatory": {
-        "short": "Regulatory Context",
-        "phase": "Foundation · Regulatory Context",
+        "short": "Organizational Context",
+        "phase": "Foundation · Organizational Context",
         "title": "Know What Applies.",
         "lead": "Compliance documentation can only be evaluated against the requirements it needs to support.",
         "body": "Suricat establishes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.",
@@ -2563,7 +2563,7 @@
         "close": "QA and RA teams verify each potential gap and decide what to do."
       },
       "cross": {
-        "short": "Cross-Document",
+        "short": "Cross Document Intelligence",
         "phase": "Intelligence · Cross Document Intelligence",
         "title": "See Where Related Documents Stop Lining Up.",
         "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while related risk documentation still reflects the old condition.",
@@ -2632,8 +2632,8 @@
         }
       }
     },
-    "closeTitleLine1": "Know What Needs Attention.",
-    "closeTitleLine2": "Before It Becomes a Finding.",
+    "closeTitleLine1": "Six Steps. One Clear View of",
+    "closeTitleLine2": "What Needs Attention.",
     "qualityDiagram": {
       "leftLabel": "Identified Documents",
       "rightLabel": "Document Readiness",

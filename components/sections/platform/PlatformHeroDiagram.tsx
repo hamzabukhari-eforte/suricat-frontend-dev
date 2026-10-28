@@ -101,6 +101,24 @@ export function PlatformHeroDiagram() {
             strokeLinejoin="round"
           />
         </marker>
+        <marker
+          id="ph-arr-p"
+          markerWidth="12"
+          markerHeight="12"
+          refX="10"
+          refY="6"
+          orient="auto"
+          markerUnits="userSpaceOnUse"
+        >
+          <path
+            d="M1.5 1.5L10 6L1.5 10.5"
+            fill="none"
+            stroke="#b8a4e8"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </marker>
       </defs>
 
       {/* Left: Compliance Evidence — pushed left, enlarged */}
@@ -174,7 +192,7 @@ export function PlatformHeroDiagram() {
             />
             <g
               transform={`translate(40 ${y + 16}) scale(1.22)`}
-              stroke="#19d3c5"
+              stroke="#b8a4e8"
               strokeWidth="1.45"
               fill="none"
               strokeLinecap="round"
@@ -202,7 +220,7 @@ export function PlatformHeroDiagram() {
                   {/* Warning triangle — Risk */}
                   <path d="M10 2.5L18.5 17.5H1.5L10 2.5z" />
                   <path d="M10 8v4.5" />
-                  <circle cx="10" cy="15.2" r="0.9" fill="#19d3c5" stroke="none" />
+                  <circle cx="10" cy="15.2" r="0.9" fill="#b8a4e8" stroke="none" />
                 </>
               )}
               {icon === "design" && (
@@ -265,7 +283,7 @@ export function PlatformHeroDiagram() {
           />
           <g
             transform="translate(40 452) scale(1.22)"
-            stroke="#19d3c5"
+            stroke="#b8a4e8"
             strokeWidth="1.45"
             fill="none"
             strokeLinecap="round"
@@ -288,28 +306,25 @@ export function PlatformHeroDiagram() {
           </text>
         </g>
 
-        {/* Many-to-one: stub from each pill → vertical spine → dashed to hub */}
-        <g
+        {/* Many-to-one: stubs + vertical spine as one path (no junction gaps) */}
+        <path
           className="ph-reveal ph-spine"
           style={{ ["--ph-i" as string]: 7 }}
-          stroke="rgba(200,210,230,0.55)"
+          d={[
+            // vertical spine
+            `M221 ${66 + 29}V${436 + 29}`,
+            // stubs: gap after box (203), stop at spine (no overshoot)
+            ...([66, 140, 214, 288, 362, 436] as const).map(
+              (y) => `M206 ${y + 29}H220.5`,
+            ),
+          ].join("")}
+          stroke="#b8a4e8"
           strokeWidth="1.25"
           fill="none"
-        >
-          {(
-            [
-              66 + 29, // SOP
-              140 + 29, // CAPA
-              214 + 29, // Risk File
-              288 + 29, // Design Control
-              362 + 29, // Training
-              436 + 29, // Records
-            ] as const
-          ).map((cy) => (
-            <line key={cy} x1="203" y1={cy} x2="221" y2={cy} />
-          ))}
-          <line x1="221" y1={66 + 29} x2="221" y2={436 + 29} />
-        </g>
+          opacity="0.85"
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+        />
       </g>
 
       {/* Center hub — professional donut / pie ring */}
@@ -383,17 +398,6 @@ export function PlatformHeroDiagram() {
           />
         </g>
 
-        {/* Faint dashed orbit outside (screenshot tech detail) */}
-        <circle
-          className="ph-reveal ph-orbit"
-          style={{ ["--ph-i" as string]: 15 }}
-          r="138"
-          stroke="rgba(255,255,255,0.2)"
-          strokeWidth="1"
-          strokeDasharray="2 4"
-          fill="none"
-        />
-
         {/* Logo only — outer decorative circle removed */}
         <g className="ph-reveal ph-core" style={{ ["--ph-i" as string]: 16 }}>
           <image
@@ -405,7 +409,7 @@ export function PlatformHeroDiagram() {
             preserveAspectRatio="xMidYMid meet"
           />
           <text
-            y="48"
+            y="52"
             textAnchor="middle"
             fill="#fff"
             fontSize="21"
@@ -415,7 +419,7 @@ export function PlatformHeroDiagram() {
             SURICAT
           </text>
           <text
-            y="66"
+            y="70"
             textAnchor="middle"
             fill="#19d3c5"
             fontSize="9"
@@ -430,12 +434,12 @@ export function PlatformHeroDiagram() {
         <path
           className="ph-reveal ph-feed"
           style={{ ["--ph-i" as string]: 8.5 }}
-          d="M-310 0H-132"
-          stroke="rgba(200,210,230,0.65)"
+          d="M-317 0H-132"
+          stroke="#b8a4e8"
           strokeWidth="1.4"
-          strokeDasharray="4 3.5"
           fill="none"
-          markerEnd="url(#ph-arr-w)"
+          opacity="0.9"
+          markerEnd="url(#ph-arr-p)"
         />
 
         {/* Left column label — above What applies / What actually happened */}
@@ -473,7 +477,7 @@ export function PlatformHeroDiagram() {
               num: "01",
               title: "What applies",
               titleLines: null as string[] | null,
-              sub: "REGULATORY CONTEXT",
+              sub: "ORGANIZATIONAL CONTEXT",
               color: "#b8a4e8",
               hx: -100,
               hy: -68,
@@ -585,7 +589,7 @@ export function PlatformHeroDiagram() {
                 y={s.y}
                 width={s.w + 12}
                 height={boxH}
-                rx="10"
+                rx="8"
                 fill="#121c38"
                 stroke={
                   isRight ? "rgba(25,211,197,0.22)" : `${s.color}55`
@@ -677,7 +681,7 @@ export function PlatformHeroDiagram() {
             y="56"
             width="250"
             height="468"
-            rx="12"
+            rx="8"
             fill="#121c38"
             stroke="rgba(25,211,197,0.45)"
             strokeWidth="1.6"
@@ -813,7 +817,7 @@ export function PlatformHeroDiagram() {
             <tspan x="742" dy="0">
               QA and RA teams
             </tspan>
-            <tspan x="742" dy="15">
+            <tspan x="742" dy="17">
               verify and decide.
             </tspan>
           </text>
