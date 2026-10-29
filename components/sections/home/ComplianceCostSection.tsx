@@ -31,7 +31,7 @@ export function ComplianceCostSection() {
 
   return (
     <section id="compliance-cost-section">
-      <div className="cc-cost-band bg-surface-muted pt-12 pb-4 lg:pb-6">
+      <div className="cc-cost-band bg-surface-muted pt-24 pb-8 lg:pb-12">
         <Container>
           <div className="mb-8 lg:mb-10">
             <span className="mb-4 block text-[16px] font-bold uppercase tracking-widest text-teal">

@@ -10,7 +10,7 @@ export function WhySuricatSection() {
   const t = useTranslations("home.why");
 
   return (
-    <section id="why-suricat" className="why-suricat-section pt-12 pb-10">
+    <section id="why-suricat" className="why-suricat-section pt-24 pb-8 lg:pb-12">
       <Container>
         <div className="why-suricat-layout">
           <div className="why-suricat-copy">

@@ -9,7 +9,8 @@ import { usePathname } from "next/navigation";
  *
  * - Every <section> in <main> gets `.section-transition`.
  * - Every top-level card / panel / article gets `.reveal-transition`.
- * - `.is-visible` is added on intersect (threshold 0.15), then unobserved.
+ * - `.is-visible` is added when the target enters the upper ~2/3 of the
+ *   viewport (rootMargin bottom -33% ≈ 1/3 page height), then unobserved.
  *
  * Nested card elements (e.g. `.compliance-cost-card-header` inside
  * `.compliance-cost-card`) are skipped so only the outermost card animates,
@@ -89,7 +90,8 @@ export function MarketingReveal() {
           }
         }
       },
-      { threshold: 0.15 },
+      // Reveal once section has entered ~1/3 into the viewport (not at first touch)
+      { threshold: 0.05, rootMargin: "0px 0px -33% 0px" },
     );
 
     // Wait a frame so layout/paint settles after a route change.

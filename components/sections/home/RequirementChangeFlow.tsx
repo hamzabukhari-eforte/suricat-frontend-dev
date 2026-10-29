@@ -17,7 +17,11 @@ export function RequirementChangeFlow() {
     const stage = stageRef.current;
     if (!root || !stage) return;
 
+    let hasPlayed = false;
+
     const play = () => {
+      if (hasPlayed) return;
+      hasPlayed = true;
       stage.classList.remove("is-rcf-play");
       void stage.offsetWidth;
       stage.classList.add("is-rcf-play");
@@ -37,7 +41,7 @@ export function RequirementChangeFlow() {
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) play();
-        else stage.classList.remove("is-rcf-play");
+        // Keep finished state on scroll-away — do not remove / restart
       },
       { threshold: 0.28 },
     );

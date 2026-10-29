@@ -275,7 +275,7 @@ export function ExistingSystemsSection() {
   const t = useTranslations("home.existingSystems");
 
   return (
-    <section id="existing-systems" className="bg-white pt-8 pb-6">
+    <section id="existing-systems" className="bg-white pt-24 pb-12">
       <Container>
         <HomeNarrativeHeader eyebrow={t("sectionTitle")} title={t("headline")}>
           <HomeNarrativeText fullWidth>{t("p1")}</HomeNarrativeText>

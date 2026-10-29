@@ -8142,8 +8142,15 @@ a.solution-nav-pill,
 /* Why This Matters Now — 3-card section */
 .wtmn-section {
   background: #fff;
-  padding: 3rem 0 3.5rem;
+  /* Bottom matches Cost of Misalignment (pb-8 / lg:pb-12) */
+  padding: 6rem 0 2rem;
   scroll-margin-top: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .wtmn-section {
+    padding-bottom: 3rem;
+  }
 }
 
 .wtmn-header {

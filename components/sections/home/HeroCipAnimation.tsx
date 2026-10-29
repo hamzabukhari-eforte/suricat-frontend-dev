@@ -10,14 +10,14 @@ import {
   type ReactNode,
 } from "react";
 
-/* Faster tour; still enough hold to read card text */
-const POP_STEP_MS = 1200;
-const STUB_STEP_MS = 220;
-const BUS_STEP_MS = 260;
-const CONN_STEP_MS = 480;
-const TOUR_START_MS = 200;
-const TRUST_START_MS = 180;
-const TRUST_STAGGER_MS = 420;
+/* ~7s tour — cards + connectors + start delay */
+const POP_STEP_MS = 550;
+const STUB_STEP_MS = 105;
+const BUS_STEP_MS = 120;
+const CONN_STEP_MS = 205;
+const TOUR_START_MS = 70;
+const TRUST_START_MS = 130;
+const TRUST_STAGGER_MS = 185;
 const TRUST_ITEM_COUNT = 4;
 
 type CipGlow = "teal" | "violet" | "orange";
@@ -288,12 +288,16 @@ export function HeroCipAnimation() {
     resumeHold();
   };
 
-  // Replay full sequence whenever the diagram re-enters the viewport
+  // Play once when first in view — never restart / re-pop boxes on scroll-up
   useEffect(() => {
     const el = rootRef.current;
     if (!el || typeof window === "undefined") return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const snapComplete = () => {
+      clearTourTimeout();
+      clearTrustTimeout();
+      isPausedRef.current = false;
+      setIsPaused(false);
       setForcedVisible(new Set(TOUR_CARDS.map((card) => card.id)));
       setDrawnConns(new Set(ALL_CONN_IDS));
       setCardsComplete(true);
@@ -301,6 +305,11 @@ export function HeroCipAnimation() {
       setTrustCount(TRUST_ITEM_COUNT);
       trustCountRef.current = TRUST_ITEM_COUNT;
       setTourActive(false);
+      runTourStepRef.current = null;
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      snapComplete();
       return;
     }
 
@@ -309,17 +318,22 @@ export function HeroCipAnimation() {
       return;
     }
 
+    let hasPlayed = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) {
+          if (hasPlayed) return;
+          hasPlayed = true;
           resetTour();
           setPlayKey((k) => k + 1);
           requestAnimationFrame(() => {
             setTourActive(true);
           });
-        } else {
-          resetTour();
+        } else if (hasPlayed && !cardsCompleteRef.current) {
+          // Left mid-tour: freeze at finished state so scroll-back never re-pops
+          snapComplete();
         }
       },
       { threshold: 0.28 },
@@ -903,7 +917,7 @@ export function HeroCipAnimation() {
           />
           <g transform="translate(700 359)">
             <image
-              href="/assets/images/suricat-logo-mark-center.svg"
+              href="/assets/images/SuriCat-Logo-Mark-White-23-Sept-2026-05.svg"
               x={-58}
               y={-102}
               width={116}
