@@ -120,13 +120,14 @@ export function PlatformRegulatoryDiagram() {
             </div>
             <span className="platform-reg-pill-connector" aria-hidden="true" />
 
+            {/* Stubs + spine only (fixed). Feed to hub is HTML so it always reaches. */}
             <svg
               className="platform-reg-curves"
-              viewBox="0 0 160 280"
+              viewBox="0 0 32 280"
               fill="none"
+              preserveAspectRatio="xMinYMid meet"
               aria-hidden="true"
             >
-              {/* Stub from each card vertical center → spine */}
               <path
                 d="M0 22H30"
                 stroke="#5C3D8F"
@@ -145,21 +146,15 @@ export function PlatformRegulatoryDiagram() {
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              {/* Vertical spine */}
               <path
                 d="M30 22V258"
                 stroke="#5C3D8F"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              {/* Solid line from spine mid → circle (no arrowhead) */}
-              <path
-                d="M30 140H160"
-                stroke="#5C3D8F"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
             </svg>
+            {/* Spine mid → circle — stretches at every resolution */}
+            <span className="platform-reg-in-line" aria-hidden="true" />
 
             <div className="platform-reg-hub-orbit" aria-hidden="true" />
             <div className="platform-reg-hub">

@@ -3843,6 +3843,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-reg-curves,
+.platform-reg-in-line,
 .platform-reg-out-arrow {
   display: none;
 }
@@ -4573,6 +4574,13 @@ input[type="radio"]:checked + span {
     align-items: center;
   }
 
+  .platform-reg-universe {
+    width: 400px;
+    min-width: 400px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .platform-reg-center {
     align-items: center;
     width: 100%;
@@ -4590,18 +4598,30 @@ input[type="radio"]:checked + span {
     height: 1.5rem;
   }
 
+  /* Stubs + vertical spine — fixed width, no horizontal stretch */
   .platform-reg-curves {
     display: block;
     position: absolute;
-    /* Align with hub center (wrap has top padding for the pill) */
     left: 0;
+    top: calc(50% + 1.4rem);
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 17.5rem;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Spine → circle left edge — grows/shrinks with viewport */
+  .platform-reg-in-line {
+    display: block;
+    position: absolute;
+    left: 1.875rem; /* spine x ≈ 30px */
     right: calc(50% + 5.95rem); /* hub radius ≈ 95px */
     top: calc(50% + 1.4rem);
     transform: translateY(-50%);
-    width: auto;
-    min-width: 4.5rem;
-    height: 17.5rem;
-    overflow: visible;
+    height: 2px;
+    background: #5c3d8f;
     pointer-events: none;
     z-index: 2;
   }
