@@ -7335,7 +7335,7 @@ a.solution-nav-pill,
   max-width: 100%;
 }
 
-/* Sequential pop: card stays hidden until its turn, then soft float-in */
+/* Sequential pop via transition (not keyframes — keyframes restart on scroll-up) */
 .hero-cip-anim-card {
   --cip-glow: rgba(25, 211, 197, 0.75);
   cursor: default;
@@ -7344,6 +7344,9 @@ a.solution-nav-pill,
   transform-origin: center;
   transform: scale(0.94);
   pointer-events: none;
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-cip-glow-teal {
@@ -7377,6 +7380,7 @@ a.solution-nav-pill,
 .hero-cip-card-icon ellipse[stroke]:not([stroke="none"]) {
   stroke-dasharray: 120;
   stroke-dashoffset: 120;
+  transition: stroke-dashoffset 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-cip-card-icon path[fill]:not([fill="none"]),
@@ -7384,13 +7388,15 @@ a.solution-nav-pill,
 .hero-cip-card-icon circle[fill]:not([fill="none"]),
 .hero-cip-card-icon ellipse[fill]:not([fill="none"]) {
   opacity: 0;
+  transition: opacity 0.45s ease;
 }
 
-/* Reveal: soft float-in (no hard overshoot / jolt) */
+/* Reveal: soft float-in (transition stays put on scroll-up) */
 .hero-cip-anim-card.is-forced-visible {
   pointer-events: auto;
   cursor: default;
-  animation: hero-cip-card-pop 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
+  transform: none;
 }
 
 .hero-cip.is-paused .hero-cip-anim-card.is-forced-visible {
@@ -7398,7 +7404,29 @@ a.solution-nav-pill,
 }
 
 .hero-cip-anim-card.is-forced-visible .hero-cip-card-border {
-  animation: hero-cip-border-glow 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.hero-cip.is-tour-done .hero-cip-anim-card.is-forced-visible,
+.hero-cip.is-tour-done .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon path,
+.hero-cip.is-tour-done .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon rect,
+.hero-cip.is-tour-done .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon circle,
+.hero-cip.is-tour-done .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon ellipse {
+  transition: none;
+}
+
+.hero-cip.is-tour-done .hero-cip-conn.is-drawn {
+  transition: none;
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+
+.hero-cip.is-tour-done .hero-cip-trust-item.is-in,
+.hero-cip.is-tour-done .hero-cip-trust-line.is-in,
+.hero-cip.is-tour-done .hero-cip-trust-sep.is-in {
+  transition: none;
+  opacity: 1;
+  transform: none;
 }
 
 .hero-cip-anim-card.is-forced-visible .hero-cip-card-icon path[stroke]:not([stroke="none"]),
@@ -7427,25 +7455,25 @@ a.solution-nav-pill,
   visibility: visible;
 }
 
-/* Trust footer — card-like soft pop, one-by-one (inner g only; outer keeps SVG translate) */
+/* Trust footer — soft fade via transition (no keyframe replay on scroll-up) */
 .hero-cip-trust-item,
 .hero-cip-trust-line,
 .hero-cip-trust-sep {
   opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-cip-trust-item.is-in {
   transform-box: fill-box;
   transform-origin: center center;
-  animation: hero-cip-trust-pop 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
+  transform: none;
 }
 
-.hero-cip-trust-line.is-in {
-  animation: hero-cip-trust-fade-line 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
+.hero-cip-trust-line.is-in,
 .hero-cip-trust-sep.is-in {
-  animation: hero-cip-trust-fade-sep 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
 }
 
 @keyframes hero-cip-trust-pop {
@@ -7696,17 +7724,20 @@ a.solution-nav-pill,
   }
 }
 
-/* Smooth connector draw (pathLength=1) */
+/* Smooth connector draw (pathLength=1) — transition, not keyframes */
 .hero-cip-conn {
   opacity: 0;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   pointer-events: none;
+  transition:
+    stroke-dashoffset 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.2s ease;
 }
 
 .hero-cip-conn.is-drawn {
   opacity: 1;
-  animation: hero-cip-conn-draw 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  stroke-dashoffset: 0;
 }
 
 @keyframes hero-cip-conn-draw {

@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
+/** Survives remounts — platform hero must never replay on scroll-up */
+let platformHeroHasPlayed = false;
+
 /** Vector SVG recreation of the Platform hero screenshot. */
 export function PlatformHeroDiagram() {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -10,25 +13,27 @@ export function PlatformHeroDiagram() {
     const el = svgRef.current;
     if (!el) return;
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduce.matches) {
+    const freeze = () => {
+      platformHeroHasPlayed = true;
+      el.classList.remove("ph-reset");
       el.classList.add("ph-anim", "ph-static");
+    };
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduce.matches || platformHeroHasPlayed) {
+      freeze();
       return;
     }
 
     const play = () => {
-      el.classList.add("ph-reset");
+      if (platformHeroHasPlayed) return;
+      platformHeroHasPlayed = true;
+      el.classList.remove("ph-reset", "ph-static");
       el.classList.remove("ph-anim");
       void el.getBoundingClientRect();
-      el.classList.remove("ph-reset");
       requestAnimationFrame(() => {
         el.classList.add("ph-anim");
       });
-    };
-
-    const reset = () => {
-      el.classList.add("ph-reset");
-      el.classList.remove("ph-anim");
     };
 
     if (!("IntersectionObserver" in window)) {
@@ -40,10 +45,15 @@ export function PlatformHeroDiagram() {
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) {
+          if (platformHeroHasPlayed) {
+            freeze();
+            return;
+          }
           play();
-        } else {
-          reset();
+          return;
         }
+        // Left viewport: keep final frame — never hide / replay on scroll-up
+        if (platformHeroHasPlayed) freeze();
       },
       { threshold: 0.25, rootMargin: "0px 0px -8% 0px" },
     );

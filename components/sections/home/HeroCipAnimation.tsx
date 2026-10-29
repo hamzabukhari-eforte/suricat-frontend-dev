@@ -20,6 +20,9 @@ const TRUST_START_MS = 130;
 const TRUST_STAGGER_MS = 185;
 const TRUST_ITEM_COUNT = 4;
 
+/** Survives remounts in this page session — tour must never replay on scroll-up */
+let heroCipHasPlayed = false;
+
 type CipGlow = "teal" | "violet" | "orange";
 type CipStage = "input" | "regulatory" | "engine" | "output";
 type ConnId =
@@ -146,19 +149,23 @@ function CipCard({
 /**
  * Hero CIP diagram — cards appear one-by-one with a short pop, then settle.
  */
+const ALL_CARD_IDS = TOUR_CARDS.map((card) => card.id);
+
 export function HeroCipAnimation() {
   const t = useTranslations("home.hero.diagram");
   const rootRef = useRef<HTMLDivElement>(null);
   const [forcedVisible, setForcedVisible] = useState<ReadonlySet<string>>(
-    () => new Set(),
+    () => (heroCipHasPlayed ? new Set(ALL_CARD_IDS) : new Set()),
   );
   const [drawnConns, setDrawnConns] = useState<ReadonlySet<ConnId>>(
-    () => new Set(),
+    () => (heroCipHasPlayed ? new Set(ALL_CONN_IDS) : new Set()),
   );
   const [tourActive, setTourActive] = useState(false);
-  const [cardsComplete, setCardsComplete] = useState(false);
-  const [trustCount, setTrustCount] = useState(0);
-  const [playKey, setPlayKey] = useState(0);
+  const [cardsComplete, setCardsComplete] = useState(heroCipHasPlayed);
+  const [tourDone, setTourDone] = useState(heroCipHasPlayed);
+  const [trustCount, setTrustCount] = useState(
+    heroCipHasPlayed ? TRUST_ITEM_COUNT : 0,
+  );
   const [isPaused, setIsPaused] = useState(false);
   const tourIndexRef = useRef(0);
   const isPausedRef = useRef(false);
@@ -169,8 +176,9 @@ export function HeroCipAnimation() {
   const trustDeadlineRef = useRef(0);
   const tourRemainingRef = useRef(TOUR_START_MS);
   const trustRemainingRef = useRef(TRUST_START_MS);
-  const trustCountRef = useRef(0);
-  const cardsCompleteRef = useRef(false);
+  const trustCountRef = useRef(heroCipHasPlayed ? TRUST_ITEM_COUNT : 0);
+  const cardsCompleteRef = useRef(heroCipHasPlayed);
+  const hasPlayedRef = useRef(heroCipHasPlayed);
   const runTourStepRef = useRef<(() => void) | null>(null);
   const runTrustTickRef = useRef<(() => void) | null>(null);
 
@@ -241,22 +249,24 @@ export function HeroCipAnimation() {
     }
   };
 
-  const resetTour = () => {
+  const finishStatic = () => {
+    heroCipHasPlayed = true;
+    hasPlayedRef.current = true;
     clearTourTimeout();
     clearTrustTimeout();
     isPausedRef.current = false;
     holdPointerIdRef.current = null;
     setIsPaused(false);
-    setForcedVisible(new Set());
-    setDrawnConns(new Set());
-    setCardsComplete(false);
-    cardsCompleteRef.current = false;
-    setTrustCount(0);
-    trustCountRef.current = 0;
     setTourActive(false);
-    tourIndexRef.current = 0;
-    tourRemainingRef.current = TOUR_START_MS;
-    trustRemainingRef.current = TRUST_START_MS;
+    setTourDone(true);
+    setForcedVisible(new Set(ALL_CARD_IDS));
+    setDrawnConns(new Set(ALL_CONN_IDS));
+    setCardsComplete(true);
+    cardsCompleteRef.current = true;
+    setTrustCount(TRUST_ITEM_COUNT);
+    trustCountRef.current = TRUST_ITEM_COUNT;
+    runTourStepRef.current = null;
+    runTrustTickRef.current = null;
   };
 
   const isHoldTarget = (target: EventTarget | null) => {
@@ -288,59 +298,48 @@ export function HeroCipAnimation() {
     resumeHold();
   };
 
-  // Play once when first in view — never restart / re-pop boxes on scroll-up
+  // Play once — scroll-up must never clear or replay the diagram
   useEffect(() => {
     const el = rootRef.current;
     if (!el || typeof window === "undefined") return;
 
-    const snapComplete = () => {
-      clearTourTimeout();
-      clearTrustTimeout();
-      isPausedRef.current = false;
-      setIsPaused(false);
-      setForcedVisible(new Set(TOUR_CARDS.map((card) => card.id)));
-      setDrawnConns(new Set(ALL_CONN_IDS));
-      setCardsComplete(true);
-      cardsCompleteRef.current = true;
-      setTrustCount(TRUST_ITEM_COUNT);
-      trustCountRef.current = TRUST_ITEM_COUNT;
-      setTourActive(false);
-      runTourStepRef.current = null;
-    };
-
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      snapComplete();
+      finishStatic();
+      return;
+    }
+
+    // Already played this session (incl. remount) — stay frozen
+    if (heroCipHasPlayed) {
+      finishStatic();
       return;
     }
 
     if (!("IntersectionObserver" in window)) {
+      heroCipHasPlayed = true;
+      hasPlayedRef.current = true;
       setTourActive(true);
       return;
     }
-
-    let hasPlayed = false;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) {
-          if (hasPlayed) return;
-          hasPlayed = true;
-          resetTour();
-          setPlayKey((k) => k + 1);
-          requestAnimationFrame(() => {
-            setTourActive(true);
-          });
-        } else if (hasPlayed && !cardsCompleteRef.current) {
-          // Left mid-tour: freeze at finished state so scroll-back never re-pops
-          snapComplete();
+          if (heroCipHasPlayed || hasPlayedRef.current) return;
+          heroCipHasPlayed = true;
+          hasPlayedRef.current = true;
+          setTourActive(true);
+          return;
         }
+        // Left viewport after start → freeze complete (no clear, no replay)
+        if (hasPlayedRef.current) finishStatic();
       },
-      { threshold: 0.28 },
+      { threshold: 0.15 },
     );
 
     observer.observe(el);
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount-only play lock
   }, []);
 
   useEffect(() => {
@@ -401,17 +400,20 @@ export function HeroCipAnimation() {
       runTourStepRef.current = null;
       clearTourTimeout();
     };
-  }, [tourActive, playKey]);
+  }, [tourActive]);
 
-  // Trust footer loads after the full card tour finishes (separate so it isn't cancelled)
+  // Trust footer loads after the full card tour finishes (never replays)
   useEffect(() => {
     if (!cardsComplete) return;
+    if (tourDone) return;
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (trustCountRef.current >= TRUST_ITEM_COUNT) {
+      setTourDone(true);
+      return;
+    }
 
     let cancelled = false;
-    trustCountRef.current = 0;
-    setTrustCount(0);
 
     const tick = () => {
       if (cancelled || isPausedRef.current) return;
@@ -423,6 +425,7 @@ export function HeroCipAnimation() {
         scheduleTrust(TRUST_STAGGER_MS, tick);
       } else {
         runTrustTickRef.current = null;
+        setTourDone(true);
       }
     };
 
@@ -435,7 +438,7 @@ export function HeroCipAnimation() {
       runTrustTickRef.current = null;
       clearTrustTimeout();
     };
-  }, [cardsComplete, playKey]);
+  }, [cardsComplete, tourDone]);
 
   const showInputs = useMemo(
     () => TOUR_CARDS.some((card) => card.stage === "input" && forcedVisible.has(card.id)),
@@ -453,14 +456,19 @@ export function HeroCipAnimation() {
   return (
     <div
       ref={rootRef}
-      className={`hero-cip${isPaused ? " is-paused" : ""}`}
+      className={[
+        "hero-cip",
+        isPaused ? "is-paused" : "",
+        tourDone ? "is-tour-done" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
       onPointerDown={onRootPointerDown}
       onPointerUp={onRootPointerUp}
       onPointerCancel={onRootPointerUp}
       onLostPointerCapture={onRootPointerUp}
     >
       <svg
-        key={playKey}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1400 830"
         fill="none"
