@@ -130,43 +130,34 @@ export function PlatformRegulatoryDiagram() {
               <path
                 d="M0 22H30"
                 stroke="#5C3D8F"
-                strokeWidth="1.6"
+                strokeWidth="2"
                 strokeLinecap="round"
               />
               <path
                 d="M0 140H30"
                 stroke="#5C3D8F"
-                strokeWidth="1.6"
+                strokeWidth="2"
                 strokeLinecap="round"
               />
               <path
                 d="M0 258H30"
                 stroke="#5C3D8F"
-                strokeWidth="1.6"
+                strokeWidth="2"
                 strokeLinecap="round"
               />
               {/* Vertical spine */}
               <path
                 d="M30 22V258"
                 stroke="#5C3D8F"
-                strokeWidth="1.6"
+                strokeWidth="2"
                 strokeLinecap="round"
               />
-              {/* Solid line from spine mid → circle center */}
+              {/* Solid line from spine mid → circle (no arrowhead) */}
               <path
-                d="M30 140H140"
+                d="M30 140H160"
                 stroke="#5C3D8F"
-                strokeWidth="1.7"
+                strokeWidth="2"
                 strokeLinecap="round"
-              />
-              {/* Open outline arrowhead toward circle center */}
-              <path
-                d="M132 131.5l14 8.5-14 8.5"
-                stroke="#5C3D8F"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
               />
             </svg>
 
@@ -184,29 +175,25 @@ export function PlatformRegulatoryDiagram() {
               </ul>
             </div>
 
-            <svg
-              className="platform-reg-out-arrow"
-              viewBox="0 0 120 28"
-              fill="none"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              {/* Foundation outbound: solid line + open arrow */}
-              <path
-                d="M2 14H100"
-                stroke="#5C3D8F"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-              />
-              <path
-                d="M96 6.5l16 7.5-16 7.5"
-                stroke="#5C3D8F"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {/* HTML shaft stretches; arrowhead stays fixed */}
+            <div className="platform-reg-out-arrow" aria-hidden="true">
+              <span className="platform-reg-out-arrow-shaft" />
+              <svg
+                className="platform-reg-out-arrow-head"
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
                 fill="none"
-              />
-            </svg>
+              >
+                <path
+                  d="M2 2l14 6-14 6"
+                  stroke="#5C3D8F"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
 

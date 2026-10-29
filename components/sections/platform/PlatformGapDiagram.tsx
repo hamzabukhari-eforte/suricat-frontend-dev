@@ -14,77 +14,40 @@ const COVERAGE = [
   { key: "c4", status: "insufficient" as const, sourceKey: "sourceC4" as const },
 ] as const;
 
-/**
- * Document + search — Gap Intelligence
- * Exact concept: rounded doc with TOP-RIGHT corner cut out;
- * magnifier sits in that cut (partly inside doc), handle SE.
- */
-function GapHubIcon() {
+/** Outline documents — card 36px; Gap hub 52px */
+function DocsOutlineIcon({ hub = false }: { hub?: boolean }) {
+  const size = hub ? 52 : 36;
+  const stroke = hub ? "#fff" : "currentColor";
   return (
     <svg
-      className="platform-gap-hub-icon"
-      width="48"
-      height="48"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M11.85 4.9H6.45A1.5 1.5 0 0 0 4.95 6.4v11.15A1.5 1.5 0 0 0 6.45 19.05h9.2A1.5 1.5 0 0 0 17.15 17.55V10.85"
-        stroke="#fff"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M7.4 12.4h5M7.4 14.85h3.5"
-        stroke="#fff"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-      <circle cx="15.2" cy="7.4" r="3.4" stroke="#fff" strokeWidth="1.5" />
-      <path
-        d="M17.65 9.85L20.45 12.65"
-        stroke="#fff"
-        strokeWidth="1.55"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-/** Outline documents — stack of pages */
-function DocsOutlineIcon() {
-  return (
-    <svg
-      width="36"
-      height="36"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
     >
       <path
         d="M7 7.2h5.8L15.5 9.9V17.5A1.2 1.2 0 0 1 14.3 18.7H7A1.2 1.2 0 0 1 5.8 17.5V8.4A1.2 1.2 0 0 1 7 7.2z"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="1.55"
         strokeLinejoin="round"
       />
       <path
         d="M12.8 7.2V9.9H15.5"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="1.55"
         strokeLinejoin="round"
       />
       <path
         d="M9 5.2h6.2L18 7.8V15.8"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="1.45"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M8.5 12h4.2M8.5 14.3h3"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="1.4"
         strokeLinecap="round"
       />
@@ -214,7 +177,7 @@ export function PlatformGapDiagram() {
           step="04"
           stepLabel={t("stepPill")}
           hubTitle={t("hubTitle")}
-          hubIcon={<GapHubIcon />}
+          hubIcon={<DocsOutlineIcon hub />}
         />
 
         {/* RIGHT */}

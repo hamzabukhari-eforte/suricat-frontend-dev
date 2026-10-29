@@ -3812,7 +3812,7 @@ input[type="radio"]:checked + span {
   left: 50%;
   top: 2.1rem;
   z-index: 3;
-  width: 1.5px;
+  width: 2px;
   height: 1.4rem;
   background: #5c3d8f;
   transform: translateX(-50%);
@@ -4563,19 +4563,26 @@ input[type="radio"]:checked + span {
     padding-bottom: 2rem;
   }
 
+  /*
+   * What Applies (01): left/right boxes stay content-sized.
+   * Extra width → center column only; out-arrow grows to the panel.
+   */
   .platform-reg-diagram-grid {
-    grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.9fr) minmax(0, 1fr);
-    gap: 0.5rem 0.25rem;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    gap: 0.5rem 0;
     align-items: center;
   }
 
   .platform-reg-center {
     align-items: center;
+    width: 100%;
+    min-width: 0;
   }
 
   .platform-reg-hub-wrap {
     min-height: 300px;
-    padding: 2.85rem 2.75rem 0;
+    padding: 2.85rem 0 0;
+    width: 100%;
   }
 
   .platform-reg-pill-connector {
@@ -4587,7 +4594,7 @@ input[type="radio"]:checked + span {
     display: block;
     position: absolute;
     /* Align with hub center (wrap has top padding for the pill) */
-    left: -0.35rem;
+    left: 0;
     right: calc(50% + 5.95rem); /* hub radius ≈ 95px */
     top: calc(50% + 1.4rem);
     transform: translateY(-50%);
@@ -4600,11 +4607,13 @@ input[type="radio"]:checked + span {
   }
 
   .platform-reg-out-arrow {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: absolute;
-    /* From circle right edge (vertical center) → What Applies */
+    /* Hub right edge → Applicable Requirements left edge */
     left: calc(50% + 5.95rem);
-    right: 4.25rem;
+    right: 0;
     top: calc(50% + 1.4rem);
     transform: translateY(-50%);
     width: auto;
@@ -4613,6 +4622,27 @@ input[type="radio"]:checked + span {
     overflow: visible;
     pointer-events: none;
     z-index: 2;
+    box-sizing: border-box;
+  }
+
+  .platform-reg-out-arrow-shaft {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 2px;
+    background: #5c3d8f;
+    align-self: center;
+  }
+
+  .platform-reg-out-arrow-head {
+    flex: 0 0 auto;
+    display: block;
+    width: 18px;
+    height: 16px;
+    overflow: visible;
+  }
+
+  .platform-reg-out-arrow-head path {
+    stroke-width: 2;
   }
 
   .platform-reg-hub {
@@ -4626,8 +4656,12 @@ input[type="radio"]:checked + span {
   }
 
   .platform-reg-applies {
+    width: 500px;
+    min-width: 500px;
+    max-width: 100%;
     min-height: 100%;
     padding: 1.25rem 1.15rem 1.15rem;
+    box-sizing: border-box;
   }
 }
 
@@ -4793,6 +4827,16 @@ input[type="radio"]:checked + span {
   display: block;
   width: 48px;
   height: 48px;
+}
+
+.platform-gap-diagram .platform-q-hub-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.platform-gap-diagram .platform-q-hub-icon svg {
+  width: 52px;
+  height: 52px;
 }
 
 .platform-gap-diagram .platform-q-hub .platform-doc-hub-title {
