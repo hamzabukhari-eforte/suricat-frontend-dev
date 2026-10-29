@@ -55,8 +55,7 @@
           "qualityIntelligence": "Quality Intelligence",
           "gapIntelligence": "Gap Intelligence",
           "crossDocumentIntelligence": "Cross Document Intelligence",
-          "recordIntelligence": "Record Intelligence",
-          "whySuricat": "Why Suricat"
+          "recordIntelligence": "Record Intelligence"
         }
       },
       "solutions": {
