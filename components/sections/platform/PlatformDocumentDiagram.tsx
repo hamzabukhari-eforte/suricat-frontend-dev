@@ -118,20 +118,8 @@ export function PlatformDocumentDiagram() {
             </div>
             <span className="platform-doc-pill-connector" aria-hidden="true" />
 
-            <svg
-              className="platform-doc-in-arrow"
-              viewBox="0 0 120 28"
-              fill="none"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M0 14H120"
-                stroke="#5C3D8F"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-              />
-            </svg>
+            {/* CSS line — length grows; no SVG stretch/distortion */}
+            <span className="platform-doc-in-arrow" aria-hidden="true" />
 
             <div className="platform-doc-orbit" aria-hidden="true" />
             <div className="platform-doc-hub">
@@ -139,28 +127,25 @@ export function PlatformDocumentDiagram() {
               <p className="platform-doc-hub-title">{t("hubTitle")}</p>
               <p className="platform-doc-hub-sub">{t("hubSub")}</p>
             </div>
-            <svg
-              className="platform-doc-out-arrow"
-              viewBox="0 0 120 28"
-              fill="none"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M2 14H106"
-                stroke="#5C3D8F"
-                strokeWidth="1.7"
-                strokeLinecap="butt"
-              />
-              <path
-                d="M102 7.5l16 6.5-16 6.5"
-                stroke="#5C3D8F"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {/* Shaft stretches; arrowhead stays fixed (no SVG stretch) */}
+            <div className="platform-doc-out-arrow" aria-hidden="true">
+              <span className="platform-doc-out-arrow-shaft" />
+              <svg
+                className="platform-doc-out-arrow-head"
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
                 fill="none"
-              />
-            </svg>
+              >
+                <path
+                  d="M2 2l14 6-14 6"
+                  stroke="#5C3D8F"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
 

@@ -2518,14 +2518,14 @@
         "phase": "Intelligence · Gap Intelligence",
         "title": "Know What Is Missing.",
         "lead": "An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.",
-        "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.",
+        "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement\nand source evidence behind it.",
         "close": "QA and RA teams verify each potential gap and decide what to do."
       },
       "cross": {
         "short": "Cross Document Intelligence",
         "phase": "Intelligence · Cross Document Intelligence",
         "title": "See Where Related Documents Stop Lining Up.",
-        "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while related risk documentation still reflects the old condition.",
+        "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while\nrelated risk documentation still reflects the old condition.",
         "body": "Suricat surfaces potential misalignment across related documents, with each one linked to the source evidence behind it.",
         "close": "QA and RA teams verify each potential misalignment and decide what to do."
       },
@@ -2534,7 +2534,7 @@
         "phase": "Intelligence · Record Intelligence",
         "title": "Compare What Should Happen with What Actually Happened.",
         "lead": "A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.",
-        "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, with each one linked to the source evidence behind it.",
+        "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies,\nwith each one linked to the source evidence behind it.",
         "close": "QA and RA teams verify each potential discrepancy and decide what to do."
       }
     },

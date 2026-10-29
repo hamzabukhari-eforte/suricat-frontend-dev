@@ -3676,6 +3676,7 @@ input[type="radio"]:checked + span {
   font-weight: 400;
   line-height: 1.65;
   color: #0d1b3e;
+  white-space: pre-line;
 }
 
 .platform-reg-copy p:last-child {
@@ -4358,6 +4359,83 @@ input[type="radio"]:checked + span {
     overflow: visible;
   }
 
+  /*
+   * Document Intelligence only (1440→4K):
+   * Left/right boxes stay content-sized (no move/stretch).
+   * Center column takes leftover width; in/out arrows use EXPLICIT
+   * width calc so SVGs don't collapse to ~120px viewBox size.
+   */
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-diagram-grid {
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-center {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-hub-stage {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-identified {
+    width: 550px;
+    min-width: 550px;
+    max-width: 100%;
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-identified-card {
+    grid-template-columns: auto minmax(8rem, 1.1fr) auto minmax(10.5rem, 1.35fr);
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-in-arrow {
+    left: 0;
+    right: auto;
+    width: calc(50% - 5.95rem);
+    max-width: none;
+  }
+
+  .platform-doc-diagram:not(.platform-q-diagram) .platform-doc-out-arrow {
+    left: calc(50% + 5.95rem);
+    right: auto;
+    width: calc(50% - 5.95rem);
+    max-width: none;
+    overflow: visible;
+  }
+
+  /* CSS connectors: length changes, stroke never “stretches” like SVG */
+  .platform-doc-out-arrow-shaft {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 2px;
+    background: #5c3d8f;
+    align-self: center;
+  }
+
+  .platform-doc-out-arrow-head {
+    flex: 0 0 auto;
+    display: block;
+    width: 18px;
+    height: 16px;
+    overflow: visible;
+  }
+
+  .platform-q-diagram .platform-doc-out-arrow-shaft,
+  .platform-q-diagram .platform-doc-in-arrow {
+    background: #19d3c5;
+  }
+
+  .platform-q-diagram:not(.platform-gap-diagram):not(.platform-cross-diagram):not(
+      .platform-rec-diagram
+    )
+    .platform-doc-in-arrow {
+    background: #5c3d8f;
+  }
+
   .platform-doc-center {
     overflow: visible;
   }
@@ -4428,7 +4506,7 @@ input[type="radio"]:checked + span {
     height: 228px;
   }
 
-  /* Spine → hub left edge (solid line, no arrowhead) */
+  /* Spine → hub left edge (CSS bar — crisp at any width) */
   .platform-doc-in-arrow {
     display: block;
     position: absolute;
@@ -4438,7 +4516,9 @@ input[type="radio"]:checked + span {
     transform: translateY(-50%);
     width: auto;
     min-width: 2.5rem;
-    height: 28px;
+    height: 2px;
+    background: #5c3d8f;
+    border: none;
     overflow: visible;
     pointer-events: none;
     z-index: 2;
@@ -4446,7 +4526,9 @@ input[type="radio"]:checked + span {
 
   /* Hub right edge → tip stops at Identified box outer edge */
   .platform-doc-out-arrow {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: absolute;
     left: calc(50% + 5.95rem);
     right: 0;
@@ -4456,11 +4538,11 @@ input[type="radio"]:checked + span {
     min-width: 0;
     max-width: calc(50% - 5.95rem);
     height: 28px;
-    overflow: hidden;
+    overflow: visible;
     pointer-events: none;
     z-index: 2;
     box-sizing: border-box;
-    padding-right: 2px;
+    padding-right: 0;
   }
 
   .platform-doc-identified-card {
@@ -5546,17 +5628,53 @@ input[type="radio"]:checked + span {
     pointer-events: none;
   }
 
+  /*
+   * Spine: --gap-spine-* from JS (first→last card centers).
+   * Fallback 100% keeps stubs connected if JS hasn't run yet.
+   */
   .platform-gap-diagram .platform-doc-files-spine {
     display: block;
     position: absolute;
     right: 0;
-    top: 50%;
+    top: var(--gap-spine-top, 0px);
+    bottom: auto;
     z-index: 1;
     width: 2px;
-    height: calc(100% - 6rem);
+    height: var(--gap-spine-height, 100%);
     background: #19d3c5;
-    transform: translateY(-50%);
+    transform: none;
     pointer-events: none;
+  }
+
+  /*
+   * Lock hub + orbit + feed arrows to one baseline so the spine→hub
+   * line hits circle center (same Y as the out-arrow).
+   */
+  .platform-gap-diagram .platform-doc-hub-stage {
+    min-height: 300px;
+    padding: 2.85rem 0 0;
+  }
+
+  .platform-gap-diagram .platform-doc-orbit,
+  .platform-gap-diagram .platform-q-orbit {
+    left: 50%;
+    top: calc(50% + 1.4rem);
+    animation: platform-q-orbit-spin-centered 36s linear infinite;
+  }
+
+  .platform-gap-diagram .platform-doc-hub,
+  .platform-gap-diagram .platform-q-hub {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 1.4rem);
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  .platform-gap-diagram .platform-doc-in-arrow,
+  .platform-gap-diagram .platform-doc-out-arrow {
+    top: calc(50% + 1.4rem);
+    transform: translateY(-50%);
   }
 
   /* Requirement Coverage column */
@@ -6317,7 +6435,7 @@ input[type="radio"]:checked + span {
   gap: 1.75rem;
   padding-bottom: 0;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .platform-closing-group-label {

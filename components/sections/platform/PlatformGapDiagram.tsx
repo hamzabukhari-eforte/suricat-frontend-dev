@@ -131,31 +131,30 @@ export function PlatformGapDiagram() {
   const t = useTranslations("platformPage.gapDiagram");
   const railRef = useRef<HTMLDivElement>(null);
 
+  /* Spine only: first card center → last card center (CSS vars, no other layout changes) */
   useLayoutEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
 
     const syncSpine = () => {
       const cards = rail.querySelectorAll<HTMLElement>(".platform-q-stack-card");
-      const spine = rail.querySelector<HTMLElement>(".platform-doc-files-spine");
-      if (!spine || cards.length < 2) return;
+      if (cards.length < 2) return;
 
       const railRect = rail.getBoundingClientRect();
-      const firstRect = cards[0].getBoundingClientRect();
-      const lastRect = cards[cards.length - 1].getBoundingClientRect();
-      const top = firstRect.top + firstRect.height / 2 - railRect.top;
-      const bottom = lastRect.top + lastRect.height / 2 - railRect.top;
+      const first = cards[0].getBoundingClientRect();
+      const last = cards[cards.length - 1].getBoundingClientRect();
+      const top = first.top + first.height / 2 - railRect.top;
+      const bottom = last.top + last.height / 2 - railRect.top;
 
-      spine.style.display = "block";
-      spine.style.top = `${top}px`;
-      spine.style.height = `${Math.max(0, bottom - top)}px`;
-      spine.style.bottom = "auto";
-      spine.style.transform = "none";
+      rail.style.setProperty("--gap-spine-top", `${top}px`);
+      rail.style.setProperty(
+        "--gap-spine-height",
+        `${Math.max(0, bottom - top)}px`,
+      );
     };
 
     syncSpine();
     const raf = requestAnimationFrame(syncSpine);
-
     const ro = new ResizeObserver(syncSpine);
     ro.observe(rail);
     rail
