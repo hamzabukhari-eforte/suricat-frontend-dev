@@ -64,12 +64,6 @@ export function HeroSection() {
                 {t("titleCompliance")}
                 <span className="text-teal ms-1.5">{t("titleIntelligence")}</span>
               </h1>
-              <div
-                className={[
-                  "w-12 h-1 bg-teal mb-3 md:mb-2.5 lg:mb-3 origin-left",
-                  introDone ? "scale-x-100" : "transform scale-x-0 animate-scale-x",
-                ].join(" ")}
-              ></div>
               <p
                 className={[
                   "text-[20px] text-gray-100 mb-8 md:mb-8 lg:mb-10 font-normal md:pr-0 lg:pr-4 leading-relaxed lg:leading-[30px]",

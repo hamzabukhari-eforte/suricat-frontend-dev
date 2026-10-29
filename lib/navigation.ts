@@ -130,6 +130,10 @@ const megaMenuDefs: MegaMenuDef[] = [
         labelKey: "nav.menus.platform.links.recordIntelligence",
         href: "/platform#platform-step-record",
       },
+      {
+        labelKey: "nav.menus.platform.links.whySuricat",
+        href: "/platform#why-suricat",
+      },
     ],
     linkColumns: 2,
     linkFlow: "row",

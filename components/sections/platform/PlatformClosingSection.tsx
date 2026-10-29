@@ -1,20 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import {
   FaAward,
   FaCircleCheck,
   FaDatabase,
   FaFileLines,
-  FaHandshake,
   FaLinkSlash,
   FaMagnifyingGlass,
   FaTriangleExclamation,
   FaUsers,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
-import Link from "next/link";
 import {
   Fragment,
   useCallback,
@@ -132,7 +129,6 @@ function StepCard({
 export function PlatformClosingSection() {
   const t = useTranslations("platformPage");
   const tc = useTranslations("platformPage.closingDiagram");
-  const tCta = useTranslations("cta");
 
   const flowRef = useRef<HTMLDivElement>(null);
   const hubRef = useRef<HTMLDivElement>(null);
@@ -258,12 +254,12 @@ export function PlatformClosingSection() {
     <section className="platform-closing bg-surface-muted">
       <Container>
         <div className="platform-closing-head">
-          <p className="platform-reg-eyebrow">{t("closeEyebrow")}</p>
+          <p className="platform-reg-eyebrow is-teal">{t("closeEyebrow")}</p>
           <h2 className="platform-closing-title">
             <span className="platform-closing-title-lead">
               {t("closeTitleLine1")}
             </span>{" "}
-            <span className="text-teal">{t("closeTitleLine2")}</span>
+            <span>{t("closeTitleLine2")}</span>
           </h2>
           <p className="platform-closing-body">{t("closeBody")}</p>
         </div>
@@ -399,36 +395,6 @@ export function PlatformClosingSection() {
               </div>
             </Fragment>
           ))}
-        </div>
-
-        <div className="platform-closing-cta">
-          <h3 className="platform-closing-cta-title">{tc("readyTitle")}</h3>
-          <div className="platform-closing-cta-actions">
-            <Button
-              variant="teal"
-              href="/design-partners/apply"
-              className="group gap-2 whitespace-nowrap"
-            >
-              <FaHandshake
-                className="shrink-0 text-base text-navy"
-                aria-hidden="true"
-              />
-              {tCta("becomeDesignPartner")}
-            </Button>
-            <Button
-              variant="outline-navy"
-              href="/get-started"
-              className="whitespace-nowrap"
-            >
-              {tCta("requestFreePilot")}
-            </Button>
-            <Link
-              href="/contact"
-              className="platform-closing-cta-link"
-            >
-              {tCta("gotQuestions")}
-            </Link>
-          </div>
         </div>
       </Container>
     </section>
