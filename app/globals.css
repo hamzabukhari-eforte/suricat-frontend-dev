@@ -5614,7 +5614,7 @@ input[type="radio"]:checked + span {
     padding-right: 1.35rem;
   }
 
-  /* Horizontal stubs → vertical spine (JS sets exact top/height from card centers) */
+  /* Stubs: each left box → spine */
   .platform-gap-diagram .platform-q-stack-card .platform-doc-file-stub {
     display: block;
     position: absolute;
@@ -5629,52 +5629,22 @@ input[type="radio"]:checked + span {
   }
 
   /*
-   * Spine: --gap-spine-* from JS (first→last card centers).
-   * Fallback 100% keeps stubs connected if JS hasn't run yet.
+   * Straight spine — JS sets top/height from first stub center → last stub center
+   * (no extra tails above/below the stubs).
    */
-  .platform-gap-diagram .platform-doc-files-spine {
+  .platform-gap-diagram.platform-q-diagram .platform-doc-files-spine {
     display: block;
     position: absolute;
     right: 0;
-    top: var(--gap-spine-top, 0px);
+    top: 0;
     bottom: auto;
     z-index: 1;
     width: 2px;
-    height: var(--gap-spine-height, 100%);
+    height: 0;
     background: #19d3c5;
+    border-radius: 0;
     transform: none;
     pointer-events: none;
-  }
-
-  /*
-   * Lock hub + orbit + feed arrows to one baseline so the spine→hub
-   * line hits circle center (same Y as the out-arrow).
-   */
-  .platform-gap-diagram .platform-doc-hub-stage {
-    min-height: 300px;
-    padding: 2.85rem 0 0;
-  }
-
-  .platform-gap-diagram .platform-doc-orbit,
-  .platform-gap-diagram .platform-q-orbit {
-    left: 50%;
-    top: calc(50% + 1.4rem);
-    animation: platform-q-orbit-spin-centered 36s linear infinite;
-  }
-
-  .platform-gap-diagram .platform-doc-hub,
-  .platform-gap-diagram .platform-q-hub {
-    position: absolute;
-    left: 50%;
-    top: calc(50% + 1.4rem);
-    transform: translate(-50%, -50%);
-    margin: 0;
-  }
-
-  .platform-gap-diagram .platform-doc-in-arrow,
-  .platform-gap-diagram .platform-doc-out-arrow {
-    top: calc(50% + 1.4rem);
-    transform: translateY(-50%);
   }
 
   /* Requirement Coverage column */

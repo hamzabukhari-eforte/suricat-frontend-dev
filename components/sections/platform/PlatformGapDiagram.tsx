@@ -29,10 +29,6 @@ function GapHubIcon() {
       fill="none"
       aria-hidden="true"
     >
-      {/*
-        Open path — top-right corner removed for the lens:
-        start at cut on top → left → bottom-left → bottom → bottom-right → up right side → stop at cut
-      */}
       <path
         d="M11.85 4.9H6.45A1.5 1.5 0 0 0 4.95 6.4v11.15A1.5 1.5 0 0 0 6.45 19.05h9.2A1.5 1.5 0 0 0 17.15 17.55V10.85"
         stroke="#fff"
@@ -40,22 +36,13 @@ function GapHubIcon() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Two text dashes inside doc */}
       <path
         d="M7.4 12.4h5M7.4 14.85h3.5"
         stroke="#fff"
         strokeWidth="1.4"
         strokeLinecap="round"
       />
-      {/* Magnifier fills the cut top-right corner */}
-      <circle
-        cx="15.2"
-        cy="7.4"
-        r="3.4"
-        stroke="#fff"
-        strokeWidth="1.5"
-      />
-      {/* Handle 45° down-right */}
+      <circle cx="15.2" cy="7.4" r="3.4" stroke="#fff" strokeWidth="1.5" />
       <path
         d="M17.65 9.85L20.45 12.65"
         stroke="#fff"
@@ -131,26 +118,27 @@ export function PlatformGapDiagram() {
   const t = useTranslations("platformPage.gapDiagram");
   const railRef = useRef<HTMLDivElement>(null);
 
-  /* Spine only: first card center → last card center (CSS vars, no other layout changes) */
+  /* Spine only between the two stub centers — no tails above/below */
   useLayoutEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
 
     const syncSpine = () => {
       const cards = rail.querySelectorAll<HTMLElement>(".platform-q-stack-card");
-      if (cards.length < 2) return;
+      const spine = rail.querySelector<HTMLElement>(".platform-doc-files-spine");
+      if (!spine || cards.length < 2) return;
 
       const railRect = rail.getBoundingClientRect();
-      const first = cards[0].getBoundingClientRect();
-      const last = cards[cards.length - 1].getBoundingClientRect();
-      const top = first.top + first.height / 2 - railRect.top;
-      const bottom = last.top + last.height / 2 - railRect.top;
+      const firstRect = cards[0].getBoundingClientRect();
+      const lastRect = cards[cards.length - 1].getBoundingClientRect();
+      const top = firstRect.top + firstRect.height / 2 - railRect.top;
+      const bottom = lastRect.top + lastRect.height / 2 - railRect.top;
 
-      rail.style.setProperty("--gap-spine-top", `${top}px`);
-      rail.style.setProperty(
-        "--gap-spine-height",
-        `${Math.max(0, bottom - top)}px`,
-      );
+      spine.style.display = "block";
+      spine.style.top = `${top}px`;
+      spine.style.height = `${Math.max(0, bottom - top)}px`;
+      spine.style.bottom = "auto";
+      spine.style.transform = "none";
     };
 
     syncSpine();
@@ -160,17 +148,19 @@ export function PlatformGapDiagram() {
     rail
       .querySelectorAll(".platform-q-stack-card")
       .forEach((card) => ro.observe(card));
+    window.addEventListener("resize", syncSpine);
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      window.removeEventListener("resize", syncSpine);
     };
   }, []);
 
   return (
     <div className="platform-doc-diagram platform-q-diagram platform-gap-diagram">
       <div className="platform-doc-diagram-grid">
-        {/* LEFT — match reference screenshot */}
+        {/* LEFT */}
         <div className="platform-doc-col">
           <p className="platform-doc-col-label">{t("leftLabel")}</p>
           <div
