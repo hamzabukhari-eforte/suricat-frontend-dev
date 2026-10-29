@@ -21,8 +21,8 @@ export function PlatformPageContent() {
 
   return (
     <>
-      <header className="bg-navy text-white relative overflow-x-clip overflow-y-visible py-8 md:py-10 lg:py-12 min-h-0 lg:min-h-[500px] flex items-center">
-        <Container className="relative z-10 flex items-center">
+      <header className="platform-hero-band bg-navy text-white relative overflow-x-clip overflow-y-visible">
+        <Container className="platform-hero-band-inner relative z-10">
           <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
             <div className="platform-hero-copy flex min-w-0 flex-col justify-center lg:col-span-4">
               <h1 className="mb-3 text-3xl font-bold leading-tight tracking-tight md:text-[1.75rem] lg:mb-4 lg:text-[36px] lg:leading-[44px]">
@@ -66,7 +66,7 @@ export function PlatformPageContent() {
               </div>
             </div>
 
-            <div className="platform-hero-diagram-wrap relative flex w-full items-center justify-center lg:col-span-8">
+            <div className="platform-hero-diagram-wrap relative lg:col-span-8">
               <PlatformHeroDiagram />
             </div>
           </div>
