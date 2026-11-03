@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
  *
  * - Every <section> in <main> gets `.section-transition`.
  * - Every top-level card / panel / article gets `.reveal-transition`.
- * - `.is-visible` is added when the target enters the upper ~2/3 of the
- *   viewport (rootMargin bottom -33% ≈ 1/3 page height), then unobserved.
+ * - Content already in the first viewport is shown immediately (no blank gap
+ *   under the hero). Content further down reveals as it scrolls into view.
  *
  * Nested card elements (e.g. `.compliance-cost-card-header` inside
  * `.compliance-cost-card`) are skipped so only the outermost card animates,
@@ -90,14 +90,24 @@ export function MarketingReveal() {
           }
         }
       },
-      // Reveal once section has entered ~1/3 into the viewport (not at first touch)
-      { threshold: 0.05, rootMargin: "0px 0px -33% 0px" },
+      // Reveal as the section enters view while scrolling (mild inset, not 1/3 blank)
+      { threshold: 0.08, rootMargin: "0px 0px -12% 0px" },
     );
+
+    const isInFirstView = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      // Already on the first screen — show immediately so the page looks complete
+      return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+    };
 
     // Wait a frame so layout/paint settles after a route change.
     const frame = requestAnimationFrame(() => {
       revealTargets.forEach((el) => {
         el.classList.add(classFor(el));
+        if (isInFirstView(el)) {
+          el.classList.add("is-visible");
+          return;
+        }
         observer.observe(el);
       });
     });

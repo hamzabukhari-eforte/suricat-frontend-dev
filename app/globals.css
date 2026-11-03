@@ -6956,8 +6956,8 @@ input[type="radio"]:checked + span {
 
 .platform-closing-punchline {
   margin: 0.85rem 0 0;
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: #19d3c5;
   line-height: 1.2;
