@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import {
   FaCircleCheck,
@@ -106,6 +107,7 @@ function StepCard({
 export function PlatformClosingSection() {
   const t = useTranslations("platformPage");
   const tc = useTranslations("platformPage.closingDiagram");
+  const tCta = useTranslations("cta");
 
   const flowRef = useRef<HTMLDivElement>(null);
   const hubRef = useRef<HTMLDivElement>(null);
@@ -314,6 +316,17 @@ export function PlatformClosingSection() {
                 <p>{tc("issue.requirement2")}</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="platform-closing-cta">
+          <div className="platform-closing-cta-actions">
+            <Button variant="teal" href="/get-started">
+              {tCta("requestFreePilot")}
+            </Button>
+            <Button variant="outline-navy" href="/contact">
+              {tCta("gotQuestions")}
+            </Button>
           </div>
         </div>
       </Container>
