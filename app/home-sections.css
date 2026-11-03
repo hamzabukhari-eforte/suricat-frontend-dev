@@ -6808,7 +6808,7 @@ a.solution-nav-pill,
   width: 100%;
   height: 100%;
   pointer-events: none;
-  color: rgba(13, 27, 62, 0.35);
+  color: rgba(13, 27, 62, 0.5);
   overflow: visible;
 }
 
@@ -6824,59 +6824,97 @@ a.solution-nav-pill,
   margin-top: 0.85rem;
 }
 
+.why-flow-alt-spacer {
+  display: none;
+}
+
 .why-flow-ghost {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
+  gap: 0.4rem;
+  box-sizing: border-box;
   width: fit-content;
   max-width: 100%;
+  height: calc(40px + 22px);
   margin-top: 1.35rem;
-  padding: 0.7rem 0.85rem;
-  border-radius: 4px;
-  border: 1px solid rgba(13, 27, 62, 0.18);
-  box-shadow: 0 0 0 9px rgba(255, 107, 53, 0.05);
-  outline: 1.5px dotted #ff6b35;
-  outline-offset: 9px;
-  background: #fff;
+  margin-left: auto;
+  padding: 11px 0.95rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #ff6b35;
+  box-shadow: none;
+  outline: none;
   opacity: 1;
+}
+
+/* Inner fill — sits inside so outer orange edges can match step3 */
+.why-flow-ghost::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  z-index: 0;
+  border-radius: 8px;
+  background: rgba(255, 107, 53, 0.12);
+  pointer-events: none;
+}
+
+/* Outer orange outline — left/right flush with Reviewed Before card */
+.why-flow-ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ff6b35;
+  border-radius: 8px;
+  pointer-events: none;
   animation: why-flow-ghost-pop 1.7s ease-in-out infinite;
 }
 
 @keyframes why-flow-ghost-pop {
   0%,
   100% {
-    outline-color: rgba(255, 107, 53, 0.28);
-    box-shadow: 0 0 0 9px rgba(255, 107, 53, 0.02);
+    border-width: 2px;
+    border-color: rgba(255, 107, 53, 0.35);
+    box-shadow:
+      0 0 0 0 rgba(255, 107, 53, 0),
+      0 0 0 0 rgba(255, 107, 53, 0);
   }
   50% {
-    outline-color: rgba(255, 107, 53, 0.7);
+    border-width: 2px;
+    border-color: #ff6b35;
     box-shadow:
-      0 0 0 9px rgba(255, 107, 53, 0.04),
-      0 0 8px 1px rgba(255, 107, 53, 0.18);
+      0 0 0 3px rgba(255, 107, 53, 0.07),
+      0 0 10px 2px rgba(255, 107, 53, 0.16);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .why-flow-ghost {
+  .why-flow-ghost::after {
     animation: none;
-    outline-color: #ff6b35;
-    box-shadow: 0 0 0 9px rgba(255, 107, 53, 0.05);
+    border-color: #ff6b35;
+    box-shadow: none;
   }
 }
 
 .why-flow-ghost-icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  color: #0d1b3e;
-  font-size: 1rem;
+  display: none;
 }
 
 .why-flow-ghost-text {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  color: #0d1b3e;
-  font-size: 0.88rem;
-  font-weight: 600;
+  color: inherit;
+  font-size: calc(0.72rem + 2px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
   line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .why-suricat-footer {
@@ -7000,16 +7038,31 @@ a.solution-nav-pill,
   .why-flow-alt {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.08fr) auto minmax(0, 1fr);
-    gap: 0.65rem 0.85rem;
+    gap: 0.65rem 8px;
+    align-items: start;
     margin-top: 0.15rem;
+  }
+
+  .why-flow-alt-spacer {
+    display: block;
+    min-width: 0;
+  }
+
+  /* Match connector track width so column 5 lines up under step 3 */
+  .why-flow-alt-spacer.is-connector {
+    min-width: 5.5rem;
+    max-width: 7.5rem;
+    width: 100%;
   }
 
   .why-flow-ghost {
     grid-column: 5;
-    justify-self: start;
-    width: fit-content;
-    max-width: max-content;
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
     margin-top: 1.75rem;
+    margin-left: 0;
+    margin-right: 0;
     white-space: nowrap;
   }
 }

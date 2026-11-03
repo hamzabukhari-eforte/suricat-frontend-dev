@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import {
   FaCircleCheck,
-  FaClock,
   FaShieldHalved,
   FaTriangleExclamation,
 } from "@/components/ui/icons";
@@ -34,6 +32,23 @@ export function WhySuricatSection() {
     const update = () => {
       const flowRect = flow.getBoundingClientRect();
       const stepRect = step1.getBoundingClientRect();
+
+      // Keep alt-row tracks identical to the card row (so ghost sits under step 3)
+      const connectors = flow.querySelectorAll<HTMLElement>(
+        ".why-flow-main .why-flow-connector",
+      );
+      const spacers = flow.querySelectorAll<HTMLElement>(
+        ".why-flow-alt-spacer.is-connector",
+      );
+      connectors.forEach((connector, i) => {
+        const spacer = spacers[i];
+        if (!spacer) return;
+        const width = `${connector.getBoundingClientRect().width}px`;
+        spacer.style.width = width;
+        spacer.style.minWidth = width;
+        spacer.style.maxWidth = width;
+      });
+
       const ghostRect = ghost.getBoundingClientRect();
       const w = flowRect.width;
       const h = flowRect.height;
@@ -45,17 +60,13 @@ export function WhySuricatSection() {
 
       const x1 = stepRect.left - flowRect.left + stepRect.width * 0.22;
       const y1 = stepRect.bottom - flowRect.top - 1;
-      // Stop just before the ghost so the arrow tip points at its left edge
-      const x2 = ghostRect.left - flowRect.left - 6;
+      // Clear gap (16) + arrow tip overrun (~8) before outer left edge
+      const x2 = ghostRect.left - flowRect.left - 16 - 8;
       const y2 = ghostRect.top - flowRect.top + ghostRect.height * 0.5;
-      const cx1 = x1;
-      const cy1 = y1 + Math.max(36, (y2 - y1) * 0.85);
-      const cx2 = x1 + (x2 - x1) * 0.62;
-      const cy2 = y2;
       setBridge({
         w,
         h,
-        d: `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${cx1.toFixed(1)} ${cy1.toFixed(1)}, ${cx2.toFixed(1)} ${cy2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`,
+        d: `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x1.toFixed(1)} ${y2.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`,
       });
     };
 
@@ -102,15 +113,15 @@ export function WhySuricatSection() {
                   orient="auto"
                   markerUnits="userSpaceOnUse"
                 >
-                  <path d="M1 1.4 L9 5 L1 8.6 Z" fill="rgba(13, 27, 62, 0.45)" />
+                  <path d="M1 1.4 L9 5 L1 8.6 Z" fill="rgba(13, 27, 62, 0.5)" />
                 </marker>
               </defs>
               <path
                 d={bridge.d}
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.35"
-                strokeDasharray="2.5 2"
+                strokeWidth="2"
+                strokeDasharray="2.5 5.5"
                 strokeLinecap="round"
                 markerEnd="url(#why-flow-bridge-arrow)"
               />
@@ -164,10 +175,11 @@ export function WhySuricatSection() {
           </div>
 
           <div className="why-flow-alt" aria-hidden="true">
+            <span className="why-flow-alt-spacer" />
+            <span className="why-flow-alt-spacer is-connector" />
+            <span className="why-flow-alt-spacer" />
+            <span className="why-flow-alt-spacer is-connector" />
             <div className="why-flow-ghost" ref={ghostRef}>
-              <span className="why-flow-ghost-icon">
-                <FaClock />
-              </span>
               <p className="why-flow-ghost-text">{tf("unnoticed")}</p>
             </div>
           </div>
@@ -180,22 +192,6 @@ export function WhySuricatSection() {
           </p>
           <p className="why-suricat-tagline">{t("tagline")}</p>
           <p className="why-suricat-punchline">{t("punchline")}</p>
-          <div className="why-suricat-actions">
-            <Button
-              variant="teal"
-              href="/get-started"
-              className="why-suricat-cta"
-            >
-              {t("ctaPilot")}
-            </Button>
-            <Button
-              variant="outline-navy"
-              href="/contact"
-              className="why-suricat-cta"
-            >
-              {t("gotQuestions")}
-            </Button>
-          </div>
         </div>
       </Container>
     </section>
