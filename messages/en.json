@@ -603,7 +603,7 @@
         "step2Title": "Potential Issue Surfaced",
         "step2Body": "Risk File RM-004 may not reflect the revised requirement.",
         "step2Badge": "Needs Review",
-        "step3Title": "Reviewed Before Audit",
+        "step3Title": "Reviewed Before Audit & Submission",
         "step3Body": "QA/RA verifies the issue and determines the appropriate action.",
         "connectorSuricat": "Suricat Intelligence",
         "connectorReview": "QA/RA Review",
