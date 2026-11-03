@@ -276,7 +276,7 @@
     },
     "platform": {
       "title": "The Platform",
-      "description": "From compliance evidence to compliance intelligence — six steps Suricat follows so QA and RA teams can see what may need attention, with source evidence behind it."
+      "description": "From compliance evidence to compliance intelligence — six pillars. The same lens a careful QA or RA reviewer would use. Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide."
     }
   },
   "forms": {
@@ -566,7 +566,7 @@
         "gapsSubtitle": "Documentos vs. requisitos regulatorios",
         "gapsBody": "Muestra dónde los documentos pueden no cumplir requisitos regulatorios para que su equipo priorice lo que necesita atención.",
         "docQualityTitle": "Document Quality Issues",
-        "docQualitySubtitle": "Documentos vs. criterios de readiness",
+        "docQualitySubtitle": "Documentos vs. Suricat Quality Signals",
         "docQualityBody": "Señala problemas de calidad documental frente a criterios de readiness antes de que se conviertan en hallazgos de inspección.",
         "recQualityTitle": "Record Quality Issues",
         "recQualitySubtitle": "Records vs. procedimientos vigentes",
@@ -577,27 +577,38 @@
         "tourHint": "Detalles de la tarjeta",
         "close": "Cerrar",
         "trustTraceabilityTitle": "Traceability",
-        "trustTraceabilityBody": "Cada hallazgo trazado a la fuente",
+        "trustTraceabilityBody": "Every potential issue traced to source",
         "trustExplainabilityTitle": "Explainability",
-        "trustExplainabilityBody": "Razonamiento y contexto claros",
+        "trustExplainabilityBody": "Clear reasoning and context",
         "trustHumanTitle": "Human Review",
-        "trustHumanBody": "Su equipo valida cada hallazgo",
+        "trustHumanBody": "Your team verifies every potential issue",
         "trustReadonlyTitle": "Read-Only",
-        "trustReadonlyBody": "Sin cambios en sus sistemas"
+        "trustReadonlyBody": "No changes to your systems"
       }
     },
     "why": {
       "sectionTitle": "Por qué Suricat",
       "headlineLine1": "Sepa qué necesita atención.",
       "headlineLine2": "Antes de que se convierta en un hallazgo.",
-      "body1": "Las brechas y desalineaciones rara vez se anuncian solas. Suricat saca a la luz posibles problemas con la evidencia de origen detrás de ellos,",
-      "body2Lead": "para que los equipos de QA\u00a0y\u00a0RA puedan",
-      "body2Phrase": "revisar, verificar y decidir.",
+      "body": "Las brechas y desalineaciones rara vez se anuncian solas. Suricat saca a la luz posibles problemas con la evidencia de origen detrás de ellos, para que los equipos de QA y RA puedan abordarlos a tiempo, con confianza.",
+      "bodyLine1": "Las brechas y desalineaciones rara vez se anuncian solas. Suricat saca a la luz posibles problemas con la evidencia de origen detrás de ellos,",
+      "bodyLine2": "para que los equipos de QA y RA puedan abordarlos a tiempo, con confianza.",
       "tagline": "Menos tiempo buscando. Más confianza en cada revisión.",
-      "evaluateTitle": "¿Listo para ver Suricat en acción?",
-      "ctaDesignPartner": "Unirse como Design Partner",
+      "punchline": "Revisar. Verificar. Decidir.",
       "ctaPilot": "Solicitar un piloto",
-      "gotQuestions": "Háblenos"
+      "gotQuestions": "Háblenos",
+      "flow": {
+        "step1Title": "Requisito revisado",
+        "step1Body": "Se actualiza un requisito regulatorio.",
+        "step2Title": "Posible problema detectado",
+        "step2Body": "El Risk File RM-004 puede no reflejar el requisito revisado.",
+        "step2Badge": "Needs Review",
+        "step3Title": "Revisado antes de la auditoría",
+        "step3Body": "QA/RA verifica el problema y determina la acción adecuada.",
+        "connectorSuricat": "Suricat Intelligence",
+        "connectorReview": "QA/RA Review",
+        "unnoticed": "Puede pasar desapercibido hasta una auditoría"
+      }
     },
     "platform": {
       "sectionTitle": "Plataforma",
@@ -2481,61 +2492,62 @@
   },
   "platformPage": {
     "heroEyebrow": "THE PLATFORM",
-    "heroLead": "Six steps. The same path a careful QA or RA reviewer would follow, from what applies to what actually happened.",
+    "heroLead": "Six pillars. The same lens a careful QA or RA reviewer would use, from what applies to what actually happened.",
     "heroBody": "Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.",
     "pathEyebrow": "How Suricat Works",
-    "pathTitle": "Six steps from what applies to what actually happened.",
-    "closeEyebrow": "How Suricat Works",
-    "closeTitle": "Six Steps. One Clear View of What Needs Attention.",
-    "closeBody": "Suricat follows the same review path a careful QA or RA reviewer would, from what applies to what actually happened.\nQA and RA teams can see what may need attention, trace it to the source evidence, and decide what to do.",
+    "pathTitle": "Six pillars from what applies to what actually happened.",
+    "closeEyebrow": "The Platform",
+    "closeTitle": "Six Pillars. One Clear View.",
+    "closeBody": "From regulatory requirements to actual records, Suricat brings six pillars together to surface potential gaps, inconsistencies,\nand missing evidence, each traced to its source and requirement.",
+    "closePunchline": "Review. Verify. Decide.",
     "steps": {
       "regulatory": {
         "short": "Organizational Context",
-        "phase": "Foundation · Organizational Context",
+        "phase": "What applies · Organizational Context",
         "title": "Know What Applies.",
         "lead": "Compliance documentation can only be evaluated against the requirements it needs to support.",
-        "body": "Suricat establishes the relevant regulatory and standards context first, so the review stays focused on the requirements that matter.",
-        "close": "Every later step builds on this foundation."
+        "body": "Suricat establishes the relevant regulatory and standards context for the company, its products, and its processes,\nso the review stays\u00a0focused.",
+        "close": "A foundation built on the requirements that matter."
       },
       "document": {
         "short": "Document Intelligence",
-        "phase": "Foundation · Document Intelligence",
+        "phase": "What exists · Document Intelligence",
         "title": "Understand What Is Being Reviewed.",
         "lead": "An SOP is not a CAPA. A risk file is not a training document. Different compliance documents serve different purposes.",
         "body": "Suricat identifies what it is reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.",
-        "close": "With the foundation in place, the intelligence can begin."
+        "close": "Each document, understood in context."
       },
       "quality": {
         "short": "Quality Intelligence",
-        "phase": "Intelligence · Quality Intelligence",
+        "phase": "How good it is · Quality Intelligence",
         "title": "Measure Quality. Not Just Presence.",
         "lead": "Having the document does not mean the document is ready.",
-        "body": "Suricat Quality Signals evaluate whether each document is complete, clear, strong, and usable for its intended purpose.",
-        "close": "Suricat shows where documentation appears ready and where closer review may be needed."
+        "body": "Suricat evaluates whether each document is complete, clear, strong, and usable for its intended purpose.",
+        "close": "See which documents appear ready and which may need review."
       },
       "gap": {
         "short": "Gap Intelligence",
-        "phase": "Intelligence · Gap Intelligence",
+        "phase": "What is missing · Gap Intelligence",
         "title": "Know What Is Missing.",
         "lead": "An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.",
-        "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement\nand source evidence behind it.",
-        "close": "QA and RA teams verify each potential gap and decide what to do."
+        "body": "Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.",
+        "close": "Coverage you can verify, requirement by requirement."
       },
       "cross": {
         "short": "Cross Document Intelligence",
-        "phase": "Intelligence · Cross Document Intelligence",
+        "phase": "What does not align · Cross Document Intelligence",
         "title": "See Where Related Documents Stop Lining Up.",
-        "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while\nrelated risk documentation still reflects the old condition.",
-        "body": "Suricat surfaces potential misalignment across related documents, with each one linked to the source evidence behind it.",
-        "close": "QA and RA teams verify each potential misalignment and decide what to do."
+        "lead": "Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while the related risk file still reflects the previous condition.",
+        "body": "Suricat surfaces potential misalignments across related documents, with each one linked to the source evidence behind it.",
+        "close": "See where changes may not have carried through."
       },
       "record": {
         "short": "Record Intelligence",
-        "phase": "Intelligence · Record Intelligence",
+        "phase": "What actually happened · Record Intelligence",
         "title": "Compare What Should Happen with What Actually Happened.",
         "lead": "A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.",
-        "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies,\nwith each one linked to the source evidence behind it.",
-        "close": "QA and RA teams verify each potential discrepancy and decide what to do."
+        "body": "Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, each linked to the source evidence behind it.",
+        "close": "Evidence of execution, not just procedure."
       }
     },
     "heroTitleBefore": "From Compliance Evidence to",
@@ -2591,8 +2603,8 @@
         }
       }
     },
-    "closeTitleLine1": "Six Steps.",
-    "closeTitleLine2": "One Clear View of What Needs Attention.",
+    "closeTitleLine1": "Six Pillars.",
+    "closeTitleLine2": "One Clear View.",
     "qualityDiagram": {
       "leftLabel": "Identified Documents",
       "rightLabel": "Document Readiness",
@@ -2600,6 +2612,8 @@
       "hubTitle": "Suricat Quality Signals",
       "appearsReady": "Appears ready",
       "closerReview": "Closer review may be needed",
+      "reviewRecommended": "Review recommended",
+      "reviewSuggested": "Review suggested",
       "exampleNote": "Illustrative example",
       "docs": {
         "sop": "SOP",
@@ -2622,7 +2636,7 @@
       "hubTitle": "Gap Intelligence",
       "applicableTitle": "Applicable Requirements",
       "from01": "FROM 01",
-      "hundredsDocs": "Hundreds of documents and records",
+      "hundredsDocs": "Documents and records",
       "forReview": "For QA/RA review",
       "exampleNote": "Illustrative example",
       "requirements": {
@@ -2708,7 +2722,7 @@
       "sopHeader": "SOP-PRD-003 · Rev C",
       "lotId": "LOT-2611 · Production record",
       "lotHeader": "LOT-2611 · Production record",
-      "hundredsRecords": "Hundreds of production records",
+      "hundredsRecords": "Production record",
       "reviewed": "Reviewed: SOP-PRD-003 §5.2 · LOT-2611 p.3",
       "forReview": "For QA/RA review",
       "exampleNote": "Illustrative example",
@@ -2749,30 +2763,42 @@
         "qaRaReview": "QA/RA Review",
         "humanDecision": "Human Decision"
       },
+      "issue": {
+        "label": "Potential Issue",
+        "badge": "Needs Review",
+        "title": "Document and Record Misalignment",
+        "body": "The approved procedure specifies a review activity, but the corresponding execution record does not show evidence that it occurred.",
+        "sourceLabel": "Source Evidence",
+        "source1": "Procedure QP-014, §4.2",
+        "source2": "Execution Record ER-028",
+        "requirementLabel": "Applicable Requirement",
+        "requirement1": "ISO 13485 §4.2.5",
+        "requirement2": "Control of records"
+      },
       "cards": {
         "applies": {
-          "title": "What Applies",
-          "body": "Which regulations, standards, and requirements apply?"
+          "title": "Organizational Context",
+          "body": "Foundation"
         },
         "exists": {
-          "title": "What's Being Reviewed",
-          "body": "What is being reviewed, and what role does each document play?"
+          "title": "Document Intelligence",
+          "body": "Foundation"
         },
         "quality": {
-          "title": "How Ready It Is",
-          "body": "Is the documentation complete, clear, consistent, and usable?"
+          "title": "Quality Intelligence",
+          "body": "Intelligence"
         },
         "missing": {
-          "title": "What Is Missing",
-          "body": "Where may support be missing or insufficient?"
+          "title": "Gap\nIntelligence",
+          "body": "Intelligence"
         },
         "align": {
-          "title": "What Does Not Line Up",
-          "body": "Where do related documents no longer line up?"
+          "title": "Cross Document Intelligence",
+          "body": "Intelligence"
         },
         "happened": {
-          "title": "What Actually Happened",
-          "body": "Do records show the procedure was followed?"
+          "title": "Record Intelligence",
+          "body": "Intelligence"
         }
       }
     }

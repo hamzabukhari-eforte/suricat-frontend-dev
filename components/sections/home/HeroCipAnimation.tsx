@@ -1066,10 +1066,10 @@ export function HeroCipAnimation() {
             </text>
             <text x={1076} y={313} fill="#FFFFFF" fontSize={18}>
               <tspan x={1076} dy={0}>
-                Documents vs. Readiness
+                Documents vs. Suricat
               </tspan>
               <tspan x={1076} dy={22}>
-                Criteria
+                Quality Signals
               </tspan>
             </text>
           </CipCard>
@@ -1193,10 +1193,10 @@ export function HeroCipAnimation() {
               </text>
               <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
-                  Every finding traced
+                  Every potential issue
                 </tspan>
                 <tspan x={58} dy={28}>
-                  to source
+                  traced to source
                 </tspan>
               </text>
             </g>
@@ -1266,10 +1266,10 @@ export function HeroCipAnimation() {
               </text>
               <text x={58} y={48} fill="#FFFFFF" fontSize={20} opacity={0.9}>
                 <tspan x={58} dy={0}>
-                  Your team validates
+                  Your team verifies every
                 </tspan>
                 <tspan x={58} dy={28}>
-                  every finding
+                  potential issue
                 </tspan>
               </text>
             </g>

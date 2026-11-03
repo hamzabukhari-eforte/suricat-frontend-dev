@@ -1,0 +1,73 @@
+Suricat Website Redesign (Platform Section)
+
+TOP BANNER:
+
+Navigation BAR:
+
+CTAs:
+Only three CTAs 
+1) Join as a Design Partner 
+2) Request a Pilot 
+3) Talk to Us
+Platform Navigation Dropdown:
+1) ORGANIZATIONAL CONTEXT		2) DOCUMENT INTELLIGENCE
+3) QUALITY INTELLIGENCE		4) GAP INTELLIGENCE
+5) CROSS DOCUMENT INTELLIGENCE	6) RECORD INTELLIGENCE
+Hero Section Message:
+From Compliance Evidence to Compliance Intelligence.
+Six pillars. The same lens a careful QA or RA reviewer would use, from what applies to what actually happened.
+Suricat shows what may need attention, with the source evidence behind it, so QA and RA teams can verify and decide.
+Join as a Design Partner  Request a Pilot 	Talk to Us
+Dynamic Visual for the HERO Section
+
+01 — WHAT APPLIES
+Organizational Context
+Know What Applies.
+Compliance documentation can only be evaluated against the requirements it needs to support.
+Suricat establishes the relevant regulatory and standards context for the company, its products, and its processes, so the review stays focused.
+A foundation built on the requirements that matter.
+
+02 — WHAT EXISTS
+Document Intelligence
+Understand What Is Being Reviewed.
+An SOP is not a CAPA. A risk file is not a training document. Different compliance documents serve different purposes.
+Suricat identifies what it is reviewing and the role each document plays before evaluating quality, gaps, relationships, and records.
+Each document, understood in context.
+
+03 — HOW GOOD IT IS
+Quality Intelligence
+Measure Quality. Not Just Presence.
+Having the document does not mean the document is ready.
+Suricat evaluates whether each document is complete, clear, strong, and usable for its intended purpose.
+See which documents appear ready and which may need review.
+
+04 — WHAT IS MISSING
+Gap Intelligence
+Know What Is Missing.
+An organization can have hundreds of documents and records and still have an applicable requirement that is not adequately supported.
+Suricat surfaces where support may be missing or insufficient, with each potential gap linked to the requirement and source evidence behind it.
+Coverage you can verify, requirement by requirement.
+
+05 — WHAT DOES NOT ALIGN
+Cross Document Intelligence
+See Where Related Documents Stop Lining Up.
+Some compliance issues are not visible inside any single document. A CAPA may identify a corrective action while the related risk file still reflects the previous condition.
+Suricat surfaces potential misalignments across related documents, with each one linked to the source evidence behind it.
+See where changes may not have carried through.
+
+06 — WHAT ACTUALLY HAPPENED
+Record Intelligence
+Compare What Should Happen with What Actually Happened.
+A well-written procedure does not prove the process was followed. A production record may show that a required inspection was skipped.
+Suricat evaluates records against the procedures and requirements that govern them, and surfaces potential discrepancies, each linked to the source evidence behind it.
+Evidence of execution, not just procedure.
+
+THE PLATFORM
+Six Pillars. One Clear View.
+From regulatory requirements to actual records, Suricat brings six pillars together to surface potential gaps, inconsistencies, and missing evidence, each traced to its source and requirement.
+Review. Verify. Decide.
+
+DESIGN PARTNER BAND
+
+FOOTER
+

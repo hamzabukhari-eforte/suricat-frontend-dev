@@ -14,12 +14,12 @@ import { PlatformIqHubChrome } from "./PlatformIqHubChrome";
 const DOCS: {
   key: "sop" | "capa" | "risk" | "design" | "training";
   icon: ReactNode;
-  status: "ready" | "review";
+  status: "ready" | "recommended" | "suggested";
 }[] = [
   { key: "sop", icon: <FaSitemap />, status: "ready" },
-  { key: "capa", icon: <FaRotate />, status: "review" },
+  { key: "capa", icon: <FaRotate />, status: "recommended" },
   { key: "risk", icon: <FaTableCells />, status: "ready" },
-  { key: "design", icon: <FaCompassDrafting />, status: "review" },
+  { key: "design", icon: <FaCompassDrafting />, status: "suggested" },
   { key: "training", icon: <FaUserGraduate />, status: "ready" },
 ];
 
@@ -114,12 +114,18 @@ export function PlatformQualityDiagram() {
                   <span className="platform-doc-type-divider" aria-hidden="true" />
                   <span
                     className={
-                      status === "review"
-                        ? "platform-q-status is-review"
-                        : "platform-q-status is-ready"
+                      status === "ready"
+                        ? "platform-q-status is-ready"
+                        : status === "recommended"
+                          ? "platform-q-status is-review"
+                          : "platform-q-status is-suggested"
                     }
                   >
-                    {status === "review" ? t("closerReview") : t("appearsReady")}
+                    {status === "ready"
+                      ? t("appearsReady")
+                      : status === "recommended"
+                        ? t("reviewRecommended")
+                        : t("reviewSuggested")}
                   </span>
                 </li>
               ))}

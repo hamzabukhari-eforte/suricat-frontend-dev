@@ -1,13 +1,10 @@
 "use client";
 
 import {
-  FaClipboardCheck,
-  FaClipboardList,
   FaFileLines,
   FaRotate,
   FaSitemap,
   FaTableCells,
-  FaTriangleExclamation,
   FaUserGraduate,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
@@ -27,16 +24,13 @@ function DesignControlIcon() {
   );
 }
 
-const FILES: { name: string; icon: ReactNode }[] = [
-  { name: "SOP 05 Design Control", icon: <FaClipboardList /> },
-  { name: "CAPA-00123", icon: <FaClipboardCheck /> },
-  { name: "RSK0054 FMEA", icon: <FaTriangleExclamation /> },
-  { name: "DHF 2504 Design History File", icon: <DesignControlIcon /> },
-  { name: "Log 0343 Training Records", icon: <FaUserGraduate /> },
-  {
-    name: "Cleanroom Cleaning Record 5-05-2024",
-    icon: <FaFileLines />,
-  },
+const FILES: { id: string; label: string; icon: ReactNode }[] = [
+  { id: "SOP-PRD-003", label: "Production Control", icon: <FaFileLines /> },
+  { id: "CAPA-0217", label: "Receiving Inspection", icon: <FaFileLines /> },
+  { id: "RF-014", label: "FMEA", icon: <FaFileLines /> },
+  { id: "DHF-2504", label: "Design History File", icon: <FaFileLines /> },
+  { id: "TRN-104", label: "Training Log", icon: <FaFileLines /> },
+  { id: "LOT-2611", label: "Production Record", icon: <FaFileLines /> },
 ];
 
 const IDENTIFIED: {
@@ -95,12 +89,14 @@ export function PlatformDocumentDiagram() {
           <p className="platform-doc-col-label">{t("filesLabel")}</p>
           <div className="platform-doc-files-block">
             <ul className="platform-doc-files">
-              {FILES.map(({ name, icon }) => (
-                <li key={name} className="platform-doc-file">
+              {FILES.map(({ id, label, icon }) => (
+                <li key={id} className="platform-doc-file">
                   <span className="platform-doc-file-icon" aria-hidden="true">
                     {icon}
                   </span>
-                  <span className="platform-doc-file-name">{name}</span>
+                  <span className="platform-doc-file-name">
+                    <strong>{id}</strong> {label}
+                  </span>
                   <span className="platform-doc-file-stub" aria-hidden="true" />
                 </li>
               ))}

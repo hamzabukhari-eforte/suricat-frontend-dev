@@ -2,71 +2,51 @@
 
 import { Container } from "@/components/ui/Container";
 import {
-  FaAward,
   FaCircleCheck,
   FaDatabase,
+  FaFileCircleCheck,
   FaFileLines,
-  FaLinkSlash,
-  FaMagnifyingGlass,
+  FaLayerGroup,
+  FaShieldHalved,
+  FaTableCells,
   FaTriangleExclamation,
-  FaUsers,
 } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import {
-  Fragment,
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
 } from "react";
 
-const PROCESS_KEYS = [
-  "sourceEvidence",
-  "qaRaReview",
-  "humanDecision",
-] as const;
-
-const PROCESS_ICONS = [
-  <FaFileLines key="src" />,
-  <FaUsers key="qa" />,
-  <FaCircleCheck key="dec" />,
-] as const;
-
 const STEPS = [
   {
-    num: "01",
     key: "applies" as const,
+    theme: "violet" as const,
+    icon: <FaShieldHalved />,
+  },
+  {
+    key: "exists" as const,
     theme: "violet" as const,
     icon: <FaFileLines />,
   },
   {
-    num: "02",
-    key: "exists" as const,
-    theme: "violet" as const,
-    icon: <FaMagnifyingGlass />,
-  },
-  {
-    num: "03",
     key: "quality" as const,
     theme: "teal" as const,
-    icon: <FaAward />,
+    icon: <FaCircleCheck />,
   },
   {
-    num: "04",
     key: "missing" as const,
     theme: "teal" as const,
-    icon: <FaTriangleExclamation />,
+    icon: <FaTableCells />,
   },
   {
-    num: "05",
     key: "align" as const,
     theme: "teal" as const,
-    icon: <FaLinkSlash />,
+    icon: <FaLayerGroup />,
   },
   {
-    num: "06",
     key: "happened" as const,
     theme: "teal" as const,
     icon: <FaDatabase />,
@@ -91,7 +71,6 @@ function buildFanPath(
 }
 
 function StepCard({
-  num,
   theme,
   icon,
   title,
@@ -99,7 +78,6 @@ function StepCard({
   index,
   cardRef,
 }: {
-  num: string;
   theme: "violet" | "teal";
   icon: ReactNode;
   title: string;
@@ -118,7 +96,6 @@ function StepCard({
         <span className="platform-closing-step-icon" aria-hidden="true">
           {icon}
         </span>
-        <span className="platform-closing-step-num">{num}</span>
       </div>
       <h3>{title}</h3>
       <p>{body}</p>
@@ -132,13 +109,9 @@ export function PlatformClosingSection() {
 
   const flowRef = useRef<HTMLDivElement>(null);
   const hubRef = useRef<HTMLDivElement>(null);
-  const processRef = useRef<HTMLDivElement>(null);
-  const processPlayedRef = useRef(false);
-  const processTimersRef = useRef<number[]>([]);
   const cardRefs = useRef<(HTMLElement | null)[]>(Array(6).fill(null));
   const [paths, setPaths] = useState<FanPath[]>([]);
   const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
-  const [activeProcess, setActiveProcess] = useState<number | null>(null);
 
   const setCardRef = useCallback((index: number, el: HTMLElement | null) => {
     cardRefs.current[index] = el;
@@ -201,52 +174,6 @@ export function PlatformClosingSection() {
     };
   }, [syncFan]);
 
-  useEffect(() => {
-    const el = processRef.current;
-    if (!el) return;
-
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduced) {
-      return;
-    }
-
-    const playOnce = () => {
-      if (processPlayedRef.current) return;
-      processPlayedRef.current = true;
-      // Smooth one-shot: 0 → 1 → 2 → clear (no leftover highlight)
-      setActiveProcess(0);
-      processTimersRef.current.push(
-        window.setTimeout(() => setActiveProcess(1), 900),
-      );
-      processTimersRef.current.push(
-        window.setTimeout(() => setActiveProcess(2), 1800),
-      );
-      processTimersRef.current.push(
-        window.setTimeout(() => setActiveProcess(null), 2700),
-      );
-    };
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          playOnce();
-          io.disconnect();
-        }
-      },
-      { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
-    );
-    io.observe(el);
-
-    return () => {
-      io.disconnect();
-      processTimersRef.current.forEach((id) => window.clearTimeout(id));
-      processTimersRef.current = [];
-    };
-  }, []);
-
   const foundation = STEPS.slice(0, 2);
   const intelligence = STEPS.slice(2);
 
@@ -262,19 +189,16 @@ export function PlatformClosingSection() {
             <span>{t("closeTitleLine2")}</span>
           </h2>
           <p className="platform-closing-body">{t("closeBody")}</p>
+          <p className="platform-closing-punchline">{t("closePunchline")}</p>
         </div>
 
         <div className="platform-closing-flow" ref={flowRef}>
           <div className="platform-closing-groups">
             <div className="platform-closing-group is-violet">
-              <p className="platform-closing-group-label">
-                {tc("foundation")}
-              </p>
               <div className="platform-closing-group-cards">
                 {foundation.map((step, i) => (
                   <StepCard
                     key={step.key}
-                    num={step.num}
                     theme={step.theme}
                     icon={step.icon}
                     title={tc(`cards.${step.key}.title`)}
@@ -287,14 +211,10 @@ export function PlatformClosingSection() {
             </div>
 
             <div className="platform-closing-group is-teal">
-              <p className="platform-closing-group-label">
-                {tc("intelligence")}
-              </p>
               <div className="platform-closing-group-cards is-intel">
                 {intelligence.map((step, i) => (
                   <StepCard
                     key={step.key}
-                    num={step.num}
                     theme={step.theme}
                     icon={step.icon}
                     title={tc(`cards.${step.key}.title`)}
@@ -355,46 +275,46 @@ export function PlatformClosingSection() {
             className="platform-closing-hub-bar"
             ref={hubRef}
             role="status"
-            aria-label={tc("whatNeedsAttention")}
+            aria-label={tc("issue.label")}
           >
-            <span className="platform-closing-hub-eyebrow">
-              {tc("outcome")}
-            </span>
-            <p className="platform-closing-hub-label">
-              <span className="platform-closing-hub-mark" aria-hidden="true">
-                <FaMagnifyingGlass />
+            <div className="platform-closing-issue-head">
+              <span className="platform-closing-issue-icon" aria-hidden="true">
+                <FaTriangleExclamation />
               </span>
-              {tc("whatNeedsAttention")}
-            </p>
-          </div>
-        </div>
-
-        <div className="platform-closing-process" ref={processRef}>
-          {PROCESS_KEYS.map((key, i) => (
-            <Fragment key={key}>
-              {i > 0 ? (
-                <span
-                  className="platform-closing-process-arrow"
-                  aria-hidden="true"
-                />
-              ) : null}
-              <div
-                className={
-                  activeProcess === i
-                    ? "platform-closing-process-item is-active"
-                    : "platform-closing-process-item"
-                }
-              >
-                <span
-                  className="platform-closing-process-icon"
-                  aria-hidden="true"
-                >
-                  {PROCESS_ICONS[i]}
-                </span>
-                <span>{tc(`process.${key}`)}</span>
+              <div className="platform-closing-issue-copy">
+                <div className="platform-closing-issue-meta">
+                  <span className="platform-closing-issue-label">
+                    {tc("issue.label")}
+                  </span>
+                  <span className="platform-closing-issue-badge">
+                    {tc("issue.badge")}
+                  </span>
+                </div>
+                <h3 className="platform-closing-issue-title">
+                  {tc("issue.title")}
+                </h3>
+                <p className="platform-closing-issue-body">{tc("issue.body")}</p>
               </div>
-            </Fragment>
-          ))}
+            </div>
+            <div className="platform-closing-issue-panels">
+              <div className="platform-closing-issue-panel is-source">
+                <p className="platform-closing-issue-panel-label">
+                  <FaFileCircleCheck aria-hidden="true" />
+                  {tc("issue.sourceLabel")}
+                </p>
+                <p>{tc("issue.source1")}</p>
+                <p>{tc("issue.source2")}</p>
+              </div>
+              <div className="platform-closing-issue-panel is-req">
+                <p className="platform-closing-issue-panel-label">
+                  <FaShieldHalved aria-hidden="true" />
+                  {tc("issue.requirementLabel")}
+                </p>
+                <p>{tc("issue.requirement1")}</p>
+                <p>{tc("issue.requirement2")}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

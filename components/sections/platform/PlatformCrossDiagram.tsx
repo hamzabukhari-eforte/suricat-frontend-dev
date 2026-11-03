@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  FaLink,
+  FaFileLines,
   FaRotate,
   FaSitemap,
   FaTableCells,
@@ -258,7 +258,7 @@ export function PlatformCrossDiagram() {
                     {t("pair1.left.claim")}
                   </p>
                   <span className="platform-cross-card-source">
-                    <FaLink aria-hidden="true" /> {t("pair1.left.source")}
+                    <FaFileLines aria-hidden="true" /> {t("pair1.left.source")}
                   </span>
                 </div>
 
@@ -282,7 +282,7 @@ export function PlatformCrossDiagram() {
                     {t("pair1.right.claim")}
                   </p>
                   <span className="platform-cross-card-source">
-                    <FaLink aria-hidden="true" /> {t("pair1.right.source")}
+                    <FaFileLines aria-hidden="true" /> {t("pair1.right.source")}
                   </span>
                 </div>
               </div>

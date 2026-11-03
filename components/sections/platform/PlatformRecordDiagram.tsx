@@ -1,6 +1,6 @@
 "use client";
 
-import { FaLink, FaUsers } from "@/components/ui/icons";
+import { FaFileLines, FaUsers } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import { useLayoutEffect, useRef } from "react";
 import { PlatformIqHubChrome } from "./PlatformIqHubChrome";
@@ -268,7 +268,7 @@ export function PlatformRecordDiagram() {
                   {isGap && (
                     <div className="platform-rec-compare-foot">
                       <span className="platform-rec-source">
-                        <FaLink aria-hidden="true" /> {t("reviewed")}
+                        <FaFileLines aria-hidden="true" /> {t("reviewed")}
                       </span>
                       <span className="platform-rec-review">
                         <FaUsers aria-hidden="true" /> {t("forReview")}

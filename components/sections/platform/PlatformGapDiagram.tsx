@@ -1,6 +1,6 @@
 "use client";
 
-import { FaLink, FaUsers } from "@/components/ui/icons";
+import { FaFileLines, FaUsers } from "@/components/ui/icons";
 import { useTranslations } from "@/components/i18n/LocaleProvider";
 import { useLayoutEffect, useRef } from "react";
 import { PlatformIqHubChrome } from "./PlatformIqHubChrome";
@@ -216,7 +216,7 @@ export function PlatformGapDiagram() {
                     </p>
                     <div className="platform-gap-cov-actions">
                       <span className="platform-gap-cov-source">
-                        <FaLink aria-hidden="true" /> {t(item.sourceKey)}
+                        <FaFileLines aria-hidden="true" /> {t(item.sourceKey)}
                       </span>
                       <span className="platform-gap-cov-review">
                         <FaUsers aria-hidden="true" /> {t("forReview")}
