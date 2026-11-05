@@ -2,6 +2,7 @@
 
 import {
   FaCircleCheck,
+  FaClock,
   FaShieldHalved,
   FaTriangleExclamation,
 } from "@/components/ui/icons";
@@ -58,15 +59,19 @@ export function WhySuricatSection() {
         return;
       }
 
-      const x1 = stepRect.left - flowRect.left + stepRect.width * 0.22;
+      const x1 = stepRect.left - flowRect.left + stepRect.width * 0.5;
       const y1 = stepRect.bottom - flowRect.top - 1;
-      // Clear gap (16) + arrow tip overrun (~8) before outer left edge
-      const x2 = ghostRect.left - flowRect.left - 16 - 8;
+      const x2 = ghostRect.left - flowRect.left - 6;
       const y2 = ghostRect.top - flowRect.top + ghostRect.height * 0.5;
+      // Document path: soft curve down, then into the ghost
+      const cx1 = x1;
+      const cy1 = y1 + Math.max(36, (y2 - y1) * 0.85);
+      const cx2 = x1 + (x2 - x1) * 0.62;
+      const cy2 = y2;
       setBridge({
         w,
         h,
-        d: `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x1.toFixed(1)} ${y2.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`,
+        d: `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${cx1.toFixed(1)} ${cy1.toFixed(1)}, ${cx2.toFixed(1)} ${cy2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`,
       });
     };
 
@@ -113,15 +118,15 @@ export function WhySuricatSection() {
                   orient="auto"
                   markerUnits="userSpaceOnUse"
                 >
-                  <path d="M1 1.4 L9 5 L1 8.6 Z" fill="rgba(13, 27, 62, 0.5)" />
+                  <path d="M1 1.4 L9 5 L1 8.6 Z" fill="rgba(13, 27, 62, 0.35)" />
                 </marker>
               </defs>
               <path
                 d={bridge.d}
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeDasharray="2.5 5.5"
+                strokeWidth="1.35"
+                strokeDasharray="2.5 4"
                 strokeLinecap="round"
                 markerEnd="url(#why-flow-bridge-arrow)"
               />
@@ -180,6 +185,9 @@ export function WhySuricatSection() {
             <span className="why-flow-alt-spacer" />
             <span className="why-flow-alt-spacer is-connector" />
             <div className="why-flow-ghost" ref={ghostRef}>
+              <span className="why-flow-ghost-icon">
+                <FaClock />
+              </span>
               <p className="why-flow-ghost-text">{tf("unnoticed")}</p>
             </div>
           </div>

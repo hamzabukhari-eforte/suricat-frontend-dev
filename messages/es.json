@@ -2657,7 +2657,7 @@
         "c3": {
           "title": "ISO 13485 §7.3.3 · Design inputs",
           "badge": "Potential gap · Missing",
-          "detail": "Design inputs for Product Y not found in\navailable documentation."
+          "detail": "Design inputs for Product DX-200 not found in\navailable documentation."
         },
         "c4": {
           "title": "ISO 13485 §6.2 · Competence",
@@ -2722,7 +2722,7 @@
       "sopHeader": "SOP-PRD-003 · Rev C",
       "lotId": "LOT-2611 · Production record",
       "lotHeader": "LOT-2611 · Production record",
-      "hundredsRecords": "Production record",
+      "hundredsRecords": "Production records",
       "reviewed": "Reviewed: SOP-PRD-003 §5.2 · LOT-2611 p.3",
       "forReview": "For QA/RA review",
       "exampleNote": "Illustrative example",

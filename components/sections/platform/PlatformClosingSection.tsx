@@ -114,6 +114,9 @@ export function PlatformClosingSection() {
   const cardRefs = useRef<(HTMLElement | null)[]>(Array(6).fill(null));
   const [paths, setPaths] = useState<FanPath[]>([]);
   const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const [hubPoint, setHubPoint] = useState<{ x: number; y: number } | null>(
+    null,
+  );
 
   const setCardRef = useCallback((index: number, el: HTMLElement | null) => {
     cardRefs.current[index] = el;
@@ -136,19 +139,16 @@ export function PlatformClosingSection() {
     const hubTop = hubRect.top - flowRect.top;
     const hubLeft = hubRect.left - flowRect.left;
     const hubWidth = hubRect.width;
-    // Landing points spread across hub top (inset from edges)
-    const inset = Math.min(28, hubWidth * 0.12);
-    const usable = Math.max(hubWidth - inset * 2, 1);
-    const n = cards.length;
+    // Hub circle half-on the Potential Issue card (center on the top edge)
+    const hubR = 5;
+    const x1 = hubLeft + hubWidth / 2;
+    const y1 = hubTop;
+    setHubPoint({ x: x1, y: y1 });
 
     const next: FanPath[] = cards.map((card, i) => {
       const r = card!.getBoundingClientRect();
       const x0 = r.left - flowRect.left + r.width / 2;
       const y0 = r.bottom - flowRect.top;
-      const tFrac = n === 1 ? 0.5 : i / (n - 1);
-      const x1 = hubLeft + inset + usable * tFrac;
-      // 6px gap between connection tip and hub card
-      const y1 = hubTop - 6;
       const theme = i < 2 ? "violet" : "teal";
       return {
         d: buildFanPath(x0, y0, x1, y1),
@@ -236,41 +236,22 @@ export function PlatformClosingSection() {
             height={svgSize.h || "100%"}
             viewBox={`0 0 ${Math.max(svgSize.w, 1)} ${Math.max(svgSize.h, 1)}`}
           >
-            <defs>
-              <marker
-                id="closing-fan-arrow-violet"
-                viewBox="0 0 10 10"
-                refX="9"
-                refY="5"
-                markerWidth="8"
-                markerHeight="8"
-                orient="auto"
-                markerUnits="userSpaceOnUse"
-              >
-                <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#5C3D8F" />
-              </marker>
-              <marker
-                id="closing-fan-arrow-teal"
-                viewBox="0 0 10 10"
-                refX="9"
-                refY="5"
-                markerWidth="8"
-                markerHeight="8"
-                orient="auto"
-                markerUnits="userSpaceOnUse"
-              >
-                <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#19D3C5" />
-              </marker>
-            </defs>
             {paths.map((p, i) => (
               <path
                 key={i}
                 d={p.d}
                 className={`platform-closing-fan-path is-${p.theme}`}
                 fill="none"
-                markerEnd={`url(#closing-fan-arrow-${p.theme})`}
               />
             ))}
+            {hubPoint ? (
+              <circle
+                className="platform-closing-fan-hub"
+                cx={hubPoint.x}
+                cy={hubPoint.y}
+                r={5}
+              />
+            ) : null}
           </svg>
 
           <div

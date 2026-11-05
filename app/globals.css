@@ -6717,6 +6717,12 @@ input[type="radio"]:checked + span {
   opacity: 0.95;
 }
 
+.platform-closing-fan-hub {
+  fill: #0d1b3e;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
 @property --closing-hub-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -6738,6 +6744,7 @@ input[type="radio"]:checked + span {
   color: #0d1b3e;
   background: #fff;
   border: 1px solid rgba(13, 27, 62, 0.08);
+  border-left: 4px solid #ff6b35;
   box-shadow: 0 12px 32px rgba(13, 27, 62, 0.06);
   pointer-events: none;
   user-select: none;
@@ -6840,7 +6847,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-closing-issue-panel.is-source {
-  background: rgba(25, 211, 197, 0.12);
+  background: rgba(13, 27, 62, 0.08);
 }
 
 .platform-closing-issue-panel.is-req {
@@ -6859,7 +6866,7 @@ input[type="radio"]:checked + span {
 }
 
 .platform-closing-issue-panel.is-source .platform-closing-issue-panel-label {
-  color: #19d3c5;
+  color: #0d1b3e;
 }
 
 .platform-closing-issue-panel.is-req .platform-closing-issue-panel-label {
