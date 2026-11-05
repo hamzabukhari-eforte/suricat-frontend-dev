@@ -504,12 +504,12 @@ export function HeroCipAnimation() {
             markerWidth={14}
             markerHeight={14}
             markerUnits="userSpaceOnUse"
-            orient="auto-start-reverse"
+            orient="auto"
           >
             <path
               d="M2.5 2.5 L11.5 7 L2.5 11.5"
               fill="none"
-              stroke="#5C3D8F"
+              stroke="#A64DDD"
               strokeWidth={1.7}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -580,12 +580,12 @@ export function HeroCipAnimation() {
             strokeWidth={4}
             markerEnd={drawnConns.has("to-engine") ? "url(#cipArrowTeal)" : undefined}
           />
-          {/* Regulatory → down toward Suricat (theme violet) */}
+          {/* Regulatory → down toward Suricat (document purple) */}
           <path
             className={connClass("to-regulatory")}
-            d="M700 158 V232"
+            d="M700 158 V230"
             pathLength={1}
-            stroke="#5C3D8F"
+            stroke="#A64DDD"
             strokeWidth={4}
             markerEnd={
               drawnConns.has("to-regulatory") ? "url(#cipArrowViolet)" : undefined
@@ -865,11 +865,28 @@ export function HeroCipAnimation() {
               width={380}
               height={112}
               rx={10}
-              stroke="#5C3D8F"
+              stroke="#A64DDD"
               strokeWidth={4}
               fill="#0D1B3E"
             />
-            <circle cx={558} cy={98} r={32} stroke="#5C3D8F" strokeWidth={1.6} fill="#5C3D8F" fillOpacity={0.18} />
+            <circle
+              cx={558}
+              cy={98}
+              r={32}
+              stroke="#A64DDD"
+              strokeWidth={2.2}
+              fill="#A64DDD"
+              fillOpacity={0.16}
+            />
+            <circle
+              cx={558}
+              cy={98}
+              r={36}
+              stroke="#A64DDD"
+              strokeWidth={1.6}
+              fill="none"
+              opacity={0.85}
+            />
             <g
               className="hero-cip-card-icon"
               transform="translate(558 98) scale(1.55) translate(-12 -12)"

@@ -159,7 +159,7 @@ function SuricatPanel({ t }: { t: (key: string) => string }) {
             <path
               d="M2 2.5 L7 9.5 L12 2.5"
               fill="none"
-              stroke="#5c3d8f"
+              stroke="#a64ddd"
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"

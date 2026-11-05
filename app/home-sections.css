@@ -1367,9 +1367,9 @@ a.solution-nav-pill,
   --rcf-orange: #ff6b35;
   --rcf-orange-dim: rgba(255, 107, 53, 0.18);
   --rcf-orange-fill: #2a1820;
-  --rcf-purple: #7c6bf2;
-  --rcf-purple-dim: rgba(124, 107, 242, 0.22);
-  --rcf-line-blue: #8b7cf6;
+  --rcf-purple: #a64ddd;
+  --rcf-purple-dim: rgba(166, 77, 221, 0.22);
+  --rcf-line-blue: #a64ddd;
   margin-top: 1.75rem;
   display: block;
   width: 100%;
@@ -1545,9 +1545,9 @@ a.solution-nav-pill,
 
 .rcf-box.rcf-purple {
   border-color: var(--rcf-purple);
-  background: rgba(124, 107, 242, 0.16);
+  background: rgba(166, 77, 221, 0.16);
   box-shadow:
-    0 0 0 1px rgba(124, 107, 242, 0.12),
+    0 0 0 1px rgba(166, 77, 221, 0.14),
     0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -5124,8 +5124,8 @@ a.solution-nav-pill,
   width: 2px;
   z-index: 4;
   transform: translateX(-50%);
-  background: #5c3d8f;
-  box-shadow: 0 0 8px rgba(92, 61, 143, 0.45);
+  background: #a64ddd;
+  box-shadow: 0 0 8px rgba(166, 77, 221, 0.45);
   pointer-events: none;
   overflow: visible;
 }
@@ -5137,7 +5137,7 @@ a.solution-nav-pill,
   width: 16px;
   height: 14px;
   transform: translateX(-50%);
-  filter: drop-shadow(0 0 4px rgba(92, 61, 143, 0.55));
+  filter: drop-shadow(0 0 4px rgba(166, 77, 221, 0.55));
   overflow: visible;
 }
 
@@ -5599,24 +5599,24 @@ a.solution-nav-pill,
   max-width: 70%;
   padding: 0.55rem 0.85rem;
   border-radius: 4px;
-  background: #5c3d8f;
+  background: #a64ddd;
   color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.25;
   text-align: center;
-  box-shadow: 0 6px 16px rgba(92, 61, 143, 0.28);
+  box-shadow: 0 6px 16px rgba(166, 77, 221, 0.28);
 }
 
 .es-node-regs-suricat {
-  background: rgba(92, 61, 143, 0.28);
-  border: 2px solid #5c3d8f;
+  background: rgba(166, 77, 221, 0.28);
+  border: 2px solid #a64ddd;
   border-radius: 4px;
-  box-shadow: 0 0 14px rgba(92, 61, 143, 0.28);
+  box-shadow: 0 0 14px rgba(166, 77, 221, 0.28);
 }
 
 .es-node-regs-suricat svg {
-  color: #c4b5fd;
+  color: #d9a8f0;
 }
 
 .es-node-regs svg {
@@ -6669,8 +6669,8 @@ a.solution-nav-pill,
 }
 
 .why-flow-icon.is-violet {
-  color: #5c3d8f;
-  background: rgba(92, 61, 143, 0.12);
+  color: #a64ddd;
+  background: rgba(166, 77, 221, 0.12);
 }
 
 .why-flow-icon.is-orange {
@@ -7615,7 +7615,7 @@ a.solution-nav-pill,
 }
 
 .hero-cip-glow-violet {
-  --cip-glow: rgba(92, 61, 143, 0.85);
+  --cip-glow: rgba(166, 77, 221, 0.9);
 }
 
 .hero-cip-glow-orange {
@@ -7820,10 +7820,10 @@ a.solution-nav-pill,
 }
 
 .hero-cip-focus-violet {
-  border-color: #5c3d8f;
+  border-color: #a64ddd;
   box-shadow:
-    0 0 0 1px rgba(92, 61, 143, 0.3),
-    0 0 28px rgba(92, 61, 143, 0.4),
+    0 0 0 1px rgba(166, 77, 221, 0.35),
+    0 0 28px rgba(166, 77, 221, 0.45),
     0 22px 48px rgba(0, 0, 0, 0.55);
 }
 
@@ -7871,9 +7871,9 @@ a.solution-nav-pill,
 }
 
 .hero-cip-focus-violet .hero-cip-focus-icon {
-  border-color: rgba(92, 61, 143, 0.8);
-  background: rgba(92, 61, 143, 0.2);
-  color: #c4b0e0;
+  border-color: rgba(166, 77, 221, 0.9);
+  background: rgba(166, 77, 221, 0.2);
+  color: #a64ddd;
 }
 
 .hero-cip-focus-orange .hero-cip-focus-icon {

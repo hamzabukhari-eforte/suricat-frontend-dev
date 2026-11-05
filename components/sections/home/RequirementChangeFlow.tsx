@@ -169,7 +169,7 @@ export function RequirementChangeFlow() {
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#7c6bf2"
+                stroke="#a64ddd"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -442,7 +442,7 @@ function WarnSvg() {
 
 function SearchSvg() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c6bf2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a64ddd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="10.5" cy="10.5" r="6.5" />
       <path d="M15.5 15.5L21 21" />
     </svg>
