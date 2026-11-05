@@ -568,7 +568,7 @@
         "docQualityTitle": "Document Quality Issues",
         "docQualitySubtitle": "Documents vs. Suricat Quality Signals",
         "docQualityBody": "Flags document quality issues against readiness criteria before they become inspection findings.",
-        "recQualityTitle": "Record Quality Issues",
+        "recQualityTitle": "Record Discrepancies",
         "recQualitySubtitle": "Records vs. Governing Procedures",
         "recQualityBody": "Identifies records that may not match governing procedures, helping you close gaps with clear evidence.",
         "crossDocTitle": "Cross-Document Issues",

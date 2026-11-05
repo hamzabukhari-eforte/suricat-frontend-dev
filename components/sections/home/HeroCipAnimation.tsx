@@ -580,10 +580,10 @@ export function HeroCipAnimation() {
             strokeWidth={4}
             markerEnd={drawnConns.has("to-engine") ? "url(#cipArrowTeal)" : undefined}
           />
-          {/* Suricat → up to Regulatory */}
+          {/* Regulatory → down toward Suricat (theme violet) */}
           <path
             className={connClass("to-regulatory")}
-            d="M700 232 V160"
+            d="M700 158 V232"
             pathLength={1}
             stroke="#5C3D8F"
             strokeWidth={4}
@@ -1108,7 +1108,7 @@ export function HeroCipAnimation() {
               <circle cx={16.5} cy={18.8} r={0.65} fill="#FFFFFF" stroke="none" />
             </g>
             <text x={1076} y={410} fill="#FFFFFF" fontSize={18} fontWeight={800}>
-              RECORD QUALITY ISSUES
+              RECORD DISCREPANCIES
             </text>
             <text x={1076} y={442} fill="#FFFFFF" fontSize={18}>
               <tspan x={1076} dy={0}>
