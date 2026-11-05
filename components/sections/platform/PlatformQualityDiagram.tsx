@@ -25,7 +25,7 @@ const DOCS: {
 
 const SIGNALS = ["complete", "clear", "strong", "usable"] as const;
 
-/** Signal waves — upright (no rotate), Suricat Quality Signals */
+/** Signal waves — upright (no rotate), Quality Intelligence */
 function QualityHubIcon() {
   return (
     <svg
